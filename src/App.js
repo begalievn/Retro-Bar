@@ -1,16 +1,12 @@
-import { BrowserRouter } from 'react-router-dom';
-
 import './App.css';
-import MainRoutes from './routes/MainRoutes';
+import MainRoutes from './pages/index';
 
 function App() {
-    return (
-        <div className="App">
-            <BrowserRouter>
-                <MainRoutes />
-            </BrowserRouter>
-        </div>
-    );
+  return (
+    <div className="App">
+      <MainRoutes />
+    </div>
+  );
 }
 
 export default App;
