@@ -1,15 +1,15 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import ContactsPage from '../pages/ContactsPage';
-import InstitutionPage from '../pages/InstitutionPage';
-import InstitutionBarPage from '../pages/InstitutionBarPage';
-import MainPage from '../pages/MainPage';
-import NewsPage from '../pages/NewsPage';
-import PhotoPage from '../pages/PhotoPage';
-import VideoPage from '../pages/VideoPage';
-import EventsPage from '../pages/EventsPage';
-import ErrorPage from '../pages/ErrorPage';
+import ContactsPage from './ContactsPage/ContactsPage';
+import InstitutionPage from './InstitutionPage/InstitutionPage';
+import InstitutionBarPage from './InstitutionBarPage/InstitutionBarPage';
+import MainPage from './MainPage/MainPage';
+import NewsPage from './NewsPage/NewsPage';
+import PhotoPage from './PhotoPage/PhotoPage';
+import VideoPage from './VideoPage/VideoPage';
+import EventsPage from './EventsPage/EventsPage';
+import ErrorPage from './ErrorPage/ErrorPage';
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
