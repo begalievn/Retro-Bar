@@ -2,10 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'mont';
+  
+  font-weight: bold;
 }
 
-@font-face {
-  font-family: 'mont';
-  src: url('./font/Mont-ExtraLight.woff');
-}
