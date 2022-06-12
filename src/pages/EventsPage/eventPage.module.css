@@ -22,7 +22,7 @@ font-family: 'mont';
 .eventPage_section1_image{
 
  
-  /* height: 430px; */
+
   background:url('../../assets/eventsImages/photo.png');
 
 
@@ -73,6 +73,9 @@ line-height: 31px;
   bottom:0;
   mix-blend-mode: luminosity;
 opacity: 0.95;
-
-
+}
+.eventPage_section1_calendar{
+  position: absolute;
+  bottom:0;
+  right:0
 }
