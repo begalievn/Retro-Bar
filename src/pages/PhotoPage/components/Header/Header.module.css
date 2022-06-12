@@ -1,0 +1,17 @@
+.photo__header {
+  display: flex;
+  padding-top: 90px;
+}
+
+.photo__header_title {
+  font-family: 'Montserrat Alternates';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  color: #FFB03B;
+}
+
+.photo__header_img {
+  margin: -90px 0 0 60px;
+}
