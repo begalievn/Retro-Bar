@@ -1,20 +1,20 @@
+* {
+  color: white;
+  font-family: "mont";
+  margin: 0;
+  padding: 0;
+}
 .bar_mainContainer {
-  position: absolute;
-  width: 1440px;
+  max-width: 1440px;
   height: 1620px;
   left: 0px;
   top: 0px;
   background: url("../../assets/institutionBarImg/back/back.png");
   background-color: #000000;
   mix-blend-mode: screen;
-  /* opacity: 0.2; */
 }
 .bar_gradient {
-  position: absolute;
-  width: 1440px;
   height: 1620px;
-  left: 0px;
-  top: 0px;
   background: linear-gradient(180deg, #000000 11%, rgba(0, 0, 0, 0) 100%);
   mix-blend-mode: screen;
 }
@@ -22,7 +22,7 @@
 /* White content part */
 .paper {
   position: absolute;
-  width: 1440px;
+  width: 1310px;
   height: 1528px;
   left: 0px;
   top: 1478px;
@@ -47,9 +47,8 @@
   font-family: "mont";
   line-height: 24.38px;
   position: absolute;
-  width: 225px;
   height: 24px;
-  left: 169px;
+  left: 109px;
   top: 164px;
 }
 
@@ -61,14 +60,97 @@
   top: 164px;
 }
 .flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: absolute;
   top: 262px;
-  left: 168px;
+  left: 108px;
+  right: 108px;
+  display: flex;
+  justify-content: space-around;
+}
+.map {
+  position: absolute;
+  left: 108px;
+  top: 905px;
+  right: 108px;
+  display: flex;
+  justify-content: space-around;
 }
 .livebar {
+  display: flex;
+}
+.livebar p {
+  /* font-weight: 600; */
+  font-size: 25px;
+  line-height: 35.78px;
+  width: 400px;
 }
 .text {
   color: white;
+}
+.flex p {
+  padding: 20px 0 10px 0;
+  width: 90%;
+}
+.flex section {
+  max-width: 50%;
+}
+
+.tape1 {
+  position: absolute;
+  width: 118.56px;
+  height: 39.16px;
+  left: 46.5%;
+  top: 11%;
+  /* background: url("../../assets/institutionBarImg/iconLiveBar/tape1.png"); */
+  mix-blend-mode: luminosity;
+  transform: rotate(93.76deg);
+}
+.tape2 {
+  position: absolute;
+  width: 127.26px;
+  height: 45.68px;
+  top: 15%;
+  left: 87%;
+  /* background: url("../../assets//institutionBarImg/iconLisveBar/tape2.png"); */
+  mix-blend-mode: luminosity;
+  transform: rotate(-86.24deg);
+}
+/* .photos {
+  position: absolute;
+  width: 286.73px;
+  height: 456.82px;
+  left: 256.93px;
+  top: 113.11px;
+  /* mix-blend-mode: screen; */
+/* opacity: 80%;
+  transform: rotate(93.76deg);
+  background: url(); */
+/* }  */
+
+.photosAll {
+  display: flex;
+  justify-content: space-evenly;
+}
+.photo1 {
+  width: 140px;
+  height: 118px;
+  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidPhoto.png");
+}
+.photo2 {
+  width: 140px;
+  height: 118px;
+  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidPhoto.png");
+  transform: rotate(3.76deg);
+}
+.photo3 {
+  width: 140px;
+  height: 118px;
+  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidPhoto.png");
+  transform: rotate(10.76deg);
+}
+.photo4 {
+  width: 140px;
+  height: 118px;
+  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidPhoto.png");
+  transform: rotate(2.76deg);
 }
