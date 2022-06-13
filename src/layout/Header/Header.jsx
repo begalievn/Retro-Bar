@@ -89,7 +89,9 @@ const Header = () => {
             <span></span>
           </div>
         </nav>
-        {isOpen && <BurgerMenu isOpen={isOpen} navItems={navItems} setOpen={setOpen} />}
+        {isOpen && (
+          <BurgerMenu isOpen={isOpen} navItems={navItems} setOpen={setOpen} />
+        )}
       </div>
     </header>
   );
