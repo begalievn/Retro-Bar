@@ -1,4 +1,96 @@
 .main {
-  color: green;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: rgb(196, 193, 193);
   font-family: 'Montserrat Alternates';
+}
+
+.main__palaroid {
+  max-width: 1440px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+  background-color: rgb(136, 146, 146);
+}
+
+.main_title {
+  font-family: 'Montserrat Alternates';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  color: #ffffff;
+}
+
+.palaroid_icon {
+  width: 99.98px;
+  height: 99.11px;
+  background: rgb(255, 85, 87, 0.1);
+  position: absolute;
+  border-radius: 50%;
+  bottom: 10%;
+  right: 10%;
+}
+
+.palaroid_icon img {
+  width: 100%;
+  height: auto;
+}
+
+.photo_reports {
+  width: 100vw;
+  height: 975px;
+  background-color: black;
+  position: relative;
+}
+
+.photo_reports_layer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 3;
+  background-image: url('../../assets/mainPage/photo-report-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo_reports_container {
+  width: 1016px;
+}
+
+.photo_reports__star3 {
+  position: absolute;
+  top: 0;
+  left: 55%;
+}
+
+.photo_reports__star4 {
+  position: absolute;
+  top: 40px;
+  left: calc(55% + 92px);
+}
+
+.photo_reports__smileIcon {
+  position: absolute;
+  top: 50%;
+  left: 66.52px;
+}
+
+.photo_reports__btn button {
+  width: 169px;
+  height: 58px;
+  background: #ffb03b;
+  border-radius: 10px;
+  border-style: none;
+  font-family: 'Montserrat Alternates';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #000000;
 }
