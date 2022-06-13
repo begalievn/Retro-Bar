@@ -9,7 +9,9 @@
 body {
   font-family: "Montserrat Alternates", sans-serif;
   /*font-family: "Mont", sans-serif;*/
-
+}
+a{
+  text-decoration: none;
 }
 
 :root {
