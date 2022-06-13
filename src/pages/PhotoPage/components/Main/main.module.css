@@ -1,0 +1,126 @@
+.gridBlocks {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 365px);
+  grid-template-rows: repeat(6, 364px);
+  gap: 5px;
+  font-family: 'Mont';
+}
+
+/*   
+  .div1 { grid-area: 1 / 1 / 2 / 3; }
+  .div2 { grid-area: 1 / 3 / 2 / 4; }
+  .div3 { grid-area: 2 / 1 / 3 / 2; }
+  .div4 { grid-area: 2 / 2 / 3 / 3; }
+  .div5 { grid-area: 2 / 3 / 3 / 4; }
+  .div6 { grid-area: 3 / 1 / 5 / 2; }
+  .div7 { grid-area: 4 / 2 / 5 / 3; }
+  .div8 { grid-area: 4 / 3 / 5 / 4; }
+  .div9 { grid-area: 3 / 2 / 4 / 4; }
+  .div10 { grid-area: 5 / 1 / 6 / 2; }
+  .div11 { grid-area: 5 / 2 / 6 / 3; }
+  .div12 { grid-area: 6 / 1 / 7 / 3; }
+  .div13 { grid-area: 5 / 3 / 7 / 4; } */
+
+img {
+  border-radius: 5px;
+}
+
+
+.image_border {
+  position: absolute;
+  /* z-index: 2;
+  opacity: .2; */
+  margin: -5px 0 0 -5px;
+}
+
+.image {
+  position: absolute;
+}
+
+.eventPlace {
+  position: relative;
+  grid-area: 1 / 1 / 2 / 3;
+}
+
+.zeppelinBar {
+  position: relative;
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.kipishBar {
+  position: relative;
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.attention {
+  position: relative;
+
+  grid-area: 2 / 2 / 3 / 3;
+  ;
+}
+
+.munchenPub {
+  position: relative;
+
+  grid-area: 2 / 3 / 3 / 4;
+}
+
+.pintaPub {
+  position: relative;
+
+  grid-area: 3 / 1 / 5 / 2;
+}
+
+.mamaRada {
+  /* grid-area: 4 / 3 / 5 / 4; */
+}
+
+.secretMusicHall {
+  /* grid-area: 3 / 2 / 4 / 4;  */
+}
+
+.molecula {
+  /* grid-area: 5 / 1 / 6 / 2; */
+}
+
+.oblaco53 {}
+
+.pablo {}
+
+
+.image_info {
+  position: absolute;
+  color: #FFFFFF;
+
+}
+
+.image_info_title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 26px;
+
+}
+
+.image_info_partyName {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.image_info_footer {}
+
+.image_info_views,
+.image_info_photos {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.image_info_photos {}
+
+.image_info_date {
+  font-weight: 700;
+font-size: 16px;
+line-height: 20px;
+}

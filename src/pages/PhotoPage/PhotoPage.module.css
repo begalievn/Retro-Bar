@@ -6,4 +6,5 @@
 .photo {
   background: black url('../../assets/photoPageImages/photoPage-bg.png') 0 0 / cover no-repeat;
   min-height: 100vh;
+  padding: 0px 6rem
 }
