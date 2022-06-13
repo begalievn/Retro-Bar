@@ -6,12 +6,3 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  font-family: "Montserrat Alternates", sans-serif;
-  /*font-family: "Mont", sans-serif;*/
-
-}
-
-:root {
-  --orange: #ff6d00;
-}

@@ -1,0 +1,74 @@
+.bar_mainContainer {
+  position: absolute;
+  width: 1440px;
+  height: 1620px;
+  left: 0px;
+  top: 0px;
+  background: url("../../assets/institutionBarImg/back/back.png");
+  background-color: #000000;
+  mix-blend-mode: screen;
+  /* opacity: 0.2; */
+}
+.bar_gradient {
+  position: absolute;
+  width: 1440px;
+  height: 1620px;
+  left: 0px;
+  top: 0px;
+  background: linear-gradient(180deg, #000000 11%, rgba(0, 0, 0, 0) 100%);
+  mix-blend-mode: screen;
+}
+
+/* White content part */
+.paper {
+  position: absolute;
+  width: 1440px;
+  height: 1528px;
+  left: 0px;
+  top: 1478px;
+  background: url("../../assets//institutionBarImg/back/paperDown.png");
+}
+
+/* .paper_gradient {
+  position: absolute;
+  width: 1537px;
+  height: 1518px;
+  left: -57px;
+  top: 1463px;
+  background-image: url("../../assets/institutionBarImg/gradientsH.png");
+} */
+
+/* Text part */
+.text_header {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  color: #ffb03b;
+  font-family: "mont";
+  line-height: 24.38px;
+  position: absolute;
+  width: 225px;
+  height: 24px;
+  left: 169px;
+  top: 164px;
+}
+
+.share {
+  position: absolute;
+  font-family: "mont";
+  color: white;
+  left: 969px;
+  top: 164px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 262px;
+  left: 168px;
+}
+.livebar {
+}
+.text {
+  color: white;
+}
