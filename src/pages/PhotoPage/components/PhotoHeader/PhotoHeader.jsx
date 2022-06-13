@@ -1,7 +1,7 @@
 import React from "react";
-import classes from "./Header.module.css";
+import classes from "./PhotoHeader.module.css";
 
-function Header() {
+function PhotoHeader() {
   return (
     <div className={classes.photo__header}>
       <h3 className={classes.photo__header_title}>Актуальные фотоотчёты</h3>
@@ -10,4 +10,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default PhotoHeader;

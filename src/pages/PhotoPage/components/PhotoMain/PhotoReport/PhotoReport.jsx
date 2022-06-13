@@ -1,21 +1,23 @@
 import React from "react";
-import eventPlace from "../../../../assets/photoPageImages/main-images/parkEventplace.png";
-import zeppelinBar from "../../../../assets/photoPageImages/main-images/zeppelinBar.png";
-import kipishBar from "../../../../assets/photoPageImages/main-images/kipishBar.png";
-import attention from "../../../../assets/photoPageImages/main-images/attention.png";
-import munchenPub from "../../../../assets/photoPageImages/main-images/munchenPub.png";
-import pintaPub from "../../../../assets/photoPageImages/main-images/pintaPub.png";
-import mamaRada from "../../../../assets/photoPageImages/main-images/mamaRada.png";
-import secretMusicHall from "../../../../assets/photoPageImages/main-images/secretMusicHall.png";
-import molecula from "../../../../assets/photoPageImages/main-images/molecula.png";
-import oblaco53 from "../../../../assets/photoPageImages/main-images/oblaco53.png";
-import pablo from "../../../../assets/photoPageImages/main-images/pablo.png";
-import wideBorder from "../../../../assets/photoPageImages/wide-border.png";
-import squareBorder from "../../../../assets/photoPageImages/square-border.png";
-import longBorder from "../../../../assets/photoPageImages/long-border.png";
-import '../../../../fonts/Mont/stylesheet.css'
-import styles from "./main.module.css";
-const ImagesList = () => {
+import eventPlace from "../../../../../assets/photoPageImages/main-images/parkEventplace.png";
+import zeppelinBar from "../../../../../assets/photoPageImages/main-images/zeppelinBar.png";
+import kipishBar from "../../../../../assets/photoPageImages/main-images/kipishBar.png";
+import attention from "../../../../../assets/photoPageImages/main-images/attention.png";
+import munchenPub from "../../../../../assets/photoPageImages/main-images/munchenPub.png";
+import pintaPub from "../../../../../assets/photoPageImages/main-images/pintaPub.png";
+import mamaRada from "../../../../../assets/photoPageImages/main-images/mamaRada.png";
+import secretMusicHall from "../../../../../assets/photoPageImages/main-images/secretMusicHall.png";
+import molecula from "../../../../../assets/photoPageImages/main-images/molecula.png";
+import oblaco53 from "../../../../../assets/photoPageImages/main-images/oblaco53.png";
+import pablo from "../../../../../assets/photoPageImages/main-images/pablo.png";
+import effect from "../../../../../assets/photoPageImages/main-images/effect.png";
+import wideBorder from "../../../../../assets/photoPageImages/wide-border.png";
+import squareBorder from "../../../../../assets/photoPageImages/square-border.png";
+import longBorder from "../../../../../assets/photoPageImages/long-border.png";
+import '../../../../../fonts/Mont/stylesheet.css'
+import styles from "../PhotoMain.module.css";
+import ImagesList from "../ImagesList/ImagesList";
+const PhotoReport = () => {
   const images = [
     {
       link: eventPlace,
@@ -85,10 +87,19 @@ const ImagesList = () => {
       class:'pintaPub'
     },
     {
+      link: effect,
+      ad:true,
+      border:wideBorder,
+      id:7,
+      class:'advertise',
+      title:'Фото и видео услуги',
+      text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует.'
+    },
+    {
       name: "МАМА РАДА",
       link: mamaRada,
       border: squareBorder,
-      id: 7,
+      id: 8,
       partyName: 'SATURDAY',
       photos: 95,
       views: 5004,
@@ -99,7 +110,7 @@ const ImagesList = () => {
       name: "SECRET MUSIC HALL",
       link: secretMusicHall,
       border: squareBorder,
-      id: 8,
+      id: 9,
       partyName: 'ВИКТОРИНА',
       photos: 70,
       views: 4789,
@@ -110,7 +121,7 @@ const ImagesList = () => {
       name: "MOLECULA",
       link: molecula,
       border: squareBorder,
-      id: 9,
+      id: 10,
       partyName: 'ОТКРЫТИЕ',
       photos: 87,
       views: 8335,
@@ -121,7 +132,7 @@ const ImagesList = () => {
       name: "ОБЛАКО 53",
       link: oblaco53,
       border: squareBorder,
-      id: 10,
+      id: 11,
       partyName: 'КОНЦЕРТ: 5STA FAMILY',
       photos: 70,
       views:7336,
@@ -129,10 +140,19 @@ const ImagesList = () => {
       class:'oblaco53'
     },
     {
+      link: effect,
+      ad:true,
+      border:wideBorder,
+      id:12,
+      class:'advertise2',
+      title:'Фото и видео услуги',
+      text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует.'
+    },
+    {
       name: "PABLO",
       link: pablo,
       border: longBorder,
-      id: 11,
+      id: 13,
       partyName: 'TUESDAY',
       photos: 75,
       views: 4695,
@@ -144,29 +164,9 @@ const ImagesList = () => {
 
   return (
     <div className={styles.gridBlocks}>
-      {images.map((item) => (
-        <div className={styles[item.class]} key={item.id}>
-          <div className={styles.image_border}>
-            <img src={item.border} alt="" />
-          </div>
-          <div className={styles.image}>
-            <img src={item.link} alt="" />
-          </div>
-          <div className={styles.image_info}>
-            <h4 className={styles.image_info_title}>{item.name}</h4>
-            <p className={styles.image_info_partyName}>{item.partyName}</p>
-            <div className={styles.image_info_footer}>
-              <span className={styles.image_info_views}><img src={require('../../../../assets/photoPageImages/icons/eye.svg').default} alt="" />{item.views}</span>
-              <span className={styles.image_info_photos}><img src={require('../../../../assets/photoPageImages/icons/pic.svg').default} alt="" />{item.photos}</span>
-              <span className={styles.image_info_date}>{item.date}</span>
-            </div>
-          </div>
-        </div>
-
-        // <Route path={item.link} element={item.element} key={item.id} />
-      ))}
+      <ImagesList images={images}/>
     </div>
   );
 };
 
-export default ImagesList;
+export default PhotoReport;

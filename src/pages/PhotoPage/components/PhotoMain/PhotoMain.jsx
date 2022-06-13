@@ -1,10 +1,10 @@
 import React from "react";
+import PhotoReport from "./PhotoReport/PhotoReport";
 
-import ImagesList from "./Images";
 
 function Main() {
   return (
-    <ImagesList/>
+    <PhotoReport/>
   );
 }
 

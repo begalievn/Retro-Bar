@@ -1,13 +1,14 @@
 import React from "react";
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import PhotoHeader from "./components/PhotoHeader/PhotoHeader";
+import PhotoMain from "./components/PhotoMain/PhotoMain";
+
 import classes from "./PhotoPage.module.css";
 const PhotoPage = () => {
   return (
     <div className={classes.container}>
       <div className={classes.photo}>
-        <Header/>
-        <Main/>
+        <PhotoHeader/>
+        <PhotoMain/>
       </div>
     </div>
   );

@@ -8,19 +8,19 @@
 }
 
 /*   
-  .div1 { grid-area: 1 / 1 / 2 / 3; }
-  .div2 { grid-area: 1 / 3 / 2 / 4; }
-  .div3 { grid-area: 2 / 1 / 3 / 2; }
-  .div4 { grid-area: 2 / 2 / 3 / 3; }
-  .div5 { grid-area: 2 / 3 / 3 / 4; }
-  .div6 { grid-area: 3 / 1 / 5 / 2; }
-  .div7 { grid-area: 4 / 2 / 5 / 3; }
-  .div8 { grid-area: 4 / 3 / 5 / 4; }
-  .div9 { grid-area: 3 / 2 / 4 / 4; }
-  .div10 { grid-area: 5 / 1 / 6 / 2; }
-  .div11 { grid-area: 5 / 2 / 6 / 3; }
-  .div12 { grid-area: 6 / 1 / 7 / 3; }
-  .div13 { grid-area: 5 / 3 / 7 / 4; } */
+.div1 { grid-area: 1 / 1 / 2 / 3; }
+.div2 { grid-area: 1 / 3 / 2 / 4; }
+.div3 { grid-area: 2 / 1 / 3 / 2; }
+.div4 { grid-area: 2 / 2 / 3 / 3; }
+.div5 { grid-area: 2 / 3 / 3 / 4; }
+.div6 { grid-area: 3 / 1 / 5 / 2; }
+.div7 { grid-area: 3 / 2 / 4 / 4; }
+.div8 { grid-area: 4 / 2 / 5 / 3; }
+.div9 { grid-area: 4 / 3 / 5 / 4; }
+.div10 { grid-area: 5 / 1 / 6 / 2; }
+.div11 { grid-area: 5 / 2 / 6 / 3; }
+.div12 { grid-area: 6 / 1 / 7 / 3; }
+/* .div13 { grid-area: 5 / 3 / 7 / 4; } */
 
 img {
   border-radius: 5px;
@@ -63,34 +63,47 @@ img {
 .munchenPub {
   position: relative;
 
-  grid-area: 2 / 3 / 3 / 4;
+  grid-area: 2 / 3 / 3 / 4; 
 }
 
 .pintaPub {
   position: relative;
 
-  grid-area: 3 / 1 / 5 / 2;
+  grid-area:3 / 1 / 5 / 2;
+}
+
+.advertise {
+  grid-area: 3 / 2 / 4 / 4;
 }
 
 .mamaRada {
-  /* grid-area: 4 / 3 / 5 / 4; */
+  grid-area: 4 / 2 / 5 / 3; 
 }
 
 .secretMusicHall {
-  /* grid-area: 3 / 2 / 4 / 4;  */
+  grid-area: 4 / 3 / 5 / 4; 
 }
 
 .molecula {
-  /* grid-area: 5 / 1 / 6 / 2; */
+  grid-area: 5 / 1 / 6 / 2; 
 }
 
-.oblaco53 {}
+.oblaco53 {
+  grid-area: 5 / 2 / 6 / 3;
+}
 
-.pablo {}
+.advertises {
+  grid-area: 6 / 1 / 7 / 3; 
+}
+
+.pablo {
+  grid-area: 5 / 3 / 7 / 4;
+}
 
 
 .image_info {
   position: absolute;
+  padding: 0 4rem;
   color: #FFFFFF;
 
 }
@@ -108,7 +121,11 @@ img {
   line-height: 20px;
 }
 
-.image_info_footer {}
+.image_info_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .image_info_views,
 .image_info_photos {
@@ -121,6 +138,6 @@ img {
 
 .image_info_date {
   font-weight: 700;
-font-size: 16px;
-line-height: 20px;
+  font-size: 16px;
+  line-height: 20px;
 }
