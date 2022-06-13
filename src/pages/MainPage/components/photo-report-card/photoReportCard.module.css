@@ -1,0 +1,23 @@
+.cardContainer {
+  width: 335px;
+  height: 334px;
+  background-image: url('../../../../assets/mainPage/photo-report-card-bg1.png');
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photoCard {
+  width: 330px;
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photoCard img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
