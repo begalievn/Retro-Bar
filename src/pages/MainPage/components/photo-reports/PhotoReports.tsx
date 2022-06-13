@@ -11,7 +11,7 @@ import photo4 from '../../../../assets/mainPage/p-r-c-p4.png';
 
 import classes from '../../mainPage.module.css';
 
-const photos = [photo1, photo2, photo3, photo4];
+const photos: Array<HTMLImageElement> = [photo1, photo2, photo3, photo4];
 
 const PhotoReports = () => {
   return (
@@ -26,8 +26,8 @@ const PhotoReports = () => {
             Актуальные фотоотчеты
           </div>
           <div className={classes.photo_reports__content}>
-            {photos.map((item) => (
-              <PhotoReportCard photo={item} />
+            {photos.map((item, index) => (
+              <PhotoReportCard key={index} photo={item} />
             ))}
           </div>
           <div className={classes.photo_reports__btn}>
