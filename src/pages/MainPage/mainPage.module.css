@@ -1,13 +1,12 @@
 .main {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   background-color: rgb(196, 193, 193);
   font-family: 'Montserrat Alternates';
 }
 
 .main__palaroid {
-  /* max-width: 1440px; */
-  width: 100vw;
+  width: 100%;
   height: 600px;
   margin: 0 auto;
   position: relative;
@@ -39,7 +38,7 @@
 }
 
 .photo_reports {
-  width: 100vw;
+  width: 100%;
   height: 975px;
   background-color: black;
   position: relative;

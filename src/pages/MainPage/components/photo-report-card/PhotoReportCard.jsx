@@ -16,12 +16,16 @@ const cardBackgroundImages = [
 
 console.log(getRandomItem(cardBackgroundImages));
 
-const PhotoReportCard = ({ photo }) => {
+const PhotoReportCard = ({ photo, title }) => {
   return (
     <div className={classes.cardContainer}>
       <div className={classes.photoCard}>
         <img src={photo} alt="report" />
-        <div className={classes.cardContent}></div>
+        <div className={classes.cardContent_container}>
+          <div className={classes.cardContent}>
+            <h4>{title}</h4>
+          </div>
+        </div>
       </div>
     </div>
   );
