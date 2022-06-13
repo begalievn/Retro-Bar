@@ -5,7 +5,7 @@ import style from './eventPage.module.css';
 const EventsPage = () => {
   return <div className={style.eventPage_background} >
     <Section1/>
-    <Section2/>
+    {/* <Section2/> */}
   </div>;
   
 };

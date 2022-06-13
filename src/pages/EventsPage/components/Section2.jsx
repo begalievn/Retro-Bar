@@ -29,7 +29,7 @@ const Section2 = () => {
           {establishments?.map(item => {
           return <div className={style.eventPage_section2_establishment}>
               <div className={style.eventPage_section2_establishment_text}>   <h3>{item.nameEstablishment}</h3></div>
-             <img src={item.image} alt="" />
+             <img src={item.image} alt="" />  
              </div>
           })}
         </div>

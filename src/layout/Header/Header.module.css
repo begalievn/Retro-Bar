@@ -1,0 +1,154 @@
+.headerWrapper {
+  /*position: absolute;*/
+  /*top: 0;*/
+  /*left: 0;*/
+  width: 100%;
+  height: 60px;
+  background: none;
+  padding: 0 22%;
+}
+.headerLogo {
+  z-index: 22;
+  /*position: fixed;*/
+  /*top: 0;*/
+  /*left: 0;*/
+}
+
+.headerBlock {
+  max-width: 1032px;
+  height: 80%;
+  padding: 0 36px 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(235, 235, 235, 0.5);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerNav {
+  /*width: 85%;*/
+  display: flex;
+  align-items: center;
+  font-weight: lighter;
+  font-size: 0.8em;
+  line-height: 20px;
+  margin-right: 30px;
+  justify-content: space-between;
+  list-style: none;
+}
+.headerNavItem {
+  margin: 0 13.6px;
+}
+
+/*.headerNavItemEvents::after,*/
+/*.headerNavItemEvents::before {*/
+/*  content: "";*/
+/*  display: inline-block;*/
+/*  width: 1px;*/
+/*  height: 17px;*/
+/*  opacity: 0.6;*/
+/*  background-color: #ebebeb;*/
+/*}*/
+.headerNavItemEvents::after {
+  /*margin: 0 10px 0 0;*/
+}
+
+.headerNavItem:last-child {
+  margin: 0 0 0 5px;
+}
+.headerNavItem:nth-child(4) {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  border-right: 1px solid rgba(235, 235, 235, 0.5);
+  border-left: 1px solid rgba(235, 235, 235, 0.5);
+  padding: 10px;
+  height: 17px;
+  /*margin: 0 calc(14px - 10px);*/
+}
+
+
+.headerNavItem a {
+  color: #ebebeb;
+  text-decoration: none;
+}
+
+.headerMenuBtn {
+  cursor: pointer;
+  display: none;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  z-index: 22;
+}
+.headerMenuBtn span,
+.headerMenuBtn span::before,
+.headerMenuBtn span::after {
+  position: absolute;
+  top: 50%;
+  margin-top: -1px;
+  left: 50%;
+  margin-left: -10px;
+  width: 20px;
+  height: 2px;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.headerMenuBtn span::before,
+.headerMenuBtn span::after {
+  content: "";
+  display: block;
+  transition: 0.2s;
+}
+.headerMenuBtn span::before {
+  transform: translateY(-5px);
+}
+.headerMenuBtn span::after {
+  transform: translateY(5px);
+}
+.activeMenu span::before {
+  transform: rotate(45deg);
+}
+.activeMenu span {
+  height: 0;
+}
+.activeMenu span::after {
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 1400px) {
+  .headerWrapper {
+    padding: 0 10%;
+  }
+  .headerNavItem {
+    margin: 0 1em;
+  }
+}
+@media (max-width: 935px) {
+  .headerBlock {
+    padding: 0;
+  }
+  .headerWrapper {
+    padding: 0 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerMenuBtn {
+    display: block;
+  }
+  .headerNav {
+    display: none;
+  }
+  .searchBtn {
+    display: none;
+  }
+  .headerBlock {
+    border: none;
+  }
+}

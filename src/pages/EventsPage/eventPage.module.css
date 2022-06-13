@@ -87,7 +87,7 @@ line-height: 31px;
   position: absolute;
   right: 0px;
   top: 0px;
-  z-index: 2;
+  z-index: 0
 }
 
 .eventPage_section1_tape1{
@@ -95,7 +95,7 @@ line-height: 31px;
   left:0;
   bottom:0;
   mix-blend-mode: luminosity;
-  z-index: 2;
+  z-index: 0
 }
 .eventPage_section1_calendar{
   position: absolute;

@@ -20,8 +20,8 @@ const Section1 = () => {
     </div>
 
 
-    <div className={style.eventPage_section1_back}></div>
-    <div className={style.eventPage_section1_back2}></div>
+    {/* <div className={style.eventPage_section1_back}></div>
+    <div className={style.eventPage_section1_back2}></div> */}
     <div className={style.eventPage_section1_back_ellipseGradient}>sdsdsd</div>
 
     <div className={style.eventPage_section1_container}>
