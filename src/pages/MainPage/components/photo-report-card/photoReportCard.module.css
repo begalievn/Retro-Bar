@@ -1,7 +1,7 @@
 .cardContainer {
   width: 335px;
   height: 334px;
-  background-image: url('../../../../assets/mainPage/photo-report-card-bg1.png');
+  /* background-image: url('../../../../assets/mainPage/photo-report-card-bg1.png'); */
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -46,4 +46,9 @@
   width: 84%;
   height: 100%;
   color: white;
+}
+
+.cardContent_info img {
+  width: 17.28px;
+  height: 12.57px;
 }
