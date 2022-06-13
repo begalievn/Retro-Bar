@@ -54,28 +54,6 @@ const Header = () => {
                 </li>
               );
             })}
-            {/*<li className={classes.headerNavItem}>*/}
-            {/*  <Link to={"/photo"}>Фото</Link>*/}
-            {/*</li>*/}
-            {/*<li className={classes.headerNavItem}>*/}
-            {/*  <Link to={"/video"}>Видео</Link>*/}
-            {/*</li>*/}
-            {/*<li className={classes.headerNavItem}>*/}
-            {/*  <Link to={"/institution"}>Заведение</Link>*/}
-            {/*</li>*/}
-            {/*<li*/}
-            {/*  className={*/}
-            {/*    classes.headerNavItem*/}
-            {/*  }*/}
-            {/*>*/}
-            {/*  <Link to={"/events"}>События</Link>*/}
-            {/*</li>*/}
-            {/*<li className={classes.headerNavItem}>*/}
-            {/*  <Link to={"/news"}>Новости</Link>*/}
-            {/*</li>*/}
-            {/*<li className={classes.headerNavItem}>*/}
-            {/*  <Link to={"/contacts"}>Контакты</Link>*/}
-            {/*</li>*/}
             <SearchBtn />
           </ul>
 
@@ -89,9 +67,7 @@ const Header = () => {
             <span></span>
           </div>
         </nav>
-        {isOpen && (
-          <BurgerMenu isOpen={isOpen} navItems={navItems} setOpen={setOpen} />
-        )}
+        {isOpen && <BurgerMenu navItems={navItems} setOpen={setOpen} />}
       </div>
     </header>
   );

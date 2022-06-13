@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
 import classes from "./BurgerMenu.module.css";
@@ -8,7 +8,17 @@ import { ReactComponent as Telegram } from "../../../../assets/Header/social/tel
 import { ReactComponent as Youtube } from "../../../../assets/Header/social/youtube.svg";
 import { ReactComponent as Mail } from "../../../../assets/Header/social/mail.svg";
 
-const BurgerMenu = ({ isOpen, navItems, setOpen }) => {
+interface INavItems {
+  title: string;
+  path: string;
+}
+
+interface BurgerMenuProps {
+  navItems: INavItems[];
+  setOpen: (value: boolean) => void;
+}
+
+const BurgerMenu: FC<BurgerMenuProps> = ({ navItems, setOpen }) => {
   const social = [
     {
       link: "#",
