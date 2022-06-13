@@ -6,3 +6,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+<<<<<<< HEAD
+=======
+body {
+  font-family: "Montserrat Alternates", sans-serif;
+  /*font-family: "Mont", sans-serif;*/
+}
+a{
+  text-decoration: none;
+}
+
+:root {
+  --orange: #ff6d00;
+}
+>>>>>>> fb794a7d4420f2ffc25a05ce16961475d9a268d9
