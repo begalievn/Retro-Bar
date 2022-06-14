@@ -1,14 +1,25 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import classes from "./Header.module.css";
 import { ReactComponent as LogoIcon } from "../../assets/Header/logo.svg";
 
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 import SearchBtn from "../../UI/SearchBtn/SearchBtn";
+import { someClasses } from "../../utils/someClasses";
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
+  const history = useNavigate();
+  const location = useLocation();
+
+  const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
+
+  if (isOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "visible";
+  }
 
   const navItems = [
     {
@@ -40,10 +51,16 @@ const Header = () => {
   return (
     <header className={classes.headerWrapper}>
       <div className={classes.headerBlock}>
-        <div className={classes.headerLogo}>
-          <a href="#">
-            <LogoIcon width="108px" />
-          </a>
+        <div
+          className={classes.headerLogo}
+          onClick={() => {
+            isHomePage && (history("/"), setOpen(false));
+          }}
+          style={{
+            cursor: `${isHomePage}`,
+          }}
+        >
+          <LogoIcon width="108px" />
         </div>
         <nav>
           <ul className={classes.headerNav}>
@@ -58,10 +75,10 @@ const Header = () => {
           </ul>
 
           <div
-            className={[
+            className={someClasses([
               classes.headerMenuBtn,
               `${isOpen ? classes.activeMenu : ""} `,
-            ].join(" ")}
+            ])}
             onClick={() => setOpen(!isOpen)}
           >
             <span></span>
