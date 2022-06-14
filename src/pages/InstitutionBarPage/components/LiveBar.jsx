@@ -3,6 +3,8 @@ import barStyle from "../institutionBar.module.css";
 
 import livebar from "../../../assets/institutionBarImg/iconLiveBar/livebar.png";
 import polaroidMain from "../../../assets/institutionBarImg/iconLiveBar/polaroidMain.png";
+import photoMain from "../../../assets/institutionBarImg/photo/photoMain.png";
+import effectMain from "../../../assets/institutionBarImg/photo/effectMain.png";
 
 export default function LiveBar() {
   return (
@@ -36,9 +38,17 @@ export default function LiveBar() {
           <div className={barStyle.tape1} />
           <div className={barStyle.tape2} />
           <img src={polaroidMain} width="500px" />
+          <img src={photoMain} width="450px" className={barStyle.mainPhoto} />
+          <img src={effectMain} width="450px" className={barStyle.mainPhoto} />
         </article>
         <article className={barStyle.photosAll}>
-          <div className={barStyle.photo1}></div>
+          <div className={barStyle.photo1}>
+            {/* <img
+              src={miniPhoto1}
+              width="115px"
+              className={barStyle.miniPhoto1}
+            /> */}
+          </div>
           <div className={barStyle.photo2}></div>
           <div className={barStyle.photo3}></div>
           <div className={barStyle.photo4}></div>

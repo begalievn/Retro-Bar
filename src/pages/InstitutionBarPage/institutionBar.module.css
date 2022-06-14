@@ -121,6 +121,7 @@
   background: url("../../assets//institutionBarImg/iconLiveBar/polaroidMini.png");
   transform: rotate(2.76deg);
 }
+
 /* Map */
 .textMap h1 {
   font-family: "mont";
@@ -226,4 +227,9 @@
   top: 119px;
   left: 808px;
   transform: rotate(0.1deg);
+}
+.mainPhoto {
+  position: absolute;
+  top: 30px;
+  left: 570px;
 }
