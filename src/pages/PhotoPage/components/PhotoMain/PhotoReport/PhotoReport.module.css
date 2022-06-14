@@ -1,0 +1,8 @@
+.gridBlocks {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 365px);
+  grid-template-rows: repeat(6, 364px);
+  gap: 5px;
+  font-family: 'Mont';
+}
