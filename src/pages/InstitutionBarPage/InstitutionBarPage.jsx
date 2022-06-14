@@ -1,14 +1,9 @@
 import React from "react";
 import barStyle from "../InstitutionBarPage/institutionBar.module.css";
-import logo from "../../assets/institutionBarImg/iconLiveBar/logo.svg";
-import back from "../../assets/institutionBarImg/back/back.png";
-import gradientsH from "../../assets/institutionBarImg/back/gradientsH.png";
-import gradientsW from "../../assets/institutionBarImg/back/gradientsW.png";
-import paperDown from "../../assets/institutionBarImg/back/paperDown.png";
 import Map from "./components/Map";
-
 import LiveBar from "./components/LiveBar";
 import Paper from "./components/Paper";
+
 const InstitutionBarPage = () => {
   return (
     <div className={barStyle.bar_mainContainer}>

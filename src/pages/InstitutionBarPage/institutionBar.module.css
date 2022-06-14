@@ -19,15 +19,6 @@
   color: white;
 }
 
-/* .paper_gradient {
-  position: absolute;
-  width: 1537px;
-  height: 1518px;
-  left: -57px;
-  top: 1463px;
-  background-image: url("../../assets/institutionBarImg/gradientsH.png");
-} */
-
 /* Text part */
 .text_header {
   font-size: 20px;
@@ -69,7 +60,6 @@
   display: flex;
 }
 .livebar p {
-  /* font-weight: 600; */
   font-size: 25px;
   line-height: 35.78px;
   width: 400px;
@@ -91,7 +81,6 @@
   height: 39.16px;
   left: 46.5%;
   top: 11%;
-  /* background: url("../../assets/institutionBarImg/iconLiveBar/tape1.png"); */
   mix-blend-mode: luminosity;
   transform: rotate(93.76deg);
 }
@@ -101,21 +90,9 @@
   height: 45.68px;
   top: 15%;
   left: 87%;
-  /* background: url("../../assets//institutionBarImg/iconLisveBar/tape2.png"); */
   mix-blend-mode: luminosity;
   transform: rotate(-86.24deg);
 }
-/* .photos {
-  position: absolute;
-  width: 286.73px;
-  height: 456.82px;
-  left: 256.93px;
-  top: 113.11px;
-  /* mix-blend-mode: screen; */
-/* opacity: 80%;
-  transform: rotate(93.76deg);
-  background: url(); */
-/* }  */
 
 .photosAll {
   display: flex;
@@ -124,24 +101,24 @@
 .photo1 {
   width: 140px;
   height: 118px;
-  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidPhoto.png");
+  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidMini.png");
 }
 .photo2 {
   width: 140px;
   height: 118px;
-  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidPhoto.png");
+  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidMini.png");
   transform: rotate(3.76deg);
 }
 .photo3 {
   width: 140px;
   height: 118px;
-  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidPhoto.png");
+  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidMini.png");
   transform: rotate(10.76deg);
 }
 .photo4 {
   width: 140px;
   height: 118px;
-  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidPhoto.png");
+  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidMini.png");
   transform: rotate(2.76deg);
 }
 /* Map */
@@ -195,57 +172,22 @@
   height: 1528px;
   left: 0px;
   top: 1478px;
-  /* background: url("../../assets/institutionBarImg/back/grad.png"); */
-  /* background: url("../../assets//institutionBarImg/back/paperDown.png"); */
-
   color: black;
 }
 .paperComponent {
   top: -130px;
-  /* top:10px; */
   position: absolute;
   width: 100%;
   height: 948px;
-  /* background: url("../../assets/institutionBarImg/back/grad.png"); */
-  /* background: url("../../assets/institutionBarImg/back/back2.png"); */
-  /* background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0) 30%
-  /* ); */
   mix-blend-mode: normal;
-  /* background: transparent; */
 }
 .phone111 {
   position: absolute;
-  /* right: 5px; */
   width: 1310px;
   height: 200vh;
   mix-blend-mode: screen;
 }
-/* .paper1 {
-  width: 1310px;
-  height: 1528px;
-  position: absolute;
-  top: 78px;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0) 38.53%
-  );
-  transform: rotate(-90deg);
-}
-.paper2 {
-  width: 1310px;
-  height: 1528px;
-  left: 800px;
-  position: absolute;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.8) 0%,
-    rgba(0, 0, 0, 0) 38.53%
-  );
-} */
+
 .photoDiv {
   position: absolute;
   left: 96px;

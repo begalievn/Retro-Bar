@@ -1,13 +1,15 @@
 import React from "react";
-import frame from "../../../assets/institutionBarImg/iconLiveBar/Frame.png";
 import barStyle from "../institutionBar.module.css";
-import frameOfPhoto from "../../../assets/institutionBarImg/iconLiveBar/polaroid.png";
+
+import livebar from "../../../assets/institutionBarImg/iconLiveBar/livebar.png";
+import polaroidMain from "../../../assets/institutionBarImg/iconLiveBar/polaroidMain.png";
+
 export default function LiveBar() {
   return (
     <div className={barStyle.flex}>
       <section className={barStyle.section_text}>
         <article className={barStyle.livebar}>
-          <img src={frame} width="120px" />
+          <img src={livebar} width="120px" />
           <p>LIVEBAR</p>
         </article>
         <p>
@@ -33,7 +35,7 @@ export default function LiveBar() {
         <article className={barStyle.photo}>
           <div className={barStyle.tape1} />
           <div className={barStyle.tape2} />
-          <img src={frameOfPhoto} width="500px" />
+          <img src={polaroidMain} width="500px" />
         </article>
         <article className={barStyle.photosAll}>
           <div className={barStyle.photo1}></div>

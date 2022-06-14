@@ -1,5 +1,7 @@
 import React from "react";
 import barStyle from "../institutionBar.module.css";
+
+
 import cycle from "../../../assets/institutionBarImg/iconsMap/sketch.svg";
 import clock from "../../../assets/institutionBarImg/iconsMap/clock.svg";
 import money from "../../../assets/institutionBarImg/iconsMap/money.svg";
