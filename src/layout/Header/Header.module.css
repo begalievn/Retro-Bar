@@ -1,7 +1,7 @@
 .headerWrapper {
-  /*position: absolute;*/
-  /*top: 0;*/
-  /*left: 0;*/
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 60px;
   background: none;
@@ -71,7 +71,6 @@ nav {
   height: 17px;
   /*margin: 0 calc(14px - 10px);*/
 }
-
 
 .headerNavItem a {
   color: #ebebeb;

@@ -8,12 +8,11 @@ import paperDown from "../../assets/institutionBarImg/back/paperDown.png";
 import Map from "./components/Map";
 
 import LiveBar from "./components/LiveBar";
-
+import Paper from "./components/Paper";
 const InstitutionBarPage = () => {
   return (
     <div className={barStyle.bar_mainContainer}>
       <div className={barStyle.bar_gradient}>
-        <h1>Header</h1>
         <article className={barStyle.text_flex}>
           <header className={barStyle.text_header}>Заведения/LIVEBAR</header>
           <h3 className={barStyle.share}>Поделиться</h3>
@@ -22,7 +21,7 @@ const InstitutionBarPage = () => {
         <Map />
       </div>
       <div className={barStyle.paper}>
-        <h1>Up content</h1>
+        <Paper />
       </div>
     </div>
   );
