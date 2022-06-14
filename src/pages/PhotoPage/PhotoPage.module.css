@@ -1,0 +1,10 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.photo {
+  background: black url('../../assets/photoPageImages/photoPage-bg.png') 0 0 / cover no-repeat;
+  min-height: 100vh;
+  padding: 0px 6rem
+}
