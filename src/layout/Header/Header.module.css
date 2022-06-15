@@ -48,7 +48,7 @@ nav {
   width: 50px;
   height: 50px;
   position: relative;
-  z-index: 3;
+  z-index: 22;
 }
 .headerMenuBtn span,
 .headerMenuBtn span::before,
