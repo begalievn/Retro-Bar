@@ -51,7 +51,7 @@ const AllEvents = () => {
   ]
 
   return (
-    <div>
+    <div className={style.section2_establishments_block} >
       <div className={style.section2_establishments_back}>
         <div className={style.section2_establishments}>
           {establishments?.map(item => (
