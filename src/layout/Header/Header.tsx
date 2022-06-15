@@ -86,6 +86,7 @@ const Header = () => {
         </nav>
         {isOpen && <BurgerMenu navItems={navItems} setOpen={setOpen} />}
       </div>
+      <div className={classes.backDrop}></div>
     </header>
   );
 };
