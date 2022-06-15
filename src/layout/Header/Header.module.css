@@ -42,21 +42,18 @@ nav {
   list-style: none;
 }
 .headerNavItem {
-  margin: 0 13.6px;
+  /*margin: 0 13.6px;*/
+  margin: 0 1.1em;
 }
 
-.headerNavItem:last-child {
-  margin: 0 0 0 5px;
-}
 .headerNavItem:nth-child(4) {
   display: flex;
   align-items: center;
-  margin: 0;
+  margin: 8px;
   border-right: 1px solid rgba(235, 235, 235, 0.5);
   border-left: 1px solid rgba(235, 235, 235, 0.5);
   padding: 10px;
   height: 17px;
-  /*margin: 0 calc(14px - 10px);*/
 }
 
 .headerNavItem a {

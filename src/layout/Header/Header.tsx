@@ -13,12 +13,9 @@ const Header = () => {
   const [inputVisible, setInputVisible] = useState<boolean>(false);
   const history = useNavigate();
   const location = useLocation();
-
   const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
 
-  useEffect(()=>{
-    console.log(inputVisible);
-  })
+
 
   if (isOpen) {
     document.body.style.overflow = "hidden";
