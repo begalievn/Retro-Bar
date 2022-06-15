@@ -91,7 +91,7 @@ nav {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 1;
   background: linear-gradient(180deg, #000000 11%, rgba(0, 0, 0, 0) 100%);
 }
 

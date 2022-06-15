@@ -62,6 +62,7 @@ const Header = () => {
         >
           <LogoIcon width="108px" />
         </div>
+
         <nav>
           <ul className={classes.headerNav}>
            <NavItems navItems={navItems}/>
@@ -77,6 +78,7 @@ const Header = () => {
             <span></span>
           </div>
         </nav>
+
         {isOpen && <BurgerMenu navItems={navItems} setOpen={setOpen} />}
         {inputVisible && (
           <div className={classes.headerSearch}>
