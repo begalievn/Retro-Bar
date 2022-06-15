@@ -1,137 +1,27 @@
-
-
-
-img {
-  border-radius: 5px;
-}
-
-
-.image_border {
-  position: absolute;
-  margin: -5px 0 0 -5px;
-}
-
-.image {
-  position: absolute;
-}
-
-.eventPlace {
-  position: relative;
-  grid-area: 1 / 1 / 2 / 3;
-}
-
-.zeppelinBar {
-  position: relative;
-  grid-area: 1 / 3 / 2 / 4;
-}
-
-.kipishBar {
-  position: relative;
-  grid-area: 2 / 1 / 3 / 2;
-}
-
-.attention {
-  position: relative;
-
-  grid-area: 2 / 2 / 3 / 3;
-  ;
-}
-
-.munchenPub {
-  position: relative;
-
-  grid-area: 2 / 3 / 3 / 4;
-}
-
-.pintaPub {
-  position: relative;
-
-  grid-area: 3 / 1 / 5 / 2;
-}
-
-.advertise {
-  grid-area: 3 / 2 / 4 / 4;
-}
-
-.mamaRada {
-  grid-area: 4 / 2 / 5 / 3;
-}
-
-.secretMusicHall {
-  grid-area: 4 / 3 / 5 / 4;
-}
-
-.molecula {
-  grid-area: 5 / 1 / 6 / 2;
-}
-
-.oblaco53 {
-  grid-area: 5 / 2 / 6 / 3;
-}
-
-.advertises {
-  grid-area: 6 / 1 / 7 / 3;
-}
-
-.pablo {
-  grid-area: 5 / 3 / 7 / 4;
-}
-
-
-.image_info {
-  position: absolute;
-  padding: 0 4rem;
-  color: #FFFFFF;
-
-}
-
-.image_info_title {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 26px;
-
-}
-
-.image_info_partyName {
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-}
-
-.image_info_footer {
+.photoMain_intro {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding-top: 90px;
 }
 
-.image_info_views,
-.image_info_photos {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-}
-
-.image_info_photos {}
-
-.image_info_date {
+.photoMain_intro_title {
+  font-style: normal;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 32px;
+  line-height: 39px;
+  color: #FFB03B;
 }
 
-.advertise_info {
+.photoMain_intro_img {
+  margin: -90px 0 0 60px;
 }
 
-.advertise_info_title {
 
-}
-
-.advertise_info_text {
-
-}
-
-.advertise_info_icon {
-  position: absolute;
-  top: -134px;
-  right: 168px;
+.gridBlocks {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 365px);
+  grid-template-rows: repeat(6, 364px);
+  gap: 5px;
+  font-family: 'Mont';
+  margin-top: 54px;
 }

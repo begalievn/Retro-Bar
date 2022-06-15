@@ -1,6 +1,11 @@
 import React, { FC } from "react";
 import { IPhotos } from "../interfaces";
-import styles from "../PhotoMain.module.css";
+import styles from "./ImagesList.module.css";
+import eye from '../../../../../assets/photoPageImages/icons/eye.svg'
+import pic from '../../../../../assets/photoPageImages/icons/pic.svg'
+import star from '../../../../../assets/photoPageImages/icons/star.svg'
+
+
 interface ImagesListProps {
   images: IPhotos[];
 }
@@ -22,7 +27,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
                 <p className={styles.advertise_info_text}>{item.text}</p>
                 <div className={styles.advertise_info_icon}>
                   <img
-                    src={"../../../../../assets/photoPageImages/icons/star.svg"}
+                    src={star}
                     alt=""
                   />
                 </div>
@@ -34,18 +39,14 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
                 <div className={styles.image_info_footer}>
                   <span className={styles.image_info_views}>
                     <img
-                      src={
-                        "../../../../../assets/photoPageImages/icons/eye.svg"
-                      }
+                      src={eye}
                       alt=""
                     />
                     {item.views}
                   </span>
                   <span className={styles.image_info_photos}>
                     <img
-                      src={
-                        "../../../../../assets/photoPageImages/icons/pic.svg"
-                      }
+                      src={pic}
                       alt=""
                     />
                     {item.photos}

@@ -1,20 +1,27 @@
 import React, { FC } from "react";
-
-const wideBorder = "../../../../../assets/photoPageImages/wide-border.png";
-const squareBorder = "../../../../../assets/photoPageImages/square-border.png";
-const longBorder = "../../../../../assets/photoPageImages/long-border.png";
 import "../../../../../fonts/Mont/stylesheet.css";
-import styles from "./PhotoReport.module.css";
 import ImagesList from "../ImagesList/ImagesList";
+import eventPlace from "../../../../../assets/photoPageImages/main-images/parkEventplace.png";
+import zeppelinBar from "../../../../../assets/photoPageImages/main-images/zeppelinBar.png";
+import kipishBar from "../../../../../assets/photoPageImages/main-images/kipishBar.png";
+import attention from "../../../../../assets/photoPageImages/main-images/attention.png";
+import munchenPub from "../../../../../assets/photoPageImages/main-images/munchenPub.png";
+import pintaPub from "../../../../../assets/photoPageImages/main-images/pintaPub.png";
+import effect from "../../../../../assets/photoPageImages/main-images/effect.png";
+import mamaRada from "../../../../../assets/photoPageImages/main-images/mamaRada.png";
+import secretMusicHall from "../../../../../assets/photoPageImages/main-images/secretMusicHall.png";
+import molecula from "../../../../../assets/photoPageImages/main-images/molecula.png";
+import oblaco53 from "../../../../../assets/photoPageImages/main-images/oblaco53.png";
+import pablo from "../../../../../assets/photoPageImages/main-images/pablo.png";
+import squareBorder from "../../../../../assets/photoPageImages/square-border.png";
+import wideBorder from "../../../../../assets/photoPageImages/wide-border.png";
+import longBorder from "../../../../../assets/photoPageImages/long-border.png";
 
-type PhotoReportProps = {
-  link?: any;
-};
 
-const PhotoReport: FC<PhotoReportProps> = ({link}) => {
+const PhotoReport: FC = () => {
   const images = [
     {
-      link: link,
+      link: eventPlace,
       name: "PARK EVENTPLACE",
       border: wideBorder,
       id: 1,
@@ -25,7 +32,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
       class: "eventPlace",
     },
     {
-      link: link,
+      link: zeppelinBar,
       name: "ZEPPELIN BAR",
       border: squareBorder,
       id: 2,
@@ -36,7 +43,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
       class: "zeppelinBar",
     },
     {
-      link: link,
+      link: kipishBar,
       name: "KIPISH BAR",
       border: squareBorder,
       id: 3,
@@ -47,7 +54,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
       class: "kipishBar",
     },
     {
-      link: link,
+      link: attention,
       name: "ATTENTION",
       border: squareBorder,
       id: 4,
@@ -59,7 +66,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
     },
     {
       name: "MUNCHEN PUB",
-      link: link,
+      link: munchenPub,
       border: squareBorder,
       id: 5,
       partyName: "LIVE MUSIC: COOL BAND",
@@ -70,7 +77,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
     },
     {
       name: "PINTA PUB",
-      link: link,
+      link: pintaPub,
       border: longBorder,
       id: 6,
       partyName: "АБДЫШ АТА",
@@ -81,7 +88,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
     },
     {
       name: "Реклама",
-      link: link,
+      link: effect,
       ad: true,
       border: wideBorder,
       id: 7,
@@ -92,7 +99,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
     },
     {
       name: "МАМА РАДА",
-      link: link,
+      link: mamaRada,
       border: squareBorder,
       id: 8,
       partyName: "SATURDAY",
@@ -103,7 +110,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
     },
     {
       name: "SECRET MUSIC HALL",
-      link: link,
+      link: secretMusicHall,
       border: squareBorder,
       id: 9,
       partyName: "ВИКТОРИНА",
@@ -114,7 +121,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
     },
     {
       name: "MOLECULA",
-      link: link,
+      link: molecula,
       border: squareBorder,
       id: 10,
       partyName: "ОТКРЫТИЕ",
@@ -125,7 +132,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
     },
     {
       name: "ОБЛАКО 53",
-      link: link,
+      link: oblaco53,
       border: squareBorder,
       id: 11,
       partyName: "КОНЦЕРТ: 5STA FAMILY",
@@ -136,7 +143,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
     },
     {
       name: "Реклама",
-      link: link,
+      link: effect,
       ad: true,
       border: wideBorder,
       id: 12,
@@ -146,7 +153,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
     },
     {
       name: "PABLO",
-      link: link,
+      link: pablo,
       border: longBorder,
       id: 13,
       partyName: "TUESDAY",
@@ -157,9 +164,7 @@ const PhotoReport: FC<PhotoReportProps> = ({link}) => {
     },
   ];
   return (
-    <div className={styles.gridBlocks}>
       <ImagesList images={images} />
-    </div>
   );
 };
 

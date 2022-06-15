@@ -1,10 +1,10 @@
 import React, { FC } from "react";
 import classes from  "./PhotoHeader.module.css";
+import PhotoNav from "../PhotoNav/PhotoNav";
 const PhotoHeader:FC = () => {
   return (
     <div className={classes.photo__header}>
-      <h3 className={classes.photo__header_title}>Актуальные фотоотчёты</h3>
-      <img className={classes.photo__header_img} src={('../../../../assets/icons/lightning.svg')} alt="" />
+      <PhotoNav/>
     </div>
   );
 }
