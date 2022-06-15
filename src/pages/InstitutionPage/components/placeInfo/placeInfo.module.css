@@ -1,35 +1,115 @@
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: white;
 }
-h5{
-
+p {
+  color: white;
 }
-.placeInfo{
+* {
+  font-family: "mont", sans-serif;
+}
+h4 {
+  font-weight: 500;
+}
+.placeInfo {
   display: flex;
   flex-direction: column;
-
-
+  justify-content: center;
+  /* align-items: center; */
+  margin-left: 41px;
+  margin-right: 70px;
 }
-.header{
+.header {
   display: flex;
-  
+  align-items: center;
 }
-.headerLogoBlock{
-
+.headerLogoBlock {
+  max-width: 50px;
+  max-height: 50px;
 }
-.headerLogo{
- width: 100%;
+.headerLogo {
+  width: 100%;
 }
-.headerNaming{
+.headerNaming {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   margin-left: 11px;
 }
-.headerName{
-
+.headerName {
 }
-.headerType{
+.headerType {
+  font-weight: 600;
+}
+.buttonPrev {
+  margin-right: 39px;
+  display: none;
+}
+.buttonNext {
+  margin-left: 49px;
+  display: none;
+}
+/*номер место время работы*/
+.contact {
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+}
+.contactRow {
+  display: flex;
+  margin-bottom: 14px;
+}
+.contactRowText {
+  margin-left: 13px;
+}
 
+/* цены блюд */
+.prices {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 17px;
+}
+.pricesItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.pricesText {
+  margin-left: 4px;
+  min-width: 60px;
+}
+
+/* рейтинг */
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-top: 26px;
+}
+.ratingText {
+  margin-top: 8px;
+  margin-left: 12px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 425px) {
+  .buttonPrev {
+    display: block;
+  }
+  .buttonNext {
+    display: block;
+  }
+  
+  .placeInfo {
+   
+    align-items: center;
+  }
+ 
 }

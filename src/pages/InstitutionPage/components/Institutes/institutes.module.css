@@ -1,45 +1,104 @@
-.main{
+.main {
   display: column;
+  margin-top: 213px;
 }
-.title{
+.title {
   text-align: left;
+  margin-bottom: 72px;
+  padding-left: 14%;
 }
-h2{
- color: white;
+h2 {
+  color: white;
 }
-.cards{
-  display: flex;
-  justify-content: center;
-}
-.sideCard{
+.cards {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.sideCardTablet1Block{
-position: relative;
-}
-.sideCardTabletImage1{
-  position: absolute;
-}
-.sideCardTablet2Block{
-position: relative;
-}
-.sideCardTabletImage2{
-  position: absolute;
-}
-.middleCard{
+/* боковые карточки */
+.sideCard {
   display: flex;
   justify-content: center;
-  
+  align-items: center;
 }
-
-.middleCardTabletBlock{
+/* первая */
+.sideCard1Block {
   position: relative;
 }
-.middleCardTabletImage{
+.sideCard1Image {
+  position: absolute;
+}
+.sideCard1Canvas {
+  width: 100%;
+}
+/* третья */
+.sideCard2Block {
+  position: relative;
+}
+.sideCard2Image {
+  position: absolute;
+}
+.sideCard2Canvas {
+  width: 100%;
+}
+/* средняя карточка */
+
+.middleCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.middleCardBlock {
+  position: relative;
+}
+.middleCardImage {
   position: absolute;
   top: 20%;
   right: 20%;
 }
+.middleCardCanvas {
+  width: 30vw;
+}
 
+.cardsMobile{
+  display: none;  
+}
+@media screen and (max-width: 425px) {
+  .cards{
+    display: none;
+  }
+  .cardsMobile{
+    display: flex;
+  }
+  
+
+  /* .cards {
+    align-items: flex-start;
+  }
+  .middleCard {
+    flex-direction: column;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  .middleCardCanvas {
+    width: 80vw;
+    margin-bottom: 58px;
+  }
+  .sideCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  .sideCard1Canvas {
+    width: 80vw;
+  }
+  
+
+  .sideCard2Canvas {
+    width: 80vw;
+  } */
+  
+}

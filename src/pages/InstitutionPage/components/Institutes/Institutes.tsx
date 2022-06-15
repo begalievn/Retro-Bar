@@ -15,26 +15,53 @@ function Institutes() {
       </div>
       <section className={styles.cards}>
         <div className={styles.sideCard}>
-          <div className={styles.sideCardTablet1Block}>
-            <img src={tablet1} alt="" />
-            <img src="" alt="" className={styles.sideCardTabletImage1} />
+          <div className={styles.sideCard1Block}>
+            <img src={tablet1} alt="" className={styles.sideCard1Canvas} />
+            <img src="" alt="" className={styles.sideCard1Image} />
           </div>
         </div>
         <div className={styles.middleCard}>
-          <div className={styles.middleCardTabletBlock}>
-            <img src={tablet2} alt="" />
-            <img src="" alt="" className={styles.middleCardTabletImage} />
+          <div className={styles.middleCardBlock}>
+            <img src={tablet2} alt="" className={styles.middleCardCanvas} />
+            <img src="" alt="" className={styles.middleCardImage} />
           </div>
-         <PlaceInfo/>
         </div>
+         <PlaceInfo />
         <div className={styles.sideCard}>
-          <div className={styles.sideCardTablet2Block}>
-            <img src={tablet3} alt="" />
-            <img src="" alt="" className={styles.sideCardTabletImage2} />
+          <div className={styles.sideCard2Block}>
+            <img src={tablet3} alt=""  className={styles.sideCard2Canvas} />
+            <img src="" alt="" className={styles.sideCard2Image} />
           </div>
         </div>
       </section>
+
+      
+      <section className={styles.cardsMobile}>
+        <div className={styles.sideCard}>
+          <div className={styles.sideCard1Block}>
+            <img src={tablet1} alt="" className={styles.sideCard1Canvas} />
+            <img src="" alt="" className={styles.sideCard1Image} />
+          </div>
+        </div>
+        <div className={styles.middleCard}>
+          <div className={styles.middleCardBlock}>
+            <img src={tablet2} alt="" className={styles.middleCardCanvas} />
+            <img src="" alt="" className={styles.middleCardImage} />
+          </div>
+        </div>
+        <div className={styles.sideCard}>
+          <div className={styles.sideCard2Block}>
+            <img src={tablet3} alt=""  className={styles.sideCard2Canvas} />
+            <img src="" alt="" className={styles.sideCard2Image} />
+          </div>
+        </div>
+         <PlaceInfo />
+      </section>
     </section>
+      
+
+     
+
   )
 }
 
