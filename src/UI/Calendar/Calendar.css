@@ -4,7 +4,7 @@
   border-radius: 10px;
   color: #FFFFFF;
   text-transform: capitalize;
-  background: url('../../../../assets/photoPageImages/calendarImages/calendar-bg.png') 0 0/ cover no-repeat;
+  background: url('../../assets/photoPageImages/calendarImages/calendar-bg.png') 0 0/ cover no-repeat;
 }
 
 .calendar__header {

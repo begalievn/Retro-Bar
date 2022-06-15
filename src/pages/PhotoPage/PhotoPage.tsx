@@ -10,8 +10,8 @@ const PhotoPage:FC = () => {
     <div className={classes.container}>
       <div className={classes.photo}>
         <PhotoHeader/>
-        {/* <PhotoMain/> */}
-        <Calendar selectedDate={selectedDate} selectDate={(date) => setSelectedDay(date)}/>
+        <PhotoMain/>
+        {/* <Calendar selectedDate={selectedDate} selectDate={(date) => setSelectedDay(date)}/> */}
       </div>
     </div>
   );

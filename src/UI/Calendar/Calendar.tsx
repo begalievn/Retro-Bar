@@ -2,9 +2,9 @@ import React, { FC } from "react";
 import InputSearch from "../../UI/InputSearch/InputSearch";
 import { createMonth } from "../../utils/helpers/date/createMonth";
 import { useCalendar } from "./hooks/useCalendar";
-import arrowLeft from "../../../../assets/photoPageImages/calendarImages/arrow left.svg";
-import arrowRight from "../../../../assets/photoPageImages/calendarImages/arrow right.svg";
-import arrowDown from "../../../../assets/photoPageImages/calendarImages/arrow down.svg";
+import arrowLeft from "../../assets/photoPageImages/calendarImages/arrow left.svg";
+import arrowRight from "../../assets/photoPageImages/calendarImages/arrow right.svg";
+import arrowDown from "../../assets/photoPageImages/calendarImages/arrow down.svg";
 import { checkDateIsEqual, checkIsToday } from "../../utils/helpers/date";
 import './Calendar.css'
 interface CalendarProps {
@@ -19,6 +19,7 @@ const Calendar: FC<CalendarProps> = ({
   selectDate,
   firstWeekDayNumber = 2,
 }) => {
+  
   const { functions, state } = useCalendar({
     locale,
     selectedDate: date,
