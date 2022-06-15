@@ -1,0 +1,22 @@
+.hero {
+  width: 100%;
+  min-height: 595px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("../../assets/videoPage/heroBg.png");
+  background-size: cover;
+}
+.heroBlock {
+}
+.container {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+}
+.shootContainer{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.shootBlock{
+
+}
