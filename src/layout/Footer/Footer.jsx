@@ -11,23 +11,59 @@ import { Container } from "@mui/system";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const [liElem, setliElem] = useState([
-    "Фото",
-    "Видео",
-    "Заведения",
-    "События",
+  const [liElem, setLiElem] = useState([
+    {
+      title: "Фото",
+      path: "/photo",
+    },
+    {
+      title: "Видео",
+      path: "/video",
+    },
+    {
+      title: "Заведения",
+      path: "/institution",
+    },
+    {
+      title: "События",
+      path: "/events",
+    },
   ]);
   const [liElem2, setliElem2] = useState([
-    "Новости",
-    "Контакты",
-    "Сотрудники",
-    "Копирайт",
+    {
+      title: "Новости",
+      path: "/news",
+    },
+    {
+      title: "Контакты",
+      path: "/contacts",
+    },
+    {
+      title: "Сотрудники",
+      path: "/employees",
+    },
+    {
+      title: "Копирайт",
+      path: "/copyright",
+    },
   ]);
   const [iconsMedia, setIconsMedia] = useState([
-    telegramIcon,
-    instagramIcon,
-    youtubeIcon,
-    mailIcon,
+    {
+      icon: telegramIcon,
+      path: "https://web.telegram.org",
+    },
+    {
+      icon: instagramIcon,
+      path: "https://instagram.com",
+    },
+    {
+      icon: youtubeIcon,
+      path: "https://youtube.com",
+    },
+    {
+      icon: mailIcon,
+      path: "https://mail.google.com/",
+    },
   ]);
   const [text, setText] = useState([
     "Политика конфиденциальности",
@@ -76,7 +112,7 @@ const Footer = () => {
           >
             {liElem.map((item) => (
               <ul style={{ width: "60%" }}>
-                <li>{item}</li>
+                <Link to={item.path}>{item.title}</Link>
               </ul>
             ))}
           </Grid>
@@ -89,7 +125,7 @@ const Footer = () => {
           >
             {liElem2.map((item) => (
               <ul style={{ width: "60%" }}>
-                <li>{item}</li>
+                <Link to={item.path}>{item.title}</Link>
               </ul>
             ))}
           </Grid>
@@ -121,9 +157,9 @@ const Footer = () => {
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIconsMD}>
                 {iconsMedia.map((item) => (
-                  <Link to="/n">
-                    <img src={item} alt="" />
-                  </Link>
+                  <a href={item.path}>
+                    <img src={item.icon} alt="" />
+                  </a>
                 ))}
               </div>
             </Grid>
@@ -161,9 +197,9 @@ const Footer = () => {
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIcons}>
                 {iconsMedia.map((item) => (
-                  <Link to="/#">
-                    <img src={item} alt="" />
-                  </Link>
+                  <a href={item.path}>
+                    <img src={item.icon} alt="" />
+                  </a>
                 ))}
               </div>
             </Grid>

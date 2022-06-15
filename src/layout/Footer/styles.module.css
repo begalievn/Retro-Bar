@@ -50,21 +50,20 @@
   align-items: center;
   justify-content: center;
 }
-.blocks2 ul li {
+.blocks2 ul a {
   list-style: none;
   font-size: 16px;
-  margin-top: 30px;
   color: white;
   font-family: Montserrat Alternates;
   border-bottom: 1px solid unset;
   width: 100px;
-
 }
 .blocks2 ul{
   padding-left: 60px;
+  height: 55px;
 }
 
-.blocks2 li:hover {
+.blocks2 a:hover {
   cursor: pointer;
   border-bottom: 1px solid white;
 }
@@ -77,8 +76,10 @@
 }
 .blocks3 ul{
   padding-left: 50px;
+  height: 55px;
+
 }
-.blocks3 ul li {
+.blocks3 ul a {
   font-size: 16px;
   list-style: none;
   margin-top: 30px;
@@ -87,7 +88,7 @@
   border-bottom: 1px solid unset;
   width: 110px;
 }
-.blocks3 li:hover {
+.blocks3 a:hover {
   cursor: pointer;
   border-bottom: 1px solid white;
 }
@@ -121,8 +122,6 @@
   height: 33px;
   width: 180px;
   border-radius: 8px;
-  margin-top: 20px;
-  
 }
 
 .input::placeholder {
@@ -139,7 +138,6 @@
   height: 33px;
   border-radius: 8px;
   background: orange;
-  margin-top: 20px;
   cursor: pointer;
 }
 
