@@ -1,0 +1,33 @@
+.container {
+  width: 100%;
+  height: 380px;
+  background-color: coral;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.left {
+  width: 400.86px;
+  height: 290.93px;
+  position: absolute;
+  top: 19.15px;
+  left: 17px;
+}
+
+.active {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+
+.right {
+  width: 519.21px;
+  height: 290.93px;
+  position: absolute;
+  right: 25.04px;
+  top: 51.31px;
+}
