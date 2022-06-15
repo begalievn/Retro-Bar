@@ -9,8 +9,8 @@
 }
 
 .photoCard {
-  width: 330px;
-  height: 330px;
+  width: 328px;
+  height: 328px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,9 +46,51 @@
   width: 84%;
   height: 100%;
   color: white;
+  /* font-family: Mont; */
+}
+
+.cardContent h4 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  margin-top: 18.16px;
+}
+
+.cardContent p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 18px;
 }
 
 .cardContent_info img {
   width: 17.28px;
   height: 12.57px;
+  margin-right: 7.38px;
+}
+
+.cardContent span {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  margin-right: 28px;
+}
+
+.cardContent_info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardContent_info__left {
+  display: flex;
+}
+
+.cardContent_info__right p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
 }
