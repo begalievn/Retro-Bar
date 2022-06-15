@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import classes from "./Header.module.css";
 import { ReactComponent as LogoIcon } from "../../assets/Header/logo.svg";
 
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
-import SearchBtn from "../../UI/SearchBtn/SearchBtn";
+import { SearchBtn, InputSearch } from "../../UI";
 import { someClasses } from "../../utils/someClasses";
 
 const Header = () => {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState<boolean>(false);
+  const [inputVisible, setInputVisible] = useState<boolean>(false);
   const history = useNavigate();
   const location = useLocation();
 
   const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
+
+  useEffect(()=>{
+    console.log(inputVisible);
+  })
 
   if (isOpen) {
     document.body.style.overflow = "hidden";
@@ -71,7 +76,7 @@ const Header = () => {
                 </li>
               );
             })}
-            <SearchBtn />
+            <SearchBtn onClick={() => setInputVisible(!inputVisible)} />
           </ul>
 
           <div
@@ -85,6 +90,11 @@ const Header = () => {
           </div>
         </nav>
         {isOpen && <BurgerMenu navItems={navItems} setOpen={setOpen} />}
+        {inputVisible && (
+          <div className={classes.headerSearch}>
+            <InputSearch placeholder="поиск" />
+          </div>
+        )}
       </div>
       <div className={classes.backDrop}></div>
     </header>
