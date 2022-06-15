@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import React from 'react';
 
 import {
   getMonthesNames,
@@ -6,7 +6,7 @@ import {
   getWeekDaysNames,
   getMonthNumberOfDays,
   createDate
-} from '../../../../../utils/helpers/date';
+} from '../../../utils/helpers/date';
 
 interface UseCalendarParams {
   locale?: string;
@@ -26,22 +26,22 @@ export const useCalendar = ({
   selectedDate: date,
   firstWeekDayNumber = 2
 }: UseCalendarParams) => {
-  const [mode, setMode] = useState<'days' | 'monthes' | 'years'>('days');
-  const [selectedDay, setSelectedDay] = useState(createDate({ date }));
-  const [selectedMonth, setSelectedMonth] = useState(
+  const [mode, setMode] = React.useState<'days' | 'monthes' | 'years'>('days');
+  const [selectedDay, setSelectedDay] = React.useState(createDate({ date }));
+  const [selectedMonth, setSelectedMonth] = React.useState(
     createMonth({ date: new Date(selectedDay.year, selectedDay.monthIndex), locale })
   );
-  const [selectedYear, setSelectedYear] = useState(selectedDay.year);
-  const [selectedYearsInterval, setSelectedYearsInterval] = useState(
+  const [selectedYear, setSelectedYear] = React.useState(selectedDay.year);
+  const [selectedYearsInterval, setSelectedYearsInterval] = React.useState(
     getYearsInterval(selectedDay.year)
   );
 
-  const monthesNames = useMemo(() => getMonthesNames(locale), []);
-  const weekDaysNames = useMemo(() => getWeekDaysNames(firstWeekDayNumber, locale), []);
+  const monthesNames = React.useMemo(() => getMonthesNames(locale), []);
+  const weekDaysNames = React.useMemo(() => getWeekDaysNames(firstWeekDayNumber, locale), []);
 
-  const days = useMemo(() => selectedMonth.createMonthDays(), [selectedMonth, selectedYear]);
+  const days = React.useMemo(() => selectedMonth.createMonthDays(), [selectedMonth, selectedYear]);
 
-  const calendarDays = useMemo(() => {
+  const calendarDays = React.useMemo(() => {
     const monthNumberOfDays = getMonthNumberOfDays(selectedMonth.monthIndex, selectedYear);
 
     const prevMonthDays = createMonth({
@@ -151,7 +151,7 @@ export const useCalendar = ({
       setSelectedDay,
       setSelectedMonthByIndex,
       setSelectedYear,
-      setSelectedYearsInterval
+      setSelectedYearsInterval  
     }
   };
 };
