@@ -1,0 +1,174 @@
+.main {
+  width: 100%;
+  background: green;
+  height: 359px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/src/assets/icons/Footer/back.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.inside {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+.blocks {
+  width: 20%;
+  height: 100%;
+  position: relative;
+}
+.blocks span {
+  font-size: 36px;
+  color: white;
+}
+.retro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.retro2 {
+  display: flex;
+  align-items: center;
+  
+}
+.retroMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-family: Montserrat Alternates;
+
+}
+.blocks2 {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blocks2 ul li {
+  list-style: none;
+  font-size: 16px;
+  margin-top: 30px;
+  color: white;
+  font-family: Montserrat Alternates;
+  border-bottom: 1px solid unset;
+  width: 100px;
+
+}
+.blocks2 ul{
+  padding-left: 60px;
+}
+
+.blocks2 li:hover {
+  cursor: pointer;
+  border-bottom: 1px solid white;
+}
+.blocks3 {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.blocks3 ul{
+  padding-left: 50px;
+}
+.blocks3 ul li {
+  font-size: 16px;
+  list-style: none;
+  margin-top: 30px;
+  color: white;
+  font-family: Montserrat Alternates;
+  border-bottom: 1px solid unset;
+  width: 110px;
+}
+.blocks3 li:hover {
+  cursor: pointer;
+  border-bottom: 1px solid white;
+}
+.blocks4 {
+  width: 20%;
+  height: 100%;
+}
+.iconsBlock h6 {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 25px;
+  font-family: Montserrat Alternates;
+
+}
+.iconsBlock {
+  width: 223px;
+  text-align: center;
+}
+.iconsBlockMD {
+  width: 223px;
+  text-align: center;
+}
+.iconsBlockMD h6 {
+  color: white;
+  font-size: 16px;
+  margin-top: 80px;
+  font-family: Montserrat Alternates;
+
+}
+.input {
+  height: 33px;
+  width: 180px;
+  border-radius: 8px;
+  margin-top: 20px;
+  
+}
+
+.input::placeholder {
+  color: #374151;
+  padding: 17px;
+  font-family: Montserrat Alternates;
+
+}
+.inputBlockMD{
+  margin-left: 10px;
+}
+.search {
+  width: 33px;
+  height: 33px;
+  border-radius: 8px;
+  background: orange;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.onlyIcons {
+  width: 223px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.onlyIconsMD {
+  width: 223px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.politicMD {
+  margin-top: 80px !important;
+}
+.politicMD div {
+  color: rgba(255, 255, 255, 0.521);
+  font-size: 12px;
+  font-family: Montserrat Alternates;
+
+}
+.politic div {
+  color: rgba(255, 255, 255, 0.521);
+  font-size: 12px;
+  font-family: Montserrat Alternates;
+
+}
