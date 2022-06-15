@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import classes from "./Header.module.css";
 import { ReactComponent as LogoIcon } from "../../assets/Header/logo.svg";
-
-import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
+import { BurgerMenu, NavItem,NavItems } from "./components";
 import { SearchBtn, InputSearch } from "../../UI";
 import { someClasses } from "../../utils/someClasses";
+import {INavItems} from "../../types/headerTypes/headerTypes";
 
 const Header = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
@@ -15,15 +15,13 @@ const Header = () => {
   const location = useLocation();
   const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
 
-
-
   if (isOpen) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "visible";
   }
 
-  const navItems = [
+  const navItems:INavItems[] = [
     {
       title: "Фото",
       path: "/photo",
@@ -66,16 +64,9 @@ const Header = () => {
         </div>
         <nav>
           <ul className={classes.headerNav}>
-            {navItems.map((item) => {
-              return (
-                <li className={classes.headerNavItem} key={item.path}>
-                  <Link to={item.path}>{item.title}</Link>
-                </li>
-              );
-            })}
-            <SearchBtn onClick={() => setInputVisible(!inputVisible)} />
+           <NavItems navItems={navItems}/>
           </ul>
-
+          <SearchBtn onClick={() => setInputVisible(!inputVisible)} className={classes.navSearchBtn} />
           <div
             className={someClasses([
               classes.headerMenuBtn,
