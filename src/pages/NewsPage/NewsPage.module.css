@@ -85,7 +85,7 @@
   background: #ffba53;
 }
 
-.backnightLife {
+/* .backnightLife {
   background-image: url("./image/BackgraundNightLife.png");
 }
 
@@ -114,4 +114,9 @@
 
 img {
   margin: 16px -51px 8px 168px;
+} */
+
+.con {
+  display: inline-block;
+  margin: 0 auto;
 }

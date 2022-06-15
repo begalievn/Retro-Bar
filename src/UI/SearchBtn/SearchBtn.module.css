@@ -1,0 +1,14 @@
+.searchBtn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 5px;
+  background-color: var(--orange);
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  z-index: 10;
+}

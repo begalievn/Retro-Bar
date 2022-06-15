@@ -1,0 +1,141 @@
+.headerWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: none;
+  padding: 0 15%;
+}
+.headerLogo {
+  z-index: 100;
+}
+
+.headerBlock {
+  position: relative;
+  max-width: 1032px;
+  height: 80%;
+  padding: 0 36px 0 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  z-index: 100;
+  border-bottom: 1px solid rgba(235, 235, 235, 0.5);
+}
+
+nav {
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
+.headerNav {
+  /*width: 85%;*/
+  display: flex;
+  align-items: center;
+  font-weight: lighter;
+  font-size: 0.8em;
+  line-height: 20px;
+  margin-right: 25px;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.headerMenuBtn {
+  cursor: pointer;
+  display: none;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  z-index: 22;
+}
+.headerMenuBtn span,
+.headerMenuBtn span::before,
+.headerMenuBtn span::after {
+  position: absolute;
+  top: 50%;
+  margin-top: -1px;
+  left: 50%;
+  margin-left: -10px;
+  width: 20px;
+  height: 2px;
+  border-radius: 3px;
+  background-color: #fff;
+}
+.headerMenuBtn span::before,
+.headerMenuBtn span::after {
+  content: "";
+  display: block;
+  transition: 0.2s;
+}
+.headerMenuBtn span::before {
+  transform: translateY(-5px);
+}
+.headerMenuBtn span::after {
+  transform: translateY(5px);
+}
+.activeMenu span::before {
+  transform: rotate(45deg);
+}
+.activeMenu span {
+  height: 0;
+}
+.activeMenu span::after {
+  transform: rotate(-45deg);
+}
+
+.backDrop {
+  width: 100%;
+  height: 248px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, #000000 11%, rgba(0, 0, 0, 0) 100%);
+}
+
+.headerSearch {
+  position: absolute;
+  width: 30%;
+  top: 60px;
+  right: 36px;
+}
+
+@media (max-width: 1400px) {
+  .headerWrapper {
+    padding: 0 8%;
+  }
+}
+@media (max-width: 935px) {
+  .headerBlock {
+    padding: 0;
+  }
+  .headerWrapper {
+    padding: 0 5%;
+  }
+  .headerSearch {
+    right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerMenuBtn {
+    display: block;
+  }
+  .headerNav {
+    display: none;
+  }
+  .navSearchBtn {
+    display: none !important;
+  }
+  .searchBtn {
+    display: none;
+  }
+  .headerBlock {
+    border: none;
+  }
+  .headerSearch {
+    display: none;
+  }
+}
