@@ -5,10 +5,10 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000;
-  /*background: none;*/
+  /*background-color: #374151;*/
   z-index: 15;
   /*background-filter: blur(1px);*/
+  backdrop-filter: blur(6px);
   overflow: auto;
 }
 .navWrapper {
@@ -19,7 +19,6 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
 }
 .burgerNav {
   display: flex;
@@ -60,6 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  list-style: none;
 }
 .socialLinks li {
   margin: 10px;
