@@ -3,12 +3,13 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
-  background-color: #000000;
-  /*background: none;*/
-  z-index: 2;
+  /*background-color: #374151;*/
+  z-index: 15;
   /*background-filter: blur(1px);*/
+  backdrop-filter: blur(6px);
+  overflow: auto;
 }
 .navWrapper {
   width: 100%;
@@ -22,7 +23,7 @@
 .burgerNav {
   display: flex;
   width: 100%;
-  padding: 0 70px;
+  padding: 0 90px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -30,6 +31,7 @@
   /*justify-content: space-between;*/
 }
 .burgerNavLinks {
+  list-style: none;
   margin-top: 80px;
   display: flex;
   flex-direction: column;
@@ -46,6 +48,7 @@
 }
 
 .socialBlock {
+  text-align: center;
 }
 .socialBlockTitle {
   font-size: 1.3em;
@@ -56,6 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  list-style: none;
 }
 .socialLinks li {
   margin: 10px;
