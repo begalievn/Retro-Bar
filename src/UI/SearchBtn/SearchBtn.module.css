@@ -10,5 +10,5 @@
   cursor: pointer;
   border: none;
   outline: none;
-  /*margin-left: 10%;*/
+  z-index: 100;
 }

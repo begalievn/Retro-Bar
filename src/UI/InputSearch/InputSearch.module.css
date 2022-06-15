@@ -5,6 +5,7 @@
 }
 
 .inputSearch {
+  z-index: 100;
   height: 30px;
   width: 100%;
   padding: 0 11px;
