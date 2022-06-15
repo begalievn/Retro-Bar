@@ -1,44 +1,43 @@
 .eventPage_navbar{
   color: white;
-  max-width:985px;
+  max-width:1000px;
 margin: 0 auto;
 }
+
 .eventPage_navbar div{
 display: flex;
-width: 380px;
+max-width: 380px;
 justify-content: space-between;
 font-family: 'Montserrat Alternates';
 font-size: 16px;
+margin-left: 10%;
+color:white;
 }
-.eventPage_section1_container{
+.eventPage_navbar div a{
+  color: white
+}
+
+
+.section1_container{
   max-width: 1257px;
   margin: 0 auto;
-  padding: 58px 152px 114px 120px;
-  position: relative;
-  margin-top: 89px;
+  margin-top: 67px;
 }
  
 .eventPage_section1{
  color: white;
  position: relative;
-
-display: flex;
-
-
+/* display: flex; */
+max-width: 985px;
+/* width: 100%; */
+margin: 0 auto;
+margin-right: 14% ;
+margin-left:11%
 }
 
-.eventPage_section1_effect{
- 
-  max-height: 440px;
-  /* display: flex;
-  align-items: flex-end;*/
-  max-width: 994px; 
-  position:absolute;
-  border-radius: 10px;
-  width: 100%;
-}
 
-.eventPage_section1_image{
+
+.section1_image{
  max-width: 985px;
   border-radius: 10px;
 width: 100%;
@@ -46,19 +45,19 @@ max-height: 440px;
 
 }
 
-.eventPage_section1_text{
+.section1_text{
   position: absolute;
   border-radius: 10px;
   display: flex;
   max-width: 985px;
   width: 100%;
   justify-content: space-between;
-  padding: 51px 35px 26px 57px;
+  padding: 2% 5% 2% 6%;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.79) 39.9%, #000000 100%);
   bottom:0
 }
 
-.eventPage_section1_button{
+.section1_button{
   background: #FFB03B;
   opacity: 0.9;
 border-radius: 10px;
@@ -71,73 +70,54 @@ color: white;
 cursor: pointer;
 }
 
-.eventPage_section1_text h3{
+.section1_text h3{
   font-weight: 600;
-font-size: 28px;
+font-size: 21px;
 line-height: 36px;
 }
 
-.eventPage_section1_text p{
+.section1_text p{
  
 font-size: 24px;
 line-height: 31px;
 }
 
-.eventPage_section1_tape2{
+.section1_tape2{
   position: absolute;
-  right: 0px;
-  top: 0px;
-  z-index: 0
+ 
+  z-index: 1;
+  
+  width: 20%;
+  right: -14%;
+    top: -12%;
 }
 
-.eventPage_section1_tape1{
+.section1_tape1{
   position: absolute;
-  left:0;
-  bottom:0;
+  left: -11%;
+    bottom: -23%;
   mix-blend-mode: luminosity;
-  z-index: 0
+  z-index: 1;
+  width: 20%;
 }
-.eventPage_section1_calendar{
-  position: absolute;
-  bottom:0;
-  right:0
-} 
 
 .eventPage_background{
 
-  background-color:black
-}
-
-.eventPage_section1_back{
-
-   position:absolute;
-   mix-blend-mode: screen;
- 
-
-   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
- top:0;
- height: 411px;
- width: 100%;
- background: url('../../assets/eventsImages/back.png');
-
-
-}
-
-.eventPage_section1_back2{
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  mix-blend-mode: screen;
-  position:absolute;
-  top:371px;
-  height: 100%;
-  background:url('../../assets/eventsImages/back2.png') no-repeat;
-
   background-color:black;
-   width: 100%; 
+  position:relative;
+  background:url('../../assets/eventsImages/Events.jpg');
+  background-size: 100% 100%;
+
 }
 
-.eventPage_section1_back_ellipseGradient{
-  width: 814px;
-  height: 814px;
+
+
+.section1_back_ellipseGradient{
+  max-width: 814px;
+  max-height: 814px;
+width: 100%;
+
+
   position: absolute;
   background: radial-gradient(50% 50% at 50% 50%, #3970FF 0%, rgba(202, 246, 255, 0) 100%);
   opacity: 0.25;
@@ -146,26 +126,118 @@ line-height: 31px;
 }
 
 .eventPage_banner{
-
-  display: flex;
-  justify-content: center;
+display: block;
   margin: 0 auto;
   max-width: 955px;
-  position: relative;
-  margin-top: 50px;
-}
-.eventPage_banner :first-child {
   width: 100%;
+  margin-top: 10vw;
+  padding-left: 43px;
+  padding-right: 43px;
 }
-.eventPage_banner :last-child {
-  max-width: 955px;
+.eventPage_bannerMini{
+  display: none;
+  margin: 0 auto;
+ 
   width: 100%;
-  position: absolute;
+  margin-top: 10vw;
+  padding-left: 43px;
+  padding-right: 43px;
+ 
 }
+.section1_button_media{
+  display: none;
+}
+@media (max-width: 770px) { 
+  .section1_button{
+    display: none;
+  }
 
-.eventPage_banner span{
-  position: absolute;
-}
+  .section1_button_media{
+    display: block;
+    background: #FFB03B;
+    opacity: 0.9;
+  border-radius: 10px;
+  width: 187px;
+    height: 50px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 15px;
+  color: black;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 20px;
+  border:none
+  }
+
+  .eventPage_navbar div{
+    display: flex;
+    max-width: 380px;
+    justify-content: space-between;
+    font-family: 'Montserrat Alternates';
+    font-size: 16px;
+    margin-left: 10%;
+    }
+ }
+
+
+
+ @media (max-width: 550px){
+  .section1_text h3{
+    font-size: 16px;
+    line-height: 0px
+  }
+  .section1_text p{
+    font-size: 16px;
+  }
+  .eventPage_banner{
+    display: none;
+  }
+  .eventPage_bannerMini{
+    display: block;
+  }
+
+ }
+
+ @media (max-width: 470px){
+  .eventPage_navbar div{
+    
+    font-size: 12px;
+   margin:0 auto;
+   justify-content: start;
+    }
+
+    .eventPage_navbar div a{
+      margin-right: 24px;
+    }
+    .eventPage_navbar div a:first-child{
+      margin-left: 30px
+    }
+ }
+
+ @media (max-width: 370px){
+  .section1_text h3{
+    font-size: 13px;
+    line-height: 0px
+  }
+
+  .section1_button_media{
+    width: 121px;
+    height: 34px;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 500;
+
+  }
+ 
+ }
+
+
+
+
+
+
+
+
 
 
 
@@ -181,45 +253,18 @@ line-height: 31px;
   max-width: 1123px;
   margin: 0 auto;
 }
+.eventPage_section2>h3{
+  font-family: 'Montserrat Alternates';
+font-weight: 700;
+font-size: 32px;
+line-height: 39px;
 
-.eventPage_section2_establishments_back{
- width: 1123px;
- height: 689px;
- /* width: 100%;
-height: 100%; */
-background:url('../../assets/eventsImages/film.png');
-padding: 27px 79px 96px 138px;
+margin: 95px 0 49px 76px;
 }
 
-.eventPage_section2_establishments{
-width: 906px;
-
-height: 638px;
-
-display: flex;
-justify-content: space-between;
-align-content: space-between;
-flex-wrap: wrap;
-
-}
-
-.eventPage_section2_establishment{
- position: relative;
-
-}
-
-.eventPage_section2_establishment img{
-
-}
-
-.eventPage_section2_establishment_text{
-  
-  position: absolute;
-
-  bottom: 0;
-   
-
-}
-.eventPage_section2_establishment_text h3{
-
+.eventPage_section2>a{
+   display: flex;
+   justify-content: center;
+   margin-top:50px;
+   color:white
 }
