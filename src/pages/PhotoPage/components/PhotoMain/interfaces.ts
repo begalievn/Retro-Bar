@@ -11,4 +11,6 @@ export interface IPhotos {
   name: string
   ad?:boolean
   text?:string
+  icon?:string
+  studio?:string
 }

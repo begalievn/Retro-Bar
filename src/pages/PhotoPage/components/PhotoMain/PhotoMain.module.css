@@ -9,6 +9,7 @@
   font-size: 32px;
   line-height: 39px;
   color: #FFB03B;
+  font-family: "Montserrat Alternates", sans-serif;
 }
 
 .photoMain_intro_img {
@@ -20,7 +21,7 @@
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(3, 365px);
-  grid-template-rows: repeat(6, 364px);
+  grid-template-rows: repeat(6, 365px);
   gap: 5px;
   font-family: 'Mont';
   margin-top: 54px;
