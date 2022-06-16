@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import style from './AllEvents.module.css'
 
 
@@ -11,10 +11,23 @@ import EstablishmentItem from './EstablishmentItem';
 
 
 
-const AllEvents = () => {
+
+interface IEstablishments{
+  image: string;
+  nameEstablishment: string;
+  nameParty: string;
+  views:number;
+  amountImage:number;
+  date: string;
+}
 
 
-  let establishments = [
+
+const AllEvents:FC = () => {
+
+
+
+ let establishments: Array<IEstablishments> = [
     {
       image: hero1,
       nameEstablishment: 'KIPISH BAR',
@@ -51,7 +64,7 @@ const AllEvents = () => {
   ]
 
   return (
-    <div>
+    <div className={style.section2_establishments_block}>
       <div className={style.section2_establishments_back}>
         <div className={style.section2_establishments}>
           {establishments?.map(item => (
