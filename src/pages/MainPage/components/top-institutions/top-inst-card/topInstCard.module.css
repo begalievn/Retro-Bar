@@ -1,0 +1,68 @@
+.card {
+  width: 630.34px;
+  height: 354.38px;
+  position: absolute;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+  position: relative;
+}
+
+.cardBackground {
+  width: 100%;
+  background-size: cover;
+  position: absolute;
+  height: auto;
+}
+
+.card_content_container {
+  width: 296px;
+  height: 239px;
+  position: absolute;
+}
+
+.cardContentBackgroundPhoto {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 47px;
+  left: 15px;
+}
+
+.card_content {
+  position: absolute;
+  top: 79px;
+  left: 42px;
+  z-index: 2;
+  width: 90%;
+  height: 70%;
+  transform: rotate(2.05deg);
+  color: white;
+}
+
+.card_content_title {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 33px;
+}
+
+.card_content_info {
+  height: 97px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card_content_info img {
+  width: 13.4px;
+  height: 16px;
+  margin-right: 7.4px;
+}
+
+.photoOfBar {
+  width: 300px;
+  height: 243px;
+  position: absolute;
+  top: 57.5px;
+  right: 23px;
+}

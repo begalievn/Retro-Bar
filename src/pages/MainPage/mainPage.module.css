@@ -1,6 +1,5 @@
 .main {
   width: 100%;
-  min-height: 100vh;
   background-color: rgb(196, 193, 193);
   font-family: 'Montserrat Alternates';
 }
@@ -36,6 +35,28 @@
   width: 100%;
   height: auto;
 }
+
+/* 
+  Top Institutions part
+*/
+
+.institutions_container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1440px;
+  height: 509px;
+}
+
+.institutions_title {
+  margin-left: 18%;
+  margin-bottom: 57px;
+}
+
+.institutions_slider {
+  width: 100%;
+}
+
+/* -------------------- */
 
 .photo_reports {
   width: 100%;
@@ -74,7 +95,7 @@
 .photo_reports__content {
   width: 100%;
   min-height: 665px;
-  background-color: antiquewhite;
+  background-color: black;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

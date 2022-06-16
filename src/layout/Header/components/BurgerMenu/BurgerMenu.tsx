@@ -7,11 +7,8 @@ import { ReactComponent as Instagram } from "../../../../assets/Header/social/in
 import { ReactComponent as Telegram } from "../../../../assets/Header/social/telegram.svg";
 import { ReactComponent as Youtube } from "../../../../assets/Header/social/youtube.svg";
 import { ReactComponent as Mail } from "../../../../assets/Header/social/mail.svg";
-
-interface INavItems {
-  title: string;
-  path: string;
-}
+import { NavItems } from "../index";
+import { INavItems } from "../../../../types/headerTypes/headerTypes";
 
 interface BurgerMenuProps {
   navItems: INavItems[];
@@ -45,13 +42,7 @@ const BurgerMenu: FC<BurgerMenuProps> = ({ navItems, setOpen }) => {
           <nav className={classes.burgerNav}>
             <InputSearch placeholder="поиск" />
             <ul className={classes.burgerNavLinks}>
-              {navItems.map((item) => {
-                return (
-                  <li key={item.path} onClick={() => setOpen(false)}>
-                    <Link to={item.path}>{item.title}</Link>
-                  </li>
-                );
-              })}
+              <NavItems navItems={navItems} onClick={() => setOpen(false)} />
             </ul>
           </nav>
           <div className={classes.socialBlock}>

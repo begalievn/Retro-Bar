@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import classes from "./Header.module.css";
 import { ReactComponent as LogoIcon } from "../../assets/Header/logo.svg";
-
-import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
-import SearchBtn from "../../UI/SearchBtn/SearchBtn";
+import { BurgerMenu, NavItem,NavItems } from "./components";
+import { SearchBtn, InputSearch } from "../../UI";
 import { someClasses } from "../../utils/someClasses";
+import {INavItems} from "../../types/headerTypes/headerTypes";
 
 const Header = () => {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState<boolean>(false);
+  const [inputVisible, setInputVisible] = useState<boolean>(false);
   const history = useNavigate();
   const location = useLocation();
-
   const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
 
   if (isOpen) {
@@ -21,7 +21,7 @@ const Header = () => {
     document.body.style.overflow = "visible";
   }
 
-  const navItems = [
+  const navItems:INavItems[] = [
     {
       title: "Фото",
       path: "/photo",
@@ -62,18 +62,12 @@ const Header = () => {
         >
           <LogoIcon width="108px" />
         </div>
+
         <nav>
           <ul className={classes.headerNav}>
-            {navItems.map((item) => {
-              return (
-                <li className={classes.headerNavItem} key={item.path}>
-                  <Link to={item.path}>{item.title}</Link>
-                </li>
-              );
-            })}
-            <SearchBtn />
+           <NavItems navItems={navItems}/>
           </ul>
-
+          <SearchBtn onClick={() => setInputVisible(!inputVisible)} className={classes.navSearchBtn} />
           <div
             className={someClasses([
               classes.headerMenuBtn,
@@ -84,8 +78,15 @@ const Header = () => {
             <span></span>
           </div>
         </nav>
+
         {isOpen && <BurgerMenu navItems={navItems} setOpen={setOpen} />}
+        {inputVisible && (
+          <div className={classes.headerSearch}>
+            <InputSearch placeholder="поиск" />
+          </div>
+        )}
       </div>
+      <div className={classes.backDrop}></div>
     </header>
   );
 };
