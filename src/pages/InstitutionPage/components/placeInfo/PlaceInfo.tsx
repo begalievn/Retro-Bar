@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import styles from "./placeInfo.module.css";
 import logo from "../../../../assets/institution/placeInfo/logo.png";
 import arrowleft from "../../../../assets/institution/placeInfo/arrowleft.png";
@@ -16,12 +16,20 @@ import rating from "../../../../assets/institution/placeInfo/rating.svg";
 
 
 
+interface PlaceInfoProps {
+  clickHandler: (direction:string)=>void;
 
-function PlaceInfo() {
+}
+
+
+const PlaceInfo: FC<PlaceInfoProps> = ({clickHandler}) =>{
+  
+  
+  
   return (
     <section className={styles.placeInfo}>
       <section className={styles.header}>
-        <div className={styles.buttonPrev}>
+        <div onClick={()=> clickHandler('flex-start')} className={styles.buttonPrev}>
           <img src={arrowleft} alt="" />
         </div>
         <div className={styles.headerLogoBlock}>
@@ -31,7 +39,7 @@ function PlaceInfo() {
           <h3>KEANU</h3>
           <h4 className={styles.headerType}>Bar</h4>
         </div>
-        <div className={styles.buttonNext}>
+        <div onClick={()=> clickHandler('flex-end')} className={styles.buttonNext}>
           <img src={arrowright} alt="" />
         </div>
       </section>
