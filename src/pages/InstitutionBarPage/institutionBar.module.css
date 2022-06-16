@@ -95,6 +95,8 @@
 }
 
 .photosAll {
+  position: absolute;
+  top: 440px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -215,27 +217,31 @@
 
 .fr1 {
   position: absolute;
-  top: 119px;
-  left: 107px;
-  transform: rotate(-1.38deg);
+  top: 118px;
+  left: 106.5px;
+  transform: rotate(-1.5deg);
 }
 
 .fr2 {
   position: absolute;
   top: 118px;
-  left: 458px;
-  transform: rotate(-1.3deg);
+  left: 456px;
+  transform: rotate(1.6deg);
+  mix-blend-mode: screen;
 }
 .fr3 {
   position: absolute;
   top: 119px;
-  left: 808px;
-  transform: rotate(0.1deg);
+  left: 806.5px;
+  transform: rotate(1.2deg);
+  mix-blend-mode: screen;
 }
 .mainPhoto {
   position: absolute;
-  top: 30px;
-  left: 570px;
+  border-radius: 2px;
+  top: 64px;
+  left: 625px;
+  transform: rotate(3.7deg);
 }
 
 /* first child */

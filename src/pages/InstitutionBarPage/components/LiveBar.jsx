@@ -5,6 +5,7 @@ import livebar from "../../../assets/institutionBarImg/iconLiveBar/livebar.png";
 import polaroidMain from "../../../assets/institutionBarImg/iconLiveBar/polaroidMain.png";
 import photoMain from "../../../assets/institutionBarImg/photo/photoMain.png";
 import effectMain from "../../../assets/institutionBarImg/photo/effectMain.png";
+import polaroidMain1 from "../../../assets/institutionBarImg/iconLiveBar/polaroidMain1.png";
 
 export default function LiveBar() {
   return (
@@ -37,9 +38,9 @@ export default function LiveBar() {
         <article className={barStyle.photo}>
           <div className={barStyle.tape1} />
           <div className={barStyle.tape2} />
-          <img src={polaroidMain} width="500px" />
-          <img src={photoMain} width="450px" className={barStyle.mainPhoto} />
-          <img src={effectMain} width="450px" className={barStyle.mainPhoto} />
+          <img src={polaroidMain1} width="100%" />
+          <img src={photoMain} width="405px" className={barStyle.mainPhoto} />
+          <img src={effectMain} width="405px" className={barStyle.mainPhoto} />
         </article>
         <article className={barStyle.photosAll}>
           <div className={barStyle.photo1}>

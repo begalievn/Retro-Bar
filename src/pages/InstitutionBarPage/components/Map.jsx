@@ -18,7 +18,7 @@ export default function Map() {
         className="dg-widget-link"
         href="http://2gis.kg/bishkek/firm/70000001019346367/center/74.61690902709962,42.85834982271733/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap"
       >
-        <img src={map} className={barStyle.mapImage}/>
+        <img src={map} className={barStyle.mapImage} />
       </a>
 
       <section className={barStyle.textMap}>
@@ -41,10 +41,13 @@ export default function Map() {
           Ночной клуб, караоке
         </p>
         <h1>Контакты:</h1>
-        <p>
-          <img src={instagram} />
-          livebar.kg
-        </p>
+
+        <a href="https://www.instagram.com/livebar/?igshid=126pohgaworso">
+          <p>
+            <img src={instagram} /> livebar.kg
+          </p>
+        </a>
+
         <p>
           <img src={phone} />0 558 55 00 00
         </p>
