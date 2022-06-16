@@ -9,13 +9,24 @@ type Prop = {
   title: string;
   description: string;
   date: string;
+  isActive: boolean;
 };
 
-const PalaroidCard = ({ image, title, description, date }: Prop) => {
+const PalaroidCard = ({
+  image,
+  title = '',
+  description = '',
+  date = '',
+  isActive = false,
+}: Prop) => {
   return (
     <div className={classes.palaroidCard}>
       <div className={classes.card_image}>
-        <img src={image} alt="card image" />
+        <img
+          style={isActive ? null : { filter: 'grayscale(100%)' }}
+          src={image}
+          alt="card image"
+        />
       </div>
       <div className={classes.card_content}>
         <div className={classes.card_content_left}>

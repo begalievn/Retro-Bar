@@ -1,7 +1,10 @@
 import React, { FC, useState, useEffect, ReactNode } from 'react';
 import PalaroidCard from '../palaroid-card/PalaroidCard';
 
-import cardImage from '../../../../assets/mainPage/palaroid-card-image-active.png';
+import activeCardImage from '../../../../assets/mainPage/palaroid-card-image-active.png';
+import rightCardImage from '../../../../assets/mainPage/palaroid-card-image-right.png';
+import rightMostCardImage from '../../../../assets/mainPage/palaroid-card-image-rightmost.png';
+import leftCardImage from '../../../../assets/mainPage/palaroid-card-image-left.png';
 
 import classes from './palaroidSlider.module.css';
 
@@ -14,43 +17,43 @@ import classes from './palaroidSlider.module.css';
 
 const cards = [
   {
-    image: cardImage,
+    image: activeCardImage,
     title: 'ZEPPELIN BAR',
     description: 'STREED CREDIBILITY',
     date: 'Суббота 14 мая',
   },
   {
-    image: cardImage,
+    image: rightCardImage,
     title: 'ZEPPELIN BAR',
     description: 'STREED CREDIBILITY',
     date: 'Суббота 14 мая',
   },
   {
-    image: cardImage,
+    image: rightMostCardImage,
     title: 'ZEPPELIN BAR',
     description: 'STREED CREDIBILITY',
     date: 'Суббота 14 мая',
   },
   {
-    image: cardImage,
+    image: rightCardImage,
     title: 'ZEPPELIN BAR',
     description: 'STREED CREDIBILITY',
     date: 'Суббота 14 мая',
   },
   {
-    image: cardImage,
+    image: rightCardImage,
     title: 'ZEPPELIN BAR',
     description: 'STREED CREDIBILITY',
     date: 'Суббота 14 мая',
   },
   {
-    image: cardImage,
+    image: rightCardImage,
     title: 'ZEPPELIN BAR',
     description: 'STREED CREDIBILITY',
     date: 'Суббота 14 мая',
   },
   {
-    image: cardImage,
+    image: leftCardImage,
     title: 'ZEPPELIN BAR',
     description: 'STREED CREDIBILITY',
     date: 'Суббота 14 мая',
@@ -97,14 +100,12 @@ const PalaroidSlider = () => {
 
   function prev() {
     setActiveIndex(activeIndex ? activeIndex - 1 : sliderCards.length - 1);
-    console.log(activeIndex);
   }
 
   function next() {
     setActiveIndex(
       activeIndex === sliderCards.length - 1 ? 0 : activeIndex + 1
     );
-    console.log(activeIndex);
   }
 
   return (
@@ -121,27 +122,27 @@ const PalaroidSlider = () => {
           className={[classes.left, classes.card].join(' ')}
           onClick={prev}
         >
-          <PalaroidCard image={sliderCards[leftIndex].image} />
+          <PalaroidCard image={sliderCards[leftIndex]?.image} />
         </div>
         <div
           key={activeIndex}
           className={[classes.active, classes.card].join(' ')}
         >
-          <PalaroidCard {...sliderCards[activeIndex]} />
+          <PalaroidCard isActive={true} {...sliderCards[activeIndex]} />
         </div>
         <div
           key={rightIndex}
           className={[classes.right, classes.card].join(' ')}
           onClick={next}
         >
-          <PalaroidCard image={sliderCards[rightIndex].image} />
+          <PalaroidCard image={sliderCards[rightIndex]?.image} />
         </div>
         <div
           key={rightmostIndex}
           className={[classes.rightmost, classes.card].join(' ')}
           onClick={next}
         >
-          <PalaroidCard image={sliderCards[rightmostIndex].image} />
+          <PalaroidCard image={sliderCards[rightmostIndex]?.image} />
         </div>
         <div
           key={hiddenRightIndex}

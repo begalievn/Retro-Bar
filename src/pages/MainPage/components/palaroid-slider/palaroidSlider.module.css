@@ -25,7 +25,7 @@
 }
 
 .left {
-  transform: translateX(-79%) scale(0.6) rotate(-11.45deg);
+  transform: translateX(-79%) scale(0.65) rotate(-11.45deg);
 }
 
 .left:hover {
