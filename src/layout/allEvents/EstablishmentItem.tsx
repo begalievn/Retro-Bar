@@ -11,7 +11,7 @@ const EstablishmentItem = ({item}) => {
          <p>{item.nameParty}</p>  
          <div  >  
            <div>
-             <div><img src={eyeIcon} alt="" />   {item.views}  </div>&nbsp; 
+             <div className={style.establishment_text_views} ><img src={eyeIcon} alt="" />   {item.views}  </div> 
                <div><img src={pictureIcon} alt="" /> {item.amountImage} </div> 
                </div> 
            <div className={style.section2_establishment_date}>{item.date}</div> 

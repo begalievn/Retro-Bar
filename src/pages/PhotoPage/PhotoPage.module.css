@@ -8,3 +8,17 @@
   min-height: 100vh;
   padding: 0px 6rem
 }
+
+
+.calendar_icon {
+  position: fixed;
+  max-width: 105px;
+  right: 0;
+  top: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 50%;
+  z-index: 50;
+  cursor: pointer;
+}

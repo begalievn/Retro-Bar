@@ -1,19 +1,21 @@
 import React, { FC, useState } from "react";
-import Calendar from "./components/Calendar/Calendar";
 import PhotoHeader from "./components/PhotoHeader/PhotoHeader";
 import PhotoMain from "./components/PhotoMain/PhotoMain";
 import classes from "./PhotoPage.module.css";
-
-const PhotoPage:FC = () => {
-  const [selectedDate, setSelectedDay] = useState(new Date());
+import calendarIcon from '../../assets/icons/calendar-icon.svg'
+const PhotoPage: FC = () => {
   return (
-    <div className={classes.container}>
-      <div className={classes.photo}>
-        <PhotoHeader/>
-        <PhotoMain/>
-        {/* <Calendar selectedDate={selectedDate} selectDate={(date) => setSelectedDay(date)}/> */}
+    <>
+      <div>
+        <img className={classes.calendar_icon} src={calendarIcon} alt="" />
       </div>
-    </div>
+      <div className={classes.container}>
+        <div className={classes.photo}>
+          <PhotoHeader />
+          <PhotoMain />
+        </div>
+      </div>
+    </>
   );
 };
 

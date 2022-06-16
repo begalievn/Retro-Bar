@@ -117,6 +117,9 @@
   height: 33px;
   width: 180px;
   border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+
 }
 
 .input::placeholder {
@@ -131,8 +134,10 @@
   width: 33px;
   height: 33px;
   border-radius: 8px;
-  background: orange;
+  background-color: var(--orange);
   cursor: pointer;
+  border: none;
+  margin-top: 10px;
 }
 
 .onlyIcons {

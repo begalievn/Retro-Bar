@@ -1,0 +1,60 @@
+.container {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  height: 748px;
+  display: flex;
+  align-items: center;
+}
+
+.carousel {
+  width: 100%;
+  height: 578px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card {
+  position: absolute;
+  transition: all 0.5s;
+  left: 21.5%;
+}
+
+.hiddenleft {
+  transform: translateX(-150%) scale(0.5);
+}
+
+.left {
+  transform: translateX(-79%) scale(0.65) rotate(-11.45deg);
+}
+
+.left:hover {
+  cursor: pointer;
+}
+
+.active {
+  transform: rotate(-1.9deg);
+  z-index: 3;
+}
+
+.right {
+  transform: translateX(86%) scale(0.7) rotate(5.71deg);
+  z-index: 2;
+}
+
+.right:hover {
+  cursor: pointer;
+}
+
+.rightmost {
+  transform: translateX(150%) scale(0.55) rotate(-1.42deg);
+  z-index: 1;
+}
+
+.rightmost:hover {
+  cursor: pointer;
+}
+
+.hiddenright {
+  transform: translateX(215%) scale(0.4) rotate(1.45deg);
+}

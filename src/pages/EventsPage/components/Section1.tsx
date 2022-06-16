@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import tape2 from '../../../assets/eventsImages/tape2.png'
 import tape1 from '../../../assets/eventsImages/tape 1.png'
 
-import hero from '../../../assets/eventsImages/banner ticket (2).png'
+import hero from '../../../assets/eventsImages/banner ticket (2).png';
 import banner from "../../../assets/eventsImages/banner (1).png";
 import bannerMini from "../../../assets/eventsImages/bannerMini.jpg";
 import style from '../eventPage.module.css';
 
-const navbar=['Видео','Услуги','Плеер','Галерея'
-
-]
+const navbar: Array<string>=['Видео','Услуги','Плеер','Галерея']
 
 
-const Section1 = () => {
+const Section1:FC = () => {
 
 
   

@@ -7,11 +7,11 @@ const PhotoNav:FC = () => {
   const [show, setShow] = useState(false)
   return (
     <>
-      <nav className={styles.photoNav}>
+      <div className={styles.photoNav}>
         <button >Фото</button>
         <button onClick={() => setShow(true)} >Календарь</button>
         <button>Галерея</button>
-      </nav>
+      </div>
       {show && <Calendar selectedDate={selectedDate} selectDate={(date) => setSelectedDay(date)}/>}
     </>
   )

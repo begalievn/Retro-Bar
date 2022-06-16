@@ -9,9 +9,11 @@ import searchIcon from "../../assets/icons/Footer/Vector.svg";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/system";
 import { Link } from "react-router-dom";
+import { IFooterItems } from "../../typres/footerTypers/footerTypes";
+import { InputSearch } from "../../UI";
 
 const Footer = () => {
-  const [liElem, setLiElem] = useState([
+  const liElem: IFooterItems[] =[
     {
       title: "Фото",
       path: "/photo",
@@ -28,8 +30,8 @@ const Footer = () => {
       title: "События",
       path: "/events",
     },
-  ]);
-  const [liElem2, setliElem2] = useState([
+  ];
+  const liElem2: IFooterItems[] =[
     {
       title: "Новости",
       path: "/news",
@@ -46,8 +48,8 @@ const Footer = () => {
       title: "Копирайт",
       path: "/copyright",
     },
-  ]);
-  const [iconsMedia, setIconsMedia] = useState([
+  ];
+  const iconsMedia =[
     {
       icon: telegramIcon,
       path: "https://web.telegram.org",
@@ -64,16 +66,16 @@ const Footer = () => {
       icon: mailIcon,
       path: "https://mail.google.com/",
     },
-  ]);
-  const [text, setText] = useState([
+  ];
+  const text: Array<string> =[
     "Политика конфиденциальности",
     "Copyright 2021",
     "Digital-агентство Active Trust",
-  ]);
-  const [inputChange, setInputChange] = useState("");
+  ];
+  const [inputChange, setInputChange] = useState<string>("");
 
-  function searchClick() {
-    console.log("hello");
+  function searchClick(name:string): void {
+    console.log(name);
   }
   return (
     <div className={classes.main}>
@@ -142,9 +144,10 @@ const Footer = () => {
                 type="text"
                 placeholder="Геолокация"
               />
-              <button onClick={searchClick} className={classes.search}>
+              <button onClick={()=> searchClick('Beksultan')} className={classes.search}>
                 <img className={classes.im} src={searchIcon} alt="" />
               </button>
+              {/* <InputSearch placeholder="Геолокация"/> */}
             </Grid>
 
             <Grid
@@ -219,9 +222,10 @@ const Footer = () => {
                 type="text"
                 placeholder="Геолокация"
               />
-              <button onClick={searchClick} className={classes.search}>
+              <button onClick={()=> searchClick('Beksultan')} className={classes.search}>
                 <img className={classes.im} src={searchIcon} alt="" />
               </button>
+              {/* <InputSearch placeholder="Геолокация"/> */}
             </Grid>
             <Grid
               sx={{
