@@ -54,11 +54,7 @@ const MainRoutes = () => {
       id: 8,
     },
     {
-<<<<<<< HEAD:src/pages/index.js
       link: "/*",
-=======
-      link: "*",
->>>>>>> dc717afa1817ae63acd41acfe12d3aebbee52dc9:src/pages/index.tsx
       element: <ErrorPage />,
       id: 9,
     },
