@@ -5,6 +5,7 @@
 }
 
 .inputSearch {
+  z-index: 10;
   height: 30px;
   width: 100%;
   padding: 0 11px;
@@ -13,7 +14,7 @@
   font-family: inherit;
   border-radius: 8px;
 }
-.inputSearchBtn{
+.inputSearchBtn {
   position: absolute;
   top: 0;
   right: 0;

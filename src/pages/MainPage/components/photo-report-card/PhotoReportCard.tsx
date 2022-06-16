@@ -33,7 +33,6 @@ const PhotoReportCard = ({
   pics,
   date,
 }: Props) => {
-  console.log(photo);
   return (
     <div
       style={{ backgroundImage: `url(${getRandomItem(cardBackgroundImages)})` }}
