@@ -123,6 +123,10 @@
 }
 
 /* Map */
+.textMap {
+  position: absolute;
+  left: 60%;
+}
 .textMap h1 {
   font-family: "mont";
   font-weight: 700;
@@ -141,7 +145,7 @@
 .circle {
   position: absolute;
   top: -47px;
-  right: 345px;
+  right: 205px;
 }
 .textMap p img {
   margin: 0 10px 0 0;
@@ -232,4 +236,12 @@
   position: absolute;
   top: 30px;
   left: 570px;
+}
+
+/* first child */
+
+.mapImage {
+  position: absolute;
+  width: 600px;
+  left: 0;
 }

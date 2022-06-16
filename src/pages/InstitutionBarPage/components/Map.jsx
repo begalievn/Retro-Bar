@@ -1,7 +1,6 @@
 import React from "react";
 import barStyle from "../institutionBar.module.css";
 
-
 import cycle from "../../../assets/institutionBarImg/iconsMap/sketch.svg";
 import clock from "../../../assets/institutionBarImg/iconsMap/clock.svg";
 import money from "../../../assets/institutionBarImg/iconsMap/money.svg";
@@ -10,11 +9,18 @@ import world from "../../../assets/institutionBarImg/iconsMap/meaning.svg";
 import instagram from "../../../assets/institutionBarImg/iconsMap/instagram.svg";
 import geotag from "../../../assets/institutionBarImg/iconsMap/geotag.svg";
 import phone from "../../../assets/institutionBarImg/iconsMap/phone.svg";
+import map from "../../../assets/institutionBarImg/photo/map.png";
 
 export default function Map() {
   return (
     <div className={barStyle.map}>
-      <h1>MILANA</h1>
+      <a
+        className="dg-widget-link"
+        href="http://2gis.kg/bishkek/firm/70000001019346367/center/74.61690902709962,42.85834982271733/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap"
+      >
+        <img src={map} className={barStyle.mapImage}/>
+      </a>
+
       <section className={barStyle.textMap}>
         <img src={cycle} className={barStyle.circle} />
         <h1>Описание:</h1>
