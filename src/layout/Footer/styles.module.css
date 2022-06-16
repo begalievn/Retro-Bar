@@ -33,7 +33,6 @@
 .retro2 {
   display: flex;
   align-items: center;
-  
 }
 .retroMobile {
   display: flex;
@@ -41,7 +40,6 @@
   justify-content: center;
   margin-top: 20px;
   font-family: Montserrat Alternates;
-
 }
 .blocks2 {
   width: 20%;
@@ -58,7 +56,7 @@
   border-bottom: 1px solid unset;
   width: 100px;
 }
-.blocks2 ul{
+.blocks2 ul {
   padding-left: 60px;
   height: 55px;
 }
@@ -74,10 +72,9 @@
   align-items: center;
   justify-content: center;
 }
-.blocks3 ul{
+.blocks3 ul {
   padding-left: 50px;
   height: 55px;
-
 }
 .blocks3 ul a {
   font-size: 16px;
@@ -101,7 +98,6 @@
   font-size: 16px;
   margin-bottom: 25px;
   font-family: Montserrat Alternates;
-
 }
 .iconsBlock {
   width: 223px;
@@ -116,7 +112,6 @@
   font-size: 16px;
   margin-top: 80px;
   font-family: Montserrat Alternates;
-
 }
 .input {
   height: 33px;
@@ -128,9 +123,8 @@
   color: #374151;
   padding: 17px;
   font-family: Montserrat Alternates;
-
 }
-.inputBlockMD{
+.inputBlockMD {
   margin-left: 10px;
 }
 .search {
@@ -162,11 +156,9 @@
   color: rgba(255, 255, 255, 0.521);
   font-size: 12px;
   font-family: Montserrat Alternates;
-
 }
 .politic div {
   color: rgba(255, 255, 255, 0.521);
   font-size: 12px;
   font-family: Montserrat Alternates;
-
 }

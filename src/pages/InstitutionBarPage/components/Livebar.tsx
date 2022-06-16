@@ -1,6 +1,5 @@
-import React from "react";
+import React, { FC } from "react";
 import barStyle from "../institutionBar.module.css";
-
 import livebar from "../../../assets/institutionBarImg/iconLiveBar/livebar.png";
 import polaroidMain from "../../../assets/institutionBarImg/iconLiveBar/polaroidMain.png";
 import photoMain from "../../../assets/institutionBarImg/photo/photoMain.png";
@@ -9,16 +8,29 @@ import polaroidMain1 from "../../../assets/institutionBarImg/iconLiveBar/polaroi
 import event from "../../../assets/institutionBarImg/iconLiveBar/events.svg";
 import picture from "../../../assets/institutionBarImg/iconLiveBar/picture.svg";
 import rating from "../../../assets/institutionBarImg/iconLiveBar/rating.svg";
+import { Grid } from "@mui/material";
 
-export default function LiveBar() {
+const LiveBarTS: FC = () => {
   return (
-    <div className={barStyle.flex}>
-      <section className={barStyle.section_text}>
-        <article className={barStyle.livebar}>
-          <img src={livebar} width="120px" />
-          <p>LIVEBAR</p>
-          
-        </article>
+    <Grid container className={barStyle.livebarContainer}>
+      <Grid item xs={12} md={5}>
+        <Grid container className={barStyle.livebarLetfTop}>
+          <Grid item xs={4} md={3}>
+            <img src={livebar} width="85%" />
+          </Grid>
+          <Grid item xs={4} md={5} className={barStyle.livebar}>
+            <p className={barStyle.livebarHeader}>LIVEBAR</p>
+            <div className={barStyle.comments}>
+              <img src={picture} />
+              <p>150</p>
+              <img src={event} />
+              <p>2</p>
+            </div>
+          </Grid>
+          <Grid item xs={4} md={4}>
+            <img src={rating} className={barStyle.rating} />
+          </Grid>
+        </Grid>
         <p>
           LiveBar, работая в ресторанной сфере уже свыше 11-ти лет является
           именем нарицательным. Несмотря на внушительную базу постоянных гостей
@@ -37,28 +49,33 @@ export default function LiveBar() {
           Лучше один раз увидеть, чем 100 раз прочитать или услышать! Приходите
           и ощутите уникальную ауру наших заведений!
         </p>
-      </section>
-      <section className={barStyle.section_photo}>
-        <article className={barStyle.photo}>
-          <div className={barStyle.tape1} />
-          <div className={barStyle.tape2} />
-          <img src={polaroidMain1} width="100%" />
-          <img src={photoMain} width="36.5%" className={barStyle.mainPhoto} />
-          <img src={effectMain} width="405px" className={barStyle.mainPhoto} />
-        </article>
-        <article className={barStyle.photosAll}>
-          <div className={barStyle.photo1}>
-            {/* <img
+      </Grid>
+      <Grid item xs={12} md={7}>
+        <section>
+          <article>
+            <img
+              src={polaroidMain1}
+              width="45%"
+                className={barStyle.polaroidMainLivebar}
+            />
+            <img src={photoMain} width="33%" className={barStyle.mainPhoto} />
+            {/* <img src={effectMain} width="55%" className={barStyle.mainPhoto} /> */}
+          </article>
+          {/* <article className={barStyle.photosAll}>
+            <div className={barStyle.photo1}>
+              <img
               src={miniPhoto1}
               width="115px"
               className={barStyle.miniPhoto1}
-            /> */}
-          </div>
-          <div className={barStyle.photo2}></div>
-          <div className={barStyle.photo3}></div>
-          <div className={barStyle.photo4}></div>
-        </article>
-      </section>
-    </div>
+            />
+            </div>
+            <div className={barStyle.photo2}></div>
+            <div className={barStyle.photo3}></div>
+            <div className={barStyle.photo4}></div>
+          </article> */}
+        </section>
+      </Grid>
+    </Grid>
   );
-}
+};
+export default LiveBarTS;
