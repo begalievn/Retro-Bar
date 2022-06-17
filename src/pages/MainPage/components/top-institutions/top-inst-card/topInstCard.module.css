@@ -14,8 +14,9 @@
 }
 
 .card_content_container {
-  width: 296px;
-  height: 239px;
+  width: 292.5px;
+  height: 233px;
+  top: 1px;
   position: absolute;
 }
 
@@ -24,17 +25,16 @@
   height: auto;
   position: absolute;
   top: 47px;
-  left: 15px;
+  left: 14px;
 }
 
 .card_content {
   position: absolute;
   top: 79px;
-  left: 42px;
+  left: 40px;
   z-index: 2;
   width: 90%;
   height: 70%;
-  transform: rotate(2.05deg);
   color: white;
 }
 
@@ -60,9 +60,9 @@
 }
 
 .photoOfBar {
-  width: 300px;
+  width: 296px;
   height: 243px;
   position: absolute;
-  top: 57.5px;
+  top: 47px;
   right: 23px;
 }
