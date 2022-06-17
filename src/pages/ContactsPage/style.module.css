@@ -1,0 +1,60 @@
+.mainDiv {
+  background: url("../../assets/contactsPage/back.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  min-height: 700px;
+  color: white;
+  font-family: Montserrat Alternates;
+  display: flex;
+  align-items: center;
+}
+.aboutText{
+    position: relative;
+}
+.aboutText h1 {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 28px;
+    color: #FFB03B;
+}
+
+.information div{
+    margin-top: 20px;
+
+}
+.information div span{
+    font-size: 18px;
+    margin-left: 15px;
+}
+.threeImg img{
+    cursor: pointer;
+}
+.threeImg{
+    position: relative;
+}
+.tape{
+    position: absolute;
+    top: 27px;
+    left: 50px;
+    transform: rotate(177deg);
+}
+.tape2{
+    position: absolute;
+    top: 133px;
+    left: 55px;
+}
+.tape3{
+    position: absolute;
+    top: 240px;
+    left: 55px;
+    transform: rotate(5deg);
+}
+.tapeR{
+    position: absolute;
+    top: 80px;
+    left: 145px;
+    transform: rotate(90deg);
+    /* width: 120px; */
+}
