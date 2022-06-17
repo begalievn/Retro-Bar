@@ -1,19 +1,16 @@
 import React from "react";
 import { FC } from "react";
-import cycle from "../../../../assets/institutionBarImg/iconsMap/sketch.svg";
-import clock from "../../../../assets/institutionBarImg/iconsMap/clock.svg";
-import money from "../../../../assets/institutionBarImg/iconsMap/money.svg";
-import dish from "../../../../assets/institutionBarImg/iconsMap/dish.svg";
-import world from "../../../../assets/institutionBarImg/iconsMap/meaning.svg";
-import instagram from "../../../../assets/institutionBarImg/iconsMap/instagram.svg";
-import geotag from "../../../../assets/institutionBarImg/iconsMap/geotag.svg";
-import phone from "../../../../assets/institutionBarImg/iconsMap/phone.svg";
 import map from "../../../../assets/institutionBarImg/photo/map.png";
-import classes from "./Map.module.css";
+import classes from "./Livebar.module.css";
 const Map: FC = () => {
   return (
     <div>
-     
+      <a
+        className="dg-widget-link"
+        href="http://2gis.kg/bishkek/firm/70000001019346367/center/74.61690902709962,42.85834982271733/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap"
+      >
+        <img src={map} className={classes.mapImage} />
+      </a>
     </div>
   );
 };

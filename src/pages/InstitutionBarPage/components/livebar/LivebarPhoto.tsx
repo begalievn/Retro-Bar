@@ -8,7 +8,7 @@ const LivebarPhoto: FC = () => {
   return (
     <div className={classes.photo}>
       <section>
-        <article className={classes.mainPhotoArticle}>
+        <article>
           <img src={polaroidMain1} width="100%" />
           <img src={photoMain} width="73%" className={classes.mainPhoto} />
           <img src={effectMain} width="73%" className={classes.mainPhoto} />
