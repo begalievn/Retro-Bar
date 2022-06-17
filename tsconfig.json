@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
-<<<<<<< HEAD
     "target": "es6",
-=======
-    "target": "es5",
->>>>>>> b8b17e5364d5942341c9e86f70449349f122b005
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -13,11 +9,7 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-<<<<<<< HEAD
     "module": "commonjs",
-=======
-    "module": "esnext",
->>>>>>> b8b17e5364d5942341c9e86f70449349f122b005
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,

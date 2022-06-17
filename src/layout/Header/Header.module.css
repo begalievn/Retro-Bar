@@ -41,44 +41,6 @@ nav {
   justify-content: space-between;
   list-style: none;
 }
-<<<<<<< HEAD
-.headerNavItem {
-  margin: 0 13.6px;
-}
-
-/*.headerNavItemEvents::after,*/
-/*.headerNavItemEvents::before {*/
-/*  content: "";*/
-/*  display: inline-block;*/
-/*  width: 1px;*/
-/*  height: 17px;*/
-/*  opacity: 0.6;*/
-/*  background-color: #ebebeb;*/
-/*}*/
-.headerNavItemEvents::after {
-  /*margin: 0 10px 0 0;*/
-}
-
-.headerNavItem:last-child {
-  margin: 0 0 0 5px;
-}
-.headerNavItem:nth-child(4) {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  border-right: 1px solid rgba(235, 235, 235, 0.5);
-  border-left: 1px solid rgba(235, 235, 235, 0.5);
-  padding: 10px;
-  height: 17px;
-  /*margin: 0 calc(14px - 10px);*/
-}
-
-.headerNavItem a {
-  color: #ebebeb;
-  text-decoration: none;
-}
-=======
->>>>>>> dc717afa1817ae63acd41acfe12d3aebbee52dc9
 
 .headerMenuBtn {
   cursor: pointer;
