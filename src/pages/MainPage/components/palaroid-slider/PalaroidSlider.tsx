@@ -8,14 +8,14 @@ import leftCardImage from '../../../../assets/mainPage/palaroid-card-image-left.
 
 import classes from './palaroidSlider.module.css';
 
-// interface CardsType {
-//   image: string;
-//   title: string;
-//   description: string;
-//   date: string;
-// }
+interface CardsType {
+  image: string;
+  title: string;
+  description: string;
+  date: string;
+}
 
-const cards = [
+const cards: Array<CardsType> = [
   {
     image: activeCardImage,
     title: 'ZEPPELIN BAR',
@@ -62,10 +62,10 @@ const cards = [
 
 const PalaroidSlider = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [sliderCards, setSliderCards] = useState([]);
+  const [sliderCards, setSliderCards] = useState<CardsType[]>([]);
 
   useEffect(() => {
-    let arrCards = [];
+    let arrCards: Array<CardsType> = [];
 
     if (cards === undefined) return;
 
@@ -78,14 +78,6 @@ const PalaroidSlider = () => {
       i++;
     }
 
-    // const componentsArr = arrCards.map((item) => (
-    //   <PalaroidCard
-    //     image={item.image}
-    //     title={item.title}
-    //     description={item.description}
-    //     date={item.date}
-    //   />
-    // ));
     setSliderCards([...arrCards]);
   }, [cards]);
 
@@ -115,14 +107,20 @@ const PalaroidSlider = () => {
           key={hiddenLeftIndex}
           className={[classes.hiddenleft, classes.card].join(' ')}
         >
-          <PalaroidCard {...sliderCards[hiddenLeftIndex]} />
+          <PalaroidCard isActive={false} {...sliderCards[hiddenLeftIndex]} />
         </div>
         <div
           key={leftIndex}
           className={[classes.left, classes.card].join(' ')}
           onClick={prev}
         >
-          <PalaroidCard image={sliderCards[leftIndex]?.image} />
+          <PalaroidCard
+            image={sliderCards[leftIndex]?.image}
+            title={''}
+            description={''}
+            date={''}
+            isActive={false}
+          />
         </div>
         <div
           key={activeIndex}
@@ -135,20 +133,32 @@ const PalaroidSlider = () => {
           className={[classes.right, classes.card].join(' ')}
           onClick={next}
         >
-          <PalaroidCard image={sliderCards[rightIndex]?.image} />
+          <PalaroidCard
+            image={sliderCards[rightIndex]?.image}
+            title={''}
+            description={''}
+            date={''}
+            isActive={false}
+          />
         </div>
         <div
           key={rightmostIndex}
           className={[classes.rightmost, classes.card].join(' ')}
           onClick={next}
         >
-          <PalaroidCard image={sliderCards[rightmostIndex]?.image} />
+          <PalaroidCard
+            image={sliderCards[rightmostIndex]?.image}
+            title={''}
+            description={''}
+            date={''}
+            isActive={false}
+          />
         </div>
         <div
           key={hiddenRightIndex}
           className={[classes.hiddenright, classes.card].join(' ')}
         >
-          <PalaroidCard {...sliderCards[hiddenRightIndex]} />
+          <PalaroidCard isActive={false} {...sliderCards[hiddenRightIndex]} />
         </div>
       </div>
     </div>
