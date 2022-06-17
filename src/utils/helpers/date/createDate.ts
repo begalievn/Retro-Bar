@@ -13,7 +13,6 @@ export const createDate = (params?: CreateDateParams) => {
   // for (let i = 0; i < 10; i++) {
     
   // }
-  console.log(dayNumber);
   
   const day = d.toLocaleDateString(locale, { weekday: 'long' });
   const dayNumberInWeek = d.getDay() + 1;

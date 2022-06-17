@@ -81,7 +81,6 @@ export const useCalendar = ({
       
     // }
 
-    console.log(days);
     
 
     for (let i = numberOfPrevDays; i < totalCalendarDays - numberOfNextDays; i += 1) {

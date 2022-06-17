@@ -15,8 +15,8 @@
 .photo4 { grid-area: photo4; } */
 
 .calendar_events {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 22px;
   margin-left: 28px;
 }

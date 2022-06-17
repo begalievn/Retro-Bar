@@ -27,7 +27,6 @@ const Calendar: FC<CalendarProps> = ({
     selectedDate: date,
     firstWeekDayNumber,
   });
-  console.log(createMonth());
 
   return (
     <div className='calendar'>

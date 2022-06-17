@@ -5,10 +5,14 @@ import CalendarEvents from "./CalendarEvents/CalendarEvents";
 import CalendarFilter from "./CalendarFilter/CalendarFilter";
 import styles from "./CalendarModal.module.css";
 
-const CalendarModal: FC = ({ open, setOpen }) => {
+interface CalendarModalProps {
+  open: boolean;
+  handleClose: () => void
+}
+
+const CalendarModal: FC<CalendarModalProps> = ({ open,handleClose }) => {
   const [selectedDate, setSelectedDay] = useState(new Date());
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+
   const style = {
     position: "absolute",
     top: "50%",
@@ -20,7 +24,6 @@ const CalendarModal: FC = ({ open, setOpen }) => {
   };
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

@@ -25,9 +25,9 @@ const Main: FC = () => {
         <h3 className={styles.photoMain_intro_title}>Актуальные фотоотчёты</h3>
         <img className={styles.photoMain_intro_img} src={lightning} alt="" />
       </div>
-      <div className={styles.gridBlocks}>
+      {/* <div className={styles.gridBlocks}>
         <PhotoReport />
-      </div>
+      </div> */}
     </div>
   );
 };
