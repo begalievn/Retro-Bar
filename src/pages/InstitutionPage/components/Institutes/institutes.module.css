@@ -1,45 +1,180 @@
-.main{
+.main {
   display: column;
+  margin-top: 213px;
 }
-.title{
+.title {
   text-align: left;
+  margin-bottom: 72px;
+  padding-left: 14%;
 }
-h2{
- color: white;
+h2 {
+  color: white;
 }
-.cards{
+.cards {
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding-right: 5%;
 }
-.sideCard{
+.imageBlock{
+  background-color: rgba(0, 0, 255, 0.493);
+  position: absolute;
+  min-width: 72%;
+  min-height: 81%;
+  top: 64%;
+  right:50%;
+  padding: 15% 21% 10% 8%;
+  overflow: hidden;
+}
+/* .institutes_imageBlock__OuNCQ {
+  background-color: rgba(0, 0, 255, 0.493);
+  position: absolute;
+  width: 72%;
+  height: 81%;
+  top: 64px;
+  right: 101px;
+  padding: 15% 21% 10% 8%;
+  overflow: hidden;
+} */
+/* .institutes_imageBlock__OuNCQ {
+    background-color: rgba(0, 0, 255, 0.493);
+    position: absolute;
+    width: 72%;
+    height: 81%;
+    top: 64px;
+    right: 101px;
+    padding: 15% 21% 10% 8%;
+    overflow: hidden;
+} */
+/* боковые карточки */
+.sideCard {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.sideCardTablet1Block{
-position: relative;
-}
-.sideCardTabletImage1{
+.sideCardsDarken{
+  background: linear-gradient(#00000020, #00000020);
+  width: 100%;
+  height: 100%;
   position: absolute;
+  top: 0;
+  right: 0;
 }
-.sideCardTablet2Block{
-position: relative;
-}
-.sideCardTabletImage2{
-  position: absolute;
-}
-.middleCard{
-  display: flex;
-  justify-content: center;
-  
-}
-
-.middleCardTabletBlock{
+/* первая */
+.sideCard1Block {
   position: relative;
 }
-.middleCardTabletImage{
+.sideCard1Image {
   position: absolute;
   top: 20%;
   right: 20%;
+  max-width: 80%;
+  object-fit: contain;
+}
+.sideCard1Canvas {
+  
+  width: 100%;
 }
 
+/* третья */
+.sideCard2Block {
+  position: relative;
+}
+.sideCard2Image {
+  position: absolute;
+  top: 20%;
+  right: 20%;
+  max-width: 80%;
+}
+.sideCard2Canvas {
+  width: 100%;
+}
+/* средняя карточка */
+
+.middleCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.middleCardBlock {
+  position: relative;
+}
+.middleCardImage {
+  position: absolute;
+  top: 20%;
+  right: 20%;
+  max-width: 80%;
+}
+.middleCardCanvas {
+  width: 30vw;
+}
+
+.cardsMobile {
+  display: none;
+}
+@media screen and (max-width: 425px) {
+  .title {
+    text-align: center;
+    margin-bottom: 72px;
+    padding-left: 0;
+  }
+  .cards {
+    display: none;
+  }
+  .cardsMobile {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+  }
+  .cardsM {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    margin-bottom: 58px;
+    transition-property:all;
+    transition-duration: 1s;
+  }
+  .middleCardCanvas {
+    width: 80vw;
+  }
+  .sideCard1Canvas {
+    width: 80vw;
+  }
+  .sideCard2Canvas {
+    width: 80vw;
+    
+  }
+  .middleCard {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  /* .cards {
+    align-items: flex-start;
+  }
+  .middleCard {
+    flex-direction: column;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  .middleCardCanvas {
+    width: 80vw;
+    
+  }
+  .sideCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  .sideCard1Canvas {
+    width: 80vw;
+  }
+  
+
+  .sideCard2Canvas {
+    width: 80vw;
+  } */
+}
