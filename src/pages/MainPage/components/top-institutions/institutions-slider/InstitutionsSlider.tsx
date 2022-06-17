@@ -60,32 +60,74 @@ const InstitutionsSlider = () => {
   const [slideCards, setSlideCards] = useState<CardsType[]>([]);
 
   useEffect(() => {
-    let cardsArr = [];
+    let cardsArr: CardsType[] = [];
 
     if (cardsData === undefined) {
       return;
     }
 
-    Array.isArray(cardsData) ? (cardsArr = [...cardsData]) : cardsArr;
+    Array.isArray(cardsData)
+      ? (cardsArr = [...cardsData])
+      : (cardsArr = [cardsData]);
+
+    let i = 0;
+    while (cardsArr.length < 6) {
+      cardsArr.push(cardsArr[i]);
+      i++;
+    }
+
+    setSlideCards([...cardsArr]);
   }, []);
+
+  let leftIndex = activeIndex ? activeIndex - 1 : slideCards.length - 1;
+  let rightIndex = activeIndex === slideCards.length - 1 ? 0 : activeIndex + 1;
+
+  let hiddenLeftIndex = leftIndex ? leftIndex - 1 : slideCards.length - 1;
+  let hiddenRightIndex =
+    rightIndex === slideCards.length - 1 ? 0 : rightIndex + 1;
+
+  function prev() {
+    setActiveIndex(activeIndex ? activeIndex - 1 : slideCards.length - 1);
+  }
+
+  function next() {
+    setActiveIndex(activeIndex === slideCards.length - 1 ? 0 : activeIndex + 1);
+  }
 
   return (
     <div className={classes.container}>
       <div className={classes.carousel}>
-        <div className={[classes.hiddenLeft, classes.card].join(' ')}>
-          <TopInstCard />
+        <div
+          key={hiddenLeftIndex}
+          className={[classes.hiddenLeft, classes.card].join(' ')}
+        >
+          <TopInstCard {...slideCards[hiddenLeftIndex]} />
         </div>
-        <div className={[classes.left, classes.card].join(' ')}>
-          <TopInstCard />
+        <div
+          key={leftIndex}
+          className={[classes.left, classes.card].join(' ')}
+          onClick={prev}
+        >
+          <TopInstCard {...slideCards[leftIndex]} />
         </div>
-        <div className={[classes.active, classes.card].join(' ')}>
-          <TopInstCard />
+        <div
+          key={activeIndex}
+          className={[classes.active, classes.card].join(' ')}
+        >
+          <TopInstCard {...slideCards[activeIndex]} />
         </div>
-        <div className={[classes.right, classes.card].join(' ')}>
-          <TopInstCard />
+        <div
+          key={rightIndex}
+          className={[classes.right, classes.card].join(' ')}
+          onClick={next}
+        >
+          <TopInstCard {...slideCards[rightIndex]} />
         </div>
-        <div className={[classes.hiddenRight, classes.card].join(' ')}>
-          <TopInstCard />
+        <div
+          key={hiddenRightIndex}
+          className={[classes.hiddenRight, classes.card].join(' ')}
+        >
+          <TopInstCard {...slideCards[hiddenRightIndex]} />
         </div>
       </div>
     </div>

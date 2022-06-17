@@ -19,6 +19,7 @@
   left: 24%;
   top: 13px;
   transform: rotate(2deg);
+  transition: all 0.5s;
 }
 
 .hiddenLeft {

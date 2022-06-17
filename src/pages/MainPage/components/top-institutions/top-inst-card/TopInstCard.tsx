@@ -8,7 +8,15 @@ import clockIcon from '../../../../../assets/mainPage/top-inst-clock-icon.svg';
 import phoneIcon from '../../../../../assets/mainPage/top-inst-phone-icon.svg';
 import locationIcon from '../../../../../assets/mainPage/top-inst-location-icon.svg';
 
-const TopInstCard = () => {
+interface PropType {
+  photo: string;
+  title: string;
+  time: string;
+  phone: string;
+  location: string;
+}
+
+const TopInstCard = ({ photo, title, time, phone, location }: PropType) => {
   return (
     <div className={classes.card}>
       <img className={classes.cardBackground} src={backgroundPhoto} alt="" />
@@ -20,25 +28,25 @@ const TopInstCard = () => {
         />
         <div className={classes.card_content}>
           <div className={classes.card_content_title}>
-            <h4>MINIBAR</h4>
+            <h4>{title}</h4>
           </div>
           <div className={classes.card_content_info}>
             <p>
               <img src={clockIcon} alt="clock-icon" />
-              {'18:00-06:00'}
+              {time}
             </p>
             <p>
               <img src={phoneIcon} alt="phone-icon" />
-              {'0 558 55 00 00'}
+              {phone}
             </p>
             <p>
               <img src={locationIcon} alt="location-icon" />
-              {'Чынгыза Айтматова, 56'}
+              {location}
             </p>
           </div>
         </div>
       </div>
-      <img className={classes.photoOfBar} src={photoOfBar} alt="bar" />
+      <img className={classes.photoOfBar} src={photo} alt="bar" />
     </div>
   );
 };
