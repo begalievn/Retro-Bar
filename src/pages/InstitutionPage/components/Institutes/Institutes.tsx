@@ -10,15 +10,19 @@ import image3 from '../../../../assets/institution/middlePart/image3.png'
 import image2 from '../../../../assets/institution/middlePart/image2.png'
 
 import PlaceInfo from '../placeInfo/PlaceInfo'
+import Carousel from './Carousel/Carousel'
 
 
 
 
 function Institutes() {
-
- 
+  const [click, setClick] = useState('')
   
- 
+  const clickHandler = (direction) => {
+    
+    setClick(direction)
+  }
+
 
   return (
     <section className={styles.main}>
@@ -30,7 +34,7 @@ function Institutes() {
           <div className={styles.sideCard1Block}>
             <img src={tablet1} alt="" className={styles.sideCard1Canvas} />
             <div className={styles.imageBlock}>
-            <img src={image1} alt="" className={styles.sideCard1Image} />
+              <img src={image1} alt="" className={styles.sideCard1Image} />
 
             </div>
             <div className={styles.sideCardsDarken}></div>
@@ -40,17 +44,17 @@ function Institutes() {
           <div className={styles.middleCardBlock}>
             <img src={tablet2} alt="" className={styles.middleCardCanvas} />
             <div className={styles.imageMiddleBlock}>
-            <img src={image2} alt="" className={styles.middleCardImage} />
+              <img src={image2} alt="" className={styles.middleCardImage} />
 
             </div>
           </div>
         </div>
-         <PlaceInfo />
+        <PlaceInfo />
         <div className={styles.sideCard}>
           <div className={styles.sideCard2Block}>
-            <img src={tablet3} alt=""  className={styles.sideCard2Canvas} />
+            <img src={tablet3} alt="" className={styles.sideCard2Canvas} />
             <div className={styles.imageBlock}>
-            <img src={image3} alt="" className={styles.sideCard2Image} />
+              <img src={image3} alt="" className={styles.sideCard2Image} />
 
             </div>
             <div className={styles.sideCardsDarken}></div>
@@ -58,47 +62,53 @@ function Institutes() {
         </div>
       </section>
 
-      
+
       <section className={styles.cardsMobile}>
         <div className={styles.cardsM} >
+          <Carousel clickData={click}>
+          <div className={styles.sideCard}>
+            <div className={styles.sideCard1Block}>
+              <img src={tablet1} alt="" className={styles.sideCard1Canvas} />
+              <div className={styles.imageBlock}>
+                <img src={image1} alt="" className={styles.sideCard1Image} />
 
-        <div className={styles.sideCard}>
-          <div className={styles.sideCard1Block}>
-            <img src={tablet1} alt="" className={styles.sideCard1Canvas} />
-            <div className={styles.imageBlock}>
-            <img src={image1} alt="" className={styles.sideCard1Image} />
+              </div>
+            </div>
+          </div>
+
+
+          <div className={styles.middleCard}>
+            <div className={styles.middleCardBlock}>
+              <img src={tablet2} alt="" className={styles.middleCardCanvas} />
+              <div className={styles.imageMiddleBlock}>
+                <img src={image2} alt="" className={styles.middleCardImage} />
+
+              </div>
 
             </div>
           </div>
-        </div>
-        <div className={styles.middleCard}>
-          <div className={styles.middleCardBlock}>
-            <img src={tablet2} alt="" className={styles.middleCardCanvas} />
-            <div className={styles.imageMiddleBlock}>
-            <img src={image2} alt="" className={styles.middleCardImage} />
 
-            </div>
-            
-          </div>
-        </div>
-        <div className={styles.sideCard}>
-          <div className={styles.sideCard2Block}>
-            <img src={tablet3} alt=""  className={styles.sideCard2Canvas} />
-            <div className={styles.imageBlock}>
-            <img src={image3} alt="" className={styles.sideCard2Image} />
 
+          <div className={styles.sideCard}>
+            <div className={styles.sideCard2Block}>
+              <img src={tablet3} alt="" className={styles.sideCard2Canvas} />
+              <div className={styles.imageBlock}>
+                <img src={image3} alt="" className={styles.sideCard2Image} />
+              </div>
             </div>
-           
           </div>
+
+          </Carousel>
+
+
         </div>
-        </div>
-         <PlaceInfo />
+        <PlaceInfo click={clickHandler} />
       </section>
 
     </section>
-      
 
-     
+
+
 
   )
 }

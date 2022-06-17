@@ -18,14 +18,14 @@ import rating from "../../../../assets/institution/placeInfo/rating.svg";
 
 
 
-const PlaceInfo = () =>{
+const PlaceInfo = ({click}) =>{
   
   
   
   return (
     <section className={styles.placeInfo}>
       <section className={styles.header}>
-        <div  className={styles.buttonPrev}>
+        <div  className={styles.buttonPrev} onClick={()=>click({dir:'prev',change:Date.now()})}>
           <img src={arrowleft} alt="" />
         </div>
         <div className={styles.headerLogoBlock}>
@@ -35,7 +35,7 @@ const PlaceInfo = () =>{
           <h3>KEANU</h3>
           <h4 className={styles.headerType}>Bar</h4>
         </div>
-        <div className={styles.buttonNext}>
+        <div onClick={()=>click({dir:'next',change:Date.now()})}className={styles.buttonNext}>
           <img src={arrowright} alt="" />
         </div>
       </section>
