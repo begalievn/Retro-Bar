@@ -62,41 +62,40 @@ const bigPhotoCard = {
 const PhotoReports = () => {
   return (
     <div className={classes.photo_reports}>
-      <div className={classes.photo_reports_layer}>
-        <div className={classes.photo_reports_container}>
-          <div
-            className={[classes.main_title, classes.photo_reports__title].join(
-              ' '
-            )}
-          >
-            Актуальные фотоотчеты
-          </div>
-          <div className={classes.photo_reports__content}>
-            {reportsArr.map((item, index) => (
-              <PhotoReportCard
-                key={index}
-                photo={item.photo}
-                title={item.title}
-                eventType={item.eventType}
-                watches={item.watches}
-                pics={item.pics}
-                date={item.date}
-              />
-            ))}
-            <PhotoReportCardBig
-              photo={bigPhotoCard.photo}
-              title={bigPhotoCard.title}
-              eventType={bigPhotoCard.eventType}
-              watches={bigPhotoCard.watches}
-              pics={bigPhotoCard.pics}
-              date={bigPhotoCard.date}
+      <div className={classes.photo_reports_container}>
+        <div
+          className={[classes.main_title, classes.photo_reports__title].join(
+            ' '
+          )}
+        >
+          Актуальные фотоотчеты
+        </div>
+        <div className={classes.photo_reports__content}>
+          {reportsArr.map((item, index) => (
+            <PhotoReportCard
+              key={index}
+              photo={item.photo}
+              title={item.title}
+              eventType={item.eventType}
+              watches={item.watches}
+              pics={item.pics}
+              date={item.date}
             />
-          </div>
-          <div className={classes.photo_reports__btn}>
-            <button>Все фото</button>
-          </div>
+          ))}
+          <PhotoReportCardBig
+            photo={bigPhotoCard.photo}
+            title={bigPhotoCard.title}
+            eventType={bigPhotoCard.eventType}
+            watches={bigPhotoCard.watches}
+            pics={bigPhotoCard.pics}
+            date={bigPhotoCard.date}
+          />
+        </div>
+        <div className={classes.photo_reports__btn}>
+          <button>Все фото</button>
         </div>
       </div>
+      <div className={classes.photo_reports_layer}></div>
 
       <img className={classes.photo_reports__star3} src={star3Icon} alt="" />
       <img className={classes.photo_reports__star4} src={star4Icon} alt="" />
