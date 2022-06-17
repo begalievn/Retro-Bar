@@ -1,17 +1,23 @@
 * {
   color: white;
+  box-sizing: border-box;
 }
 .mainContainer {
+  position: relative;
   width: 100%;
   height: 1620px;
-  background-color: #000000;
   mix-blend-mode: screen;
+  background: url("../../assets/institutionBarImg/back/back.png") 0 0/100% 100%
+    no-repeat;
+  overflow: hidden;
+  padding: 0 8% 0 8%;
 }
 .main_gradient {
   width: 100%;
-  height: 600px;
-  margin: 0 auto;
+  height: 100%;
   position: relative;
+  background-color: #000000;
+  /* background: url("../../assets/institutionBarImg/back/back.png") 0 0/100% 100% no-repeat; */
   mix-blend-mode: screen;
 }
 .text_header {
@@ -21,10 +27,9 @@
   color: #ffb03b;
   font-family: "mont";
   line-height: 24.38px;
-  position: absolute;
+  position: relative;
   height: 24px;
-  left: 109px;
-  top: 164px;
+  top: 144px;
 }
 
 .share {
@@ -33,4 +38,7 @@
   color: white;
   right: 109px;
   top: 164px;
+}
+.text_flex {
+  padding-bottom: 3%;
 }

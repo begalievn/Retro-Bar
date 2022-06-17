@@ -1,0 +1,116 @@
+.livebarContainer {
+  position: absolute;
+  box-sizing: border-box;
+}
+
+/* LivebarText */
+.text {
+  position: relative;
+  top: 16%;
+  margin-top: 10%;
+  width: 100%;
+  height: 750px;
+}
+
+.livebarLetfBottom p {
+  margin-bottom: 8%;
+  font-size: 16px;
+}
+
+.livebarLetfTop {
+  margin-bottom: 5%;
+}
+.livebarHeader {
+  padding-top: 15px;
+  font-size: 24px;
+}
+.livebar {
+  padding: 5% 0 0 8%;
+}
+.comments {
+  width: 200px;
+  display: inline-flex;
+}
+.comments img,
+p {
+  padding: 2% 10% 0 0;
+}
+.rating {
+  /* padding-left: 4%; */
+  width: 38%;
+}
+
+/* LiveBar Photo */
+.photo {
+  top: 30%;
+  position: relative;
+  right: 10%;
+  margin: 0 10% 0 20%;
+}
+.mainPhoto {
+  position: absolute;
+  border-radius: 2px;
+  top: 17%;
+  right: 12%;
+  transform: rotate(3.7deg);
+}
+
+.photosAll {
+  position: absolute;
+  left: 10%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.photo1 {
+  width: 30%;
+  height: 30%;
+}
+.photo2 {
+  width: 30%;
+  height: 30%;
+  transform: rotate(3.76deg);
+}
+.photo3 {
+  width: 30%;
+  height: 30%;
+  transform: rotate(10.76deg);
+}
+.photo4 {
+  width: 30%;
+  height: 30%;
+  transform: rotate(2.76deg);
+}
+
+@media only screen and (max-width: 800px) {
+  .livebarLetfBottom p {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .photo {
+    left: 6%;
+  }
+  .photo1 {
+    width: 100%;
+    height: 100%;
+  }
+  .photo2 {
+    width: 100%;
+    height: 100%;
+  }
+  .photo3 {
+    width: 100%;
+    height: 100%;
+  }
+  .photo4 {
+    visibility: hidden;
+  }
+  .rating {
+    margin-left: 8%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .livebarHeader {
+    font-size: 18px;
+  }
+}

@@ -1,39 +1,30 @@
 import React, { FC } from "react";
-import { Grid } from "@mui/material";
-
-
 import photoMain from "../../../../assets/institutionBarImg/photo/photoMain.png";
 import effectMain from "../../../../assets/institutionBarImg/photo/effectMain.png";
 import polaroidMain1 from "../../../../assets/institutionBarImg/iconLiveBar/polaroidMain1.png";
 import classes from "./Livebar.module.css";
-
+import polaroidMini from "../../../../assets/institutionBarImg/iconLiveBar/polaroidMini.png";
 const LivebarPhoto: FC = () => {
   return (
-    <Grid item xs={12} md={7}>
+    <div className={classes.photo}>
       <section>
         <article>
           <img
             src={polaroidMain1}
-            width="45%"
+            width="100%"
             className={classes.polaroidMainLivebar}
           />
-          <img src={photoMain} width="33%" className={classes.mainPhoto} />
-          <img src={effectMain} width="55%" className={classes.mainPhoto} />
+          <img src={photoMain} width="73%" className={classes.mainPhoto} />
+          <img src={effectMain} width="73%" className={classes.mainPhoto} />
         </article>
-        {/* <article className={barStyle.photosAll}>
-            <div className={barStyle.photo1}>
-              <img
-              src={miniPhoto1}
-              width="115px"
-              className={barStyle.miniPhoto1}
-            />
-            </div>
-            <div className={barStyle.photo2}></div>
-            <div className={barStyle.photo3}></div>
-            <div className={barStyle.photo4}></div>
-          </article> */}
+        <article className={classes.photosAll}>
+          <img src={polaroidMini} className={classes.photo1} />
+          <img src={polaroidMini} className={classes.photo2} />
+          <img src={polaroidMini} className={classes.photo3} />
+          <img src={polaroidMini} className={classes.photo4} />
+        </article>
       </section>
-    </Grid>
+    </div>
   );
 };
 export { LivebarPhoto };

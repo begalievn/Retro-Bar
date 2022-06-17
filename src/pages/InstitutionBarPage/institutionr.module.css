@@ -150,77 +150,19 @@
   justify-content: space-around;
 }
 
-.livebar {
-  width: 400px;
-}
+
 
 .livebarHeader {
   font-size: 24px;
   margin-top: 23px;
 }
 
-.comments {
-  width: 200px;
-  display: flex;
-}
-.comments img,
-p {
-  padding: 10px 10px 0 0;
-}
 
-.rating {
-  margin-top: 24px;
-  padding: 10px 10px 0 0;
-}
+
+
+
 .livebarLetfTop {
   margin-bottom: 20px;
 }
 
-/* Photo Livebar */
-.photosAll {
-  position: absolute;
-  top: 440px;
-  display: flex;
-  justify-content: space-evenly;
-}
-.photo1 {
-  width: 140px;
-  height: 118px;
-  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidMini.png");
-}
-.photo2 {
-  width: 140px;
-  height: 118px;
-  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidMini.png");
-  transform: rotate(3.76deg);
-}
-.photo3 {
-  width: 140px;
-  height: 118px;
-  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidMini.png");
-  transform: rotate(10.76deg);
-}
-.photo4 {
-  width: 140px;
-  height: 118px;
-  background: url("../../assets//institutionBarImg/iconLiveBar/polaroidMini.png");
-  transform: rotate(2.76deg);
-}
-/* .mainPhoto {
-  position: relative;
-  border-radius: 2px;
-  bottom: 346px;
-  left: 85px;
-  transform: rotate(3.7deg);
-} */
 
-.mainPhoto {
-  position: absolute;
-  border-radius: 2px;
-  bottom: 3%;
-  right: 18.5%;
-  transform: rotate(3.7deg);
-}
-.polaroidMainLivebar {
-  position: absolute;
-}
