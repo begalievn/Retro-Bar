@@ -24,8 +24,6 @@ import EstablishmentItem from './EstablishmentItem';
 
 const AllEvents:FC = () => {
 
-
-
  let establishments: Array<IEstablishments> = [
     {
       image: hero1,
