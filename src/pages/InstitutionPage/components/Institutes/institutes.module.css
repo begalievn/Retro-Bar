@@ -1,6 +1,6 @@
 .main {
-  display: column;
   margin-top: 213px;
+  font-size: 16px;
 }
 .title {
   text-align: left;
@@ -21,31 +21,24 @@ h2 {
   position: absolute;
   min-width: 72%;
   min-height: 81%;
-  top: 64%;
-  right:50%;
-  padding: 15% 21% 10% 8%;
+  top: 11%;
+  right:20%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-/* .institutes_imageBlock__OuNCQ {
+.imageMiddleBlock{
   background-color: rgba(0, 0, 255, 0.493);
   position: absolute;
-  width: 72%;
-  height: 81%;
-  top: 64px;
-  right: 101px;
-  padding: 15% 21% 10% 8%;
+  min-width: 71%;
+  min-height: 80%;
+  top: 9%;
+  right:20%;
   overflow: hidden;
-} */
-/* .institutes_imageBlock__OuNCQ {
-    background-color: rgba(0, 0, 255, 0.493);
-    position: absolute;
-    width: 72%;
-    height: 81%;
-    top: 64px;
-    right: 101px;
-    padding: 15% 21% 10% 8%;
-    overflow: hidden;
-} */
+}
+
+
 /* боковые карточки */
 .sideCard {
   display: flex;
@@ -66,11 +59,14 @@ h2 {
 }
 .sideCard1Image {
   position: absolute;
-  top: 20%;
-  right: 20%;
-  max-width: 80%;
-  object-fit: contain;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  
+  
 }
+
 .sideCard1Canvas {
   
   width: 100%;
@@ -82,9 +78,15 @@ h2 {
 }
 .sideCard2Image {
   position: absolute;
-  top: 20%;
-  right: 20%;
-  max-width: 80%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+
+ 
+}
+.sideCard2Image:hover {
+  transform: scale(1);
 }
 .sideCard2Canvas {
   width: 100%;
@@ -97,14 +99,16 @@ h2 {
   align-items: center;
 }
 
+
 .middleCardBlock {
   position: relative;
 }
 .middleCardImage {
   position: absolute;
-  top: 20%;
-  right: 20%;
-  max-width: 80%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
 }
 .middleCardCanvas {
   width: 30vw;
@@ -112,6 +116,13 @@ h2 {
 
 .cardsMobile {
   display: none;
+}
+
+
+@media screen and (max-width: 748px) {
+.middleCardCanvas {
+  width: 25vw;
+}
 }
 @media screen and (max-width: 425px) {
   .title {
