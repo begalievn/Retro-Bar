@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Grid } from "@mui/material";
 import classes from "./institutionBar.module.css";
 import LiveBarTS from "./components/livebar/Livebar";
+import { Map } from "./components/livebar/Map";
 // import LiveBar from "./components/LiveBar";
 // import Paper from "./components/Paper";
 
@@ -14,6 +15,7 @@ const InstitutionBarPage: FC = () => {
           {/* <h3 className={classes.share}>Поделиться</h3> */}
         </article>
         <LiveBarTS />
+        {/* <Map /> */}
       </div>
       <div className={classes.paper}>{/* <Paper /> */}</div>
     </div>

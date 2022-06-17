@@ -13,7 +13,7 @@
 }
 
 .livebarLetfBottom p {
-  margin-bottom: 8%;
+  margin-bottom: 4%;
   font-size: 16px;
 }
 
@@ -36,7 +36,6 @@ p {
   padding: 2% 10% 0 0;
 }
 .rating {
-  /* padding-left: 4%; */
   width: 38%;
 }
 
@@ -44,23 +43,24 @@ p {
 .photo {
   top: 30%;
   position: relative;
-  right: 10%;
-  margin: 0 10% 0 20%;
 }
+
 .mainPhoto {
   position: absolute;
   border-radius: 2px;
   top: 17%;
-  right: 12%;
+  left: 15%;
   transform: rotate(3.7deg);
 }
 
 .photosAll {
   position: absolute;
+  padding-top: 10%;
   left: 10%;
   display: flex;
   justify-content: space-evenly;
 }
+
 .photo1 {
   width: 30%;
   height: 30%;
@@ -85,13 +85,17 @@ p {
   .livebarLetfBottom p {
     font-size: 14px;
   }
+  .photo {
+    top: 45%;
+  }
 }
 @media only screen and (max-width: 900px) {
   .photo {
-    left: 6%;
+    top: 10%;
   }
   .photo1 {
-    width: 100%;
+    padding-left: 14%;
+    width: 90%;
     height: 100%;
   }
   .photo2 {
@@ -99,7 +103,7 @@ p {
     height: 100%;
   }
   .photo3 {
-    width: 100%;
+    width: 90%;
     height: 100%;
   }
   .photo4 {
@@ -112,5 +116,8 @@ p {
 @media only screen and (max-width: 500px) {
   .livebarHeader {
     font-size: 18px;
+  }
+  .photo {
+    top: 30%;
   }
 }
