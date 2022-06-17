@@ -1,6 +1,6 @@
 .main {
-  display: column;
   margin-top: 213px;
+  font-size: 16px;
 }
 .title {
   text-align: left;
@@ -23,7 +23,6 @@ h2 {
   min-height: 81%;
   top: 11%;
   right:20%;
-  /* padding: 15% 21% 10% 8%; */
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -36,7 +35,6 @@ h2 {
   min-height: 80%;
   top: 9%;
   right:20%;
-  /* padding: 15% 21% 10% 8%; */
   overflow: hidden;
 }
 
@@ -58,7 +56,6 @@ h2 {
 /* первая */
 .sideCard1Block {
   position: relative;
-  transition: transform .2s; /* Animation */
 }
 .sideCard1Image {
   position: absolute;
@@ -69,9 +66,7 @@ h2 {
   
   
 }
-.sideCard1Block:hover {
-  transform: scale(5);
-}
+
 .sideCard1Canvas {
   
   width: 100%;
@@ -121,6 +116,13 @@ h2 {
 
 .cardsMobile {
   display: none;
+}
+
+
+@media screen and (max-width: 748px) {
+.middleCardCanvas {
+  width: 25vw;
+}
 }
 @media screen and (max-width: 425px) {
   .title {

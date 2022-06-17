@@ -13,18 +13,10 @@ import PlaceInfo from '../placeInfo/PlaceInfo'
 
 
 
-interface clickHandlerProps{
-  direction: String;
-}
+
 function Institutes() {
 
-  const [positon, setPositon] = useState<clickHandlerProps>('center')
-  let counter = 0;
-  const clickHandler = (direction:clickHandlerProps)=>{
-    console.log(direction);
-   
-    setPositon(direction);
-  }
+ 
   
  
 
@@ -53,7 +45,7 @@ function Institutes() {
             </div>
           </div>
         </div>
-         <PlaceInfo clickHandler={clickHandler} />
+         <PlaceInfo />
         <div className={styles.sideCard}>
           <div className={styles.sideCard2Block}>
             <img src={tablet3} alt=""  className={styles.sideCard2Canvas} />
@@ -68,9 +60,7 @@ function Institutes() {
 
       
       <section className={styles.cardsMobile}>
-        <div className={styles.cardsM} style={{
-          justifyContent:positon
-        }}>
+        <div className={styles.cardsM} >
 
         <div className={styles.sideCard}>
           <div className={styles.sideCard1Block}>
@@ -102,7 +92,7 @@ function Institutes() {
           </div>
         </div>
         </div>
-         <PlaceInfo clickHandler={clickHandler} />
+         <PlaceInfo />
       </section>
 
     </section>
