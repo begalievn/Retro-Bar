@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import style from './AllEvents.module.css';
 import eyeIcon from '../../assets/icons/eye.svg'
 import pictureIcon from '../../assets/icons/picture.svg'
-const EstablishmentItem = ({item}) => {
+import { IEstablishments } from './AllEvents';
+
+type PropsType = {
+  item: IEstablishments;
+}
+
+const EstablishmentItem: FC<PropsType> = ({item}) => {
   return (
     <div className={style.section2_establishment}> 
     <img src={item.image} className={style.section2_establishment_image} alt="" /> 
