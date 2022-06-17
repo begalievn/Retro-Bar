@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  max-width: 1450px;
+  max-width: 1460px;
   margin: 0 auto;
   height: 748px;
   display: flex;
@@ -17,7 +17,7 @@
 .card {
   position: absolute;
   transition: all 0.5s;
-  left: 21.5%;
+  left: 22%;
 }
 
 .hiddenleft {

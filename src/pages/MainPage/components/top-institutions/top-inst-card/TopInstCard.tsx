@@ -38,13 +38,7 @@ const TopInstCard = () => {
           </div>
         </div>
       </div>
-      <img
-        className={classes.photoOfBar}
-        width="299.69px"
-        height="241.24px"
-        src={photoOfBar}
-        alt="bar"
-      />
+      <img className={classes.photoOfBar} src={photoOfBar} alt="bar" />
     </div>
   );
 };
