@@ -10,9 +10,10 @@ body {
   font-family: "Montserrat Alternates", sans-serif;
   /*font-family: "Mont", sans-serif;*/
 }
-a{
+a {
   text-decoration: none;
 }
 :root {
   --orange: #ff6d00;
+  --btnColor: #ffb13b;
 }

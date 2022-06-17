@@ -108,7 +108,6 @@ nav {
   }
 }
 @media (max-width: 935px) {
-
   .headerWrapper {
     padding: 0 3%;
   }
@@ -118,7 +117,7 @@ nav {
 }
 
 @media (max-width: 768px) {
-  .headerBlock{
+  .headerBlock {
     padding: 0;
   }
   .headerMenuBtn {
@@ -138,5 +137,8 @@ nav {
   }
   .headerSearch {
     display: none;
+  }
+  .backDrop {
+    background: linear-gradient(180deg, #000000 11%, rgba(0, 0, 0, 0) 40%);
   }
 }
