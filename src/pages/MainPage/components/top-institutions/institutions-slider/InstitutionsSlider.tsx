@@ -59,7 +59,15 @@ const InstitutionsSlider = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [slideCards, setSlideCards] = useState<CardsType[]>([]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    let cardsArr = [];
+
+    if (cardsData === undefined) {
+      return;
+    }
+
+    Array.isArray(cardsData) ? (cardsArr = [...cardsData]) : cardsArr;
+  }, []);
 
   return (
     <div className={classes.container}>

@@ -23,7 +23,7 @@ const PalaroidCard = ({
     <div className={classes.palaroidCard}>
       <div className={classes.card_image}>
         <img
-          style={isActive ? null : { filter: 'grayscale(100%)' }}
+          style={isActive ? {} : { filter: 'grayscale(100%)' }}
           src={image}
           alt="card image"
         />
