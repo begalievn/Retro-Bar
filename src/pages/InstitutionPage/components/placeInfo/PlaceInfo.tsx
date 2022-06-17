@@ -16,20 +16,16 @@ import rating from "../../../../assets/institution/placeInfo/rating.svg";
 
 
 
-interface PlaceInfoProps {
-  clickHandler: (direction:string)=>void;
-
-}
 
 
-const PlaceInfo: FC<PlaceInfoProps> = ({clickHandler}) =>{
+const PlaceInfo = () =>{
   
   
   
   return (
     <section className={styles.placeInfo}>
       <section className={styles.header}>
-        <div onClick={()=> clickHandler('flex-start')} className={styles.buttonPrev}>
+        <div  className={styles.buttonPrev}>
           <img src={arrowleft} alt="" />
         </div>
         <div className={styles.headerLogoBlock}>
@@ -39,7 +35,7 @@ const PlaceInfo: FC<PlaceInfoProps> = ({clickHandler}) =>{
           <h3>KEANU</h3>
           <h4 className={styles.headerType}>Bar</h4>
         </div>
-        <div onClick={()=> clickHandler('flex-end')} className={styles.buttonNext}>
+        <div className={styles.buttonNext}>
           <img src={arrowright} alt="" />
         </div>
       </section>
@@ -80,8 +76,8 @@ const PlaceInfo: FC<PlaceInfoProps> = ({clickHandler}) =>{
       </section>
 
       <section className={styles.rating}>
-        <img src={rating} alt="" />
-        <p className={styles.ratingText}>9.5</p>
+        <img className={styles.stars} src={rating} alt="" />
+        <h4 className={styles.ratingText}>9.5</h4>
       </section>
 
     </section>
