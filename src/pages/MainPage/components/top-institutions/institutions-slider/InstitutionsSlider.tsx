@@ -101,33 +101,33 @@ const InstitutionsSlider = () => {
           key={hiddenLeftIndex}
           className={[classes.hiddenLeft, classes.card].join(' ')}
         >
-          <TopInstCard {...slideCards[hiddenLeftIndex]} />
+          <TopInstCard isActive={false} {...slideCards[hiddenLeftIndex]} />
         </div>
         <div
           key={leftIndex}
           className={[classes.left, classes.card].join(' ')}
           onClick={prev}
         >
-          <TopInstCard {...slideCards[leftIndex]} />
+          <TopInstCard isActive={false} {...slideCards[leftIndex]} />
         </div>
         <div
           key={activeIndex}
           className={[classes.active, classes.card].join(' ')}
         >
-          <TopInstCard {...slideCards[activeIndex]} />
+          <TopInstCard isActive={true} {...slideCards[activeIndex]} />
         </div>
         <div
           key={rightIndex}
           className={[classes.right, classes.card].join(' ')}
           onClick={next}
         >
-          <TopInstCard {...slideCards[rightIndex]} />
+          <TopInstCard isActive={false} {...slideCards[rightIndex]} />
         </div>
         <div
           key={hiddenRightIndex}
           className={[classes.hiddenRight, classes.card].join(' ')}
         >
-          <TopInstCard {...slideCards[hiddenRightIndex]} />
+          <TopInstCard isActive={false} {...slideCards[hiddenRightIndex]} />
         </div>
       </div>
     </div>
