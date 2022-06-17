@@ -1,18 +1,18 @@
 import React, { FC, useState } from 'react'
-import { Link } from 'react-router-dom'
-import Calendar from '../../../../UI/Calendar/Calendar'
+import CalendarModal from '../../../../UI/CalendarModal/CalendarModal'
 import styles from './PhotoNav.module.css'
 const PhotoNav:FC = () => {
-  const [selectedDate, setSelectedDay] = useState(new Date());
-  const [show, setShow] = useState(false)
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     <>
       <div className={styles.photoNav}>
         <button >Фото</button>
-        <button onClick={() => setShow(true)} >Календарь</button>
+        <button onClick={handleOpen} >Календарь</button>
         <button>Галерея</button>
       </div>
-      {show && <Calendar selectedDate={selectedDate} selectDate={(date) => setSelectedDay(date)}/>}
+      {open && <CalendarModal open={open} handleClose={handleClose} />}
     </>
   )
 }
