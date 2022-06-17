@@ -12,7 +12,6 @@
   height: 600px;
   margin: 0 auto;
   position: relative;
-  /* background: url("../../assets/institutionBarImg/back/back.png") 0 0/100% 100% no-repeat; */
   mix-blend-mode: screen;
 }
 .text_header {
