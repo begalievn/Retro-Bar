@@ -2,6 +2,7 @@
   padding: 11% 4% 0px 9%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   position: relative;
 }
 .topFilmBlock1 {
@@ -36,10 +37,12 @@
 .topHeader {
   margin-left: 4%;
   margin-bottom: 5%;
+
+
 }
 h2 {
   color: white;
-  font-size: calc(21px + 16 * (100vw / 1440));
+  font-size: calc(21px + 10 * (100vw / 1440));
 }
 .topPoster {
   display: flex;
@@ -47,13 +50,13 @@ h2 {
 }
 .calendar{
   position: absolute;
-  width: 15%;
-  top: 101%;
+  width: 12%;
+  top: 108%;
   right: 4%;
 }
 @media screen and (max-width: 425px) {
   h2 {
-    font-size: calc(21px + (16 + 16 * 0.7) * ((100vw - 320px) / 1440));
+    font-size: calc(21px + (10 + 10 * 0.7) * ((100vw - 320px) / 1440));
   }
   .topHeader {
     text-align: center;

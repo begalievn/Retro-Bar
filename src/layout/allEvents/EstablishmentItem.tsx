@@ -1,8 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
 import style from "./AllEvents.module.css";
 import eyeIcon from "../../assets/icons/eye.svg";
 import pictureIcon from "../../assets/icons/picture.svg";
-const EstablishmentItem = ({ item }) => {
+import { IEstablishments } from "./AllEvents";
+
+type PropsType = {
+  item: IEstablishments;
+};
+
+const EstablishmentItem: FC<PropsType> = ({ item }) => {
   return (
     <div className={style.section2_establishment}>
       <img
@@ -15,7 +21,7 @@ const EstablishmentItem = ({ item }) => {
         <p>{item.nameParty}</p>
         <div>
           <div>
-            <div>
+            <div className={style.establishment_text_views}>
               <img src={eyeIcon} alt="" /> {item.views}{" "}
             </div>
             <div>

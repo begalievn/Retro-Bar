@@ -1,18 +1,43 @@
-import React, { useEffect, useState } from "react";
-import tape2 from "../../../assets/eventsImages/tape2.png";
-import tape1 from "../../../assets/eventsImages/tape 1.png";
+import React, { FC, useEffect, useState } from 'react';
+import tape2 from '../../../assets/eventsImages/tape2.png'
+import tape1 from '../../../assets/eventsImages/tape 1.png'
 
-import hero from "../../../assets/eventsImages/banner ticket (2).png";
+import hero from '../../../assets/eventsImages/banner ticket (2).png';
 import banner from "../../../assets/eventsImages/banner (1).png";
 import bannerMini from "../../../assets/eventsImages/bannerMini.jpg";
-import style from "../eventPage.module.css";
+import style from '../eventPage.module.css';
 
-const navbar = ["Видео", "Услуги", "Плеер", "Галерея"];
+const navbar: Array<string>=['Видео','Услуги','Плеер','Галерея']
 
-const Section1 = () => {
+
+
+const Section1:FC = () => {
+
+
+  
+
   return (
-    <>
-      <div className={style.eventPage_navbar}>
+  <>
+    <div className={style.eventPage_navbar} >
+      <div>
+      {navbar.map(item=>(
+        <a href='#'>{item}</a>
+      ))}
+      </div>
+    </div>
+
+
+
+    <div className={style.section1_back_ellipseGradient}></div>
+
+    <div className={style.section1_container}>
+    <div className={style.eventPage_section1}>
+
+      <img className={style.section1_tape1} src={tape1} alt="" />
+      <img className={style.section1_tape2} src={tape2} alt="" />
+      <img className={style.section1_image} src={hero} alt="Hero" />
+
+      <div className={style.section1_text}>
         <div>
           {navbar.map((item) => (
             <a href="#">{item}</a>
@@ -45,6 +70,9 @@ const Section1 = () => {
         src={bannerMini}
         alt="banner"
       />
+      </div>
+      </div>
+    
     </>
   );
 };

@@ -1,5 +1,4 @@
 import React, { FC, useState } from 'react'
-import { Link } from 'react-router-dom'
 import CalendarModal from '../../../../UI/CalendarModal/CalendarModal'
 import styles from './PhotoNav.module.css'
 const PhotoNav:FC = () => {

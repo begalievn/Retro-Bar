@@ -95,7 +95,7 @@
 .photo_reports__content {
   width: 100%;
   min-height: 665px;
-  background-color: antiquewhite;
+  background-color: black;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
