@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import PhotoHeader from "./components/PhotoHeader/PhotoHeader";
 import PhotoMain from "./components/PhotoMain/PhotoMain";
 import classes from "./PhotoPage.module.css";

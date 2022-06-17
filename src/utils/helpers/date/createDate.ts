@@ -10,6 +10,11 @@ export const createDate = (params?: CreateDateParams) => {
 
   const d = params?.date ?? new Date();
   const dayNumber = d.getDate();
+  // for (let i = 0; i < 10; i++) {
+    
+  // }
+  console.log(dayNumber);
+  
   const day = d.toLocaleDateString(locale, { weekday: 'long' });
   const dayNumberInWeek = d.getDay() + 1;
   const dayShort = d.toLocaleDateString(locale, { weekday: 'short' });

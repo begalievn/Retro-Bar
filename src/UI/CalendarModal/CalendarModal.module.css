@@ -1,0 +1,22 @@
+.calendarWithPhotos {
+  display: flex;
+  /* display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr; 
+  gap: 5px 5px; 
+  grid-template-areas: 
+    "calendar photo1 photo2"
+    "calendar photo3 photo4";  */
+}
+/* .calendar { grid-area: calendar; }
+.photo1 { grid-area: photo1; }
+.photo2 { grid-area: photo2; }
+.photo3 { grid-area: photo3; }
+.photo4 { grid-area: photo4; } */
+
+.calendar_events {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 22px;
+  margin-left: 28px;
+}

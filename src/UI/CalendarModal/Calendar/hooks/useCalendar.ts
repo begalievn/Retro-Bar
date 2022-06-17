@@ -6,7 +6,7 @@ import {
   getWeekDaysNames,
   getMonthNumberOfDays,
   createDate
-} from '../../../utils/helpers/date';
+} from '../../../../utils/helpers/date';
 
 interface UseCalendarParams {
   locale?: string;
@@ -76,6 +76,13 @@ export const useCalendar = ({
       const inverted = numberOfPrevDays - i;
       result[i] = prevMonthDays[prevMonthDays.length - inverted];
     }
+    // for (let i = 0; i < 10; i++) {
+      
+      
+    // }
+
+    console.log(days);
+    
 
     for (let i = numberOfPrevDays; i < totalCalendarDays - numberOfNextDays; i += 1) {
       result[i] = days[i - numberOfPrevDays];
