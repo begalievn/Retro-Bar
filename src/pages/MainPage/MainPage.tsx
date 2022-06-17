@@ -1,5 +1,6 @@
 import React from 'react';
 import calendarIcon from '../../assets/icons/calendar-icon.svg';
+import PalaroidSlider from './components/palaroid-slider/PalaroidSlider';
 import PhotoReports from './components/photo-reports/PhotoReports';
 import TopInstituions from './components/top-institutions/TopInstituions';
 
@@ -13,6 +14,7 @@ const MainPage = () => {
           <img src={calendarIcon} alt="calendar-icon" />
         </div>
       </div>
+      <PalaroidSlider />
       <TopInstituions />
       <PhotoReports />
     </div>

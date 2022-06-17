@@ -12,7 +12,7 @@ import EstablishmentItem from './EstablishmentItem';
 
 
 
-interface IEstablishments{
+ export interface IEstablishments{
   image: string;
   nameEstablishment: string;
   nameParty: string;
@@ -20,7 +20,6 @@ interface IEstablishments{
   amountImage:number;
   date: string;
 }
-
 
 
 const AllEvents:FC = () => {

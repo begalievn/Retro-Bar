@@ -1,33 +1,43 @@
 .container {
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   height: 380px;
-  background-color: coral;
+  background-color: greenyellow;
 }
 
 .carousel {
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: hidden;
+  background-color: goldenrod;
+}
+
+.card {
+  position: absolute;
+  left: 24%;
+  top: 13px;
+  transform: rotate(2deg);
+  transition: all 0.5s;
+}
+
+.hiddenLeft {
+  transform: translateX(-148%) translateY(-10%) rotate(2deg) scale(0.85);
 }
 
 .left {
-  width: 400.86px;
-  height: 290.93px;
-  position: absolute;
-  top: 19.15px;
-  left: 17px;
+  transform: translateX(-60%) translateY(-3%) rotate(2deg) scale(0.85);
 }
 
 .active {
-  position: absolute;
-  top: 0;
   z-index: 2;
 }
 
 .right {
-  width: 519.21px;
-  height: 290.93px;
-  position: absolute;
-  right: 25.04px;
-  top: 51.31px;
+  transform: translateX(78%) translateY(6%) rotate(2deg) scale(0.85);
+}
+
+.hiddenRight {
+  transform: translateX(165%) translateY(13%) rotate(2deg) scale(0.8);
 }
