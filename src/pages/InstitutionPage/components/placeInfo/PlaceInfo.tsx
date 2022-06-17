@@ -80,8 +80,8 @@ const PlaceInfo: FC<PlaceInfoProps> = ({clickHandler}) =>{
       </section>
 
       <section className={styles.rating}>
-        <img src={rating} alt="" />
-        <p className={styles.ratingText}>9.5</p>
+        <img className={styles.stars} src={rating} alt="" />
+        <h4 className={styles.ratingText}>9.5</h4>
       </section>
 
     </section>
