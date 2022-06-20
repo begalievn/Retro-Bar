@@ -1,77 +1,124 @@
 .paperComponent {
-  top: -130px;
+  top: -8%;
   position: absolute;
   width: 100%;
-  /* height: 1000px; */
   mix-blend-mode: normal;
 }
 .backgroundPaper {
-  position: absolute;
-  width: 1310px;
+  position: relative;
+  width: 105%;
   height: 1150px;
   mix-blend-mode: screen;
 }
 
 .photoDiv {
   position: absolute;
-  left: 86px;
+  left: 6%;
   top: 175px;
 }
 .h1p {
-  padding-bottom: 5%;
   color: black;
   left: 86px;
-  position: absolute;
+  position: relative;
 }
 
 /* Bottom part */
 .bottom {
-  position: absolute;
-  top: 420px;
+  position: relative;
+  top: 70px;
+  left: 5%;
 }
 .hp {
   position: relative;
   color: black;
-  left: 85px;
+  left: 86px;
+  top: 40px;
+}
+.top {
+  left: 5%;
   top: 50px;
+  position: relative;
 }
 
 .fr1 {
   position: absolute;
-  top: 118px;
-  left: 106.5px;
+  top: 12%;
+  left: 2%;
   transform: rotate(-1.5deg);
+  mix-blend-mode: screen;
 }
 .fr2 {
   position: absolute;
-  top: 118px;
-  left: 456px;
+  top: 27px;
+  left: 35%;
   transform: rotate(1.6deg);
   mix-blend-mode: screen;
 }
 .fr3 {
   position: absolute;
-  top: 119px;
-  left: 806.5px;
+  top: 12%;
+  left: 68%;
   transform: rotate(1.2deg);
   mix-blend-mode: screen;
 }
 
 .frame1 {
-  position: absolute;
-  top: 100px;
-  left: 100px;
   transform: rotate(-1.38deg);
 }
 .frame2 {
-  position: absolute;
-  top: 100px;
-  left: 450px;
   transform: rotate(1.53deg);
 }
 .frame3 {
-  position: absolute;
-  top: 100px;
-  left: 800px;
   transform: rotate(1.38deg);
 }
+.topMobile,
+.bottomMobile {
+  display: none;
+}
+@media only screen and (max-width: 1000px) {
+  .backgroundPaper {
+    height: 950px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .topWeb,
+  .bottomWeb {
+    display: none;
+  }
+
+  .topMobile,
+  .bottomMobile {
+    display: block;
+    text-align: center;
+    padding-top: 5%;
+  }
+  .backgroundPaper {
+    height: 1160px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .topWeb,
+  .bottomWeb {
+    display: none;
+  }
+  .topMobile,
+  .bottomMobile {
+    display: block;
+    text-align: center;
+    padding-top: 5%;
+  }
+  .backgroundPaper {
+    height: 900px;
+  }
+  .photoPaste {
+    position: absolute;
+    top: 70px;
+    left: 85px;
+    mix-blend-mode: screen;
+  }
+}
+
+/*  bottomWeb*/
+/* topWeb */
+
+/* topMobile */

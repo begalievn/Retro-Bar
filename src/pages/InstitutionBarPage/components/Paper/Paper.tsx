@@ -13,8 +13,8 @@ const Paper: FC = () => {
       />
       <div className={classes.photoDiv}>
         <h1 className={classes.h1p}>Репортажи</h1>
-        <PaperBottom />
         <PaperTop />
+        <PaperBottom />
       </div>
     </div>
   );
