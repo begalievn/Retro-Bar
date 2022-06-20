@@ -1,19 +1,15 @@
-.calendarWithPhotos {
-  display: flex;
-}
-
-.calendar_events {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 22px;
-  margin-left: 28px;
-}
-
-
 .modal {
   overflow-y: hidden;
+  transition: .5s ease-in-out;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 101;
+  overflow: scroll;
 }
 
+.overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
 
 .modal,
 .overlay {
@@ -24,18 +20,6 @@
   right: 0;
   bottom: 0;
   position: fixed;
-}
-
-.modal {
-  max-width: 1200px;
-  margin: 0 auto;
-  z-index: 101;
-  overflow: scroll;
-}
-
-
-.overlay {
-  background: rgba(0, 0, 0, 0.8);
 }
 
 .modal_content {
@@ -50,13 +34,21 @@
   width: 100%;
 }
 
-.close_modal {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 5px 7px;
+.calendarWithPhotos {
+  display: flex;
 }
 
+.calendar_events {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-left: 28px;
+}
+
+
+
+
+/* Media */
 
 
 @media (max-width:750px) {
@@ -66,7 +58,11 @@
     justify-content: center;
     align-items: center;
   }
-
+  
+  .modal {
+    margin-top: 40px;
+    z-index: 99;
+  }
   .calendar {
     margin: 50px 0;
   }
@@ -74,10 +70,7 @@
     display: flex;
     justify-content: center;
   }
-  .modal {
-    margin-top: 40px;
-    z-index: 99;
-  }
+
 }
 
 @media (max-width:670px) {

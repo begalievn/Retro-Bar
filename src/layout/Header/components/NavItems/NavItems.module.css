@@ -16,6 +16,7 @@
 .headerNavItem a {
   color: #ebebeb;
   text-decoration: none;
+  font-weight: normal;
 }
 
 @media screen and (max-width: 768px) {

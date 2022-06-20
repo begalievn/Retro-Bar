@@ -12,6 +12,10 @@
   cursor: pointer;
 }
 
+
+/* Media */
+
+
 @media (max-width:1120px) {
   .call_btn {
     margin-top: 30px;

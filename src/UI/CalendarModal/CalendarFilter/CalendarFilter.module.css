@@ -2,7 +2,6 @@
   margin-bottom: 85px;
 }
 
-
 .calendar_filter_btn {
   margin-right: 15px;
   padding: 12px 24px;
@@ -23,6 +22,12 @@
   background: #FFB03B;
   color: #000000;
 }
+
+
+
+
+/* Media */
+
 
 @media (max-width:670px) {
   .calendar_filter_btn {

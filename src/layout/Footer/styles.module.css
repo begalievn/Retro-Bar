@@ -119,7 +119,8 @@
   border-radius: 8px;
   border: none;
   margin-top: 10px;
-
+  outline: none;
+  padding: 10px;
 }
 
 .input::placeholder {

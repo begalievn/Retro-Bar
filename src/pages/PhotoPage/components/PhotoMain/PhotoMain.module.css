@@ -1,4 +1,3 @@
-
 .photoMain_title {
   margin-top: 90px;
   font-style: normal;
@@ -8,7 +7,6 @@
   color: #FFB03B;
   font-family: "Montserrat Alternates", sans-serif;
 }
-
 
 
 .gridBlocks {
@@ -22,6 +20,10 @@
 }
 
 
+
+
+
+/* Media */
 
 
 @media (max-width:1120px) {
@@ -48,8 +50,8 @@
       "secretMusicHall"
       "pintaPub"
       "advertise";
-
   }
+
   .photoMain_title {
     text-align: start;
     padding-left: 40px;
