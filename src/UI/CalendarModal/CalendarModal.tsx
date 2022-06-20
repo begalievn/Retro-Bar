@@ -1,8 +1,6 @@
 import React, { FC, useState } from "react";
-import Calendar from "./Calendar/Calendar";
-import CalendarEvents from "./CalendarEvents/CalendarEvents";
-import CalendarFilter from "./CalendarFilter/CalendarFilter";
 import styles from "./CalendarModal.module.css";
+import { Calendar, CalendarEvents, CalendarFilter } from "./";
 
 interface CalendarModalProps {
   modal: boolean;
