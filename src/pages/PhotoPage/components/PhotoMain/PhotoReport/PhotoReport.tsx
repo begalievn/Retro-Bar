@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import "../../../../../fonts/Mont/stylesheet.css";
 import ImagesList from "../ImagesList/ImagesList";
 import eventPlace from "../../../../../assets/photoPageImages/main-images/parkEventplace.png";
 import zeppelinBar from "../../../../../assets/photoPageImages/main-images/zeppelinBar.png";

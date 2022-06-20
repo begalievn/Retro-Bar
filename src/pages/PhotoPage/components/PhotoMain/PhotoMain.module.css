@@ -1,9 +1,6 @@
-.photoMain_intro {
-  display: flex;
-  padding-top: 90px;
-}
 
-.photoMain_intro_title {
+.photoMain_title {
+  margin-top: 90px;
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -12,9 +9,6 @@
   font-family: "Montserrat Alternates", sans-serif;
 }
 
-.photoMain_intro_img {
-  margin: -90px 0 0 60px;
-}
 
 
 .gridBlocks {
@@ -56,15 +50,8 @@
       "advertise";
 
   }
-
-  .photoMain_intro_img {
-    display: none;
-  }
-
-  .photoMain_intro {
+  .photoMain_title {
     text-align: start;
-    display: flex;
-    justify-content: center;
     padding-left: 40px;
     padding-right: 40px;
   }
