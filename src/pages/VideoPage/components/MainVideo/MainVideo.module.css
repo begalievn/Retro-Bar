@@ -1,6 +1,5 @@
 .videoPlayerSection {
   width: 100%;
-  /*height: 200vh;*/
   background-repeat: no-repeat;
   background-size: cover;
   background-image: url("../../../../assets/videoPage/videoPlayerBg.png");
@@ -10,6 +9,11 @@
   left: 0;
   z-index: 1;
 }
+/*.sliderContainer {*/
+/*  width: 90%;*/
+/*  max-width: none;*/
+/*  margin: 0 auto;*/
+/*}*/
 
 iframe {
   z-index: 4;
@@ -30,11 +34,29 @@ iframe {
   height: 100px;
   background: url("../../../../assets/icons/calendar-icon.svg") no-repeat center;
 }
+
 .sliderBlock {
-  margin: 100px 0 0 0;
-  /*padding: 0 5%;*/
+  max-width: 1400px;
+  margin: 100px auto 0;
+  /*padding: 0 2%;*/
 }
 .title {
   font-size: 2em;
-  margin-left: 10%;
+  padding: 0 12%;
+  margin-bottom: 40px;
+}
+.slider {
+  width: 100% !important;
+}
+
+@media screen and (max-width: 1075px) {
+  .title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .title {
+    margin-bottom: 20px;
+  }
 }

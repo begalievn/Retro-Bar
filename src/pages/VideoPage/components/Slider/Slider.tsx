@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { FC, useRef } from "react";
 
 import classes from "./Slider.module.css";
 import { Navigation, Pagination } from "swiper";
@@ -10,44 +10,42 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { VideoCard } from "../../../../UI";
 
-const Slider = () => {
-  const navigationPrevRef = useRef<HTMLDivElement>(null);
-  const navigationNextRef = useRef<HTMLDivElement>(null);
-  const images = [
-    {
-      image: video,
-    },
-    {
-      image: video1,
-    },
-    {
-      image: video,
-    },
-    {
-      image: video1,
-    },
-  ];
+import { IVideoCardBody } from "../../../../types/videoPageTypes/videoPage";
 
-  const slides = [];
-  for (let i = 0; i < images.length; i += 1) {
-    slides.push(
-      <SwiperSlide className={classes.slide} key={i}>
-        <img src={images[i].image} alt={`${i}`} />
-      </SwiperSlide>
-    );
-  }
+interface sliderProps {
+  className?: string;
+  slides?: number;
+  images: IVideoCardBody[];
+}
+
+const Slider: FC<sliderProps> = ({ className, slides = 2, images }) => {
   return (
     <div className={classes.mainPlayer}>
       <Swiper
-        slidesPerView={2}
-        spaceBetween={50}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: slides || 2,
+          },
+        }}
+        className={className}
+        slidesPerView={slides}
+        spaceBetween={40}
         loop={true}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
       >
-        {slides}
+        {images.map((item: IVideoCardBody) => {
+          return (
+            <SwiperSlide className={classes.slide} key={item.views}>
+              <VideoCard videoCardBody={item} />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );

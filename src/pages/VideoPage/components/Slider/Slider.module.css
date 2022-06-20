@@ -1,16 +1,12 @@
-/*.slide {*/
-/*  display: inline-block;*/
-/*  width: 100%;*/
-/*  height: 100px;*/
-/*  !*padding: 3rem 0;*!*/
-/*  margin-bottom: 2rem;*/
-/*  background-color: tomato;*/
-/*}*/
-
 .mainPlayer {
   position: relative;
-  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .mainPlayer {
+    padding: 0 5%;
+  }
 }
