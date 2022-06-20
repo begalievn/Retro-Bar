@@ -13,4 +13,5 @@ export interface IPhotos {
   text?:string
   icon?:string
   studio?:string
+  button?:any
 }

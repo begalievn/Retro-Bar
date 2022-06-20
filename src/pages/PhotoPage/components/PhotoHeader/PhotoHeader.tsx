@@ -1,12 +1,11 @@
 import React, { FC } from "react";
-import classes from  "./PhotoHeader.module.css";
-import PhotoNav from "../PhotoNav/PhotoNav";
-const PhotoHeader:FC = () => {
+import PhotoBreadcrumb from "../PhotoBreadcrumb/PhotoBreadcrumb";
+const PhotoHeader: FC = () => {
   return (
-    <div className={classes.photo__header}>
-      <PhotoNav/>
-    </div>
+    <>
+      <PhotoBreadcrumb />
+    </>
   );
-}
+};
 
 export default PhotoHeader;
