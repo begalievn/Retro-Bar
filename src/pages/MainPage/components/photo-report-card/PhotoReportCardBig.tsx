@@ -28,8 +28,13 @@ const PhotoReportCardBig = ({
       style={{ backgroundImage: `url(${photoBackground})`, width: '668px' }}
       className={classes.cardContainer}
     >
-      <div className={classes.photoCard} style={{ width: '100%' }}>
-        <img src={photo} alt="report" />
+      <div
+        className={classes.photoCard}
+        style={{
+          width: '98%',
+          backgroundImage: `url(${photo})`,
+        }}
+      >
         <div className={classes.cardContent_container}>
           <div className={classes.cardContent}>
             <h4>{title}</h4>

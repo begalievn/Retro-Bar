@@ -17,7 +17,7 @@ import PhotoReportCardBig from '../photo-report-card/PhotoReportCardBig';
 
 const reportsArr = [
   {
-    photo: photo1,
+    photo: bigPhoto,
     title: 'ZEPPELIN BAR',
     eventType: 'STREET CREDIBILITY',
     watches: 709,
@@ -51,7 +51,7 @@ const reportsArr = [
 ];
 
 const bigPhotoCard = {
-  photo: bigPhoto,
+  photo: photo4,
   title: 'PARK EVENTPLACE',
   eventType: 'ÜN',
   watches: 6545,
@@ -60,6 +60,7 @@ const bigPhotoCard = {
 };
 
 const PhotoReports = () => {
+  console.log(window.innerWidth);
   return (
     <div className={classes.photo_reports}>
       <div className={classes.photo_reports_container}>
@@ -72,24 +73,28 @@ const PhotoReports = () => {
         </div>
         <div className={classes.photo_reports__content}>
           {reportsArr.map((item, index) => (
-            <PhotoReportCard
-              key={index}
-              photo={item.photo}
-              title={item.title}
-              eventType={item.eventType}
-              watches={item.watches}
-              pics={item.pics}
-              date={item.date}
-            />
+            <div>
+              <PhotoReportCard
+                key={index}
+                photo={item.photo}
+                title={item.title}
+                eventType={item.eventType}
+                watches={item.watches}
+                pics={item.pics}
+                date={item.date}
+              />
+            </div>
           ))}
-          <PhotoReportCardBig
-            photo={bigPhotoCard.photo}
-            title={bigPhotoCard.title}
-            eventType={bigPhotoCard.eventType}
-            watches={bigPhotoCard.watches}
-            pics={bigPhotoCard.pics}
-            date={bigPhotoCard.date}
-          />
+          <div>
+            <PhotoReportCardBig
+              photo={bigPhotoCard.photo}
+              title={bigPhotoCard.title}
+              eventType={bigPhotoCard.eventType}
+              watches={bigPhotoCard.watches}
+              pics={bigPhotoCard.pics}
+              date={bigPhotoCard.date}
+            />
+          </div>
         </div>
         <div className={classes.photo_reports__btn}>
           <button>Все фото</button>
