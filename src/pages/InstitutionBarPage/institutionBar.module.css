@@ -10,13 +10,13 @@
   background: url("../../assets/institutionBarImg/back/back.png") 0 0/100% 100%
     no-repeat;
   overflow: hidden;
-  padding: 0 8% 0 8%;
 }
 .main_gradient {
   width: 100%;
   height: 100%;
   position: relative;
   background-color: #000000;
+  padding: 0 8% 0 8%;
   /* background: url("../../assets/institutionBarImg/back/back.png") 0 0/100% 100% no-repeat; */
   mix-blend-mode: screen;
 }
@@ -41,4 +41,22 @@
 }
 .text_flex {
   padding-bottom: 3%;
+}
+/* Paper */
+.paper {
+  top: 80px;
+  height: 1100px;
+  position: relative;
+  width: 100%;
+  /* background-color: #000000; */
+  color: black;
+}
+.emoji {
+  position: relative;
+  padding-top: 60px;
+  text-align: center;
+}
+.arrowUp {
+  position: relative;
+  padding-bottom: 10px;
 }

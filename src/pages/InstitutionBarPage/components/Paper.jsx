@@ -1,14 +1,7 @@
 import React from "react";
 import barStyle from "../institutionBar.module.css";
 
-import backgroundPaper from "../../../assets/institutionBarImg/back/backgroundPaper.png";
-import polaroidMini from "../../../assets/institutionBarImg/photo/polaroidMini.png";
-import top1 from "../../../assets/institutionBarImg/photo/top1.png";
-import top2 from "../../../assets/institutionBarImg/photo/top2.png";
-import top3 from "../../../assets/institutionBarImg/photo/top3.png";
-import bottom1 from "../../../assets/institutionBarImg/photo/bottom1.png";
-import bottom2 from "../../../assets/institutionBarImg/photo/bottom2.png";
-import bottom3 from "../../../assets/institutionBarImg/photo/bottom3.png";
+
 // let frame = ["frame1", "frame2", "frame3"];
 // let arrayPhotoTop = [top1, top2, top3];
 // let cssOfPhoto = ["fr1", "fr2", "fr3"];

@@ -1,0 +1,77 @@
+.paperComponent {
+  top: -130px;
+  position: absolute;
+  width: 100%;
+  /* height: 1000px; */
+  mix-blend-mode: normal;
+}
+.backgroundPaper {
+  position: absolute;
+  width: 1310px;
+  height: 1150px;
+  mix-blend-mode: screen;
+}
+
+.photoDiv {
+  position: absolute;
+  left: 86px;
+  top: 175px;
+}
+.h1p {
+  padding-bottom: 5%;
+  color: black;
+  left: 86px;
+  position: absolute;
+}
+
+/* Bottom part */
+.bottom {
+  position: absolute;
+  top: 420px;
+}
+.hp {
+  position: relative;
+  color: black;
+  left: 85px;
+  top: 50px;
+}
+
+.fr1 {
+  position: absolute;
+  top: 118px;
+  left: 106.5px;
+  transform: rotate(-1.5deg);
+}
+.fr2 {
+  position: absolute;
+  top: 118px;
+  left: 456px;
+  transform: rotate(1.6deg);
+  mix-blend-mode: screen;
+}
+.fr3 {
+  position: absolute;
+  top: 119px;
+  left: 806.5px;
+  transform: rotate(1.2deg);
+  mix-blend-mode: screen;
+}
+
+.frame1 {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  transform: rotate(-1.38deg);
+}
+.frame2 {
+  position: absolute;
+  top: 100px;
+  left: 450px;
+  transform: rotate(1.53deg);
+}
+.frame3 {
+  position: absolute;
+  top: 100px;
+  left: 800px;
+  transform: rotate(1.38deg);
+}

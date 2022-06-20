@@ -2,10 +2,9 @@ import React, { FC } from "react";
 import { Grid } from "@mui/material";
 import classes from "./institutionBar.module.css";
 import LiveBarTS from "./components/livebar/Livebar";
-import { Map } from "./components/livebar/Map";
-// import LiveBar from "./components/LiveBar";
-// import Paper from "./components/Paper";
-
+import { Paper } from "./components/Paper/Paper";
+import emoji from "../../assets/institutionBarImg/iconsMap/emoji.svg";
+import arrowUp from "../../assets/institutionBarImg/iconsMap/arrowUp.svg";
 const InstitutionBarPage: FC = () => {
   return (
     <div className={classes.mainContainer}>
@@ -15,9 +14,16 @@ const InstitutionBarPage: FC = () => {
           {/* <h3 className={classes.share}>Поделиться</h3> */}
         </article>
         <LiveBarTS />
-        {/* <Map /> */}
       </div>
-      <div className={classes.paper}>{/* <Paper /> */}</div>
+      <div className={classes.paper}>
+        <Paper />
+      </div>
+      <div className={classes.emoji}>
+        <img src={emoji} />
+      </div>
+      <div className={classes.arrowUp}>
+        <img src={arrowUp} />
+      </div>
     </div>
   );
 };

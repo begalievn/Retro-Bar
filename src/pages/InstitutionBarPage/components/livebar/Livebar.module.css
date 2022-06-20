@@ -89,7 +89,6 @@ p {
 .textMap {
   padding: 18% 0 0 12%;
   position: relative;
-  /* left: 60%; */
   line-height: 30px;
 }
 
@@ -97,7 +96,6 @@ p {
   margin: 0 10px 0px 0;
 }
 .circle {
-  /* width: 35%; */
   position: absolute;
   margin: -9% 0 0 -6%;
 }
@@ -109,10 +107,10 @@ p {
   line-height: 45px;
   color: #ffb03b;
 }
-.reverse {
+/* .reverse {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
 @media only screen and (max-width: 800px) {
   .livebarLetfBottom p {
@@ -161,11 +159,9 @@ p {
   }
   .circle {
     width: 45%;
-    /* position: absolute;
-    margin: -9% 0 0 -6%; */
   }
-  .reverse {
+  /* .reverse {
     display: flex;
     flex-wrap: wrap-reverse;
-  }
+  } */
 }

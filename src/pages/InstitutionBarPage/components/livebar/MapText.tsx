@@ -14,6 +14,7 @@ const MapText: FC = () => {
       <div>
         <img src={cycle} className={classes.circle} />
         <h1 className={classes.header}>Описание:</h1>
+        <div className={classes.star}></div>
       </div>
       <p>
         <img src={clock} />
@@ -32,8 +33,9 @@ const MapText: FC = () => {
         Ночной клуб, караоке
       </p>
       <h1>Контакты:</h1>
+      <div className={classes.bigStar}></div>
 
-      <a href="https://www.instagram.com/livebar/?igshid=126pohgaworso">
+      <a href="https://www.instagram.com/livebarkg/">
         <p>
           <img src={instagram} /> livebar.kg
         </p>
