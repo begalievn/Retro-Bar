@@ -9,18 +9,22 @@
 }
 
 .photoCard {
-  width: 328px;
-  height: 328px;
+  width: 329px;
+  height: 323.5px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .photoCard img {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .cardContent_container {

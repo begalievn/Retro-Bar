@@ -8,6 +8,7 @@ import picIcon from '../../../../assets/mainPage/pic-icon.svg';
 
 import classes from './photoReportCard.module.css';
 import { getRandomItem } from '../../../../utils/getRandomItem';
+import { url } from 'inspector';
 
 const cardBackgroundImages = [
   cardBackground1,
@@ -38,8 +39,11 @@ const PhotoReportCard = ({
       style={{ backgroundImage: `url(${getRandomItem(cardBackgroundImages)})` }}
       className={classes.cardContainer}
     >
-      <div className={classes.photoCard}>
-        <img src={photo} alt="report" />
+      <div
+        style={{ backgroundImage: `url(${photo})` }}
+        className={classes.photoCard}
+      >
+        {/* <img src={} alt="report" /> */}
         <div className={classes.cardContent_container}>
           <div className={classes.cardContent}>
             <h4>{title}</h4>
