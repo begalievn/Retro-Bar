@@ -1,13 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import classes from "./MainVideo.module.css";
-import mainClasses from "../../VideoPage.module.css";
 import Slider from "../Slider/Slider";
-import VideoCard from "../../../../UI/VideoCard/VideoCard";
 import video from "../../../../assets/videoPage/video.png";
 import video1 from "../../../../assets/videoPage/video1.png";
 import {IVideoCardBody} from "../../../../types/videoPageTypes/videoPage";
-import useWindowDimensions from "../../../../hooks/useWindowDimensions";
 
 
 const MainVideo = () => {

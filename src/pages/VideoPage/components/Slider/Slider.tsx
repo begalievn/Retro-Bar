@@ -1,17 +1,15 @@
 import React, { FC, useRef } from "react";
-
-import classes from "./Slider.module.css";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import video from "../../../../assets/videoPage/video.png";
-import video1 from "../../../../assets/videoPage/video1.png";
-import "./styles.css";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { VideoCard } from "../../../../UI";
 
+import "./styles.css";
+import classes from "./Slider.module.css";
+import { VideoCard } from "../../../../UI";
 import { IVideoCardBody } from "../../../../types/videoPageTypes/videoPage";
 
 interface sliderProps {

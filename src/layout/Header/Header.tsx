@@ -15,6 +15,7 @@ const Header = () => {
   const location = useLocation();
   const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
 
+
   if (isOpen) {
     document.body.style.overflow = "hidden";
   } else {
@@ -65,7 +66,7 @@ const Header = () => {
 
         <nav>
           <ul className={classes.headerNav}>
-           <NavItems navItems={navItems}/>
+           <NavItems  navItems={navItems} />
           </ul>
           <SearchBtn onClick={() => setInputVisible(!inputVisible)} className={classes.navSearchBtn} />
           <div
