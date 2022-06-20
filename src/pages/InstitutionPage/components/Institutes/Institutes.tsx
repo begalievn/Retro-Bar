@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import styles from './institutes.module.css'
 import tablet1 from '../../../../assets/institution/middlePart/tablet1.png'
 import tablet3 from '../../../../assets/institution/middlePart/tablet3.png'
-import tablet2 from '../../../../assets/institution/middlePart/tablet.png'
+import tablet2 from '../../../../assets/institution/middlePart/tablet2.png'
 
 import image1 from '../../../../assets/institution/middlePart/image1.png'
 import image3 from '../../../../assets/institution/middlePart/image3.png'
@@ -11,6 +11,7 @@ import image2 from '../../../../assets/institution/middlePart/image2.png'
 
 import PlaceInfo from '../placeInfo/PlaceInfo'
 import Carousel from './Carousel/Carousel'
+import { title } from 'process'
 
 
 
@@ -26,8 +27,8 @@ function Institutes() {
 
   return (
     <section className={styles.main}>
-      <div className={styles.title}>
-        <h2>Заведения</h2>
+      <div className={styles.titleBlock}>
+        <h2 className={styles.title}>Заведения</h2>
       </div>
       <section className={styles.cards}>
         <div className={styles.sideCard}>

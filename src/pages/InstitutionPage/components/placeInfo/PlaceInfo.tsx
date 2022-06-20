@@ -13,6 +13,7 @@ import desserts from "../../../../assets/institution/placeInfo/desserts.svg";
 import wineicon from "../../../../assets/institution/placeInfo/wineicon.svg";
 
 import rating from "../../../../assets/institution/placeInfo/rating.svg";
+import { style } from "@mui/system";
 
 
 
@@ -32,7 +33,7 @@ const PlaceInfo = ({click}) =>{
           <img className={styles.headerLogo} src={logo} alt="" />
         </div>
         <div className={styles.headerNaming}>
-          <h3>KEANU</h3>
+          <h3 className={styles.headerName}>KEANU</h3>
           <h4 className={styles.headerType}>Bar</h4>
         </div>
         <div onClick={()=>click({dir:'next',change:Date.now()})}className={styles.buttonNext}>
@@ -58,19 +59,19 @@ const PlaceInfo = ({click}) =>{
       <section className={styles.prices} >
         <div className={styles.pricesItem}>
           <img src={hotdishes} alt="" />
-          <h4 className={styles.pricesText} >~5000 с</h4>
+          <p className={styles.pricesText} >~5000 с</p>
         </div>
         <div className={styles.pricesItem}>
           <img src={salads} alt="" />
-          <h4 className={styles.pricesText} >~5000 с</h4>
+          <p className={styles.pricesText} >~5000 с</p>
         </div>
         <div className={styles.pricesItem}>
           <img src={desserts} alt="" />
-          <h4 className={styles.pricesText} >~500 с</h4>
+          <p className={styles.pricesText} >~500 с</p>
         </div>
         <div className={styles.pricesItem}>
           <img src={wineicon} alt="" />
-          <h4 className={styles.pricesText} >~500 с</h4>
+          <p className={styles.pricesText} >~500 с</p>
         </div>
         
       </section>

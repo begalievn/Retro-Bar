@@ -1,29 +1,10 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: white;
-}
-p {
-  color: white;
-}
-* {
-  font-family: "Mont", sans-serif;
-}
-h4 {
-  font-weight: 500;
- 
-}
 .placeInfo {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   margin-left: 41px;
   margin-right: 70px;
-  font-size: 16px;
+
 }
 .header {
   display: flex;
@@ -42,13 +23,19 @@ h4 {
   justify-content: space-between;
   align-items: flex-start;
   margin-left: 11px;
+  
 }
 .headerName {
+  color: white;
 }
 .headerType {
   font-weight: 600;
+  color:white;
   
 }
+
+
+
 .buttonPrev {
   margin-right: 39px;
   display: none;
@@ -69,10 +56,13 @@ h4 {
 .contactRow {
   display: flex;
   margin-bottom: 14px;
+
 }
 .contactRowText {
   margin-left: 13px;
- 
+  color: white;
+  font-family: "Mont", sans-serif;
+  font-weight: 500;
 }
 
 /* цены блюд */
@@ -90,6 +80,8 @@ h4 {
 .pricesText {
   margin-left: 4px;
   min-width: 70px;
+  color: white;
+  font-family: "Mont", sans-serif;
 }
 
 /* рейтинг */
@@ -114,7 +106,7 @@ h4 {
   margin-right: 10px;
   
 }
-h4{
+.headerType ,.contactRowText ,.pricesText ,.ratingText{
   font-size: 0.7em;
 }
 .prices {
@@ -130,7 +122,8 @@ h4{
 }
 }
 @media screen and (max-width: 425px) {
-  h4{
+  
+ .headerType ,.contactRowText ,.pricesText ,.ratingText{
     font-size: 1.2em;
   }
   .prices{

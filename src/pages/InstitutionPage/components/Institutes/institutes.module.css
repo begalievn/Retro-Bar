@@ -2,13 +2,13 @@
   margin-top: 213px;
   font-size: 16px;
 }
-.title {
+.titleBlock {
   text-align: left;
   margin-bottom: 72px;
   padding-left: 14%;
 }
-h2 {
-  color: white;
+.title {
+  color: rgb(255, 255, 255);
 }
 .cards {
   display: flex;
@@ -85,9 +85,6 @@ h2 {
 
  
 }
-.sideCard2Image:hover {
-  transform: scale(1);
-}
 .sideCard2Canvas {
   width: 100%;
 }
@@ -123,6 +120,9 @@ h2 {
 .middleCardCanvas {
   width: 25vw;
 }
+.titleBlock{
+padding-left: 0;
+}
 }
 @media screen and (max-width: 425px) {
   .title {
@@ -136,7 +136,6 @@ h2 {
   .cardsMobile {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
   }
   
   
@@ -154,31 +153,5 @@ h2 {
    
   }
 
-  /* .cards {
-    align-items: flex-start;
-  }
-  .middleCard {
-    flex-direction: column;
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-  .middleCardCanvas {
-    width: 80vw;
-    
-  }
-  .sideCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  
-  .sideCard1Canvas {
-    width: 80vw;
-  }
-  
-
-  .sideCard2Canvas {
-    width: 80vw;
-  } */
+ 
 }

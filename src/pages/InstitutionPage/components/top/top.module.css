@@ -1,3 +1,6 @@
+:root{
+  --font-size: calc(16px + 14 * (100vw / 1440));
+}
 .top {
   padding: 11% 4% 0px 9%;
   display: flex;
@@ -5,42 +8,143 @@
   justify-content: center;
   position: relative;
 }
+/* первая лента */
 .topFilmBlock1 {
   position: relative;
-}
-.topFilmBlock2 {
-  position: relative;
-}
-.pic1 {
-  width: 100%;
-  height: 100%;
-}
-.pic2 {
-  width: 100%;
-  height: 100%;
 }
 .tape1 {
   position: absolute;
   top: 73%;
   right: 83%;
   width: 30%;
+  filter: grayscale(1);
 }
+.topFilm1 {
+  width: 100%;
+  
+}
+.film1ImageBlock1{
+  /* background-color: rgba(250, 0, 21, 0.452); */
+  position: absolute;
+  min-width: 46%;
+  min-height: 62%;
+  top: 16%;
+  right:51.5%;
+  overflow: hidden;
+  transform: rotateZ(-2deg) ;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-weight: 100px;
+  padding: 8% 0 0 7%;
+  
+}
+.film1Image1{
+   position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  
+}
+
+.infoTitle{
+  font-family: 'Mont',sans-serif;
+  color: white;
+  margin-bottom: 10%;
+  z-index: 1;
+  font-size: var(--font-size);
+  
+}
+.test{
+  font-size: 20px;
+  font-weight: 700;
+}
+.infoRow{
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  margin-bottom: 3%;
+}
+.icon{
+  max-width: 11px;
+}
+.infoRowText{
+  margin-left: 7px;
+  font-size: 5px;
+  color: white;
+}
+
+.film1ImageBlock2{
+  /* background-color: rgba(93, 107, 240, 0.178); */
+  position: absolute;
+  min-width: 47%;
+  min-height: 61%;
+  top: 14%;
+  right:4%;
+  overflow: hidden;
+  transform: rotateZ(-2deg) ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.film1Image2{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+
+
+
+
+/* вторая лента */
+.topFilmBlock2 {
+  position: relative;
+}
+.topFilm2{
+  width: 100%;
+}
+.film2ImageBlock{
+  /* background-color: rgba(247, 0, 255, 0); */
+  position: absolute;
+  min-width: 91%;
+  min-height: 50%;
+  top: 16%;
+  right:4%;
+  overflow: hidden;
+  transform: rotateZ(2deg) ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 4%;
+}
+.topFilm2Image{
+  position:relative;
+  width: 100%;
+  top: 0;
+  right: 0;
+  filter: grayscale(1);
+}
+
 .tape2 {
   width: 30%;
   position: absolute;
-  top: 1%;
-  right: 80%;
+  top: -1%;
+  right: 82%;
 }
 .tape3 {
   display: none;
 }
-.topHeader {
+.titleBlock {
   margin-left: 4%;
   margin-bottom: 5%;
-
-
 }
-h2 {
+
+.title {
   color: white;
   font-size: calc(21px + 10 * (100vw / 1440));
 }
@@ -55,7 +159,12 @@ h2 {
   right: 4%;
 }
 @media screen and (max-width: 425px) {
-  h2 {
+  .infoTitle{
+
+    font-size: var(--font-size);
+    
+  }
+  .title {
     font-size: calc(21px + (10 + 10 * 0.7) * ((100vw - 320px) / 1440));
   }
   .topHeader {
