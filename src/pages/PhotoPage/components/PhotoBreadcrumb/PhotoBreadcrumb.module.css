@@ -1,9 +1,9 @@
 .photoBreadcrumb {
-  padding-top: 54px;
   position: relative;
   z-index: 10;
-  padding: 54px 40px 0 40px;
+  padding: 58px 40px 0 65px;
 }
+
 .photoBreadcrumb button {
   border: none;
   background: transparent;
@@ -19,5 +19,7 @@
 @media (max-width:750px) {
   .photoBreadcrumb {
     text-align: center;
+    padding-left: 40px;
   }
 }
+

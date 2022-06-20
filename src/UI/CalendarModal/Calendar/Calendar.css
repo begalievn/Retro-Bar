@@ -157,3 +157,12 @@
   padding: 9px 16px;
   color: rgba(0, 0, 0, 0.5);
 }
+
+
+
+
+@media (max-width:670px) {
+  .calendar {
+    background: none;
+  }
+}

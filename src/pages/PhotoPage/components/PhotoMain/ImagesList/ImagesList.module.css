@@ -10,6 +10,11 @@
 
 .image {
   position: absolute;
+  height: 98%;
+}
+.image img {
+  height: 100%;
+  object-fit: cover;
 }
 
 .eventPlace,
@@ -32,10 +37,6 @@
 img {
   max-width: 100%;
 }
-
-
-
-
 
 
 
@@ -63,12 +64,12 @@ img {
 .attention {
   position: relative;
   grid-area: 2 / 2 / 3 / 3;
-  ;
+  z-index: 2;
 }
 
 .munchenPub {
   position: relative;
-
+  z-index: 2;
   grid-area: 2 / 3 / 3 / 4;
 }
 
@@ -203,7 +204,7 @@ img {
 .advertise .ad_info_icon {
   position: absolute;
   top: -134px;
-  right: 168px;
+  right: 55px;
 }
 
 
@@ -333,7 +334,8 @@ img {
   .eventPlace,
   .pablo,
   .advertise .image_border,
-  .advertise .image {
+  .advertise .image,
+  .ad_info_icon {
     display: none;
   }
 }

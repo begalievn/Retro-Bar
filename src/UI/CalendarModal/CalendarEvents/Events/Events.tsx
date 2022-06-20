@@ -24,6 +24,7 @@ const Events: FC<EventsProps> = ({ events }) => {
                   <img src={pictureIcon} alt="" /> <p>{event.photos}</p>
                 </div>
               </div>
+              
 
               <div className={styles.establishment_info_footer_date}>
                 <p>{event.date}</p>

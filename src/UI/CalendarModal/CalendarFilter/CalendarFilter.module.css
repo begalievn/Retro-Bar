@@ -24,3 +24,8 @@
   color: #000000;
 }
 
+@media (max-width:670px) {
+  .calendar_filter_btn {
+    margin-top: 17px;
+  }
+}

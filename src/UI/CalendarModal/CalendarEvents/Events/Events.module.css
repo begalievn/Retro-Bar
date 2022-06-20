@@ -3,6 +3,12 @@
   color: white;
   max-width: 295px;
   height: 219px;
+  border-radius: 10px;
+}
+
+
+.establishment img {
+  object-fit: cover;
 }
 
 .establishment_info {
