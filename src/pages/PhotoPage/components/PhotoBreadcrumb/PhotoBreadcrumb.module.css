@@ -1,0 +1,23 @@
+.photoBreadcrumb {
+  padding-top: 54px;
+  position: relative;
+  z-index: 10;
+  padding: 54px 40px 0 40px;
+}
+.photoBreadcrumb button {
+  border: none;
+  background: transparent;
+  font-family: 'Montserrat Alternates';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+  margin-right: 21px;
+  cursor: pointer;
+}
+
+@media (max-width:750px) {
+  .photoBreadcrumb {
+    text-align: center;
+  }
+}

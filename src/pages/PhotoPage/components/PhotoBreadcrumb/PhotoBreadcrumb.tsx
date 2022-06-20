@@ -1,13 +1,13 @@
 import React, { FC, useState } from 'react'
 import CalendarModal from '../../../../UI/CalendarModal/CalendarModal'
-import styles from './PhotoNav.module.css'
-const PhotoNav:FC = () => {
+import styles from './PhotoBreadcrumb.module.css'
+const PhotoBreadcrumb:FC = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   return (
     <>
-      <div className={styles.photoNav}>
+      <div className={styles.photoBreadcrumb}>
         <button >Фото</button>
         <button onClick={handleOpen} >Календарь</button>
         <button>Галерея</button>
@@ -17,4 +17,4 @@ const PhotoNav:FC = () => {
   )
 }
 
-export default PhotoNav
+export default PhotoBreadcrumb

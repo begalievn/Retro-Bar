@@ -1,5 +1,3 @@
-
-
 .image img {
   opacity: 0.95;
 }
@@ -190,7 +188,7 @@ img {
 .image_info_studio_name {
   font-weight: normal;
   font-size: 16px;
-  line-height: 20px;  
+  line-height: 20px;
   margin-left: 9px;
 }
 
@@ -221,11 +219,15 @@ img {
   width: 326px;
 }
 
+.advertise button {
+  display: none;
+}
+
 
 .advertise2 .ad_info_icon {
   position: absolute;
-  top: 5px;
-  right: 260px;
+  top: 22px;
+  right: 139px;
 }
 
 .advertise2 .ad_info {
@@ -245,4 +247,93 @@ img {
   font-size: 16px;
   line-height: 20px;
   margin-top: 50px;
+}
+
+
+@media (max-width:1120px) {
+  .eventPlace {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+  }
+
+  .zeppelinBar {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+  }
+
+  .kipishBar {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+
+  }
+
+  .mamaRada {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+  }
+
+  .secretMusicHall {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+  }
+
+  .pintaPub {
+    grid-row: 4 / 6;
+    grid-column: 1 / 2;
+  }
+
+  .pablo {
+    grid-row: 4 / 6;
+    grid-column: 2 / 3;
+  }
+
+  .advertise {
+    grid-row: 6 / 7;
+    grid-column: 1 / 3;
+  }
+
+  .advertise button {
+    display: block;
+  }
+
+  .attention,
+  .advertise2,
+  .molecula,
+  .oblaco53,
+  .munchenPub {
+    display: none;
+  }
+}
+
+@media (max-width:750px) {
+  .zeppelinBar {
+    grid-area: zeppelinBar;
+  }
+
+  .kipishBar {
+    grid-area: kipishBar;
+  }
+
+  .mamaRada {
+    grid-area: mamaRada;
+  }
+
+  .secretMusicHall {
+    grid-area: secretMusicHall;
+  }
+
+  .pintaPub {
+    grid-area: pintaPub;
+  }
+
+  .advertise {
+    grid-area: advertise;
+  }
+
+  .eventPlace,
+  .pablo,
+  .advertise .image_border,
+  .advertise .image {
+    display: none;
+  }
 }
