@@ -1,9 +1,6 @@
-.photoMain_intro {
-  display: flex;
-  padding-top: 90px;
-}
 
-.photoMain_intro_title {
+.photoMain_title {
+  margin-top: 90px;
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
@@ -12,9 +9,6 @@
   font-family: "Montserrat Alternates", sans-serif;
 }
 
-.photoMain_intro_img {
-  margin: -90px 0 0 60px;
-}
 
 
 .gridBlocks {
@@ -24,5 +18,41 @@
   grid-template-rows: repeat(6, 365px);
   gap: 5px;
   font-family: 'Mont';
-  margin-top: 54px;
+  margin: 54px 0 230px 0;
+}
+
+
+
+
+@media (max-width:1120px) {
+  .gridBlocks {
+    display: grid;
+    grid-template-columns: repeat(2, 365px);
+    grid-template-rows: repeat(5, 365px);
+    gap: 5px;
+    margin-bottom: 400px;
+
+  }
+}
+
+@media (max-width:750px) {
+  .gridBlocks {
+    display: grid;
+    grid-template-columns: 314px;
+    grid-template-rows: 318px 315px 315px 315px 640px 350px;
+    gap: 15px 0;
+    grid-template-areas:
+      "zeppelinBar"
+      "kipishBar"
+      "mamaRada"
+      "secretMusicHall"
+      "pintaPub"
+      "advertise";
+
+  }
+  .photoMain_title {
+    text-align: start;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }

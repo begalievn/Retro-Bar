@@ -17,7 +17,7 @@ import PhotoReportCardBig from '../photo-report-card/PhotoReportCardBig';
 
 const reportsArr = [
   {
-    photo: photo1,
+    photo: bigPhoto,
     title: 'ZEPPELIN BAR',
     eventType: 'STREET CREDIBILITY',
     watches: 709,
@@ -51,7 +51,7 @@ const reportsArr = [
 ];
 
 const bigPhotoCard = {
-  photo: bigPhoto,
+  photo: photo4,
   title: 'PARK EVENTPLACE',
   eventType: 'ÜN',
   watches: 6545,
@@ -60,19 +60,20 @@ const bigPhotoCard = {
 };
 
 const PhotoReports = () => {
+  console.log(window.innerWidth);
   return (
     <div className={classes.photo_reports}>
-      <div className={classes.photo_reports_layer}>
-        <div className={classes.photo_reports_container}>
-          <div
-            className={[classes.main_title, classes.photo_reports__title].join(
-              ' '
-            )}
-          >
-            Актуальные фотоотчеты
-          </div>
-          <div className={classes.photo_reports__content}>
-            {reportsArr.map((item, index) => (
+      <div className={classes.photo_reports_container}>
+        <div
+          className={[classes.main_title, classes.photo_reports__title].join(
+            ' '
+          )}
+        >
+          Актуальные фотоотчеты
+        </div>
+        <div className={classes.photo_reports__content}>
+          {reportsArr.map((item, index) => (
+            <div>
               <PhotoReportCard
                 key={index}
                 photo={item.photo}
@@ -82,7 +83,9 @@ const PhotoReports = () => {
                 pics={item.pics}
                 date={item.date}
               />
-            ))}
+            </div>
+          ))}
+          <div>
             <PhotoReportCardBig
               photo={bigPhotoCard.photo}
               title={bigPhotoCard.title}
@@ -92,11 +95,12 @@ const PhotoReports = () => {
               date={bigPhotoCard.date}
             />
           </div>
-          <div className={classes.photo_reports__btn}>
-            <button>Все фото</button>
-          </div>
+        </div>
+        <div className={classes.photo_reports__btn}>
+          <button>Все фото</button>
         </div>
       </div>
+      <div className={classes.photo_reports_layer}></div>
 
       <img className={classes.photo_reports__star3} src={star3Icon} alt="" />
       <img className={classes.photo_reports__star4} src={star4Icon} alt="" />

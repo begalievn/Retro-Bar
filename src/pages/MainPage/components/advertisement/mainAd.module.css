@@ -1,0 +1,9 @@
+.mainAd {
+  width: 100%;
+  max-width: 1440px;
+  height: 580px;
+  margin: 0 auto;
+  background-image: url('../../../../assets//mainPage//mainAd-bg.png');
+  background-size: cover;
+  position: relative;
+}

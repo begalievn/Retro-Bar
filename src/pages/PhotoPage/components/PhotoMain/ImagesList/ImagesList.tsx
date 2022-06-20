@@ -4,6 +4,7 @@ import styles from "./ImagesList.module.css";
 import eye from "../../../../../assets/photoPageImages/icons/eye.svg";
 import pic from "../../../../../assets/photoPageImages/icons/pic.svg";
 import camera from "../../../../../assets/photoPageImages/icons/camera.svg";
+import Button from "../../Button/Button";
 
 
 interface ImagesListProps {
@@ -26,6 +27,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
               <div className={styles.ad_info}>
                 <h3 className={styles.ad_info_title}>{item.title}</h3>
                 <p className={styles.ad_info_text}>{item.text}</p>
+                {item.button}
               </div>
                 <div className={styles.ad_info_icon}>
                   <img src={item.icon} alt="" />

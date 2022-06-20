@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import "../../../../../fonts/Mont/stylesheet.css";
 import ImagesList from "../ImagesList/ImagesList";
 import eventPlace from "../../../../../assets/photoPageImages/main-images/parkEventplace.png";
 import zeppelinBar from "../../../../../assets/photoPageImages/main-images/zeppelinBar.png";
@@ -19,6 +18,7 @@ import wideBorder from "../../../../../assets/photoPageImages/wide-border.png";
 import longBorder from "../../../../../assets/photoPageImages/long-border.png";
 import circle from "../../../../../assets/photoPageImages/icons/circle.svg";
 import star from "../../../../../assets/photoPageImages/icons/star.svg";
+import Button from "../../Button/Button";
 
 
 const PhotoReport: FC = () => {
@@ -97,6 +97,7 @@ const PhotoReport: FC = () => {
       border: wideBorder,
       id: 7,
       class: "advertise",
+      button:<Button/>,
       icon: star,
       title: "Фото и видео услуги",
       text: "Современные технологии достигли такого уровня, что перспективное планирование способствует.",
@@ -152,8 +153,9 @@ const PhotoReport: FC = () => {
       border: wideBorder,
       id: 12,
       icon: circle,
+      button:<Button/>,
       class: "advertise2",
-      title: "Реклама",
+      title: "Заказать сьёмку сейчас",
       text: "Современные технологии достигли такого уровня, что перспективное планирование способствует подготовке и реализации позиций, занимаемых участниками в отношении поставленных задач.",
     },
     {
