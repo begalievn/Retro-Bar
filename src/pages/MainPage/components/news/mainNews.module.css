@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: white;
 }
 
 .content {
