@@ -115,11 +115,12 @@
 }
 .input {
   height: 33px;
-  width: 180px;
+  width: 233px;
   border-radius: 8px;
   border: none;
   margin-top: 10px;
-
+  outline: none;
+  padding: 10px;
 }
 
 .input::placeholder {
@@ -138,6 +139,7 @@
   cursor: pointer;
   border: none;
   margin-top: 10px;
+  margin-left: -30px;
 }
 
 .onlyIcons {

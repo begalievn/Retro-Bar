@@ -55,8 +55,6 @@
 }
 
 
-
-
 .calendar__body {
   border-radius: 0 0 5px 5px;
   padding: 5px;
@@ -161,8 +159,14 @@
 
 
 
+/* Media */
+
+
 @media (max-width:670px) {
   .calendar {
     background: none;
+  }
+  .calendar_tape {
+    display: none;
   }
 }
