@@ -166,4 +166,7 @@
   .calendar {
     background: none;
   }
+  .calendar_tape {
+    display: none;
+  }
 }

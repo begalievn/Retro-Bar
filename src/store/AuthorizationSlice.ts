@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { IUser } from "../types/userTypes";
-import { API } from "../utils/helpers/Consts";
+import { createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { IUser } from '../types/userTypes';
+import { API } from '../utils/helpers/Consts';
 
 export const login = async (userData: IUser) => {
   const config = {
@@ -12,14 +12,14 @@ export const login = async (userData: IUser) => {
   try {
     let res = await axios.post(`${API}admin/login`, data, config);
     console.log(res);
-    localStorage.setItem("token", JSON.stringify(res.data));
+    localStorage.setItem('token', JSON.stringify(res.data));
   } catch (e) {
     console.log(e);
   }
 };
 
 export const AuthorizationSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState: {
     userData: {},
   },

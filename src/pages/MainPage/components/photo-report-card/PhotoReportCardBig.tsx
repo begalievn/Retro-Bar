@@ -1,6 +1,5 @@
 import React from 'react';
 
-import photoBackground from '../../../../assets/mainPage/photo-report-card-big-bg.png';
 import eyeIcon from '../../../../assets/mainPage/eye-icon.svg';
 import picIcon from '../../../../assets/mainPage/pic-icon.svg';
 
@@ -13,6 +12,7 @@ type Props = {
   watches: number;
   pics: number;
   date: string;
+  backgroundPhoto: string;
 };
 
 const PhotoReportCardBig = ({
@@ -22,10 +22,11 @@ const PhotoReportCardBig = ({
   watches,
   pics,
   date,
+  backgroundPhoto,
 }: Props) => {
   return (
     <div
-      style={{ backgroundImage: `url(${photoBackground})`, width: '668px' }}
+      style={{ backgroundImage: `url(${backgroundPhoto})`, width: '668px' }}
       className={classes.cardContainer}
     >
       <div

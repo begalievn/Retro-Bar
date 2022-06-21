@@ -6,6 +6,8 @@ import PalaroidSlider from './components/palaroid-slider/PalaroidSlider';
 import PhotoReports from './components/photo-reports/PhotoReports';
 import TopInstituions from './components/top-institutions/TopInstituions';
 
+import paperBackground from '../../assets/mainPage/paper-background.png';
+
 import classes from './mainPage.module.css';
 
 const MainPage = () => {
@@ -19,8 +21,16 @@ const MainPage = () => {
       <PalaroidSlider />
       <TopInstituions />
       <PhotoReports />
-      <MainNews />
-      <MainAd />
+      <div className={classes.paper_container}>
+        <div className={classes.paper_content}>
+          <img src={paperBackground} />
+          <div className={classes.news_container}>
+            <MainNews />
+          </div>
+        </div>
+
+        <MainAd />
+      </div>
     </div>
   );
 };
