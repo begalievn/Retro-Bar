@@ -1,50 +1,50 @@
-import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import classes from "./Header.module.css";
-import { ReactComponent as LogoIcon } from "../../assets/Header/logo.svg";
-import { BurgerMenu, NavItem, NavItems } from "./components";
-import { SearchBtn, InputSearch } from "../../UI";
-import { someClasses } from "../../utils/someClasses";
-import { INavItems } from "../../types/headerTypes/headerTypes";
+import classes from './Header.module.css';
+import { ReactComponent as LogoIcon } from '../../assets/Header/logo.svg';
+import { BurgerMenu, NavItem, NavItems } from './components';
+import { SearchBtn, InputSearch } from '../../UI';
+import { someClasses } from '../../utils/someClasses';
+import { INavItems } from '../../types/headerTypes/headerTypes';
 
 const Header = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
   const [inputVisible, setInputVisible] = useState<boolean>(false);
   const history = useNavigate();
   const location = useLocation();
-  const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
+  const isHomePage = location.pathname !== '/' ? 'pointer' : 'initial';
 
   if (isOpen) {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
   } else {
-    document.body.style.overflow = "visible";
+    document.body.style.overflow = 'visible';
   }
 
   const navItems: INavItems[] = [
     {
-      title: "Фото",
-      path: "/photo",
+      title: 'Фото',
+      path: '/photo',
     },
     {
-      title: "Видео",
-      path: "/video",
+      title: 'Видео',
+      path: '/video',
     },
     {
-      title: "Заведение",
-      path: "/institution",
+      title: 'Заведение',
+      path: '/institution',
     },
     {
-      title: "События",
-      path: "/events",
+      title: 'События',
+      path: '/events',
     },
     {
-      title: "Новости",
-      path: "/news",
+      title: 'Новости',
+      path: '/news',
     },
     {
-      title: "Контакты",
-      path: "/contacts",
+      title: 'Контакты',
+      path: '/contacts',
     },
   ];
 
@@ -54,7 +54,7 @@ const Header = () => {
         <div
           className={classes.headerLogo}
           onClick={() => {
-            isHomePage && (history("/"), setOpen(false));
+            isHomePage && (history('/'), setOpen(false));
           }}
           style={{
             cursor: `${isHomePage}`,
@@ -74,7 +74,7 @@ const Header = () => {
           <div
             className={someClasses([
               classes.headerMenuBtn,
-              `${isOpen ? classes.activeMenu : ""} `,
+              `${isOpen ? classes.activeMenu : ''} `,
             ])}
             onClick={() => setOpen(!isOpen)}
           >

@@ -14,7 +14,7 @@
   color: #676767;
   font-family: 'Montserrat Alternates';
   cursor: pointer;
-  transition: .1s;
+  transition: .3s;
 }
 
 .calendar_filter_btn:hover,
