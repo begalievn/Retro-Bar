@@ -5,13 +5,14 @@
   background-color: beige;
 }
 
-.slider_title h2 {
+.slider_title {
   font-family: 'Montserrat Alternates';
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
   line-height: 39px;
+  text-align: center;
   /* identical to box height */
 
-  color: #000000;
+  color: black;
 }
