@@ -104,6 +104,8 @@ img {
   height: 98%;
   width: 100%;
   overflow: hidden;
+  cursor: pointer;
+
 }
 
 .image img {
@@ -113,8 +115,7 @@ img {
   border-radius: 10px;
   width: 99%;
   mix-blend-mode: exclusion; 
-  transition: .7s;
-  cursor: pointer;
+  transition: .9s;
 }
 
 .image img:hover {

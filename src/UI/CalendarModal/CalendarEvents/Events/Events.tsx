@@ -9,8 +9,8 @@ interface EventsProps {
 const Events: FC<EventsProps> = ({ events }) => {
   return (
     <>
-      {events.map((event) => (
-        <div className={styles.establishment}>
+      {events.map((event,i) => (
+        <div className={styles.establishment} key={i}>
           <img src={event.link} className={styles.establishment_image} alt="" />
           <div className={styles.establishment_info}>
             <h3 className={styles.establishment_info_title}>{event.name}</h3>
