@@ -1,0 +1,22 @@
+.card {
+  width: 800px;
+  height: 554px;
+}
+
+.image_container {
+  width: 383px;
+  height: 488px;
+  border-radius: 5px;
+  padding: 19px 69px 20px 33px;
+}
+
+.image_div {
+  width: 281px;
+  height: 449px;
+  overflow: hidden;
+}
+
+.image_div img {
+  width: 100%;
+  object-fit: cover;
+}

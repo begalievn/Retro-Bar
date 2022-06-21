@@ -30,11 +30,9 @@
   min-height: 629px;
   display: flex;
   align-items: center;
-  margin-top: 100px;
+  padding-top: 100px;
 }
 
 .errorImg{
     width:419px;
-    height: 513px;
-    
 }

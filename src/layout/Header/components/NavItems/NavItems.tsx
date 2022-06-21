@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 import { NavItem } from "../index";
 import { INavItems } from "../../../../types/headerTypes/headerTypes";
@@ -11,11 +11,15 @@ interface NavItemsProps {
 }
 
 const NavItems: FC<NavItemsProps> = ({ navItems, onClick }) => {
+  const [isActiveItem, setIsActiveItem] = useState("");
+
   return (
     <>
       {navItems.map((item) => {
         return (
           <NavItem
+            isActive={isActiveItem}
+            setIsActiveItem={setIsActiveItem}
             onClick={onClick}
             className={classes.headerNavItem}
             path={item.path}

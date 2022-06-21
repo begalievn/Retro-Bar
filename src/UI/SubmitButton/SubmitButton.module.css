@@ -1,0 +1,17 @@
+.button{
+  /* box-sizing: content-box; */
+  padding:1.7vw 3vw 1.7vw 3vw ;
+  background-color: #FFB03B;
+  border: none;
+  border-radius: 1vw;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 600;
+  font-size: 1.5vw;
+  /* width: 40%; */
+  /* max-width: 20vw;
+  min-width: 4vw;
+  min-height: 1vw; */
+  
+}
+/* 1.7vw 3vw 1.7vw 3vw */
+/* 17px 32px 17px 33px */

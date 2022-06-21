@@ -1,18 +1,13 @@
+import style from "../eventPage.module.css";
+import AllEvents from "../../../layout/allEvents/AllEvents";
+import { FC } from "react";
 
-import style from '../eventPage.module.css';
-import  AllEvents from '../../../layout/allEvents/AllEvents'
-import { FC } from 'react';
-
-
-const Section2:FC = () => {
-
-
-
+const Section2: FC = () => {
   return (
     <div className={style.eventPage_section2}>
-      <h3 >Все события</h3>
-      <AllEvents/>
-     <a href='#'>Смотреть все</a>
+      <h3>Все события</h3>
+      <AllEvents />
+      <a href="#">Смотреть все</a>
     </div>
   );
 };
