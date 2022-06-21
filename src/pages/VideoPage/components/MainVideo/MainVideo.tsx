@@ -4,8 +4,7 @@ import classes from "./MainVideo.module.css";
 import Slider from "../Slider/Slider";
 import video from "../../../../assets/videoPage/video.png";
 import video1 from "../../../../assets/videoPage/video1.png";
-import {IVideoCardBody} from "../../../../types/videoPageTypes/videoPage";
-
+import { IVideoCardBody } from "../../../../types/videoPageTypes/videoPage";
 
 const MainVideo = () => {
   const images: IVideoCardBody[] = [
@@ -36,6 +35,10 @@ const MainVideo = () => {
         <h3 className={classes.title}>1 мая 2022</h3>
         <Slider images={images} />
       </div>
+      <i className={classes.calendar} />
+      <i className={classes.star} />
+      <i className={classes.stars} />
+
       <div className={classes.sliderBlock}>
         <h3 className={classes.title}>24 мая 2022</h3>
         <Slider className={classes.slider} slides={3} images={images} />
@@ -45,8 +48,6 @@ const MainVideo = () => {
         <h3 className={classes.title}>15 марта 2022</h3>
         <Slider images={images} />
       </div>
-
-      <i className={classes.calendar} />
     </section>
   );
 };

@@ -23,7 +23,7 @@ const NavItem: FC<ItemProps> = ({
   return (
     <li
       className={`${className} ${isActive === title && classes.activeItem}`}
-      onClick={() => setIsActiveItem(title)}
+      onClick={onClick ? onClick : () => setIsActiveItem(title)}
     >
       <Link to={path}>{title}</Link>
     </li>
