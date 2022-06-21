@@ -1,5 +1,6 @@
 :root{
-  --font-size: calc(16px + 14 * (100vw / 1440));
+  --font-desktop: calc(12px + 8 * (100vw / 2500));
+  --font-tablet: calc(6px + 8 * (100vw / 748));
 }
 .top {
   padding: 11% 4% 0px 9%;
@@ -37,7 +38,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   font-weight: 100px;
-  padding: 8% 0 0 7%;
+  padding: 5% 0 0 5%;
   
 }
 .film1Image1{
@@ -54,18 +55,14 @@
   color: white;
   margin-bottom: 10%;
   z-index: 1;
-  font-size: var(--font-size);
+  font-size: var(--font-desktop);
   
-}
-.test{
-  font-size: 20px;
-  font-weight: 700;
 }
 .infoRow{
   display: flex;
   align-items: center;
   z-index: 1;
-  margin-bottom: 3%;
+  margin-bottom: 9%;
 }
 .icon{
   max-width: 11px;
@@ -74,6 +71,7 @@
   margin-left: 7px;
   font-size: 5px;
   color: white;
+  font-size: calc(0.7*(var(--font-desktop)));
 }
 
 .film1ImageBlock2{
@@ -158,12 +156,29 @@
   top: 108%;
   right: 4%;
 }
-@media screen and (max-width: 425px) {
-  .infoTitle{
 
-    font-size: var(--font-size);
+@media screen and (max-width: 748px) {
+
+  .infoTitle{
+  
+   font-size: var(--font-tablet);
     
   }
+  .infoRowText{
+    font-size: calc(var(--font-tablet)*0.63);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .infoTitle{
+  
+    font-size: 11px;
+     
+   }
+   .infoRowText{
+     font-size: 7px;
+   }
+
   .title {
     font-size: calc(21px + (10 + 10 * 0.7) * ((100vw - 320px) / 1440));
   }

@@ -31,7 +31,6 @@ function Top() {
           <div className={styles.film1ImageBlock1}>
             <h3 className={styles.infoTitle}
             >MINIBAR</h3>
-            <div className={styles.test}>MINIBAR</div>
             <div className={styles.infoRow}>
               <img className={styles.icon} src={topclock} alt="" />
               <p className={styles.infoRowText}>18:00-06:00</p>

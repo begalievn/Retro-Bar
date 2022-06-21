@@ -9,7 +9,7 @@ const InstitutionPage = () => {
     <Container maxWidth='xl'>
 
       <Top />
-      {/* <Institutes /> */}
+      <Institutes />
     </Container>
 
 
