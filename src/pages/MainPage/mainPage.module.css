@@ -157,22 +157,25 @@
 
 .paper_container {
   width: 100%;
-  height: 2070px;
+  /* height: 1600px; */
   position: relative;
   display: flex;
   align-items: flex-end;
   margin-top: 70px;
+  background-color: green;
 }
 
 .paper_content {
   width: 100%;
-  height: 1528px;
+  /* max-width: 1440px; */
+  /* height: 1528px; */
   /* background-image: url(../../assets/mainPage/paper-background.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center; */
   position: absolute;
   top: 0;
+
   z-index: 5;
   display: flex;
   flex-direction: column;
@@ -182,6 +185,7 @@
 
 .paper_content img {
   width: 100%;
+  /* max-width: 1440px; */
   height: auto;
   object-fit: contain;
 }
