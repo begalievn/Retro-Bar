@@ -11,10 +11,10 @@ const PaperBottom: FC = () => {
   let carousel = [bottom1, bottom2, bottom3];
   const polaroidSet = [classes.frame1, classes.frame2, classes.frame3];
   const photoSet = [classes.fr4, classes.fr5, classes.fr6];
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(1);
   const [photo, setPhoto] = useState(carousel[index]);
-  const [polaroid, setPolaroid] = useState(polaroidSet[0]);
-  const [photoClass, setPhotoClass] = useState(photoSet[0]);
+  const [polaroid, setPolaroid] = useState(polaroidSet[1]);
+  const [photoClass, setPhotoClass] = useState(photoSet[1]);
 
   const handleLast = (): void => {
     if (index <= 0) {

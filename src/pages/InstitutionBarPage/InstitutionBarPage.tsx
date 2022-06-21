@@ -3,8 +3,9 @@ import { Grid } from "@mui/material";
 import classes from "./institutionBar.module.css";
 import LiveBarTS from "./components/livebar/Livebar";
 import { Paper } from "./components/Paper/Paper";
-import emoji from "../../assets/institutionBarImg/iconsMap/emoji.svg";
-import arrowUp from "../../assets/institutionBarImg/iconsMap/arrowUp.svg";
+import { FooterEmoji } from "./FooterEmoji";
+// import emoji from "../../assets/institutionBarImg/iconsMap/emoji.svg";
+// import arrowUp from "../../assets/institutionBarImg/iconsMap/arrowUp.svg";
 const InstitutionBarPage: FC = () => {
   return (
     <div className={classes.mainContainer}>
@@ -18,12 +19,13 @@ const InstitutionBarPage: FC = () => {
       <div className={classes.paper}>
         <Paper />
       </div>
-      <div className={classes.emoji}>
+      <FooterEmoji />
+      {/* <div className={classes.emoji}>
         <img src={emoji} />
       </div>
       <div className={classes.arrowUp}>
         <img src={arrowUp} />
-      </div>
+      </div> */}
     </div>
   );
 };

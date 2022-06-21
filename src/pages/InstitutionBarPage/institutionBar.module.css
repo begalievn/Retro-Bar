@@ -60,3 +60,8 @@
   position: relative;
   padding-bottom: 10px;
 }
+@media only screen and (max-width: 500px) {
+  .paper {
+    height:900px;
+  }
+}

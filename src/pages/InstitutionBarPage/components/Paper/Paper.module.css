@@ -68,7 +68,8 @@
   transform: rotate(1.53deg);
 }
 
-.mobile {
+.bottomMobile,
+.topMobile {
   display: none;
 }
 @media only screen and (max-width: 1000px) {
@@ -81,7 +82,10 @@
   .bottomWeb {
     display: none;
   }
-
+  .topMobile,
+  .bottomMobile {
+    display: block;
+  }
   .mobile {
     display: block;
     text-align: center;
