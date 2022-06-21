@@ -58,7 +58,6 @@
   position: absolute;
   top: 12%;
   left: 68%;
-  transform: rotate(1.2deg);
   mix-blend-mode: screen;
 }
 
@@ -68,11 +67,8 @@
 .frame2 {
   transform: rotate(1.53deg);
 }
-.frame3 {
-  transform: rotate(1.38deg);
-}
-.topMobile,
-.bottomMobile {
+
+.mobile {
   display: none;
 }
 @media only screen and (max-width: 1000px) {
@@ -86,8 +82,7 @@
     display: none;
   }
 
-  .topMobile,
-  .bottomMobile {
+  .mobile {
     display: block;
     text-align: center;
     padding-top: 5%;
@@ -101,24 +96,80 @@
   .bottomWeb {
     display: none;
   }
-  .topMobile,
-  .bottomMobile {
-    display: block;
+  .mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     padding-top: 5%;
   }
+  .last,
+  .next {
+    border: none;
+    background-color: transparent;
+  }
+  .slider {
+    width: 35px;
+    margin: 10px;
+  }
+
   .backgroundPaper {
     height: 900px;
   }
-  .photoPaste {
+  .photoPasteTop {
     position: absolute;
-    top: 70px;
+    top: 100px;
     left: 85px;
     mix-blend-mode: screen;
   }
+  .photoPasteBottom {
+    position: absolute;
+    top: 63%;
+    /* left: 2; */
+    mix-blend-mode: screen;
+  }
+  .dateMobile {
+    color: black;
+    text-align: center;
+  }
+  .fr1 {
+    position: absolute;
+    top: 16%;
+    left: 23%;
+    transform: rotate(-1.5deg);
+    mix-blend-mode: screen;
+  }
+  .fr2 {
+    position: absolute;
+    top: 16%;
+    left: 25%;
+    transform: rotate(1.6deg);
+    mix-blend-mode: screen;
+  }
+  .fr3 {
+    position: absolute;
+    top: 16%;
+    left: 23%;
+    mix-blend-mode: screen;
+  }
+  .fr4 {
+    position: absolute;
+    top: 62.5%;
+    left: 23%;
+    transform: rotate(-1.5deg);
+    mix-blend-mode: screen;
+  }
+  .fr5 {
+    position: absolute;
+    top: 62.5%;
+    left: 23.5%;
+    transform: rotate(1.6deg);
+    mix-blend-mode: screen;
+  }
+  .fr6 {
+    position: absolute;
+    top: 62.5%;
+    left: 23%;
+    mix-blend-mode: screen;
+  }
 }
-
-/*  bottomWeb*/
-/* topWeb */
-
-/* topMobile */

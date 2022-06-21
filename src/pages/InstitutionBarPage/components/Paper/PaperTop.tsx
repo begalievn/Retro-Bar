@@ -5,20 +5,51 @@ import top1 from "../../../../assets/institutionBarImg/photo/top1.png";
 import top2 from "../../../../assets/institutionBarImg/photo/top2.png";
 import top3 from "../../../../assets/institutionBarImg/photo/top3.png";
 import { Grid } from "@mui/material";
+import sliderLeft from "../../../../assets/institutionBarImg/iconsMap/sliderLeft.svg";
+import sliderRight from "../../../../assets/institutionBarImg/iconsMap/sliderRight.svg";
 
 const PaperTop: FC = () => {
   let carousel = [top1, top2, top3];
+  const polaroidSet = [classes.frame1, classes.frame2, classes.frame3];
+  const photoSet = [classes.fr1, classes.fr2, classes.fr3];
+  const [index, setIndex] = useState(0);
+  const [photo, setPhoto] = useState(carousel[index]);
+  const [polaroid, setPolaroid] = useState(polaroidSet[0]);
+  const [photoClass, setPhotoClass] = useState(photoSet[0]);
 
-  const [photos, setPhotos] = useState(1);
-  let counter = 0;
+  const handleLast = (): void => {
+    if (index <= 0) {
+      //if current index passes last photo in array
+      setIndex(carousel.length - 1);
+      //set index back to zero
+    } else {
+      setIndex(index - 1);
+    }
+    setPhoto(carousel[index]);
+    setPolaroid(polaroidSet[index]);
+    setPhotoClass(photoSet[index]);
+  };
 
-  const handleLast = () => {
-    console.log();
-    // setPhotos(carousel[photos - 1]);
+  const handleNext = (): void => {
+    if (index >= carousel.length - 1) {
+      //if current index passes last photo in array
+      setIndex(0);
+      //set index back to zero
+    } else {
+      setIndex(index + 1);
+    }
+    setPhoto(carousel[index]);
+    setPolaroid(polaroidSet[index]);
+    setPhotoClass(photoSet[index]);
   };
-  const handleNext = () => {
-    // setPhotos(carousel[photos + 1]);
-  };
+
+  useEffect(() => {
+    setPhoto(carousel[index]);
+    setPolaroid(polaroidSet[index]);
+    setPhotoClass(photoSet[index]);
+  }, [index]);
+
+  console.log(polaroid);
   return (
     <div>
       <div className={classes.topWeb}>
@@ -39,10 +70,17 @@ const PaperTop: FC = () => {
         </Grid>
       </div>
       <div className={classes.topMobile}>
-        <button onClick={() => handleLast()}>L</button>
-        <img src={polaroidMini} width="55%" />
-        {/* <img src={photos} width="53%" className={classes.photoPaste} /> */}
-        <button onClick={() => handleNext()}>N</button>
+        <p className={classes.dateMobile}>24 мая 2022</p>
+        <div className={classes.mobile}>
+          <button className={classes.last} onClick={() => handleLast()}>
+            <img src={sliderLeft} className={classes.slider} />
+          </button>
+          <img src={polaroidMini} width="55%" className={polaroid} />
+          <img src={photo} width="53%" className={photoClass} />
+          <button className={classes.next} onClick={() => handleNext()}>
+            <img src={sliderRight} className={classes.slider} />
+          </button>
+        </div>
       </div>
     </div>
   );
