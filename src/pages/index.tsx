@@ -10,6 +10,8 @@ import PhotoPage from './PhotoPage/PhotoPage';
 import VideoPage from './VideoPage/VideoPage';
 import EventsPage from './EventsPage/EventsPage';
 import ErrorPage from './ErrorPage/ErrorPage';
+import AuthorizationPage from './AdminPage/Authorization';
+import AdminPanelPage from './AdminPage/AdminPanelPage';
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -57,6 +59,16 @@ const MainRoutes = () => {
       link: '*',
       element: <ErrorPage />,
       id: 9,
+    },
+    {
+      link: '/authorization',
+      element: <AuthorizationPage />,
+      id: 10,
+    },
+    {
+      link: '/admin',
+      element: <AdminPanelPage />,
+      id: 11,
     },
   ];
 
