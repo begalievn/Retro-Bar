@@ -9,18 +9,22 @@
 }
 
 .photoCard {
-  width: 330px;
-  height: 330px;
+  width: 329px;
+  height: 323.5px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .photoCard img {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .cardContent_container {
@@ -46,9 +50,56 @@
   width: 84%;
   height: 100%;
   color: white;
+  /* font-family: Mont; */
+}
+
+.cardContent h4 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  margin-top: 18.16px;
+}
+
+.cardContent p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 18px;
 }
 
 .cardContent_info img {
-  width: 17.28px;
-  height: 12.57px;
+  width: 16px;
+  height: 12px;
+  margin-right: 7.38px;
+}
+
+.cardContent span {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  margin-right: 28px;
+}
+
+.cardContent_info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardContent_info__pics img {
+  width: 13px;
+  height: 13px;
+}
+
+.cardContent_info__left {
+  display: flex;
+}
+
+.cardContent_info__right p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
 }

@@ -47,7 +47,7 @@ nav {
   width: 50px;
   height: 50px;
   position: relative;
-  z-index: 3;
+  z-index: 22;
 }
 .headerMenuBtn span,
 .headerMenuBtn span::before,
@@ -64,7 +64,7 @@ nav {
 }
 .headerMenuBtn span::before,
 .headerMenuBtn span::after {
-  content: "";
+  content: '';
   display: block;
   transition: 0.2s;
 }
@@ -84,7 +84,7 @@ nav {
   transform: rotate(-45deg);
 }
 
-.backDrop {
+/* .backDrop {
   width: 100%;
   height: 248px;
   position: absolute;
@@ -92,7 +92,7 @@ nav {
   left: 0;
   z-index: 1;
   background: linear-gradient(180deg, #000000 11%, rgba(0, 0, 0, 0) 100%);
-}
+} */
 
 .headerSearch {
   position: absolute;

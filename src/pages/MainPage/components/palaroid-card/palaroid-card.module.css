@@ -1,1 +1,67 @@
+.palaroidCard {
+  width: 472.13px;
+  height: 577.39px;
+  position: relative;
+  background-image: url('../../../../assets/mainPage/polaroid-card-bg.png');
+  background-size: cover;
+}
 
+.card_image {
+  width: 440px;
+  height: 430px;
+  position: absolute;
+  top: 35px;
+  left: 13px;
+}
+
+.card_image img {
+  width: 100%;
+  height: auto;
+}
+
+.card_content {
+  width: 410px;
+  height: 56.62px;
+  position: absolute;
+  bottom: 35px;
+  left: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card_content_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card_content_left h5 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 28px;
+
+  color: #000000;
+}
+
+.card_content_left p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: #000000;
+}
+
+.card_content_right {
+  display: flex;
+  align-items: center;
+}
+
+.card_content_right p {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #000000;
+}

@@ -1,22 +1,26 @@
 import React, { FC } from "react";
-import "../../../../../fonts/Mont/stylesheet.css";
 import ImagesList from "../ImagesList/ImagesList";
-import eventPlace from "../../../../../assets/photoPageImages/main-images/parkEventplace.png";
-import zeppelinBar from "../../../../../assets/photoPageImages/main-images/zeppelinBar.png";
-import kipishBar from "../../../../../assets/photoPageImages/main-images/kipishBar.png";
-import attention from "../../../../../assets/photoPageImages/main-images/attention.png";
-import munchenPub from "../../../../../assets/photoPageImages/main-images/munchenPub.png";
-import pintaPub from "../../../../../assets/photoPageImages/main-images/pintaPub.png";
-import effect from "../../../../../assets/photoPageImages/main-images/effect.png";
-import mamaRada from "../../../../../assets/photoPageImages/main-images/mamaRada.png";
-import secretMusicHall from "../../../../../assets/photoPageImages/main-images/secretMusicHall.png";
-import molecula from "../../../../../assets/photoPageImages/main-images/molecula.png";
-import oblaco53 from "../../../../../assets/photoPageImages/main-images/oblaco53.png";
-import pablo from "../../../../../assets/photoPageImages/main-images/pablo.png";
-import squareBorder from "../../../../../assets/photoPageImages/square-border.png";
-import wideBorder from "../../../../../assets/photoPageImages/wide-border.png";
-import longBorder from "../../../../../assets/photoPageImages/long-border.png";
-
+import {
+  eventPlace,
+  zeppelinBar,
+  kipishBar,
+  attention,
+  munchenPub,
+  pintaPub,
+  effect,
+  mamaRada,
+  secretMusicHall,
+  molecula,
+  oblaco53,
+  fantasy,
+  pablo,
+  squareBorder,
+  wideBorder,
+  longBorder,
+  circle,
+  star,
+} from "./index";
+import Button from "../../Button/Button";
 
 const PhotoReport: FC = () => {
   const images = [
@@ -30,6 +34,7 @@ const PhotoReport: FC = () => {
       views: 6545,
       date: "14 мая 2022",
       class: "eventPlace",
+      studio: "Фото студия “Оригами”",
     },
     {
       link: zeppelinBar,
@@ -93,7 +98,8 @@ const PhotoReport: FC = () => {
       border: wideBorder,
       id: 7,
       class: "advertise",
-      date: "",
+      button: <Button />,
+      icon: star,
       title: "Фото и видео услуги",
       text: "Современные технологии достигли такого уровня, что перспективное планирование способствует.",
     },
@@ -143,13 +149,15 @@ const PhotoReport: FC = () => {
     },
     {
       name: "Реклама",
-      link: effect,
+      link: fantasy,
       ad: true,
       border: wideBorder,
       id: 12,
+      icon: circle,
+      button: <Button />,
       class: "advertise2",
-      title: "Фото и видео услуги",
-      text: "Современные технологии достигли такого уровня, что перспективное планирование способствует.",
+      title: "Заказать сьёмку сейчас",
+      text: "Современные технологии достигли такого уровня, что перспективное планирование способствует подготовке и реализации позиций, занимаемых участниками в отношении поставленных задач.",
     },
     {
       name: "PABLO",
@@ -163,9 +171,7 @@ const PhotoReport: FC = () => {
       class: "pablo",
     },
   ];
-  return (
-      <ImagesList images={images} />
-  );
+  return <ImagesList images={images} />;
 };
 
 export default PhotoReport;
