@@ -31,19 +31,38 @@ const LivebarPhoto: FC = () => {
               />
             </>
           ))} */}
-          <img src={polaroidMini} className={classes.polaroid1} />
+          <article>
+            <img src={polaroidMini} className={classes.polaroid1}  />
+            <img src={photoMini1} className={classes.photo1} />
+          </article>
           <img src={tape1} className={classes.tape1} />
-          <img src={polaroidMini} className={classes.polaroid2} />
+          <article>
+            <img src={polaroidMini} className={classes.polaroid2} />
+            <img src={photoMini2} className={classes.photo2} />
+          </article>
           <img src={tape2} className={classes.tape2} />
-          <img src={polaroidMini} className={classes.polaroid3} />
+          <article>
+            <img src={polaroidMini} className={classes.polaroid3} />
+            <img src={photoMini3} className={classes.photo3} />
+          </article>
           <img src={tape3} className={classes.tape3} />
-          <img src={polaroidMini} className={classes.polaroid4} />
+          <article>
+            <img src={polaroidMini} className={classes.polaroid4} />
+            <img src={photoMini4} className={classes.photo4} />
+          </article>
+          {/* <img src={polaroidMini} className={classes.polaroid1} width="40%" /> */}
+          {/* <img src={tape1} className={classes.tape1} /> */}
+          {/* <img src={polaroidMini} className={classes.polaroid2} /> */}
+          {/* <img src={tape2} className={classes.tape2} /> */}
+          {/* <img src={polaroidMini} className={classes.polaroid3} /> */}
+          {/* <img src={tape3} className={classes.tape3} /> */}
+          {/* <img src={polaroidMini} className={classes.polaroid4} /> */}
         </article>
         <article className={classes.demo}>
-          <img src={photoMini1} className={classes.photo1} />
-          <img src={photoMini2} className={classes.photo2} />
-          <img src={photoMini3} className={classes.photo3} />
-          <img src={photoMini4} className={classes.photo4} />
+          {/* <img src={photoMini1} className={classes.photo1} />
+          <img src={photoMini2} className={classes.photo2} /> */}
+          {/* <img src={photoMini3} className={classes.photo3} /> */}
+          {/* <img src={photoMini4} className={classes.photo4} /> */}
         </article>
       </section>
     </div>

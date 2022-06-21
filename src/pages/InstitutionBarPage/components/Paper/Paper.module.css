@@ -107,6 +107,17 @@
     text-align: center;
     padding-top: 5%;
   }
+  .indexNumber {
+    text-align: center;
+  }
+  .indexBtn {
+    border: none;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    color: black;
+  }
+  
   .last,
   .next {
     border: none;
@@ -118,7 +129,7 @@
   }
 
   .backgroundPaper {
-    height: 900px;
+    height: 940px;
   }
   .photoPasteTop {
     position: absolute;
@@ -138,7 +149,7 @@
   }
   .fr1 {
     position: absolute;
-    top: 16%;
+    top: 15%;
     left: 23%;
     transform: rotate(-1.5deg);
     mix-blend-mode: screen;

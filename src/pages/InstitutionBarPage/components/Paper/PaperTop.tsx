@@ -49,7 +49,11 @@ const PaperTop: FC = () => {
     setPhotoClass(photoSet[index]);
   }, [index]);
 
-  console.log(polaroid);
+  const handleActive = () => {
+    
+  }
+  console.log(index);
+
   return (
     <div>
       <div className={classes.topWeb}>
@@ -80,6 +84,11 @@ const PaperTop: FC = () => {
           <button className={classes.next} onClick={() => handleNext()}>
             <img src={sliderRight} className={classes.slider} />
           </button>
+        </div>
+        <div className={classes.indexNumber}>
+          {carousel.map((el, index) => (
+            <button className={classes.indexBtn}>{index + 1}</button>
+          ))}
         </div>
       </div>
     </div>

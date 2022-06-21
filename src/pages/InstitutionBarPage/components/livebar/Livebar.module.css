@@ -81,25 +81,17 @@ p {
 } */
 
 .polaroid1 {
-  width: 30%;
-  height: 40%;
   z-index: 0;
 }
 .polaroid2 {
-  width: 30%;
-  height: 40%;
   transform: rotate(3.76deg);
   z-index: 0;
 }
 .polaroid3 {
-  width: 30%;
-  height: 40%;
   transform: rotate(10.76deg);
   z-index: 0;
 }
 .polaroid4 {
-  width: 30%;
-  height: 40%;
   transform: rotate(2.76deg);
   z-index: 0;
 }
@@ -128,9 +120,6 @@ p {
   position: relative;
   margin: 2% 0 0 6.5%;
   width: 25%;
-  /* height: 25%; */
-  /* transform: rotate(2.76deg); */
-  /* position: absolute; */
 }
 /* Map */
 .mapImage {
@@ -198,14 +187,13 @@ p {
   .photo {
     top: 45%;
   }
+  .mapImage {
+    padding-top: 70%;
+  }
 }
 @media only screen and (max-width: 900px) {
-  /* .photo {
-    top: 10%;
-  } */
-  .photosAll {
+  /* .photosAll {
     position: absolute;
-    /* top: 115%; */
     left: 22%;
   }
   .polaroid1 {
@@ -247,9 +235,88 @@ p {
   }
   .photo4 {
     visibility: hidden;
-  }
+  } */
   .rating {
     margin-left: 8%;
+  }
+  /* .tape1 {
+    top: 40%;
+    position: absolute;
+    left: -4%;
+    mix-blend-mode: luminosity;
+    z-index: 1;
+  }
+  .tape2 {
+    position: absolute;
+    mix-blend-mode: luminosity;
+    top: 40%;
+    left: 54%;
+    z-index: 1;
+    transform: rotate(-10deg);
+  }
+  .tape3 {
+    visibility: hidden;
+  } */
+}
+@media only screen and (max-width: 500px) {
+  .livebarHeader {
+    font-size: 18px;
+  }
+  .photo {
+    top: 30%;
+  }
+  .mapImage {
+    padding-top: 70%;
+  }
+  .textMap {
+    padding: 5% 0 0 3%;
+  }
+  .circle {
+    width: 45%;
+  }
+  /* .photosAll {
+    position: absolute;
+    left: 22%;
+  } */
+  /* .polaroid1 {
+    width: 63%;
+    height: 50%;
+  }
+  .polaroid2 {
+    width: 63%;
+    height: 50%;
+    transform: rotate(3.76deg);
+  }
+  .polaroid3 {
+    width: 63%;
+    height: 50%;
+    transform: rotate(10.76deg);
+  } */
+  .polaroid4 {
+    visibility: hidden;
+  }
+  .photo1 {
+    position: absolute;
+    top: 14%;
+    left: -14%;
+    width: 35%;
+    transform: rotate(-3deg);
+  }
+  .photo2 {
+    position: absolute;
+    top: 14%;
+    left: 32%;
+    width: 34%;
+    transform: rotate(1.3deg);
+  }
+  .photo3 {
+    position: relative;
+    margin: 3% 0 0 118%;
+    width: 34%;
+    transform: rotate(7.9deg);
+  }
+  .photo4 {
+    visibility: hidden;
   }
   .tape1 {
     top: 40%;
@@ -268,23 +335,6 @@ p {
   }
   .tape3 {
     visibility: hidden;
-  }
-}
-@media only screen and (max-width: 500px) {
-  .livebarHeader {
-    font-size: 18px;
-  }
-  .photo {
-    top: 30%;
-  }
-  .mapImage {
-    padding-top: 70%;
-  }
-  .textMap {
-    padding: 5% 0 0 3%;
-  }
-  .circle {
-    width: 45%;
   }
   /* .reverse {
     display: flex;
