@@ -8,7 +8,7 @@ import arrowDown from "../../../assets/photoPageImages/calendarImages/arrow down
 import tape from "../../../assets/photoPageImages/calendarImages/tape.png";
 
 import { checkDateIsEqual, checkIsToday } from "../../../utils/helpers/date";
-import './Calendar.css'
+import "./Calendar.css";
 interface CalendarProps {
   locale?: string;
   selectedDate: Date;
@@ -21,40 +21,39 @@ const Calendar: FC<CalendarProps> = ({
   selectDate,
   firstWeekDayNumber = 2,
 }) => {
-  
   const { functions, state } = useCalendar({
     locale,
     selectedDate: date,
     firstWeekDayNumber,
   });
 
-  const addZeroToStart = (num:number) => {
-    if(num < 10) return `0${num}`
-    else return num
-  }
+  const addZeroToStart = (num: number) => {
+    if (num < 10) return `0${num}`;
+    else return num;
+  };
 
   return (
-    <div className='calendar'>
-      <div className='calendar_tape'>
+    <div className="calendar">
+      <div className="calendar_tape">
         <img src={tape} alt="" />
       </div>
-      <div className='calendar__header'>
-        <InputSearch placeholder='Искать по дате'/>
-        <div className='calendar__header__info'>
+      <div className="calendar__header">
+        <InputSearch placeholder="Искать по дате" />
+        <div className="calendar__header__info">
           <div
             onClick={() => functions.onClickArrow("left")}
             aria-hidden
-            className='calendar__header__arrow__left'
+            className="calendar__header__arrow__left"
           >
             <img src={arrowLeft} alt="" />
           </div>
           {state.mode === "days" && (
-            <div className='calendar__header__info__intro'>
-              <h3 className='calendar__header__info__intro__title'>
+            <div className="calendar__header__info__intro">
+              <h3 className="calendar__header__info__intro__title">
                 {state.monthesNames[state.selectedMonth.monthIndex].month}
               </h3>
               <span
-                className='calendar__header__arrow__down'
+                className="calendar__header__arrow__down"
                 onClick={() => functions.setMode("monthes")}
               >
                 <img src={arrowDown} alt="" />
@@ -62,12 +61,12 @@ const Calendar: FC<CalendarProps> = ({
             </div>
           )}
           {state.mode === "monthes" && (
-            <div className='calendar__header__info__intro' aria-hidden>
-              <h3 className='calendar__header__info__intro__title'>
+            <div className="calendar__header__info__intro" aria-hidden>
+              <h3 className="calendar__header__info__intro__title">
                 {state.selectedYear}
               </h3>
               <span
-                className='calendar__header__arrow__down'
+                className="calendar__header__arrow__down"
                 onClick={() => functions.setMode("years")}
               >
                 <img src={arrowDown} alt="" />
@@ -75,8 +74,8 @@ const Calendar: FC<CalendarProps> = ({
             </div>
           )}
           {state.mode === "years" && (
-            <div className='calendar__header__info__intro'>
-              <h3 className='calendar__header__info__intro__title'>
+            <div className="calendar__header__info__intro">
+              <h3 className="calendar__header__info__intro__title">
                 {state.selectedYearsInterval[0]} -{" "}
                 {
                   state.selectedYearsInterval[
@@ -85,7 +84,7 @@ const Calendar: FC<CalendarProps> = ({
                 }
               </h3>
               <span
-                className='calendar__header__arrow__down'
+                className="calendar__header__arrow__down"
                 onClick={() => functions.setMode("days")}
               >
                 <img src={arrowDown} alt="" />
@@ -95,21 +94,26 @@ const Calendar: FC<CalendarProps> = ({
           <div
             onClick={() => functions.onClickArrow("right")}
             aria-hidden
-            className='calendar__header__arrow__right'
+            className="calendar__header__arrow__right"
           >
             <img src={arrowRight} alt="" />
           </div>
         </div>
       </div>
-      <div className='calendar__body'>
+      <div className="calendar__body">
         {state.mode === "days" && (
           <>
-            <div className='calendar__week'>
+            <div className="calendar__week">
               {state.weekDaysNames.map((weekDaysName) => (
-                <div className="calendar__week__names" key={weekDaysName.dayShort}>{weekDaysName.dayShort}</div>
+                <div
+                  className="calendar__week__names"
+                  key={weekDaysName.dayShort}
+                >
+                  {weekDaysName.dayShort}
+                </div>
               ))}
             </div>
-            <div className='calendar__days'>
+            <div className="calendar__days">
               {state.calendarDays.map((day) => {
                 const isToday = checkIsToday(day.date);
                 const isSelectedDay = checkDateIsEqual(
@@ -128,13 +132,12 @@ const Calendar: FC<CalendarProps> = ({
                       selectDate(day.date);
                     }}
                     className={[
-                      'calendar__day',
-                      isToday ? 'calendar__today__item' : '',
-                      isSelectedDay ? 'calendar__selected__item' : '',
-                      isAdditionalDay ? 'calendar__additional__day' : ''
-                    ].join(' ')}
+                      "calendar__day",
+                      isToday ? "calendar__today__item" : "",
+                      isSelectedDay ? "calendar__selected__item" : "",
+                      isAdditionalDay ? "calendar__additional__day" : "",
+                    ].join(" ")}
                   >
-                    
                     {addZeroToStart(day.dayNumber)}
                   </div>
                 );
@@ -144,7 +147,7 @@ const Calendar: FC<CalendarProps> = ({
         )}
 
         {state.mode === "monthes" && (
-          <div className='calendar__pick__items__container'>
+          <div className="calendar__pick__items__container">
             {state.monthesNames.map((monthesName) => {
               const isCurrentMonth =
                 new Date().getMonth() === monthesName.monthIndex &&
@@ -174,8 +177,8 @@ const Calendar: FC<CalendarProps> = ({
         )}
 
         {state.mode === "years" && (
-          <div className='calendar__pick__items__container'>
-            <div className='calendar__unchoosable__year'>
+          <div className="calendar__pick__items__container">
+            <div className="calendar__unchoosable__year">
               {state.selectedYearsInterval[0] - 1}
             </div>
             {state.selectedYearsInterval.map((year) => {
@@ -200,7 +203,7 @@ const Calendar: FC<CalendarProps> = ({
                 </div>
               );
             })}
-            <div className='calendar__unchoosable__year'>
+            <div className="calendar__unchoosable__year">
               {state.selectedYearsInterval[
                 state.selectedYearsInterval.length - 1
               ] + 1}

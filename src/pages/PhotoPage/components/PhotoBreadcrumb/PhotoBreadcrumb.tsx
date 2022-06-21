@@ -4,11 +4,7 @@ import styles from './PhotoBreadcrumb.module.css'
 const PhotoBreadcrumb:FC = () => {
   const [modal, setModal] = useState(false);
   const toggleModal = () => setModal(!modal);
-  // if(modal) {
-  //   document.body.style.active_modal
-  // } else {
-  //   document.body.classList.remove(styles.active_modal)
-  // }
+  
   if (modal) {
     document.body.style.overflow = "hidden";
   } else {
