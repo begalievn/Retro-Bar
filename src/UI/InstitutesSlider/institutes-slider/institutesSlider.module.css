@@ -1,0 +1,17 @@
+.slider {
+  width: 100%;
+  max-width: 1440px;
+  height: 600px;
+  background-color: beige;
+}
+
+.slider_title h2 {
+  font-family: 'Montserrat Alternates';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  /* identical to box height */
+
+  color: #000000;
+}
