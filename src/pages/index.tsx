@@ -1,73 +1,61 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 
-import ContactsPage from "./ContactsPage/ContactsPage";
-import InstitutionPage from "./InstitutionPage/InstitutionPage";
-import InstitutionBarPage from "./InstitutionBarPage/InstitutionBarPage";
-import MainPage from "./MainPage/MainPage";
-import NewsPage from "./NewsPage/NewsPage";
-import PhotoPage from "./PhotoPage/PhotoPage";
-import VideoPage from "./VideoPage/VideoPage";
-import EventsPage from "./EventsPage/EventsPage";
-import ErrorPage from "./ErrorPage/ErrorPage";
-import Authorization from "./AdminPage/Authorization";
-import AdminPanelPage from "./AdminPage/AdminPanelPage";
+import ContactsPage from './ContactsPage/ContactsPage';
+import InstitutionPage from './InstitutionPage/InstitutionPage';
+import InstitutionBarPage from './InstitutionBarPage/InstitutionBarPage';
+import MainPage from './MainPage/MainPage';
+import NewsPage from './NewsPage/NewsPage';
+import PhotoPage from './PhotoPage/PhotoPage';
+import VideoPage from './VideoPage/VideoPage';
+import EventsPage from './EventsPage/EventsPage';
+import ErrorPage from './ErrorPage/ErrorPage';
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
     {
-      link: "/",
+      link: '/',
       element: <MainPage />,
       id: 1,
     },
     {
-      link: "/photo",
+      link: '/photo',
       element: <PhotoPage />,
       id: 2,
     },
     {
-      link: "/video",
+      link: '/video',
       element: <VideoPage />,
       id: 3,
     },
     {
-      link: "/institution",
+      link: '/institution',
       element: <InstitutionPage />,
       id: 4,
     },
     {
-      link: "/institution-bar",
+      link: '/institution-bar',
       element: <InstitutionBarPage />,
       id: 5,
     },
     {
-      link: "/events",
+      link: '/events',
       element: <EventsPage />,
       id: 6,
     },
     {
-      link: "/news",
+      link: '/news',
       element: <NewsPage />,
       id: 7,
     },
     {
-      link: "/contacts",
+      link: '/contacts',
       element: <ContactsPage />,
       id: 8,
     },
     {
-      link: "/*",
+      link: '*',
       element: <ErrorPage />,
-      id: 9,
-    },
-    {
-      link: "/authorization",
-      element: <Authorization/>,
-      id: 9,
-    },
-    {
-      link: "/admin",
-      element: <AdminPanelPage/>,
       id: 9,
     },
   ];
