@@ -9,6 +9,7 @@ import TopInstituions from './components/top-institutions/TopInstituions';
 import paperBackground from '../../assets/mainPage/paper-background.png';
 
 import classes from './mainPage.module.css';
+import InstitutesSlider from '../../UI/InstitutesSlider/institutes-slider/InstitutesSlider';
 
 const MainPage = () => {
   return (
@@ -19,6 +20,7 @@ const MainPage = () => {
         </div>
       </div> */}
       <PalaroidSlider />
+      <InstitutesSlider />
       <TopInstituions />
       <PhotoReports />
       <div className={classes.paper_container}>
