@@ -5,7 +5,7 @@ import { API } from '../utils/helpers/Consts';
 
 export const login = async (userData: IUser) => {
   const config = {
-    headers: { 'Content-Type': 'application/json' },
+    headers: { "Content-Type": "application/json" },
   };
 
   let data = JSON.stringify(userData);

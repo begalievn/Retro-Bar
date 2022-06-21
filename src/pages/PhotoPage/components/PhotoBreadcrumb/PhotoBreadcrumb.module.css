@@ -16,6 +16,12 @@
   cursor: pointer;
 }
 
+
+
+
+/* Media */
+
+
 @media (max-width:750px) {
   .photoBreadcrumb {
     text-align: center;

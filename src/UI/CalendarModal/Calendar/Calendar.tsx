@@ -28,6 +28,11 @@ const Calendar: FC<CalendarProps> = ({
     firstWeekDayNumber,
   });
 
+  const addZeroToStart = (num:number) => {
+    if(num < 10) return `0${num}`
+    else return num
+  }
+
   return (
     <div className='calendar'>
       <div className='calendar_tape'>
@@ -129,7 +134,8 @@ const Calendar: FC<CalendarProps> = ({
                       isAdditionalDay ? 'calendar__additional__day' : ''
                     ].join(' ')}
                   >
-                    {day.dayNumber}
+                    
+                    {addZeroToStart(day.dayNumber)}
                   </div>
                 );
               })}
