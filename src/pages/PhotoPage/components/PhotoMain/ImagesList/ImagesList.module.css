@@ -103,6 +103,7 @@ img {
   position: absolute;
   height: 98%;
   width: 100%;
+  overflow: hidden;
 }
 
 .image img {
@@ -111,6 +112,13 @@ img {
   object-fit: cover;
   border-radius: 10px;
   width: 99%;
+  mix-blend-mode: exclusion; 
+  transition: .7s;
+  cursor: pointer;
+}
+
+.image img:hover {
+  transform: scale(1.1);
 }
 
 .image_info {
@@ -122,6 +130,7 @@ img {
   z-index: 1;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.79) 39.9%, #000000 100%);
   width: 100%;
+  
 }
 
 .image_info_header {
