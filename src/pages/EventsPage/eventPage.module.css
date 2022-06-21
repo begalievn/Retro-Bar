@@ -1,0 +1,78 @@
+.eventPage_section1{
+ max-width: 1257px;
+ background-color: black;
+ margin: 0 auto;
+ height: 602px;
+ color: white;
+ padding:58px 152px 114px 120px;
+ position: relative;
+font-family: 'mont';
+ font-weight: bold;
+}
+.eventPage_section1_effect{
+ 
+  background:url('../../assets/eventsImages/effect.png');
+  height: 430px;
+  display: flex;
+  align-items: flex-end;
+  max-width: 985px;
+ 
+}
+
+.eventPage_section1_image{
+
+ 
+  /* height: 430px; */
+  background:url('../../assets/eventsImages/photo.png');
+
+
+}
+
+.eventPage_section1_text{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 51px 35px 26px 57px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.79) 39.9%, #000000 100%);
+}
+
+.eventPage_section1_button{
+  background: #FFB03B;
+  opacity: 0.9;
+border-radius: 10px;
+width: 209px;
+height: 60px;
+font-weight: 500;
+font-size: 19px;
+line-height: 23px;
+color: white;
+cursor: pointer;
+}
+
+.eventPage_section1_text h3{
+  font-weight: 600;
+font-size: 28px;
+line-height: 36px;
+}
+
+.eventPage_section1_text p{
+  font-weight: 600;
+font-size: 24px;
+line-height: 31px;
+}
+
+.eventPage_section1_tape2{
+  position: absolute;
+  right:0;
+  top:0
+}
+
+.eventPage_section1_tape1{
+  position: absolute;
+  left:0;
+  bottom:0;
+  mix-blend-mode: luminosity;
+opacity: 0.95;
+
+
+}
