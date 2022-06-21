@@ -1,20 +1,4 @@
 
-
-.image img {
-  opacity: 0.95;
-}
-
-
-.image_border {
-  position: absolute;
-  margin: -5px 0 0 -5px;
-}
-
-.image {
-  position: absolute;
-}
-
-.eventPlace,
 .zeppelinBar,
 .attention,
 .kipishBar,
@@ -32,11 +16,6 @@
 }
 
 
-
-
-
-
-
 .eventPlace {
   position: relative;
   grid-area: 1 / 1 / 2 / 3;
@@ -45,11 +24,6 @@
 .zeppelinBar {
   position: relative;
   grid-area: 1 / 3 / 2 / 4;
-}
-
-.zeppelinBar .image img {
-  width: 98%;
-
 }
 
 
@@ -61,12 +35,12 @@
 .attention {
   position: relative;
   grid-area: 2 / 2 / 3 / 3;
-  ;
+  z-index: 2;
 }
 
 .munchenPub {
   position: relative;
-
+  z-index: 2;
   grid-area: 2 / 3 / 3 / 4;
 }
 
@@ -80,8 +54,6 @@
   position: relative;
   grid-area: 3 / 2 / 4 / 4;
 }
-
-
 
 .mamaRada {
   position: relative;
@@ -109,20 +81,44 @@
   text-align: center;
 }
 
-
-
-
 .pablo {
   position: relative;
   grid-area: 5 / 3 / 7 / 4;
 }
 
 
+img {
+  max-width: 100%;
+}
+
+.image_border {
+  position: absolute;
+  margin: -3px 0 0 -5px;
+}
+
+.image_border img {
+  border-radius: 10px;
+}
+
+.image {
+  position: absolute;
+  height: 98%;
+  width: 100%;
+}
+
+.image img {
+  opacity: 0.95;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  width: 99%;
+}
+
 .image_info {
   position: absolute;
   padding: 32px 35px;
   color: #FFFFFF;
-  bottom: 7px;
+  bottom: 6px;
   border-radius: 0px 0px 6px 6px;
   z-index: 1;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.79) 39.9%, #000000 100%);
@@ -140,7 +136,11 @@
   font-weight: 600;
   font-size: 20px;
   line-height: 26px;
+}
 
+.image_info_studio {
+  display: flex;
+  align-items: center;
 }
 
 .image_info_partyName {
@@ -178,19 +178,13 @@
   margin-right: 28px;
 }
 
-.image_info_studio {
-  display: flex;
-  align-items: center;
-}
 
 .image_info_studio_name {
   font-weight: normal;
   font-size: 16px;
-  line-height: 20px;  
+  line-height: 20px;
   margin-left: 9px;
 }
-
-.image_info_photos {}
 
 .image_info_date {
   font-weight: 500;
@@ -198,12 +192,15 @@
   line-height: 20px;
 }
 
-.advertise .ad_info_icon {
-  position: absolute;
-  top: -134px;
-  right: 168px;
-}
 
+
+
+/* Advertise */
+
+
+.advertise button {
+  display: none;
+}
 
 .ad_info {
   position: absolute;
@@ -213,15 +210,21 @@
   overflow: hidden;
 }
 
+
 .advertise .ad_info {
   width: 326px;
 }
 
+.advertise .ad_info_icon {
+  position: absolute;
+  top: -134px;
+  right: 55px;
+}
 
 .advertise2 .ad_info_icon {
   position: absolute;
-  top: 5px;
-  right: 260px;
+  top: 22px;
+  right: 139px;
 }
 
 .advertise2 .ad_info {
@@ -241,4 +244,99 @@
   font-size: 16px;
   line-height: 20px;
   margin-top: 50px;
+}
+
+
+
+
+/* Media */
+
+
+@media (max-width:1120px) {
+  .eventPlace {
+    grid-row: 1 / 2;
+    grid-column: 1 / 3;
+  }
+
+  .zeppelinBar {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+  }
+
+  .kipishBar {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+
+  }
+
+  .mamaRada {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+  }
+
+  .secretMusicHall {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+  }
+
+  .pintaPub {
+    grid-row: 4 / 6;
+    grid-column: 1 / 2;
+  }
+
+  .pablo {
+    grid-row: 4 / 6;
+    grid-column: 2 / 3;
+  }
+
+  .advertise {
+    grid-row: 6 / 7;
+    grid-column: 1 / 3;
+  }
+
+  .advertise button {
+    display: block;
+  }
+
+  .attention,
+  .advertise2,
+  .molecula,
+  .oblaco53,
+  .munchenPub {
+    display: none;
+  }
+}
+
+@media (max-width:750px) {
+  .zeppelinBar {
+    grid-area: zeppelinBar;
+  }
+
+  .kipishBar {
+    grid-area: kipishBar;
+  }
+
+  .mamaRada {
+    grid-area: mamaRada;
+  }
+
+  .secretMusicHall {
+    grid-area: secretMusicHall;
+  }
+
+  .pintaPub {
+    grid-area: pintaPub;
+  }
+
+  .advertise {
+    grid-area: advertise;
+  }
+
+  .eventPlace,
+  .pablo,
+  .advertise .image_border,
+  .advertise .image,
+  .ad_info_icon {
+    display: none;
+  }
 }

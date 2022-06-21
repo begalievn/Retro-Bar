@@ -1,11 +1,13 @@
 import React, { FC } from "react";
-import InputSearch from "../../UI/InputSearch/InputSearch";
-import { createMonth } from "../../utils/helpers/date/createMonth";
+import InputSearch from "../../../UI/InputSearch/InputSearch";
+import { createMonth } from "../../../utils/helpers/date/createMonth";
 import { useCalendar } from "./hooks/useCalendar";
-import arrowLeft from "../../assets/photoPageImages/calendarImages/arrow left.svg";
-import arrowRight from "../../assets/photoPageImages/calendarImages/arrow right.svg";
-import arrowDown from "../../assets/photoPageImages/calendarImages/arrow down.svg";
-import { checkDateIsEqual, checkIsToday } from "../../utils/helpers/date";
+import arrowLeft from "../../../assets/photoPageImages/calendarImages/arrow left.svg";
+import arrowRight from "../../../assets/photoPageImages/calendarImages/arrow right.svg";
+import arrowDown from "../../../assets/photoPageImages/calendarImages/arrow down.svg";
+import tape from "../../../assets/photoPageImages/calendarImages/tape.png";
+
+import { checkDateIsEqual, checkIsToday } from "../../../utils/helpers/date";
 import './Calendar.css'
 interface CalendarProps {
   locale?: string;
@@ -25,10 +27,17 @@ const Calendar: FC<CalendarProps> = ({
     selectedDate: date,
     firstWeekDayNumber,
   });
-  console.log(createMonth());
+
+  const addZeroToStart = (num:number) => {
+    if(num < 10) return `0${num}`
+    else return num
+  }
 
   return (
     <div className='calendar'>
+      <div className='calendar_tape'>
+        <img src={tape} alt="" />
+      </div>
       <div className='calendar__header'>
         <InputSearch placeholder='Искать по дате'/>
         <div className='calendar__header__info'>
@@ -125,7 +134,8 @@ const Calendar: FC<CalendarProps> = ({
                       isAdditionalDay ? 'calendar__additional__day' : ''
                     ].join(' ')}
                   >
-                    {day.dayNumber}
+                    
+                    {addZeroToStart(day.dayNumber)}
                   </div>
                 );
               })}

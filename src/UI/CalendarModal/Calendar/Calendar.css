@@ -1,17 +1,27 @@
 .calendar {
-  max-width: 415px;
-  padding: 0 50px;
+  width: 415px;
+  height: 460px;
+  padding: 0 45px;
   border-radius: 10px;
   color: #FFFFFF;
+  font-family: 'Montserrat Alternates';
   text-transform: capitalize;
-  background: url('../../assets/photoPageImages/calendarImages/calendar-bg.png') 0 0/ cover no-repeat;
+  position: relative;
+  background: url('../../../assets/photoPageImages/calendarImages/calendar-bg.png') 0 0/ cover no-repeat;
+}
+
+.calendar_tape img {
+  position: absolute;
+  top: -40px;
+  right: 113px;
+  mix-blend-mode: luminosity;
 }
 
 .calendar__header {
   display: flex;
   flex-direction: column;
-  margin-top: 30px;
   padding-top: 30px;
+  padding: 30px 20px 0 20px;
 }
 
 .calendar__header__info {
@@ -45,10 +55,6 @@
 }
 
 
-
-
-
-
 .calendar__body {
   border-radius: 0 0 5px 5px;
   padding: 5px;
@@ -66,6 +72,7 @@
   grid-template-columns: repeat(7, 1fr);
   gap: 1px 1px;
 }
+
 .calendar__week__names {
   font-weight: 600;
   font-size: 20px;
@@ -75,9 +82,6 @@
 }
 
 .calendar__days {
-  font-size: 10px;
-  font-weight: 400;
-  text-align: center;
   display: grid;
   text-align: center;
   align-items: center;
@@ -86,16 +90,16 @@
   border-top: 1px solid #87A2FF;
   margin-top: 15px;
   padding-top: 15px;
+  gap: 10px;
 }
 
 .calendar__day {
   border-radius: 5px;
   padding: 5.5px 0px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  text-align: center;
 }
 
 .calendar__day:hover {
@@ -116,6 +120,8 @@
   align-items: center;
   cursor: pointer;
   border-radius: 5px;
+  font-weight: 500;
+  font-size: 20px;
 }
 
 .calendar__pick__item:hover {
@@ -148,4 +154,19 @@
   font-weight: 300;
   padding: 9px 16px;
   color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+/* Media */
+
+
+@media (max-width:670px) {
+  .calendar {
+    background: none;
+  }
+  .calendar_tape {
+    display: none;
+  }
 }

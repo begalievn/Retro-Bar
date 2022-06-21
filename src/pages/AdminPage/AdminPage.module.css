@@ -1,0 +1,30 @@
+.container{
+  display: flex;
+  /* flex-direction: column; */
+}
+.sideBar{
+  max-width: 263px;
+  width: 100%;
+  background: #2F2F2F;
+  height: 100vh;
+  padding-top: 10%;
+  padding-left: 50px;
+}
+
+.sideBar ul{
+ min-height: 250px;
+ margin: auto;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-evenly
+}
+
+.sideBar li{
+  list-style-type: none;
+  font-size: 18px;
+}
+
+.value_color{
+  color:aliceblue;
+  margin-top: 100px;
+}

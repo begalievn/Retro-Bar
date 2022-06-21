@@ -14,39 +14,55 @@ interface PropType {
   time: string;
   phone: string;
   location: string;
+  isActive: boolean;
 }
 
-const TopInstCard = ({ photo, title, time, phone, location }: PropType) => {
+const TopInstCard = ({
+  photo,
+  title,
+  time,
+  phone,
+  location,
+  isActive,
+}: PropType) => {
   return (
     <div className={classes.card}>
       <img className={classes.cardBackground} src={backgroundPhoto} alt="" />
-      <div className={classes.card_content_container}>
-        <img
-          className={classes.cardContentBackgroundPhoto}
-          src={cardContentBackgroundPhoto}
-          alt=""
-        />
-        <div className={classes.card_content}>
-          <div className={classes.card_content_title}>
-            <h4>{title}</h4>
+      {isActive ? (
+        <>
+          <div className={classes.card_content_container}>
+            <img
+              className={classes.cardContentBackgroundPhoto}
+              src={cardContentBackgroundPhoto}
+              alt=""
+            />
+            <div className={classes.card_content}>
+              <div className={classes.card_content_title}>
+                <h4>{title}</h4>
+              </div>
+              <div className={classes.card_content_info}>
+                <p>
+                  <img src={clockIcon} alt="clock-icon" />
+                  {time}
+                </p>
+                <p>
+                  <img src={phoneIcon} alt="phone-icon" />
+                  {phone}
+                </p>
+                <p>
+                  <img src={locationIcon} alt="location-icon" />
+                  {location}
+                </p>
+              </div>
+            </div>
           </div>
-          <div className={classes.card_content_info}>
-            <p>
-              <img src={clockIcon} alt="clock-icon" />
-              {time}
-            </p>
-            <p>
-              <img src={phoneIcon} alt="phone-icon" />
-              {phone}
-            </p>
-            <p>
-              <img src={locationIcon} alt="location-icon" />
-              {location}
-            </p>
-          </div>
+          <img className={classes.photoOfBar} src={photo} alt="bar" />
+        </>
+      ) : (
+        <div className={classes.blackWhitePhoto}>
+          <img src={photo} alt="photo" />
         </div>
-      </div>
-      <img className={classes.photoOfBar} src={photo} alt="bar" />
+      )}
     </div>
   );
 };

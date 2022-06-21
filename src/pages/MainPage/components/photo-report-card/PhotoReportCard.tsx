@@ -1,20 +1,11 @@
 import React from 'react';
-import cardBackground1 from '../../../../assets/mainPage/photo-report-card-bg1.png';
-import cardBackground2 from '../../../../assets/mainPage/photo-report-card-bg2.png';
-import cardBackground3 from '../../../../assets/mainPage/photo-report-card-bg3.png';
-import cardBackground4 from '../../../../assets/mainPage/photo-report-card-bg4.png';
+
 import eyeIcon from '../../../../assets/mainPage/eye-icon.svg';
 import picIcon from '../../../../assets/mainPage/pic-icon.svg';
 
 import classes from './photoReportCard.module.css';
 import { getRandomItem } from '../../../../utils/getRandomItem';
-
-const cardBackgroundImages = [
-  cardBackground1,
-  cardBackground2,
-  cardBackground3,
-  cardBackground4,
-];
+import { url } from 'inspector';
 
 type Props = {
   photo?: string;
@@ -23,6 +14,7 @@ type Props = {
   watches: number;
   pics: number;
   date: string;
+  backgroundPhoto: string;
 };
 
 const PhotoReportCard = ({
@@ -32,14 +24,18 @@ const PhotoReportCard = ({
   watches,
   pics,
   date,
+  backgroundPhoto,
 }: Props) => {
   return (
     <div
-      style={{ backgroundImage: `url(${getRandomItem(cardBackgroundImages)})` }}
+      style={{ backgroundImage: `url(${backgroundPhoto})` }}
       className={classes.cardContainer}
     >
-      <div className={classes.photoCard}>
-        <img src={photo} alt="report" />
+      <div
+        style={{ backgroundImage: `url(${photo})` }}
+        className={classes.photoCard}
+      >
+        {/* <img src={} alt="report" /> */}
         <div className={classes.cardContent_container}>
           <div className={classes.cardContent}>
             <h4>{title}</h4>
