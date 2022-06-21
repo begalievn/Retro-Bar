@@ -31,10 +31,9 @@ nav {
   align-items: center;
 }
 .headerNav {
-  /*width: 85%;*/
   display: flex;
   align-items: center;
-  font-weight: lighter;
+  font-weight: 300;
   font-size: 0.8em;
   line-height: 20px;
   margin-right: 25px;
@@ -108,11 +107,8 @@ nav {
   }
 }
 @media (max-width: 935px) {
-  .headerBlock {
-    padding: 0;
-  }
   .headerWrapper {
-    padding: 0 5%;
+    padding: 0 3%;
   }
   .headerSearch {
     right: 0;
@@ -120,6 +116,9 @@ nav {
 }
 
 @media (max-width: 768px) {
+  .headerBlock {
+    padding: 0;
+  }
   .headerMenuBtn {
     display: block;
   }
@@ -137,5 +136,8 @@ nav {
   }
   .headerSearch {
     display: none;
+  }
+  .backDrop {
+    background: linear-gradient(180deg, #000000 11%, rgba(0, 0, 0, 0) 40%);
   }
 }
