@@ -11,11 +11,12 @@ body {
   font-family: 'Mont', sans-serif;
   background: black;
 }
-
 a {
   text-decoration: none;
 }
-
 :root {
   --orange: #ff6d00;
+  --btnColor: #ffb13b;
+  --swiper-theme-color: #007aff;
+  --swiper-navigation-size: 44px;
 }
