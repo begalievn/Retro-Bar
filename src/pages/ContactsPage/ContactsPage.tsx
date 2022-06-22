@@ -24,22 +24,9 @@ const imagesArr = [mainImage, img1, img2, img3];
 const ContactsPage = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  const imgArray: string[] = [mainImage, img1, img2, img3];
   const tapes: string[] = [tapeFirst, tapeSecond, tapeThird];
   const borders: string[] = [firstBorder, secondBorder, thirdBorder];
   const carousels: string[] = [carousel1, carousel2, carousel3];
-  let firstImg = imgArray.shift();
-
-  function show(e: any): void {
-    e.target.classList.toggle(classes.start);
-    let m = document.querySelector('#backBlack');
-    m?.classList.toggle(classes.backB);
-  }
-  function showResponsive(e: any): void {
-    e.target.classList.toggle(classes.startResponsive);
-    let m = document.querySelector('#backBlackResponsive');
-    m?.classList.toggle(classes.backBResponsive);
-  }
 
   return (
     <>
@@ -60,7 +47,7 @@ const ContactsPage = () => {
             spacing={2}
           >
             <Grid item xs={12} md={5}>
-              <img width="100%" src={firstImg} alt="" />
+              <img width="100%" src={imagesArr[activeIndex]} alt="" />
             </Grid>
             <Grid className={classes.threeImg} item xs={12} md={2}>
               {tapes.map((item) => (
@@ -70,17 +57,26 @@ const ContactsPage = () => {
                 <img width={120} src={item} alt="" />
               ))}
 
-              {imgArray.map((item) => (
-                <img
-                  className={classes.allImages}
-                  onClick={(e) => {
-                    show(e);
-                  }}
-                  width="100"
-                  src={item}
-                  alt=""
-                />
-              ))}
+              <img
+                className={classes.allImages}
+                width="100"
+                src={imagesArr[1]}
+                alt=""
+              />
+
+              <img
+                className={classes.allImages}
+                width="100"
+                src={imagesArr[2]}
+                alt=""
+              />
+
+              <img
+                className={classes.allImages}
+                width="100"
+                src={imagesArr[3]}
+                alt=""
+              />
             </Grid>
 
             <Grid sx={{ marginTop: '-100px' }} item xs={12} md={5}>
@@ -142,9 +138,9 @@ const ContactsPage = () => {
                 культурной жизни столицы.
               </h4>
             </Grid>
-            <Grid item xs={12} md={5}>
-              <img width="90%" src={firstImg} alt="" />
-            </Grid>
+            {/* <Grid item xs={12} md={5}>
+              <img width="90%" src={} alt="" />
+            </Grid> */}
             <Grid className={classes.threeImgResponsive} item xs={12} md={2}>
               {/* {borders.map((item) => (
                 <img width={120} src={item} alt="" />
@@ -162,14 +158,7 @@ const ContactsPage = () => {
                 />
               ))} */}
               {carousels.map((item) => (
-                <img
-                  onClick={(e) => {
-                    showResponsive(e);
-                  }}
-                  width={120}
-                  src={item}
-                  alt=""
-                />
+                <img width={120} src={item} alt="" />
               ))}
             </Grid>
             <Grid item xs={12} md={5}>
