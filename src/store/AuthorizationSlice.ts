@@ -1,31 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import { IUser } from '../types/userTypes';
 import { API } from '../utils/helpers/Consts';
 
-export const login = async (userData: IUser) => {
-  const config = {
-    headers: { "Content-Type": "application/json" },
-  };
 
-  let data = JSON.stringify(userData);
-  try {
-    let res = await axios.post(`${API}admin/login`, data, config);
-    console.log(res);
-    localStorage.setItem('token', JSON.stringify(res.data));
-  } catch (e) {
-    console.log(e);
-  }
-};
+
 
 export const AuthorizationSlice = createSlice({
   name: 'auth',
   initialState: {
-    userData: {},
+    userData: false,
+    validData: ''
   },
-  reducers: {},
+  reducers: {
+     addTextError(state){
+      state.validData='Неправильный логин или пароль'
+   
+     },
+     deleteTextError(state){
+      state.validData=''
+     },
+     checkAdmin(state,action){
+      state.userData = action.payload
+     }
+     
+  },
 });
 
-export const {} = AuthorizationSlice.actions;
+export const {
+  addTextError,
+  deleteTextError,
+  checkAdmin
+} = AuthorizationSlice.actions;
 
 export default AuthorizationSlice.reducer;
