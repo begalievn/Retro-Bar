@@ -6,6 +6,8 @@ import PalaroidSlider from './components/palaroid-slider/PalaroidSlider';
 import PhotoReports from './components/photo-reports/PhotoReports';
 import TopInstituions from './components/top-institutions/TopInstituions';
 
+import backgroundOne from '../../assets/mainPage/background-images/main-bg-one.png';
+
 import paperBackground from '../../assets/mainPage/paper-background.png';
 
 import classes from './mainPage.module.css';
@@ -14,25 +16,18 @@ import InstitutesSlider from '../../UI/InstitutesSlider/institutes-slider/Instit
 const MainPage = () => {
   return (
     <div className={classes.main}>
-      {/* <div className={classes.main__palaroid}>
-        <div className={classes.palaroid_icon}>
-          <img src={calendarIcon} alt="calendar-icon" />
-        </div>
-      </div> */}
-      <PalaroidSlider />
-      <InstitutesSlider />
-      <TopInstituions />
-      <PhotoReports />
-      <div className={classes.paper_container}>
-        <div className={classes.paper_content}>
-          <img src={paperBackground} />
-          <div className={classes.news_container}>
-            <MainNews />
-          </div>
-        </div>
-
-        <MainAd />
+      <div className={classes.top_div}></div>
+      <div className={classes.main_one}>
+        <PalaroidSlider />
+        <TopInstituions />
       </div>
+      <div className={classes.ellipse_deco_one}></div>
+      <PhotoReports />
+      <div>
+        <InstitutesSlider />
+      </div>
+      <MainNews />
+      <MainAd />
     </div>
   );
 };
