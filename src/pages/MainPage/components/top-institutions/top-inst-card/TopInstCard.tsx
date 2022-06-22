@@ -60,7 +60,7 @@ const TopInstCard = ({
         </>
       ) : (
         <div className={classes.blackWhitePhoto}>
-          <img style={{ filter: 'grayscale(100%)' }} src={photo} alt="photo" />
+          <img src={photo} alt="photo" />
         </div>
       )}
     </div>

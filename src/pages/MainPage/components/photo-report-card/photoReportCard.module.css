@@ -9,18 +9,22 @@
 }
 
 .photoCard {
-  width: 328px;
-  height: 328px;
+  width: 329px;
+  height: 323.5px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .photoCard img {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .cardContent_container {
@@ -66,8 +70,8 @@
 }
 
 .cardContent_info img {
-  width: 17.28px;
-  height: 12.57px;
+  width: 16px;
+  height: 12px;
   margin-right: 7.38px;
 }
 
@@ -82,6 +86,11 @@
 .cardContent_info {
   display: flex;
   justify-content: space-between;
+}
+
+.cardContent_info__pics img {
+  width: 13px;
+  height: 13px;
 }
 
 .cardContent_info__left {

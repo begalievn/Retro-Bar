@@ -1,0 +1,10 @@
+.swiper_item {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.swiper_img {
+  width: 100%;
+  height: auto;
+  user-select: none;
+}

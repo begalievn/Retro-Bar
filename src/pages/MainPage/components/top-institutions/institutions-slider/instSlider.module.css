@@ -3,7 +3,6 @@
   max-width: 1440px;
   margin: 0 auto;
   height: 380px;
-  background-color: greenyellow;
 }
 
 .carousel {
@@ -11,7 +10,6 @@
   height: 100%;
   position: relative;
   overflow: hidden;
-  background-color: goldenrod;
 }
 
 .card {
@@ -32,6 +30,21 @@
 
 .active {
   z-index: 2;
+}
+
+@media screen and (max-width: 1100px) {
+  .active {
+    left: 17%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .active {
+    left: 8%;
+  }
+  .right {
+    left: 15%;
+  }
 }
 
 .right {
