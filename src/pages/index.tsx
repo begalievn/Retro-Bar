@@ -10,7 +10,7 @@ import PhotoPage from './PhotoPage/PhotoPage';
 import VideoPage from './VideoPage/VideoPage';
 import EventsPage from './EventsPage/EventsPage';
 import ErrorPage from './ErrorPage/ErrorPage';
-import AuthorizationPage from './AdminPage/Authorization';
+import Authorization from './Authorization/Authorization';
 import AdminPanelPage from './AdminPage/AdminPanelPage';
 
 const MainRoutes = () => {
@@ -56,13 +56,13 @@ const MainRoutes = () => {
       id: 8,
     },
     {
-      link: '*',
+      link: '/*',
       element: <ErrorPage />,
       id: 9,
     },
     {
       link: '/authorization',
-      element: <AuthorizationPage />,
+      element: <Authorization />,
       id: 10,
     },
     {
