@@ -9,7 +9,7 @@ import searchIcon from "../../assets/icons/Footer/Vector.svg";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/system";
 import { Link } from "react-router-dom";
-import { IFooterItems } from "../../typres/footerTypers/footerTypes";
+import { IFooterItems } from "../../typres/footerTypes/footerTypes";
 import { InputSearch } from "../../UI";
 
 const Footer = () => {
