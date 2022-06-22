@@ -1,14 +1,38 @@
+.sketchInstitutions{
+  position: absolute;
+  top: 17%;
+  right: 12%;
+  width: 18%;
+  
+
+}
+.sketchVideo{
+  
+    position: absolute;
+    top: 17%;
+    right: 12%;
+    width: 14%;
+  
+}
 .container {
+  margin: 0 auto;
   margin-top: 64px;
   text-align: center;
   width: 100vw;
   height: 41vw;
   position: relative;
   background: url('../../assets/book/blackFilmGradient.png') 0 0/100% 100% no-repeat;
+  margin-bottom: 35vw;
 }
-.background {
-  width: 100%;
-  height: auto;
+.containerMain {
+  margin: 0 auto;
+  margin-top: 64px;
+  text-align: center;
+  width: 100vw;
+  height: 41vw;
+  position: relative;
+  background: url('../../assets/book/blackFilmGradientTop.png') 0 0/100% 100% no-repeat;
+  margin-bottom: 35vw;
 }
 .imageBlock {
   background-color: rgba(0, 0, 255, 0.527);
@@ -30,7 +54,7 @@
 .contactBlock {
   position: absolute;
   top: 25%;
-  left: 51%;
+  right:9%;
   max-height: 40%;
   max-width: 40%;
 }
@@ -48,6 +72,12 @@
   margin-bottom: 9%;
 }
 @media screen and (max-width: 425px) {
+  .sketchVideo, .sketchInstitutions {
+    display: none;
+  }
+  .background{
+    display: none;
+  }
   .container {
     width: 100vw;
     height: 173vw;
@@ -79,4 +109,35 @@
     max-width: 60%;
   }
   
+}
+
+
+
+
+@media screen and (min-width: 1440px) {
+  .container{
+    width: 1440px;
+    height: 556px;
+  }
+  .background {
+    width: 1440px;
+    height: 556px;
+  }
+  .title {
+    font-size: 36px;
+    width: 515px
+  }
+  .text{
+    font-size:16px;
+  }
+  .contactBlock {
+  
+      position: absolute;
+      top: 150px;
+      right: 180px;
+      max-height: 300px;
+      max-width: 500px;
+      
+  }
+
 }
