@@ -1,30 +1,68 @@
-.container{
+.container {
   display: flex;
-  /* flex-direction: column; */
+  margin-top: 60px;
+  /*background-color: #fff;*/
+  color: white;
 }
-.sideBar{
+/* SIDE BAR */
+.sideBar {
   max-width: 263px;
   width: 100%;
-  background: #2F2F2F;
+  background: #2f2f2f;
   height: 100vh;
   padding-top: 10%;
   padding-left: 50px;
+  padding-right: 30px;
 }
 
-.sideBar ul{
- min-height: 250px;
- margin: auto;
- display: flex;
- flex-direction: column;
- justify-content: space-evenly
+.sideBar ul {
+  min-height: 250px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-family: "Montserrat Alternates";
+  color: white;
 }
 
-.sideBar li{
+.sideBarItem {
   list-style-type: none;
   font-size: 18px;
+  padding: 5px;
 }
 
-.value_color{
-  color:aliceblue;
+.sideBarItemActive {
+  list-style-type: none;
+  font-size: 18px;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  padding: 5px;
+  color: #ffb03b;
+  fill: #ffb03b;
+  stroke: #ffb03b;
+}
+.sideBarItemActive img {
+  filter: invert(24%) sepia(12%) saturate(4092%) hue-rotate(327deg)
+    brightness(101%) contrast(101%);
+}
+
+.value_color {
+  color: aliceblue;
   margin-top: 100px;
+}
+
+/* ADD CONTACT */
+
+.content_block {
+  margin-left: 90px;
+}
+
+.content_image {
+    max-width: 437px;
+  width: 451px;
+  height: 437px;
+  background-color: #2f2f2f;
+  /* dashed border */
+  background-image: url("data:image/svg+xml,%3csvg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='white' stroke-width='4' stroke-dasharray='20' stroke-dashoffset='5' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 13px;
 }

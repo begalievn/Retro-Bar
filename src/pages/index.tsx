@@ -63,12 +63,12 @@ const MainRoutes = () => {
     {
       link: '/authorization',
       element: <Authorization />,
-      id: 9,
+      id: 10,
     },
     {
       link: '/admin',
       element: <AdminPanelPage />,
-      id: 9,
+      id: 11,
     },
   ];
 
