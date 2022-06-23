@@ -4,7 +4,7 @@ import styles from "./ImagesList.module.css";
 import eye from "../../../../../assets/photoPageImages/icons/eye.svg";
 import pic from "../../../../../assets/photoPageImages/icons/pic.svg";
 import camera from "../../../../../assets/photoPageImages/icons/camera.svg";
-import Gallery from "../../../../../UI/Gallery/Gallery";
+import Gallery from "../../../../../UI/Gallery/GalleryModal/GalleryModal";
 import Button from "../../Button/Button";
 
 interface ImagesListProps {

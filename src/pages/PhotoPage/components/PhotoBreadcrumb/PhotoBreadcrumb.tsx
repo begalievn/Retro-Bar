@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import CalendarModal from '../../../../UI/CalendarModal/CalendarModal'
-import Gallery from '../../../../UI/Gallery/Gallery';
+import Gallery from '../../../../UI/Gallery/GalleryModal/GalleryModal';
 import styles from './PhotoBreadcrumb.module.css'
 const PhotoBreadcrumb:FC = () => {
   const [modal, setModal] = useState(false);

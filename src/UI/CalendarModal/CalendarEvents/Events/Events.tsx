@@ -3,7 +3,7 @@ import { IPhotos } from "../../../../pages/PhotoPage/components/PhotoMain/interf
 import eyeIcon from "../../../../assets/icons/eye.svg";
 import pictureIcon from "../../../../assets/icons/picture.svg";
 import styles from "./Events.module.css";
-import Gallery from "../../../Gallery/Gallery";
+import Gallery from "../../../Gallery/GalleryModal/GalleryModal";
 interface EventsProps {
   events: IPhotos[];
 }

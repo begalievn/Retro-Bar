@@ -1,16 +1,16 @@
 import React, { FC } from 'react'
-import { IPhotos } from '../../pages/PhotoPage/components/PhotoMain/interfaces'
-import styles from './Gallery.module.css'
-import GallerySlider from './GallerySlider/GallerySlider'
+import { IPhotos } from '../../../pages/PhotoPage/components/PhotoMain/interfaces'
+import styles from './GalleryModal.module.css'
+import GallerySlider from '../GallerySlider/GallerySlider'
 
 
-interface GalleryProps {
+interface GalleryModalProps {
   galleryModal:boolean
   toggleGalleryModal:() => void
   currentEvent:IPhotos
 }
 
-const Gallery:FC<GalleryProps> = ({galleryModal,toggleGalleryModal,currentEvent}) => {
+const GalleryModal:FC<GalleryModalProps> = ({galleryModal,toggleGalleryModal,currentEvent}) => {
 
 
   return (
@@ -27,4 +27,4 @@ const Gallery:FC<GalleryProps> = ({galleryModal,toggleGalleryModal,currentEvent}
   )
 }
 
-export default Gallery
+export default GalleryModal
