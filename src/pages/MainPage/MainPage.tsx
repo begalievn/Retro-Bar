@@ -6,6 +6,7 @@ import PalaroidSlider from './components/palaroid-slider/PalaroidSlider';
 import PhotoReports from './components/photo-reports/PhotoReports';
 import TopInstituions from './components/top-institutions/TopInstituions';
 
+// imported images
 import backgroundOne from '../../assets/mainPage/background-images/main-bg-one.png';
 
 import paperBackground from '../../assets/mainPage/paper-background.png';
@@ -22,7 +23,9 @@ const MainPage = () => {
         <TopInstituions />
       </div>
       <div className={classes.ellipse_deco_one}></div>
+
       <PhotoReports />
+
       <div>
         <InstitutesSlider />
       </div>

@@ -35,7 +35,6 @@ const PhotoReportCard = ({
         style={{ backgroundImage: `url(${photo})` }}
         className={classes.photoCard}
       >
-        {/* <img src={} alt="report" /> */}
         <div className={classes.cardContent_container}>
           <div className={classes.cardContent}>
             <h4>{title}</h4>
