@@ -1,54 +1,14 @@
-.container {
+.adminWrapper {
   display: flex;
-  margin-top: 60px;
+  padding-top: 60px;
   /*background-color: #fff;*/
   color: white;
 }
-/* SIDE BAR */
-.sideBar {
-  max-width: 263px;
-  width: 100%;
-  background: #2f2f2f;
-  height: 100vh;
-  padding-top: 10%;
-  padding-left: 50px;
-  padding-right: 30px;
-}
-
-.sideBar ul {
-  min-height: 250px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  font-family: "Montserrat Alternates";
-  color: white;
-}
-
-.sideBarItem {
-  list-style-type: none;
-  font-size: 18px;
-  padding: 5px;
-}
-
-.sideBarItemActive {
-  list-style-type: none;
-  font-size: 18px;
-  border-top: 1px solid #ebebeb;
-  border-bottom: 1px solid #ebebeb;
-  padding: 5px;
-  color: #ffb03b;
-  fill: #ffb03b;
-  stroke: #ffb03b;
-}
-.sideBarItemActive img {
-  filter: invert(24%) sepia(12%) saturate(4092%) hue-rotate(327deg)
-    brightness(101%) contrast(101%);
-}
-
-.value_color {
-  color: aliceblue;
-  margin-top: 100px;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
 }
 
 /* ADD CONTACT */
@@ -58,7 +18,7 @@
 }
 
 .content_image {
-    max-width: 437px;
+  max-width: 437px;
   width: 451px;
   height: 437px;
   background-color: #2f2f2f;

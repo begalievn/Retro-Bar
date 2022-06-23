@@ -1,0 +1,22 @@
+.inputBlock {
+  width: 100%;
+  /*display: flex;*/
+  /*position: relative;*/
+}
+
+.AdminInput {
+  color: #ffffff;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 400;
+  line-height: 22px;
+
+  outline: none;
+  border: none;
+  background: none;
+  padding-bottom: 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+.inputTitle {
+  color: var(--orange-text);
+    font-weight: 600;
+}
