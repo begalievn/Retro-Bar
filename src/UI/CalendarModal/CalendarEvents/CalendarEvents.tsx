@@ -13,6 +13,7 @@ const CalendarEvents: FC = () => {
       views: 6545,
       photos: 122,
       date: "14 мая 2022",
+      images:[{image:hero1},{image:hero2},{image:hero3},{image:hero4}]
     },
     {
       link: hero1,
@@ -21,6 +22,7 @@ const CalendarEvents: FC = () => {
       views: 4789,
       photos: 70,
       date: "11 мая 2022",
+      images:[{image:hero1},{image:hero2},{image:hero3},{image:hero4}]
     },
     {
       link: hero4,
@@ -29,6 +31,7 @@ const CalendarEvents: FC = () => {
       views: 6545,
       photos: 122,
       date: "14 мая 2022",
+      images:[{image:hero1},{image:hero2},{image:hero3},{image:hero4}]
     },
     {
       link: hero3,
@@ -37,6 +40,7 @@ const CalendarEvents: FC = () => {
       views: 6545,
       photos: 122,
       date: "14 мая 2022",
+      images:[{image:hero1},{image:hero2},{image:hero3},{image:hero4}]
     },
   ];
   return <Events events={events} />;

@@ -1,46 +1,52 @@
-import React, { useState } from "react";
-import mainImage from "../../assets/contactsPage/polaroid.png";
-import { Container, Grid } from "@mui/material";
-import aboutUs from "../../assets/contactsPage/sketch.png";
-import phoneIcon from "../../assets/contactsPage/phone.svg";
-import whatsAppIcon from "../../assets/contactsPage/WhatsApp.svg";
-import mailIcon from "../../assets/contactsPage/mail.svg";
-import tapeFirst from "../../assets/contactsPage/border/tape.png";
-import tapeSecond from "../../assets/contactsPage/border/tape2.png";
-import tapeThird from "../../assets/contactsPage/border/tape3.png";
-import firstBorder from "../../assets/contactsPage/border/polaroid.png";
-import secondBorder from "../../assets/contactsPage/border/polaroid2.png";
-import thirdBorder from "../../assets/contactsPage/border/polaroid3.png";
-import img1 from "../../assets/contactsPage/border/photo.png";
-import img2 from "../../assets/contactsPage/border/photo2.png";
-import img3 from "../../assets/contactsPage/border/photo3.png";
-import carousel1 from "../../assets/contactsPage/carousel.png"
-import carousel2 from "../../assets/contactsPage/carousel2.png"
-import carousel3 from "../../assets/contactsPage/carousel3.png"
-import classes from "./style.module.css";
+import React, { useEffect, useState } from 'react';
+import mainImage from '../../assets/contactsPage/polaroid.png';
+import { Container, Grid } from '@mui/material';
+import aboutUs from '../../assets/contactsPage/sketch.png';
+import phoneIcon from '../../assets/contactsPage/phone.svg';
+import whatsAppIcon from '../../assets/contactsPage/WhatsApp.svg';
+import mailIcon from '../../assets/contactsPage/mail.svg';
+import tapeFirst from '../../assets/contactsPage/border/tape.png';
+import tapeSecond from '../../assets/contactsPage/border/tape2.png';
+import tapeThird from '../../assets/contactsPage/border/tape3.png';
+import firstBorder from '../../assets/contactsPage/border/polaroid.png';
+import secondBorder from '../../assets/contactsPage/border/polaroid2.png';
+import thirdBorder from '../../assets/contactsPage/border/polaroid3.png';
+import img1 from '../../assets/contactsPage/border/photo.png';
+import img2 from '../../assets/contactsPage/border/photo2.png';
+import img3 from '../../assets/contactsPage/border/photo3.png';
+import carousel1 from '../../assets/contactsPage/carousel.png';
+import carousel2 from '../../assets/contactsPage/carousel2.png';
+import carousel3 from '../../assets/contactsPage/carousel3.png';
+import classes from './style.module.css';
 
 const imagesArr = [mainImage, img1, img2, img3];
 
 const ContactsPage = () => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  let imagesObj = {
+    1: 1,
+    2: 2,
+    3: 3,
+  };
 
-  const imgArray:string[] = [mainImage, img1, img2, img3];
-  const tapes:string[] = [tapeFirst, tapeSecond, tapeThird];
-  const borders:string[] = [firstBorder, secondBorder, thirdBorder];
-  const carousels:string[] = [carousel1,carousel2,carousel3]
-  let firstImg = imgArray.shift();
+  useEffect(() => {
+    console.log(activeIndex);
+  }, [activeIndex]);
 
-  function show(e: any): void {
-    e.target.classList.toggle(classes.start);
-    let m = document.querySelector("#backBlack");
-    m?.classList.toggle(classes.backB);
+  function swapImages(e) {
+    let id = e.currentTarget.id;
+    let imageIndex = imagesObj[id];
+    imagesObj[id] = activeIndex;
+    setActiveIndex(imageIndex);
+    // console.log(imagesObj[id], activeIndex);
+    // console.log('active index', activeIndex);
+    console.log(imagesObj);
   }
-  function showResponsive(e: any): void {
-    e.target.classList.toggle(classes.startResponsive);
-    let m = document.querySelector("#backBlackResponsive");
-    m?.classList.toggle(classes.backBResponsive);
-  }
+
+  const tapes = [tapeFirst, tapeSecond, tapeThird];
+  const borders = [firstBorder, secondBorder, thirdBorder];
+  const carousels = [carousel1, carousel2, carousel3];
 
   return (
     <>
@@ -54,14 +60,14 @@ const ContactsPage = () => {
         >
           <Grid
             sx={{
-              display: { md: "flex", xs: "none" },
-              alignItems: "center",
+              display: { md: 'flex', xs: 'none' },
+              alignItems: 'center',
             }}
             container
             spacing={2}
           >
             <Grid item xs={12} md={5}>
-              <img width="100%" src={firstImg} alt="" />
+              <img width="100%" src={imagesArr[activeIndex]} alt="" />
             </Grid>
             <Grid className={classes.threeImg} item xs={12} md={2}>
               {tapes.map((item) => (
@@ -71,20 +77,35 @@ const ContactsPage = () => {
                 <img width={120} src={item} alt="" />
               ))}
 
-              {imgArray.map((item) => (
-                <img
-                  className={classes.allImages}
-                  onClick={(e) => {
-                    show(e);
-                  }}
-                  width="100"
-                  src={item}
-                  alt=""
-                />
-              ))}
+              <img
+                className={classes.allImages}
+                id="1"
+                width="100"
+                src={imagesArr[imagesObj[1]]}
+                alt=""
+                onClick={swapImages}
+              />
+
+              <img
+                id="2"
+                className={classes.allImages}
+                width="100"
+                src={imagesArr[imagesObj[2]]}
+                alt=""
+                onClick={swapImages}
+              />
+
+              <img
+                id="3"
+                className={classes.allImages}
+                width="100"
+                src={imagesArr[imagesObj[3]]}
+                alt=""
+                onClick={swapImages}
+              />
             </Grid>
 
-            <Grid sx={{ marginTop: "-100px" }} item xs={12} md={5}>
+            <Grid sx={{ marginTop: '-100px' }} item xs={12} md={5}>
               <div className={classes.aboutText}>
                 <img src={aboutUs} alt="" />
                 <h1>О нас</h1>
@@ -96,9 +117,9 @@ const ContactsPage = () => {
               </h4>
               <h3
                 style={{
-                  color: "#ffb03b",
-                  marginTop: "30px",
-                  fontSize: "20px",
+                  color: '#ffb03b',
+                  marginTop: '30px',
+                  fontSize: '20px',
                 }}
               >
                 Заказ фото/видео репортажа:
@@ -123,11 +144,11 @@ const ContactsPage = () => {
           {/* Responsive */}
           <Grid
             sx={{
-              display: { md: "none", xs: "flex" },
-              alignItems: "center",
-              textAlign: "left",
-              marginTop: "100px",
-              marginBottom: "50px",
+              display: { md: 'none', xs: 'flex' },
+              alignItems: 'center',
+              textAlign: 'left',
+              marginTop: '100px',
+              marginBottom: '50px',
             }}
             container
             spacing={2}
@@ -143,8 +164,11 @@ const ContactsPage = () => {
                 культурной жизни столицы.
               </h4>
             </Grid>
+            {/* <Grid item xs={12} md={5}>
+              <img width="90%" src={} alt="" />
+            </Grid> */}
             <Grid item xs={12} md={5}>
-              <img width="90%" src={firstImg} alt="" />
+              <img width="90%" src={imagesArr[activeIndex]} alt="" />
             </Grid>
             <Grid className={classes.threeImgResponsive} item xs={12} md={2}>
               {/* {borders.map((item) => (
@@ -162,14 +186,12 @@ const ContactsPage = () => {
                   alt=""
                 />
               ))} */}
-              {carousels.map((item)=>(
-                <img onClick={(e)=>{
-                  showResponsive(e)
-                }} width={120} src={item} alt="" />
+              {carousels.map((item) => (
+                <img width={120} src={item} alt="" />
               ))}
             </Grid>
             <Grid item xs={12} md={5}>
-              <h3 style={{ color: "#ffb03b", fontSize: "20px" }}>
+              <h3 style={{ color: '#ffb03b', fontSize: '20px' }}>
                 Заказ фото/видео репортажа:
               </h3>
               <div className={classes.information}>

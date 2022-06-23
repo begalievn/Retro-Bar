@@ -1,0 +1,44 @@
+.slider_card {
+  overflow: hidden;
+  max-width: 795px;
+}
+
+.sliderCard {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+#slider_card_logo {
+  position: absolute;
+  z-index: 2;
+  max-width: 129px;
+  height: auto;
+  top: 35px;
+  right: 35px;
+}
+
+
+#slider_card_img {
+  max-width: 100%;
+  mix-blend-mode: exclusion;
+  opacity: 0.95;
+  height: 624px;
+  border-radius: 15px;
+}
+
+.slider_card_image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+
+.slider_card_border {
+  width: 100%;
+  height: 100%;
+
+}
