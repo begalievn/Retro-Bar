@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import mainImage from '../../assets/contactsPage/polaroid.png';
 import { Container, Grid } from '@mui/material';
 import aboutUs from '../../assets/contactsPage/sketch.png';
@@ -22,11 +22,31 @@ import classes from './style.module.css';
 const imagesArr = [mainImage, img1, img2, img3];
 
 const ContactsPage = () => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const tapes: string[] = [tapeFirst, tapeSecond, tapeThird];
-  const borders: string[] = [firstBorder, secondBorder, thirdBorder];
-  const carousels: string[] = [carousel1, carousel2, carousel3];
+  let imagesObj = {
+    1: 1,
+    2: 2,
+    3: 3,
+  };
+
+  useEffect(() => {
+    console.log(activeIndex);
+  }, [activeIndex]);
+
+  function swapImages(e) {
+    let id = e.currentTarget.id;
+    let imageIndex = imagesObj[id];
+    imagesObj[id] = activeIndex;
+    setActiveIndex(imageIndex);
+    // console.log(imagesObj[id], activeIndex);
+    // console.log('active index', activeIndex);
+    console.log(imagesObj);
+  }
+
+  const tapes = [tapeFirst, tapeSecond, tapeThird];
+  const borders = [firstBorder, secondBorder, thirdBorder];
+  const carousels = [carousel1, carousel2, carousel3];
 
   return (
     <>
@@ -59,23 +79,29 @@ const ContactsPage = () => {
 
               <img
                 className={classes.allImages}
+                id="1"
                 width="100"
-                src={imagesArr[1]}
+                src={imagesArr[imagesObj[1]]}
                 alt=""
+                onClick={swapImages}
               />
 
               <img
+                id="2"
                 className={classes.allImages}
                 width="100"
-                src={imagesArr[2]}
+                src={imagesArr[imagesObj[2]]}
                 alt=""
+                onClick={swapImages}
               />
 
               <img
+                id="3"
                 className={classes.allImages}
                 width="100"
-                src={imagesArr[3]}
+                src={imagesArr[imagesObj[3]]}
                 alt=""
+                onClick={swapImages}
               />
             </Grid>
 
@@ -141,6 +167,9 @@ const ContactsPage = () => {
             {/* <Grid item xs={12} md={5}>
               <img width="90%" src={} alt="" />
             </Grid> */}
+            <Grid item xs={12} md={5}>
+              <img width="90%" src={imagesArr[activeIndex]} alt="" />
+            </Grid>
             <Grid className={classes.threeImgResponsive} item xs={12} md={2}>
               {/* {borders.map((item) => (
                 <img width={120} src={item} alt="" />
