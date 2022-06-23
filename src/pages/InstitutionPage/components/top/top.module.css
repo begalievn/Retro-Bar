@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
+
 }
 /* первая лента */
 .topFilmBlock1 {
@@ -139,12 +140,7 @@
   display: flex;
   justify-content: center;
 }
-.calendar {
-  position: absolute;
-  width: 12%;
-  top: 108%;
-  right: 4%;
-}
+
 
 @media screen and (max-width: 425px) {
   .icon {
