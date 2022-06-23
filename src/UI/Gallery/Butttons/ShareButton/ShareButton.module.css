@@ -1,0 +1,29 @@
+.share_btn {
+  font-family: 'Montserrat Alternates';
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  padding: 11px 23px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  color: white;
+  position: relative;
+}
+
+.popover div  {
+  background: transparent;
+  box-shadow: none;
+}
+
+.share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.share_btn img {
+  margin-left: 14px;
+}

@@ -44,11 +44,11 @@
     grid-template-rows: 318px 315px 315px 315px 640px 350px;
     gap: 15px 0;
     grid-template-areas:
-      "zeppelinBar"
-      "kipishBar"
-      "mamaRada"
-      "secretMusicHall"
-      "pintaPub"
+      "block1"
+      "block2"
+      "block3"
+      "block4"
+      "block5"
       "advertise";
   }
 
