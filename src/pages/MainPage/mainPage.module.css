@@ -2,8 +2,18 @@
   width: 100%;
   /* background-color: rgb(196, 193, 193); */
   font-family: 'Montserrat Alternates';
-  padding-top: 70px;
+  position: relative;
+  overflow: hidden;
 }
+
+/* .top_div {
+  width: 100%;
+  height: 90px;
+  background-image: linear-gradient(180deg, black, rgba(47, 43, 43, 0.897));
+  position: absolute;
+  z-index: 5;
+  top: 0;
+} */
 
 .main_title {
   font-family: 'Montserrat Alternates';
@@ -30,7 +40,7 @@
 
 .institutions_container {
   width: 100%;
-  margin: 0 auto;
+  margin: 30px auto;
   max-width: 1440px;
   height: 509px;
 }
@@ -48,23 +58,12 @@
 
 .photo_reports {
   width: 100%;
-  min-height: 975px;
-  background-color: black;
+  min-height: 900px;
   position: relative;
-}
-
-.photo_reports_layer {
-  width: 100%;
-  min-height: 100vh;
-  position: absolute;
-  z-index: 3;
   background-image: url('../../assets/mainPage/photo-report-bg.png');
   background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-size: contain;
+  background-position: center;
 }
 
 .photo_reports_container {
@@ -167,12 +166,12 @@
 
 .paper_content {
   width: 100%;
-  /* max-width: 1440px; */
-  /* height: 1528px; */
-  /* background-image: url(../../assets/mainPage/paper-background.png);
+  max-width: 1440px;
+  height: 1528px;
+  background-image: url(../../assets/mainPage/paper-background.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center; */
+  background-position: center;
   position: absolute;
   top: 0;
 
@@ -202,3 +201,41 @@
 }
 
 /* ------------------ */
+
+/* Background images */
+
+.main_one {
+  background-origin: border-box;
+  background-image: url(../../assets/mainPage/background-images/main-bg-one.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 80px;
+}
+
+.ellipse_deco_one {
+  position: absolute;
+  max-width: 336px;
+  max-height: 336px;
+  left: 144px;
+  top: 468px;
+  z-index: 10;
+
+  /* background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(57, 112, 255, 0.5) 0%,
+      rgba(202, 246, 255, 0) 100%
+    ) */
+  /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+  opacity: 0.5;
+  background-color: #ffb03b;
+}
+
+.main_two {
+  width: 100%;
+  background-image: url(../../assets/mainPage/background-images/main_bg_two.png);
+  background-size: cover;
+  background-color: aliceblue;
+}
+
+/* ----------------- */
