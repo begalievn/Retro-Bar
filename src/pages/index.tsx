@@ -10,7 +10,11 @@ import PhotoPage from './PhotoPage/PhotoPage';
 import VideoPage from './VideoPage/VideoPage';
 import EventsPage from './EventsPage/EventsPage';
 import ErrorPage from './ErrorPage/ErrorPage';
+<<<<<<< HEAD
 import Authorization from './AdminPage/Authorization';
+=======
+import Authorization from './Authorization/Authorization';
+>>>>>>> e43bae1f236366cb9a337db35e009eae718ca080
 import AdminPanelPage from './AdminPage/AdminPanelPage';
 
 const MainRoutes = () => {

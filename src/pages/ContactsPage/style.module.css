@@ -9,52 +9,156 @@
   display: flex;
   align-items: center;
 }
-.aboutText{
-    position: relative;
+.aboutText {
+  position: relative;
 }
 .aboutText h1 {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    font-size: 28px;
-    color: #FFB03B;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  font-size: 28px;
+  color: #ffb03b;
 }
 
-.information div{
-    margin-top: 20px;
+.information div {
+  margin-top: 20px;
+}
 
+.information a {
+  font-size: 18px;
+  margin-left: 15px;
+  cursor: pointer;
+  color: white;
 }
-.information div span{
-    font-size: 18px;
-    margin-left: 15px;
+.information a:hover {
+  border-bottom: 1px solid gray;
 }
-.threeImg img{
-    cursor: pointer;
+
+.threeImg img {
+  cursor: pointer;
 }
-.threeImg{
-    position: relative;
+.threeImg {
+  position: relative;
 }
-.tape{
-    position: absolute;
-    top: 27px;
-    left: 50px;
-    transform: rotate(177deg);
+.threeImgResponsive {
+  text-align: center;
+  position: relative;
 }
-.tape2{
-    position: absolute;
-    top: 133px;
-    left: 55px;
+
+.start:nth-child(1n) {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transform: rotate(363deg) scale(5);
+  transition: transform 1s;
+  z-index: 1000;
 }
-.tape3{
-    position: absolute;
-    top: 240px;
-    left: 55px;
-    transform: rotate(5deg);
+.start:nth-child(2n) {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transform: rotate(360deg) scale(5);
+  transition: transform 1s;
+  z-index: 1000;
 }
-.tapeR{
-    position: absolute;
-    top: 80px;
-    left: 145px;
-    transform: rotate(90deg);
-    /* width: 120px; */
+.start:nth-child(3n) {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transform: rotate(358deg) scale(5);
+  transition: transform 1s;
+  z-index: 1000;
+}
+.backB {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+
+.startResponsive:nth-child(1n){
+  position: absolute;
+  top: -160%;
+  left: 35%;
+  transform: rotate(360deg)  scale(3);
+  transition: transform 1s;
+  z-index: 1000;
+}
+.startResponsive:nth-child(2n){
+  position: absolute;
+  top: -160%;
+  left: 35%;
+  transform: rotate(360deg)  scale(3);
+  transition: transform 1s;
+  z-index: 1000;
+}
+.startResponsive:nth-child(3n){
+  position: absolute;
+  top: -160%;
+  left: 35%;
+  transform: rotate(363deg)  scale(3);
+  transition: transform 1s;
+  z-index: 1000;
+}
+.backBResponsive {
+  width: 100%;
+  height: 1150px;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+.allImages:nth-child(1n) {
+  position: absolute;
+  top: 25px;
+  left: 23px;
+}
+.allImages:nth-child(2n) {
+  position: absolute;
+  top: 130px;
+}
+.allImages:nth-child(3n) {
+  position: absolute;
+  top: 233px;
+}
+.allImagesResponsive:nth-child(1n) {
+  position: absolute;
+  top: 25px;
+  /* left: 155px; */
+  left: 27.5%;
+  transform: rotate(357deg);
+}
+.allImagesResponsive:nth-child(2n) {
+  position: absolute;
+  top: 27px;
+  /* left: 276px; */
+  left: 44%;
+  transform: rotate(3deg);
+}
+.allImagesResponsive:nth-child(3n) {
+  position: absolute;
+  /* left: 396px; */
+  left: 60%;
+  transform: rotate(360deg);
+}
+
+.tapes:nth-child(1n) {
+  position: absolute;
+  top: 11px;
+  left: 50px;
+  transform: rotate(177deg);
+  mix-blend-mode: luminosity;
+}
+.tapes:nth-child(2n) {
+  position: absolute;
+  top: 112px;
+  transform: rotate(175deg);
+}
+.tapes:nth-child(3n) {
+  position: absolute;
+  left: 55px;
+  top: 220px;
+  transform: rotate(7deg);
 }
