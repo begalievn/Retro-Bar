@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { MouseEvent, useState } from "react";
 import mainImage from "../../assets/contactsPage/polaroid.png";
 import { Container, Grid } from "@mui/material";
 import aboutUs from "../../assets/contactsPage/sketch.png";
@@ -31,7 +31,7 @@ const ContactsPage = () => {
   const carousels:string[] = [carousel1,carousel2,carousel3]
   let firstImg = imgArray.shift();
 
-  function show(e: any): void {
+  function show(e:any): void {
     e.target.classList.toggle(classes.start);
     let m = document.querySelector("#backBlack");
     m?.classList.toggle(classes.backB);
