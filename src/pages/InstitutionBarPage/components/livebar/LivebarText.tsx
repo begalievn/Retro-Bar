@@ -1,10 +1,11 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Grid } from "@mui/material";
 import classes from "./Livebar.module.css";
 import livebar from "../../../../assets/institutionBarImg/iconLiveBar/livebar.png";
 import event from "../../../../assets/institutionBarImg/iconLiveBar/events.svg";
 import picture from "../../../../assets/institutionBarImg/iconLiveBar/picture.svg";
 import rating from "../../../../assets/institutionBarImg/iconLiveBar/rating.svg";
+import share from "../../../../assets/institutionBarImg/iconLiveBar/share.svg";
 const LivebarText: FC = () => {
   return (
     <div className={classes.text}>
@@ -25,6 +26,7 @@ const LivebarText: FC = () => {
             </Grid>
 
             <img src={rating} className={classes.rating} />
+            <img src={share} width="12px" className={classes.share}/>
           </Grid>
         </Grid>
       </Grid>
@@ -36,7 +38,7 @@ const LivebarText: FC = () => {
         </p>
         <p>
           Великолепный интерьер LiveBar с множеством оригинальных деталей дарит
-          каждому гостю ощущение комфорта и настраивает на творческий подход…
+          каждому гостю ощущение комфорта и настраивает на творческий подход.
           Уютная атмосфера обеспечивается своеобразным дизайном, хорошим
           музыкальным сопровождением и вниманием обходительного персонала.
           Разнообразные кухонное, барное, винное и кальянное меню заточены как
@@ -45,7 +47,7 @@ const LivebarText: FC = () => {
           лучших брендов производителей аудио оборудования и настроено
           профессионалами.
         </p>
-        <p >
+        <p className={classes.livebarTextWeb}>
           Лучше один раз увидеть, чем 100 раз прочитать или услышать! Приходите
           и ощутите уникальную ауру наших заведений!
         </p>

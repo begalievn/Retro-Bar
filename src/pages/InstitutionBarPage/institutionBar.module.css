@@ -20,11 +20,12 @@
   mix-blend-mode: screen;
 }
 .text_header {
+  font-family: "Montserrat Alternates";
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   color: #ffb03b;
-  font-family: "mont";
+  /* font-family: "mont"; */
   line-height: 24.38px;
   position: relative;
   height: 24px;
@@ -32,15 +33,20 @@
 }
 
 .share {
+  font-family: "Montserrat Alternates";
   position: absolute;
-  font-family: "mont";
   color: white;
+
   right: 109px;
-  top: 164px;
+  top: 127px;
 }
 .text_flex {
   padding-bottom: 3%;
 }
+.shareIcon {
+  margin-left: 10px;
+}
+
 /* Paper */
 .paper {
   top: 80px;
@@ -50,17 +56,17 @@
   /* background-color: #000000; */
   color: black;
 }
-.emoji {
-  position: relative;
-  padding-top: 60px;
-  text-align: center;
-}
-.arrowUp {
-  position: relative;
-  padding-bottom: 10px;
-}
-@media only screen and (max-width: 500px) {
+
+@media only screen and (max-width: 550px) {
   .paper {
-    height:900px;
+    height: 900px;
+  }
+  .share {
+    visibility: hidden;
   }
 }
+/* @media only screen and (max-width: 820px) {
+  .share {
+    visibility: hidden;
+  }
+} */

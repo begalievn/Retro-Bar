@@ -6,10 +6,10 @@ const FooterEmoji: FC = () => {
   return (
     <>
       <div className={classes.emoji}>
-        <img src={emoji} />
+        <img src={emoji} width="15%" />
       </div>
       <div className={classes.arrowUp}>
-        <img src={arrowUp} />
+        <img src={arrowUp} width="9%"/>
       </div>
     </>
   );

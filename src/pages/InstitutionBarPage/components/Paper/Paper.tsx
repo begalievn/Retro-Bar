@@ -12,7 +12,7 @@ const Paper: FC = () => {
         className={classes.backgroundPaper}
       />
       <div className={classes.photoDiv}>
-        <h1 className={classes.h1p}>Репортажи</h1>
+        <h2 className={classes.h1p}>Репортажи</h2>
         <PaperTop />
         <PaperBottom />
       </div>

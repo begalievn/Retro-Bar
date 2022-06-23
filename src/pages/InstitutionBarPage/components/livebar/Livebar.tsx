@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { LivebarPhoto } from "./LivebarPhoto";
 import { LivebarText } from "./LivebarText";
 import { Grid } from "@mui/material";
@@ -17,7 +17,7 @@ const LiveBarTS: FC = () => {
           <LivebarPhoto />
         </Grid>
       </Grid>
-      <Grid container spacing={2} className={classes.reverse}>
+      <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <Map />
         </Grid>

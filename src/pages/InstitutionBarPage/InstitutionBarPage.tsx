@@ -3,7 +3,8 @@ import { Grid } from "@mui/material";
 import classes from "./institutionBar.module.css";
 import LiveBarTS from "./components/livebar/Livebar";
 import { Paper } from "./components/Paper/Paper";
-import { FooterEmoji } from "./FooterEmoji";
+import { FooterEmoji } from "../../UI/FooterEmoji/FooterEmoji";
+import share from "../../assets/institutionBarImg/iconLiveBar/share.svg";
 // import emoji from "../../assets/institutionBarImg/iconsMap/emoji.svg";
 // import arrowUp from "../../assets/institutionBarImg/iconsMap/arrowUp.svg";
 const InstitutionBarPage: FC = () => {
@@ -12,7 +13,10 @@ const InstitutionBarPage: FC = () => {
       <div className={classes.main_gradient}>
         <article className={classes.text_flex}>
           <header className={classes.text_header}>Заведения/LIVEBAR</header>
-          {/* <h3 className={classes.share}>Поделиться</h3> */}
+          <p className={classes.share}>
+            Поделиться
+            <img src={share} className={classes.shareIcon} />
+          </p>
         </article>
         <LiveBarTS />
       </div>

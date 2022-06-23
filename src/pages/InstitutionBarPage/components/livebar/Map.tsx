@@ -1,4 +1,3 @@
-import React from "react";
 import { FC } from "react";
 import map from "../../../../assets/institutionBarImg/photo/map.png";
 import classes from "./Livebar.module.css";

@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect } from "react";
 import polaroidMini from "../../../../assets/institutionBarImg/photo/polaroidMini.png";
 import bottom1 from "../../../../assets/institutionBarImg/photo/bottom1.png";
 import bottom2 from "../../../../assets/institutionBarImg/photo/bottom2.png";
@@ -46,7 +46,7 @@ const PaperBottom: FC = () => {
   return (
     <div>
       <div className={classes.bottomWeb}>
-        <p className={classes.hp}>15 марта 2022</p>
+        <h3 className={classes.hp}>15 марта 2022</h3>
         <Grid container spacing={3} className={classes.bottom}>
           <Grid item xs={4} md={4}>
             <img src={polaroidMini} width="61%" className={classes.frame1} />
@@ -63,16 +63,26 @@ const PaperBottom: FC = () => {
         </Grid>
       </div>
       <div className={classes.bottomMobile}>
-        <p className={classes.dateMobile}>15 марта 2022</p>
+        <h3 className={classes.dateMobile}>15 марта 2022</h3>
         <div className={classes.mobile}>
           <button className={classes.last} onClick={() => handleLast()}>
             <img src={sliderLeft} className={classes.slider} />
           </button>
           <img src={polaroidMini} width="55%" className={polaroid} />
-          <img src={photo} width="53%" className={photoClass} />
+          <img src={photo} width="54%" className={photoClass} />
           <button className={classes.next} onClick={() => handleNext()}>
             <img src={sliderRight} className={classes.slider} />
           </button>
+        </div>
+        <div className={classes.indexNumber}>
+          {carousel.map((el, i) => (
+            <button
+              className={index === i ? classes.indexBtn2 : classes.indexBtn}
+              key={el}
+            >
+              0{i + 1}
+            </button>
+          ))}
         </div>
       </div>
     </div>
