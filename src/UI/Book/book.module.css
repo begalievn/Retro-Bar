@@ -22,7 +22,7 @@
   height: 41vw;
   position: relative;
   background: url('../../assets/book/blackFilmGradient.png') 0 0/100% 100% no-repeat;
-  margin-bottom: 35vw;
+  margin-bottom: 35vmin;
 }
 .containerMain {
   margin: 0 auto;
