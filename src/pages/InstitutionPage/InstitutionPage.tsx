@@ -9,11 +9,12 @@ import up from '../../assets/institution/up.svg'
 import emojies from '../../assets/institution/emojies.svg'
 
 
+
 let bookData = {
 
   text: ' технологии достигли такого уровня, что перспективное планирование способствует.',
   title: 'Зaказать съёмку',
-  image: '/api/imageSS'
+  image: 'https://picsum.photos/1000'
 }
 const InstitutionPage = () => {
   return <div className={styles.back}>
@@ -34,7 +35,7 @@ const InstitutionPage = () => {
         </div>
       </section>
       <Top />
-      <Book page='institutions' />
+      <Book page='main' data={bookData}/>
 
     </section>
 
