@@ -95,7 +95,7 @@ p {
 .polaroid4 {
   transform: rotate(2.76deg);
   z-index: 0;
-  width: 100%;
+  /* width: 100%; */
 }
 
 /* .photoPolaroid:nth-child(1n) {
@@ -129,7 +129,7 @@ p {
 .photo1 {
   position: absolute;
   top: 40%;
-  left: 1.7%;
+  left: 2%;
   width: 20%;
   transform: rotate(-3deg);
 }
@@ -225,32 +225,30 @@ p {
   .livebarLetfBottom p {
     font-size: 14px;
   }
+  .photo1,
+  .photo2,
+  .photo3,
+  .photo4 {
+    top: 43%;
+  }
 
   .mapImage {
     padding-top: 40%;
   }
   .polaroid1 {
     z-index: 0;
-    width: 950px;
-    margin-right: 150px;
   }
   .polaroid2 {
     transform: rotate(3.76deg);
     z-index: 0;
-    width: 950px;
-    margin-right: 150px;
   }
   .polaroid3 {
     transform: rotate(10.76deg);
     z-index: 0;
-    margin-right: 150px;
-    width: 950px;
   }
   .polaroid4 {
     transform: rotate(3.76deg);
     z-index: 0;
-    margin-right: 150px;
-    width: 950px;
   }
   .tape1 {
     left: 20%;
@@ -326,13 +324,8 @@ p {
   .photo3 {
     margin-top: -1.5%;
   }
-  .photosAll {
-    left: -50px;
-  }
-
   .tape1 {
     top: 43%;
-
     width: 70px;
     left: 18%;
   }
