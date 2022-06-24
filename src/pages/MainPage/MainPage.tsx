@@ -8,11 +8,26 @@ import TopInstituions from './components/top-institutions/TopInstituions';
 
 // imported images
 import backgroundOne from '../../assets/mainPage/background-images/main-bg-one.png';
-
 import paperBackground from '../../assets/mainPage/paper-background.png';
+import bookImage from '../../assets/mainPage/mainAd-photo.png';
+
+// imported components
+import InstitutesSlider from '../../UI/InstitutesSlider/institutes-slider/InstitutesSlider';
+import Book from '../../UI/Book/Book';
+
+// imported types
+import { BookProps } from '../../types/bookTypes/bookTypes';
 
 import classes from './mainPage.module.css';
-import InstitutesSlider from '../../UI/InstitutesSlider/institutes-slider/InstitutesSlider';
+
+let bookProps: BookProps = {
+  data: {
+    text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует подготовке и реализации позиций, занимаемых участниками в отношении поставленных задач.',
+    title: 'Заказать сьёмку сейчас',
+    image: bookImage,
+  },
+  page: 'main',
+};
 
 const MainPage = () => {
   return (
@@ -30,7 +45,10 @@ const MainPage = () => {
         <InstitutesSlider />
       </div>
       <MainNews />
-      <MainAd />
+
+      <Book {...bookProps} />
+
+      {/* <MainAd /> */}
     </div>
   );
 };

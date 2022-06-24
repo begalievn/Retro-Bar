@@ -41,18 +41,6 @@ const cards: Array<CardsType> = [
     description: 'STREED CREDIBILITY',
     date: 'Суббота 14 мая',
   },
-  // {
-  //   image: rightCardImage,
-  //   title: 'ZEPPELIN BAR',
-  //   description: 'STREED CREDIBILITY',
-  //   date: 'Суббота 14 мая',
-  // },
-  // {
-  //   image: rightCardImage,
-  //   title: 'ZEPPELIN BAR',
-  //   description: 'STREED CREDIBILITY',
-  //   date: 'Суббота 14 мая',
-  // },
   {
     image: leftCardImage,
     title: 'ZEPPELIN BAR',
@@ -74,7 +62,7 @@ const PalaroidSlider = () => {
 
     // Here I add additional cards if there isn't necessary value
     let i = 0;
-    while (arrCards.length < 6) {
+    while (arrCards.length < 7) {
       arrCards.push(arrCards[i]);
       i++;
     }
@@ -112,22 +100,10 @@ const PalaroidSlider = () => {
     let difference = index - activeIndex;
     console.log(difference);
     if (difference > -1) {
-      // let count = 0;
-      // const intervalId = setInterval(function () {
-      //   count++;
-      //   if (count <= difference) {
-      //     clearInterval(intervalId);
-      //   }
-      //   next();
-      // }, 100);
-      // for (let i = 0; i < difference; i++) {
-      //   next();
-      // }
       next();
-    } else {
+    } else if (difference < 0) {
       prev();
     }
-    // setActiveIndex(index);
   }
 
   return (
