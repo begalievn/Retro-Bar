@@ -19,7 +19,7 @@ function Book({
   data = {
     text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует.',
     title: 'Связаться с заведением',
-    image: '/api/imageSS',
+    image: image,
   },
   page,
 }: BookProps) {
@@ -39,7 +39,7 @@ function Book({
       )}
 
       <div className={styles.imageBlock}>
-        <img src={image} className={styles.image} alt="" />
+        <img src={data.image} className={styles.image} alt="" />
       </div>
       <div className={styles.contactBlock}>
         <h2 className={styles.title}>{data.title}</h2>

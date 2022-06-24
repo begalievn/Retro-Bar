@@ -1,6 +1,13 @@
 .info {
   width: 170px;
-  height: 330px;
+  height: 350px;
+}
+
+@media screen and (max-width: 600px) {
+  .info {
+    transition: all 0.5s;
+    transform: scale(1.2);
+  }
 }
 
 .header {
@@ -78,7 +85,7 @@
 }
 
 .prices {
-  width: 100%;
+  width: 180px;
   height: 50px;
   display: flex;
   flex-direction: column;
@@ -87,27 +94,41 @@
 }
 
 .prices div {
+  height: 18px;
   display: flex;
+  flex-direction: row;
+}
+
+.prices div p {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prices_wine {
+  margin-left: 5px;
 }
 
 .prices span {
+  width: 52px;
+  min-height: 18px;
   font-family: 'Mont';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  /* identical to box height */
 
   color: #000000;
-  margin-left: 5px;
-  margin-right: 15px;
+  margin-left: 6px;
 }
 
 .stars {
-  width: 150px;
+  width: 160px;
   height: 23px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 31px;
 }
 
