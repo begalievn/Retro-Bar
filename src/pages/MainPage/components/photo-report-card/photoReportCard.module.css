@@ -19,6 +19,7 @@
   background-position: center;
   overflow: hidden;
   border-radius: 10px;
+  mix-blend-mode: exclusion;
 }
 
 .photoCard img {
