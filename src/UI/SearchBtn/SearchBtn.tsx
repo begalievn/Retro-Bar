@@ -1,7 +1,6 @@
 import React from "react";
-
 import classes from "./SearchBtn.module.css";
-import { ReactComponent as SearchIcon } from "../../assets/header/search.svg";
+import { ReactComponent as SearchIcon } from "../../assets/Header/search.svg";
 
 const SearchBtn = (props: React.HTMLProps<HTMLButtonElement>) => {
   return (
