@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import emoji from "../../assets/institutionBarImg/iconsMap/emoji.svg";
 import arrowUp from "../../assets/institutionBarImg/iconsMap/arrowUp.svg";
 import classes from "./FooterEmoji.module.css";
