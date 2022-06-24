@@ -41,9 +41,8 @@ const MainPage = () => {
 
       <PhotoReports />
 
-      <div>
-        <InstitutesSlider />
-      </div>
+      <InstitutesSlider />
+
       <MainNews />
 
       <Book {...bookProps} />

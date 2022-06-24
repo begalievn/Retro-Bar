@@ -129,6 +129,10 @@
   display: none;
 }
 
+.slider_pagination ul li:nth-child(8) {
+  display: none;
+}
+
 .active_li {
   font-family: 'Montserrat Alternates';
   font-style: normal;

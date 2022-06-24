@@ -62,7 +62,7 @@ const PalaroidSlider = () => {
 
     // Here I add additional cards if there isn't necessary value
     let i = 0;
-    while (arrCards.length < 7) {
+    while (arrCards.length < 8) {
       arrCards.push(arrCards[i]);
       i++;
     }
@@ -83,11 +83,27 @@ const PalaroidSlider = () => {
     setActiveIndex((prev: number) =>
       prev ? prev - 1 : sliderCards.length - 1
     );
+    console.log(
+      hiddenLeftIndex,
+      leftIndex,
+      activeIndex,
+      rightIndex,
+      rightmostIndex,
+      hiddenRightIndex
+    );
   }
 
   function next() {
     setActiveIndex((prev: number) =>
       prev === sliderCards.length - 1 ? 0 : prev + 1
+    );
+    console.log(
+      hiddenLeftIndex,
+      leftIndex,
+      activeIndex,
+      rightIndex,
+      rightmostIndex,
+      hiddenRightIndex
     );
   }
 
@@ -97,13 +113,22 @@ const PalaroidSlider = () => {
   });
 
   function paginationHandler(index: number) {
-    let difference = index - activeIndex;
-    console.log(difference);
-    if (difference > -1) {
-      next();
-    } else if (difference < 0) {
-      prev();
-    }
+    // let difference = index - activeIndex;
+    // console.log(difference);
+    // if (difference > -1) {
+    //   next();
+    // } else if (difference < 0) {
+    //   prev();
+    // }
+    setActiveIndex(index);
+    console.log(
+      hiddenLeftIndex,
+      leftIndex,
+      activeIndex,
+      rightIndex,
+      rightmostIndex,
+      hiddenRightIndex
+    );
   }
 
   return (
