@@ -1,0 +1,209 @@
+.person_background__adaptive {
+  display: none;
+}
+
+.containers {
+  /* Сверху | Справа | Снизу | Слева */
+  padding-top: 355px;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  max-width: 1440px;
+  height: 981px;
+  margin-top: 50px;
+  background-image: url("./image/paper\ 2\ piece.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.person_background {
+  background-image: url("./image/Fon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  max-width: 447px;
+  height: 341px;
+  display: inline-flex;
+  justify-content: center;
+  margin-left: 25px;
+}
+
+.photos {
+  max-width: 187px;
+  height: 208px;
+  box-sizing: border-box;
+  padding: 23px 0px 0px 16px;
+}
+
+.text {
+  background-image: url("./image/backgraund_gradient.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 169px;
+  height: 185px;
+  margin-top: 26px;
+  text-align: -webkit-center;
+  padding-right: 17px;
+  color: #fff;
+  padding-top: 1px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.btn {
+  color: black;
+  border-radius: 5px;
+  border: none;
+  background: #ffb03b;
+  height: 15px;
+  width: 60px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+@media (max-width: 1215px) {
+  .person_background {
+    max-width: 331px;
+    height: 266px;
+  }
+  .photos {
+    max-width: 163px;
+    height: 209px;
+    box-sizing: border-box;
+    padding: 23px 0px 0px 16px;
+    transform: rotate(-0.2deg);
+  }
+  .containers {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1081px) {
+  .containers {
+    padding-top: 250px;
+    display: flex;
+    justify-content: center;
+  }
+  .person_background {
+    max-width: 277px;
+    height: 224px;
+  }
+  .photos {
+    max-width: 137px;
+    height: 174px;
+    padding: 19px 0px 0px 13px;
+  }
+  .text {
+    width: 142px;
+    height: 156px;
+    margin-top: 22px;
+    padding-right: 8px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .container {
+    height: 720px;
+  }
+}
+
+@media (max-width: 915px) {
+  .containers {
+    display: flex;
+    justify-content: center;
+  }
+  .container {
+    height: 666px;
+  }
+  .person_background {
+    max-width: 232px;
+    height: 174px;
+  }
+  .text {
+    width: 115px;
+    max-height: 122px;
+    margin-top: 17px;
+    padding-right: 15px;
+    font-size: 9px;
+    font-weight: 600;
+  }
+  .photos {
+    max-width: 108px;
+    height: 137px;
+    padding: 15px 0px 0px 10px;
+  }
+}
+
+@media (max-width: 742px) {
+  .containers {
+    display: flex;
+    justify-content: center;
+  }
+  .person_background {
+    max-width: 190px;
+    height: 151px;
+  }
+  .photos {
+    max-width: 85px;
+    height: 118px;
+    padding: 12px 0px 0px 7px;
+  }
+  .text {
+    width: 97px;
+    height: 103px;
+    margin-top: 14px;
+    padding-right: 13px;
+    font-size: 7px;
+    font-weight: 400;
+  }
+  .btn {
+    height: 10px;
+    width: 44px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 627px) {
+  .photos {
+    max-width: 60px;
+    height: 79px;
+    padding: 8px 0px 0px 6px;
+  }
+  .text {
+    width: 68px;
+    height: 71px;
+    margin-top: 9px;
+    padding-right: 12px;
+    font-size: 5px;
+    font-weight: 600;
+  }
+  .btn {
+    height: 8px;
+    width: 28px;
+    font-size: 5px;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 460px) {
+  .container {
+    background-position: bottom;
+  }
+  .person_background {
+    display: none;
+  }
+  .person_background__adaptive {
+    display: flex;
+    display: flex;
+    justify-content: center;
+  }
+
+  .containers {
+    padding-top: 160px;
+  }
+
+  .item {
+    display: none;
+  }
+}
