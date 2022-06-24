@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import classes from "./Header.module.css";
 import { ReactComponent as LogoIcon } from "../../assets/Header/logo.svg";
@@ -7,6 +7,8 @@ import { BurgerMenu, NavItem,NavItems } from "./components";
 import { SearchBtn, InputSearch } from "../../UI";
 import { someClasses } from "../../utils/someClasses";
 import {INavItems} from "../../types/headerTypes/headerTypes";
+import { useAppDispatch } from "../../app/hooks";
+import { logOut } from "../../store/AuthFunc";
 
 const Header = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
@@ -14,7 +16,7 @@ const Header = () => {
   const history = useNavigate();
   const location = useLocation();
   const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
-
+  const dispatch = useAppDispatch()
 
   if (isOpen) {
     document.body.style.overflow = "hidden";
@@ -49,6 +51,11 @@ const Header = () => {
     },
   ];
 
+  const logOutBtn = ()=>{
+    dispatch(logOut())
+    history('/')
+  }
+
   return (
     <header className={classes.headerWrapper}>
       <div className={classes.headerBlock}>
@@ -66,7 +73,13 @@ const Header = () => {
 
         <nav>
           <ul className={classes.headerNav}>
-           <NavItems  navItems={navItems} />
+            {localStorage.getItem('token') ? 
+            <button className={classes.logOut_btn} onClick={()=>logOutBtn()}>Выйти</button>
+             :
+               <NavItems  navItems={navItems} /> }
+           
+           
+          
           </ul>
           <SearchBtn onClick={() => setInputVisible(!inputVisible)} className={classes.navSearchBtn} />
           <div

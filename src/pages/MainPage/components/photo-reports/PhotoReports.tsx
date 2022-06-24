@@ -113,7 +113,6 @@ const PhotoReports = () => {
           <button>Все фото</button>
         </div>
       </div>
-      <div className={classes.photo_reports_layer}></div>
 
       <img className={classes.photo_reports__star3} src={star3Icon} alt="" />
       <img className={classes.photo_reports__star4} src={star4Icon} alt="" />

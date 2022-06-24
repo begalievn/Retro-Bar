@@ -1,22 +1,43 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { IPhotos } from "../interfaces";
 import styles from "./ImagesList.module.css";
 import eye from "../../../../../assets/photoPageImages/icons/eye.svg";
 import pic from "../../../../../assets/photoPageImages/icons/pic.svg";
 import camera from "../../../../../assets/photoPageImages/icons/camera.svg";
+import Gallery from "../../../../../UI/Gallery/GalleryModal/GalleryModal";
+import Button from "../../Button/Button";
 
 interface ImagesListProps {
   images: IPhotos[];
 }
 const ImagesList: FC<ImagesListProps> = ({ images }) => {
+  const [galleryModal, setGalleryModal] = useState(false);
+  const toggleGalleryModal = () => setGalleryModal(!galleryModal);
+
+  const [currentEvent, setCurrentEvent] = useState<IPhotos>({});
+  if (galleryModal) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "visible";
+  }
+  const onClickEvent = (event: IPhotos) => {
+    setCurrentEvent(event);
+    toggleGalleryModal();
+    console.log(event);
+  };
   return (
     <>
       {images.map((item) => (
-        <div className={styles[item.class]} key={item.id}>
+        <div
+          className={
+            item.ad ? styles.advertise + " " + styles.events : styles.events
+          }
+          key={item.id}
+        >
           <div className={styles.image_border}>
             <img src={item.border} alt="" />
           </div>
-          <div className={styles.image}>
+          <div className={styles.image} onClick={() => onClickEvent(item)}>
             <img src={item.link} alt="" />
           </div>
           {item.ad ? (
@@ -24,7 +45,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
               <div className={styles.ad_info}>
                 <h3 className={styles.ad_info_title}>{item.title}</h3>
                 <p className={styles.ad_info_text}>{item.text}</p>
-                {item.button}
+                <Button />
               </div>
               <div className={styles.ad_info_icon}>
                 <img src={item.icon} alt="" />
@@ -67,6 +88,13 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
           )}
         </div>
       ))}
+      {galleryModal && (
+        <Gallery
+          currentEvent={currentEvent}
+          galleryModal={galleryModal}
+          toggleGalleryModal={toggleGalleryModal}
+        />
+      )}
     </>
   );
 };

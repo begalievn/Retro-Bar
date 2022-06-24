@@ -8,10 +8,11 @@ export interface IPhotos {
   class?: any
   views?: number
   photos?:number
-  name: string
+  name?: string
   ad?:boolean
   text?:string
   icon?:string
   studio?:string
   button?:any
+  images?:{image:string}[]
 }

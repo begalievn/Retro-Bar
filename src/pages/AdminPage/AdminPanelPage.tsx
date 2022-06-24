@@ -1,7 +1,7 @@
 import { useState } from "react";
 import style from "./AdminPage.module.css";
 import AdminSidebar from "./AdminSidebar";
-// import AdminValue from "./AdminValue";
+import AdminValue from "./AdminValue";
 
 
 const AdminPanelPage = () => {
@@ -14,8 +14,8 @@ const AdminPanelPage = () => {
 
   return (
     <div className={style.container}>
-      <AdminSidebar setCurrent={setCurrent} />
-     {/* <AdminValue current={current} /> */}
+      <AdminSidebar current={current} setCurrent={setCurrent} />
+     <AdminValue current={current} />
     </div>
   );
 };
