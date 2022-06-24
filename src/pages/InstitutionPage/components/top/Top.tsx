@@ -24,7 +24,7 @@ function Top() {
 
       </div>
       <div className={styles.topPoster}>
-        <img className={styles.calendar} src={calendar} alt="" />
+      
 
         <div className={styles.topFilmBlock1}>
           <img className={styles.topFilm1} src={film1} alt="" />

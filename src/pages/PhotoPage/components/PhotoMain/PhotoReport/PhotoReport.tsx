@@ -33,8 +33,8 @@ const PhotoReport: FC = () => {
       photos: 122,
       views: 6545,
       date: "14 мая 2022",
-      class: "eventPlace",
       studio: "Фото студия “Оригами”",
+      images:[{image:eventPlace},{image:eventPlace},{image:eventPlace},{image:eventPlace}]
     },
     {
       link: zeppelinBar,
@@ -45,7 +45,7 @@ const PhotoReport: FC = () => {
       photos: 144,
       views: 709,
       date: "20 мая 2022",
-      class: "zeppelinBar",
+      images:[{image:zeppelinBar},{image:zeppelinBar},{image:zeppelinBar},{image:zeppelinBar}]
     },
     {
       link: kipishBar,
@@ -56,7 +56,7 @@ const PhotoReport: FC = () => {
       photos: 50,
       views: 660,
       date: "20 мая 2022",
-      class: "kipishBar",
+      images:[{image:kipishBar},{image:kipishBar},{image:kipishBar},{image:kipishBar}]
     },
     {
       link: attention,
@@ -67,7 +67,7 @@ const PhotoReport: FC = () => {
       photos: 79,
       views: 665,
       date: "28 мая 2022",
-      class: "attention",
+      images:[{image:attention},{image:attention},{image:attention},{image:attention}]
     },
     {
       name: "MUNCHEN PUB",
@@ -78,7 +78,7 @@ const PhotoReport: FC = () => {
       photos: 60,
       views: 675,
       date: "20 мая 2022",
-      class: "munchenPub",
+      images:[{image:munchenPub},{image:munchenPub},{image:munchenPub},{image:munchenPub}]
     },
     {
       name: "PINTA PUB",
@@ -89,7 +89,7 @@ const PhotoReport: FC = () => {
       photos: 67,
       views: 4660,
       date: "14 мая 2022",
-      class: "pintaPub",
+      images:[{image:pintaPub},{image:pintaPub},{image:pintaPub},{image:pintaPub}]
     },
     {
       name: "Реклама",
@@ -97,8 +97,6 @@ const PhotoReport: FC = () => {
       ad: true,
       border: wideBorder,
       id: 7,
-      class: "advertise",
-      button: <Button />,
       icon: star,
       title: "Фото и видео услуги",
       text: "Современные технологии достигли такого уровня, что перспективное планирование способствует.",
@@ -112,7 +110,7 @@ const PhotoReport: FC = () => {
       photos: 95,
       views: 5004,
       date: "14 мая 2022",
-      class: "mamaRada",
+      images:[{image:mamaRada},{image:mamaRada},{image:mamaRada},{image:mamaRada}]
     },
     {
       name: "SECRET MUSIC HALL",
@@ -123,7 +121,7 @@ const PhotoReport: FC = () => {
       photos: 70,
       views: 4789,
       date: "11 мая 2022",
-      class: "secretMusicHall",
+      images:[{image:secretMusicHall},{image:secretMusicHall},{image:secretMusicHall},{image:secretMusicHall}]
     },
     {
       name: "MOLECULA",
@@ -134,7 +132,7 @@ const PhotoReport: FC = () => {
       photos: 87,
       views: 8335,
       date: "21 октября 2021",
-      class: "molecula",
+      images:[{image:molecula},{image:molecula},{image:molecula},{image:molecula}]
     },
     {
       name: "ОБЛАКО 53",
@@ -145,7 +143,7 @@ const PhotoReport: FC = () => {
       photos: 70,
       views: 7336,
       date: "22 мая 2022",
-      class: "oblaco53",
+      images:[{image:oblaco53},{image:oblaco53},{image:oblaco53},{image:oblaco53}]
     },
     {
       name: "Реклама",
@@ -154,8 +152,6 @@ const PhotoReport: FC = () => {
       border: wideBorder,
       id: 12,
       icon: circle,
-      button: <Button />,
-      class: "advertise2",
       title: "Заказать сьёмку сейчас",
       text: "Современные технологии достигли такого уровня, что перспективное планирование способствует подготовке и реализации позиций, занимаемых участниками в отношении поставленных задач.",
     },
@@ -168,8 +164,9 @@ const PhotoReport: FC = () => {
       photos: 75,
       views: 4695,
       date: "14 мая 2022",
-      class: "pablo",
+      images:[{image:pablo},{image:pablo},{image:pablo},{image:pablo}]
     },
+    
   ];
   return <ImagesList images={images} />;
 };

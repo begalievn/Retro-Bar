@@ -10,11 +10,13 @@
   background: url('../../../assets/photoPageImages/calendarImages/calendar-bg.png') 0 0/ cover no-repeat;
 }
 
-.calendar_tape img {
+.calendar_tape {
   position: absolute;
   top: -40px;
   right: 113px;
   mix-blend-mode: luminosity;
+  filter: grayscale(100%);
+  
 }
 
 .calendar__header {
@@ -166,6 +168,7 @@
   .calendar {
     background: none;
   }
+
   .calendar_tape {
     display: none;
   }
