@@ -16,7 +16,7 @@ const AdminInput = (props: React.HTMLProps<HTMLInputElement>) => {
 
   return (
     <div className={classes.inputBlock}>
-      <h4 className={classes.inputTitle}>{props.title}</h4>
+      <h4 className={props.title?.toLocaleLowerCase() == 'вставить ссылку' ? classes.inputLinkTitle : classes.inputTitle}>{props.title}</h4>
       <input
         onChange={inputHandler}
         className={classes.AdminInput}

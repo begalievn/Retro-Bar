@@ -5,10 +5,11 @@
   color: white;
 }
 .container {
-  width: 90%;
-  max-width: 1200px;
-  height: 100%;
-  margin: 0 auto;
+  width: 95%;
+  /*width: 90%;*/
+  /*max-width: 1000px;*/
+  /*height: 100%;*/
+  /*margin: 0 auto;*/
 }
 
 /* ADD CONTACT */

@@ -2,21 +2,46 @@
   width: 100%;
   /*display: flex;*/
   /*position: relative;*/
+  margin-bottom: 40px;
 }
 
 .AdminInput {
+  width: 100%;
   color: #ffffff;
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: 400;
+  font-size: 18px;
+  padding-left: 2px;
   line-height: 22px;
 
   outline: none;
   border: none;
   background: none;
-  padding-bottom: 0;
+  padding-bottom: 2px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+.inputTitle,
+.inputLinkTitle {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 27px;
+  margin-bottom: 10px;
 }
 .inputTitle {
   color: var(--orange-text);
-    font-weight: 600;
+}
+.inputLinkTitle {
+  color: white;
+
+  display: flex;
+  align-items: center;
+}
+.inputLinkTitle::after {
+  content: "";
+  margin-left: 15px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-size: contain;
+  background-image: url("../../../../assets/adminPage/link.svg");
 }

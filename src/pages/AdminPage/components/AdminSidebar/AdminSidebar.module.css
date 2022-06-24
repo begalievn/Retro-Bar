@@ -1,21 +1,23 @@
 /* SIDE BAR */
 .sideBar {
   flex-shrink: 2;
-  width: 30%;
+  min-width: 260px;
+  width: 25%;
   background: #2f2f2f;
   height: 100vh;
   padding-top: 10%;
   padding-left: 50px;
   padding-right: 30px;
+  margin-right: 100px;
 }
 
 .sideBar ul {
+  font-family: "Montserrat Alternates";
   min-height: 250px;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  font-family: "Montserrat Alternates";
   color: white;
 }
 
