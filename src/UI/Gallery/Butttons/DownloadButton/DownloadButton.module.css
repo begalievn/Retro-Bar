@@ -17,3 +17,11 @@
 .download_btn img {
   margin-left: 14px;
 }
+
+
+@media (max-width:425px) {
+  .download_btn {
+    padding: 9px 15px;
+    font-size: 14px;
+  }
+}

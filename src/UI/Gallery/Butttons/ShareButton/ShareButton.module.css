@@ -2,8 +2,6 @@
   font-family: 'Montserrat Alternates';
   font-weight: 500;
   font-size: 18px;
-  line-height: 22px;
-  padding: 11px 23px;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -26,4 +24,12 @@
 
 .share_btn img {
   margin-left: 14px;
+}
+
+
+@media (max-width:425px) {
+  .share_btn {
+    padding: 9px 15px;
+    font-size: 14px;
+  }
 }

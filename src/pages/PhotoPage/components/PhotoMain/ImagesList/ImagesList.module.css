@@ -66,6 +66,10 @@
   grid-area: 5 / 3 / 7 / 4;
 }
 
+.events:nth-child(n+14) {
+  display: none;
+}
+
 
 .events img {
   max-width: 100%;
@@ -188,7 +192,7 @@
 /* Advertise */
 
 
-.advertise button {
+.events:nth-child(7) button {
   display: none;
 }
 

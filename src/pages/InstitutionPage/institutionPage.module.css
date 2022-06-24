@@ -16,6 +16,25 @@
   max-width: 1440px;
   margin: 0 auto;
 }
+.breadcrumbsCont{
+  width: 100%;
+  height: 20%;
+  margin-top: 60px;
+  padding:  0 15vw;
+}
+.list{
+  margin: 0 auto;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 28vw;
+}
+.breadcrumbsCont a  {
+  color: white;
+  font-size: 16px;
+  font-family:  'Montserrat Alternates', sans-serif;
+
+}
 .star {
   position: absolute;
   top: 47vw;
@@ -41,7 +60,25 @@
   left: 6.6%;
   width: 4.7%;
 }
+@media screen and (max-width: 748px) {
+  .list{
+    padding-right: 0vw;
+  }
+   .breadcrumbsCont{
+    padding:0 13vw 
+  }
+}
+
 @media screen and (max-width: 425px) {
+  .breadcrumbsCont{
+    padding:0 13vw 
+  }
+  .breadcrumbsCont a {
+    font-size: 12px;
+  }
+  .list{
+    justify-content: space-between;
+  }
   .back {
     background: url("../../assets/institution/mobileback.jpg") 0 0/100% 100%
       no-repeat;
@@ -70,4 +107,14 @@
     width: 21%;
   }
 
+}
+
+@media screen and (min-width: 1440px) {
+  .breadcrumbsCont{
+   
+    padding:  0 228px;
+  }
+  .list{
+   padding-right: 500px;
+  }
 }
