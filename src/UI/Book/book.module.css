@@ -38,7 +38,7 @@
   height: 41vw;
   position: relative;
   background: url('../../assets/book/blackFilmGradient.png') 0 0/100% 100% no-repeat;
-  margin-bottom: 35vmin;
+  margin-bottom: 25%;
 }
 .containerMain {
   margin: 0 auto;
@@ -48,7 +48,7 @@
   height: 41vw;
   position: relative;
   background: url('../../assets/book/blackFilmGradientTop.png') 0 0/100% 100% no-repeat;
-  margin-bottom: 35vw;
+  margin-bottom: 25%;
 }
  .containerVideo{
   margin: 0 auto;
@@ -58,7 +58,7 @@
   height: 41vw;
   position: relative;
   background: url('../../assets/book/blackFilmGradient.png') 0 0/100% 100% no-repeat;
-  margin-bottom: 18vmin;
+  margin-bottom: 12%;
 }
 .imageBlock {
   position: absolute;
@@ -119,9 +119,14 @@
     height: 173vw;
     background: url('../../assets/book/blackFilmMobile.png') 0 0/100% 100% no-repeat;
   }
+
   .containerVideo{
-    margin-bottom: 9vmin;
+    margin-bottom: 12%;
   }
+  .containerMain .containerVideo{
+    margin-bottom: 40%;
+  }
+  
   .imageBlock {
    
       top: 17.5%;
@@ -155,7 +160,7 @@
 
 @media screen and (min-width: 1440px) {
   
-  .container{
+  .container, .containerMain, .containerVideo{
     width: 1440px;
     height: 556px;
   }

@@ -35,7 +35,7 @@ const InstitutionPage = () => {
         </div>
       </section>
       <Top />
-      <Book page='main' data={bookData}/>
+      <Book page='institutions' data={bookData}/>
 
     </section>
 
