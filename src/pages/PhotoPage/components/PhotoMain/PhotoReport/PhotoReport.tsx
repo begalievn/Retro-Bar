@@ -166,6 +166,7 @@ const PhotoReport: FC = () => {
       date: "14 мая 2022",
       images:[{image:pablo},{image:pablo},{image:pablo},{image:pablo}]
     },
+    
   ];
   return <ImagesList images={images} />;
 };
