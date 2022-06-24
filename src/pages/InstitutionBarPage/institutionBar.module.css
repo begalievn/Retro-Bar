@@ -25,7 +25,6 @@
   font-style: normal;
   font-weight: 600;
   color: #ffb03b;
-  /* font-family: "mont"; */
   line-height: 24.38px;
   position: relative;
   height: 24px;
@@ -36,7 +35,6 @@
   font-family: "Montserrat Alternates";
   position: absolute;
   color: white;
-
   right: 109px;
   top: 127px;
 }
@@ -53,20 +51,19 @@
   height: 1100px;
   position: relative;
   width: 100%;
-  /* background-color: #000000; */
   color: black;
+}
+@media only screen and (min-width: 820px) {
+  .paper {
+    height: 900px;
+  }
 }
 
 @media only screen and (max-width: 550px) {
   .paper {
-    height: 900px;
+    height: 920px;
   }
   .share {
     visibility: hidden;
   }
 }
-/* @media only screen and (max-width: 820px) {
-  .share {
-    visibility: hidden;
-  }
-} */

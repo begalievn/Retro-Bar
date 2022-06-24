@@ -12,7 +12,36 @@ import tape1 from "../../../../assets/institutionBarImg/iconLiveBar/miniTape1.sv
 import tape2 from "../../../../assets/institutionBarImg/iconLiveBar/miniTape2.svg";
 import tape3 from "../../../../assets/institutionBarImg/iconLiveBar/miniTape3.svg";
 const LivebarPhoto: FC = () => {
-  //let mapPhoto = [photoMini1, photoMini2, photoMini3, photoMini4];
+  // let tape = [tape1, tape2, tape3];
+  // let mapPhoto = [photoMini1, photoMini2, photoMini3, photoMini4];
+  // let mapPhoto = [
+  //   {
+  //     photo: photoMini1,
+  //     tape: tape1,
+  //     name: classes.photo1,
+  //     polaroid: classes.polaroid1,
+  //     tapeClass: classes.tape1,
+  //   },
+  //   {
+  //     photo: photoMini2,
+  //     tape: tape2,
+  //     name: classes.photo2,
+  //     polaroid: classes.polaroid2,
+  //     tapeClass: classes.tape2,
+  //   },
+  //   {
+  //     photo: photoMini3,
+  //     tape: tape3,
+  //     name: classes.photo3,
+  //     polaroid: classes.polaroid3,
+  //     tapeClass: classes.tape3,
+  //   },
+  //   {
+  //     photo: photoMini4,
+  //     name: classes.photo4,
+  //     polaroid: classes.polaroid4,
+  //   },
+  // ];
   return (
     <div className={classes.photo}>
       <section>
@@ -22,15 +51,6 @@ const LivebarPhoto: FC = () => {
           <img src={effectMain} width="73%" className={classes.mainPhoto} />
         </article>
         <article className={classes.photosAll}>
-          {/* {mapPhoto.map((el) => (
-            <>
-              <article>
-                <img src={polaroidMini} className={classes.polaroid1} />
-                <img src={photoMini1} className={classes.photo1} />
-              </article>
-              <img src={tape1} className={classes.tape1} />
-            </>
-          ))} */}
           <article>
             <img src={polaroidMini} className={classes.polaroid1} />
             <img src={photoMini1} className={classes.photo1} />

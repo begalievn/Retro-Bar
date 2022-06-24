@@ -79,15 +79,18 @@
   .backgroundPaper {
     height: 850px;
   }
+  .h1p {
+    left: 11%;
+  }
 }
 @media only screen and (max-width: 800px) {
   .topWeb,
   .bottomWeb {
-    display: none;
+    display: block;
   }
   .topMobile,
   .bottomMobile {
-    display: block;
+    display: none;
   }
   .mobile {
     display: block;
@@ -95,13 +98,17 @@
     padding-top: 5%;
   }
   .backgroundPaper {
-    height: 1160px;
+    height: 950px;
   }
 }
 @media only screen and (max-width: 500px) {
   .topWeb,
   .bottomWeb {
     display: none;
+  }
+  .topMobile,
+  .bottomMobile {
+    display: block;
   }
   .h1p {
     padding-bottom: 10px;
@@ -121,7 +128,6 @@
     padding-top: 5%;
   }
   .indexNumber {
-    /* text-align: center; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -145,7 +151,6 @@
     color: black;
     font-family: "Montserrat Alternates";
   }
-
   .last,
   .next {
     border: none;
@@ -216,114 +221,4 @@
     mix-blend-mode: screen;
   }
 }
-@media only screen and (max-width: 600px) {
-  .backgroundPaper {
-    height: 900px;
-  }
-  .last,
-  .next {
-    border: none;
-    background-color: transparent;
-  }
-  .bottomMobile{
-    padding-top: 5%;
-  }
-  .slider {
-    width: 35px;
-    margin: 10px;
-  }
-  .fr1 {
-    width: 37%;
-    top: 12%;
-    left: 32%;
-    transform: rotate(-0.8deg);
-  }
-  .fr2 {
-    width: 37%;
-    top: 12%;
-    left: 32%;
-  }
-  .fr3 {
-    width: 37%;
-    top: 12%;
-    left: 32%;
-  }
-  .indexBtn {
-    border: none;
-    background-color: transparent;
-    width: 30px;
-    height: 30px;
-    color: black;
-    font-family: "Montserrat Alternates";
-  }
-  .indexBtn2 {
-    border-bottom: 2px solid black;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background-color: transparent;
-    width: 30px;
-    height: 30px;
-    color: black;
-    font-family: "Montserrat Alternates";
-  }
-  .indexNumber {
-    /* text-align: center; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .frame1 {
-    width: 35%;
-    transform: rotate(-1.38deg);
-  }
-  .frame2 {
-    width: 35%;
-    transform: rotate(1.53deg);
-  }
-  .frame3 {
-    width: 35%;
-  }
-  .frame4 {
-    width: 35%;
-    transform: rotate(-1.38deg);
-  }
-  .frame5 {
-    width: 35%;
-    transform: rotate(1.53deg);
-  }
-  .frame6 {
-    width: 35%;
-  }
-  .fr4 {
-    width: 35%;
-    position: absolute;
-    top: 61%;
-    left: 33%;
-    transform: rotate(-1.5deg);
-    mix-blend-mode: screen;
-  }
-  .fr5 {
-    width: 35%;
-    position: absolute;
-    top: 61%;
-    left: 33.5%;
-    transform: rotate(1.6deg);
-    mix-blend-mode: screen;
-  }
-  .fr6 {
-    width: 35%;
-    position: absolute;
-    top: 61%;
-    left: 33%;
-    mix-blend-mode: screen;
-  }
-  .dateMobile {
-    color: black;
-    text-align: center;
-  }
-  .h1p {
-    padding-bottom: 10px;
-    left: 35%;
-  }
-}
+   
