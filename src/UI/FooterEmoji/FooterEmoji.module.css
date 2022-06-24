@@ -1,9 +1,12 @@
 .emoji {
-  position: relative;
-  padding-top:25%;
   text-align: center;
 }
 .arrowUp {
-  position: relative;
   padding-bottom: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .emoji {
+    padding-top: 25%;
+  }
 }
