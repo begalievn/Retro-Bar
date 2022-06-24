@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import classes from "./Header.module.css";
-import { ReactComponent as LogoIcon } from "../../assets/Header/logo.svg";
+import { ReactComponent as LogoIcon } from "../../assets/header/logo.svg";
 import { BurgerMenu, NavItem,NavItems } from "./components";
 import { SearchBtn, InputSearch } from "../../UI";
 import { someClasses } from "../../utils/someClasses";
