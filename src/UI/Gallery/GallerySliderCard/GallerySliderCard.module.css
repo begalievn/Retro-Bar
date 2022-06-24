@@ -1,13 +1,9 @@
 .slider_card {
   overflow: hidden;
   max-width: 795px;
-}
-
-.sliderCard {
-  height: 100%;
+  margin-left: -3px;
   width: 100%;
 }
-
 
 
 #slider_card_logo {
@@ -21,18 +17,21 @@
 
 
 #slider_card_img {
-  max-width: 100%;
+  width: 100%;
   mix-blend-mode: exclusion;
   opacity: 0.95;
   height: 624px;
+  padding-top: 8px;
   border-radius: 15px;
 }
 
 .slider_card_image {
-  position: absolute;
+  background: url('../../../assets/photoPageImages/gallery-images/vinyl-cover.png') 0 0/cover no-repeat;
   height: 100%;
   width: 100%;
   overflow: hidden;
+  border-radius: 10px;
+  margin-left: 3px;
 }
 
 

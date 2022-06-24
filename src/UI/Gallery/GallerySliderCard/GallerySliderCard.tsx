@@ -8,15 +8,12 @@ interface GallerySliderCardProps {
 }
 const GallerySliderCard: FC<GallerySliderCardProps> = ({ image }) => {
   return (
-    <>
+    <div className={styles.slider_card}>
       <img src={logo} id={styles.slider_card_logo} alt="" />
-      <div className={styles.slider_card_border}>
-        <img src={border} alt="" />
-      </div>
       <div className={styles.slider_card_image}>
         <img id={styles.slider_card_img} src={image} alt="" />
       </div>
-    </>
+    </div>
   );
 };
 
