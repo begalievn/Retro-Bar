@@ -4,7 +4,11 @@
 .arrowUp {
   padding-bottom: 10px;
 }
-
+@media only screen and (min-width: 1000px) {
+  .emoji {
+    padding-top: 23%;
+  }
+}
 @media only screen and (max-width: 500px) {
   .emoji {
     padding-top: 25%;
