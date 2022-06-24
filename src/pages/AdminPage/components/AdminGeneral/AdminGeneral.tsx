@@ -19,18 +19,20 @@ const AdminGeneral: FC<AdminGeneralProps> = ({ page }) => {
         <div className={classes.adminAddBlock}>
           <div className={classes.adminAdd}>
             <i className={classes.icon}>
-              {page?.add == "photo" ? <PhotoIcon /> : <VideoIcon />}
+              {page?.add == "video" ? <VideoIcon /> : <PhotoIcon />}
             </i>
             <h4 className={classes.adminAddTitle}>
               {page?.add == "photo" ? "Добавить картинки" : "Добавить видео"}
             </h4>
           </div>
-          <AdminInput title="Вставить ссылку" />
+          <AdminInput page={page!} title="Вставить ссылку" name="link" />
         </div>
 
         <div className={classes.adminFields}>
           {page?.fields.map((field) => {
-            return <AdminInput title={field.title} />;
+            return (
+              <AdminInput page={page} title={field.title} name={field.name} />
+            );
           })}
           <AdminRange />
         </div>

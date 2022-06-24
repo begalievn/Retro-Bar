@@ -19,7 +19,7 @@ const AdminRange = () => {
     },
   ];
   function valuetext(value: number) {
-    return `${value}°C`;
+    return `${value}x`;
   }
   function valueLabelFormat(value: number) {
     return marks.findIndex((mark) => mark.value === value) + 1;

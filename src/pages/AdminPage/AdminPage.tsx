@@ -17,10 +17,10 @@ const AdminPage = () => {
       viewersRange: true,
       btn: true,
       fields: [
-        { title: "Название Заведения" },
-        { title: "Название Вечеринки" },
-        { title: "Фотограф" },
-        { title: "Дата" },
+        { title: "Название Заведения", name: "establishmentName" },
+        { title: "Название Вечеринки", name: "eventName" },
+        { title: "Фотограф", name: "photographer" },
+        { title: "Дата", name: "date" },
       ],
     },
     video: {
@@ -30,10 +30,23 @@ const AdminPage = () => {
       viewersRange: true,
       btn: true,
       fields: [
-        { title: "Название Заведения" },
-        { title: "Название Вечеринки" },
-        { title: "Видеограф" },
-        { title: "Дата" },
+        { title: "Название Заведения", name: "establishmentName" },
+        { title: "Название Вечеринки", name: "eventName" },
+        { title: "Видеограф", name: "photographer" },
+        { title: "Дата", name: "date" },
+      ],
+    },
+    advertising: {
+      title: "Видео",
+      add: "video",
+      addLink: true,
+      viewersRange: true,
+      btn: true,
+      fields: [
+        { title: "Название Заведения", name: "establishmentName" },
+        { title: "Название Вечеринки", name: "eventName" },
+        { title: "Видеограф", name: "photographer" },
+        { title: "Дата", name: "date" },
       ],
     },
   };
