@@ -1,9 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
 import { Slider } from "@mui/material";
 import "./AdminRange.css";
 import classes from "./AdminRange.module.css";
 
-const AdminRange = () => {
+interface AdminRangeProps {
+  setInputValue: (some: any) => void;
+  inputValue: any;
+}
+
+const AdminRange: FC<AdminRangeProps> = ({ setInputValue, inputValue }) => {
   const marks = [
     {
       value: 1,
@@ -24,11 +29,15 @@ const AdminRange = () => {
   function valueLabelFormat(value: number) {
     return marks.findIndex((mark) => mark.value === value) + 1;
   }
+  const handleChange = (value: number | number[]) => {
+    setInputValue({ ...inputValue, incViews: value });
+  };
 
   return (
     <div className={classes.range}>
       <h4>Просмотры</h4>
       <Slider
+        onChange={(e, val) => handleChange(val)}
         aria-label="Custom marks"
         getAriaValueText={valuetext}
         valueLabelFormat={valueLabelFormat}

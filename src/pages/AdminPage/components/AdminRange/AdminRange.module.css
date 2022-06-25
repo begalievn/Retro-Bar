@@ -1,6 +1,7 @@
 .css-1aznpnh-MuiSlider-root {
 }
 .range {
+  width: 100%;
   color: var(--orange-text);
 }
 .range h4 {

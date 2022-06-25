@@ -8,7 +8,7 @@ const InputSearch = (props: React.HTMLProps<HTMLInputElement>) => {
   const [inputValue, setInputValue] = useState("");
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
+    // setInputValue(e.target.value);
   };
 
 

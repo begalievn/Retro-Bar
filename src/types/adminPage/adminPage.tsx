@@ -11,5 +11,5 @@ export interface IPageBody {
   addLink: boolean;
   viewersRange: boolean;
   btn: boolean;
-  fields: IFiled[];
+  fields?: IFiled[];
 }

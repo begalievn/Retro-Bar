@@ -1,16 +1,19 @@
 .inputBlock {
   width: 100%;
+  height: fit-content;
   /*display: flex;*/
   /*position: relative;*/
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-.AdminInput {
+.adminInput {
   width: 100%;
+  resize: none;
+  overflow: hidden;
   color: #ffffff;
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1em;
   padding-left: 2px;
   line-height: 22px;
 
@@ -20,12 +23,29 @@
   padding-bottom: 2px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
+
+.fake-input {
+  width: 100%;
+
+  line-height: 22px;
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(118, 118, 118);
+  border-style: inset;
+  border-width: 2px;
+  cursor: text;
+  padding-bottom: 2px;
+}
+
+/*[contenteditable="true"]:empty:before {*/
+/*  color: grey;*/
+/*  content: attr(placeholder);*/
+/*  pointer-events: none;*/
+/*}*/
 .inputTitle,
 .inputLinkTitle {
   font-weight: 600;
-  font-size: 22px;
+  font-size: 1.2em;
   line-height: 27px;
-  margin-bottom: 10px;
 }
 .inputTitle {
   color: var(--orange-text);

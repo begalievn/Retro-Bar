@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import classes from "./AdminPage.module.css";
 import AdminSidebar from "./components/AdminSidebar/AdminSidebar";
 import AdminInput from "./components/AdminInput/AdminInput";
 import AdminGeneral from "./components/AdminGeneral/AdminGeneral";
-import { IPage } from "../../types/adminPage/adminPage";
+import { IPage, IPageBody } from "../../types/adminPage/adminPage";
 
 const AdminPage = () => {
   const [current, setCurrent] = useState<string>("photo");
+  const [inputValue, setInputValue] = useState({});
 
+  useEffect(() => {
+    return () => setInputValue({});
+  }, [current]);
+
+  console.log(inputValue);
   const pages: IPage = {
     photo: {
       title: "Фото",
@@ -37,25 +43,33 @@ const AdminPage = () => {
       ],
     },
     advertising: {
-      title: "Видео",
-      add: "video",
+      title: "Реклама",
+      add: "",
       addLink: true,
-      viewersRange: true,
+      viewersRange: false,
       btn: true,
-      fields: [
-        { title: "Название Заведения", name: "establishmentName" },
-        { title: "Название Вечеринки", name: "eventName" },
-        { title: "Видеограф", name: "photographer" },
-        { title: "Дата", name: "date" },
-      ],
+      fields: [],
     },
+    // establishment: {
+    //   title: "",
+    //   add: "",
+    //   addLink: true,
+    //   viewersRange: false,
+    //   btn: false,
+    //   fields: [],
+    // },
   };
 
+  console.log(inputValue);
   return (
     <div className={classes.adminWrapper}>
       <AdminSidebar current={current} setCurrent={setCurrent} />
       <div className={classes.container}>
-        <AdminGeneral page={pages[current]} />
+        <AdminGeneral
+          page={pages[current]}
+          setInputValue={setInputValue}
+          inputValue={inputValue}
+        />
       </div>
     </div>
   );
