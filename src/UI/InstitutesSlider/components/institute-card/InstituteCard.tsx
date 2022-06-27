@@ -49,7 +49,6 @@ const InstituteCard: FC<CardDataTypes> = ({ ...props }) => {
           </div>
         ) : null}
       </div>
-
       <div className={classes.content_container}>
         {props.isActive ? <InstituteCardInfo {...props} /> : null}
       </div>

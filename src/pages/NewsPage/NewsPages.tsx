@@ -11,6 +11,8 @@ import Emojies from "../../assets/institutionBarImg/iconsMap/arrowUp.svg";
 // import star2 from "../../assets/institutionBarImg/iconsMap/star.svg";
 // import star3 from "../../assets/institutionBarImg/iconsMap/emojies.svg";
 import { MyPerson } from "../../types/newsPages/news";
+import BottomEmojis from "../../UI/BottomEmojis/BottomEmojis";
+import { useNavigate } from "react-router-dom";
 
 const NewsPages = () => {
   const data: MyPerson[] = [
@@ -37,6 +39,8 @@ const NewsPages = () => {
     },
   ];
 
+  let navi = useNavigate();
+
   return (
     <>
       <div className={classes.container}>
@@ -52,7 +56,12 @@ const NewsPages = () => {
                   <br />
                   <span>{item.description}</span>
                   <br />
-                  <button className={classes.btn}>Смотреть</button>
+                  <button
+                    onClick={() => navi("/photo")}
+                    className={classes.btn}
+                  >
+                    Смотреть
+                  </button>
                 </div>
               </div>
             );
@@ -63,10 +72,7 @@ const NewsPages = () => {
         </div>
       </div>
       <Section2 />
-      {/* <section className={classes.container_icon}>
-        <img src={Emojies} alt="smile" className={classes.emojies} />
-        <img src={Up} alt="up" className={classes.up} />
-      </section> */}
+      <BottomEmojis />
     </>
   );
 };

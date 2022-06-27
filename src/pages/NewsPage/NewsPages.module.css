@@ -56,9 +56,18 @@
   border: none;
   background: #ffb03b;
   height: 15px;
-  width: 60px;
+  width: 68px;
   margin-top: 15px;
   cursor: pointer;
+}
+
+.btn:hover {
+  background: #ffbc58;
+}
+.btn:active {
+  background: #ffa14e;
+  color: black;
+  font-weight: 600;
 }
 .container_icon {
   position: relative;
