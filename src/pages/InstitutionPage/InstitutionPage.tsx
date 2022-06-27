@@ -45,7 +45,7 @@ const InstitutionPage = () => {
         </div>
       </section>
       <Top />
-      <InstitutesSlider />
+      {/* <InstitutesSlider /> */}
       <Book page='institutions' data={bookData} />
 
     </section>
