@@ -12,6 +12,7 @@ import EventsPage from './EventsPage/EventsPage';
 import ErrorPage from './ErrorPage/ErrorPage';
 import Authorization from './Authorization/Authorization';
 import AdminPanelPage from './AdminPage/AdminPanelPage';
+import Gallery from '../UI/Gallery/Gallery';
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -70,6 +71,11 @@ const MainRoutes = () => {
       element: <AdminPanelPage />,
       id: 11,
     },
+    {
+      link: '/photo/gallery',
+      element: <Gallery/>,
+      id: 12,
+    }
   ];
 
   return (

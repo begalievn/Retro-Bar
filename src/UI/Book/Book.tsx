@@ -17,29 +17,43 @@ type BookProps = {
 }
 
 function Book({
-  data={
+  data = {
 
-    text:'Современные технологии достигли такого уровня, что перспективное планирование способствует.',
-    title:'Связаться с заведением',
+    text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует.',
+    title: 'Связаться с заведением',
     image: '/api/imageSS'
   },
   page,
-  }:BookProps) {
+}: BookProps) {
+
+  let container = styles.container
+  if (page === "main") {
+    container = styles.containerMain
+  }
+  if (page==="video") {
+    container = styles.containerVideo
+  }
  
-  const container =  (page==="main") ? styles.containerMain : styles.container 
-  
-  
+
   return (
-    <section className={ container }>
+    <section  className={container}>
       {
-        page==='institutions' &&
-        <img className={styles.sketchInstitutions}  src={sketchInstitutions} alt="" />
+        page === 'institutions' &&
+        <>
+          <img className={styles.sketchInstitutions} src={sketchInstitutions} alt="" />
+          <div className={styles.bottomGradient}></div>
+          <div className={styles.topGradient}></div>
+        </>
       }
       {
-        page === 'video' && 
-        <img className={styles.sketchVideo}  src={sketchVideo} alt="" />
+        page === 'video' &&
+        <>
+          <img className={styles.sketchVideo} src={sketchVideo} alt="" />
+          <div className={styles.bottomGradient}></div>
+
+        </>
       }
-      
+
       <div className={styles.imageBlock}>
         <img src={image} className={styles.image} alt="" />
       </div>

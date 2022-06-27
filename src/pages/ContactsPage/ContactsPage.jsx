@@ -16,13 +16,14 @@ import carousel3 from '../../assets/contactsPage/border/carousel3.png';
 import mainBack from '../../assets/contactsPage/polaroid.png';
 import mainImage from '../../assets/contactsPage/img/mainImage.png';
 
-
+import tape from "../../assets/contactsPage/border/tape.png";
 
 import classes from './style.module.css';
+import TextBlock from './TextBlock';
 
 
 const ContactsPage = () => {
-  const [activeIndex, setActiveIndex] = useState(0)
+
 
 
 
@@ -75,28 +76,24 @@ const ContactsPage = () => {
       <div className={classes.container}>
 
         <div className={classes.mainDiv} >
-
-
+          <div className={classes.text_responsive}> <TextBlock /></div>
+         
+           <div className={classes.image_block}>
           <div className={classes.allImages}>
             {frameArr.map((item, index) => (
               <div className={classes.imageFrame} key={item.id}>
                 <img className={index > 0 ? classes.smallImageFrame : null} src={item.frame} alt="" />
+                {index==0 ? <img className={classes.tape} src={tape}/>: null }
                 <img className={classes.smallImage} onClick={() => sliderFunc(item.id)} src={item.photo} alt="" />
               </div>
             ))}
           </div>
-
-          
+          </div>
+     
           <div className={classes.text_block}>
-            <div className={classes.aboutText}>
-              <img src={aboutUs} alt="" />
-              <h1>О нас</h1>
+            <div className={classes.text_block_desktop} >
+            <TextBlock />
             </div>
-            <h4>
-              Медиа ресурс о светской, вечерней и ночной жизни города. Место,
-              куда заходят чтоб почувствовать и быть в курсе всех событий в
-              культурной жизни столицы.
-            </h4>
             <h3
               style={{
                 color: '#ffb03b',
@@ -122,6 +119,7 @@ const ContactsPage = () => {
             </div>
           </div>
 
+  <div></div>
 
 
         </div>
