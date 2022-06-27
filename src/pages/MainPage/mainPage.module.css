@@ -52,11 +52,6 @@
 
 .institutions_slider {
   width: 100%;
-  color: red;
-}
-
-.institution_slider_div {
-  color: red;
 }
 
 /* -------------------- */
@@ -237,7 +232,7 @@
   justify-content: center;
   padding-top: 100px;
   position: relative;
-  color: red;
+  color: black;
 }
 
 @media (max-width: 1210px) {

@@ -7,8 +7,7 @@ import PhotoReports from './components/photo-reports/PhotoReports';
 import TopInstituions from './components/top-institutions/TopInstituions';
 
 // imported images
-import backgroundOne from '../../assets/mainPage/background-images/main-bg-one.png';
-import paperBackground from '../../assets/mainPage/paper-background.png';
+
 import bookImage from '../../assets/mainPage/mainAd-photo.png';
 
 // imported components
