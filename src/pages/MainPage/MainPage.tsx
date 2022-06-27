@@ -20,6 +20,7 @@ import { BookProps } from '../../types/bookTypes/bookTypes';
 
 import classes from './mainPage.module.css';
 import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
+import { FooterEmoji } from '../../UI/FooterEmoji/FooterEmoji';
 
 let bookProps: BookProps = {
   data: {
@@ -35,9 +36,9 @@ const MainPage = () => {
   return (
     <div className={classes.main}>
       <div className={classes.header_background_effect}></div>
+
       <div className={classes.main_one}>
         <PalaroidSlider />
-
         <TopInstituions />
       </div>
 
@@ -46,7 +47,8 @@ const MainPage = () => {
       <div className={classes.paper_background}>
         <InstitutesSlider />
         <MainNews />
-        <div className={classes.paper_gradients_right}></div>
+        <div className={classes.paper_gradient_top}></div>
+        <div className={classes.paper_gradient_right}></div>
         <div className={classes.paper_gradient_left}></div>
       </div>
 

@@ -43,8 +43,6 @@
   font-size: 20px;
   line-height: 26px;
   /* identical to box height */
-
-  color: #000000;
 }
 
 .title_container p {
@@ -53,8 +51,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-
-  color: #000000;
 }
 
 .info_content {
@@ -80,8 +76,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-
-  color: #000000;
 }
 
 .prices {
@@ -119,7 +113,6 @@
   font-size: 14px;
   line-height: 18px;
 
-  color: #000000;
   margin-left: 6px;
 }
 
@@ -151,8 +144,6 @@
   font-size: 18px;
   line-height: 23px;
   /* identical to box height */
-
-  color: #000000;
 
   mix-blend-mode: normal;
 }
