@@ -43,6 +43,7 @@
   margin: 30px auto;
   max-width: 1440px;
   height: 509px;
+  position: relative;
 }
 
 .institutions_title {
@@ -52,6 +53,22 @@
 
 .institutions_slider {
   width: 100%;
+}
+
+.top_inst_ellipse_deco {
+  position: absolute;
+  left: 770px;
+  top: 0;
+  z-index: -1;
+  width: 427px;
+  height: 427px;
+  background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(255, 188, 57, 0.365) 0%,
+      rgba(202, 246, 255, 0) 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  opacity: 0.5;
 }
 
 /* -------------------- */
