@@ -19,6 +19,7 @@ import Book from '../../UI/Book/Book';
 import { BookProps } from '../../types/bookTypes/bookTypes';
 
 import classes from './mainPage.module.css';
+import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 
 let bookProps: BookProps = {
   data: {
@@ -30,24 +31,27 @@ let bookProps: BookProps = {
 };
 
 const MainPage = () => {
+  console.log(window.innerWidth);
   return (
     <div className={classes.main}>
-      <div className={classes.top_div}></div>
+      <div className={classes.header_background_effect}></div>
       <div className={classes.main_one}>
         <PalaroidSlider />
+
         <TopInstituions />
       </div>
-      <div className={classes.ellipse_deco_one}></div>
 
       <PhotoReports />
 
-      <InstitutesSlider />
-
-      <MainNews />
+      <div className={classes.paper_background}>
+        <InstitutesSlider />
+        <MainNews />
+        <div className={classes.paper_gradients_right}></div>
+        <div className={classes.paper_gradient_left}></div>
+      </div>
 
       <Book {...bookProps} />
-
-      {/* <MainAd /> */}
+      <BottomEmojis />
     </div>
   );
 };
