@@ -1,6 +1,110 @@
-.container{
+.back{
   position: fixed;
   top: 0;
   left: 0;
+  
+
   background: rgba(0, 0, 0, 0.801);
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  padding: 5vh 22vw ;
+  
+}
+.container{
+  margin: 0 auto;
+  background-color: rgba(230, 230, 230, 0.288);
+  width: 100%;
+  height: 40vw;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+.title{
+  display: flex;
+  flex-direction: column;
+
+}
+.test{
+  font-size: 16px;
+  font-weight: 500;
+}
+.placeName{
+color: #FF6D00;
+font-size: 1.4vw;
+font-weight: 700;
+
+}
+.eventName{
+ font-size: 1.12vw;
+ font-weight: 500;
+
+}
+.cross{
+  width: 2.71vw;
+  height: 2.71vw;
+
+}
+.close{
+  display: none;
+}
+/* нижняя часть */
+.footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+.download{
+  
+}
+.btnsSize{
+  width: 158px;
+}
+.counter{
+  font-size: 1.11vw;
+}
+
+@media screen and (max-width:425px){
+  .counter{
+    font-size: 4.27vw;
+  }
+  .footer{
+    
+    align-items: flex-start;
+  }
+  .left{
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .cross{
+    display: none;
+  }
+  .close{
+    display: block;
+    width: 3.8vw;
+    height: 3.8vw;
+  }
+  .placeName{
+    font-size: 4.4vw;
+   }
+  .eventName{
+    font-size: 3.8vw;
+  }
+  .back{
+
+    padding-top: 25%;
+    padding-right: 12vw;
+    padding-left: 12vw;
+
+  }
+  .container{
+    height:105vw ;
+  }
 }

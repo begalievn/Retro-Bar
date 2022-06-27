@@ -1,0 +1,31 @@
+.buttonDownload{
+  background-color:#FF6D00;
+  border-radius: 10px;
+}
+.buttonShare{
+  background-color:rgba(255, 255, 255, 0);
+}
+.buttonDownload, .buttonShare{
+  color: white;
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 0.76vw 2.99vw 0.76vw 2.99vw;
+  font-size: 1.25vw;
+}
+.image{
+  margin-left: 0.69vw;
+  width: 1.11vw;
+}
+@media screen and (max-width:425px) {
+  .buttonDownload, .buttonShare{
+  
+    padding: 2.4vw 9.2vw 2.67vw 4vw;
+    font-size: 3.73vw;
+  }
+  .image{
+    margin-left: 2.76vw;
+    width: 4.27vw;
+  }
+
+}
