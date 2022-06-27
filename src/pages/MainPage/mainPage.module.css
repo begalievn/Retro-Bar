@@ -232,6 +232,7 @@
   justify-content: center;
   padding-top: 100px;
   position: relative;
+  color: black;
 }
 
 @media (max-width: 1210px) {
@@ -239,6 +240,20 @@
     height: 2100px;
     padding-top: 10px;
   }
+}
+
+.paper_gradient_top {
+  position: absolute;
+  width: 1440px;
+  height: 522px;
+  left: 0px;
+  top: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 38.53%
+  );
 }
 
 .paper_gradient_left {
@@ -256,7 +271,7 @@
   pointer-events: none;
 }
 
-.paper_gradients_right {
+.paper_gradient_right {
   position: absolute;
   width: 1528px;
   height: 500px;

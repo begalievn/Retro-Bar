@@ -1,31 +1,31 @@
 // imported libraries
-import React, { FC, useState, useEffect } from 'react';
-import { useSwipeable } from 'react-swipeable';
+import React, { FC, useState, useEffect } from "react";
+import { useSwipeable } from "react-swipeable";
 
 // imported components
-import InstituteCard from '../components/institute-card/InstituteCard';
+import InstituteCard from "../components/institute-card/InstituteCard";
 
 // imported images
-import cardPhoto from '../../../assets/ui-images/inst-slider-photo-active.png';
-import cardLogo from '../../../assets/ui-images/inst-info-keanu-logo.svg';
-import sketch from '../../../assets/ui-images/inst-slider-sketch.svg';
-import leftArrow from '../../../assets/ui-images/inst-slider-left-arrow.svg';
-import rightArrow from '../../../assets/ui-images/inst-slider-right-arrow.svg';
+import cardPhoto from "../../../assets/ui-images/inst-slider-photo-active.png";
+import cardLogo from "../../../assets/ui-images/inst-info-keanu-logo.svg";
+import sketch from "../../../assets/ui-images/inst-slider-sketch.svg";
+import leftArrow from "../../../assets/ui-images/inst-slider-left-arrow.svg";
+import rightArrow from "../../../assets/ui-images/inst-slider-right-arrow.svg";
 
 // imported types
-import { CardDataTypes } from '../../../types/institutesSliderTypes/cardTypes';
+import { CardDataTypes } from "../../../types/institutesSliderTypes/cardTypes";
 
-import classes from './institutesSlider.module.css';
+import classes from "./institutesSlider.module.css";
 
 const data: Array<CardDataTypes> = [
   {
     photo: cardPhoto,
     logo: cardLogo,
-    title: 'KEANU',
-    instType: 'Bar',
-    location: 'Манаса 28',
-    time: '18:00-05:00',
-    phone: '0501 818 189',
+    title: "KEANU",
+    instType: "Bar",
+    location: "Манаса 28",
+    time: "18:00-05:00",
+    phone: "0501 818 189",
     hotDisPrice: 700,
     saladPrice: 900,
     dessertPrice: 500,
@@ -36,11 +36,11 @@ const data: Array<CardDataTypes> = [
   {
     photo: cardPhoto,
     logo: cardLogo,
-    title: 'KEANU',
-    instType: 'Bar',
-    location: 'Манаса 28',
-    time: '18:00-05:00',
-    phone: '0501 818 189',
+    title: "KEANU",
+    instType: "Bar",
+    location: "Манаса 28",
+    time: "18:00-05:00",
+    phone: "0501 818 189",
     hotDisPrice: 700,
     saladPrice: 900,
     dessertPrice: 500,
@@ -51,11 +51,11 @@ const data: Array<CardDataTypes> = [
   {
     photo: cardPhoto,
     logo: cardLogo,
-    title: 'KEANU',
-    instType: 'Bar',
-    location: 'Манаса 28',
-    time: '18:00-05:00',
-    phone: '0501 818 189',
+    title: "KEANU",
+    instType: "Bar",
+    location: "Манаса 28",
+    time: "18:00-05:00",
+    phone: "0501 818 189",
     hotDisPrice: 700,
     saladPrice: 900,
     dessertPrice: 500,
@@ -66,11 +66,11 @@ const data: Array<CardDataTypes> = [
   {
     photo: cardPhoto,
     logo: cardLogo,
-    title: 'KEANU',
-    instType: 'Bar',
-    location: 'Манаса 28',
-    time: '18:00-05:00',
-    phone: '0501 818 189',
+    title: "KEANU",
+    instType: "Bar",
+    location: "Манаса 28",
+    time: "18:00-05:00",
+    phone: "0501 818 189",
     hotDisPrice: 700,
     saladPrice: 900,
     dessertPrice: 500,
@@ -81,11 +81,11 @@ const data: Array<CardDataTypes> = [
   {
     photo: cardPhoto,
     logo: cardLogo,
-    title: 'KEANU',
-    instType: 'Bar',
-    location: 'Манаса 28',
-    time: '18:00-05:00',
-    phone: '0501 818 189',
+    title: "KEANU",
+    instType: "Bar",
+    location: "Манаса 28",
+    time: "18:00-05:00",
+    phone: "0501 818 189",
     hotDisPrice: 700,
     saladPrice: 900,
     dessertPrice: 500,
@@ -142,20 +142,20 @@ const InstitutesSlider: FC = () => {
     <>
       <div className={classes.slider}>
         <div className={classes.slider_title_container}>
-          <h2 className={classes.slider_title}>{'Заведения'}</h2>
+          <h2 className={classes.slider_title}>{"Заведения"}</h2>
           <img src={sketch} />
         </div>
 
         <div className={classes.carousel}>
           <div
             key={hiddenLeftIndex}
-            className={[classes.card, classes.hiddenLeft].join(' ')}
+            className={[classes.card, classes.hiddenLeft].join(" ")}
           >
             <InstituteCard {...slideCards[hiddenLeftIndex]} />
           </div>
           <div
             key={leftIndex}
-            className={[classes.card, classes.left].join(' ')}
+            className={[classes.card, classes.left].join(" ")}
             onClick={prev}
           >
             <InstituteCard {...slideCards[leftIndex]} />
@@ -163,7 +163,7 @@ const InstitutesSlider: FC = () => {
           <div
             {...swipeHandlers}
             key={activeIndex}
-            className={[classes.card, classes.active].join(' ')}
+            className={[classes.card, classes.active].join(" ")}
           >
             <InstituteCard
               {...{ ...slideCards[activeIndex], isActive: true }}
@@ -171,14 +171,14 @@ const InstitutesSlider: FC = () => {
           </div>
           <div
             key={rightIndex}
-            className={[classes.card, classes.right].join(' ')}
+            className={[classes.card, classes.right].join(" ")}
             onClick={next}
           >
             <InstituteCard {...slideCards[rightIndex]} />
           </div>
           <div
             key={hiddenRightIndex}
-            className={[classes.card, classes.hiddenRight].join(' ')}
+            className={[classes.card, classes.hiddenRight].join(" ")}
           >
             <InstituteCard {...slideCards[hiddenRightIndex]} />
           </div>

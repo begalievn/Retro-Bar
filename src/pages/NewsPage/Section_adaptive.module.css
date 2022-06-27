@@ -1,0 +1,239 @@
+.main_container {
+  min-width: 100%;
+}
+
+.title {
+  color: black;
+  text-align: center;
+  line-height: 26.82px;
+  font-family: "Montserrat Alternates";
+  font-weight: 700;
+  font-size: 22px;
+}
+.window {
+  height: 84%;
+  min-height: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.all_pages_container {
+  display: flex;
+}
+
+.person_background {
+  background-image: url("./image/Fon.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  display: flex;
+  scroll-snap-align: center;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  /* width: 208px; */
+  height: 362px;
+  color: red;
+}
+
+.photo {
+  width: 191px;
+  height: 355px;
+}
+
+.text {
+  background-image: url("./image/backgraund_gradient.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-width: 45%;
+  max-width: 45%;
+  min-height: 70%;
+  max-height: 70%;
+  margin-left: 3.6%;
+  margin-top: 7.4%;
+  text-align: center;
+  padding-top: 7%;
+  padding-left: 13px;
+}
+
+.image {
+  padding-top: 15%;
+  margin-left: 12%;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 79%;
+  max-height: 79%;
+}
+
+.btn {
+  color: black;
+  border-radius: 5px;
+  border: none;
+  background: #ffb03b;
+  height: 15px;
+  width: 70px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+@media (max-width: 425px) {
+  .main_container {
+    margin-top: 60px;
+  }
+  .image {
+    padding-top: 15%;
+    margin-left: 11%;
+    max-width: 99%;
+    min-width: 50%;
+    min-height: 50%;
+    max-height: 76%;
+  }
+  .text {
+    min-width: 10%;
+    max-width: 45%;
+    min-height: 10%;
+    max-height: 67%;
+    margin-left: 3%;
+    margin-top: 8%;
+    text-align: center;
+    padding-top: 7%;
+    padding-left: 1%;
+  }
+}
+
+@media (max-width: 403px) {
+  .person_background {
+    min-width: 100%;
+    max-width: 55%;
+    margin: 0% 3%;
+  }
+  .image {
+    padding-top: 14%;
+    margin-left: 11%;
+    max-width: 91%;
+    min-width: 10%;
+    min-height: 10%;
+    max-height: 69%;
+  }
+  .text {
+    min-width: 10%;
+    max-width: 45%;
+    min-height: 10%;
+    max-height: 61%;
+    margin-left: 0%;
+    margin-top: 8%;
+    text-align: center;
+    padding-top: 0%;
+    padding-left: 2%;
+  }
+}
+
+@media (max-width: 380px) {
+  .photo {
+    height: 278px;
+  }
+  .person_background {
+    min-width: 92%;
+    max-width: 55%;
+    margin: 0% 5%;
+  }
+  .image {
+    padding-top: 13%;
+    margin-left: 10%;
+    min-width: 80%;
+    max-height: 77%;
+  }
+  .text {
+    min-width: 4%;
+    max-width: 44%;
+    min-height: 10%;
+    max-height: 68%;
+    margin-left: -7%;
+    margin-top: 8%;
+    text-align: center;
+    padding-top: 4%;
+    padding-left: 3%;
+    font-size: 12px;
+    transform: rotate(0.3deg);
+  }
+  .btn {
+    height: 18px;
+    width: 68px;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .photo {
+    height: 264px;
+    width: 160px;
+  }
+  .person_background {
+    min-width: 95%;
+  }
+  .image {
+    padding-top: 12%;
+    margin-left: 9%;
+    min-width: 81%;
+    max-height: 78%;
+  }
+  .text {
+    max-width: 45%;
+    max-height: 70%;
+    margin-left: -1%;
+    margin-top: 7%;
+    text-align: center;
+    padding-top: 2%;
+    padding-left: 3%;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 338px) {
+  .image {
+    max-height: 73%;
+  }
+  .text {
+    max-height: 66%;
+    margin-left: -4%;
+  }
+}
+
+@media (max-width: 321px) {
+  .photo {
+    height: 231px;
+    width: 160px;
+  }
+  .image {
+    max-height: 78%;
+  }
+  .text {
+    max-height: 70%;
+    margin-left: -7%;
+  }
+}
+
+@media (max-width: 310px) {
+  .image {
+    max-height: 77%;
+  }
+  .text {
+    max-height: 69%;
+    margin-left: -7%;
+    max-width: 43%;
+  }
+}

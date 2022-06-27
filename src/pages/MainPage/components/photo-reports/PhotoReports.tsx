@@ -1,5 +1,8 @@
+// imported libraries
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
+// imported images
 import star3Icon from '../../../../assets/mainPage/star-3.svg';
 import star4Icon from '../../../../assets/mainPage/star-4.svg';
 import smileIcon from '../../../../assets/mainPage/smile-icon.svg';
@@ -72,6 +75,8 @@ const bigPhotoCard = {
 };
 
 const PhotoReports = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={classes.photo_reports}>
       <div className={classes.photo_reports_container}>
