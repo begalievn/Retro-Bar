@@ -5,11 +5,14 @@ import ContactsPage from "./ContactsPage/ContactsPage";
 import InstitutionPage from "./InstitutionPage/InstitutionPage";
 import InstitutionBarPage from "./InstitutionBarPage/InstitutionBarPage";
 import MainPage from "./MainPage/MainPage";
+import NewsPages from "./NewsPage/NewsPages";
 import PhotoPage from "./PhotoPage/PhotoPage";
 import VideoPage from "./VideoPage/VideoPage";
 import EventsPage from "./EventsPage/EventsPage";
 import ErrorPage from "./ErrorPage/ErrorPage";
-import NewsPages from "./NewsPage/NewsPages";
+import Authorization from "./Authorization/Authorization";
+import AdminPanelPage from "./AdminPage/AdminPanelPage";
+import Gallery from "../UI/Gallery/Gallery";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
@@ -54,9 +57,24 @@ const MainRoutes = () => {
       id: 8,
     },
     {
-      link: "*",
+      link: "/*",
       element: <ErrorPage />,
       id: 9,
+    },
+    {
+      link: "/authorization",
+      element: <Authorization />,
+      id: 10,
+    },
+    {
+      link: "/admin",
+      element: <AdminPanelPage />,
+      id: 11,
+    },
+    {
+      link: "/photo/gallery",
+      element: <Gallery />,
+      id: 12,
     },
   ];
 

@@ -1,0 +1,31 @@
+.call_btn {
+  background: #FFB03B;
+  border: none;
+  border-radius: 10px;
+  padding: 17px 40px;
+  font-family: 'Montserrat Alternates';
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+  margin-top: 55px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.call_btn:hover {
+  background: #000000;
+  color: #FFB03B;
+  border: 1px solid #FFB03B;
+}
+
+
+
+/* Media */
+
+
+@media (max-width:1120px) {
+  .call_btn {
+    margin-top: 30px;
+  }
+}

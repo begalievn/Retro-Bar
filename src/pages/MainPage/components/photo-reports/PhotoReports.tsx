@@ -10,6 +10,12 @@ import photo3 from '../../../../assets/mainPage/p-r-c-p3.png';
 import photo4 from '../../../../assets/mainPage/p-r-c-p4.png';
 import bigPhoto from '../../../../assets/mainPage/p-r-c-p-b.png';
 
+import cardBackground1 from '../../../../assets/mainPage/photo-report-card-bg1.png';
+import cardBackground2 from '../../../../assets/mainPage/photo-report-card-bg2.png';
+import cardBackground3 from '../../../../assets/mainPage/photo-report-card-bg3.png';
+import cardBackground4 from '../../../../assets/mainPage/photo-report-card-bg4.png';
+import photoBackground from '../../../../assets/mainPage/photo-report-card-big-bg.png';
+
 import classes from '../../mainPage.module.css';
 import PhotoReportCardBig from '../photo-report-card/PhotoReportCardBig';
 
@@ -23,6 +29,7 @@ const reportsArr = [
     watches: 709,
     pics: 144,
     date: '20 мая 2022',
+    backgroundPhoto: cardBackground1,
   },
   {
     photo: photo2,
@@ -31,6 +38,7 @@ const reportsArr = [
     watches: 660,
     pics: 50,
     date: '20 мая 2022',
+    backgroundPhoto: cardBackground2,
   },
   {
     photo: photo3,
@@ -39,6 +47,7 @@ const reportsArr = [
     watches: 660,
     pics: 50,
     date: '20 мая 2022',
+    backgroundPhoto: cardBackground3,
   },
   {
     photo: photo4,
@@ -47,6 +56,7 @@ const reportsArr = [
     watches: 640,
     pics: 84,
     date: '20 мая 2022',
+    backgroundPhoto: cardBackground4,
   },
 ];
 
@@ -57,22 +67,24 @@ const bigPhotoCard = {
   watches: 6545,
   pics: 122,
   date: '14 мая 2022',
+  backgroundPhoto: photoBackground,
 };
 
 const PhotoReports = () => {
+  console.log(window.innerWidth);
   return (
     <div className={classes.photo_reports}>
-      <div className={classes.photo_reports_layer}>
-        <div className={classes.photo_reports_container}>
-          <div
-            className={[classes.main_title, classes.photo_reports__title].join(
-              ' '
-            )}
-          >
-            Актуальные фотоотчеты
-          </div>
-          <div className={classes.photo_reports__content}>
-            {reportsArr.map((item, index) => (
+      <div className={classes.photo_reports_container}>
+        <div
+          className={[classes.main_title, classes.photo_reports__title].join(
+            ' '
+          )}
+        >
+          Актуальные фотоотчеты
+        </div>
+        <div className={classes.photo_reports__content}>
+          {reportsArr.map((item, index) => (
+            <div>
               <PhotoReportCard
                 key={index}
                 photo={item.photo}
@@ -81,8 +93,11 @@ const PhotoReports = () => {
                 watches={item.watches}
                 pics={item.pics}
                 date={item.date}
+                backgroundPhoto={item.backgroundPhoto}
               />
-            ))}
+            </div>
+          ))}
+          <div>
             <PhotoReportCardBig
               photo={bigPhotoCard.photo}
               title={bigPhotoCard.title}
@@ -90,11 +105,12 @@ const PhotoReports = () => {
               watches={bigPhotoCard.watches}
               pics={bigPhotoCard.pics}
               date={bigPhotoCard.date}
+              backgroundPhoto={bigPhotoCard.backgroundPhoto}
             />
           </div>
-          <div className={classes.photo_reports__btn}>
-            <button>Все фото</button>
-          </div>
+        </div>
+        <div className={classes.photo_reports__btn}>
+          <button>Все фото</button>
         </div>
       </div>
 

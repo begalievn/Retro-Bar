@@ -1,0 +1,48 @@
+.slider .swiper {
+  height: auto;
+  color: white;
+}
+
+.slider .slide {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.slider_buttons {
+  display: flex;
+  z-index: 2;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.slider_card_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.slider_card_close_btn {
+  background: #FF6D00;
+  border-radius: 10px;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.slider_card_header_title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  color: #FF6D00;
+}
+
+.slider_card_header_partyName {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: #FFFFFF;
+}

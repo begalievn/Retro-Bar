@@ -1,0 +1,81 @@
+.modal {
+  transition: .3s;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 101;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal,
+.overlay {
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.modal_content {
+  position: absolute;
+  top: 50%;
+  height: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  padding: 14px 28px;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.calendarWithPhotos {
+  display: flex;
+}
+
+.calendar_events {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-left: 28px;
+}
+
+
+
+
+/* Media */
+
+
+@media (max-width:750px) {
+  .calendarWithPhotos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal {
+    margin-top: 40px;
+    z-index: 99;
+  }
+
+  .calendar {
+    margin: 50px 0;
+  }
+
+  .calendar_events {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+@media (max-width:670px) {
+  .overlay {
+    background: #000;
+  }
+}

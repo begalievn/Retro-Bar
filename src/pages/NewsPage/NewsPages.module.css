@@ -60,6 +60,25 @@
   margin-top: 15px;
   cursor: pointer;
 }
+.container_icon {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.emojies {
+  /* position: absolute; */
+  top: 154vw;
+  left: 44.4%;
+  width: 10.9%;
+}
+
+.up {
+  /* position: absolute; */
+  top: 164vw;
+  left: 6.6%;
+  width: 4.7%;
+}
 
 @media (max-width: 1215px) {
   .person_background {

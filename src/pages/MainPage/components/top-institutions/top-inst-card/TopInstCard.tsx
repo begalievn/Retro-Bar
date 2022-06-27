@@ -8,43 +8,61 @@ import clockIcon from '../../../../../assets/mainPage/top-inst-clock-icon.svg';
 import phoneIcon from '../../../../../assets/mainPage/top-inst-phone-icon.svg';
 import locationIcon from '../../../../../assets/mainPage/top-inst-location-icon.svg';
 
-const TopInstCard = () => {
+interface PropType {
+  photo: string;
+  title: string;
+  time: string;
+  phone: string;
+  location: string;
+  isActive: boolean;
+}
+
+const TopInstCard = ({
+  photo,
+  title,
+  time,
+  phone,
+  location,
+  isActive,
+}: PropType) => {
   return (
     <div className={classes.card}>
       <img className={classes.cardBackground} src={backgroundPhoto} alt="" />
-      <div className={classes.card_content_container}>
-        <img
-          className={classes.cardContentBackgroundPhoto}
-          src={cardContentBackgroundPhoto}
-          alt=""
-        />
-        <div className={classes.card_content}>
-          <div className={classes.card_content_title}>
-            <h4>MINIBAR</h4>
+      {isActive ? (
+        <>
+          <div className={classes.card_content_container}>
+            <img
+              className={classes.cardContentBackgroundPhoto}
+              src={cardContentBackgroundPhoto}
+              alt=""
+            />
+            <div className={classes.card_content}>
+              <div className={classes.card_content_title}>
+                <h4>{title}</h4>
+              </div>
+              <div className={classes.card_content_info}>
+                <p>
+                  <img src={clockIcon} alt="clock-icon" />
+                  {time}
+                </p>
+                <p>
+                  <img src={phoneIcon} alt="phone-icon" />
+                  {phone}
+                </p>
+                <p>
+                  <img src={locationIcon} alt="location-icon" />
+                  {location}
+                </p>
+              </div>
+            </div>
           </div>
-          <div className={classes.card_content_info}>
-            <p>
-              <img src={clockIcon} alt="clock-icon" />
-              {'18:00-06:00'}
-            </p>
-            <p>
-              <img src={phoneIcon} alt="phone-icon" />
-              {'0 558 55 00 00'}
-            </p>
-            <p>
-              <img src={locationIcon} alt="location-icon" />
-              {'Чынгыза Айтматова, 56'}
-            </p>
-          </div>
+          <img className={classes.photoOfBar} src={photo} alt="bar" />
+        </>
+      ) : (
+        <div className={classes.blackWhitePhoto}>
+          <img src={photo} alt="photo" />
         </div>
-      </div>
-      <img
-        className={classes.photoOfBar}
-        width="299.69px"
-        height="241.24px"
-        src={photoOfBar}
-        alt="bar"
-      />
+      )}
     </div>
   );
 };

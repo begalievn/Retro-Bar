@@ -1,0 +1,117 @@
+.back {
+  overflow: hidden;
+  width: 100%;
+  height: 175vw;
+  top: 0px;
+  /* background-color: black; */
+  background: url("../../assets/institution/back.jpg") 0 0/100% 100% no-repeat;
+  /* background-image: url('../../assets/institution/back.webp');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat; */
+}
+.container {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.breadcrumbsCont {
+  width: 100%;
+  height: 20%;
+  margin-top: 60px;
+  padding: 0 15vw;
+}
+.list {
+  margin: 0 auto;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 28vw;
+}
+.breadcrumbsCont a {
+  color: white;
+  font-size: 16px;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+.star {
+  position: absolute;
+  top: 47vw;
+  left: 47%;
+  width: 22.6%;
+}
+.emoji {
+  position: absolute;
+  top: 98vw;
+  left: 20%;
+  width: 12%;
+  z-index: 1;
+}
+.emojies {
+  position: absolute;
+  top: 154vw;
+  left: 44.4%;
+  width: 10.9%;
+}
+.up {
+  position: absolute;
+  top: 164vw;
+  left: 6.6%;
+  width: 4.7%;
+}
+@media screen and (max-width: 748px) {
+  .list {
+    padding-right: 0vw;
+  }
+  .breadcrumbsCont {
+    padding: 0 13vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .breadcrumbsCont {
+    padding: 0 13vw;
+  }
+  .breadcrumbsCont a {
+    font-size: 12px;
+  }
+  .list {
+    justify-content: space-between;
+  }
+  .back {
+    background: url("../../assets/institution/mobileback.jpg") 0 0/100% 100%
+      no-repeat;
+    height: 593vw;
+  }
+  .star {
+    display: none;
+  }
+  .emoji {
+    position: absolute;
+    top: 50.8%;
+    left: 61%;
+    width: 41%;
+    transform: rotateY(180deg);
+  }
+  .emojies {
+    position: absolute;
+    top: 546vw;
+    left: 38%;
+    width: 32%;
+  }
+  .up {
+    position: absolute;
+    top: 564vw;
+    left: 6.6%;
+    width: 21%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .breadcrumbsCont {
+    padding: 0 228px;
+  }
+  .list {
+    padding-right: 500px;
+  }
+}

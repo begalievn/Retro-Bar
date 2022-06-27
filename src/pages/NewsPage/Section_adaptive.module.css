@@ -21,7 +21,6 @@
 }
 
 .all_pages_container {
-  /* height: 100%; */
   display: flex;
 }
 
@@ -184,7 +183,7 @@
     width: 160px;
   }
   .person_background {
-    min-width: 91%;
+    min-width: 95%;
   }
   .image {
     padding-top: 12%;

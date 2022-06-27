@@ -1,0 +1,38 @@
+.sorryText {
+  color: orange;
+  font-size: 24px;
+  font-family: Montserrat Alternates;
+  margin-bottom: 50px;
+}
+
+.btnMain {
+  background-color: #ffb03b;
+  width: 163px;
+  height: 48px;
+  border-radius: 8px;
+  font-family: Montserrat Alternates;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  margin-top: 40px;
+}
+.secondText {
+  font-style: 16px;
+  color: white;
+  font-family: Montserrat Alternates;
+  margin-bottom: 50px;
+}
+.mainDiv {
+  background: url("../../assets/erroPage/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 629px;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.errorImg{
+    width:419px;
+}

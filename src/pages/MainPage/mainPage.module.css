@@ -1,16 +1,19 @@
 .main {
   width: 100%;
-  background-color: rgb(196, 193, 193);
+  /* background-color: rgb(196, 193, 193); */
   font-family: 'Montserrat Alternates';
+  position: relative;
+  overflow: hidden;
 }
 
-.main__palaroid {
+/* .top_div {
   width: 100%;
-  height: 600px;
-  margin: 0 auto;
-  position: relative;
-  background-color: rgb(136, 146, 146);
-}
+  height: 90px;
+  background-image: linear-gradient(180deg, black, rgba(47, 43, 43, 0.897));
+  position: absolute;
+  z-index: 5;
+  top: 0;
+} */
 
 .main_title {
   font-family: 'Montserrat Alternates';
@@ -21,19 +24,14 @@
   color: #ffffff;
 }
 
-.palaroid_icon {
-  width: 99.98px;
-  height: 99.11px;
-  background: rgb(255, 85, 87, 0.1);
-  position: absolute;
-  border-radius: 50%;
-  bottom: 10%;
-  right: 10%;
-}
-
-.palaroid_icon img {
-  width: 100%;
-  height: auto;
+@media screen and (max-width: 700px) {
+  .main_title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    color: white;
+  }
 }
 
 /* 
@@ -42,7 +40,7 @@
 
 .institutions_container {
   width: 100%;
-  margin: 0 auto;
+  margin: 30px auto;
   max-width: 1440px;
   height: 509px;
 }
@@ -60,28 +58,18 @@
 
 .photo_reports {
   width: 100%;
-  height: 975px;
-  background-color: black;
+  min-height: 900px;
   position: relative;
-}
-
-.photo_reports_layer {
-  width: 100%;
-  min-height: 100vh;
-  position: absolute;
-  z-index: 3;
   background-image: url('../../assets/mainPage/photo-report-bg.png');
   background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-size: contain;
+  background-position: center;
 }
 
 .photo_reports_container {
   max-width: 1006px;
-  width: 80%;
+  margin: 0 auto;
+  width: 90%;
   min-height: 100vh;
 }
 
@@ -95,10 +83,31 @@
 .photo_reports__content {
   width: 100%;
   min-height: 665px;
-  background-color: antiquewhite;
+  background-color: black;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+@media (max-width: 1125px) {
+  .photo_reports__content {
+    width: 670px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .photo_reports__content {
+    width: 350px;
+  }
+
+  .photo_reports__content div:nth-child(4) {
+    display: none;
+  }
+
+  .photo_reports__content div:nth-child(5) {
+    display: none;
+  }
 }
 
 .photo_reports__btn {
@@ -142,3 +151,91 @@
 
   color: #000000;
 }
+
+/** Paper Bakground  */
+
+.paper_container {
+  width: 100%;
+  /* height: 1600px; */
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 70px;
+  background-color: green;
+}
+
+.paper_content {
+  width: 100%;
+  max-width: 1440px;
+  height: 1528px;
+  background-image: url(../../assets/mainPage/paper-background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.paper_content img {
+  width: 100%;
+  /* max-width: 1440px; */
+  height: auto;
+  object-fit: contain;
+}
+
+.news_container {
+  width: 90%;
+  max-width: 1075px;
+  position: absolute;
+}
+
+.ad_container {
+  position: absolute;
+  bottom: 0;
+}
+
+/* ------------------ */
+
+/* Background images */
+
+.main_one {
+  background-origin: border-box;
+  background-image: url(../../assets/mainPage/background-images/main-bg-one.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 80px;
+}
+
+.ellipse_deco_one {
+  position: absolute;
+  max-width: 336px;
+  max-height: 336px;
+  left: 144px;
+  top: 468px;
+  z-index: 10;
+
+  /* background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(57, 112, 255, 0.5) 0%,
+      rgba(202, 246, 255, 0) 100%
+    ) */
+  /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+  opacity: 0.5;
+  background-color: #ffb03b;
+}
+
+.main_two {
+  width: 100%;
+  background-image: url(../../assets/mainPage/background-images/main_bg_two.png);
+  background-size: cover;
+  background-color: aliceblue;
+}
+
+/* ----------------- */
