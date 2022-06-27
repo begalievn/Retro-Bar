@@ -100,6 +100,7 @@ grid-row-gap: 0px;
     max-height: 340px;
     width: 100%;
     height: 100%;
+    
   }
   .imageFrame:nth-child(2) :last-child{
     top: 18.5%;
@@ -108,6 +109,7 @@ grid-row-gap: 0px;
    
     width: 78px;
     height: 48px;
+    cursor: pointer;
   }
   .imageFrame:nth-child(3) :last-child{
     top: 17%;
@@ -115,6 +117,7 @@ grid-row-gap: 0px;
     transform: rotate(0.07deg);
     width: 80px;
     height: 50px;
+    cursor: pointer;
     
   }
   .imageFrame:nth-child(4) :last-child{
@@ -124,6 +127,7 @@ grid-row-gap: 0px;
     height: 52px;
     
     transform: rotate(2.97deg);
+    cursor: pointer;
   }
 
   .text_responsive{

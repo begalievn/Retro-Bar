@@ -20,11 +20,8 @@ import tape from "../../assets/contactsPage/border/tape.png";
 
 import classes from './style.module.css';
 import TextBlock from './TextBlock';
-interface IImageArr{
-  frame: string,
-      id: number,
-      photo: string
-}
+import { IImageArr } from '../../types/contactsPageTypes/contactsPageTypes';
+
 
 const ContactsPage:FC = () => {
 
