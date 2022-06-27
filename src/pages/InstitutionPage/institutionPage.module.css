@@ -43,8 +43,8 @@
 }
 .emoji {
   position: absolute;
-  top: 98vw;
-  left: 20%;
+  top: 103vw;
+  left: 7%;
   width: 12%;
   z-index: 1;
 }

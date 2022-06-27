@@ -1,61 +1,45 @@
-import React from 'react'
-import styles from './book.module.css'
-import blackfilm from '../../assets/book/blackFilm.png'
-import blackfilmgradientTop from '../../assets/book/blackFilmGradientTop.png'
+import React from 'react';
+import styles from './book.module.css';
+import blackfilm from '../../assets/book/blackFilm.png';
+import blackfilmgradientTop from '../../assets/book/blackFilmGradientTop.png';
 
+import image from '../../assets/book/image.png';
+import SubmitButton from '../SubmitButton/SubmitButton';
 
-import image from '../../assets/book/image.png'
-import SubmitButton from '../SubmitButton/SubmitButton'
-
-import sketchInstitutions from '../../assets/book/sketchInstitutions.png'
-import sketchVideo from '../../assets/book/sketchVideo.png'
-import { IBookData } from '../../types/bookTypes/bookTypes'
+import sketchInstitutions from '../../assets/book/sketchInstitutions.png';
+import sketchVideo from '../../assets/book/sketchVideo.png';
+import { IBookData } from '../../types/bookTypes/bookTypes';
 
 type BookProps = {
-  data?: IBookData
-  page: string
-}
+  data?: IBookData;
+  page: string;
+};
 
 function Book({
   data = {
-
     text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует.',
     title: 'Связаться с заведением',
-    image: '/api/imageSS'
+    image: image,
   },
   page,
 }: BookProps) {
-
-  let container = styles.container
-  if (page === "main") {
-    container = styles.containerMain
-  }
-  if (page==="video") {
-    container = styles.containerVideo
-  }
- 
+  const container = page === 'main' ? styles.containerMain : styles.container;
 
   return (
-    <section  className={container}>
-      {
-        page === 'institutions' &&
-        <>
-          <img className={styles.sketchInstitutions} src={sketchInstitutions} alt="" />
-          <div className={styles.bottomGradient}></div>
-          <div className={styles.topGradient}></div>
-        </>
-      }
-      {
-        page === 'video' &&
-        <>
-          <img className={styles.sketchVideo} src={sketchVideo} alt="" />
-          <div className={styles.bottomGradient}></div>
-
-        </>
-      }
+    <section className={container}>
+      {page === 'institutions' && (
+        <img
+          className={styles.sketchInstitutions}
+          src={sketchInstitutions}
+          alt=""
+        />
+      )}
+      {page === 'video' && (
+        <img className={styles.sketchVideo} src={sketchVideo} alt="" />
+      )}
 
       <div className={styles.imageBlock}>
-        <img src={image} className={styles.image} alt="" />
+        <img src={data.image} className={styles.image} alt="" />
       </div>
       <div className={styles.contactBlock}>
         <h2 className={styles.title}>{data.title}</h2>
@@ -63,9 +47,7 @@ function Book({
         <SubmitButton />
       </div>
     </section>
-  )
+  );
 }
 
-export default Book
-
-
+export default Book;

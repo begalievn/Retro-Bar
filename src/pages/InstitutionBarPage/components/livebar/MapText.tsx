@@ -8,6 +8,7 @@ import instagram from "../../../../assets/institutionBarImg/iconsMap/instagram.s
 import geotag from "../../../../assets/institutionBarImg/iconsMap/geotag.svg";
 import phone from "../../../../assets/institutionBarImg/iconsMap/phone.svg";
 import classes from "./Livebar.module.css";
+import bigStar from "../../../../assets/institutionBarImg/iconLiveBar/bigStar.svg";
 const MapText: FC = () => {
   const description = [
     { img: clock, text: "18:00-06:00" },
@@ -20,7 +21,7 @@ const MapText: FC = () => {
       <div>
         <img src={cycle} className={classes.circle} />
         <h1 className={classes.header}>Описание:</h1>
-        <div className={classes.star}></div>
+        <img src={bigStar} className={classes.bigStar} />
       </div>
       {description.map((el) => (
         <p>

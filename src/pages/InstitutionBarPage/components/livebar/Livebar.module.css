@@ -33,8 +33,7 @@
   width: 200px;
   display: inline-flex;
 }
-.comments img,
-p {
+.comments img p {
   padding: 2% 10% 0 0;
 }
 .rating {
@@ -147,7 +146,6 @@ p {
   width: 20%;
   transform: rotate(7.9deg);
 }
-
 .photo4 {
   position: absolute;
   top: 40%;
@@ -215,6 +213,10 @@ p {
 }
 .livebarTextMobile {
   visibility: hidden;
+}
+.bigStar {
+  position: absolute;
+  left: 95%;
 }
 @media only screen and (max-width: 1000px) {
   .livebarLetfBottom p {
@@ -285,6 +287,9 @@ p {
   .livebarTextWeb {
     visibility: hidden;
   }
+  .bigStar {
+    left: 65%;
+  }
   .share {
     visibility: visible;
     padding-top: 8px;
@@ -354,7 +359,7 @@ p {
     padding-top: 10px;
   }
   .photosAll {
-    left: -50px;
+    left: -40px;
   }
   .photo1,
   .photo2,
