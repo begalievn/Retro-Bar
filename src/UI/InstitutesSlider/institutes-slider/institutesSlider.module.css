@@ -53,6 +53,10 @@
   user-select: none;
 }
 
+.card:hover {
+  cursor: pointer;
+}
+
 .slider_buttons {
   width: 320px;
   margin: 0 auto;

@@ -41,6 +41,18 @@ const cards: Array<CardsType> = [
     description: 'STREED CREDIBILITY',
     date: 'Суббота 14 мая',
   },
+  {
+    image: leftCardImage,
+    title: 'ZEPPELIN BAR',
+    description: 'STREED CREDIBILITY',
+    date: 'Суббота 14 мая',
+  },
+  {
+    image: leftCardImage,
+    title: 'ZEPPELIN BAR',
+    description: 'STREED CREDIBILITY',
+    date: 'Суббота 14 мая',
+  },
 ];
 
 const PalaroidSlider = () => {
@@ -123,6 +135,7 @@ const PalaroidSlider = () => {
       rightmostIndex,
       hiddenRightIndex
     );
+    console.log(sliderCards);
   }
 
   return (

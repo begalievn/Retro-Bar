@@ -19,6 +19,7 @@ import Book from '../../UI/Book/Book';
 import { BookProps } from '../../types/bookTypes/bookTypes';
 
 import classes from './mainPage.module.css';
+import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 
 let bookProps: BookProps = {
   data: {
@@ -50,6 +51,7 @@ const MainPage = () => {
       </div>
 
       <Book {...bookProps} />
+      <BottomEmojis />
     </div>
   );
 };
