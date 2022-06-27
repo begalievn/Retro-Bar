@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Container, Grid } from '@mui/material';
 import aboutUs from '../../assets/contactsPage/sketch.png';
 import phoneIcon from '../../assets/contactsPage/phone.svg';
@@ -20,14 +20,18 @@ import tape from "../../assets/contactsPage/border/tape.png";
 
 import classes from './style.module.css';
 import TextBlock from './TextBlock';
+interface IImageArr{
+  frame: string,
+      id: number,
+      photo: string
+}
+
+const ContactsPage:FC = () => {
 
 
-const ContactsPage = () => {
 
 
-
-
-  const [frameArr, setFrameArr] = useState([
+  const [frameArr, setFrameArr] = useState<IImageArr[]>([
     {
       frame: mainBack,
       id: 1,
@@ -39,7 +43,7 @@ const ContactsPage = () => {
       photo: photo1
 
     }, {
-      frame: carousel2,
+      frame: carousel2, 
       id: 3,
       photo: photo2
 
@@ -52,7 +56,7 @@ const ContactsPage = () => {
 
 
 
-  const sliderFunc = (id) => {
+  const sliderFunc = (id:number) => {
     frameArr.map((item, index) => {
       if (item.id === id) {
 
@@ -70,9 +74,7 @@ const ContactsPage = () => {
 
   return (
     <>
-      <div id="backBlack"></div>
-
-      <div id="backBlackResponsive"></div>
+      
       <div className={classes.container}>
 
         <div className={classes.mainDiv} >
@@ -82,7 +84,7 @@ const ContactsPage = () => {
           <div className={classes.allImages}>
             {frameArr.map((item, index) => (
               <div className={classes.imageFrame} key={item.id}>
-                <img className={index > 0 ? classes.smallImageFrame : null} src={item.frame} alt="" />
+                <img className={index > 0 ? classes.smallImageFrame : ''} src={item.frame} alt="" />
                 {index==0 ? <img className={classes.tape} src={tape}/>: null }
                 <img className={classes.smallImage} onClick={() => sliderFunc(item.id)} src={item.photo} alt="" />
               </div>
