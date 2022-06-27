@@ -30,24 +30,26 @@ let bookProps: BookProps = {
 };
 
 const MainPage = () => {
+  console.log(window.innerWidth);
   return (
     <div className={classes.main}>
-      <div className={classes.top_div}></div>
+      <div className={classes.header_background_effect}></div>
       <div className={classes.main_one}>
         <PalaroidSlider />
+
         <TopInstituions />
       </div>
-      <div className={classes.ellipse_deco_one}></div>
 
       <PhotoReports />
 
-      <InstitutesSlider />
-
-      <MainNews />
+      <div className={classes.paper_background}>
+        <InstitutesSlider />
+        <MainNews />
+        <div className={classes.paper_gradients_right}></div>
+        <div className={classes.paper_gradient_left}></div>
+      </div>
 
       <Book {...bookProps} />
-
-      {/* <MainAd /> */}
     </div>
   );
 };

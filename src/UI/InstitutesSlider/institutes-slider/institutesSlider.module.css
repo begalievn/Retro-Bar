@@ -1,8 +1,7 @@
 .slider {
   width: 100%;
   max-width: 1440px;
-  height: 630px;
-  background-color: beige;
+  height: 640px;
   margin: 0 auto;
   position: relative;
   display: flex;
@@ -14,7 +13,7 @@
   height: 120px;
   position: absolute;
   z-index: 0;
-  left: 53%;
+  left: 50%;
   transform: translateX(-50%);
   top: 0;
   display: flex;
@@ -116,6 +115,17 @@
   .right {
     transform: translateX(24%) scale(0.7);
   }
+
+  .slider_title {
+    font-family: 'Montserrat Alternates';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -129,6 +139,10 @@
 
   .right {
     transform: translateX(24%) scale(0.68);
+  }
+
+  .slider_title_container img {
+    display: none;
   }
 }
 
@@ -146,7 +160,7 @@
   }
 
   .slider_title_container {
-    transform: translateX(-50%) scale(0.8);
+    transform: translateX(-50%);
   }
 
   .left {
