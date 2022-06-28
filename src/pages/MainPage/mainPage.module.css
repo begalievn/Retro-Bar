@@ -2,8 +2,18 @@
   width: 100%;
   /* background-color: rgb(196, 193, 193); */
   font-family: 'Montserrat Alternates';
-  padding-top: 70px;
+  position: relative;
+  overflow: hidden;
 }
+
+/* .top_div {
+  width: 100%;
+  height: 90px;
+  background-image: linear-gradient(180deg, black, rgba(47, 43, 43, 0.897));
+  position: absolute;
+  z-index: 5;
+  top: 0;
+} */
 
 .main_title {
   font-family: 'Montserrat Alternates';
@@ -30,9 +40,10 @@
 
 .institutions_container {
   width: 100%;
-  margin: 0 auto;
+  margin: 30px auto;
   max-width: 1440px;
   height: 509px;
+  position: relative;
 }
 
 .institutions_title {
@@ -44,34 +55,42 @@
   width: 100%;
 }
 
+.top_inst_ellipse_deco {
+  position: absolute;
+  left: 770px;
+  top: 0;
+  z-index: -1;
+  width: 427px;
+  height: 427px;
+  background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(255, 188, 57, 0.365) 0%,
+      rgba(202, 246, 255, 0) 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  opacity: 0.5;
+}
+
 /* -------------------- */
+
+/* PhotoReports component */
 
 .photo_reports {
   width: 100%;
+  /* height: 975px; */
   min-height: 975px;
-  background-color: black;
   position: relative;
-}
-
-.photo_reports_layer {
-  width: 100%;
-  min-height: 100vh;
-  position: absolute;
-  z-index: 3;
   background-image: url('../../assets/mainPage/photo-report-bg.png');
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-position: center;
 }
 
 .photo_reports_container {
   max-width: 1006px;
   margin: 0 auto;
   width: 90%;
-  min-height: 100vh;
+  min-height: 975px;
 }
 
 .photo_reports__title {
@@ -89,6 +108,20 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  position: relative;
+}
+
+.green_tape {
+  width: 116px;
+  height: 38px;
+  position: absolute;
+  top: 100px;
+  left: 49%;
+  transform: translateX(-50%);
+  mix-blend-mode: luminosity;
+  opacity: 0.8;
+  z-index: 5;
+  display: none;
 }
 
 @media (max-width: 1125px) {
@@ -108,6 +141,21 @@
 
   .photo_reports__content div:nth-child(5) {
     display: none;
+  }
+
+  .green_tape {
+    display: block;
+  }
+
+  .main_title {
+    font-family: 'Montserrat Alternates';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #ffffff;
   }
 }
 
@@ -135,6 +183,7 @@
   position: absolute;
   top: 50%;
   left: 66.52px;
+  z-index: -1;
 }
 
 .photo_reports__btn button {
@@ -153,52 +202,106 @@
   color: #000000;
 }
 
-/** Paper Bakground  */
+/* -------------------------------- */
 
-.paper_container {
-  width: 100%;
-  /* height: 1600px; */
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  margin-top: 70px;
-  background-color: green;
-}
+/* Background images */
 
-.paper_content {
-  width: 100%;
-  /* max-width: 1440px; */
-  /* height: 1528px; */
-  /* background-image: url(../../assets/mainPage/paper-background.png);
+.main_one {
+  background-origin: border-box;
+  background-image: url(../../assets/mainPage/background-images/main-bg-one.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center; */
-  position: absolute;
-  top: 0;
+  background-position: center;
+  padding-top: 80px;
+  position: relative;
+}
 
-  z-index: 5;
+.header_background_effect {
+  position: absolute;
+  width: 1440px;
+  height: 248px;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+
+  background: linear-gradient(180deg, #000000 11%, rgba(0, 0, 0, 0) 100%);
+}
+
+.main_two {
+  width: 100%;
+  background-image: url(../../assets/mainPage/background-images/main_bg_two.png);
+  background-size: cover;
+  background-color: aliceblue;
+}
+
+.paper_background {
+  width: 100%;
+  max-width: 1440px;
+  height: 1528px;
+  margin: 0 auto;
+  background-image: url(../../assets/mainPage/paper-background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  position: relative;
+  color: black;
 }
 
-.paper_content img {
-  width: 100%;
-  /* max-width: 1440px; */
-  height: auto;
-  object-fit: contain;
+@media (max-width: 1210px) {
+  .paper_background {
+    height: 2100px;
+    padding-top: 10px;
+  }
 }
 
-.news_container {
-  width: 90%;
-  max-width: 1075px;
+.paper_gradient_top {
   position: absolute;
+  width: 1440px;
+  height: 522px;
+  left: 0px;
+  top: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 38.53%
+  );
 }
 
-.ad_container {
+.paper_gradient_left {
+  width: 1528px;
+  height: 500px;
   position: absolute;
-  bottom: 0;
+  right: 500px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 38.53%
+  );
+  transform: rotate(-90deg);
+  z-index: 0;
+  pointer-events: none;
 }
 
-/* ------------------ */
+.paper_gradient_right {
+  position: absolute;
+  width: 1528px;
+  height: 500px;
+  left: 480px;
+  z-index: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 38.53%
+  );
+  transform: matrix(0, -1, -1, 0, 0, 0);
+  pointer-events: none;
+}
+
+/* ----------------- */

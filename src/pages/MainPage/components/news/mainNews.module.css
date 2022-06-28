@@ -1,21 +1,22 @@
 .news_container {
-  width: 90%;
-  max-width: 1250px;
+  width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
   min-height: 590px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  background-color: white;
 }
 
 .content {
-  width: 350px;
-  min-height: 293px;
+  width: 380px;
+  height: 293px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 50px;
+  margin-bottom: 20px;
 }
 
 .content_title {
@@ -56,4 +57,47 @@
 .image_container img {
   width: 100%;
   height: auto;
+}
+
+@media (max-width: 1200px) {
+  .content {
+    width: 67%;
+    margin-left: 0;
+  }
+
+  .image_container {
+    height: 50%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .content {
+    height: 250px;
+  }
+
+  .content_title {
+    font-family: 'Montserrat Alternates';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+  }
+
+  .content_info {
+    font-family: 'Mont';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+  }
+
+  .content_date {
+    text-align: start;
+    font-family: 'Mont';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+  }
 }

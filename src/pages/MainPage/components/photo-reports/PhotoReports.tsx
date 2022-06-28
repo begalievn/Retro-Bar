@@ -1,5 +1,8 @@
+// imported libraries
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
+// imported images
 import star3Icon from '../../../../assets/mainPage/star-3.svg';
 import star4Icon from '../../../../assets/mainPage/star-4.svg';
 import smileIcon from '../../../../assets/mainPage/smile-icon.svg';
@@ -9,6 +12,7 @@ import photo2 from '../../../../assets/mainPage/p-r-c-p2.png';
 import photo3 from '../../../../assets/mainPage/p-r-c-p3.png';
 import photo4 from '../../../../assets/mainPage/p-r-c-p4.png';
 import bigPhoto from '../../../../assets/mainPage/p-r-c-p-b.png';
+import greenTape from '../../../../assets/mainPage/p-r-green-tape.png';
 
 import cardBackground1 from '../../../../assets/mainPage/photo-report-card-bg1.png';
 import cardBackground2 from '../../../../assets/mainPage/photo-report-card-bg2.png';
@@ -71,7 +75,8 @@ const bigPhotoCard = {
 };
 
 const PhotoReports = () => {
-  console.log(window.innerWidth);
+  const navigate = useNavigate();
+
   return (
     <div className={classes.photo_reports}>
       <div className={classes.photo_reports_container}>
@@ -82,9 +87,12 @@ const PhotoReports = () => {
         >
           Актуальные фотоотчеты
         </div>
+        <div className={classes.green_tape}>
+          <img src={greenTape} />
+        </div>
         <div className={classes.photo_reports__content}>
           {reportsArr.map((item, index) => (
-            <div>
+            <div key={index}>
               <PhotoReportCard
                 key={index}
                 photo={item.photo}
@@ -113,7 +121,6 @@ const PhotoReports = () => {
           <button>Все фото</button>
         </div>
       </div>
-      <div className={classes.photo_reports_layer}></div>
 
       <img className={classes.photo_reports__star3} src={star3Icon} alt="" />
       <img className={classes.photo_reports__star4} src={star4Icon} alt="" />

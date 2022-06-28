@@ -19,12 +19,21 @@
   background-position: center;
   overflow: hidden;
   border-radius: 10px;
+  mix-blend-mode: exclusion;
 }
 
 .photoCard img {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+.photoCard img {
+  transition: all 1s;
+}
+
+.photoCard img:hover {
+  transform: scale(1.1);
 }
 
 .cardContent_container {

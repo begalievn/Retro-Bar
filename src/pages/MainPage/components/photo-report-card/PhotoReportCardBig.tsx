@@ -36,6 +36,7 @@ const PhotoReportCardBig = ({
           backgroundImage: `url(${photo})`,
         }}
       >
+        <img src={photo} />
         <div className={classes.cardContent_container}>
           <div className={classes.cardContent}>
             <h4>{title}</h4>

@@ -3,12 +3,20 @@
   color: white;
   max-width: 295px;
   height: 219px;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 .establishment_image {
   object-fit: cover;
   height: 100%;
+  transition: .9s;
   border-radius: 10px;
+}
+
+.establishment_image:hover {
+  transform: scale(1.1);
 }
 
 .establishment_info {

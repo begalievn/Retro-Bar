@@ -65,7 +65,7 @@ const InstituteCardInfo: FC<CardDataTypes> = ({
           </p>
           <p>
             <img src={saladIcon} alt="salad icon" />
-            <span>~{saladPrice} с</span>
+            <span>~{saladPrice} c</span>
           </p>
         </div>
         <div>
@@ -73,9 +73,9 @@ const InstituteCardInfo: FC<CardDataTypes> = ({
             <img src={dessertIcon} alt="dessert icon" />
             <span>~{dessertPrice} с</span>
           </p>
-          <p>
+          <p className={classes.prices_wine}>
             <img src={wineIcon} alt="wine icon" />
-            <span>~{winePrice} с</span>
+            <span>~{winePrice} c</span>
           </p>
         </div>
       </div>

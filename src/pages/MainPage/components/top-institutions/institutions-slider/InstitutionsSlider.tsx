@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+
+// imported libraries
+import { useSwipeable } from 'react-swipeable';
+
 import TopInstCard from '../top-inst-card/TopInstCard';
 
 import leftBackground from '../../../../../assets/mainPage/top-inst-left-bg.png';
@@ -94,6 +98,11 @@ const InstitutionsSlider = () => {
     setActiveIndex(activeIndex === slideCards.length - 1 ? 0 : activeIndex + 1);
   }
 
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => next(),
+    onSwipedRight: () => prev(),
+  });
+
   return (
     <div className={classes.container}>
       <div className={classes.carousel}>
@@ -111,6 +120,7 @@ const InstitutionsSlider = () => {
           <TopInstCard isActive={false} {...slideCards[leftIndex]} />
         </div>
         <div
+          {...swipeHandlers}
           key={activeIndex}
           className={[classes.active, classes.card].join(' ')}
         >
