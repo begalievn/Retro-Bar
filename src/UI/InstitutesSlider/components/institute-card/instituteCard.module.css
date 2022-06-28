@@ -1,0 +1,105 @@
+.card {
+  width: 630px;
+  height: 554px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.image_container {
+  width: 383px;
+  height: 488px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 8px -1px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  padding: 19px 69px 20px 33px;
+  background-image: url(../../../../assets/ui-images/inst-slider-photo-bg.png);
+  position: relative;
+}
+
+.red_tape {
+  width: 125px;
+  height: 45px;
+  position: absolute;
+  left: 129px;
+  top: -31px;
+  z-index: 2;
+}
+
+.red_tape img {
+  width: 100%;
+  height: auto;
+}
+
+.gray_tape {
+  width: 125px;
+  height: 45px;
+  position: absolute;
+  left: 129px;
+  top: -31px;
+  z-index: 2;
+  mix-blend-mode: luminosity;
+  filter: grayscale(100%);
+}
+
+.gray_tape img {
+  width: 100%;
+  height: auto;
+  /* mix-blend-mode: luminosity; */
+  transform: rotate(180deg);
+}
+
+.green_tape {
+  width: 116px;
+  height: 38px;
+  position: absolute;
+  left: 143px;
+  bottom: -30px;
+}
+
+.green_tape img {
+  width: 100%;
+  height: auto;
+}
+
+.image_div {
+  width: 281px;
+  height: 449px;
+  overflow: hidden;
+}
+
+.image_div img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.image_effect {
+  width: 281px;
+  height: 449px;
+  position: absolute;
+  left: 33px;
+  top: 19px;
+  mix-blend-mode: screen;
+  border-radius: 3px;
+}
+
+.content_container {
+  width: 200px;
+  height: 330px;
+  margin-left: 41px;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    min-height: 554px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image_container {
+    margin-bottom: 80px;
+  }
+}

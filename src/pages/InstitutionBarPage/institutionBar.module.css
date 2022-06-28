@@ -1,0 +1,65 @@
+.mainContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+  background: url("../../assets/institutionBarImg/back/back.png") 0 0/100% 100%
+    no-repeat;
+  overflow: hidden;
+}
+.main_gradient {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #000000;
+  padding: 0 8% 0 8%;
+  mix-blend-mode: screen;
+}
+.text_header {
+  font-family: "Montserrat Alternates";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  color: #ffb03b;
+  line-height: 24.38px;
+  position: relative;
+  height: 24px;
+  top: 144px;
+}
+
+.share {
+  font-family: "Montserrat Alternates";
+  position: absolute;
+  color: white;
+  right: 109px;
+  top: 127px;
+}
+.text_flex {
+  padding-bottom: 3%;
+}
+.shareIcon {
+  margin-left: 10px;
+}
+
+/* Paper */
+.paper {
+  top: 80px;
+  height: 1100px;
+  position: relative;
+  width: 100%;
+  color: black;
+}
+@media only screen and (min-width: 820px) {
+  .paper {
+    height: 900px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .paper {
+    height: 920px;
+  }
+  .share {
+    visibility: hidden;
+  }
+}

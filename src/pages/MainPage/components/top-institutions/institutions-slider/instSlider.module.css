@@ -1,0 +1,93 @@
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 380px;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.card {
+  position: absolute;
+  left: 24%;
+  top: 13px;
+  transition: all 0.5s;
+}
+
+.hiddenLeft {
+  transform: translateX(-148%) translateY(-10%) rotate(2deg) scale(0.85);
+}
+
+.left {
+  transform: translateX(-60%) translateY(-3%) rotate(2deg) scale(0.85);
+}
+
+.active {
+  z-index: 2;
+  transform: rotate(2deg);
+}
+
+.right {
+  transform: translateX(78%) translateY(6%) rotate(2deg) scale(0.85);
+}
+
+.hiddenRight {
+  transform: translateX(165%) translateY(13%) rotate(2deg) scale(0.8);
+}
+
+@media (max-width: 1000px) {
+  .hiddenLeft {
+    transform: translateX(-148%) translateY(-10%) rotate(2deg) scale(0.85);
+  }
+
+  .left {
+    transform: translateX(-60%) translateY(-3%) rotate(2deg) scale(0.85);
+  }
+
+  .active {
+    left: 50%;
+    transform: scale(0.9) rotate(2deg) translateX(-50%);
+  }
+
+  .right {
+    transform: translateX(65%) translateY(6%) rotate(2deg) scale(0.85);
+  }
+
+  .hiddenRight {
+    transform: translateX(165%) translateY(13%) rotate(2deg) scale(0.8);
+  }
+}
+
+@media (max-width: 700px) {
+  .hiddenLeft {
+    transform: translateX(-148%) translateY(-10%) rotate(2deg) scale(0.85);
+  }
+
+  .left {
+    transform: translateX(-60%) translateY(-3%) rotate(2deg) scale(0.7);
+  }
+
+  .active {
+    left: 50%;
+    transform: scale(0.85) rotate(2deg) translateX(-60%);
+  }
+
+  .right {
+    transform: translateX(50%) translateY(6%) rotate(2deg) scale(0.7);
+  }
+
+  .hiddenRight {
+    transform: translateX(165%) translateY(13%) rotate(2deg) scale(0.8);
+  }
+}
+
+@media (max-width: 450px) {
+  .active {
+    transform: scale(0.85) rotate(2deg) translateX(-45%);
+  }
+}

@@ -1,0 +1,68 @@
+.container{
+  display: flex;
+  margin-top: 60px;
+  color: white;
+}
+/* SIDE BAR */
+.sideBar{
+  max-width: 263px;
+  width: 100%;
+  background: #2F2F2F;
+  height: 100vh;
+  padding-top: 10%;
+  padding-left: 50px;
+  padding-right: 30px;
+}
+
+.sideBar ul{
+ min-height: 250px;
+ margin: auto;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-evenly;
+ font-family: 'Montserrat Alternates';
+ color:white
+}
+
+.sideBarItem{
+  list-style-type: none;
+  font-size: 18px;
+  padding: 5px;
+  
+}
+
+.sideBarItemActive{
+  list-style-type: none;
+  font-size: 18px;
+  border-top: 1px solid #EBEBEB; 
+  border-bottom: 1px solid #EBEBEB; 
+  padding: 5px;
+  color:#FFB03B;
+  fill:#FFB03B;
+  stroke: #FFB03B;
+}
+.sideBarItemActive img{
+  filter: invert(24%) sepia(12%) saturate(4092%) hue-rotate(327deg) brightness(101%) contrast(101%)
+}
+
+.value_color{
+  color:aliceblue;
+  margin-top: 100px;
+}
+
+
+/* ADD CONTACT */
+
+.content_block{
+margin-left: 90px;
+}
+
+.content_image{
+  width: 451px;
+  height: 437px;
+  background-color: #2F2F2F;
+  stroke-dasharray:10%;
+ border: 2px dashed white;
+ border-radius: 10px;
+}
+
