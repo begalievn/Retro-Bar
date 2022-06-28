@@ -7,8 +7,7 @@ import PhotoReports from './components/photo-reports/PhotoReports';
 import TopInstituions from './components/top-institutions/TopInstituions';
 
 // imported images
-import backgroundOne from '../../assets/mainPage/background-images/main-bg-one.png';
-import paperBackground from '../../assets/mainPage/paper-background.png';
+
 import bookImage from '../../assets/mainPage/mainAd-photo.png';
 
 // imported components
@@ -19,6 +18,8 @@ import Book from '../../UI/Book/Book';
 import { BookProps } from '../../types/bookTypes/bookTypes';
 
 import classes from './mainPage.module.css';
+import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
+import { FooterEmoji } from '../../UI/FooterEmoji/FooterEmoji';
 
 let bookProps: BookProps = {
   data: {
@@ -30,24 +31,28 @@ let bookProps: BookProps = {
 };
 
 const MainPage = () => {
+  console.log(window.innerWidth);
   return (
     <div className={classes.main}>
-      <div className={classes.top_div}></div>
+      <div className={classes.header_background_effect}></div>
+
       <div className={classes.main_one}>
         <PalaroidSlider />
         <TopInstituions />
       </div>
-      <div className={classes.ellipse_deco_one}></div>
 
       <PhotoReports />
 
-      <InstitutesSlider />
-
-      <MainNews />
+      <div className={classes.paper_background}>
+        <InstitutesSlider />
+        <MainNews />
+        <div className={classes.paper_gradient_top}></div>
+        <div className={classes.paper_gradient_right}></div>
+        <div className={classes.paper_gradient_left}></div>
+      </div>
 
       <Book {...bookProps} />
-
-      {/* <MainAd /> */}
+      <BottomEmojis />
     </div>
   );
 };

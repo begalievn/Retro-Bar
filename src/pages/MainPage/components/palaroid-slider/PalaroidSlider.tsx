@@ -36,7 +36,13 @@ const cards: Array<CardsType> = [
     date: 'Суббота 14 мая',
   },
   {
-    image: rightCardImage,
+    image: leftCardImage,
+    title: 'ZEPPELIN BAR',
+    description: 'STREED CREDIBILITY',
+    date: 'Суббота 14 мая',
+  },
+  {
+    image: leftCardImage,
     title: 'ZEPPELIN BAR',
     description: 'STREED CREDIBILITY',
     date: 'Суббота 14 мая',
@@ -62,7 +68,7 @@ const PalaroidSlider = () => {
 
     // Here I add additional cards if there isn't necessary value
     let i = 0;
-    while (arrCards.length < 8) {
+    while (arrCards.length <= 6) {
       arrCards.push(arrCards[i]);
       i++;
     }
@@ -129,10 +135,13 @@ const PalaroidSlider = () => {
       rightmostIndex,
       hiddenRightIndex
     );
+    console.log(sliderCards);
   }
 
   return (
     <div className={classes.container}>
+      <div className={classes.ellipse_deco_1}></div>
+      <div className={classes.ellipse_deco_2}></div>
       <div className={classes.carousel}>
         <div
           key={hiddenLeftIndex}

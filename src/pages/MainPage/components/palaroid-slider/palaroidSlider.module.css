@@ -87,7 +87,7 @@
 }
 
 .slider_pagination {
-  width: 183px;
+  width: 250px;
   height: 23px;
   display: none;
   position: absolute;
@@ -95,7 +95,7 @@
 }
 
 .slider_pagination ul {
-  width: 183px;
+  width: 100%;
   height: 23px;
   display: flex;
   justify-content: space-between;
@@ -117,7 +117,11 @@
   color: rgba(255, 255, 255, 0.46);
 }
 
-.slider_pagination ul li:nth-child(5) {
+.pagination_li:hover {
+  cursor: pointer;
+}
+
+/* .slider_pagination ul li:nth-child(5) {
   display: none;
 }
 
@@ -131,7 +135,7 @@
 
 .slider_pagination ul li:nth-child(8) {
   display: none;
-}
+} */
 
 .active_li {
   font-family: 'Montserrat Alternates';
@@ -230,4 +234,38 @@
   .hiddenright {
     display: none;
   }
+}
+
+/* Background effects */
+.ellipse_deco_1 {
+  position: absolute;
+  width: 412px;
+  height: 412px;
+  left: 57px;
+  top: 147px;
+
+  background: radial-gradient(
+      50% 50% at 50% 50%,
+      #3970ff 0%,
+      rgba(202, 246, 255, 0) 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.ellipse_deco_2 {
+  position: absolute;
+  width: 336px;
+  height: 336px;
+  left: 144px;
+  top: 468px;
+
+  background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(57, 112, 255, 0.5) 0%,
+      rgba(202, 246, 255, 0) 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  opacity: 0.5;
 }
