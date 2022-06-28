@@ -4,7 +4,17 @@ import classes from "./AdminPage.module.css";
 import AdminSidebar from "./components/AdminSidebar/AdminSidebar";
 import AdminInput from "./components/AdminInput/AdminInput";
 import AdminGeneral from "./components/AdminGeneral/AdminGeneral";
-import { IPage, IPageBody } from "../../types/adminPage/adminPage";
+import {
+  AlertBody,
+  IPage,
+  IPageBody,
+  Pages,
+  PhotoCard,
+} from "../../types/adminPage/adminPage";
+import { AlertSuccess } from "../../UI";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { AdminApi } from "../../API/adminApi/adminApi";
+import { createAlert } from "../../store/alertSlice/alertSlice";
 
 const pages: IPage = {
   photo: {
@@ -73,11 +83,29 @@ const AdminPage = () => {
     return () => setInputValue({});
   }, [current]);
 
+  const dispatch = useAppDispatch();
+  let alert = useAppSelector((state) => state.AlertSlice.alert);
+
+  const postHandler = () => {
+    if (pages[current]?.innerPage?.name) {
+      setCurrent(pages[current]?.innerPage?.name || "");
+    }
+    if (pages[current]?.name == Pages.photo) {
+      AdminApi.addPhoto(inputValue as PhotoCard).then((data) => {
+        data !== typeof "string"
+          ? dispatch(createAlert({ message: data, type: "error" }))
+          : dispatch(createAlert({ message: "success", type: "success" }));
+      });
+    }
+  };
+  console.log(alert);
+
   return (
     <div className={classes.adminWrapper}>
       <AdminSidebar current={current} setCurrent={setCurrent} />
       <div className={classes.container}>
         <AdminGeneral
+          postHandler={postHandler}
           currentPage={current}
           page={pages[current]}
           setInputValue={setInputValue}
@@ -85,6 +113,7 @@ const AdminPage = () => {
           setCurrent={setCurrent}
         />
       </div>
+      {alert.message.length !== 0 && <AlertSuccess alertBody={alert} />}
     </div>
   );
 };

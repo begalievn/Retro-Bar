@@ -24,7 +24,7 @@ export const login = (userData: IUser) => {
     .then((response)=>{
 
       console.log(response);
-      localStorage.setItem('token', JSON.stringify(response.data));
+      localStorage.setItem('token', JSON.stringify(response.data.ac));
       dispatch(checkAdmin(true))
     }).catch(()=>{
       dispatch(addTextError())

@@ -3,11 +3,12 @@ import React, { FC, useEffect, useState } from "react";
 import classes from "./AdminGeneral.module.css";
 import { IPageBody, Pages } from "../../../../types/adminPage/adminPage";
 import AdminInput from "../AdminInput/AdminInput";
-import { AdminApi } from "../../../../API/adminApi/adminApi";
-import AddMedia from "../AddMedia/AddMedia";
+import AddPhoto from "../AddMedia/AddPhoto";
+import AddVideo from "../AddVideo/AddVideo";
 
 interface AdminGeneralProps {
   page?: IPageBody;
+  postHandler: () => void;
   inputValue: any;
   setInputValue: (some: any) => void;
   currentPage: string;
@@ -20,22 +21,28 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
   inputValue,
   setCurrent,
   currentPage,
+  postHandler,
 }) => {
-  const postHandler = () => {
-    if (page?.innerPage?.name) setCurrent(page.innerPage.name);
-    if (page?.name == Pages.photo) return AdminApi.addPhoto(inputValue);
-  };
-
   return (
     <div className={classes.adminGeneralBlock}>
       <h3 className={classes.adminTitle}>{page?.title}</h3>
       <div className={classes.adminContent}>
-        <AddMedia
-          currentPage={currentPage}
-          page={page!}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-        />
+        {page?.add == "video" ? (
+          <AddVideo
+            currentPage={currentPage}
+            page={page!}
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+          />
+        ) : (
+          <AddPhoto
+            currentPage={currentPage}
+            page={page!}
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+          />
+        )}
+
         <div className={classes.adminFields}>
           <div className={classes.adminInputs}>
             {page?.fields &&

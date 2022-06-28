@@ -18,10 +18,10 @@ const AddVideo: FC<AddMediaProps> = ({
   currentPage,
 }) => {
   const [drag, setDrag] = useState(false);
-  const [defaultFiles, setDefaultFiles] = useState<any | null>(null);
+  const [files, setFiles] = useState<any | null>(null);
 
   useEffect(() => {
-    return () => setDefaultFiles(null);
+    return () => setFiles(null);
   }, [currentPage]);
 
   const onDragStartHandler = (e: React.DragEvent<HTMLDivElement>) => {
@@ -34,10 +34,9 @@ const AddVideo: FC<AddMediaProps> = ({
   };
   const onDropHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    let files = [...e.dataTransfer.files];
-    let file = files || files[0];
-    setDefaultFiles(file);
-    setInputValue((prev: any) => ({ ...prev, [page.add]: file }));
+    let targetFiles = [...e.dataTransfer.files];
+    setFiles(targetFiles[0]);
+    setInputValue((prev: any) => ({ ...prev, [page.add]: targetFiles }));
     setDrag(false);
   };
   return (
@@ -69,10 +68,8 @@ const AddVideo: FC<AddMediaProps> = ({
           <i className={classes.icon}>
             <VideoIcon />
           </i>
-          {defaultFiles?.length || defaultFiles ? (
-            <span>
-              {defaultFiles.length ? defaultFiles : defaultFiles.name}
-            </span>
+          {files ? (
+            <span>{files.name}</span>
           ) : (
             <span className={classes.adminAddTitle}>Добавить видео</span>
           )}
@@ -91,4 +88,4 @@ const AddVideo: FC<AddMediaProps> = ({
   );
 };
 
-export default AddMedia;
+export default AddVideo;

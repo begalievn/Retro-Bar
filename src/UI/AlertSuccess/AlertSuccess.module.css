@@ -1,0 +1,11 @@
+.alertBlock {
+  position: absolute;
+  top: 20px;
+  right: 0;
+}
+.alert {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+.activeAlert {
+}

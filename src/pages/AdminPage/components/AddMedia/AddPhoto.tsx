@@ -4,6 +4,7 @@ import { ReactComponent as VideoIcon } from "../../../../assets/adminPage/addVid
 import { ReactComponent as PhotoIcon } from "../../../../assets/adminPage/addPic.svg";
 import AdminInput from "../AdminInput/AdminInput";
 import { IPageBody } from "../../../../types/adminPage/adminPage";
+import set = Reflect.set;
 
 interface AddMediaProps {
   page: IPageBody;
@@ -12,17 +13,18 @@ interface AddMediaProps {
   currentPage: string;
 }
 
-const AddMedia: FC<AddMediaProps> = ({
+const AddPhoto: FC<AddMediaProps> = ({
   page,
   inputValue,
   setInputValue,
   currentPage,
 }) => {
   const [drag, setDrag] = useState(false);
-  const [defaultFiles, setDefaultFiles] = useState<any | null>(null);
+
+  const [files, setFiles] = useState<any | null>([]);
 
   useEffect(() => {
-    return () => setDefaultFiles(null);
+    return () => setFiles(null);
   }, [currentPage]);
 
   const onDragStartHandler = (e: React.DragEvent<HTMLDivElement>) => {
@@ -35,13 +37,13 @@ const AddMedia: FC<AddMediaProps> = ({
   };
   const onDropHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    let files = [...e.dataTransfer.files];
-    let file = files || files[0];
-    setDefaultFiles(file);
-    setInputValue((prev: any) => ({ ...prev, [page.add]: file }));
+    let targetFiles = [...e.dataTransfer.files];
+    // TODO addSOmePhotos
+    setFiles(targetFiles);
+    setInputValue((prev: any) => ({ ...prev, [page.add]: targetFiles[0] }));
     setDrag(false);
   };
-  console.log(file);
+
   return (
     <div
       className={classes.adminAddBlock}
@@ -56,7 +58,7 @@ const AddMedia: FC<AddMediaProps> = ({
           className={`${classes.adminAdd} ${!page?.add && classes.adminAddRow}`}
         >
           <i className={classes.icon}>
-            {page?.add == "video" ? <VideoIcon /> : <PhotoIcon />}
+            <PhotoIcon />
           </i>
           <span className={classes.adminAddTitle}>Отпустите файл</span>
         </div>
@@ -69,17 +71,24 @@ const AddMedia: FC<AddMediaProps> = ({
           className={`${classes.adminAdd} ${!page?.add && classes.adminAddRow}`}
         >
           <i className={classes.icon}>
-            {page?.add == "video" ? <VideoIcon /> : <PhotoIcon />}
+            <PhotoIcon />
           </i>
-          {file ? (
-            <span>{file.name ? file.name : file}</span>
+          {files?.length == 1 ? (
+            <span>{files[0].name}</span>
           ) : (
-            <span className={classes.adminAddTitle}>
-              {page?.add == "video" ? "Добавить видео" : "Добавить картинки"}
-            </span>
+            <span className={classes.adminAddTitle}>Добавить картинки</span>
           )}
         </div>
       )}
+
+      {files?.length > 1 && (
+        <div>
+          {files.map((file: File) => {
+            return <div key={file.name}>{file.name}</div>;
+          })}
+        </div>
+      )}
+      {/*{files?.length && files.map((i: File) => <span>{i.name}</span>)}*/}
       {page.addLink && (
         <AdminInput
           inputValue={inputValue}
@@ -93,4 +102,4 @@ const AddMedia: FC<AddMediaProps> = ({
   );
 };
 
-export default AddMedia;
+export default AddPhoto;

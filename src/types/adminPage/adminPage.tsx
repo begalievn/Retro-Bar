@@ -44,3 +44,8 @@ export interface PhotoCard {
   date: string;
   photos: object;
 }
+
+export interface AlertBody {
+  message: string;
+  type: string;
+}
