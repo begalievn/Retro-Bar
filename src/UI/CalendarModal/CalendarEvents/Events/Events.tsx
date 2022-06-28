@@ -1,17 +1,33 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { IPhotos } from "../../../../pages/PhotoPage/components/PhotoMain/interfaces";
 import eyeIcon from "../../../../assets/icons/eye.svg";
 import pictureIcon from "../../../../assets/icons/picture.svg";
 import styles from "./Events.module.css";
+import Gallery from "../../../Gallery/GalleryModal/GalleryModal";
 interface EventsProps {
   events: IPhotos[];
 }
 const Events: FC<EventsProps> = ({ events }) => {
+  const [galleryModal, setGalleryModal] = useState(false);
+  const toggleGalleryModal = () => setGalleryModal(!galleryModal)
+
+  const [currentEvent, setCurrentEvent] = useState<IPhotos>({});
+
+  const onClickEvent = (event: IPhotos) => {
+    setCurrentEvent(event)
+    toggleGalleryModal()
+    console.log(event)
+  };
   return (
     <>
-      {events.map((event) => (
-        <div className={styles.establishment}>
-          <img src={event.link} className={styles.establishment_image} alt="" />
+      {events.map((event, i) => (
+        <div className={styles.establishment} key={i}>
+          <img
+            src={event.link}
+            onClick={() => onClickEvent(event)}
+            className={styles.establishment_image}
+            alt=""
+          />
           <div className={styles.establishment_info}>
             <h3 className={styles.establishment_info_title}>{event.name}</h3>
             <p className={styles.establishment_info_text}>{event.partyName}</p>
@@ -24,7 +40,6 @@ const Events: FC<EventsProps> = ({ events }) => {
                   <img src={pictureIcon} alt="" /> <p>{event.photos}</p>
                 </div>
               </div>
-              
 
               <div className={styles.establishment_info_footer_date}>
                 <p>{event.date}</p>
@@ -33,6 +48,7 @@ const Events: FC<EventsProps> = ({ events }) => {
           </div>
         </div>
       ))}
+      {galleryModal && <Gallery currentEvent={currentEvent} galleryModal={galleryModal} toggleGalleryModal={toggleGalleryModal}/>}
     </>
   );
 };

@@ -70,6 +70,21 @@
   margin-right: auto;
 }
 
+.swiper-horizontal,
+.swiper-pagination-bullets,
+.swiper-pagination-bullets,
+.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: -119px;
+  left: 225px;
+}
+
+.swiper-pagination-fraction {
+  width: auto;
+
+}
+
 @media (max-width: 768px) {
   .swiper {
     width: 100% !important;

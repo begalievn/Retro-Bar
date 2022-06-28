@@ -6,12 +6,28 @@ import PalaroidSlider from './components/palaroid-slider/PalaroidSlider';
 import PhotoReports from './components/photo-reports/PhotoReports';
 import TopInstituions from './components/top-institutions/TopInstituions';
 
+// imported images
 import backgroundOne from '../../assets/mainPage/background-images/main-bg-one.png';
-
 import paperBackground from '../../assets/mainPage/paper-background.png';
+import bookImage from '../../assets/mainPage/mainAd-photo.png';
+
+// imported components
+import InstitutesSlider from '../../UI/InstitutesSlider/institutes-slider/InstitutesSlider';
+import Book from '../../UI/Book/Book';
+
+// imported types
+import { BookProps } from '../../types/bookTypes/bookTypes';
 
 import classes from './mainPage.module.css';
-import InstitutesSlider from '../../UI/InstitutesSlider/institutes-slider/InstitutesSlider';
+
+let bookProps: BookProps = {
+  data: {
+    text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует подготовке и реализации позиций, занимаемых участниками в отношении поставленных задач.',
+    title: 'Заказать сьёмку сейчас',
+    image: bookImage,
+  },
+  page: 'main',
+};
 
 const MainPage = () => {
   return (
@@ -22,12 +38,16 @@ const MainPage = () => {
         <TopInstituions />
       </div>
       <div className={classes.ellipse_deco_one}></div>
+
       <PhotoReports />
-      <div>
-        <InstitutesSlider />
-      </div>
+
+      <InstitutesSlider />
+
       <MainNews />
-      <MainAd />
+
+      <Book {...bookProps} />
+
+      {/* <MainAd /> */}
     </div>
   );
 };

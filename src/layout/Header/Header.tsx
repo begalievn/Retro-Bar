@@ -45,6 +45,7 @@ const Header = () => {
   const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
   const dispatch = useAppDispatch();
 
+
   if (isOpen) {
     document.body.style.overflow = "hidden";
   } else {

@@ -24,16 +24,8 @@
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 
-.fake-input {
-  width: 100%;
-
-  line-height: 22px;
-  background-color: rgb(255, 255, 255);
-  border-color: rgb(118, 118, 118);
-  border-style: inset;
-  border-width: 2px;
-  cursor: text;
-  padding-bottom: 2px;
+.textArea {
+  height: 30px;
 }
 
 /*[contenteditable="true"]:empty:before {*/

@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import classes from "./AdminInput.module.css";
 import { IPageBody } from "../../../../types/adminPage/adminPage";
@@ -19,7 +19,8 @@ const AdminInput: FC<AdminInputProps> = ({
   inputValue,
   ...props
 }) => {
-
+  useEffect(() => {
+  }, []);
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -36,28 +37,31 @@ const AdminInput: FC<AdminInputProps> = ({
 
   return (
     <div className={classes.inputBlock}>
-      <h4
+      <label
         className={
           props.title?.toLowerCase() == "вставить ссылку"
             ? classes.inputLinkTitle
             : classes.inputTitle
         }
+        htmlFor={props.name}
       >
         {props.title || page.title}
-      </h4>
+      </label>
       {type == "о нас" || type == "описание" || type == "о заведении" ? (
         <textarea
+          id={props.name}
           onChange={inputHandler}
           name={props.name}
-          id="input-textarea"
-          className={`${classes.fakeInput} ${classes.adminInput}`}
+          className={`${classes.textArea} ${classes.adminInput}`}
         />
       ) : (
         <input
+          id={props.name}
           name={props.name}
           value={inputValue[props.name!] || ""}
           onChange={inputHandler}
           className={classes.adminInput}
+          {...props}
         />
       )}
     </div>

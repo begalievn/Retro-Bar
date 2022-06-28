@@ -1,11 +1,17 @@
 .css-1aznpnh-MuiSlider-root {
-  color: var(--orange-text) !important;
   margin-top: 30px !important;
   margin-bottom: 0 !important;
 }
 
 .css-14pt78w-MuiSlider-rail {
   background-color: rgba(255, 255, 255, 1) !important;
+}
+.css-1gv0vcd-MuiSlider-track,
+.css-eg0mwd-MuiSlider-thumb {
+  color: var(--orange-text) !important;
+}
+.css-17djbj3-MuiSlider-valueLabel {
+  display: none !important;
 }
 .css-1eoe787-MuiSlider-markLabel,
 .css-yafthl-MuiSlider-markLabel {
