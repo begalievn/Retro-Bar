@@ -140,6 +140,7 @@
 .allImagesResponsive:nth-child(3n) {
   position: absolute;
   /* left: 396px; */
+  
   left: 60%;
   transform: rotate(360deg);
 }

@@ -77,6 +77,8 @@ const Footer = () => {
   function searchClick(name:string): void {
     console.log(name);
   }
+
+ 
   return (
     <div className={classes.main}>
       <Container sx={{ flexGrow: 1, display: { xs: "none", md: "block" } }}>
@@ -147,7 +149,6 @@ const Footer = () => {
               <button onClick={()=> searchClick('Beksultan')} className={classes.search}>
                 <img className={classes.im} src={searchIcon} alt="" />
               </button>
-              {/* <InputSearch placeholder="Геолокация"/> */}
             </Grid>
 
             <Grid

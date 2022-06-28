@@ -19,12 +19,8 @@ import carousel2 from "../../assets/contactsPage/carousel2.png"
 import carousel3 from "../../assets/contactsPage/carousel3.png"
 import classes from "./style.module.css";
 
-const imagesArr = [mainImage, img1, img2, img3];
 
 const ContactsPage = () => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-
-
   const imgArray:string[] = [mainImage, img1, img2, img3];
   const tapes:string[] = [tapeFirst, tapeSecond, tapeThird];
   const borders:string[] = [firstBorder, secondBorder, thirdBorder];
