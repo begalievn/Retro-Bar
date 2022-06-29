@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { FC } from 'react';
 import InstitutionsSlider from './institutions-slider/InstitutionsSlider';
 
 import classes from '../../mainPage.module.css';
 
-const TopInstituions = () => {
+const TopInstituions: FC = () => {
   return (
     <div className={classes.institutions_container}>
       <h2

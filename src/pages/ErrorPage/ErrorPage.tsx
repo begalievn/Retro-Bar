@@ -1,19 +1,24 @@
-import { Container, Grid } from "@mui/material";
-import React from "react";
-import { Link} from "react-router-dom";
-import errorImage from "../../assets/erroPage/errorPh.png";
-import { InputSearch } from "../../UI";
-import classes from "./ErrorPage.module.css";
+import React from 'react';
+
+import { Container, Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
+import errorImage from '../../assets/erroPage/errorPh.png';
+import { InputSearch } from '../../UI';
+import classes from './ErrorPage.module.css';
+import { useAppSelector } from '../../app/hooks';
 
 const ErrorPage = () => {
+  const photos = useAppSelector((state) => state.photos.value);
+  console.log(photos);
+
   return (
     <div className={classes.mainDiv}>
       <Container sx={{ flexGrow: 1 }}>
         <Grid
           sx={{
-            display: { md: "flex", xs: "none" },
-            alignItems: "center",
-            textAlign: "end",
+            display: { md: 'flex', xs: 'none' },
+            alignItems: 'center',
+            textAlign: 'end',
           }}
           container
           spacing={2}
@@ -41,9 +46,9 @@ const ErrorPage = () => {
 
         <Grid
           sx={{
-            display: { md: "none", xs: "flex" },
-            alignItems: "center",
-            textAlign: "center",
+            display: { md: 'none', xs: 'flex' },
+            alignItems: 'center',
+            textAlign: 'center',
           }}
           container
           spacing={2}

@@ -1,7 +1,7 @@
 .calendarIcon {
   position: fixed;
   max-width: 105px;
-  right: 0;
+  right: 15px;
   top: 50%;
   background: rgba(255, 255, 255, 0.1);
   -webkit-backdrop-filter: blur(8px);
