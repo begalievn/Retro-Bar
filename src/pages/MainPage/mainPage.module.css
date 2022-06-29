@@ -252,6 +252,10 @@
   color: black;
 }
 
+.paper_background span {
+  stroke: 'blue';
+}
+
 @media (max-width: 1210px) {
   .paper_background {
     height: 2100px;
