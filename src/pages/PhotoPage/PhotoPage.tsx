@@ -6,7 +6,9 @@ import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
 import { useAppSelector } from '../../app/hooks';
 const PhotoPage: FC = () => {
   const photos = useAppSelector((state) => state.photos.value);
+  const videos = useAppSelector((state) => state.videos.value);
   console.log('photos from store', photos);
+  console.log('videos from store', videos);
   return (
     <>
       <div className={classes.photo}>

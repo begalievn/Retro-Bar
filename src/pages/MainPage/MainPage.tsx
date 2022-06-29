@@ -7,6 +7,7 @@ import { sketch } from '../../assets/ui-images/images';
 
 // imported functions from redux
 import { gettingPhotos } from '../../store/features/photos/photosSlice';
+import { gettingVideos } from '../../store/features/videos/videosSlice';
 
 // imported components
 import MainNews from './components/news/MainNews';
@@ -55,6 +56,7 @@ const MainPage = () => {
       .then((res) => {
         const photographers = res.photographers;
         console.log('get request on videos', photographers);
+        dispatch(gettingVideos(photographers));
       })
       .catch((err) => {
         console.log(err);
