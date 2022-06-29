@@ -14,6 +14,9 @@ export interface IPageBody {
   addLink: boolean;
   viewersRange: boolean;
   fields?: IFiled[];
+  description?: IFiled[];
+  contacts?: IFiled[];
+  social?: IFiled[];
 }
 
 interface PageInner {
@@ -22,10 +25,12 @@ interface PageInner {
 }
 
 export enum Pages {
+  contacts = "contacts",
   photo = "photo",
   video = "video",
   advertising = "advertising",
   poster = "poster",
+  establishment = "establishment",
 }
 
 export interface VideoCard {
@@ -48,4 +53,13 @@ export interface PhotoCard {
 export interface AlertBody {
   message: string;
   type: string;
+}
+
+export interface Establishment {
+  logo: string | object;
+  name: string;
+  description: string;
+  workingHours: string;
+  contacts: string;
+  category: number;
 }

@@ -12,7 +12,10 @@ interface AlertSuccessProps {
 const AlertSuccess: FC<AlertSuccessProps> = ({ alertBody }) => {
   return (
     <div className={`${classes.alertBlock} ${classes.activeAlert}`}>
-      <Alert severity={"error" || alertBody.type} className={classes.alert}>
+      <Alert
+        severity={alertBody.type == "success" ? "success" : "error"}
+        className={classes.alert}
+      >
         <AlertTitle>{alertBody?.message}</AlertTitle>
       </Alert>
     </div>

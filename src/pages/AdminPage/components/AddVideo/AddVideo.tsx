@@ -36,7 +36,7 @@ const AddVideo: FC<AddMediaProps> = ({
     e.preventDefault();
     let targetFiles = [...e.dataTransfer.files];
     setFiles(targetFiles[0]);
-    setInputValue((prev: any) => ({ ...prev, [page.add]: targetFiles }));
+    setInputValue((prev: any) => ({ ...prev, [page.add]: targetFiles[0] }));
     setDrag(false);
   };
   return (

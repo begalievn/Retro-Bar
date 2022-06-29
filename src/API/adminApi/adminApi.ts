@@ -11,24 +11,18 @@ import { getFormData } from "../../utils/helpers/createFormData";
 export class AdminApi {
   static async addVideo(videoData: VideoCard) {
     const { formData } = getFormData(videoData);
-    try {
-      const { data } = await $host.post("/admin/videoCard", formData, config);
-      return data;
-    } catch (e) {
-      const err = e as Error;
-      console.log(err);
-      return err;
-    }
+    const { data } = await $host.post("/admin/videoCard", formData, config);
+    return data;
+  }
+  static async addEstablishment(establishmentData: VideoCard) {
+    const { formData } = getFormData(establishmentData);
+    const { data } = await $host.post("/admin/establishment", formData, config);
+    return data;
   }
 
   static async addPhoto(photoData: PhotoCard) {
     const { formData } = getFormData(photoData);
-    try {
-      const { data } = await $host.post("/admin/photoCard", formData, config);
-      return data;
-    } catch (e) {
-      const err = e as Error;
-      return err.message;
-    }
+    const { data } = await $host.post("/admin/photoCard", formData, config);
+    return data;
   }
 }

@@ -1,0 +1,9 @@
+.socialWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10%;
+  margin-top: 40px;
+}
+.socialBlock {
+  width: 50%;
+}

@@ -1,0 +1,41 @@
+.establishmentBlock {
+  width: 85%;
+}
+
+.descriptionWrapper {
+  padding-left: 6%;
+  /*padding: 0 30px;*/
+}
+.descriptionWrapper h3,
+.contactsWrapper h3 {
+  font-family: "Montserrat Alternates";
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 32px;
+
+  margin-bottom: 40px;
+
+  color: var(--orange-text);
+}
+.descriptionBlocks {
+  display: flex;
+  align-items: center;
+  gap: 20%;
+}
+.descriptionBlock {
+  width: 50%;
+  height: auto;
+}
+
+.descriptionList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.inputBlockDescription {
+  width: 33%;
+}
+.contactsWrapper {
+  padding-left: 6%;
+  width: 60%;
+}

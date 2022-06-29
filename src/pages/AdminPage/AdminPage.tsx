@@ -2,14 +2,15 @@ import React, { useEffect, useState } from "react";
 
 import classes from "./AdminPage.module.css";
 import AdminSidebar from "./components/AdminSidebar/AdminSidebar";
-import AdminInput from "./components/AdminInput/AdminInput";
 import AdminGeneral from "./components/AdminGeneral/AdminGeneral";
+import Establishment from "./components/Establishment/Establishment";
 import {
   AlertBody,
   IPage,
   IPageBody,
   Pages,
   PhotoCard,
+  VideoCard,
 } from "../../types/adminPage/adminPage";
 import { AlertSuccess } from "../../UI";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
@@ -37,9 +38,9 @@ const pages: IPage = {
     addLink: true,
     viewersRange: true,
     fields: [
-      { title: "Название Заведения", name: "establishmentName" },
+      { title: "Название Заведения", name: "establishmentId" },
       { title: "Название Вечеринки", name: "eventName" },
-      { title: "Видеограф", name: "photographer" },
+      { title: "Видеограф", name: "photographerId" },
       { title: "Дата", name: "date" },
     ],
   },
@@ -60,19 +61,40 @@ const pages: IPage = {
   poster: {
     name: "poster",
     title: "Афиша",
-    add: "",
+    add: "photos",
     addLink: false,
     viewersRange: false,
     fields: [],
   },
-  // establishment: {
-  //   title: "",
-  //   add: "",
-  //   addLink: true,
-  //   viewersRange: false,
-  //   btn: false,
-  //   fields: [],
-  // },
+  establishment: {
+    name: "establishment",
+    title: "Заведение",
+    add: "photos",
+    addLink: false,
+    viewersRange: false,
+    fields: [
+      { title: "Название", name: "name" },
+      { title: "О заведении", name: "description" },
+    ],
+    description: [
+      { title: "Время работы", name: "workingHours" },
+      { title: "Средниии чек", name: "check" },
+      { title: "Услуги", name: "services" },
+    ],
+    contacts: [{ title: "Номер", name: "contacts" }],
+  },
+  contacts: {
+    name: "contacts",
+    title: "Контакты",
+    add: "photos",
+    addLink: false,
+    viewersRange: false,
+    fields: [
+      { title: "О нас", name: "AboutUs" },
+      { title: "Номер", name: "number" },
+      { title: "Привязать номер", name: "randomName" },
+    ],
+  },
 };
 
 const AdminPage = () => {
@@ -91,28 +113,63 @@ const AdminPage = () => {
       setCurrent(pages[current]?.innerPage?.name || "");
     }
     if (pages[current]?.name == Pages.photo) {
-      AdminApi.addPhoto(inputValue as PhotoCard).then((data) => {
-        data !== typeof "string"
-          ? dispatch(createAlert({ message: data, type: "error" }))
-          : dispatch(createAlert({ message: "success", type: "success" }));
-      });
+      AdminApi.addPhoto(inputValue as PhotoCard)
+        .then(() =>
+          dispatch(
+            createAlert({ message: "Успешно опубликовано", type: "success" })
+          )
+        )
+        .catch((e) => {
+          dispatch(
+            createAlert({ message: e.response.data.message, type: "error" })
+          );
+        });
+    }
+    if (pages[current]?.name == Pages.video) {
+      AdminApi.addVideo(inputValue as VideoCard)
+        .then(() =>
+          dispatch(
+            createAlert({ message: "Успешно опубликовано", type: "success" })
+          )
+        )
+        .catch((e) => {
+          dispatch(
+            createAlert({ message: e.response.data.message, type: "error" })
+          );
+        });
     }
   };
-  console.log(alert);
 
   return (
     <div className={classes.adminWrapper}>
       <AdminSidebar current={current} setCurrent={setCurrent} />
-      <div className={classes.container}>
-        <AdminGeneral
-          postHandler={postHandler}
-          currentPage={current}
-          page={pages[current]}
-          setInputValue={setInputValue}
-          inputValue={inputValue}
-          setCurrent={setCurrent}
-        />
+      <div className={classes.contentWrapper}>
+        <div className={classes.container}>
+          {current == Pages.establishment ? (
+            <Establishment
+              postHandler={postHandler}
+              currentPage={current}
+              page={pages[current]!}
+              setInputValue={setInputValue}
+              inputValue={inputValue}
+              setCurrent={setCurrent}
+            />
+          ) : (
+            <AdminGeneral
+              postHandler={postHandler}
+              currentPage={current}
+              page={pages[current]}
+              setInputValue={setInputValue}
+              inputValue={inputValue}
+              setCurrent={setCurrent}
+            />
+          )}
+          <button onClick={postHandler} className={classes.btn}>
+            Опубликовать
+          </button>
+        </div>
       </div>
+
       {alert.message.length !== 0 && <AlertSuccess alertBody={alert} />}
     </div>
   );

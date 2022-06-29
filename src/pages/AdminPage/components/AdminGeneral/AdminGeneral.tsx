@@ -5,6 +5,8 @@ import { IPageBody, Pages } from "../../../../types/adminPage/adminPage";
 import AdminInput from "../AdminInput/AdminInput";
 import AddPhoto from "../AddMedia/AddPhoto";
 import AddVideo from "../AddVideo/AddVideo";
+import ContactsComponent from "../ContactsComponent/ContactsComponent";
+import SocialComponent from "../SocialComponent/SocialComponent";
 
 interface AdminGeneralProps {
   page?: IPageBody;
@@ -23,6 +25,7 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
   currentPage,
   postHandler,
 }) => {
+  console.log(currentPage);
   return (
     <div className={classes.adminGeneralBlock}>
       <h3 className={classes.adminTitle}>{page?.title}</h3>
@@ -68,11 +71,15 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
               />
             )}
           </div>
-          <button onClick={postHandler} className={classes.btn}>
-            Опубликовать
-          </button>
         </div>
       </div>
+      {currentPage == Pages.contacts && (
+        <SocialComponent
+          page={page!}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+        />
+      )}
     </div>
   );
 };
