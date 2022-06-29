@@ -1,7 +1,7 @@
 
-import { IUser } from "../types/userTypes";
+import { IUser } from "../../types/userTypes";
 import axios from 'axios';
-import { API } from "../utils/helpers/Consts";
+import { API } from "../../utils/helpers/Consts";
 import { addTextError, checkAdmin } from "./AuthorizationSlice";
 import { Dispatch } from "react";
 

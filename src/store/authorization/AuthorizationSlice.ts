@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { IUser } from '../types/userTypes';
-import { API } from '../utils/helpers/Consts';
+import { IUser } from '../../types/userTypes';
+import { API } from '../../utils/helpers/Consts';
 
 
 

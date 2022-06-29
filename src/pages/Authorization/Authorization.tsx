@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
-import { login } from '../../store/AuthFunc';
-import { addTextError, deleteTextError } from '../../store/AuthorizationSlice';
+import { login } from '../../store/authorization/AuthFunc';
+import { addTextError, deleteTextError } from '../../store/authorization/AuthorizationSlice';
 
 import { IUser } from '../../types/userTypes';
 import style from './Authorization.module.css'
