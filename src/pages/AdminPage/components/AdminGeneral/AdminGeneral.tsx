@@ -25,7 +25,7 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
   currentPage,
   postHandler,
 }) => {
-  console.log(currentPage);
+
   return (
     <div className={classes.adminGeneralBlock}>
       <h3 className={classes.adminTitle}>{page?.title}</h3>

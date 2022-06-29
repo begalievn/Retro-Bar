@@ -15,7 +15,7 @@ interface EstablishmentProps {
   currentPage: string;
   setCurrent: (some: any) => void;
 }
-const Establishment: FC<EstablishmentProps> = ({
+const EstablishmentComponent: FC<EstablishmentProps> = ({
   page,
   setInputValue,
   inputValue,
@@ -84,4 +84,4 @@ const Establishment: FC<EstablishmentProps> = ({
   );
 };
 
-export default Establishment;
+export default EstablishmentComponent;

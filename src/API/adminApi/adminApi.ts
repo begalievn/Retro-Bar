@@ -1,5 +1,6 @@
 import { $host } from "../../utils/helpers/host";
 import {
+  Establishment,
   IPageBody,
   PhotoCard,
   VideoCard,
@@ -14,9 +15,14 @@ export class AdminApi {
     const { data } = await $host.post("/admin/videoCard", formData, config);
     return data;
   }
-  static async addEstablishment(establishmentData: VideoCard) {
+  static async addEstablishment(establishmentData: Establishment) {
     const { formData } = getFormData(establishmentData);
     const { data } = await $host.post("/admin/establishment", formData, config);
+    return data;
+  }
+  static async getAllEstablishment(establishmentData: Establishment) {
+    // const { formData } = getFormData(establishmentData);
+    const { data } = await $host.post("/establishment");
     return data;
   }
 

@@ -41,6 +41,8 @@ const AddPhoto: FC<AddMediaProps> = ({
     // TODO addSOmePhotos
     setFiles(targetFiles);
     setInputValue((prev: any) => ({ ...prev, [page.add]: targetFiles[0] }));
+
+    console.log(targetFiles);
     setDrag(false);
   };
 

@@ -1,5 +1,6 @@
 .alertBlock {
-  position: absolute;
+  width: auto;
+  position: fixed;
   top: 20px;
   right: 0;
 }
@@ -7,5 +8,8 @@
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
 }
-.activeAlert {
-}
+/*.activeAlert {*/
+/*  width: auto;*/
+/*  right: 0;*/
+/*  transition: all 1s ease-out;*/
+/*}*/

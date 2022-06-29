@@ -81,7 +81,7 @@ const AddVideo: FC<AddMediaProps> = ({
           setInputValue={setInputValue}
           page={page!}
           title="Вставить ссылку"
-          name="link"
+          name="video"
         />
       )}
     </div>

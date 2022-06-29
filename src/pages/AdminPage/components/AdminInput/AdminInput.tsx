@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 
 import classes from "./AdminInput.module.css";
 import { IPageBody } from "../../../../types/adminPage/adminPage";
+import { isValidUrl } from "../../../../utils/helpers/validUrl";
 
 interface AdminInputProps {
   page: IPageBody;
@@ -19,8 +20,8 @@ const AdminInput: FC<AdminInputProps> = ({
   inputValue,
   ...props
 }) => {
-  useEffect(() => {
-  }, []);
+
+  useEffect(() => {}, []);
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {

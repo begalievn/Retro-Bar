@@ -63,3 +63,5 @@ export interface Establishment {
   contacts: string;
   category: number;
 }
+
+export type AdminPageTypes = PhotoCard | VideoCard | Establishment;

@@ -1,6 +1,6 @@
-import { PhotoCard, VideoCard } from "../../types/adminPage/adminPage";
+import {Establishment, PhotoCard, VideoCard} from "../../types/adminPage/adminPage";
 
-export const getFormData = (data: VideoCard | PhotoCard) => {
+export const getFormData = (data: VideoCard | PhotoCard | Establishment) => {
   type mediaType = keyof PhotoCard | VideoCard;
   const formData: { [key: string]: any } = new FormData();
 
