@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 // imported images
 import bookImage from '../../assets/mainPage/mainAd-photo.png';
 import calendarIcon from '../../assets/icons/calendar-icon.svg';
+import { sketch } from '../../assets/ui-images/images';
 
 // imported functions from redux
 import { gettingPhotos } from '../../store/features/photos/photosSlice';
@@ -23,6 +24,7 @@ import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
 import { getPhotos } from '../../apis/getPhotos';
 import { useAppDispatch } from '../../app/hooks';
+import { getVideos } from '../../apis/getVideos';
 
 let bookProps: BookProps = {
   data: {
@@ -40,14 +42,23 @@ const MainPage = () => {
     getPhotos()
       .then((res) => {
         const photoCards = res.photoCards;
-        console.log(photoCards);
-        dispatch(gettingPhotos());
+        console.log('photoCards', photoCards);
+        dispatch(gettingPhotos(photoCards));
       })
       .catch((err) => {
         console.log(err);
       });
-    console.log('dispatching');
-    dispatch(gettingPhotos());
+  }, []);
+
+  useEffect(() => {
+    getVideos()
+      .then((res) => {
+        const photographers = res.photographers;
+        console.log('get request on videos', photographers);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
@@ -62,6 +73,11 @@ const MainPage = () => {
       <PhotoReports />
 
       <div className={classes.paper_background}>
+        <div className={classes.slider_title_container}>
+          <h2 className={classes.slider_title}>{'Заведения'}</h2>
+          <img src={sketch} />
+        </div>
+
         <InstitutesSlider isContentBlack={true} />
         <MainNews />
         <div className={classes.paper_gradient_top}></div>
