@@ -1,15 +1,14 @@
 import React from 'react';
-
 import { Container, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
-import errorImage from '../../assets/erroPage/errorPh.png';
 import { InputSearch } from '../../UI';
 import classes from './ErrorPage.module.css';
-import { useAppSelector } from '../../app/hooks';
+import tape1 from '../../assets/erroPage/tape1.png';
+import tape2 from '../../assets/erroPage/tape2.png';
+import polaroid from '../../assets/erroPage/polaroid.png';
 
 const ErrorPage = () => {
-  const photos = useAppSelector((state) => state.photos.value);
-  console.log(photos);
+  const tapes: string[] = [tape1, tape2];
 
   return (
     <div className={classes.mainDiv}>
@@ -38,13 +37,17 @@ const ErrorPage = () => {
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <div>
-              <img className={classes.errorImg} src={errorImage} alt="" />
+            <div className={classes.imgDiv}>
+              <img className={classes.polaroidImg} src={polaroid} alt="" />
+              {tapes.map((item) => (
+                <img className={classes.tapeStyle} src={item} alt="" />
+              ))}
             </div>
           </Grid>
         </Grid>
-
+        {/* //responsive/ */}
         <Grid
+          className={classes.respDiv}
           sx={{
             display: { md: 'none', xs: 'flex' },
             alignItems: 'center',
@@ -61,15 +64,20 @@ const ErrorPage = () => {
               Жаль, но ничего не соответствуют критериям поиска. Пожалуйста,
               попробуйте снова, изменив ключевые слова.
             </h5>
-            <InputSearch placeholder="твиттер" />
+            <Container className={classes.inputS}>
+              <InputSearch placeholder="твиттер" />
+            </Container>
             <Link to="/">
               <button className={classes.btnMain}>На главную</button>
             </Link>
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <div>
-              <img width="419px" src={errorImage} alt="" />
+            <div className={classes.imgDiv}>
+              <img className={classes.polaroidImg} src={polaroid} alt="" />
+              {tapes.map((item) => (
+                <img className={classes.tapeResp} src={item} alt="" />
+              ))}
             </div>
           </Grid>
         </Grid>
