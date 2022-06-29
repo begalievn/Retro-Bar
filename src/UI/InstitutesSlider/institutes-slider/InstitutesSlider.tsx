@@ -150,10 +150,10 @@ const InstitutesSlider: FC<PropsType> = ({ isContentBlack }) => {
   return (
     <>
       <div className={classes.slider}>
-        <div className={classes.slider_title_container}>
+        {/* <div className={classes.slider_title_container}>
           <h2 className={classes.slider_title}>{'Заведения'}</h2>
           <img src={sketch} />
-        </div>
+        </div> */}
 
         <div className={classes.carousel}>
           <div

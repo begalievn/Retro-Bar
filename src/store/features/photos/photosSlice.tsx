@@ -3,12 +3,12 @@ import { log } from 'console';
 export const photosSlice = createSlice({
   name: 'photos',
   initialState: {
-    value: 0,
+    value: [],
   },
   reducers: {
-    gettingPhotos: (state) => {
-      console.log('from slice');
-      state.value += 2;
+    gettingPhotos: (state, action) => {
+      console.log('from photos slice');
+      state.value = action.payload;
     },
   },
 });
