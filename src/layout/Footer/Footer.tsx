@@ -80,7 +80,7 @@ const Footer = () => {
   function scrollTop(): void {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
-
+  
   return (
     <div className={classes.main}>
       <Container sx={{ flexGrow: 1, display: { xs: "none", md: "block" } }}>
