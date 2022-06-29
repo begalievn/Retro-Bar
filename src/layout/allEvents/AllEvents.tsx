@@ -22,14 +22,8 @@ const AllEvents: FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    getPhotos()
-      .then((res) => {
-        const photos = res.photos;
-        dispatch(gettingPhotos(photos));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(getPhotos())
+     
   }, []);
 
   const photos = useAppSelector((state) => state.photos.value);

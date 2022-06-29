@@ -39,15 +39,8 @@ const MainPage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    getPhotos()
-      .then((res) => {
-        const photos = res.photos;
-        console.log('photos', photos);
-        dispatch(gettingPhotos(photos));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(getPhotos())
+      
   }, []);
 
   useEffect(() => {
