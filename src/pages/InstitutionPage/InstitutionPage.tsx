@@ -42,7 +42,7 @@ const InstitutionPage = () => {
         <Top />
         <div style={{color:'white'}}>
 
-        {/* <InstitutesSlider /> */}
+        <InstitutesSlider />
         </div>
         <Book page="institutions" data={bookData} />
       </section>

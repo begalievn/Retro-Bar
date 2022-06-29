@@ -7,6 +7,12 @@ import UniButton from './uniButton/UniButton'
 
 import download from '../../assets/photoPageImages/gallery-images/download-icon.svg'
 import share from '../../assets/photoPageImages/gallery-images/share-icon.svg'
+import { Swiper } from 'swiper/react';
+import ImageBlock from './ImageBlock/ImageBlock';
+
+
+
+
 
 function NewGallery() {
   return (
@@ -21,6 +27,12 @@ function NewGallery() {
           <img className={styles.cross} src={cross} alt="" />
           <img  className={styles.close} src={close} alt="" />
         </section>
+        
+        <ImageBlock />
+
+       
+
+
         <footer className={styles.footer}>
           <div className={styles.left}>
           <p className={styles.counter}>1 из 6</p>

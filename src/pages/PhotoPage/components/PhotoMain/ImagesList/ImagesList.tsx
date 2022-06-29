@@ -97,7 +97,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
           toggleGalleryModal={toggleGalleryModal}
         />
         )}
-        {/* <NewGallery/> */}
+        <NewGallery/>
     </>
   );
 };

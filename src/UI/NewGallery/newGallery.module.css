@@ -1,111 +1,114 @@
-.back{
+
+.back {
   position: fixed;
   top: 0;
   left: 0;
-  
-
   background: rgba(0, 0, 0, 0.801);
   width: 100%;
-  height: 100vh;
-  z-index: 10;
-  padding: 5vh 22vw ;
-  /* filter: blur(8px);
-  -webkit-filter: blur(8px); */
-}
-.container{
-  margin: 0 auto;
-  background-color: rgba(230, 230, 230, 0.288);
-  width: 100%;
   height: 100%;
+  z-index:100;
+  backdrop-filter: blur(6px);
+  
 }
-.header{
+
+.container{
+    background-color: rgba(230, 230, 230, 0.288);
+    width: 55.2vw;
+    height: 53.3vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.header {
   display: flex;
   justify-content: space-between;
 }
-.title{
+.title {
   display: flex;
   flex-direction: column;
-
 }
-.test{
-  font-size: 16px;
+.placeName {
+  color: #ff6d00;
+  font-size: 1.4vw;
+  font-weight: 700;
+}
+.eventName {
+  font-size: 1.12vw;
   font-weight: 500;
+  color: white;
 }
-.placeName{
-color: #FF6D00;
-font-size: 1.4vw;
-font-weight: 700;
-
-}
-.eventName{
- font-size: 1.12vw;
- font-weight: 500;
-
-}
-.cross{
+.cross {
   width: 2.71vw;
   height: 2.71vw;
-
 }
-.close{
+.close {
   display: none;
 }
 /* нижняя часть */
-.footer{
+.footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.left{
+.left {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-grow: 1;
 }
-.download{
-  
+.download {
 }
-.btnsSize{
+.btnsSize {
   width: 158px;
 }
-.counter{
+.counter {
   font-size: 1.11vw;
+  color: white;
 }
 
-@media screen and (max-width:425px){
-  .counter{
+
+
+@media screen and (max-width: 425px) {
+  
+  .counter {
     font-size: 4.27vw;
   }
-  .footer{
-    
+  .footer {
     align-items: flex-start;
   }
-  .left{
+
+  .left {
     flex-direction: column-reverse;
     justify-content: center;
   }
-  .cross{
+  .cross {
     display: none;
   }
-  .close{
+  .close {
     display: block;
     width: 3.8vw;
     height: 3.8vw;
   }
-  .placeName{
+  .placeName {
     font-size: 4.4vw;
-   }
-  .eventName{
+  }
+  .eventName {
     font-size: 3.8vw;
   }
-  .back{
-
-    padding-top: 25%;
-    padding-right: 12vw;
-    padding-left: 12vw;
-
+  .back {
+   
   }
-  .container{
-    height:105vw ;
+  .container {
+    
+      background-color: rgba(230, 230, 230, 0.288);
+      height: 105vw;
+      width: 76vw;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
   }
 }
