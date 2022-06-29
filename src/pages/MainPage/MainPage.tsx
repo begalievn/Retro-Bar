@@ -41,9 +41,9 @@ const MainPage = () => {
   useEffect(() => {
     getPhotos()
       .then((res) => {
-        const photoCards = res.photoCards;
-        console.log('photoCards', photoCards);
-        dispatch(gettingPhotos(photoCards));
+        const photos = res.photos;
+        console.log('photos', photos);
+        dispatch(gettingPhotos(photos));
       })
       .catch((err) => {
         console.log(err);

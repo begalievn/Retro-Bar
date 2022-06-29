@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { log } from 'console';
 export const photosSlice = createSlice({
   name: 'photos',
   initialState: {
@@ -7,7 +6,6 @@ export const photosSlice = createSlice({
   },
   reducers: {
     gettingPhotos: (state, action) => {
-      console.log('from photos slice');
       state.value = action.payload;
     },
   },
