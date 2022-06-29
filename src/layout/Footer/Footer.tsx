@@ -8,12 +8,12 @@ import bartIcon from "../../assets/icons/Footer/logo.svg";
 import searchIcon from "../../assets/icons/Footer/Vector.svg";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/system";
-import { Link } from "react-router-dom";
-import { IFooterItems } from "../../typres/footerTypes/footerTypes";
-import { InputSearch } from "../../UI";
+import { Link, useNavigate } from "react-router-dom";
+import { IFooterItems, IIcons } from "../../types/footerTypes/footerTypes";
 
 const Footer = () => {
-  const liElem: IFooterItems[] =[
+  const navigate = useNavigate();
+  const liElem: IFooterItems[] = [
     {
       title: "Фото",
       path: "/photo",
@@ -31,7 +31,7 @@ const Footer = () => {
       path: "/events",
     },
   ];
-  const liElem2: IFooterItems[] =[
+  const liElem2: IFooterItems[] = [
     {
       title: "Новости",
       path: "/news",
@@ -49,7 +49,7 @@ const Footer = () => {
       path: "/copyright",
     },
   ];
-  const iconsMedia =[
+  const [iconsMedia, setIconsMedia] = useState<IIcons[]>([
     {
       icon: telegramIcon,
       path: "https://web.telegram.org",
@@ -66,19 +66,21 @@ const Footer = () => {
       icon: mailIcon,
       path: "https://mail.google.com/",
     },
-  ];
-  const text: Array<string> =[
+  ]);
+  const text: Array<string> = [
     "Политика конфиденциальности",
     "Copyright 2021",
     "Digital-агентство Active Trust",
   ];
   const [inputChange, setInputChange] = useState<string>("");
 
-  function searchClick(name:string): void {
+  function searchClick(name: string): void {
     console.log(name);
   }
+  function scrollTop(): void {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
- 
   return (
     <div className={classes.main}>
       <Container sx={{ flexGrow: 1, display: { xs: "none", md: "block" } }}>
@@ -88,7 +90,14 @@ const Footer = () => {
               sx={{ display: { xs: "none", md: "block" } }}
               className={classes.retro}
             >
-              <div className={classes.retro2}>
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  scrollTop();
+                  navigate("/");
+                }}
+                className={classes.retro2}
+              >
                 <span style={{ fontFamily: "Montserrat Alternates" }}>
                   Retro
                 </span>
@@ -102,8 +111,8 @@ const Footer = () => {
               xs={12}
               className={classes.politicMD}
             >
-              {text.map((item) => (
-                <div>{item}</div>
+              {text.map((item, index) => (
+                <div key={index}>{item}</div>
               ))}
             </Grid>
           </Grid>
@@ -114,9 +123,11 @@ const Footer = () => {
             md={3}
             className={classes.blocks2}
           >
-            {liElem.map((item) => (
-              <ul style={{ width: "60%" }}>
-                <Link to={item.path}>{item.title}</Link>
+            {liElem.map((item, index) => (
+              <ul key={index} style={{ width: "60%" }}>
+                <Link onClick={scrollTop} to={item.path}>
+                  {item.title}
+                </Link>
               </ul>
             ))}
           </Grid>
@@ -127,9 +138,11 @@ const Footer = () => {
             md={3}
             className={classes.blocks3}
           >
-            {liElem2.map((item) => (
-              <ul style={{ width: "60%" }}>
-                <Link to={item.path}>{item.title}</Link>
+            {liElem2.map((item, index) => (
+              <ul key={index} style={{ width: "60%" }}>
+                <Link onClick={scrollTop} to={item.path}>
+                  {item.title}
+                </Link>
               </ul>
             ))}
           </Grid>
@@ -146,7 +159,10 @@ const Footer = () => {
                 type="text"
                 placeholder="Геолокация"
               />
-              <button onClick={()=> searchClick('Beksultan')} className={classes.search}>
+              <button
+                onClick={() => searchClick("Beksultan")}
+                className={classes.search}
+              >
                 <img className={classes.im} src={searchIcon} alt="" />
               </button>
             </Grid>
@@ -160,8 +176,8 @@ const Footer = () => {
             >
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIconsMD}>
-                {iconsMedia.map((item) => (
-                  <a href={item.path}>
+                {iconsMedia.map((item, index) => (
+                  <a key={index} href={item.path}>
                     <img src={item.icon} alt="" />
                   </a>
                 ))}
@@ -183,7 +199,14 @@ const Footer = () => {
               sx={{ display: { xs: "block", md: "none" }, textAlign: "center" }}
               className={classes.retro}
             >
-              <div className={classes.retroMobile}>
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  scrollTop();
+                  navigate("/");
+                }}
+                className={classes.retroMobile}
+              >
                 <span>Retro</span>
                 <img src={bartIcon} alt="" />
               </div>
@@ -200,8 +223,8 @@ const Footer = () => {
             >
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIcons}>
-                {iconsMedia.map((item) => (
-                  <a href={item.path}>
+                {iconsMedia.map((item, index) => (
+                  <a key={index} href={item.path}>
                     <img src={item.icon} alt="" />
                   </a>
                 ))}
@@ -223,10 +246,12 @@ const Footer = () => {
                 type="text"
                 placeholder="Геолокация"
               />
-              <button onClick={()=> searchClick('Beksultan')} className={classes.search}>
+              <button
+                onClick={() => searchClick("Beksultan")}
+                className={classes.search}
+              >
                 <img className={classes.im} src={searchIcon} alt="" />
               </button>
-              {/* <InputSearch placeholder="Геолокация"/> */}
             </Grid>
             <Grid
               sx={{
@@ -238,8 +263,8 @@ const Footer = () => {
               xs={12}
               className={classes.politic}
             >
-              {text.map((item) => (
-                <div>{item}</div>
+              {text.map((item, index) => (
+                <div key={index}>{item}</div>
               ))}
             </Grid>
           </Grid>

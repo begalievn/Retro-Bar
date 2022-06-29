@@ -125,14 +125,11 @@
 
 .input::placeholder {
   color: #374151;
-  padding: 17px;
   font-family: Montserrat Alternates;
 }
-.inputBlockMD {
-  margin-left: 10px;
-}
+
 .search {
-  width: 33px;
+  min-width: 33px;
   height: 33px;
   border-radius: 8px;
   background-color: var(--orange);

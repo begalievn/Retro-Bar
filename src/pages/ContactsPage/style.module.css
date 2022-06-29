@@ -2,16 +2,14 @@
   background: url("../../assets/contactsPage/back.png");
   background-repeat: no-repeat;
   background-size: cover;
-  
+
   width: 100%;
   /* min-height: 700px; */
   color: white;
-  font-family:'Montserrat Alternates';
-  
-
+  font-family: "Montserrat Alternates";
 }
 
-.mainDiv{
+.mainDiv {
   max-width: 1150px;
   margin: 0 auto;
   display: flex;
@@ -19,7 +17,7 @@
   padding-top: 60px;
 }
 
-.text_block{
+.text_block {
   max-width: 400px;
   width: 100%;
   padding-top: 25px;
@@ -49,218 +47,178 @@
 .information a:hover {
   border-bottom: 1px solid gray;
 }
- 
-
-
 
 .allImages {
   display: grid;
-grid-template-columns: 1.5fr 0.5fr;
-grid-template-rows: 1.5fr repeat(3, 1fr) 0.1fr;
-grid-column-gap: 0px;
-grid-row-gap: 0px;
+  grid-template-columns: 1.5fr 0.5fr;
+  grid-template-rows: 1.5fr repeat(3, 1fr) 0.1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 
   max-width: 500px;
   width: 100%;
   margin-left: -8%;
+}
+
+.smallImageFrame {
+  max-width: 120px;
+  max-height: 100px;
+  margin-left: -46%;
+  mix-blend-mode: luminosity;
+  position: relative;
+}
+.imageFrame {
+  position: relative;
+}
+
+.imageFrame:nth-child(1) {
+  grid-area: 1 / 1 / 6 / 2;
+  max-width: 658px;
+  width: 100%;
+}
+.imageFrame:nth-child(2) {
+  grid-area: 2 / 2 / 3 / 3;
+}
+.imageFrame:nth-child(3) {
+  grid-area: 3 / 2 / 4 / 3;
+}
+.imageFrame:nth-child(4) {
+  grid-area: 4 / 2 / 5 / 3;
+}
+
+.smallImage {
+  position: absolute;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.imageFrame:nth-child(1) :last-child {
+  top: 20.5%;
+  left: 27.5%;
+  transform: rotate(0.4deg);
+  max-width: 352px;
+  max-height: 340px;
+  width: 100%;
+  height: 100%;
+}
+.imageFrame:nth-child(2) :last-child {
+  top: 18.5%;
+  left: -32%;
+  transform: rotate(-2.96deg);
+
+  width: 78px;
+  height: 48px;
+}
+.imageFrame:nth-child(3) :last-child {
+  top: 17%;
+  left: -32%;
+  transform: rotate(0.07deg);
+  width: 80px;
+  height: 50px;
+}
+.imageFrame:nth-child(4) :last-child {
+  top: 16%;
+  left: -33%;
+  width: 83px;
+  height: 52px;
+
+  transform: rotate(2.97deg);
+}
+
+.text_responsive {
+  display: none;
+}
+
+.tape {
+  position: absolute;
+  left: 15%;
+  top: 7%;
+  mix-blend-mode: luminosity;
+}
+
+@media (max-width: 1074px) {
+  .mainDiv {
+    display: block;
+    margin: 0 auto;
   }
-
-  .smallImageFrame{
-    max-width: 120px; 
-    max-height: 100px;
-    margin-left: -46%;
-    mix-blend-mode: luminosity;
-    position: relative;
-  }
-  .imageFrame{
-    position: relative;
-  }
-
-
-  
-  .imageFrame:nth-child(1) {
-     grid-area:  1 / 1 / 6 / 2; 
-     max-width: 658px;
-     width: 100%;
-  }
-  .imageFrame:nth-child(2) { grid-area:2 / 2 / 3 / 3; }
-  .imageFrame:nth-child(3) { grid-area: 3 / 2 / 4 / 3; }
-  .imageFrame:nth-child(4) { grid-area: 4 / 2 / 5 / 3; }
-
-
-  .smallImage{
-    position: absolute;
-    transition: 0.5s;
-  } 
-   .imageFrame:nth-child(1) :last-child{
-    top: 20.5%;
-    left: 27.5%;
-    transform: rotate(0.4deg);
-    max-width: 352px;
-    max-height: 340px;
-    width: 100%;
-    height: 100%;
-  }
-  .imageFrame:nth-child(2) :last-child{
-    top: 18.5%;
-    left: -32%;
-    transform: rotate(-2.96deg);
-   
-    width: 78px;
-    height: 48px;
-  }
-  .imageFrame:nth-child(3) :last-child{
-    top: 17%;
-    left: -32%;
-    transform: rotate(0.07deg);
-    width: 80px;
-    height: 50px;
-    
-  }
-  .imageFrame:nth-child(4) :last-child{
-    top: 16%;
-    left: -33%;
-    width: 83px;
-    height: 52px;
-    
-    transform: rotate(2.97deg);
-  }
-
-  .text_responsive{
-    display: none;
-  }
-
-  .tape{
-    position: absolute;
-    left: 15%;
-    top: 7%;
-    mix-blend-mode: luminosity;
-  }
-
-  @media(max-width:1074px){
-
-    .mainDiv{
-      display: block;
-      margin: 0 auto;
-    }
-    .image_block{
-      display: flex;
-      justify-content: center;
-    }
-
-    .text_block{
-      max-width: 700px;
-      width: 100%;
-     
-      margin: 0 auto;
-      padding: 25px 20px;
-    }
-    .text_responsive{
-      display: block;
-      max-width: 700px;
-      width: 100%;
-     
-      margin: 0 auto;
-      padding: 25px 20px;
-    }
-    .text_block_desktop{
-    display: none;
-    }
-
-    .allImages {
-    
-      margin-left: -30%;
-      }
-  }
-
-@media(max-width:750px){
-  .image_block{
+  .image_block {
     display: flex;
     justify-content: center;
   }
-  .allImages{
- 
-    display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(4, 1fr);
-grid-column-gap: 0px;
-grid-row-gap: 0px;
-margin-left: 0%;
-  
+
+  .text_block {
+    max-width: 700px;
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 25px 20px;
+  }
+  .text_responsive {
+    display: block;
+    max-width: 700px;
+    width: 100%;
+
+    margin: 0 auto;
+    padding: 25px 20px;
+  }
+  .text_block_desktop {
+    display: none;
   }
 
-  .tape{
+  .allImages {
+    margin-left: -30%;
+  }
+}
 
+@media (max-width: 750px) {
+  .image_block {
+    display: flex;
+    justify-content: center;
+  }
+  .allImages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-left: 0%;
+  }
+
+  .tape {
     left: 12%;
     top: 2%;
-   
   }
 
   .imageFrame:nth-child(1) :first-child {
     max-width: 658px;
     width: 100%;
- }
- .imageFrame:nth-child(2) :first-child {
-  max-width: 110px;
-  width: 100%;
-}
-.imageFrame:nth-child(3) :first-child {
-  max-width: 110px;
-  width: 100%;
-}
-<<<<<<< HEAD
-.allImages:nth-child(2n) {
-  position: absolute;
-  top: 130px;
-}
-.allImages:nth-child(3n) {
-  position: absolute;
-  top: 233px;
-}
-.allImagesResponsive:nth-child(1n) {
-  position: absolute;
-  top: 25px;
-  /* left: 155px; */
-  left: 27.5%;
-  transform: rotate(357deg);
-}
-.allImagesResponsive:nth-child(2n) {
-  position: absolute;
-  top: 27px;
-  /* left: 276px; */
-  left: 44%;
-  transform: rotate(3deg);
-}
-.allImagesResponsive:nth-child(3n) {
-  position: absolute;
-  /* left: 396px; */
-  
-  left: 60%;
-  transform: rotate(360deg);
-=======
-.imageFrame:nth-child(4) :first-child {
-  max-width: 110px;
-  width: 100%;
->>>>>>> b9c303cd690da2c0bf534d3a622980d4d6a58758
-}
-
-  .imageFrame:nth-child(1){
-    grid-area: 1 / 1 / 4 / 4;
-
-    
   }
-  .imageFrame:nth-child(2){
+  .imageFrame:nth-child(2) :first-child {
+    max-width: 110px;
+    width: 100%;
+  }
+  .imageFrame:nth-child(3) :first-child {
+    max-width: 110px;
+    width: 100%;
+  }
+  .imageFrame:nth-child(4) :first-child {
+    max-width: 110px;
+    width: 100%;
+  }
+
+  .imageFrame:nth-child(1) {
+    grid-area: 1 / 1 / 4 / 4;
+  }
+  .imageFrame:nth-child(2) {
     grid-area: 4 / 1 / 5 / 2;
   }
-  .imageFrame:nth-child(3){
-    grid-area: 4 / 2 / 5 / 3; 
+  .imageFrame:nth-child(3) {
+    grid-area: 4 / 2 / 5 / 3;
   }
-  .imageFrame:nth-child(4){
-    grid-area: 4 / 3 / 5 / 4; 
+  .imageFrame:nth-child(4) {
+    grid-area: 4 / 3 / 5 / 4;
   }
 
-
-  .imageFrame:nth-child(1) :last-child{
+  .imageFrame:nth-child(1) :last-child {
     top: 20.5%;
     left: 27.7%;
     transform: rotate(0.4deg);
@@ -270,73 +228,56 @@ margin-left: 0%;
     height: 56%;
     margin: 0 auto;
   }
-  .imageFrame:nth-child(2) :last-child{
+  .imageFrame:nth-child(2) :last-child {
     top: 23px;
     left: 35px;
-   
   }
-  .imageFrame:nth-child(3) :last-child{
+  .imageFrame:nth-child(3) :last-child {
     top: 22px;
     left: 35px;
-   
   }
-  .imageFrame:nth-child(4) :last-child{
+  .imageFrame:nth-child(4) :last-child {
     top: 21px;
     left: 33px;
-   
   }
 
-
-
-
-
-  
-  .smallImageFrame{
-    max-width: 120px; 
+  .smallImageFrame {
+    max-width: 120px;
     max-height: 100px;
     margin-left: 20px;
     mix-blend-mode: luminosity;
     position: relative;
   }
 
-  .mainDiv{
+  .mainDiv {
     display: block;
     margin: 0 auto;
   }
- 
-
 }
 
-@media(max-width:500px){
-  .tape{
+@media (max-width: 500px) {
+  .tape {
     width: 30%;
     left: 12%;
     top: 3%;
-   
   }
-
-
 }
 
-@media(max-width:385px){
-  .smallImageFrame{
+@media (max-width: 385px) {
+  .smallImageFrame {
     margin-left: 2px;
   }
 
-  .imageFrame:nth-child(2) :last-child{
+  .imageFrame:nth-child(2) :last-child {
     top: 23px;
     left: 17px;
-   
   }
-  .imageFrame:nth-child(3) :last-child{
+  .imageFrame:nth-child(3) :last-child {
     top: 21px;
     left: 16px;
-   
   }
-  .imageFrame:nth-child(4) :last-child{
+  .imageFrame:nth-child(4) :last-child {
     top: 21px;
     left: 14px;
-   
   }
-
 }
