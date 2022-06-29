@@ -90,14 +90,19 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
           )}
         </div>
       ))}
-      {galleryModal && (
+      {/* {galleryModal && (
         <Gallery
           currentEvent={currentEvent}
           galleryModal={galleryModal}
           toggleGalleryModal={toggleGalleryModal}
         />
-        )}
-        <NewGallery/>
+        )} */}
+        {
+          galleryModal && (
+            
+            <NewGallery close = {toggleGalleryModal}/>
+          )
+        }
     </>
   );
 };
