@@ -1,11 +1,11 @@
-import React from "react";
-import { Container, Grid } from "@mui/material";
-import { Link } from "react-router-dom";
-import { InputSearch } from "../../UI";
-import classes from "./ErrorPage.module.css";
-import tape1 from "../../assets/erroPage/tape1.png";
-import tape2 from "../../assets/erroPage/tape2.png";
-import polaroid from "../../assets/erroPage/polaroid.png";
+import React from 'react';
+import { Container, Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { InputSearch } from '../../UI';
+import classes from './ErrorPage.module.css';
+import tape1 from '../../assets/erroPage/tape1.png';
+import tape2 from '../../assets/erroPage/tape2.png';
+import polaroid from '../../assets/erroPage/polaroid.png';
 
 const ErrorPage = () => {
   const tapes: string[] = [tape1, tape2];
@@ -15,9 +15,9 @@ const ErrorPage = () => {
       <Container sx={{ flexGrow: 1 }}>
         <Grid
           sx={{
-            display: { md: "flex", xs: "none" },
-            alignItems: "center",
-            textAlign: "end",
+            display: { md: 'flex', xs: 'none' },
+            alignItems: 'center',
+            textAlign: 'end',
           }}
           container
           spacing={2}
@@ -49,9 +49,9 @@ const ErrorPage = () => {
         <Grid
           className={classes.respDiv}
           sx={{
-            display: { md: "none", xs: "flex" },
-            alignItems: "center",
-            textAlign: "center",
+            display: { md: 'none', xs: 'flex' },
+            alignItems: 'center',
+            textAlign: 'center',
           }}
           container
           spacing={2}
