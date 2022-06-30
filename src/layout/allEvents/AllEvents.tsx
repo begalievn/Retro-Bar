@@ -8,7 +8,7 @@ import hero4 from "../../assets/eventsImages/hero4.png";
 import EstablishmentItem from "./EstablishmentItem";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { getPhotos } from "../../apis/getPhotos";
-import { gettingPhotos } from "../../store/features/photos/photosSlice";
+
 
 
 

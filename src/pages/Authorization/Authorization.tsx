@@ -21,6 +21,8 @@ export default function AuthorizationPage() {
 
   let validData = useAppSelector((state) => state.AuthorizationSlice.validData);
   let userData = useAppSelector((state) => state.AuthorizationSlice.userData);
+  let token = useAppSelector((state) => state.AuthorizationSlice.token);
+console.log(token);
 
   const handleLogin = (username: string, password: string) => {
     let data: IUser = {
