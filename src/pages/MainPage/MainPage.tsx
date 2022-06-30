@@ -7,6 +7,7 @@ import { sketch } from '../../assets/ui-images/images';
 
 // imported functions from redux
 import { gettingPhotos } from '../../store/features/photos/photosSlice';
+import { gettingVideos } from '../../store/features/videos/videosSlice';
 
 // imported components
 import MainNews from './components/news/MainNews';
@@ -25,6 +26,8 @@ import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
 import { getPhotos } from '../../apis/getPhotos';
 import { useAppDispatch } from '../../app/hooks';
 import { getVideos } from '../../apis/getVideos';
+import { getEstablishments } from '../../apis/getEstablishments';
+import { getPhotoById } from '../../apis/getPhotoById';
 
 let bookProps: BookProps = {
   data: {
@@ -39,19 +42,9 @@ const MainPage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getPhotos())
-      
-  }, []);
-
-  useEffect(() => {
-    getVideos()
-      .then((res) => {
-        const photographers = res.photographers;
-        console.log('get request on videos', photographers);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(getPhotos());
+    dispatch(getVideos());
+    dispatch(getEstablishments());
   }, []);
 
   return (

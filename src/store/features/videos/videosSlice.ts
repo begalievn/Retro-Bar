@@ -7,7 +7,6 @@ export const videosSlice = createSlice({
   },
   reducers: {
     gettingVideos: (state, action) => {
-      console.log('from videos slice');
       state.value = action.payload;
     },
   },

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 export const establishmentsSlice = createSlice({
   name: 'establishments',
   initialState: {
@@ -6,7 +7,6 @@ export const establishmentsSlice = createSlice({
   },
   reducers: {
     gettingEstablishments: (state, action) => {
-      console.log('from establishments slice');
       state.value = action.payload;
     },
   },

@@ -1,30 +1,27 @@
-import { IEstablishment } from "./establishment";
-import { IPhotographer } from "./photographer";
+import { IEstablishment } from './establishment';
+import { IPhotographer } from './photographer';
 
-export interface IPhoto{
+export interface IPhoto {
   url: string;
   id: number;
-  created:string;
+  created: string;
 }
 
-export  interface IPhotoCards{
+export interface IPhotoCards {
   id: number;
   eventName: string;
   views: number;
   date: string;
   created: string;
-} 
-
-export interface IPhotos {
-  id:number;
-   eventName: string;
-   views: number;
-   date: string;
-   created: string;
-  photos: IPhoto[];
-  establishment: IEstablishment;
-  photographer:IPhotographer[];
- 
-
 }
 
+export interface IPhotos {
+  id: number;
+  eventName: string;
+  views: number;
+  date: string;
+  created: string;
+  photos: IPhoto[];
+  establishment: IEstablishment;
+  photographer: IPhotographer[];
+}
