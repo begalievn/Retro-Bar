@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import classes from "./AdminPage.module.css";
-import AdminSidebar from "./components/AdminSidebar/AdminSidebar";
-import AdminGeneral from "./components/AdminGeneral/AdminGeneral";
-import EstablishmentComponent from "./components/Establishment/EstablishmentComponent";
+import { AdminSidebar, AdminGeneral, AdminPhoto } from "./components";
 import {
   AdminPageTypes,
   IPageBody,
@@ -18,6 +16,8 @@ import { createAlert, deleteAlert } from "../../store/alertSlice/alertSlice";
 import { pages } from "../../utils/helpers/adminPageHelper";
 import { Establishment } from "../../types/adminPage/adminPage";
 import { isValidUrl } from "../../utils/helpers/validUrl";
+import { Route, Routes } from "react-router-dom";
+import set = Reflect.set;
 
 const AdminPage = () => {
   const [current, setCurrent] = useState<string>("photo");
@@ -26,8 +26,6 @@ const AdminPage = () => {
   useEffect(() => {
     return () => setInputValue({});
   }, [current]);
-
-  console.log(inputValue);
 
   const dispatch = useAppDispatch();
   let alert = useAppSelector((state) => state.AlertSlice.alert);
@@ -81,28 +79,9 @@ const AdminPage = () => {
 
   return (
     <div className={classes.adminWrapper}>
-      <AdminSidebar current={current} setCurrent={setCurrent} />
       <div className={classes.contentWrapper}>
         <div className={classes.container}>
-          {current == Pages.establishment ? (
-            <EstablishmentComponent
-              postHandler={postHandler}
-              currentPage={current}
-              page={pages[current]!}
-              setInputValue={setInputValue}
-              inputValue={inputValue}
-              setCurrent={setCurrent}
-            />
-          ) : (
-            <AdminGeneral
-              postHandler={postHandler}
-              currentPage={current}
-              page={pages[current]}
-              setInputValue={setInputValue}
-              inputValue={inputValue}
-              setCurrent={setCurrent}
-            />
-          )}
+
           <button onClick={postHandler} className={classes.btn}>
             Опубликовать
           </button>

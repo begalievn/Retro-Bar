@@ -1,40 +1,45 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, SVGProps, useEffect, useState } from "react";
 
 import classes from "./AdminInput.module.css";
-import { IPageBody } from "../../../../types/adminPage/adminPage";
+import {
+  AdminPageTypes,
+  IPageBody,
+  VideoCard,
+} from "../../../../types/adminPage/adminPage";
 import { isValidUrl } from "../../../../utils/helpers/validUrl";
+
+type primaryColor = "white" | "black";
 
 interface AdminInputProps {
   page: IPageBody;
   title?: string;
   name?: string;
-  inputValue: any;
-  setInputValue: (some: any) => void;
+  inputValue: AdminPageTypes;
+  setInputValue: (prevInputs: AdminPageTypes | object) => void;
+  color?: primaryColor;
+  // icon: SVGElement;
 }
-interface IState {
-  [key: string]: string;
-}
+
 const AdminInput: FC<AdminInputProps> = ({
   page,
   setInputValue,
   inputValue,
   ...props
 }) => {
+  const type = props.title?.toLowerCase();
 
-  useEffect(() => {}, []);
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     if (e.target.toString().includes("TextArea")) {
       e.target.style.height = e.target.scrollHeight + "px";
     }
-    setInputValue((prevInputs: any) => ({
+
+    setInputValue((prevInputs: AdminPageTypes) => ({
       ...prevInputs,
       [e.target.name]: e.target.value,
     }));
   };
-
-  const type = props.title?.toLowerCase();
 
   return (
     <div className={classes.inputBlock}>
@@ -44,8 +49,10 @@ const AdminInput: FC<AdminInputProps> = ({
             ? classes.inputLinkTitle
             : classes.inputTitle
         }
+        style={{ color: `${props.color && props.color}` }}
         htmlFor={props.name}
       >
+        {/*<i>{props.icon}</i>*/}
         {props.title || page.title}
       </label>
       {type == "о нас" || type == "описание" || type == "о заведении" ? (
@@ -59,7 +66,7 @@ const AdminInput: FC<AdminInputProps> = ({
         <input
           id={props.name}
           name={props.name}
-          value={inputValue[props.name!] || ""}
+          value={inputValue[props.name as keyof AdminPageTypes]}
           onChange={inputHandler}
           className={classes.adminInput}
           {...props}

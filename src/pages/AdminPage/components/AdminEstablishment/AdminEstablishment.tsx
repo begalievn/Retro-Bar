@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import classes from "./Establishment.module.css";
+import classes from "./AdminEstablishment.module.css";
 import AdminGeneral from "../AdminGeneral/AdminGeneral";
 import DescriptionComponent from "../DescriptionComponent/DescriptionComponent";
 import { IPageBody } from "../../../../types/adminPage/adminPage";
@@ -15,7 +15,7 @@ interface EstablishmentProps {
   currentPage: string;
   setCurrent: (some: any) => void;
 }
-const EstablishmentComponent: FC<EstablishmentProps> = ({
+const AdminEstablishment: FC<EstablishmentProps> = ({
   page,
   setInputValue,
   inputValue,
@@ -38,6 +38,7 @@ const EstablishmentComponent: FC<EstablishmentProps> = ({
         <div className={classes.descriptionBlocks}>
           <div className={classes.descriptionBlock}>
             <AdminInput
+              color={"white"}
               title={"Время работы"}
               name={"workingHours"}
               page={page!}
@@ -54,6 +55,7 @@ const EstablishmentComponent: FC<EstablishmentProps> = ({
           </div>
           <div className={classes.descriptionBlock}>
             <AdminInput
+              color={"white"}
               title={"Номер"}
               name={"contacts"}
               page={page!}
@@ -65,17 +67,16 @@ const EstablishmentComponent: FC<EstablishmentProps> = ({
       </div>
 
       <div className={classes.contactsWrapper}>
-
-          <h3>Контакты</h3>
+        <h3>Контакты</h3>
         <div className={classes.contacts}>
           <AdminInput
+            color={"white"}
             title={"Номер"}
             name={"contacts"}
             page={page!}
             inputValue={inputValue}
             setInputValue={setInputValue}
           />
-
         </div>
       </div>
 
@@ -84,4 +85,4 @@ const EstablishmentComponent: FC<EstablishmentProps> = ({
   );
 };
 
-export default EstablishmentComponent;
+export default AdminEstablishment;

@@ -1,3 +1,4 @@
-const headerExceptions = ["/admin", "/authorization"];
+const headerExceptions = ["admin", "authorization"];
 
-export const useExcept = (path: string) => !headerExceptions.includes(path);
+export const useExcept = (path: string) =>
+  !headerExceptions.includes(path.split("/")[1]);

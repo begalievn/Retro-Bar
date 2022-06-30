@@ -64,4 +64,5 @@ export interface Establishment {
   category: number;
 }
 
+
 export type AdminPageTypes = PhotoCard | VideoCard | Establishment;

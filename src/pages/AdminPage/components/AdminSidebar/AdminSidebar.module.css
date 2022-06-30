@@ -20,6 +20,9 @@
   justify-content: space-evenly;
   color: white;
 }
+.sideBar ul a {
+  color: white;
+}
 
 .sideBarItem {
   cursor: pointer;

@@ -3,9 +3,7 @@ import React, { FC, useEffect, useState } from "react";
 import classes from "./AdminGeneral.module.css";
 import { IPageBody, Pages } from "../../../../types/adminPage/adminPage";
 import AdminInput from "../AdminInput/AdminInput";
-import AddPhoto from "../AddMedia/AddPhoto";
-import AddVideo from "../AddVideo/AddVideo";
-import ContactsComponent from "../ContactsComponent/ContactsComponent";
+import AddMedia from "../AddMedia/AddMedia";
 import SocialComponent from "../SocialComponent/SocialComponent";
 
 interface AdminGeneralProps {
@@ -25,25 +23,28 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
   currentPage,
   postHandler,
 }) => {
-
   return (
     <div className={classes.adminGeneralBlock}>
       <h3 className={classes.adminTitle}>{page?.title}</h3>
       <div className={classes.adminContent}>
         {page?.add == "video" ? (
-          <AddVideo
+          <AddMedia
             currentPage={currentPage}
             page={page!}
             inputValue={inputValue}
             setInputValue={setInputValue}
-          />
+          >
+            Добавить видео
+          </AddMedia>
         ) : (
-          <AddPhoto
+          <AddMedia
             currentPage={currentPage}
             page={page!}
             inputValue={inputValue}
             setInputValue={setInputValue}
-          />
+          >
+            Добавить картинки
+          </AddMedia>
         )}
 
         <div className={classes.adminFields}>

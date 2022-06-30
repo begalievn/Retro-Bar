@@ -4,21 +4,26 @@ import { ReactComponent as VideoIcon } from "../../../../assets/adminPage/addVid
 import { ReactComponent as PhotoIcon } from "../../../../assets/adminPage/addPic.svg";
 import AdminInput from "../AdminInput/AdminInput";
 import { IPageBody } from "../../../../types/adminPage/adminPage";
+import set = Reflect.set;
 
 interface AddMediaProps {
   page: IPageBody;
   inputValue: any;
   setInputValue: (prev: any) => void;
   currentPage: string;
+  children: React.ReactNode;
 }
-const AddVideo: FC<AddMediaProps> = ({
+
+const AddMedia: FC<AddMediaProps> = ({
   page,
   inputValue,
   setInputValue,
   currentPage,
+  children,
 }) => {
   const [drag, setDrag] = useState(false);
-  const [files, setFiles] = useState<any | null>(null);
+
+  const [files, setFiles] = useState<any | null>([]);
 
   useEffect(() => {
     return () => setFiles(null);
@@ -35,10 +40,21 @@ const AddVideo: FC<AddMediaProps> = ({
   const onDropHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     let targetFiles = [...e.dataTransfer.files];
-    setFiles(targetFiles[0]);
+    // TODO addSOmePhotos
+    setFiles(targetFiles);
     setInputValue((prev: any) => ({ ...prev, [page.add]: targetFiles[0] }));
+
+    console.log(targetFiles);
     setDrag(false);
   };
+  // const onDropHandler = (e: React.DragEvent<HTMLDivElement>) => {
+  //   e.preventDefault();
+  //   let targetFiles = [...e.dataTransfer.files];
+  //   setFiles(targetFiles[0]);
+  //   setInputValue((prev: any) => ({ ...prev, [page.add]: targetFiles[0] }));
+  //   setDrag(false);
+  // };
+
   return (
     <div
       className={classes.adminAddBlock}
@@ -53,7 +69,7 @@ const AddVideo: FC<AddMediaProps> = ({
           className={`${classes.adminAdd} ${!page?.add && classes.adminAddRow}`}
         >
           <i className={classes.icon}>
-            <VideoIcon />
+            <PhotoIcon />
           </i>
           <span className={classes.adminAddTitle}>Отпустите файл</span>
         </div>
@@ -66,26 +82,35 @@ const AddVideo: FC<AddMediaProps> = ({
           className={`${classes.adminAdd} ${!page?.add && classes.adminAddRow}`}
         >
           <i className={classes.icon}>
-            <VideoIcon />
+            <PhotoIcon />
           </i>
-          {files ? (
-            <span>{files.name}</span>
+          {files?.length == 1 ? (
+            <span>{files[0].name}</span>
           ) : (
-            <span className={classes.adminAddTitle}>Добавить видео</span>
+            <span className={classes.adminAddTitle}>{children}</span>
           )}
         </div>
       )}
+
+      {files?.length > 1 && (
+        <div>
+          {files.map((file: File) => {
+            return <div key={file.name}>{file.name}</div>;
+          })}
+        </div>
+      )}
+      {/*{files?.length && files.map((i: File) => <span>{i.name}</span>)}*/}
       {page.addLink && (
         <AdminInput
           inputValue={inputValue}
           setInputValue={setInputValue}
           page={page!}
           title="Вставить ссылку"
-          name="video"
+          name="link"
         />
       )}
     </div>
   );
 };
 
-export default AddVideo;
+export default AddMedia;
