@@ -5,7 +5,6 @@ import './fonts/Mont/stylesheet.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import ContextsProvider from './ContextsProvider';
 import { Provider } from 'react-redux';
 import { store } from './store';
 

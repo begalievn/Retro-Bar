@@ -26,6 +26,8 @@ import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
 import { getPhotos } from '../../apis/getPhotos';
 import { useAppDispatch } from '../../app/hooks';
 import { getVideos } from '../../apis/getVideos';
+import { getEstablishments } from '../../apis/getEstablishments';
+import { getPhotoById } from '../../apis/getPhotoById';
 
 let bookProps: BookProps = {
   data: {
@@ -40,27 +42,9 @@ const MainPage = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    getPhotos()
-      .then((res) => {
-        const photos = res.photos;
-        console.log('photos', photos);
-        dispatch(gettingPhotos(photos));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  useEffect(() => {
-    getVideos()
-      .then((res) => {
-        const photographers = res.photographers;
-        console.log('get request on videos', photographers);
-        dispatch(gettingVideos(photographers));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(getPhotos());
+    dispatch(getVideos());
+    dispatch(getEstablishments());
   }, []);
 
   return (

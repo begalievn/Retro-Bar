@@ -16,4 +16,6 @@ export const formatDate = (date: Date, format: string) => {
     .replace(/\bMMM\b/, d.monthShort)
     .replace(/\bMM\b/, d.monthNumber.toString().padStart(2, '0'))
     .replace(/\bM\b/, d.monthNumber.toString());
+    
+    
 };
