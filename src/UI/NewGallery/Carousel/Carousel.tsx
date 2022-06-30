@@ -12,16 +12,26 @@ function Carousel({ children, count }: CarouselProps) {
 
   const [offset, setOffset] = useState<number | 0>(0);
 
+  let obj= { 
+    props:{
+      image:'asdas',
+      mip: '1223'
+    }
+  }
+
   useEffect(() => {
     const sumOfPics = children.length
     const currPic = (Math.abs(offset) / 100) + 1
 
+    children[0]
+    
     count([currPic, sumOfPics])
 
 
   }, [offset])
 
 
+  
 
   const leftClick = () => {
     setOffset((currentOffset) => {
@@ -34,7 +44,7 @@ function Carousel({ children, count }: CarouselProps) {
 
     setOffset((currentOffset) => {
       const newOffset = currentOffset - 100;
-      const maxOffset = -(100 * (children.length - 1))
+      const maxOffset = -(100 * (children.length - 1));
       return Math.max(newOffset, maxOffset)
     })
 
