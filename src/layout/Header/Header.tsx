@@ -8,7 +8,7 @@ import { SearchBtn, InputSearch } from "../../UI";
 import { someClasses } from "../../utils/someClasses";
 import {INavItems} from "../../types/headerTypes/headerTypes";
 import { useAppDispatch } from "../../app/hooks";
-import { logOut } from "../../store/AuthFunc";
+import { logOut } from "../../store/authorization/AuthFunc";
 
 const Header = () => {
   const [isOpen, setOpen] = useState<boolean>(false);

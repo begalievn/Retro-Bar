@@ -1,103 +1,104 @@
-import React, { FC, useEffect, useState } from 'react';
-import { Container, Grid } from '@mui/material';
-import aboutUs from '../../assets/contactsPage/sketch.png';
-import phoneIcon from '../../assets/contactsPage/phone.svg';
-import whatsAppIcon from '../../assets/contactsPage/WhatsApp.svg';
-import mailIcon from '../../assets/contactsPage/mail.svg';
+import React, { FC, useEffect, useState } from "react";
+import { Container, Grid } from "@mui/material";
+import aboutUs from "../../assets/contactsPage/sketch.png";
+import phoneIcon from "../../assets/contactsPage/phone.svg";
+import whatsAppIcon from "../../assets/contactsPage/WhatsApp.svg";
+import mailIcon from "../../assets/contactsPage/mail.svg";
 
-import photo1 from '../../assets/contactsPage/img/photo1.png';
-import photo2 from '../../assets/contactsPage/img/photo2.png';
-import photo3 from '../../assets/contactsPage/img/photo3.png';
+import photo1 from "../../assets/contactsPage/img/photo1.png";
+import photo2 from "../../assets/contactsPage/img/photo2.png";
+import photo3 from "../../assets/contactsPage/img/photo3.png";
 
-import carousel1 from '../../assets/contactsPage/border/carousel1.png';
-import carousel2 from '../../assets/contactsPage/border/carousel2.png';
-import carousel3 from '../../assets/contactsPage/border/carousel3.png';
+import carousel1 from "../../assets/contactsPage/border/carousel1.png";
+import carousel2 from "../../assets/contactsPage/border/carousel2.png";
+import carousel3 from "../../assets/contactsPage/border/carousel3.png";
 
-import mainBack from '../../assets/contactsPage/polaroid.png';
-import mainImage from '../../assets/contactsPage/img/mainImage.png';
+import mainBack from "../../assets/contactsPage/polaroid.png";
+import mainImage from "../../assets/contactsPage/img/mainImage.png";
 
 import tape from "../../assets/contactsPage/border/tape.png";
 
-import classes from './style.module.css';
-import TextBlock from './TextBlock';
-import { IImageArr } from '../../types/contactsPageTypes/contactsPageTypes';
+import classes from "./style.module.css";
+import TextBlock from "./TextBlock";
+import { IImageArr } from "../../types/contactsPageTypes/contactsPageTypes";
 
-
-const ContactsPage:FC = () => {
-
-
-
-
+const ContactsPage: FC = () => {
   const [frameArr, setFrameArr] = useState<IImageArr[]>([
     {
       frame: mainBack,
       id: 1,
-      photo: mainImage
+      photo: mainImage,
     },
     {
       frame: carousel1,
       id: 2,
-      photo: photo1
-
-    }, {
-      frame: carousel2, 
+      photo: photo1,
+    },
+    {
+      frame: carousel2,
       id: 3,
-      photo: photo2
-
-    }, {
+      photo: photo2,
+    },
+    {
       frame: carousel3,
       id: 4,
-      photo: photo3
+      photo: photo3,
+    },
+  ]);
 
-    }])
-
-
-
-  const sliderFunc = (id:number) => {
+  const sliderFunc = (id: number) => {
     frameArr.map((item, index) => {
       if (item.id === id) {
-
-        let image = frameArr[0].photo
-        let newArr = [...frameArr]
-        newArr[0].photo = item.photo
-        newArr[index].photo = image
-        setFrameArr(newArr)
+        let image = frameArr[0].photo;
+        let newArr = [...frameArr];
+        newArr[0].photo = item.photo;
+        newArr[index].photo = image;
+        setFrameArr(newArr);
       }
-    })
-  }
-
-
-
+    });
+  };
 
   return (
     <>
-      
       <div className={classes.container}>
-
-        <div className={classes.mainDiv} >
-          <div className={classes.text_responsive}> <TextBlock /></div>
-         
-           <div className={classes.image_block}>
-          <div className={classes.allImages}>
-            {frameArr.map((item, index) => (
-              <div className={classes.imageFrame} key={item.id}>
-                <img className={index > 0 ? classes.smallImageFrame : ''} src={item.frame} alt="" />
-                {index==0 ? <img className={classes.tape} src={tape}/>: null }
-                <img className={classes.smallImage} onClick={() => sliderFunc(item.id)} src={item.photo} alt="" />
-              </div>
-            ))}
-          </div>
-          </div>
-     
-          <div className={classes.text_block}>
-            <div className={classes.text_block_desktop} >
+        <div className={classes.mainDiv}>
+          <div className={classes.text_responsive}>
+            {" "}
             <TextBlock />
+          </div>
+
+          <div className={classes.image_block}>
+            <div className={classes.allImages}>
+              {frameArr.map((item, index) => (
+                <div className={classes.imageFrame} key={item.id}>
+                  <img
+                    className={index > 0 ? classes.smallImageFrame : ""}
+                    src={item.frame}
+                    alt=""
+                  />
+                  {index == 0 ? (
+                    <img className={classes.tape} src={tape} />
+                  ) : null}
+                  <img
+                    className={classes.smallImage}
+                    onClick={() => sliderFunc(item.id)}
+                    src={item.photo}
+                    alt=""
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className={classes.text_block}>
+            <div className={classes.text_block_desktop}>
+              <TextBlock />
             </div>
             <h3
               style={{
-                color: '#ffb03b',
-                marginTop: '30px',
-                fontSize: '20px',
+                color: "#ffb03b",
+                marginTop: "30px",
+                fontSize: "20px",
               }}
             >
               Заказ фото/видео репортажа:
@@ -118,9 +119,7 @@ const ContactsPage:FC = () => {
             </div>
           </div>
 
-  <div></div>
-
-
+          <div></div>
         </div>
       </div>
     </>
