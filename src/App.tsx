@@ -17,6 +17,7 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
+    console.log('dispatch photo');
     dispatch(getPhotos());
     dispatch(getVideos());
     dispatch(getEstablishments());
