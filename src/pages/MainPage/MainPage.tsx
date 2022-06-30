@@ -9,6 +9,8 @@ import { sketch } from '../../assets/ui-images/images';
 import { gettingPhotos } from '../../store/features/photos/photosSlice';
 import { gettingVideos } from '../../store/features/videos/videosSlice';
 
+// imported apis
+
 // imported components
 import MainNews from './components/news/MainNews';
 import PalaroidSlider from './components/palaroid-slider/PalaroidSlider';
@@ -23,11 +25,8 @@ import { BookProps } from '../../types/bookTypes/bookTypes';
 import classes from './mainPage.module.css';
 import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
-import { getPhotos } from '../../apis/getPhotos';
+
 import { useAppDispatch } from '../../app/hooks';
-import { getVideos } from '../../apis/getVideos';
-import { getEstablishments } from '../../apis/getEstablishments';
-import { getPhotoById } from '../../apis/getPhotoById';
 
 let bookProps: BookProps = {
   data: {
@@ -39,14 +38,6 @@ let bookProps: BookProps = {
 };
 
 const MainPage = () => {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getPhotos());
-    dispatch(getVideos());
-    dispatch(getEstablishments());
-  }, []);
-
   return (
     <div className={classes.main}>
       <div className={classes.header_background_effect}></div>
