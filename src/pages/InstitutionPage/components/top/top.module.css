@@ -141,18 +141,8 @@
   justify-content: center;
   margin-bottom: 14vw;
 }
-<<<<<<< HEAD
-.calendar {
-  position: absolute;
-  width: 12%;
-  top: 108%;
-  right: 4%;
-}
-
-=======
 
 
->>>>>>> 28c5d5b969f65e137101573b1bf01a305ed3f9c0
 @media screen and (max-width: 425px) {
   .icon {
     max-width: 2.5vw;
