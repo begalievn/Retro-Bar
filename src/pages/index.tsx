@@ -95,37 +95,37 @@ const MainRoutes = () => {
       element: <AdminPhoto />,
       id: 2,
     },
-    {
-      link: ADMIN_VIDEO,
-      element: <Gallery />,
-      id: 3,
-    },
-    {
-      link: ADMIN_ADVERTISING,
-      element: <Gallery />,
-      id: 4,
-    },
-    {
-      link: ADMIN_ESTABLISHMENT,
-      element: <Gallery />,
-      id: 5,
-    },
-    {
-      link: ADMIN_CONTACTS,
-      element: <Gallery />,
-      id: 6,
-    },
+    // {
+    //   link: ADMIN_VIDEO,
+    //   element: <Gallery />,
+    //   id: 3,
+    // },
+    // {
+    //   link: ADMIN_ADVERTISING,
+    //   element: <Gallery />,
+    //   id: 4,
+    // },
+    // {
+    //   link: ADMIN_ESTABLISHMENT,
+    //   element: <Gallery />,
+    //   id: 5,
+    // },
+    // {
+    //   link: ADMIN_CONTACTS,
+    //   element: <Gallery />,
+    //   id: 6,
+    // },
   ];
 
   return (
     <Routes>
-      {isAdmin
-        ? PRIVATE_ROUTES.map((item) => (
-            <Route path={item.link} element={item.element} key={item.id} />
-          ))
-        : PUBLIC_ROUTES.map((item) => (
-            <Route path={item.link} element={item.element} key={item.id} />
-          ))}
+      {isAdmin &&
+        PRIVATE_ROUTES.map(({ link, id, element }) => (
+          <Route path={link} element={element} key={id} />
+        ))}
+      {PUBLIC_ROUTES.map(({ link, id, element }) => (
+        <Route path={link} element={element} key={id} />
+      ))}
     </Routes>
   );
 };

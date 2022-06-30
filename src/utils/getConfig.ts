@@ -1,4 +1,4 @@
-export const token = localStorage.token;
+export const token = !localStorage.token ? "{}" : localStorage.token;
 export const isAdmin = JSON.parse(token).accessToken;
 export const config = {
   headers: {

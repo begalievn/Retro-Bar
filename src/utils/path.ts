@@ -4,6 +4,7 @@ const ADMIN_ADVERTISING = "/admin/advertising";
 const ADMIN_ESTABLISHMENT = "/admin/establishment";
 const ADMIN_CONTACTS = "/admin/contacts";
 
+
 export {
   ADMIN_ADVERTISING,
   ADMIN_CONTACTS,
@@ -11,3 +12,4 @@ export {
   ADMIN_PHOTO,
   ADMIN_VIDEO,
 };
+
