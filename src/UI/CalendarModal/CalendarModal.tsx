@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import styles from "./CalendarModal.module.css";
 import { Calendar, CalendarEvents, CalendarFilter } from "./";
+import { formatDate } from "../../utils/helpers/date";
 
 interface CalendarModalProps {
   modal: boolean;
@@ -9,7 +10,8 @@ interface CalendarModalProps {
 
 const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
   const [selectedDate, setSelectedDay] = useState(new Date());
-
+ console.log(formatDate(selectedDate, 'DD MM YYYY'));
+ 
   return (
     <>
       {modal && (
@@ -19,6 +21,7 @@ const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
             <CalendarFilter />
             <div className={styles.calendarWithPhotos}>
               <div className={styles.calendar}>
+            
                 <Calendar
                   selectedDate={selectedDate}
                   selectDate={(date) => setSelectedDay(date)}
