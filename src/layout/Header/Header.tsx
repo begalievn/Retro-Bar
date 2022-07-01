@@ -43,7 +43,6 @@ const Header = () => {
   const history = useNavigate();
   const location = useLocation();
   const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
-  const dispatch = useAppDispatch();
 
 
   if (isOpen) {

@@ -8,25 +8,18 @@ interface ItemProps {
   path: string;
   title: string;
   onClick?: () => void;
-  isActive: string;
-  setIsActiveItem: (str: string) => void;
 }
 
-const NavItem: FC<ItemProps> = ({
-  path,
-  className,
-  title,
-  onClick,
-  isActive,
-  setIsActiveItem,
-}) => {
+const NavItem: FC<ItemProps> = ({ path, className, title, onClick }) => {
   const location = useLocation();
   return (
     <li
       className={`${className} ${
-        isActive === title && location.pathname !== "/" && classes.activeItem
+        location.pathname === path &&
+        location.pathname !== "/" &&
+        classes.activeItem
       }`}
-      onClick={onClick ? onClick : () => setIsActiveItem(title)}
+      onClick={onClick}
     >
       <Link to={path}>{title}</Link>
     </li>
