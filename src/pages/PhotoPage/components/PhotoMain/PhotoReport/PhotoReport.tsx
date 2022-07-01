@@ -223,6 +223,8 @@ const PhotoReport: FC = () => {
       ],
     },
   ];
+  
+  
   return <ImagesList images={images} />;
 };
 

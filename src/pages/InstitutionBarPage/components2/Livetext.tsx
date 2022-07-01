@@ -1,12 +1,14 @@
 import { FC } from "react";
+import classes from "./livebarstyle.module.css";
 import { Grid } from "@mui/material";
-import classes from "./Livebar.module.css";
-import livebar from "../../../../assets/institutionBarImg/iconLiveBar/livebar.png";
-import event from "../../../../assets/institutionBarImg/iconLiveBar/events.svg";
-import picture from "../../../../assets/institutionBarImg/iconLiveBar/picture.svg";
-import rating from "../../../../assets/institutionBarImg/iconLiveBar/rating.svg";
-import share from "../../../../assets/institutionBarImg/iconLiveBar/share.svg";
-const LivebarText: FC = () => {
+
+import livebar from "../../../assets/institutionBarImg/iconLiveBar/livebar.png";
+import event from "../../../assets/institutionBarImg/iconLiveBar/events.svg";
+import picture from "../../../assets/institutionBarImg/iconLiveBar/picture.svg";
+import rating from "../../../assets/institutionBarImg/iconLiveBar/rating.svg";
+import share from "../../../assets/institutionBarImg/iconLiveBar/share.svg";
+
+const LiveText: FC = () => {
   return (
     <div className={classes.text}>
       <Grid container className={classes.livebarLetfTop}>
@@ -26,7 +28,7 @@ const LivebarText: FC = () => {
             </Grid>
 
             <img src={rating} className={classes.rating} />
-            <img src={share} width="12px" className={classes.share}/>
+            {/* <img src={share} width="12px" className={classes.share} /> */}
           </Grid>
         </Grid>
       </Grid>
@@ -55,4 +57,4 @@ const LivebarText: FC = () => {
     </div>
   );
 };
-export { LivebarText };
+export { LiveText };

@@ -5,6 +5,8 @@ import eye from "../../../../../assets/photoPageImages/icons/eye.svg";
 import pic from "../../../../../assets/photoPageImages/icons/pic.svg";
 import camera from "../../../../../assets/photoPageImages/icons/camera.svg";
 import Gallery from "../../../../../UI/Gallery/GalleryModal/GalleryModal";
+import NewGallery from "../../../../../UI/NewGallery/NewGallery";
+
 import Button from "../../Button/Button";
 import { photoAPI } from "../../../../../store/features/photos/photoQuery";
 
@@ -89,13 +91,19 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
           )}
         </div>
       ))}
-      {galleryModal && (
+      {/* {galleryModal && (
         <Gallery
           currentEvent={currentEvent}
           galleryModal={galleryModal}
           toggleGalleryModal={toggleGalleryModal}
         />
-      )}
+        )} */}
+        {
+          galleryModal && (
+            
+            <NewGallery close = {toggleGalleryModal}/>
+          )
+        }
     </>
   );
 };
