@@ -19,8 +19,31 @@ import tape from "../../assets/contactsPage/border/tape.png";
 import classes from "./style.module.css";
 import TextBlock from "./TextBlock";
 import { IImageArr } from "../../types/contactsPageTypes/contactsPageTypes";
+import { establishmentsAPI } from "../../store/features/establishments/establishmentsQuery";
+import { photoAPI } from "../../store/features/photos/photoQuery";
 
 const ContactsPage: FC = () => {
+  // const [limit, setLimit] = useState(3);
+  // const {
+  //   data: contactsImages,
+  //   error,
+  //   isLoading,
+  //   refetch,
+  // } = establishmentsAPI.useFetchAllContactsQuery(limit);
+  // console.log(contactsImages);
+  const [limit, setLimit] = useState(3);
+  let {
+    data: photos,
+    error,
+    isLoading,
+    refetch,
+  } = establishmentsAPI.useFetchAllContactsQuery(limit);
+  isLoading && <h1>Loading...</h1>
+  error&& <h2>error</h2>
+
+  let images = photos?.photoCards
+  console.log(images)
+
   const [frameArr, setFrameArr] = useState<IImageArr[]>([
     {
       frame: mainBack,

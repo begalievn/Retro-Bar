@@ -7,11 +7,8 @@ export const photoAPI = createApi({
   tagTypes: ["Photo"],
   endpoints: (build) => ({
     fetchAllPhotos: build.query({
-      query: (limit = 100) => ({
-        url: "/photo",
-        params: {
-          _limit: limit,
-        },
+      query: () => ({
+        url: "/photo"
       }),
       providesTags: (result) => ["Photo"],
     }),
