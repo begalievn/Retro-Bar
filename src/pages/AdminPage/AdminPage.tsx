@@ -4,13 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import classes from "./AdminPage.module.css";
 import {
   AdminSidebar,
-  AdminGeneral,
-  AdminPhoto,
-  AdminVideo,
-  AdminContacts,
-  AdminPoster,
-  AdminEstablishment,
-  AdminAdvertising,
+
 } from "./components";
 import { AdminPageTypes } from "../../types/adminPage/adminPage";
 import { AlertComponent } from "../../UI";
@@ -18,13 +12,6 @@ import { useAppSelector } from "../../app/hooks";
 import { ROUTES } from "../../utils/routes";
 
 const AdminPage = () => {
-  const [current, setCurrent] = useState<string>("photo");
-  const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
-
-  useEffect(() => {
-    return () => setInputValue({});
-  }, [current]);
-
   let alert = useAppSelector((state) => state.AlertSlice.alert);
 
   // const postHandler = () => {
@@ -77,7 +64,7 @@ const AdminPage = () => {
   return (
     <div className={classes.adminWrapper}>
       <AdminSidebar />
-      <div className={classes.contentWrapper}>
+      <main className={classes.contentWrapper}>
         <div className={classes.container}>
           <Routes>
             {ROUTES.map(({ link, id, element }) => (
@@ -85,7 +72,7 @@ const AdminPage = () => {
             ))}
           </Routes>
         </div>
-      </div>
+      </main>
 
       {alert.message.length !== 0 && <AlertComponent alertBody={alert} />}
     </div>

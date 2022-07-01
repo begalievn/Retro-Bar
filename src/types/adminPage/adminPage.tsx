@@ -1,6 +1,7 @@
 export interface IFiled {
   title: string;
   name: string;
+  type?: string
 }
 export interface IPage {
   [key: string]: IPageBody;

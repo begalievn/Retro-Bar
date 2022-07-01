@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import classes from "./AdminSidebar.module.css";
-
 import {
   ADMIN_ADVERTISING,
   ADMIN_CONTACTS,
@@ -10,6 +9,11 @@ import {
   ADMIN_PHOTO,
   ADMIN_VIDEO,
 } from "../../../../utils/path";
+// import { ReactComponent as Photo } from "../../../../assets/icons/adminPanel/pic.svg";
+// import { ReactComponent as Video } from "../../../../assets/icons/adminPanel/video.svg";
+// import { ReactComponent as Advertising } from "../../../../assets/icons/adminPanel/advertising.svg";
+// import { ReactComponent as Institution } from "../../../../assets/icons/adminPanel/Institution.svg";
+// import { ReactComponent as Contact } from "../../../../assets/icons/adminPanel/contact.svg";
 import photo from "../../../../assets/icons/adminPanel/pic.svg";
 import video from "../../../../assets/icons/adminPanel/video.svg";
 import advertising from "../../../../assets/icons/adminPanel/advertising.svg";
@@ -52,22 +56,53 @@ const navs = [
 const AdminSidebar: FC<AdminSidebarProps> = () => {
   const location = useLocation();
   return (
+    // <div className={classes.sideBar}>
+    //   <ul>
+    //     {navs.map((nav) => (
+    //       <Link to={nav.path} key={nav.path}>
+    //         <li
+    //           className={
+    //             location.pathname == nav.path
+    //               ? classes.sideBarItemActive
+    //               : classes.sideBarItem
+    //           }
+    //         >
+    //           <img src={nav.icon} /> {nav.title}
+    //         </li>
+    //       </Link>
+    //     ))}
+    //   </ul>
+    //
+    //
+    // </div>
+
     <div className={classes.sideBar}>
-      <ul>
-        {navs.map((nav) => (
-          <Link to={nav.path} key={nav.path} >
-            <li
-              className={
-                location.pathname == nav.path
-                  ? classes.sideBarItemActive
-                  : classes.sideBarItem
-              }
+      {/*<a className="s-sidebar__trigger" href="#0">*/}
+      {/*  <i className="fa fa-bars"></i>*/}
+      {/*</a>*/}
+
+      <nav className={classes.sideBarNav}>
+        <ul>
+          {navs.map((nav) => (
+            <Link
+              to={nav.path}
+              className={classes.sideBarNavLink}
+              key={nav.path}
             >
-              <img src={nav.icon} /> {nav.title}
-            </li>
-          </Link>
-        ))}
-      </ul>
+              <li
+                className={
+                  location.pathname == nav.path
+                    ? classes.sideBarItemActive
+                    : classes.sideBarItem
+                }
+              >
+                <img src={nav.icon} />
+                <em>{nav.title}</em>
+              </li>
+            </Link>
+          ))}
+        </ul>
+      </nav>
     </div>
   );
 };

@@ -15,6 +15,9 @@ interface AdminGeneralProps {
   postHandler: () => void;
   inputValue: AdminPageTypes | object;
   setInputValue: (some: AdminPageTypes | object) => void;
+  handler?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 }
 
 const AdminGeneral: FC<AdminGeneralProps> = ({
@@ -22,8 +25,8 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
   setInputValue,
   inputValue,
   postHandler,
+  handler,
 }) => {
-
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -42,7 +45,7 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
       <div className={classes.adminContent}>
         {page?.add == "video" ? (
           <AddMedia
-            inputHandler={inputHandler}
+            inputHandler={handler ? handler : inputHandler}
             page={page!}
             inputValue={inputValue}
             setInputValue={setInputValue}
@@ -51,7 +54,7 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
           </AddMedia>
         ) : (
           <AddMedia
-            inputHandler={inputHandler}
+            inputHandler={handler ? handler : inputHandler}
             page={page!}
             inputValue={inputValue}
             setInputValue={setInputValue}
@@ -66,7 +69,8 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
               page?.fields.map((field) => {
                 return (
                   <AdminInput
-                    inputHandler={inputHandler}
+                    type={field.type}
+                    inputHandler={handler ? handler : inputHandler}
                     key={field.title}
                     inputValue={inputValue}
                     setInputValue={setInputValue}
@@ -78,7 +82,7 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
               })}
             {page?.viewersRange && (
               <AdminInput
-                inputHandler={inputHandler}
+                inputHandler={handler ? handler : inputHandler}
                 title="Просмотры"
                 name="views"
                 inputValue={inputValue}

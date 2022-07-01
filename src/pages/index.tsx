@@ -97,17 +97,6 @@ const MainRoutes = () => {
       element: <AdminPage />,
       id: 1,
     },
-
-    // {
-    //   link: ADMIN_ESTABLISHMENT,
-    //   element: <AdminEstablishment />,
-    //   id: 5,
-    // },
-    // {
-    //   link: ADMIN_CONTACTS,
-    //   element: <Gallery />,
-    //   id: 6,
-    // },
   ];
 
   return (

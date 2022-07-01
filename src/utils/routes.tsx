@@ -1,7 +1,8 @@
 import {
   AdminAdvertising,
   AdminContacts,
-  AdminPhoto,
+  AdminEstablishment,
+  AdminPhoto, AdminPoster,
   AdminVideo,
 } from "../pages/AdminPage/components";
 
@@ -22,8 +23,18 @@ export const ROUTES = [
     id: 4,
   },
   {
+    link: "/advertising/poster",
+    element: <AdminPoster />,
+    id: 5,
+  },
+  {
     link: "/contacts",
     element: <AdminContacts />,
-    id: 4,
+    id: 6,
+  },
+  {
+    link: "/establishment",
+    element: <AdminEstablishment />,
+    id: 7,
   },
 ];

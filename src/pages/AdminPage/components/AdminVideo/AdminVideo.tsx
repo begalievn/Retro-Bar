@@ -3,6 +3,7 @@ import AdminGeneral from "../AdminGeneral/AdminGeneral";
 import {
   AdminPageTypes,
   PhotoCard,
+  VideoCard,
 } from "../../../../types/adminPage/adminPage";
 import { useDispatch } from "react-redux";
 import { AdminApi } from "../../../../API/adminApi/adminApi";
@@ -20,10 +21,10 @@ const videoPage = {
   addLink: true,
   viewersRange: true,
   fields: [
-    { title: "Название Заведения", name: "establishmentId" },
-    { title: "Название Вечеринки", name: "eventName" },
-    { title: "Видеограф", name: "photographerId" },
-    { title: "Дата", name: "date" },
+    { title: "Название Заведения", name: "establishmentId", type: 'input' },
+    { title: "Название Вечеринки", name: "eventName", type: 'input' },
+    { title: "Видеограф", name: "photographerId", type: 'input' },
+    { title: "Дата", name: "date", type: 'input' },
   ],
 };
 
@@ -32,7 +33,7 @@ const AdminVideo = () => {
   const dispatch = useDispatch();
 
   const postHandler = () => {
-    AdminApi.addPhoto(inputValue as PhotoCard)
+    AdminApi.addVideo(inputValue as VideoCard)
       .then(() => {
         dispatch(
           createAlert({ message: "Успешно опубликовано", type: "success" })

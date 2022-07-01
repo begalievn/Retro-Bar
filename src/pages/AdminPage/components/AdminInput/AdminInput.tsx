@@ -11,9 +11,10 @@ import { isValidUrl } from "../../../../utils/helpers/validUrl";
 type primaryColor = "white" | "black";
 
 interface AdminInputProps {
-  page: IPageBody;
+  page?: IPageBody;
   title?: string;
   name?: string;
+  type?: string;
   inputValue: AdminPageTypes | object;
   setInputValue: (prevInputs: AdminPageTypes | object) => void;
   color?: primaryColor;
@@ -28,10 +29,9 @@ const AdminInput: FC<AdminInputProps> = ({
   setInputValue,
   inputValue,
   inputHandler,
+  type = "input",
   ...props
 }) => {
-  const type = props.title?.toLowerCase();
-
   return (
     <div className={classes.inputBlock}>
       <label
@@ -44,9 +44,9 @@ const AdminInput: FC<AdminInputProps> = ({
         htmlFor={props.name}
       >
         {/*<i>{props.icon}</i>*/}
-        {props.title || page.title}
+        {props.title || page?.title}
       </label>
-      {type == "о нас" || type == "описание" || type == "о заведении" ? (
+      {type == "textArea" ? (
         <textarea
           id={props.name}
           onChange={inputHandler}

@@ -24,14 +24,8 @@ const AddMedia: FC<AddMediaProps> = ({
   children,
   inputHandler,
 }) => {
-  const location = useLocation();
   const [drag, setDrag] = useState(false);
-
   const [files, setFiles] = useState<any | null>([]);
-
-  useEffect(() => {
-    return () => setFiles(null);
-  }, [location.pathname]);
 
   const onDragStartHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -44,20 +38,18 @@ const AddMedia: FC<AddMediaProps> = ({
   const onDropHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     let targetFiles = [...e.dataTransfer.files];
-    // TODO addSOmePhotos
+    // TODO addSomePhotos
     setFiles(targetFiles);
-    setInputValue((prev: any) => ({ ...prev, [page.add]: targetFiles[0] }));
-
-    console.log(targetFiles);
+    const formData = new FormData();
+    targetFiles.forEach((item) => {
+      formData.append(item.name, item);
+    });
+    setInputValue((prev: any) => ({ ...prev, [page.add]: formData }));
     setDrag(false);
+
+    console.log(formData);
   };
-  // const onDropHandler = (e: React.DragEvent<HTMLDivElement>) => {
-  //   e.preventDefault();
-  //   let targetFiles = [...e.dataTransfer.files];
-  //   setFiles(targetFiles[0]);
-  //   setInputValue((prev: any) => ({ ...prev, [page.add]: targetFiles[0] }));
-  //   setDrag(false);
-  // };
+
 
   return (
     <div
@@ -73,7 +65,7 @@ const AddMedia: FC<AddMediaProps> = ({
           className={`${classes.adminAdd} ${!page?.add && classes.adminAddRow}`}
         >
           <i className={classes.icon}>
-            <PhotoIcon />
+            {page.add === "video" ? <VideoIcon /> : <PhotoIcon />}
           </i>
           <span className={classes.adminAddTitle}>Отпустите файл</span>
         </div>
@@ -86,7 +78,7 @@ const AddMedia: FC<AddMediaProps> = ({
           className={`${classes.adminAdd} ${!page?.add && classes.adminAddRow}`}
         >
           <i className={classes.icon}>
-            <PhotoIcon />
+            {page.add === "video" ? <VideoIcon /> : <PhotoIcon />}
           </i>
           {files?.length == 1 ? (
             <span>{files[0].name}</span>

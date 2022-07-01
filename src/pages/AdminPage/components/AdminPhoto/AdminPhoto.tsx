@@ -22,19 +22,17 @@ const photoPage = {
   addLink: false,
   viewersRange: true,
   fields: [
-    { title: "Название Заведения", name: "establishmentId" },
-    { title: "Название Вечеринки", name: "eventName" },
-    { title: "Фотограф", name: "photographerId" },
-    { title: "Дата", name: "date" },
+    { title: "Название Заведения", name: "establishmentId", type: "input" },
+    { title: "Название Вечеринки", name: "eventName", type: "input" },
+    { title: "Фотограф", name: "photographerId", type: "input" },
+    { title: "Дата", name: "date", type: "input" },
   ],
 };
 
 const AdminPhoto = () => {
   const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
   const dispatch = useDispatch();
-  const isAdmin = useAppSelector((state) => state.AuthorizationSlice.token);
-  const alert = useAppSelector((state) => state.AlertSlice.alert);
-
+  console.log(inputValue);
   const postHandler = () => {
     AdminApi.addPhoto(inputValue as PhotoCard)
       .then(() => {

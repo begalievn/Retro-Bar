@@ -30,7 +30,7 @@
   display: flex;
   align-items: start;
   justify-content: space-around;
-  gap: 20px;
+  gap: 60px;
   /*!* gap: 70px;*/
 }
 .adminAdd {
