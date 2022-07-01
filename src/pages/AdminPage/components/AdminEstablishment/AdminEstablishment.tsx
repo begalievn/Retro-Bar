@@ -19,32 +19,28 @@ const AdminEstablishment: FC<EstablishmentProps> = ({
   page,
   setInputValue,
   inputValue,
-  setCurrent,
-  currentPage,
   postHandler,
 }) => {
   return (
     <div className={classes.establishmentBlock}>
       <AdminGeneral
         postHandler={postHandler}
-        currentPage={currentPage}
         page={page}
         setInputValue={setInputValue}
         inputValue={inputValue}
-        setCurrent={setCurrent}
       />
       <div className={classes.descriptionWrapper}>
         <h3>Описание</h3>
         <div className={classes.descriptionBlocks}>
           <div className={classes.descriptionBlock}>
-            <AdminInput
-              color={"white"}
-              title={"Время работы"}
-              name={"workingHours"}
-              page={page!}
-              inputValue={inputValue}
-              setInputValue={setInputValue}
-            />
+            {/*<AdminInput*/}
+            {/*  color={"white"}*/}
+            {/*  title={"Время работы"}*/}
+            {/*  name={"workingHours"}*/}
+            {/*  page={page!}*/}
+            {/*  inputValue={inputValue}*/}
+            {/*  setInputValue={setInputValue}*/}
+            {/*/>*/}
             {/*<AdminInput*/}
             {/*    title={"Время работы"}*/}
             {/*    name={'workingHours'}*/}
@@ -54,14 +50,14 @@ const AdminEstablishment: FC<EstablishmentProps> = ({
             {/*/>*/}
           </div>
           <div className={classes.descriptionBlock}>
-            <AdminInput
-              color={"white"}
-              title={"Номер"}
-              name={"contacts"}
-              page={page!}
-              inputValue={inputValue}
-              setInputValue={setInputValue}
-            />
+            {/*<AdminInput*/}
+            {/*  color={"white"}*/}
+            {/*  title={"Номер"}*/}
+            {/*  name={"contacts"}*/}
+            {/*  page={page!}*/}
+            {/*  inputValue={inputValue}*/}
+            {/*  setInputValue={setInputValue}*/}
+            {/*/>*/}
           </div>
         </div>
       </div>
@@ -69,14 +65,14 @@ const AdminEstablishment: FC<EstablishmentProps> = ({
       <div className={classes.contactsWrapper}>
         <h3>Контакты</h3>
         <div className={classes.contacts}>
-          <AdminInput
-            color={"white"}
-            title={"Номер"}
-            name={"contacts"}
-            page={page!}
-            inputValue={inputValue}
-            setInputValue={setInputValue}
-          />
+          {/*<AdminInput*/}
+          {/*  color={"white"}*/}
+          {/*  title={"Номер"}*/}
+          {/*  name={"contacts"}*/}
+          {/*  page={page!}*/}
+          {/*  inputValue={inputValue}*/}
+          {/*  setInputValue={setInputValue}*/}
+          {/*/>*/}
         </div>
       </div>
 

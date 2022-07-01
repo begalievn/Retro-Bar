@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+// imported images
+import bookImage from '../../assets/mainPage/mainAd-photo.png';
 import calendarIcon from '../../assets/icons/calendar-icon.svg';
-import MainAd from './components/advertisement/MainAd';
+import { sketch } from '../../assets/ui-images/images';
+
+// imported functions from redux
+import { gettingPhotos } from '../../store/features/photos/photosSlice';
+import { gettingVideos } from '../../store/features/videos/videosSlice';
+
+// imported apis
+
+// imported components
 import MainNews from './components/news/MainNews';
 import PalaroidSlider from './components/palaroid-slider/PalaroidSlider';
 import PhotoReports from './components/photo-reports/PhotoReports';
 import TopInstituions from './components/top-institutions/TopInstituions';
-
-// imported images
-import backgroundOne from '../../assets/mainPage/background-images/main-bg-one.png';
-import paperBackground from '../../assets/mainPage/paper-background.png';
-import bookImage from '../../assets/mainPage/mainAd-photo.png';
-
-// imported components
 import InstitutesSlider from '../../UI/InstitutesSlider/institutes-slider/InstitutesSlider';
 import Book from '../../UI/Book/Book';
 
@@ -19,6 +23,10 @@ import Book from '../../UI/Book/Book';
 import { BookProps } from '../../types/bookTypes/bookTypes';
 
 import classes from './mainPage.module.css';
+import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
+import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
+
+import { useAppDispatch } from '../../app/hooks';
 
 let bookProps: BookProps = {
   data: {
@@ -32,22 +40,30 @@ let bookProps: BookProps = {
 const MainPage = () => {
   return (
     <div className={classes.main}>
-      <div className={classes.top_div}></div>
+      <div className={classes.header_background_effect}></div>
+      <CalendarIcon />
       <div className={classes.main_one}>
         <PalaroidSlider />
         <TopInstituions />
       </div>
-      <div className={classes.ellipse_deco_one}></div>
 
       <PhotoReports />
 
-      <InstitutesSlider />
+      <div className={classes.paper_background}>
+        <div className={classes.slider_title_container}>
+          <h2 className={classes.slider_title}>{'Заведения'}</h2>
+          <img src={sketch} />
+        </div>
 
-      <MainNews />
+        <InstitutesSlider isContentBlack={true} />
+        <MainNews />
+        <div className={classes.paper_gradient_top}></div>
+        <div className={classes.paper_gradient_right}></div>
+        <div className={classes.paper_gradient_left}></div>
+      </div>
 
       <Book {...bookProps} />
-
-      {/* <MainAd /> */}
+      <BottomEmojis />
     </div>
   );
 };

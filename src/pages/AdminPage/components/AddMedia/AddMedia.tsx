@@ -5,29 +5,33 @@ import { ReactComponent as PhotoIcon } from "../../../../assets/adminPage/addPic
 import AdminInput from "../AdminInput/AdminInput";
 import { IPageBody } from "../../../../types/adminPage/adminPage";
 import set = Reflect.set;
+import { useLocation } from "react-router-dom";
 
 interface AddMediaProps {
   page: IPageBody;
   inputValue: any;
   setInputValue: (prev: any) => void;
-  currentPage: string;
   children: React.ReactNode;
+  inputHandler: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 }
 
 const AddMedia: FC<AddMediaProps> = ({
   page,
   inputValue,
   setInputValue,
-  currentPage,
   children,
+  inputHandler,
 }) => {
+  const location = useLocation();
   const [drag, setDrag] = useState(false);
 
   const [files, setFiles] = useState<any | null>([]);
 
   useEffect(() => {
     return () => setFiles(null);
-  }, [currentPage]);
+  }, [location.pathname]);
 
   const onDragStartHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -93,15 +97,16 @@ const AddMedia: FC<AddMediaProps> = ({
       )}
 
       {files?.length > 1 && (
-        <div>
+        <div className={classes.fileList}>
           {files.map((file: File) => {
-            return <div key={file.name}>{file.name}</div>;
+            return <p key={file.name}>{file.name}</p>;
           })}
         </div>
       )}
       {/*{files?.length && files.map((i: File) => <span>{i.name}</span>)}*/}
       {page.addLink && (
         <AdminInput
+          inputHandler={inputHandler}
           inputValue={inputValue}
           setInputValue={setInputValue}
           page={page!}

@@ -6,7 +6,7 @@ import arrowRight from "../../../assets/photoPageImages/calendarImages/arrow rig
 import arrowDown from "../../../assets/photoPageImages/calendarImages/arrow down.svg";
 import tape from "../../../assets/photoPageImages/calendarImages/tape.png";
 
-import { checkDateIsEqual, checkIsToday } from "../../../utils/helpers/date";
+import { checkDateIsEqual, checkIsToday, formatDate } from "../../../utils/helpers/date";
 import "./Calendar.css";
 interface CalendarProps {
   locale?: string;
@@ -31,15 +31,17 @@ const Calendar: FC<CalendarProps> = ({
     else return num;
   };
 
-  return (
+
+  return ( 
     <div className="calendar">
-      <img className="calendar_tape" src={tape} alt="" />
-      <div className="calendar__header">
+
+        <img className="calendar_tape" src={tape} alt="" />
+            <div className="calendar__header">
         <InputSearch placeholder="Искать по дате" />
         <div className="calendar__header__info">
           <div
             onClick={() => functions.onClickArrow("left")}
-            aria-hidden
+                          aria-hidden
             className="calendar__header__arrow__left"
           >
             <img src={arrowLeft} alt="" />

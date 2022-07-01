@@ -1,5 +1,14 @@
 import React, { FC, useState, useEffect, ReactNode } from 'react';
+// imported libraries
 import { useSwipeable } from 'react-swipeable';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// imported components
 import PalaroidCard from '../palaroid-card/PalaroidCard';
 
 import activeCardImage from '../../../../assets/mainPage/palaroid-card-image-active.png';
@@ -36,7 +45,13 @@ const cards: Array<CardsType> = [
     date: 'Суббота 14 мая',
   },
   {
-    image: rightCardImage,
+    image: leftCardImage,
+    title: 'ZEPPELIN BAR',
+    description: 'STREED CREDIBILITY',
+    date: 'Суббота 14 мая',
+  },
+  {
+    image: leftCardImage,
     title: 'ZEPPELIN BAR',
     description: 'STREED CREDIBILITY',
     date: 'Суббота 14 мая',
@@ -52,6 +67,7 @@ const cards: Array<CardsType> = [
 const PalaroidSlider = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [sliderCards, setSliderCards] = useState<CardsType[]>([]);
+  const [sliderCardsMobile, setSliderCardsMobile] = useState<CardsType[]>([]);
 
   useEffect(() => {
     let arrCards: Array<CardsType> = [];
@@ -62,12 +78,13 @@ const PalaroidSlider = () => {
 
     // Here I add additional cards if there isn't necessary value
     let i = 0;
-    while (arrCards.length < 8) {
+    while (arrCards.length <= 6) {
       arrCards.push(arrCards[i]);
       i++;
     }
 
     setSliderCards([...arrCards]);
+    setSliderCardsMobile([...arrCards].slice(0, 5));
   }, [cards]);
 
   let leftIndex = activeIndex ? activeIndex - 1 : sliderCards.length - 1;
@@ -78,6 +95,13 @@ const PalaroidSlider = () => {
   let hiddenLeftIndex = leftIndex ? leftIndex - 1 : sliderCards.length - 1;
   let hiddenRightIndex =
     rightmostIndex === sliderCards.length - 1 ? 0 : rightmostIndex + 1;
+
+  // Mobile version carousel indexes
+  let leftIndexMobile = activeIndex
+    ? activeIndex - 1
+    : sliderCardsMobile.length - 1;
+  let rightIndexMobile =
+    activeIndex === sliderCardsMobile.length - 1 ? 0 : activeIndex + 1;
 
   function prev() {
     setActiveIndex((prev: number) =>
@@ -107,9 +131,26 @@ const PalaroidSlider = () => {
     );
   }
 
+  function prevMobile() {
+    setActiveIndex((prev: number) =>
+      prev ? prev - 1 : sliderCardsMobile.length - 1
+    );
+  }
+
+  function nextMobile() {
+    setActiveIndex((prev: number) =>
+      prev === sliderCardsMobile.length - 1 ? 0 : prev + 1
+    );
+  }
+
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => next(),
     onSwipedRight: () => prev(),
+  });
+
+  const swipeHandlersMobile = useSwipeable({
+    onSwipedLeft: () => nextMobile(),
+    onSwipedRight: () => prevMobile(),
   });
 
   function paginationHandler(index: number) {
@@ -129,10 +170,20 @@ const PalaroidSlider = () => {
       rightmostIndex,
       hiddenRightIndex
     );
+    console.log(sliderCards);
   }
+
+  const pagination = {
+    clickable: true,
+    renderBullet: function (index: number, className: string) {
+      return '<span class="' + className + '">' + (index + 1) + '</span>';
+    },
+  };
 
   return (
     <div className={classes.container}>
+      <div className={classes.ellipse_deco_1}></div>
+      <div className={classes.ellipse_deco_2}></div>
       <div className={classes.carousel}>
         <div
           key={hiddenLeftIndex}
@@ -193,14 +244,63 @@ const PalaroidSlider = () => {
           <PalaroidCard isActive={false} {...sliderCards[hiddenRightIndex]} />
         </div>
       </div>
+      {/* Carousel in small screens */}
+      <div className={classes.carousel_mobile}>
+        <div
+          key={leftIndexMobile}
+          className={[classes.left, classes.card].join(' ')}
+          onClick={prevMobile}
+        >
+          <PalaroidCard
+            image={sliderCardsMobile[leftIndexMobile]?.image}
+            title={''}
+            description={''}
+            date={''}
+            isActive={false}
+          />
+        </div>
+        <div
+          {...swipeHandlersMobile}
+          key={activeIndex}
+          className={[classes.active, classes.card].join(' ')}
+        >
+          <PalaroidCard isActive={true} {...sliderCardsMobile[activeIndex]} />
+        </div>
+        <div
+          key={rightIndexMobile}
+          className={[classes.right, classes.card].join(' ')}
+          onClick={nextMobile}
+        >
+          <PalaroidCard
+            image={sliderCardsMobile[rightIndexMobile]?.image}
+            title={''}
+            description={''}
+            date={''}
+            isActive={false}
+          />
+        </div>
+        {/* <div
+          key={rightmostIndex}
+          className={[classes.rightmost, classes.card].join(' ')}
+          onClick={nextMobile}
+        >
+          <PalaroidCard
+            image={sliderCards[rightmostIndex]?.image}
+            title={''}
+            description={''}
+            date={''}
+            isActive={false}
+          />
+        </div> */}
+      </div>
       <div className={classes.slider_pagination}>
         <ul>
-          {sliderCards.map((item, index) => (
+          {sliderCardsMobile.map((item, index) => (
             <li
               key={index}
-              onClick={() => {
-                paginationHandler(index);
-              }}
+              // onClick={() => {
+              //   paginationHandler(index);
+              // }}
               className={
                 activeIndex === index
                   ? classes.active_li

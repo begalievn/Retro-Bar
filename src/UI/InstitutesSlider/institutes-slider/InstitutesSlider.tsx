@@ -32,6 +32,7 @@ const data: Array<CardDataTypes> = [
     winePrice: 1000,
     stars: 4.5,
     isActive: false,
+    isContentBlack: true,
   },
   {
     photo: cardPhoto,
@@ -47,6 +48,7 @@ const data: Array<CardDataTypes> = [
     winePrice: 1000,
     stars: 4.5,
     isActive: false,
+    isContentBlack: true,
   },
   {
     photo: cardPhoto,
@@ -62,6 +64,7 @@ const data: Array<CardDataTypes> = [
     winePrice: 1000,
     stars: 4.5,
     isActive: false,
+    isContentBlack: true,
   },
   {
     photo: cardPhoto,
@@ -77,6 +80,7 @@ const data: Array<CardDataTypes> = [
     winePrice: 1000,
     stars: 4.5,
     isActive: false,
+    isContentBlack: true,
   },
   {
     photo: cardPhoto,
@@ -92,10 +96,15 @@ const data: Array<CardDataTypes> = [
     winePrice: 1000,
     stars: 4.5,
     isActive: false,
+    isContentBlack: true,
   },
 ];
 
-const InstitutesSlider: FC = () => {
+type PropsType = {
+  isContentBlack: boolean;
+};
+
+const InstitutesSlider: FC<PropsType> = ({ isContentBlack }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [slideCards, setSlideCards] = useState<CardDataTypes[]>([]);
 
@@ -141,24 +150,31 @@ const InstitutesSlider: FC = () => {
   return (
     <>
       <div className={classes.slider}>
-        <div className={classes.slider_title_container}>
+        {/* <div className={classes.slider_title_container}>
           <h2 className={classes.slider_title}>{'Заведения'}</h2>
           <img src={sketch} />
-        </div>
+        </div> */}
 
         <div className={classes.carousel}>
           <div
             key={hiddenLeftIndex}
             className={[classes.card, classes.hiddenLeft].join(' ')}
           >
-            <InstituteCard {...slideCards[hiddenLeftIndex]} />
+            <InstituteCard
+              {...{
+                ...slideCards[hiddenLeftIndex],
+                isContentBlack: isContentBlack,
+              }}
+            />
           </div>
           <div
             key={leftIndex}
             className={[classes.card, classes.left].join(' ')}
             onClick={prev}
           >
-            <InstituteCard {...slideCards[leftIndex]} />
+            <InstituteCard
+              {...{ ...slideCards[leftIndex], isContentBlack: isContentBlack }}
+            />
           </div>
           <div
             {...swipeHandlers}
@@ -166,7 +182,11 @@ const InstitutesSlider: FC = () => {
             className={[classes.card, classes.active].join(' ')}
           >
             <InstituteCard
-              {...{ ...slideCards[activeIndex], isActive: true }}
+              {...{
+                ...slideCards[activeIndex],
+                isActive: true,
+                isContentBlack: isContentBlack,
+              }}
             />
           </div>
           <div
@@ -174,13 +194,17 @@ const InstitutesSlider: FC = () => {
             className={[classes.card, classes.right].join(' ')}
             onClick={next}
           >
-            <InstituteCard {...slideCards[rightIndex]} />
+            <InstituteCard
+              {...{ ...slideCards[leftIndex], isContentBlack: isContentBlack }}
+            />
           </div>
           <div
             key={hiddenRightIndex}
             className={[classes.card, classes.hiddenRight].join(' ')}
           >
-            <InstituteCard {...slideCards[hiddenRightIndex]} />
+            <InstituteCard
+              {...{ ...slideCards[leftIndex], isContentBlack: isContentBlack }}
+            />
           </div>
           <div className={classes.slider_buttons}>
             <button onClick={prev}>

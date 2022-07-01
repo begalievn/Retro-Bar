@@ -1,18 +1,18 @@
-import React, { FC } from "react";
-import { Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React, { FC } from 'react';
+import { Navigation, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import close from "../../../assets/photoPageImages/gallery-images/close.svg";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import close from '../../../assets/photoPageImages/gallery-images/close.svg';
 
-import styles from "./GallerySlider.module.css";
-import { IPhotos } from "../../../pages/PhotoPage/components/PhotoMain/interfaces";
-import VideoCard from "../../VideoCard/VideoCard";
-import GallerySliderCard from "../GallerySliderCard/GallerySliderCard";
-import DownloadButton from "../Butttons/DownloadButton/DownloadButton";
-import ShareButton from "../Butttons/ShareButton/ShareButton";
+import styles from './GallerySlider.module.css';
+import { IPhotos } from '../../../pages/PhotoPage/components/PhotoMain/interfaces';
+import VideoCard from '../../VideoCard/VideoCard';
+import GallerySliderCard from '../GallerySliderCard/GallerySliderCard';
+import DownloadButton from '../Butttons/DownloadButton/DownloadButton';
+import ShareButton from '../Butttons/ShareButton/ShareButton';
 
 interface GallerySliderProps {
   currentEvent: IPhotos;
@@ -43,7 +43,7 @@ const GallerySlider: FC<GallerySliderProps> = ({
       </div>
       <Swiper
         pagination={{
-          type: "fraction",
+          type: 'fraction',
         }}
         navigation={true}
         loop={true}

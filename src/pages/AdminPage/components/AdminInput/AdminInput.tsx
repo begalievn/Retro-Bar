@@ -14,9 +14,12 @@ interface AdminInputProps {
   page: IPageBody;
   title?: string;
   name?: string;
-  inputValue: AdminPageTypes;
+  inputValue: AdminPageTypes | object;
   setInputValue: (prevInputs: AdminPageTypes | object) => void;
   color?: primaryColor;
+  inputHandler: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
   // icon: SVGElement;
 }
 
@@ -24,22 +27,10 @@ const AdminInput: FC<AdminInputProps> = ({
   page,
   setInputValue,
   inputValue,
+  inputHandler,
   ...props
 }) => {
   const type = props.title?.toLowerCase();
-
-  const inputHandler = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    if (e.target.toString().includes("TextArea")) {
-      e.target.style.height = e.target.scrollHeight + "px";
-    }
-
-    setInputValue((prevInputs: AdminPageTypes) => ({
-      ...prevInputs,
-      [e.target.name]: e.target.value,
-    }));
-  };
 
   return (
     <div className={classes.inputBlock}>
@@ -66,7 +57,7 @@ const AdminInput: FC<AdminInputProps> = ({
         <input
           id={props.name}
           name={props.name}
-          value={inputValue[props.name as keyof AdminPageTypes]}
+          value={inputValue[props.name as keyof AdminPageTypes] || ""}
           onChange={inputHandler}
           className={classes.adminInput}
           {...props}

@@ -4,6 +4,7 @@
   position: relative;
   background-image: url('../../../../assets/mainPage/polaroid-card-bg.png');
   background-size: cover;
+  font-family: mont;
 }
 
 .card_image {
@@ -37,7 +38,7 @@
 
 .card_content_left h5 {
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 22px;
   line-height: 28px;
 
@@ -46,7 +47,7 @@
 
 .card_content_left p {
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 18px;
   line-height: 23px;
   color: #000000;
@@ -59,7 +60,7 @@
 
 .card_content_right p {
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   line-height: 20px;
 

@@ -3,7 +3,8 @@ import InputSearch from "./InputSearch/InputSearch";
 import VideoCard from "./VideoCard/VideoCard";
 import CalendarModal from "./CalendarModal/CalendarModal";
 import CalendarIcon from "./CalendarIcon/CalendarIcon";
-import AlertSuccess from "./AlertSuccess/AlertSuccess";
+import AlertComponent from "./AlertSuccess/AlertSuccess";
+import Button from "./Button/Button";
 
 export {
   SearchBtn,
@@ -11,5 +12,6 @@ export {
   VideoCard,
   CalendarModal,
   CalendarIcon,
-  AlertSuccess,
+  AlertComponent,
+  Button,
 };

@@ -18,36 +18,36 @@ const SocialComponent: FC<SocialComponentProps> = ({
   return (
     <div className={classes.socialWrapper}>
       <div className={classes.socialBlock}>
-        <AdminInput
-          title={"Telegram"}
-          name={"telegram"}
-          page={page}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-        />
-        <AdminInput
-          title={"Instagram"}
-          name={"instagram"}
-          page={page}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-        />
+        {/*<AdminInput*/}
+        {/*  title={"Telegram"}*/}
+        {/*  name={"telegram"}*/}
+        {/*  page={page}*/}
+        {/*  inputValue={inputValue}*/}
+        {/*  setInputValue={setInputValue}*/}
+        {/*/>*/}
+        {/*<AdminInput*/}
+        {/*  title={"Instagram"}*/}
+        {/*  name={"instagram"}*/}
+        {/*  page={page}*/}
+        {/*  inputValue={inputValue}*/}
+        {/*  setInputValue={setInputValue}*/}
+        {/*/>*/}
       </div>
       <div className={classes.socialBlock}>
-        <AdminInput
-          title={"Youtube"}
-          name={"Youtube"}
-          page={page}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-        />
-        <AdminInput
-          title={"Mail"}
-          name={"Email"}
-          page={page}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-        />
+        {/*<AdminInput*/}
+        {/*  title={"Youtube"}*/}
+        {/*  name={"Youtube"}*/}
+        {/*  page={page}*/}
+        {/*  inputValue={inputValue}*/}
+        {/*  setInputValue={setInputValue}*/}
+        {/*/>*/}
+        {/*<AdminInput*/}
+        {/*  title={"Mail"}*/}
+        {/*  name={"Email"}*/}
+        {/*  page={page}*/}
+        {/*  inputValue={inputValue}*/}
+        {/*  setInputValue={setInputValue}*/}
+        {/*/>*/}
       </div>
     </div>
   );

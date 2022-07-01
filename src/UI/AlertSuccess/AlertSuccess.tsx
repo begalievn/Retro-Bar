@@ -9,7 +9,7 @@ interface AlertSuccessProps {
   alertBody: AlertBody;
 }
 
-const AlertSuccess: FC<AlertSuccessProps> = ({ alertBody }) => {
+const AlertComponent: FC<AlertSuccessProps> = ({ alertBody }) => {
   return (
     <div className={`${classes.alertBlock}`}>
       <Alert
@@ -22,4 +22,4 @@ const AlertSuccess: FC<AlertSuccessProps> = ({ alertBody }) => {
   );
 };
 
-export default AlertSuccess;
+export default AlertComponent;

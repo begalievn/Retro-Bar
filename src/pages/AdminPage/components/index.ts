@@ -6,6 +6,7 @@ import AdminEstablishment from "./AdminEstablishment/AdminEstablishment";
 import AdminSidebar from "./AdminSidebar/AdminSidebar";
 import AdminContacts from "./AdminContacts/AdminContacts";
 import AdminPhoto from "./AdminPhoto/AdminPhoto";
+import AdminAdvertising from "./AdminAdvertising/AdminAdvertising";
 
 export {
   AdminInput,
@@ -16,4 +17,5 @@ export {
   AdminSidebar,
   AdminContacts,
   AdminPhoto,
+    AdminAdvertising
 };

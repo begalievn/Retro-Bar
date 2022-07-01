@@ -5,7 +5,7 @@ import ContactsPage from "./ContactsPage/ContactsPage";
 import InstitutionPage from "./InstitutionPage/InstitutionPage";
 import InstitutionBarPage from "./InstitutionBarPage/InstitutionBarPage";
 import MainPage from "./MainPage/MainPage";
-import NewsPage from "./NewsPage/NewsPage";
+import NewsPages from "./NewsPage/NewsPages";
 import PhotoPage from "./PhotoPage/PhotoPage";
 import VideoPage from "./VideoPage/VideoPage";
 import EventsPage from "./EventsPage/EventsPage";
@@ -21,10 +21,17 @@ import {
   ADMIN_PHOTO,
   ADMIN_VIDEO,
 } from "../utils/path";
-import { isAdmin } from "../utils/getConfig";
-import { AdminPhoto } from "./AdminPage/components";
+import {
+  AdminEstablishment,
+  AdminPhoto,
+  AdminVideo,
+} from "./AdminPage/components";
+import { useAppSelector } from "../app/hooks";
+import AdminAdvertising from "./AdminPage/components/AdminAdvertising/AdminAdvertising";
 
 const MainRoutes = () => {
+  const isAdmin = useAppSelector((state) => state.AuthorizationSlice.token);
+
   const PUBLIC_ROUTES = [
     {
       link: "/",
@@ -58,7 +65,7 @@ const MainRoutes = () => {
     },
     {
       link: "/news",
-      element: <NewsPage />,
+      element: <NewsPages />,
       id: 7,
     },
     {
@@ -86,28 +93,14 @@ const MainRoutes = () => {
 
   const PRIVATE_ROUTES = [
     {
-      link: "/admin",
+      link: "/admin/*",
       element: <AdminPage />,
       id: 1,
     },
-    {
-      link: ADMIN_PHOTO,
-      element: <AdminPhoto />,
-      id: 2,
-    },
-    // {
-    //   link: ADMIN_VIDEO,
-    //   element: <Gallery />,
-    //   id: 3,
-    // },
-    // {
-    //   link: ADMIN_ADVERTISING,
-    //   element: <Gallery />,
-    //   id: 4,
-    // },
+
     // {
     //   link: ADMIN_ESTABLISHMENT,
-    //   element: <Gallery />,
+    //   element: <AdminEstablishment />,
     //   id: 5,
     // },
     // {

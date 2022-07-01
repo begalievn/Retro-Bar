@@ -1,7 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 
 import classes from "./AdminGeneral.module.css";
-import { IPageBody, Pages } from "../../../../types/adminPage/adminPage";
+import {
+  AdminPageTypes,
+  IPageBody,
+  Pages,
+} from "../../../../types/adminPage/adminPage";
 import AdminInput from "../AdminInput/AdminInput";
 import AddMedia from "../AddMedia/AddMedia";
 import SocialComponent from "../SocialComponent/SocialComponent";
@@ -9,27 +13,36 @@ import SocialComponent from "../SocialComponent/SocialComponent";
 interface AdminGeneralProps {
   page?: IPageBody;
   postHandler: () => void;
-  inputValue: any;
-  setInputValue: (some: any) => void;
-  currentPage: string;
-  setCurrent: (some: any) => void;
+  inputValue: AdminPageTypes | object;
+  setInputValue: (some: AdminPageTypes | object) => void;
 }
 
 const AdminGeneral: FC<AdminGeneralProps> = ({
   page,
   setInputValue,
   inputValue,
-  setCurrent,
-  currentPage,
   postHandler,
 }) => {
+
+  const inputHandler = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    if (e.target.toString().includes("TextArea")) {
+      e.target.style.height = e.target.scrollHeight + "px";
+    }
+
+    setInputValue((prevInputs: AdminPageTypes) => ({
+      ...prevInputs,
+      [e.target.name]: e.target.value,
+    }));
+  };
   return (
     <div className={classes.adminGeneralBlock}>
       <h3 className={classes.adminTitle}>{page?.title}</h3>
       <div className={classes.adminContent}>
         {page?.add == "video" ? (
           <AddMedia
-            currentPage={currentPage}
+            inputHandler={inputHandler}
             page={page!}
             inputValue={inputValue}
             setInputValue={setInputValue}
@@ -38,7 +51,7 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
           </AddMedia>
         ) : (
           <AddMedia
-            currentPage={currentPage}
+            inputHandler={inputHandler}
             page={page!}
             inputValue={inputValue}
             setInputValue={setInputValue}
@@ -53,6 +66,7 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
               page?.fields.map((field) => {
                 return (
                   <AdminInput
+                    inputHandler={inputHandler}
                     key={field.title}
                     inputValue={inputValue}
                     setInputValue={setInputValue}
@@ -64,6 +78,7 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
               })}
             {page?.viewersRange && (
               <AdminInput
+                inputHandler={inputHandler}
                 title="Просмотры"
                 name="views"
                 inputValue={inputValue}
@@ -74,13 +89,6 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
           </div>
         </div>
       </div>
-      {currentPage == Pages.contacts && (
-        <SocialComponent
-          page={page!}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-        />
-      )}
     </div>
   );
 };
