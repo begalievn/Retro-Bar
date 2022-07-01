@@ -23,19 +23,32 @@ function Book({
   },
   page,
 }: BookProps) {
-  const container = page === 'main' ? styles.containerMain : styles.container;
+  let container = styles.container;
+
+  if (page === 'main') container = styles.containerMain
+  if (page === 'video') container = styles.containerVideo
+
+
 
   return (
     <section className={container}>
-      {page === 'institutions' && (
-        <img
-          className={styles.sketchInstitutions}
-          src={sketchInstitutions}
-          alt=""
-        />
+      {page === 'institution' && (
+        <>
+          <img
+            className={styles.sketchInstitutions}
+            src={sketchInstitutions}
+            alt=""
+          />
+          <div className={styles.topGradient}></div>
+          <div className={styles.bottomGradient}></div>
+
+        </>
       )}
       {page === 'video' && (
+        <>
         <img className={styles.sketchVideo} src={sketchVideo} alt="" />
+        <div className={styles.bottomGradient}></div>
+        </>
       )}
 
       <div className={styles.imageBlock}>
