@@ -4,6 +4,7 @@ import eyeIcon from "../../../../assets/icons/eye.svg";
 import pictureIcon from "../../../../assets/icons/picture.svg";
 import styles from "./Events.module.css";
 import Gallery from "../../../Gallery/GalleryModal/GalleryModal";
+import { useAppSelector } from "../../../../app/hooks";
 interface EventsProps {
   events: IPhotos[];
 }
@@ -18,26 +19,30 @@ const Events: FC<EventsProps> = ({ events }) => {
     toggleGalleryModal()
     console.log(event)
   };
+
+  const filterData = useAppSelector(state=> state.photos.filterPhoto)
+  console.log(filterData);
+  
   return (
     <>
-      {events.map((event, i) => (
+      {filterData?.map((event, i) => (
         <div className={styles.establishment} key={i}>
           <img
-            src={event.link}
+            src={event.photos[0].url}
             onClick={() => onClickEvent(event)}
             className={styles.establishment_image}
             alt=""
           />
           <div className={styles.establishment_info}>
-            <h3 className={styles.establishment_info_title}>{event.name}</h3>
-            <p className={styles.establishment_info_text}>{event.partyName}</p>
+            <h3 className={styles.establishment_info_title}>{event.establishment.name}</h3>
+            <p className={styles.establishment_info_text}>{event.eventName}</p>
             <div className={styles.establishment_info_footer}>
               <div className={styles.establishment_info_footer_numbers}>
                 <div className={styles.establishment_info_footer_views}>
                   <img src={eyeIcon} alt="" /> <p>{event.views}</p>
                 </div>
                 <div className={styles.establishment_info_footer_photos}>
-                  <img src={pictureIcon} alt="" /> <p>{event.photos}</p>
+                  <img src={pictureIcon} alt="" /> <p>{event.photos.length}</p>
                 </div>
               </div>
 
