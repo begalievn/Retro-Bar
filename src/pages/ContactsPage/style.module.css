@@ -2,9 +2,8 @@
   background: url("../../assets/contactsPage/back.png");
   background-repeat: no-repeat;
   background-size: cover;
-
   width: 100%;
-  /* min-height: 700px; */
+  min-height: 700px;
   color: white;
   font-family: "Montserrat Alternates";
 }
