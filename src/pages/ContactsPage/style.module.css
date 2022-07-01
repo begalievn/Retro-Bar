@@ -88,10 +88,7 @@
 .smallImage {
   position: absolute;
   transition: 0.5s;
-<<<<<<< HEAD
-=======
   cursor: pointer;
->>>>>>> 7810996729a6c57402cd94407b9d658931469309
 }
 .imageFrame:nth-child(1) :last-child {
   top: 20.5%;
