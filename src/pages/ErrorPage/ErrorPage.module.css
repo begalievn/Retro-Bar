@@ -33,6 +33,45 @@
   padding-top: 100px;
 }
 
-.errorImg{
-    width:419px;
+.polaroidImg {
+  width: 100%;
+}
+
+.imgDiv {
+  position: relative;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.tapeStyle:nth-child(1n) {
+  position: absolute;
+  top: 5%;
+  right: 30%;
+  width: 30%;
+  mix-blend-mode: luminosity;
+  z-index: 1;
+}
+.tapeStyle:nth-child(2n) {
+  position: absolute;
+  top: 55%;
+  left: 8%;
+  width: 13%;
+  mix-blend-mode: luminosity;
+  z-index: 1;
+}
+.tapeResp:nth-child(1n) {
+  position: absolute;
+  top: 5%;
+  right: 30%;
+  width: 30%;
+  mix-blend-mode: luminosity;
+}
+.tapeResp:nth-child(2n) {
+  position: absolute;
+  top: 55%;
+  left: 7%;
+  width: 13%;
+  mix-blend-mode: luminosity;
+}
+.inputS {
+  max-width: 80%;
 }

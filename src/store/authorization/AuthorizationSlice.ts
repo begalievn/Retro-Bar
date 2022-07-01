@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { IUser } from '../types/userTypes';
-import { API } from '../utils/helpers/Consts';
+import { IUser } from '../../types/userTypes';
+import { API } from '../../utils/helpers/Consts';
 
 
 
@@ -11,7 +11,8 @@ export const AuthorizationSlice = createSlice({
   name: 'auth',
   initialState: {
     userData: false,
-    validData: ''
+    validData: '',
+    token:''
   },
   reducers: {
      addTextError(state){
@@ -23,6 +24,12 @@ export const AuthorizationSlice = createSlice({
      },
      checkAdmin(state,action){
       state.userData = action.payload
+     },
+     addToken(state,action){
+     state.token = action.payload
+     },
+     deleteToken(state){
+      state.token = ''
      }
      
   },
@@ -31,7 +38,9 @@ export const AuthorizationSlice = createSlice({
 export const {
   addTextError,
   deleteTextError,
-  checkAdmin
+  checkAdmin,
+  addToken,
+  deleteToken
 } = AuthorizationSlice.actions;
 
 export default AuthorizationSlice.reducer;

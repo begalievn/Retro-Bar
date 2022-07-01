@@ -2,19 +2,17 @@
   color: white;
   max-width: 1123px;
   margin: 0 auto;
-  font-family: 'Mont';
+  font-family: "Mont";
 }
 
-
 .section2_establishments_back {
-
   width: 1123px;
   max-height: 689px;
   height: 61.5vw;
   width: 100%;
-  background: url('../../assets/eventsImages/film.png') no-repeat;
+  background: url("../../assets/eventsImages/film.png") no-repeat;
   padding: 2.5% 7% 0% 12.33%;
-  background-size: contain
+  background-size: contain;
 }
 
 .section2_establishments {
@@ -32,11 +30,14 @@
 
 .section2_establishment {
   position: relative;
+  transition: 0.5s;
+}
 
+.section2_establishment:hover {
+  transform: scale(1.1);
 }
 
 .section2_establishment_image {
-
   max-width: 407px;
   max-height: 308px;
   width: 100vw;
@@ -44,12 +45,18 @@
 
 }
 
-.section2_establishment_text {
 
+
+.section2_establishment_text {
   position: absolute;
   bottom: 0;
   height: 139px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.79) 39.9%, #000000 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.79) 39.9%,
+    #000000 100%
+  );
   width: 100%;
   padding-left: 32px;
   font-weight: 500;
@@ -60,7 +67,6 @@
 .section2_establishment_text div {
   display: flex;
   width: 100%;
-
 }
 
 .section2_establishment_text h3 {
@@ -104,10 +110,8 @@
   margin-right: 10px;
 }
 
-
-@media(max-width:1125px) {
+@media (max-width: 1125px) {
   .section2_establishments {
-
     width: 100%;
     max-height: 635px;
     height: 57.2vw;
@@ -121,7 +125,6 @@
 
   .section2_establishment {
     position: relative;
-
   }
 
   .section2_establishment_image {
@@ -130,9 +133,8 @@
   }
 }
 
-@media(max-width:920px) {
+@media (max-width: 920px) {
   .section2_establishment_text {
-
     height: 47%;
     font-size: 13px;
     padding-left: 12px;
@@ -149,10 +151,9 @@
   }
 }
 
-@media(max-width:700px) {
+@media (max-width: 700px) {
   .section2_establishment_text {
     height: 50%;
-
   }
 
   .section2_establishment_text h3 {
@@ -168,14 +169,14 @@
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .section2_establishments_back {
     display: none;
   }
 
   .section2_establishments_backMini {
     display: block;
-    background: url('../../assets/eventsImages/iventsMini.png') no-repeat;
+    background: url("../../assets/eventsImages/iventsMini.png") no-repeat;
 
     width: 100%;
     padding: 5% 11.5% 4.7% 14.4%;
@@ -193,21 +194,16 @@
     position: relative;
     max-height: 140vw;
     height: 119vw;
-
   }
 
   .section2_establishment_image {
-
     max-width: 600px;
     max-height: 600px;
     width: 74.8vw;
     height: 55.5vw;
-
   }
 
-  .eventPage_section2>h3 {
-
-
+  .eventPage_section2 > h3 {
     font-size: 22px;
     line-height: 27px;
 
@@ -218,24 +214,18 @@
   }
 
   .section2_establishment_text {
-
     height: 45%;
     font-size: 16px;
-
   }
-
 }
 
-@media(max-width:400px) {
+@media (max-width: 400px) {
   .section2_establishment_text {
     height: 50%;
     font-size: 14px;
-
   }
 
   .section2_establishment_text img {
     width: 14px;
   }
-
-
 }

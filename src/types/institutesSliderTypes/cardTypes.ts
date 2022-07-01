@@ -12,4 +12,5 @@ export interface CardDataTypes {
   winePrice: number;
   stars: number;
   isActive: boolean;
+  isContentBlack: boolean;
 }

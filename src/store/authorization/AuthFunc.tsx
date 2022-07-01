@@ -1,8 +1,8 @@
 
-import { IUser } from "../types/userTypes";
+import { IUser } from "../../types/userTypes";
 import axios from 'axios';
-import { API } from "../utils/helpers/Consts";
-import { addTextError, checkAdmin } from "./AuthorizationSlice";
+import { API } from "../../utils/helpers/Consts";
+import { addTextError, addToken, checkAdmin, deleteToken } from "./AuthorizationSlice";
 import { Dispatch } from "react";
 
 export interface IDispatch{
@@ -23,9 +23,9 @@ export const login = (userData: IUser) => {
     let res = await axios.post(`${API}admin/login`, data, config)
     .then((response)=>{
 
-      console.log(response);
-      localStorage.setItem('token', JSON.stringify(response.data));
+      localStorage.setItem('accessToken', JSON.stringify(response.data.accessToken));
       dispatch(checkAdmin(true))
+      dispatch(addToken(response.data.accessToken))
     }).catch(()=>{
       dispatch(addTextError())
     })    
@@ -36,6 +36,7 @@ export const login = (userData: IUser) => {
     return (dispatch:Dispatch<IDispatch>)=>{
       localStorage.removeItem('token');
       dispatch(checkAdmin(false))
+      dispatch(deleteToken())
     }
   }
 
