@@ -21,7 +21,7 @@ import {
   star,
 } from './index';
 import Button from '../../Button/Button';
-import { useAppSelector } from '../../../../../app/hooks';
+import { photoAPI } from '../../../../../store/features/photos/photoQuery';
 
 const images = [
   {

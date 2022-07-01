@@ -8,6 +8,7 @@ import Gallery from "../../../../../UI/Gallery/GalleryModal/GalleryModal";
 import NewGallery from "../../../../../UI/NewGallery/NewGallery";
 
 import Button from "../../Button/Button";
+import { photoAPI } from "../../../../../store/features/photos/photoQuery";
 
 interface ImagesListProps {
   images: IPhotos[];
