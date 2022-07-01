@@ -13,54 +13,6 @@ import { ROUTES } from "../../utils/routes";
 
 const AdminPage = () => {
   let alert = useAppSelector((state) => state.AlertSlice.alert);
-
-  // const postHandler = () => {
-  //   if (pages[current]?.innerPage?.name) {
-  //     setCurrent(pages[current]?.innerPage?.name || "");
-  //   }
-  //   if (pages[current]?.name == Pages.photo) {
-  //     AdminApi.addPhoto(inputValue as PhotoCard)
-  //       .then(() =>
-  //         dispatch(
-  //           createAlert({ message: "Успешно опубликовано", type: "success" })
-  //         )
-  //       )
-  //       .catch((e) => {
-  //         dispatch(
-  //           createAlert({ message: e.response.data.message, type: "error" })
-  //         );
-  //         setTimeout(() => dispatch(deleteAlert()), 2000);
-  //       });
-  //   }
-  //   if (pages[current]?.name == Pages.video) {
-  //     AdminApi.addVideo(inputValue as VideoCard)
-  //       .then(() =>
-  //         dispatch(
-  //           createAlert({ message: "Успешно опубликовано", type: "success" })
-  //         )
-  //       )
-  //       .catch((e) => {
-  //         dispatch(
-  //           createAlert({ message: e.response.data.message, type: "error" })
-  //         );
-  //       });
-  //   }
-  //
-  //   if (pages[current]?.name == Pages.establishment) {
-  //     AdminApi.addEstablishment(inputValue as Establishment)
-  //       .then(() =>
-  //         dispatch(
-  //           createAlert({ message: "Успешно опубликовано", type: "success" })
-  //         )
-  //       )
-  //       .catch((e) => {
-  //         dispatch(
-  //           createAlert({ message: e.response.data.message, type: "error" })
-  //         );
-  //       });
-  //   }
-  // };
-
   return (
     <div className={classes.adminWrapper}>
       <AdminSidebar />
