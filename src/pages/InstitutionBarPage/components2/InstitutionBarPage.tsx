@@ -16,7 +16,7 @@ import bigStar from "../../../assets/institutionBarImg/iconLiveBar/bigStar.svg";
 import backgroundPaper from "../../../assets/institutionBarImg/back/backgroundPaper.png";
 import BottomEmojis from "../../../UI/BottomEmojis/BottomEmojis";
 import { PaperNew } from "./PaperNew";
-const InstituteBar: FC = () => {
+const InstitutionBarPage: FC = () => {
   const description = [
     { img: clock, text: "18:00-06:00" },
     { img: money, text: "Средний чек: 1000 сом" },
@@ -92,4 +92,4 @@ const InstituteBar: FC = () => {
   );
 };
 
-export default InstituteBar;
+export default InstitutionBarPage;

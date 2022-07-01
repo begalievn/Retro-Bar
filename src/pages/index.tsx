@@ -3,16 +3,9 @@ import { Routes, Route } from "react-router-dom";
 
 import ContactsPage from "./ContactsPage/ContactsPage";
 import InstitutionPage from "./InstitutionPage/InstitutionPage";
-<<<<<<< HEAD
-
 import InstitutionBarPage from "./InstitutionBarPage/components2/InstitutionBarPage";
 import MainPage from "./MainPage/MainPage";
-import NewsPage from "./NewsPage/NewsPage";
-=======
-import InstitutionBarPage from "./InstitutionBarPage/InstitutionBarPage";
-import MainPage from "./MainPage/MainPage";
 import NewsPages from "./NewsPage/NewsPages";
->>>>>>> 7810996729a6c57402cd94407b9d658931469309
 import PhotoPage from "./PhotoPage/PhotoPage";
 import VideoPage from "./VideoPage/VideoPage";
 import EventsPage from "./EventsPage/EventsPage";
@@ -55,11 +48,7 @@ const MainRoutes = () => {
     },
     {
       link: "/news",
-<<<<<<< HEAD
-      element: <NewsPage />,
-=======
       element: <NewsPages />,
->>>>>>> 7810996729a6c57402cd94407b9d658931469309
       id: 7,
     },
     {
