@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import ImagesList from '../ImagesList/ImagesList';
 import {
   eventPlace,
@@ -21,6 +21,7 @@ import {
   star,
 } from './index';
 import Button from '../../Button/Button';
+import { photoAPI } from '../../../../../store/features/photos/photoQuery';
 
 const PhotoReport: FC = () => {
   const images = [

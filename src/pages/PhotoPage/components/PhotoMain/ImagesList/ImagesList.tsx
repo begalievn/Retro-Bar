@@ -6,6 +6,7 @@ import pic from "../../../../../assets/photoPageImages/icons/pic.svg";
 import camera from "../../../../../assets/photoPageImages/icons/camera.svg";
 import Gallery from "../../../../../UI/Gallery/GalleryModal/GalleryModal";
 import Button from "../../Button/Button";
+import { photoAPI } from "../../../../../store/features/photos/photoQuery";
 
 interface ImagesListProps {
   images: IPhotos[];

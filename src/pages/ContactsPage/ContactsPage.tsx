@@ -1,6 +1,4 @@
 import React, { FC, useEffect, useState } from "react";
-import { Container, Grid } from "@mui/material";
-import aboutUs from "../../assets/contactsPage/sketch.png";
 import phoneIcon from "../../assets/contactsPage/phone.svg";
 import whatsAppIcon from "../../assets/contactsPage/WhatsApp.svg";
 import mailIcon from "../../assets/contactsPage/mail.svg";
