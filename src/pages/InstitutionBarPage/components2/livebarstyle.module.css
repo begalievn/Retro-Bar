@@ -1,0 +1,355 @@
+.livebarLetfTop {
+  margin-bottom: 5%;
+}
+.livebarHeader {
+  padding-top: 15px;
+  font-size: 24px;
+}
+.livebarLetfBottom p {
+  margin-bottom: 4%;
+  font-size: 1em;
+}
+.livebar {
+  padding: 5% 0 0 8%;
+}
+.comments {
+  width: 200px;
+  display: inline-flex;
+}
+.comments img {
+  padding: 2% 10% 0 0;
+}
+.comments p {
+  padding: 2% 10% 0 0;
+}
+.comments {
+  width: 38%;
+  padding-right: 10px;
+}
+.livebarTextMobile {
+  display: none;
+}
+
+/* Livebar photo */
+.photosAll {
+  display: grid;
+  grid-template-columns: 13vw 13vw 13vw 13vw;
+  grid-template-rows: auto auto;
+}
+.photoSmall {
+  top: 8%;
+  left: 7%;
+  transform: rotate(-3deg);
+  max-height: 240px;
+  height: 43%;
+  max-width: 240px;
+  width: 69%;
+  position: absolute;
+  transition: 0.5s;
+}
+.articlePhoto:nth-child(1) :last-child {
+  top: 22%;
+  left: 10%;
+  max-width: 700px;
+  max-height: 340px;
+  width: 65%;
+  height: 115%;
+  transition: 0.5s;
+  transform: rotate(3.7deg);
+}
+.articlePhoto:nth-child(1):first-child {
+  width: 65vw;
+  height: 56%;
+}
+.articlePhoto:nth-child(1) {
+  grid-area: 1 / 1 / 2 / 4;
+  max-width: 58vw;
+  width: 100%;
+  transform: rotate(1deg);
+  position: relative;
+  left: 4%;
+}
+
+.articlePhoto:nth-child(2) {
+  grid-area: 2 / 1 / 2 / 1;
+  position: relative;
+  left: 25%;
+  transform: rotate(-2deg);
+}
+.articlePhoto:nth-child(3) {
+  grid-area: 2 / 2 / 2 / 2;
+  position: relative;
+  left: 10%;
+  transform: rotate(4deg);
+}
+.articlePhoto:nth-child(4) {
+  grid-area: 2 / 3/ 2 / 3;
+  position: relative;
+  right: 5%;
+  transform: rotate(7deg);
+}
+.articlePhoto:nth-child(5) {
+  grid-area: 2 / 4 / 2 / 4;
+  position: relative;
+  right: 17%;
+  transform: rotate(2deg);
+}
+.articlePhoto:nth-child(2) :nth-child(even) {
+  width: 4vw;
+  position: absolute;
+  left: 70%;
+  top: 15%;
+}
+
+.articlePhoto:nth-child(3) :nth-child(even) {
+  width: 4vw;
+  position: absolute;
+  left: 70%;
+  top: 14%;
+  transform: rotate(-102deg);
+}
+.articlePhoto:nth-child(4) :nth-child(even) {
+  width: 4vw;
+  position: absolute;
+  left: 70%;
+  top: 16%;
+  transform: rotate(-15deg);
+}
+.articlePhoto:nth-child(5) :nth-child(even) {
+  visibility: hidden;
+}
+.articlePhoto:nth-child(1) :nth-child(even) {
+  visibility: hidden;
+}
+
+/* Paper Part */
+/* .backgroundPaper {
+  margin-left: -6%;
+  width: 105vw;
+  mix-blend-mode: screen;
+} */
+/* Photos */
+
+.gridPhotos {
+  display: grid;
+  grid-template-columns: 30vw 30vw 30vw;
+}
+.miniPhotos {
+  width: 24vw;
+  top: 5%;
+  left: 2%;
+  position: absolute;
+}
+.photosCombine:nth-child(1) {
+  position: relative;
+  grid-column: 1, 1;
+  transform: rotate(-1.5deg);
+}
+.photosCombine:nth-child(2) {
+  position: relative;
+  grid-column: 2, 2;
+  transform: rotate(1.6deg);
+}
+.photosCombine:nth-child(3) {
+  position: relative;
+  grid-column: 3, 3;
+}
+.miniPhotoPolaroid {
+  width: 25vw;
+}
+.photosBoth h1 {
+  font-size: 2.5rem;
+  font-family: "Montserrat Alternates";
+}
+.data {
+  padding: 20px 0;
+  font-size: 2rem;
+  font-family: "Montserrat Alternates";
+}
+/* Two Photo */
+.twoPaper {
+  background-origin: border-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  background-image: url("../../../assets/institutionBarImg/back/backgroundPaper.png");
+  /* 0 0/100% 100%; */
+  margin-left: -6%;
+  width: 110%;
+  mix-blend-mode: screen;
+  height: 115vh;
+}
+.photosBoth {
+  color: black;
+  position: relative;
+  top: 17%;
+  left: 8%;
+}
+.mobileMobile {
+  display: none;
+}
+@media only screen and (max-width: 800px) {
+  .photosAll {
+    display: grid;
+    grid-template-columns: 47vw 47vw 47vw;
+    grid-template-rows: auto auto;
+  }
+  .articlePhoto:nth-child(5) {
+    display: none;
+  }
+  .articlePhoto:nth-child(1) :last-child {
+    max-width: 900px;
+    max-height: 440px;
+    width: 65%;
+    height: 123%;
+    transition: 0.2s;
+    transform: rotate(3.7deg);
+  }
+  .articlePhoto:nth-child(1):first-child {
+    width: 105vw;
+    height: 53%;
+  }
+  .articlePhoto:nth-child(1) {
+    max-width: 110vw;
+    left: 0%;
+  }
+  /* Slider */
+  /* .twoPaper {
+    background: url("../../../assets/institutionBarImg/back/backgroundPaper.png")
+      10% 0/100vw 100%;
+    background-size: cover;
+    width: 115%;
+    mix-blend-mode: screen;
+    height: 150%;
+  } */
+  .gridPhotos {
+    display: none;
+  }
+  .mobileMobile {
+    display: block;
+  }
+  .mobileVersion {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    height: 30vh;
+    max-height: 40vh;
+    align-items: center;
+  }
+
+  .last,
+  .next {
+    border: none;
+    background-color: transparent;
+  }
+  .btnNext {
+    position: relative;
+    left: -13%;
+  }
+  .slider {
+    width: 35px;
+    margin: 10px;
+  }
+
+  .frame1 {
+    position: absolute;
+    transform: rotate(-1.38deg);
+    width: 45vw;
+    left: 20%;
+  }
+  .frame2 {
+    position: absolute;
+    transform: rotate(1.53deg);
+    width: 45vw;
+    left: 20%;
+  }
+  .frame3 {
+    position: absolute;
+    width: 45vw;
+    left: 20%;
+  }
+  .fr1 {
+    position: relative;
+    margin-top: 7%;
+    left: -20%;
+    width: 43vw;
+    max-width: 60vw;
+    transform: rotate(-1.5deg);
+    mix-blend-mode: screen;
+  }
+  .fr2 {
+    position: relative;
+    margin-top: 7%;
+    left: -20%;
+    width: 43vw;
+    transform: rotate(1.6deg);
+    mix-blend-mode: screen;
+  }
+  .fr3 {
+    position: relative;
+    margin-top: 7%;
+    left: -20%;
+    width: 43vw;
+    mix-blend-mode: screen;
+  }
+  /* Index */
+  .indexNumber {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .indexBtn {
+    border: none;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    color: black;
+    font-family: "Montserrat Alternates";
+  }
+  .indexBtn2 {
+    border-bottom: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    color: black;
+    font-family: "Montserrat Alternates";
+  }
+  /* End */
+  .photoSmall {
+    top: 10%;
+    height: 60%;
+  }
+  .articlePhoto:nth-child(2) {
+    left: -30%;
+  }
+  .articlePhoto:nth-child(3) {
+    transform: rotate(3deg);
+    left: -45%;
+  }
+  .articlePhoto:nth-child(4) {
+    right: 60%;
+  }
+  .articlePhoto:nth-child(2) :nth-child(even) {
+    width: 11vw;
+    position: absolute;
+    left: 72%;
+    top: 30%;
+  }
+  .articlePhoto:nth-child(3) :nth-child(even) {
+    width: 11vw;
+    position: absolute;
+    left: 70%;
+    top: 26%;
+    transform: rotate(-122deg);
+  }
+  .articlePhoto:nth-child(4) :nth-child(even) {
+    display: none;
+  }
+  .rating {
+    margin-left: 14px;
+  }
+}

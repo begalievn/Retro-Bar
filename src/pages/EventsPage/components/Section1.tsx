@@ -1,21 +1,23 @@
-import React, { FC, useEffect, useState } from "react";
-import tape2 from "../../../assets/eventsImages/tape2.png";
-import tape1 from "../../../assets/eventsImages/tape 1.png";
+import React, { FC, useEffect, useState } from 'react';
+import tape2 from '../../../assets/eventsImages/tape2.png';
+import tape1 from '../../../assets/eventsImages/tape 1.png';
 
-import hero from "../../../assets/eventsImages/banner ticket (2).png";
-import banner from "../../../assets/eventsImages/banner (1).png";
-import bannerMini from "../../../assets/eventsImages/bannerMini.jpg";
-import style from "../eventPage.module.css";
+import hero from '../../../assets/eventsImages/banner ticket (2).png';
+import banner from '../../../assets/eventsImages/banner (1).png';
+import bannerMini from '../../../assets/eventsImages/bannerMini.jpg';
+import style from '../eventPage.module.css';
 
-const navbar: Array<string> = ["Видео", "Услуги", "Плеер", "Галерея"];
+const navbar: Array<string> = ['Видео', 'Услуги', 'Плеер', 'Галерея'];
 
 const Section1: FC = () => {
   return (
     <>
       <div className={style.eventPage_navbar}>
         <div>
-          {navbar.map((item) => (
-            <a href="#">{item}</a>
+          {navbar.map((item, index) => (
+            <a key={index} href="#">
+              {item}
+            </a>
           ))}
         </div>
       </div>

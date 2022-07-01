@@ -5,6 +5,7 @@ import Slider from "../Slider/Slider";
 import video from "../../../../assets/videoPage/video.png";
 import video1 from "../../../../assets/videoPage/video1.png";
 import { IVideoCardBody } from "../../../../types/videoPageTypes/videoPage";
+import { videoAPI } from "../../../../store/features/videos/videoQuery";
 
 const MainVideo = () => {
   const images: IVideoCardBody[] = [

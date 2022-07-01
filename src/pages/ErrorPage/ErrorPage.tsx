@@ -39,8 +39,8 @@ const ErrorPage = () => {
           <Grid item xs={12} md={6}>
             <div className={classes.imgDiv}>
               <img className={classes.polaroidImg} src={polaroid} alt="" />
-              {tapes.map((item) => (
-                <img className={classes.tapeStyle} src={item} alt="" />
+              {tapes.map((item, index) => (
+                <img key={index} className={classes.tapeStyle} src={item} alt="" />
               ))}
             </div>
           </Grid>
@@ -75,8 +75,8 @@ const ErrorPage = () => {
           <Grid item xs={12} md={6}>
             <div className={classes.imgDiv}>
               <img className={classes.polaroidImg} src={polaroid} alt="" />
-              {tapes.map((item) => (
-                <img className={classes.tapeResp} src={item} alt="" />
+              {tapes.map((item, index) => (
+                <img key={index} className={classes.tapeResp} src={item} alt="" />
               ))}
             </div>
           </Grid>

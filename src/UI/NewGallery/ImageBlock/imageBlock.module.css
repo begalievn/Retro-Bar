@@ -1,0 +1,26 @@
+.imageBlock{
+  background-color: rgba(0, 0, 255, 0.418);
+  width: 100%;
+  height: 82.5%;
+  margin-bottom: 3.6%;
+  margin-top: 1.9%;
+  position: relative;
+}
+.image{
+  width: 100%;
+  height: 100%;
+}
+  
+
+
+@media screen and (max-width: 425px) {
+  .imageBlock{
+    background-color: rgba(0, 0, 255, 0.418);
+    width: 100%;
+    height: 56.9%;
+    margin-bottom: 11.9%;
+    margin-top: 9.4%;
+  }
+  
+
+}
