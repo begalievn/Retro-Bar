@@ -111,6 +111,10 @@
   position: relative;
 }
 
+.photo_report_card_container {
+  width: 335px;
+}
+
 .green_tape {
   width: 116px;
   height: 38px;
@@ -165,6 +169,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.photo_reports__btn button:hover {
+  cursor: pointer;
 }
 
 .photo_reports__star3 {
