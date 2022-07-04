@@ -26,7 +26,7 @@ import classes from './mainPage.module.css';
 import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
 
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 let bookProps: BookProps = {
   data: {
@@ -38,6 +38,9 @@ let bookProps: BookProps = {
 };
 
 const MainPage = () => {
+  const photos = useAppSelector((state) => state.photos.value);
+  console.log('from MainPage getting photos: ', photos);
+
   return (
     <div className={classes.main}>
       <div className={classes.header_background_effect}></div>

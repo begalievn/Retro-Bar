@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { IPhoto, IPhotoCards } from "../../../types/apiTypes/photo";
 import { API } from "../../../utils/helpers/Consts";
 
 export const photoAPI = createApi({

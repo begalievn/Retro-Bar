@@ -45,6 +45,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
             <img src={item.border} alt="" />
           </div>
           <div className={styles.image} onClick={() => onClickEvent(item)}>
+      
             <img src={item.link} alt="" />
           </div>
           {item.ad ? (

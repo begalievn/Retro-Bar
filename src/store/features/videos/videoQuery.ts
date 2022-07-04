@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { IVideo } from "../../../types/apiTypes/video";
 import { API } from "../../../utils/helpers/Consts";
 
 export const videoAPI = createApi({

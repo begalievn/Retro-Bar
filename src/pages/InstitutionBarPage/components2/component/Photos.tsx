@@ -1,11 +1,8 @@
 import { FC, useState, useEffect } from "react";
 import classes from "./livebarstyle.module.css";
-// import top1 from "../../../assets/institutionBarImg/photo/top1.png";
-// import top2 from "../../../assets/institutionBarImg/photo/top2.png";
-// import top3 from "../../../assets/institutionBarImg/photo/top3.png";
-import polaroidMini from "../../../assets/institutionBarImg/photo/polaroidMini.png";
-import sliderLeft from "../../../assets/institutionBarImg/iconsMap/sliderLeft.svg";
-import sliderRight from "../../../assets/institutionBarImg/iconsMap/sliderRight.svg";
+import polaroidMini from "../../../../assets/institutionBarImg/photo/polaroidMini.png";
+import sliderLeft from "../../../../assets/institutionBarImg/iconsMap/sliderLeft.svg";
+import sliderRight from "../../../../assets/institutionBarImg/iconsMap/sliderRight.svg";
 // interface IbringArray {
 //   arr?: Array<string>;
 // }
@@ -86,8 +83,8 @@ const Photos: FC<IArrayProps> = ({ items, photo1, photo2, photo3 }) => {
           </div>
           <div className={classes.mixPhoto}>
             <img src={polaroidMini} className={polaroid} />
-            <img src={photo} className={photoClass} />
           </div>
+          <img src={photo} className={photoClass} />
           <div className={classes.btnNext}>
             <button className={classes.next} onClick={() => handleNext()}>
               <img src={sliderRight} className={classes.slider} />
