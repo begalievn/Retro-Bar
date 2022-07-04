@@ -7,7 +7,7 @@ export const videoAPI = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: API }),
   tagTypes: ["Video"],
   endpoints: (build) => ({
-    fetchAllVideos: build.query<IVideo,number>({
+    fetchAllVideos: build.query({
       query: () => ({
         url: "/video"
       }),

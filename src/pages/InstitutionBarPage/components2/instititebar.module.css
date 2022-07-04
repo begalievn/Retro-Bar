@@ -1,10 +1,29 @@
 .mainContainer {
+  background: url("../../../assets/institutionBarImg/back/back.png") 0 0/100%
+    100% no-repeat;
+  background-size: contain;
   color: white;
-  width: min(100%, 90.5rem);
+  max-width: 2000px;
+  width: min(100%, 150rem);
   overflow: hidden;
   height: 100%;
+  margin: 0 auto;
 }
 
+.gridPosition {
+  margin-top: 100px;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  grid-template-rows: auto auto auto auto auto;
+  grid-template-areas:
+    "text-header share"
+    "liveText livePhoto"
+    "mapPhoto mapText"
+    "paper paper"
+    "bottomEmoji bottomEmoji";
+}
+/* Grid  Area 1  (text-header and share)*/
 .text_header {
   grid-area: text-header;
   font-family: "Montserrat Alternates";
@@ -13,101 +32,76 @@
   font-weight: 600;
   color: #ffb03b;
   line-height: 24.38px;
-}
-.share {
-  grid-area: share;
-  position: relative;
-  font-family: "Montserrat Alternates";
-  left: 30vw;
+  padding: 0 4rem;
 }
 .shareIcon {
   position: relative;
   left: 10px;
+  top: 4px;
 }
-.liveText {
-  padding-top: 5vh;
-  width: 45vw;
-  grid-area: liveText;
-  font-size: 1rem;
+.shareBtn {
+  margin-left: 50%;
+  grid-area: share;
+  font-family: "Montserrat Alternates";
+  background: transparent;
+  border: none;
+  color: white;
+  width: 120px;
+}
+.socialBtn {
+  margin: 3% 0 0 3%;
 }
 
-.liveBottom {
-  grid-area: liveBottom;
-}
-.mapPhoto {
-  width: 45vw;
-  grid-area: mapPhoto;
-}
-.mapText {
-  width: 40vw;
-  grid-area: mapText;
+/* Grid Area 2  (liveText and livePhoto)*/
+.liveText {
+  padding: 0 4rem;
+  padding-top: 5vh;
+  width: 50vw;
+  grid-area: liveText;
+  font-size: 1rem;
 }
 .livePhoto {
   padding-top: 5vh;
   width: 50vw;
   grid-area: livePhoto;
 }
-/* .paper {
-  grid-area: paper;
-  padding: 0;
-} */
-
-.gridPosition {
-  /* position: relative; */
-  margin-top: 100px;
-  /* top: 200px; */
-  width: 100vw;
-  display: grid;
-  grid-template-columns: 1.5fr 2fr;
-  grid-template-rows: auto auto auto auto auto;
-  grid-template-areas:
-    "text-header share"
-    "liveText livePhoto"
-    "mapPhoto mapText";
-  padding: 0 3rem;
+/* Grid Area 3  (mapPhoto and mapText)*/
+.mapPhoto {
+  max-width: 1440px;
+  padding: 0 4rem;
+  width: 50vw;
+  grid-area: mapPhoto;
 }
-.mainGradient {
-  /* position: absolute; */
-  background-image: url("../../../assets//institutionBarImg/back/back.png");
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+.mapImage:hover {
+  transform: scale(1.1);
 }
-
-/* Map */
 .mapImage {
   width: 110%;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
 }
-.mapImage:hover {
-  transform: scale(1.1);
-}
+/* ------*---------*---------*------- */
 .mapText {
-  left: 20%;
+  width: 50vw;
   position: relative;
+  left: 10%;
+  grid-area: mapText;
 }
-
+.mapText h1 {
+  font-family: "mont";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 45px;
+  color: #ffb03b;
+}
 .mapText p {
   margin: 0 0 1.4em 0;
 }
 .mapText img {
   margin: 0 10px 0px 0;
 }
-
-.mapText h1 {
-  font-family: "mont";
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 45px;
-  color: #ffb03b;
-}
 .mapText a {
   color: aliceblue;
-}
-.share {
-  visibility: hidden;
 }
 .livebarTextMobile {
   visibility: hidden;
@@ -122,21 +116,34 @@
   left: -35px;
   font-size: 28px;
 }
-/* .mainGradient {
-  position: relative;
-  background-image: url("../../../assets//institutionBarImg/back/back.png");
-  min-height: 200vh;
-  background-repeat: no-repeat;
-} */
-@media only screen and (max-width: 1200px) {
-  /* .mainGradient {
-    position: relative;
-    background-image: url("../../../assets//institutionBarImg/back/back.png");
-    min-height: 200vh;
-    background-repeat: no-repeat;
-  } */
+
+/* Grid Area 4 - Paper background */
+.paper {
+  grid-area: paper;
+  width: 100vw;
+  height: 125vw;
+  background: url("../../../assets/institutionBarImg/back/backgroundPaper.png")
+    0 0/100% 100% no-repeat;
+  mix-blend-mode: screen;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: black;
 }
-@media only screen and (max-width: 1000px) {
+/* Grid Area 5-emoji footer */
+.bottomEmoji {
+  width: 100vw;
+  grid-area: bottomEmoji;
+}
+.mobileTextAfterPhoto {
+  display: none;
+}
+@media only screen and (max-width: 1250px) {
+  .mainContainer {
+    background: url("../../../assets/institutionBarImg/back/back.png") 0 0/100%
+      70% no-repeat;
+  }
   .mapText p {
     font-size: 15px;
     margin: 0 0 1em 0;
@@ -147,6 +154,9 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .mapPhoto {
+    padding: 4rem 4rem 0 4rem;
+  }
   .liveText {
     font-size: 0.7em;
   }
@@ -156,59 +166,130 @@
   }
 }
 @media only screen and (max-width: 800px) {
+  .mainContainer {
+    background: url("../../../assets/institutionBarImg/back/back.png") 0 0/100%
+      70% no-repeat;
+  }
+  .shareBtn {
+    visibility: hidden;
+  }
   .gridPosition {
-    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto auto auto;
     grid-template-areas:
       "text-header "
       "share"
       "liveText "
       "livePhoto"
+      "mobileTextAfterPhoto"
       "mapText"
       "mapPhoto "
-      "paper";
-    padding: 0 2rem;
+      "paper"
+      "bottomEmoji";
   }
+  /* Mobile Text  */
+  .mobileTextAfterPhoto {
+    display: block;
+    font-size: 1rem;
+    margin: 0 30px;
+    text-align: center;
+    grid-area: mobileTextAfterPhoto;
+    height: 15vh;
+  }
+  /* Grid  Area 1  (text-header )*/
+  .text_header {
+    padding: 0 4rem;
+  }
+  /* Grid Area 3  (liveText)*/
 
-  .mapText p {
-    font-size: 20px;
-    margin: 0 10px 18px 0;
-  }
   .liveText {
-    padding-top: 5vh;
+    padding: 5vh 2rem 0 2rem;
     margin: 0 auto;
     width: 90vw;
     grid-area: liveText;
     font-size: 1rem;
   }
-  .mapPhoto {
-    width: 80vw;
-    grid-area: mapPhoto;
-  }
-  .mapText {
-    width: 90vw;
-    grid-area: mapText;
-  }
+  /* Grid  Area 4 (livePhoto)*/
   .livePhoto {
-    max-width: 90vw;
-    padding-top: 5vh;
-    grid-area: livePhoto;
-  }
-  .mapText {
-    margin-top: 10%;
-    left: 0%;
-    position: relative;
-  }
-  .paper {
-    grid-area: paper;
-    max-height: 100vh;
-    padding: 0;
+    padding: 0 1.5rem;
   }
 
+  /* Grid Area 5  (mapText)*/
+  .mapText {
+    width: 90vw;
+  }
+  .mapText p {
+    font-size: 17px;
+    margin: 0 10px 18px 0;
+  }
   .mapText h1 {
     font-size: 18px;
   }
   .bigStar {
     left: 85%;
     position: absolute;
+  }
+  /* Grid Area 6 (mapPhoto) */
+  .mapPhoto {
+    margin-left: -3%;
+    width: 100vw;
+  }
+  /* Grid Area 7 - Paper background */
+  .paper {
+    background: url("../../../assets/institutionBarImg/back/backgroundPaper.png")
+      no-repeat top center;
+    background-size: cover;
+    height: 1150px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .mapText p {
+    font-size: 13px;
+    margin: 0 0 1em 0;
+  }
+  .liveText {
+    font-size: 0.8em;
+  }
+  .mobileTextAfterPhoto {
+    font-size: 13px;
+  }
+}
+
+/* --------------------- */
+@media only screen and (min-width: 1440px) {
+  .mainContainer {
+    background: url("../../../assets/institutionBarImg/back/back.png") 0 0/100%
+      100% no-repeat;
+    height: 100%;
+  }
+  .liveText {
+    width: 700px;
+  }
+  .mapImage {
+    width: 600px;
+    transition: none;
+  }
+  .gridPosition {
+    margin: 100px auto 0 auto;
+    width: 1440px;
+    display: grid;
+    grid-template-columns: 700px 600px;
+    grid-template-rows: 100px 750px 500px 1200px 300px;
+    grid-template-areas:
+      "text-header share"
+      "liveText livePhoto"
+      "mapPhoto mapText"
+      "paper paper"
+      "bottomEmoji bottomEmoji";
+  }
+  .paper {
+    width: 1440px;
+    padding-left: 5%;
+    height: 1300px;
+  }
+  .bottomEmoji {
+    width: 1440px;
+    grid-area: bottomEmoji;
   }
 }

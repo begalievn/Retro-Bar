@@ -11,7 +11,7 @@ import Button from "../../Button/Button";
 import { photoAPI } from "../../../../../store/features/photos/photoQuery";
 
 interface ImagesListProps {
-  images: IPhotos[];
+  images: IPhotos[] | null;
 }
 const ImagesList: FC<ImagesListProps> = ({ images }) => {
   const [galleryModal, setGalleryModal] = useState(false);
@@ -28,6 +28,10 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
     toggleGalleryModal();
     console.log(event);
   };
+  if(!images) {
+    return <div>Loading...</div>
+  }
+
   return (
     <>
       {images.map((item) => (
@@ -41,6 +45,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
             <img src={item.border} alt="" />
           </div>
           <div className={styles.image} onClick={() => onClickEvent(item)}>
+      
             <img src={item.link} alt="" />
           </div>
           {item.ad ? (

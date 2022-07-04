@@ -7,7 +7,7 @@ export const establishmentsAPI = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: API }),
   tagTypes: ["Establishments","Contacts"],
   endpoints: (build) => ({
-    fetchAllEstablishments: build.query<IEstablishment,number>({
+    fetchAllEstablishments: build.query({
       query: () => ({
         url: "/establishment"
       }),

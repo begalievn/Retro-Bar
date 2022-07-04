@@ -131,9 +131,6 @@ const ContactsPage: FC = () => {
                 <a href="https://mail.google.com/">info@foodzero.com</a>
               </div>
             </div>
-            {/* {images.map((item:any)=>(
-              <img src={item.logo} alt="" />
-            ))} */}
           </div>
 
           <div></div>
