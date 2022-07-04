@@ -87,8 +87,9 @@ const MainRoutes = () => {
     {
       link: "/photo/gallery",
       element: <Gallery />,
-      id: 11,
-    },
+      id: 12,
+    }
+      
   ];
 
   const PRIVATE_ROUTES = [
