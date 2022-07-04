@@ -21,17 +21,10 @@ import TextBlock from "./TextBlock";
 import { IImageArr } from "../../types/contactsPageTypes/contactsPageTypes";
 import { establishmentsAPI } from "../../store/features/establishments/establishmentsQuery";
 import { photoAPI } from "../../store/features/photos/photoQuery";
+import { Button } from "@mui/material";
 
 const ContactsPage: FC = () => {
-  // const [limit, setLimit] = useState(3);
-  // const {
-  //   data: contactsImages,
-  //   error,
-  //   isLoading,
-  //   refetch,
-  // } = establishmentsAPI.useFetchAllContactsQuery(limit);
-  // console.log(contactsImages);
-  const [limit, setLimit] = useState(3);
+  const [limit, setLimit] = useState(4);
   let {
     data: photos,
     error,
@@ -41,7 +34,7 @@ const ContactsPage: FC = () => {
   isLoading && <h1>Loading...</h1>;
   error && <h2>error</h2>;
 
-  let images = photos?.photoCards;
+  let images = photos?.establishments;
   console.log(images);
 
   const [frameArr, setFrameArr] = useState<IImageArr[]>([
