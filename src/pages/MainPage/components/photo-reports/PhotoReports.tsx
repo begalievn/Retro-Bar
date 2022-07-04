@@ -1,5 +1,5 @@
 // imported libraries
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // imported images
@@ -22,8 +22,7 @@ import photoBackground from '../../../../assets/mainPage/photo-report-card-big-b
 
 import classes from '../../mainPage.module.css';
 import PhotoReportCardBig from '../photo-report-card/PhotoReportCardBig';
-
-// const photos: Array<HTMLImageElement> = [photo1, photo2, photo3, photo4];
+import { photoAPI } from '../../../../store/features/photos/photoQuery';
 
 const reportsArr = [
   {
@@ -75,6 +74,13 @@ const bigPhotoCard = {
 };
 
 const PhotoReports = () => {
+  const {
+    data: photos,
+    error,
+    isLoading,
+  } = photoAPI.useFetchAllPhotosQuery('');
+  console.log(photos);
+
   const navigate = useNavigate();
 
   return (

@@ -38,9 +38,6 @@ let bookProps: BookProps = {
 };
 
 const MainPage = () => {
-  const photos = useAppSelector((state) => state.photos.value);
-  console.log('from MainPage getting photos: ', photos);
-
   return (
     <div className={classes.main}>
       <div className={classes.header_background_effect}></div>
