@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import classes from "./instititebar.module.css";
 import share from "../../../assets/institutionBarImg/iconLiveBar/share.svg";
-import { LiveText } from "./Livetext";
-import { LivePhoto } from "./LivePhoto";
+import { LiveText } from "./component/Livetext";
+import { LivePhoto } from "./component/LivePhoto";
 import map from "../../../assets/institutionBarImg/photo/map.png";
 import cycle from "../../../assets/institutionBarImg/iconsMap/sketch.svg";
 import clock from "../../../assets/institutionBarImg/iconsMap/clock.svg";
@@ -13,10 +13,12 @@ import instagram from "../../../assets/institutionBarImg/iconsMap/instagram.svg"
 import geotag from "../../../assets/institutionBarImg/iconsMap/geotag.svg";
 import phone from "../../../assets/institutionBarImg/iconsMap/phone.svg";
 import bigStar from "../../../assets/institutionBarImg/iconLiveBar/bigStar.svg";
-import backgroundPaper from "../../../assets/institutionBarImg/back/backgroundPaper.png";
 import BottomEmojis from "../../../UI/BottomEmojis/BottomEmojis";
-import { PaperNew } from "./PaperNew";
+import { PaperNew } from "./component/PaperNew";
+// share
+import { ShareSocial } from "./shareSocial";
 const InstitutionBarPage: FC = () => {
+  const [show, setShow] = useState(false);
   const description = [
     { img: clock, text: "18:00-06:00" },
     { img: money, text: "Средний чек: 1000 сом" },
@@ -25,13 +27,18 @@ const InstitutionBarPage: FC = () => {
   ];
   return (
     <div className={classes.mainContainer}>
-      {/* <div className={classes.mainGradient}> */}
       <div className={classes.gridPosition}>
         <header className={classes.text_header}>Заведения/LIVEBAR</header>
-        <p className={classes.share}>
+        <button
+          type="button"
+          onClick={() => setShow(!show)}
+          className={classes.shareBtn}
+        >
           Поделиться
           <img src={share} className={classes.shareIcon} />
-        </p>
+          {show && <ShareSocial />}
+        </button>
+
         <div className={classes.liveText}>
           <LiveText />
         </div>
@@ -81,15 +88,19 @@ const InstitutionBarPage: FC = () => {
             Ул. Кулатова 8/1 LiveBar Coolatova
           </p>
         </div>
-
-        {/* <div className={classes.paper}>
-            <PaperNew />
-          </div> */}
-        {/* </div> */}
+        <p className={classes.mobileTextAfterPhoto}>
+          Лучше один раз увидеть, чем 100 раз прочитать или услышать! Приходите
+          и ощутите уникальную ауру наших заведений!
+        </p>
+        <div className={classes.paper}>
+          <PaperNew />
+        </div>
+        <div className={classes.bottomEmoji}>
+          <BottomEmojis />
+        </div>
       </div>
-      {/* <BottomEmojis /> */}
     </div>
   );
 };
 
-export default InstitutionBarPage;
+export { InstitutionBarPage };
