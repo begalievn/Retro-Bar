@@ -12,8 +12,8 @@ type PropsType = {
 const EstablishmentItem: FC<PropsType> = ({ item }) => {
 
 
-  let date = item.date.split('').slice(0,10).join('')
-  console.log(date);
+  let date = item.date?.split('').slice(0,10).join('')        
+     console.log(date);
   
   return (
     <div className={style.section2_establishment}>

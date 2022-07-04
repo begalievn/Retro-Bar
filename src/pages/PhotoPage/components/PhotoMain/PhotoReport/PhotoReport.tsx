@@ -1,5 +1,7 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import ImagesList from '../ImagesList/ImagesList';
+import { IPhotos } from "../interfaces";
+
 import {
   eventPlace,
   zeppelinBar,
@@ -22,6 +24,7 @@ import {
 } from './index';
 import Button from '../../Button/Button';
 import { photoAPI } from '../../../../../store/features/photos/photoQuery';
+import { useAppSelector } from '../../../../../app/hooks';
 
 const images = [
   {
@@ -128,7 +131,7 @@ const images = [
     border: wideBorder,
     id: 7,
     icon: star,
-    title: 'Фото и видео услуги',
+    title: 'Фото и видео усл',
     text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует.',
   },
   {
@@ -207,7 +210,7 @@ const images = [
   },
   {
     name: 'PABLO',
-    link: pablo,
+    link: '',
     border: longBorder,
     id: 13,
     partyName: 'TUESDAY',
@@ -222,21 +225,65 @@ const images = [
     ],
   },
 ];
+
+
+
 const PhotoReport: FC = () => {
   // const photos = useAppSelector((state)=>state.photos.value);
-  
-  // console.log(photos);
 
-  // const [limit, setLimit] = useState(100);
-//   const {
-//     data: photos,
-//     error,
-//     isLoading,  
-//     refetch,
-//   } = photoAPI.useFetchAllPhotosQuery(10);
-//  console.log(photos)
-  
-  return <ImagesList images={images} />;
+
+
+  const [finalResponse, setFinalResponse] = useState<Array<IPhotos> | null>(null);
+  const {
+    data: photos,
+    error,
+    isLoading,
+    refetch,
+  } = photoAPI.useFetchAllPhotosQuery(20);
+  console.log(photos);
+
+
+  useEffect(() => {
+    if (photos) {
+      console.log(photos.photoCards);
+      let newImages: Array<IPhotos> = [];
+      for (let i = 0; i < images.length; i++) {
+        let nativeElement = images[i];
+        
+        const responseElement = photos.photoCards[i];
+        if (nativeElement.ad) {
+          newImages.push(nativeElement)
+          continue;
+        };
+        console.log(nativeElement);
+        
+        nativeElement = {
+          ...nativeElement,
+          name: responseElement.establishment.name,
+          link: responseElement.photos.length ? responseElement.photos[0] : "",
+          views: responseElement.views,
+          photos: responseElement.photos.length,
+          partyName: responseElement.eventName,
+          id: responseElement.id,
+          date: responseElement.date,
+          images: responseElement.photos,
+
+
+
+
+        }
+        newImages.push(nativeElement)
+
+        console.log(newImages);
+        setFinalResponse(newImages)
+
+      }
+
+
+    }
+
+  }, [photos])
+  return <ImagesList images={finalResponse} />
 };
 
 export default PhotoReport;

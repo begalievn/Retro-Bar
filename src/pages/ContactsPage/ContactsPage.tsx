@@ -38,11 +38,11 @@ const ContactsPage: FC = () => {
     isLoading,
     refetch,
   } = establishmentsAPI.useFetchAllContactsQuery(limit);
-  isLoading && <h1>Loading...</h1>
-  error&& <h2>error</h2>
+  isLoading && <h1>Loading...</h1>;
+  error && <h2>error</h2>;
 
-  let images = photos?.photoCards
-  console.log(images)
+  let images = photos?.photoCards;
+  console.log(images);
 
   const [frameArr, setFrameArr] = useState<IImageArr[]>([
     {

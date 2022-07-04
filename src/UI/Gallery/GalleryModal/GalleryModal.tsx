@@ -1,11 +1,12 @@
 import React, { FC } from 'react'
-import { IPhotos } from '../../../pages/PhotoPage/components/PhotoMain/interfaces'
+// import { IPhotos } from '../../../pages/PhotoPage/components/PhotoMain/interfaces'
 import styles from './GalleryModal.module.css'
 import GallerySlider from '../GallerySlider/GallerySlider'
+import { IPhotos } from '../../../types/apiTypes/photo'
 
 
 interface GalleryModalProps {
-  galleryModal:boolean
+  galleryModal:boolean;
   toggleGalleryModal:() => void
   currentEvent:IPhotos
 }
