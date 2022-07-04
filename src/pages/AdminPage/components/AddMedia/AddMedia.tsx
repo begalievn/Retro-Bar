@@ -6,6 +6,7 @@ import AdminInput from "../AdminInput/AdminInput";
 import { IPageBody } from "../../../../types/adminPage/adminPage";
 import set = Reflect.set;
 import { useLocation } from "react-router-dom";
+import { blob } from "stream/consumers";
 
 interface AddMediaProps {
   page: IPageBody;
@@ -25,7 +26,7 @@ const AddMedia: FC<AddMediaProps> = ({
   inputHandler,
 }) => {
   const [drag, setDrag] = useState(false);
-  const [files, setFiles] = useState<any | null>([]);
+  const [fileList, setFileList] = useState<any | null>([]);
 
   const onDragStartHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -37,19 +38,14 @@ const AddMedia: FC<AddMediaProps> = ({
   };
   const onDropHandler = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    let targetFiles = [...e.dataTransfer.files];
-    // TODO addSomePhotos
-    setFiles(targetFiles);
-    const formData = new FormData();
-    targetFiles.forEach((item) => {
-      formData.append(item.name, item);
-    });
-    setInputValue((prev: any) => ({ ...prev, [page.add]: formData }));
+    let newFile = e.dataTransfer.files[0];
+    if (newFile) {
+      const updatedFiles = [...fileList, newFile];
+      setFileList(updatedFiles);
+      setInputValue((prev: any) => ({ ...prev, [page.add]: updatedFiles }));
+    }
     setDrag(false);
-
-    console.log(formData);
   };
-
 
   return (
     <div
@@ -80,22 +76,22 @@ const AddMedia: FC<AddMediaProps> = ({
           <i className={classes.icon}>
             {page.add === "video" ? <VideoIcon /> : <PhotoIcon />}
           </i>
-          {files?.length == 1 ? (
-            <span>{files[0].name}</span>
+          {fileList?.length == 1 ? (
+            <span>{fileList[0].name}</span>
           ) : (
             <span className={classes.adminAddTitle}>{children}</span>
           )}
         </div>
       )}
 
-      {files?.length > 1 && (
+      {fileList?.length > 1 && (
         <div className={classes.fileList}>
-          {files.map((file: File) => {
-            return <p key={file.name}>{file.name}</p>;
+          {fileList.map((file: File, index: number) => {
+            return <p key={index}>{file.name}</p>;
           })}
         </div>
       )}
-      {/*{files?.length && files.map((i: File) => <span>{i.name}</span>)}*/}
+      {/*{fileList?.length && fileList.map((i: File) => <span>{i.name}</span>)}*/}
       {page.addLink && (
         <AdminInput
           inputHandler={inputHandler}

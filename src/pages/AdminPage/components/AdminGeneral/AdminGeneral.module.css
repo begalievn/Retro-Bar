@@ -33,42 +33,12 @@
   gap: 60px;
   /*!* gap: 70px;*/
 }
-.adminAdd {
-  color: white;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 30px;
-  padding: 30px;
-  justify-content: center;
-  width: 437px;
-  height: 437px;
-  margin-bottom: 35px;
-  background-color: #2f2f2f;
-  background-image: url("data:image/svg+xml,%3csvg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='white' stroke-width='4' stroke-dasharray='20' stroke-dashoffset='5' stroke-linecap='square'/%3e%3c/svg%3e");
-  border-radius: 13px;
-}
-.adminAddRow {
-  width: 100%;
-  height: 178px;
-  flex-direction: row;
-}
-.adminAddBlock {
-}
-.adminAddTitle {
-  color: white;
-  font-family: "Montserrat Alternates";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 27px;
-}
-.fileList {
-  color: white;
-}
 .btnBlock {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
 }
+
+
+

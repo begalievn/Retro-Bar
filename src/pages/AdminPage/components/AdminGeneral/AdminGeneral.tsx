@@ -9,6 +9,7 @@ import {
 import AdminInput from "../AdminInput/AdminInput";
 import AddMedia from "../AddMedia/AddMedia";
 import SocialComponent from "../SocialComponent/SocialComponent";
+import DropFileInput from "../DropFileInput/DropFileInput";
 
 interface AdminGeneralProps {
   page?: IPageBody;
@@ -44,23 +45,26 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
       <h3 className={classes.adminTitle}>{page?.title}</h3>
       <div className={classes.adminContent}>
         {page?.add == "video" ? (
-          <AddMedia
-            inputHandler={handler ? handler : inputHandler}
-            page={page!}
-            inputValue={inputValue}
+          <DropFileInput
+            type={page?.add!}
+            children={"Добавить видео"}
             setInputValue={setInputValue}
-          >
-            Добавить видео
-          </AddMedia>
+          />
         ) : (
-          <AddMedia
-            inputHandler={handler ? handler : inputHandler}
-            page={page!}
-            inputValue={inputValue}
+          <DropFileInput
+            type={page?.add!}
+            children={"Добавить картинки"}
             setInputValue={setInputValue}
-          >
-            Добавить картинки
-          </AddMedia>
+          />
+
+          // <AddMedia
+          //   inputHandler={handler ? handler : inputHandler}
+          //   page={page!}
+          //   inputValue={inputValue}
+          //   setInputValue={setInputValue}
+          // >
+          //   Добавить картинки
+          // </AddMedia>
         )}
 
         <div className={classes.adminFields}>

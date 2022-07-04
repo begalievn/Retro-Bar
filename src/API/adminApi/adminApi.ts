@@ -29,6 +29,7 @@ export class AdminApi {
   static async addPhoto(photoData: PhotoCard) {
     const { formData } = getFormData(photoData);
     const { data } = await $host.post("/admin/photoCard", formData, config);
+    console.log(formData);
     return data;
   }
 }
