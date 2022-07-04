@@ -26,7 +26,7 @@ import Button from '../../Button/Button';
 import { photoAPI } from '../../../../../store/features/photos/photoQuery';
 import { useAppSelector } from '../../../../../app/hooks';
 
-const images = [
+const images: IPhotos[] = [
   {
     link: eventPlace,
     name: 'PARK EVENTPLACE',
@@ -38,10 +38,7 @@ const images = [
     date: '14 мая 2022',
     studio: 'Фото студия “Оригами”',
     images: [
-      { image: eventPlace },
-      { image: eventPlace },
-      { image: eventPlace },
-      { image: eventPlace },
+     
     ],
   },
   {
@@ -54,10 +51,7 @@ const images = [
     views: 709,
     date: '20 мая 2022',
     images: [
-      { image: zeppelinBar },
-      { image: zeppelinBar },
-      { image: zeppelinBar },
-      { image: zeppelinBar },
+     
     ],
   },
   {
@@ -70,10 +64,7 @@ const images = [
     views: 660,
     date: '20 мая 2022',
     images: [
-      { image: kipishBar },
-      { image: kipishBar },
-      { image: kipishBar },
-      { image: kipishBar },
+    
     ],
   },
   {
@@ -86,10 +77,7 @@ const images = [
     views: 665,
     date: '28 мая 2022',
     images: [
-      { image: attention },
-      { image: attention },
-      { image: attention },
-      { image: attention },
+     
     ],
   },
   {
@@ -102,10 +90,7 @@ const images = [
     views: 675,
     date: '20 мая 2022',
     images: [
-      { image: munchenPub },
-      { image: munchenPub },
-      { image: munchenPub },
-      { image: munchenPub },
+    
     ],
   },
   {
@@ -118,10 +103,7 @@ const images = [
     views: 4660,
     date: '14 мая 2022',
     images: [
-      { image: pintaPub },
-      { image: pintaPub },
-      { image: pintaPub },
-      { image: pintaPub },
+     
     ],
   },
   {
@@ -144,10 +126,7 @@ const images = [
     views: 5004,
     date: '14 мая 2022',
     images: [
-      { image: mamaRada },
-      { image: mamaRada },
-      { image: mamaRada },
-      { image: mamaRada },
+     
     ],
   },
   {
@@ -160,10 +139,7 @@ const images = [
     views: 4789,
     date: '11 мая 2022',
     images: [
-      { image: secretMusicHall },
-      { image: secretMusicHall },
-      { image: secretMusicHall },
-      { image: secretMusicHall },
+    
     ],
   },
   {
@@ -176,10 +152,7 @@ const images = [
     views: 8335,
     date: '21 октября 2021',
     images: [
-      { image: molecula },
-      { image: molecula },
-      { image: molecula },
-      { image: molecula },
+      
     ],
   },
   {
@@ -192,10 +165,7 @@ const images = [
     views: 7336,
     date: '22 мая 2022',
     images: [
-      { image: oblaco53 },
-      { image: oblaco53 },
-      { image: oblaco53 },
-      { image: oblaco53 },
+  
     ],
   },
   {
@@ -218,10 +188,7 @@ const images = [
     views: 4695,
     date: '14 мая 2022',
     images: [
-      { image: pablo },
-      { image: pablo },
-      { image: pablo },
-      { image: pablo },
+      
     ],
   },
 ];
@@ -229,9 +196,15 @@ const images = [
 
 
 const PhotoReport: FC = () => {
-  // const photos = useAppSelector((state)=>state.photos.value);
+  let MokPhotos:Array<string> = [];
+  for (let i = 0; i < Math.floor(Math.random() * 20); i++) {
+    MokPhotos.push(`https://picsum.photos/${Math.floor(Math.random() * 200)}/200`);
+    
+  }
+  // console.log(MokPhotos);
 
-
+  
+  
 
   const [finalResponse, setFinalResponse] = useState<Array<IPhotos> | null>(null);
   const {
@@ -240,12 +213,12 @@ const PhotoReport: FC = () => {
     isLoading,
     refetch,
   } = photoAPI.useFetchAllPhotosQuery(20);
-  console.log(photos);
+  // console.log(photos);
 
 
   useEffect(() => {
     if (photos) {
-      console.log(photos.photoCards);
+      // console.log(photos.photoCards);
       let newImages: Array<IPhotos> = [];
       for (let i = 0; i < images.length; i++) {
         let nativeElement = images[i];
@@ -255,26 +228,26 @@ const PhotoReport: FC = () => {
           newImages.push(nativeElement)
           continue;
         };
-        console.log(nativeElement);
+        // console.log(nativeElement);
         
         nativeElement = {
           ...nativeElement,
           name: responseElement.establishment.name,
-          link: responseElement.photos.length ? responseElement.photos[0] : "",
+          link: `https://picsum.photos/${Math.floor(Math.random() * 200)}/500`,
           views: responseElement.views,
           photos: responseElement.photos.length,
           partyName: responseElement.eventName,
           id: responseElement.id,
           date: responseElement.date,
-          images: responseElement.photos,
+          images: MokPhotos
 
-
+          // responseElement.photos.length ? responseElement.photos[0] : ""
 
 
         }
         newImages.push(nativeElement)
 
-        console.log(newImages);
+        // console.log(newImages);
         setFinalResponse(newImages)
 
       }

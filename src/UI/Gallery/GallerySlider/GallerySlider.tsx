@@ -53,10 +53,10 @@ const GallerySlider: FC<GallerySliderProps> = ({
         {currentEvent.images?.map((image, i) => (
           <>
             <SwiperSlide className={styles.slide} key={i}>
-              <GallerySliderCard image={image.image} />
+              {/* <GallerySliderCard image={image.image} /> */}
               <div className={styles.slider_buttons}>
-                <ShareButton image={image.image} />
-                <DownloadButton image={image.image} />
+                {/* <ShareButton image={image.image } />
+                <DownloadButton image={image.image } /> */}
               </div>
             </SwiperSlide>
           </>
