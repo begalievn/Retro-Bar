@@ -5,6 +5,7 @@
 }
 .cardBody {
   position: relative;
+ 
 }
 
 .cardPlayIcon {
@@ -73,3 +74,7 @@
   .cardTitle {
   }
 }
+/* .videoPlayer{
+  width: 500px;
+  height: 200px;
+} */

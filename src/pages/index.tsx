@@ -75,7 +75,7 @@ const MainRoutes = () => {
       link: "/photo/gallery",
       element: <Gallery />,
       id: 12,
-    },
+    }
   ];
 
   return (

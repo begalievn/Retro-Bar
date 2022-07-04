@@ -5,7 +5,7 @@ import { API } from "../../../utils/helpers/Consts";
 export const photoAPI = createApi({
   reducerPath: "photoAPI",
   baseQuery: fetchBaseQuery({ baseUrl: API }),
-  tagTypes: ["Photo"],
+  tagTypes: ["Photo","Contacts"],
   endpoints: (build) => ({
     fetchAllPhotos: build.query({
       query: () => ({
@@ -13,5 +13,14 @@ export const photoAPI = createApi({
       }),
       providesTags: (result) => ["Photo"],
     }),
+    fetchAllContacts: build.query({
+        query: (limit) => ({
+          url: `/photo?take=${limit}&page=0`,
+          params:{
+            _limit: limit
+          }
+        }),
+        providesTags: (result) => ["Contacts"],
+      })
   }),
 });

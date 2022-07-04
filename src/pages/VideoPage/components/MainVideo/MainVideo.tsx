@@ -8,6 +8,13 @@ import { IVideoCardBody } from "../../../../types/videoPageTypes/videoPage";
 import { videoAPI } from "../../../../store/features/videos/videoQuery";
 
 const MainVideo = () => {
+  const {
+    data: photos,
+    error,
+    isLoading,
+    refetch,
+  } = videoAPI.useFetchAllVideosQuery("");
+
   const images: IVideoCardBody[] = [
     {
       title: "SUZIE WONG / OPENING | MOT",
@@ -25,7 +32,7 @@ const MainVideo = () => {
         <iframe
           width="800"
           height="400"
-          src="https://www.youtube.com/embed/uF2bHOPOY6Y"
+          src={photos?.photographers[0].url}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
