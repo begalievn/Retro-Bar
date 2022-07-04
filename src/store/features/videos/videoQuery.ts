@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { IVideo } from "../../../types/apiTypes/video";
 import { API } from "../../../utils/helpers/Consts";
 
 export const videoAPI = createApi({
@@ -6,7 +7,7 @@ export const videoAPI = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: API }),
   tagTypes: ["Video"],
   endpoints: (build) => ({
-    fetchAllVideos: build.query({
+    fetchAllVideos: build.query<IVideo,number>({
       query: () => ({
         url: "/video"
       }),
