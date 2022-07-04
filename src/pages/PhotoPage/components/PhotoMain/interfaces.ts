@@ -1,3 +1,5 @@
+
+
 export interface IPhotos {
   link ?: string
   border?: string
@@ -14,5 +16,5 @@ export interface IPhotos {
   icon?:string
   studio?:string
   button?:any
-  images?:{image:string}[]
+  images?: string[] 
 }
