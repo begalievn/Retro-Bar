@@ -5,6 +5,18 @@ import Slider from "../Slider/Slider";
 import video from "../../../../assets/videoPage/video.png";
 import video1 from "../../../../assets/videoPage/video1.png";
 import { IVideoCardBody } from "../../../../types/videoPageTypes/videoPage";
+import { CalendarIcon, CalendarModal } from "../../../../UI";
+
+const images: IVideoCardBody[] = [
+  {
+    title: "SUZIE WONG / OPENING | MOT",
+    image: video,
+    views: 1100,
+  },
+  { title: "SUZIE WONG / OPENING | MOT", image: video1, views: 1200 },
+  { title: "SUZIE WONG / OPENING | MOT", image: video, views: 1300 },
+  { title: "SUZIE WONG / OPENING | MOT", image: video1, views: 1400 },
+];
 import { videoAPI } from "../../../../store/features/videos/videoQuery";
 
 const MainVideo = () => {
@@ -25,6 +37,8 @@ const MainVideo = () => {
     { title: "SUZIE WONG / OPENING | MOT", image: video, views: 1300 },
     { title: "SUZIE WONG / OPENING | MOT", image: video1, views: 1400 },
   ];
+  const [modal, setModal] = React.useState(false);
+  const toggleModal = () => setModal(!modal);
 
   return (
     <section className={classes.videoPlayerSection}>
@@ -43,7 +57,7 @@ const MainVideo = () => {
         <h3 className={classes.title}>1 мая 2022</h3>
         <Slider images={images} />
       </div>
-      <i className={classes.calendar} />
+      <i className={classes.calendar} onClick={toggleModal} />
       <i className={classes.star} />
       <i className={classes.stars} />
 
@@ -56,6 +70,7 @@ const MainVideo = () => {
         <h3 className={classes.title}>15 марта 2022</h3>
         <Slider images={images} />
       </div>
+      {modal && <CalendarModal modal={modal} toggleModal={toggleModal} />}
     </section>
   );
 };

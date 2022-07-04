@@ -29,6 +29,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: "Montserrat Alternates", sans-serif;
 }
 .headerNav {
   display: flex;
@@ -64,7 +65,7 @@ nav {
 }
 .headerMenuBtn span::before,
 .headerMenuBtn span::after {
-  content: '';
+  content: "";
   display: block;
   transition: 0.2s;
 }
@@ -84,15 +85,15 @@ nav {
   transform: rotate(-45deg);
 }
 
-/* .backDrop {
-  width: 100%;
-  height: 248px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  background: linear-gradient(180deg, #000000 11%, rgba(0, 0, 0, 0) 100%);
-} */
+/*.backDrop {*/
+/*  width: 100%;*/
+/*  height: 248px;*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  z-index: 1;*/
+/*  background: linear-gradient(180deg, #000000 11%, rgba(0, 0, 0, 0) 100%);*/
+/*}*/
 
 .headerSearch {
   position: absolute;

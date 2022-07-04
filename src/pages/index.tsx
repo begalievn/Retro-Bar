@@ -11,10 +11,27 @@ import VideoPage from "./VideoPage/VideoPage";
 import EventsPage from "./EventsPage/EventsPage";
 import ErrorPage from "./ErrorPage/ErrorPage";
 import Authorization from "./Authorization/Authorization";
-import AdminPanelPage from "./AdminPage/AdminPanelPage";
+import AdminPage from "./AdminPage/AdminPage";
 import Gallery from "../UI/Gallery/Gallery";
 
+import {
+  ADMIN_ADVERTISING,
+  ADMIN_CONTACTS,
+  ADMIN_ESTABLISHMENT,
+  ADMIN_PHOTO,
+  ADMIN_VIDEO,
+} from "../utils/path";
+import {
+  AdminEstablishment,
+  AdminPhoto,
+  AdminVideo,
+} from "./AdminPage/components";
+import { useAppSelector } from "../app/hooks";
+import AdminAdvertising from "./AdminPage/components/AdminAdvertising/AdminAdvertising";
+
 const MainRoutes = () => {
+  const isAdmin = useAppSelector((state) => state.AuthorizationSlice.token);
+
   const PUBLIC_ROUTES = [
     {
       link: "/",
@@ -66,22 +83,31 @@ const MainRoutes = () => {
       element: <Authorization />,
       id: 10,
     },
-    {
-      link: "/admin",
-      element: <AdminPanelPage />,
-      id: 11,
-    },
+
     {
       link: "/photo/gallery",
       element: <Gallery />,
       id: 12,
     }
+      
+  ];
+
+  const PRIVATE_ROUTES = [
+    {
+      link: "/admin/*",
+      element: <AdminPage />,
+      id: 1,
+    },
   ];
 
   return (
     <Routes>
-      {PUBLIC_ROUTES.map((item) => (
-        <Route path={item.link} element={item.element} key={item.id} />
+      {isAdmin &&
+        PRIVATE_ROUTES.map(({ link, id, element }) => (
+          <Route path={link} element={element} key={id} />
+        ))}
+      {PUBLIC_ROUTES.map(({ link, id, element }) => (
+        <Route path={link} element={element} key={id} />
       ))}
     </Routes>
   );

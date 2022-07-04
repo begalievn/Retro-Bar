@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import classes from "../NavItems/NavItems.module.css";
 
@@ -8,22 +8,18 @@ interface ItemProps {
   path: string;
   title: string;
   onClick?: () => void;
-  isActive: string;
-  setIsActiveItem: (str: string) => void;
 }
 
-const NavItem: FC<ItemProps> = ({
-  path,
-  className,
-  title,
-  onClick,
-  isActive,
-  setIsActiveItem,
-}) => {
+const NavItem: FC<ItemProps> = ({ path, className, title, onClick }) => {
+  const location = useLocation();
   return (
     <li
-      className={`${className} ${isActive === title && classes.activeItem}`}
-      onClick={onClick ? onClick : () => setIsActiveItem(title)}
+      className={`${className} ${
+        location.pathname === path &&
+        location.pathname !== "/" &&
+        classes.activeItem
+      }`}
+      onClick={onClick}
     >
       <Link to={path}>{title}</Link>
     </li>

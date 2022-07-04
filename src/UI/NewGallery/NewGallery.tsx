@@ -3,6 +3,9 @@ import styles from './newGallery.module.css';
 import crossBtn from "../../assets/photoPageImages/gallery-images/cross.png";
 import closeBtn from "../../assets/photoPageImages/gallery-images/close.svg";
 
+import { IPhotos } from '../../pages/PhotoPage/components/PhotoMain/interfaces';
+
+
 import UniButton from './uniButton/UniButton'
 
 
@@ -15,7 +18,7 @@ import { Image } from '@mui/icons-material';
 
 type NewGalleryProps = {
   close: () => void;
-
+  images: IPhotos;
 }
 interface ISlideInfo {
   image: string;
@@ -23,11 +26,9 @@ interface ISlideInfo {
   
 }
 
-const images = [
 
-]
 
-function NewGallery({ close }: NewGalleryProps) {
+function NewGallery({ close,images }: NewGalleryProps) {
   const [slideInfo, setSlideInfo] = useState<ISlideInfo>({ image: "", count: [1, 2] })
 
 
@@ -44,7 +45,8 @@ function NewGallery({ close }: NewGalleryProps) {
 
   }
 
-
+  console.log(images.images);
+  
  
 
 
@@ -61,17 +63,26 @@ function NewGallery({ close }: NewGalleryProps) {
           <img onClick={close} className={styles.close} src={closeBtn} alt="" />
         </section>
 
-
-        <Carousel count={setCounter} >
-
-          <img className={styles.image} src='https://picsum.photos/id/1/500' alt="" />
-          <img className={styles.image} src='https://picsum.photos/id/230/500' alt="" />
-          <img className={styles.image} src='https://picsum.photos/id/238/500' alt="" />
-          <img className={styles.image} src='https://picsum.photos/id/239/500' alt="" />
-          <img className={styles.image} src='https://picsum.photos/id/233/500' alt="" />
-          <img className={styles.image} src='https://picsum.photos/id/231/500' alt="" />
+          
+          {
+            images.images ?
+          <Carousel count={setCounter} >
+            {
+              images.images.map((item )=>{
+                return(
+                  <img className={styles.image} src={item} alt="" />
+                  
+                )
+              })
+            }
+          
 
         </Carousel>
+            
+            
+            :
+            null
+          }
 
 
 
