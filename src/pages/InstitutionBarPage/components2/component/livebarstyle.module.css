@@ -1,0 +1,406 @@
+/* Livebar photo */
+.photosAll {
+  display: grid;
+  grid-template-columns: 13vw 13vw 13vw 13vw;
+  grid-template-rows: auto auto;
+}
+.photoSmall {
+  top: 8%;
+  left: 7%;
+  transform: rotate(-3deg);
+  max-height: 240px;
+  height: 43%;
+  max-width: 700px;
+  width: 69%;
+  position: absolute;
+  transition: 0.5s;
+
+}
+/* Main photo Map */
+.articlePhoto:nth-child(1) :last-child {
+  top: 22%;
+  left: 10%;
+  max-width: 700px;
+  max-height: 340px;
+  width: 65%;
+  height: 115%;
+  transition: 0.5s;
+  transform: rotate(3.7deg);
+}
+.articlePhoto:nth-child(1):first-child {
+  width: 65vw;
+  height: 56%;
+}
+.articlePhoto:nth-child(1) {
+  grid-area: 1 / 1 / 2 / 4;
+  max-width: 58vw;
+  width: 100%;
+  transform: rotate(1deg);
+  position: relative;
+  left: 4%;
+}
+/* Small photos map */
+.articlePhoto:nth-child(2) {
+  grid-area: 2 / 1 / 2 / 1;
+  position: relative;
+  left: 25%;
+  transform: rotate(-2deg);
+}
+.articlePhoto:nth-child(3) {
+  grid-area: 2 / 2 / 2 / 2;
+  position: relative;
+  left: 10%;
+  transform: rotate(4deg);
+}
+.articlePhoto:nth-child(4) {
+  grid-area: 2 / 3/ 2 / 3;
+  position: relative;
+  right: 5%;
+  transform: rotate(7deg);
+}
+.articlePhoto:nth-child(5) {
+  grid-area: 2 / 4 / 2 / 4;
+  position: relative;
+  right: 17%;
+  transform: rotate(2deg);
+}
+/* Tapes */
+.articlePhoto:nth-child(2) :nth-child(even) {
+  width: 4vw;
+  position: absolute;
+  left: 70%;
+  top: 15%;
+}
+
+.articlePhoto:nth-child(3) :nth-child(even) {
+  width: 4vw;
+  position: absolute;
+  left: 70%;
+  top: 14%;
+  transform: rotate(-102deg);
+}
+.articlePhoto:nth-child(4) :nth-child(even) {
+  width: 4vw;
+  position: absolute;
+  left: 70%;
+  top: 16%;
+  transform: rotate(-15deg);
+}
+.articlePhoto:nth-child(5) :nth-child(even) {
+  visibility: hidden;
+}
+.articlePhoto:nth-child(1) :nth-child(even) {
+  visibility: hidden;
+}
+/* ---------------------------------- */
+
+/*  Live Text */
+
+.livebarLetfTop {
+  margin-bottom: 5%;
+}
+.livebarHeader {
+  padding-top: 10px;
+  font-size: 24px;
+}
+.livebarLetfBottom p {
+  margin-bottom: 4%;
+  font-size: 1em;
+}
+.livebar {
+  padding: 5% 0 0 8%;
+}
+.comments {
+  width: 200px;
+  display: inline-flex;
+}
+.comments img {
+  padding: 6% 20% 0 0;
+}
+.comments p {
+  padding: 6% 35% 0 0;
+}
+.comments {
+  width: 38%;
+  padding-right: 10px;
+}
+.livebarTextMobile {
+  display: none;
+}
+.shareMobile {
+  visibility: hidden;
+}
+.socialList {
+  visibility: hidden;
+}
+/* ------------------------ */
+/* Paper New */
+.photosBoth h1 {
+  font-size: 1.5rem;
+  font-family: "Montserrat Alternates";
+}
+.photosBoth {
+  padding-left: 5%;
+}
+
+/* ------------------------ */
+
+/* Photos */
+.data {
+  padding: 20px 0;
+  font-size: 1.2rem;
+  font-family: "Montserrat Alternates";
+}
+.gridPhotos {
+  display: grid;
+  grid-template-columns: 30vw 30vw 30vw;
+}
+.miniPhotos {
+  width: 24vw;
+  top: 5%;
+  left: 2%;
+  position: absolute;
+  mix-blend-mode: screen;
+}
+.photosCombine:nth-child(1) {
+  position: relative;
+  grid-column: 1, 1;
+  transform: rotate(-1.5deg);
+}
+.photosCombine:nth-child(2) {
+  position: relative;
+  grid-column: 2, 2;
+  transform: rotate(1.6deg);
+}
+.photosCombine:nth-child(3) {
+  position: relative;
+  grid-column: 3, 3;
+}
+.miniPhotoPolaroid {
+  width: 25vw;
+}
+.mobileMobile {
+  display: none;
+}
+/* ------------------------ */
+@media only screen and (max-width: 1100px) {
+  .livebar {
+    padding: 0 0 0 8%;
+  }
+
+  .rating {
+    padding: 5px 0 0 23px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .rating {
+    width: 130px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  /* LivePhoto Mobile */
+  /* LiveText */
+  .livebar {
+    padding: 5% 0 0 8%;
+  }
+  .shareMobile {
+    visibility: visible;
+    margin: 5px 0 0 20px;
+    border: none;
+    background-color: transparent;
+    color: aliceblue;
+  }
+  .socialList {
+    visibility: visible;
+    margin: 2% 0 0 -3%;
+  }
+  .livebarTextWeb {
+    display: none;
+  }
+  /* ----------------- */
+  .photosAll {
+    display: grid;
+    grid-template-columns: 47vw 47vw 47vw;
+    grid-template-rows: auto auto;
+  }
+  .articlePhoto:nth-child(5) {
+    display: none;
+  }
+  .articlePhoto:nth-child(1) :last-child {
+    max-width: 900px;
+    max-height: 440px;
+    width: 65%;
+    height: 123%;
+    transition: 0.2s;
+    transform: rotate(3.7deg);
+  }
+  .articlePhoto:nth-child(1):first-child {
+    width: 105vw;
+    height: 53%;
+  }
+  .articlePhoto:nth-child(1) {
+    max-width: 110vw;
+    left: 0%;
+  }
+  .gridPhotos {
+    display: none;
+  }
+  /* LivePhoto Tape */
+  .photoSmall {
+    top: 10%;
+    height: 60%;
+  }
+  .articlePhoto:nth-child(2) {
+    left: -30%;
+  }
+  .articlePhoto:nth-child(3) {
+    transform: rotate(3deg);
+    left: -45%;
+  }
+  .articlePhoto:nth-child(4) {
+    right: 60%;
+  }
+  .articlePhoto:nth-child(2) :nth-child(even) {
+    width: 11vw;
+    position: absolute;
+    left: 72%;
+    top: 30%;
+  }
+  .articlePhoto:nth-child(3) :nth-child(even) {
+    width: 11vw;
+    position: absolute;
+    left: 70%;
+    top: 26%;
+    transform: rotate(-122deg);
+  }
+  .articlePhoto:nth-child(4) :nth-child(even) {
+    display: none;
+  }
+  /* Paper Slider Mobile */
+  .mobileMobile {
+    display: block;
+  }
+  .mobileVersion {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    max-height: 40vh;
+    align-items: center;
+  }
+  .last,
+  .next {
+    border: none;
+    background-color: transparent;
+  }
+  .slider {
+    width: 35px;
+    margin: 10px;
+  }
+  .data {
+    padding: 30px 0;
+    text-align: center;
+    font-size: 1rem;
+    font-family: "Montserrat Alternates";
+  }
+  .photosBoth h1 {
+    text-align: center;
+    padding-top: 7%;
+    font-size: 1.3rem;
+  }
+  .frame1 {
+    background-attachment: fixed;
+    width: 230px;
+
+    transform: rotate(-1.38deg);
+  }
+  .frame2 {
+    transform: rotate(1.53deg);
+    width: 230px;
+  }
+  .frame3 {
+    width: 230px;
+  }
+  .fr1 {
+    position: absolute;
+    margin-top: -22px;
+    width: 220px;
+    transform: rotate(-1.5deg);
+    mix-blend-mode: screen;
+  }
+  .fr2 {
+    position: absolute;
+    margin-top: -22px;
+    width: 220px;
+    transform: rotate(1.6deg);
+    mix-blend-mode: screen;
+  }
+  .fr3 {
+    position: absolute;
+    margin-top: -22px;
+    width: 220px;
+    mix-blend-mode: screen;
+  }
+  /* Index  Slider*/
+  .indexNumber {
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .indexBtn {
+    border: none;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    color: black;
+    font-family: "Montserrat Alternates";
+  }
+  .indexBtn2 {
+    border-bottom: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    color: black;
+    font-family: "Montserrat Alternates";
+  }
+}
+@media screen and (min-width: 1440px) {
+  .photosAll {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-rows: 500px 200px;
+  }
+  .articlePhoto:nth-child(1) :last-child {
+    margin-top: -7px;
+    width: 530px;
+    height: 570px;
+  }
+  .articlePhoto:nth-child(1):first-child {
+    width: 820px;
+  }
+  .articlePhoto:nth-child(1) {
+    width: 700px;
+  }
+  .articlePhoto:nth-child(2) :nth-child(even) {
+    width: 70px;
+  }
+  .articlePhoto:nth-child(3) :nth-child(even) {
+    width: 70px;
+  }
+  .articlePhoto:nth-child(4) :nth-child(even) {
+    width: 70px;
+  }
+  .gridPhotos {
+    grid-template-columns: 450px 450px 450px;
+  }
+  .miniPhotos {
+    width: 300px;
+  }
+  .miniPhotoPolaroid {
+    width: 310px;
+  }
+}

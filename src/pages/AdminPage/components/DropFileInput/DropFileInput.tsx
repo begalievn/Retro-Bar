@@ -22,11 +22,23 @@ const DropFileInput: FC<DropFileInputProps> = ({
   const [drag, setDrag] = useState(false);
   const [fileList, setFileList] = useState<any | null>([]);
 
+  const onDragEnter = () => setDrag(true);
+  const onDragLeave = () => setDrag(false);
+  const onDrop = () => setDrag(false);
+
   const onDropFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
     const newFile = e.target.files[0];
     const fileType = newFile.type.split("/")[0];
 
+    // if (newFile && fileType == type) {
+    //   console.log(fileType == type);
+    //   setFileList(newFile);
+    //   setInputValue((prev: AdminPageTypes) => ({
+    //     ...prev,
+    //     [type]: newFile,
+    //   }));
+    // } else {}
     if (newFile) {
       const updatedFiles = [...fileList, newFile];
       setFileList(updatedFiles);
@@ -46,10 +58,6 @@ const DropFileInput: FC<DropFileInputProps> = ({
       [type]: updatedFiles,
     }));
   };
-
-  const onDragEnter = () => setDrag(true);
-  const onDragLeave = () => setDrag(false);
-  const onDrop = () => setDrag(false);
 
   return (
     <div

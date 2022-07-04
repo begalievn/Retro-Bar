@@ -31,6 +31,7 @@ const AdminAdvertising = () => {
   const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
   const dispatch = useDispatch();
   const postHandler = () => {
+
     AdminApi.addPhoto(inputValue as PhotoCard)
       .then(() => {
         dispatch(

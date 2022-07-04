@@ -44,7 +44,7 @@
 .dropFileInputWrapper {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 .fileList {
   list-style: none;

@@ -10,6 +10,7 @@ import AdminInput from "../AdminInput/AdminInput";
 import AddMedia from "../AddMedia/AddMedia";
 import SocialComponent from "../SocialComponent/SocialComponent";
 import DropFileInput from "../DropFileInput/DropFileInput";
+import useDebounce from "../../../../hooks/useDebounce";
 
 interface AdminGeneralProps {
   page?: IPageBody;
@@ -25,14 +26,18 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
   page,
   setInputValue,
   inputValue,
-  postHandler,
   handler,
 }) => {
+
+
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     if (e.target.toString().includes("TextArea")) {
       e.target.style.height = e.target.scrollHeight + "px";
+    }
+    if (e.target.name == "establishmentId") {
+    } else if (e.target.name == "photographerId") {
     }
 
     setInputValue((prevInputs: AdminPageTypes) => ({
@@ -56,15 +61,6 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
             children={"Добавить картинки"}
             setInputValue={setInputValue}
           />
-
-          // <AddMedia
-          //   inputHandler={handler ? handler : inputHandler}
-          //   page={page!}
-          //   inputValue={inputValue}
-          //   setInputValue={setInputValue}
-          // >
-          //   Добавить картинки
-          // </AddMedia>
         )}
 
         <div className={classes.adminFields}>
@@ -84,16 +80,6 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
                   />
                 );
               })}
-            {page?.viewersRange && (
-              <AdminInput
-                inputHandler={handler ? handler : inputHandler}
-                title="Просмотры"
-                name="views"
-                inputValue={inputValue}
-                setInputValue={setInputValue}
-                page={page}
-              />
-            )}
           </div>
         </div>
       </div>

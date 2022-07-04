@@ -35,7 +35,7 @@ export enum Pages {
 }
 
 export interface VideoCard {
-  video: string | object;
+  video: string | object | null;
   establishmentId: number | string;
   eventName: string;
   views: number | string;
@@ -48,7 +48,7 @@ export interface PhotoCard {
   views: number | string;
   photographerId: number | string;
   date: string;
-  photos: object;
+  photos: object | null;
 }
 
 export interface AlertBody {

@@ -17,6 +17,7 @@ const images: IVideoCardBody[] = [
   { title: "SUZIE WONG / OPENING | MOT", image: video, views: 1300 },
   { title: "SUZIE WONG / OPENING | MOT", image: video1, views: 1400 },
 ];
+import { videoAPI } from "../../../../store/features/videos/videoQuery";
 
 const MainVideo = () => {
   const [modal, setModal] = React.useState(false);

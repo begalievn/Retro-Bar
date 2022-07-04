@@ -14,13 +14,13 @@
 .adminInputs {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
 }
 .icon {
 }
 .adminTitle {
   color: white;
-  padding-left: 8%;
+  /*padding-left: 8%;*/
   margin-bottom: 55px;
   font-size: 1.8em;
 }
@@ -28,7 +28,7 @@
 .adminContent {
   width: 100%;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-around;
   gap: 60px;
   /*!* gap: 70px;*/
@@ -39,6 +39,3 @@
   display: flex;
   align-items: center;
 }
-
-
-

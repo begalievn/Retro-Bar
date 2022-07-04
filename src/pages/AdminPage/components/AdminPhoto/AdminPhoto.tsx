@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import classes from "../../AdminPage.module.css";
-import AdminGeneral from "../AdminGeneral/AdminGeneral";
+import classes from "../AdminGeneral/AdminGeneral.module.css";
 import {
   AdminPageTypes,
   PhotoCard,
@@ -12,8 +11,10 @@ import {
   createAlert,
   deleteAlert,
 } from "../../../../store/alertSlice/alertSlice";
-import { AlertComponent, Button } from "../../../../UI";
-import { useAppSelector } from "../../../../app/hooks";
+import { Button } from "../../../../UI";
+import DropFileInput from "../DropFileInput/DropFileInput";
+import AdminInput from "../AdminInput/AdminInput";
+import useDebounce from "../../../../hooks/useDebounce";
 
 const photoPage = {
   name: "photo",
@@ -30,9 +31,32 @@ const photoPage = {
 };
 
 const AdminPhoto = () => {
-  const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
   const dispatch = useDispatch();
-  console.log(inputValue);
+  const [inputValue, setInputValue] = useState<AdminPageTypes | object>({
+    establishmentId: "",
+    photos: null,
+    eventName: "",
+    views: "",
+    photographerId: "",
+    date: "",
+  });
+  // const debounceEstablishment = useDebounce(inputValue?.establishmentId, 2000);
+
+  const inputHandler = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    if (e.target.toString().includes("TextArea")) {
+      e.target.style.height = e.target.scrollHeight + "px";
+    }
+    if (e.target.name == "establishmentId") {
+    } else if (e.target.name == "photographerId") {
+    }
+
+    setInputValue((prevInputs: AdminPageTypes) => ({
+      ...prevInputs,
+      [e.target.name]: e.target.value,
+    }));
+  };
   const postHandler = () => {
     AdminApi.addPhoto(inputValue as PhotoCard)
       .then(() => {
@@ -51,13 +75,49 @@ const AdminPhoto = () => {
 
   return (
     <div className={classes.generalBlock}>
-      <AdminGeneral
-        page={photoPage}
-        setInputValue={setInputValue}
-        inputValue={inputValue}
-        postHandler={postHandler}
-      />
+      <div className={classes.adminGeneralBlock}>
+        <h3 className={classes.adminTitle}>Фото</h3>
+        <div className={classes.adminContent}>
+          <DropFileInput
+            type={"photos"}
+            children={"Добавить картинки"}
+            setInputValue={setInputValue}
+          />
 
+          <div className={classes.adminFields}>
+            <div className={classes.adminInputs}>
+              <AdminInput
+                inputHandler={inputHandler}
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+                title={"Название Заведения"}
+                name={"establishmentId"}
+              />
+              <AdminInput
+                inputHandler={inputHandler}
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+                title={"Название Вечеринки"}
+                name={"eventName"}
+              />
+              <AdminInput
+                inputHandler={inputHandler}
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+                title={"Фотограф"}
+                name={"photographerId"}
+              />
+              <AdminInput
+                inputHandler={inputHandler}
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+                title={"Дата"}
+                name={"date"}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
       <div className={classes.buttonBlock}>
         <Button onClick={postHandler}>Опубликовать</Button>
       </div>

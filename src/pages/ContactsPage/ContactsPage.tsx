@@ -1,6 +1,4 @@
 import React, { FC, useEffect, useState } from "react";
-import { Container, Grid } from "@mui/material";
-import aboutUs from "../../assets/contactsPage/sketch.png";
 import phoneIcon from "../../assets/contactsPage/phone.svg";
 import whatsAppIcon from "../../assets/contactsPage/WhatsApp.svg";
 import mailIcon from "../../assets/contactsPage/mail.svg";
@@ -21,8 +19,24 @@ import tape from "../../assets/contactsPage/border/tape.png";
 import classes from "./style.module.css";
 import TextBlock from "./TextBlock";
 import { IImageArr } from "../../types/contactsPageTypes/contactsPageTypes";
+import { establishmentsAPI } from "../../store/features/establishments/establishmentsQuery";
+import { photoAPI } from "../../store/features/photos/photoQuery";
+import { Button } from "@mui/material";
 
 const ContactsPage: FC = () => {
+  const [limit, setLimit] = useState(4);
+  let {
+    data: photos,
+    error,
+    isLoading,
+    refetch,
+  } = establishmentsAPI.useFetchAllContactsQuery(limit);
+  isLoading && <h1>Loading...</h1>;
+  error && <h2>error</h2>;
+
+  let images = photos?.establishments;
+  console.log(images);
+
   const [frameArr, setFrameArr] = useState<IImageArr[]>([
     {
       frame: mainBack,

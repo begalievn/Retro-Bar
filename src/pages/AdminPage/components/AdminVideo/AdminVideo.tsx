@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import AdminGeneral from "../AdminGeneral/AdminGeneral";
+
+import classes from "../AdminGeneral/AdminGeneral.module.css";
+
 import {
   AdminPageTypes,
   PhotoCard,
@@ -11,8 +13,9 @@ import {
   createAlert,
   deleteAlert,
 } from "../../../../store/alertSlice/alertSlice";
-import classes from "../../AdminPage.module.css";
 import { Button } from "../../../../UI";
+import DropFileInput from "../DropFileInput/DropFileInput";
+import AdminInput from "../AdminInput/AdminInput";
 
 const videoPage = {
   name: "video",
@@ -21,16 +24,32 @@ const videoPage = {
   addLink: true,
   viewersRange: true,
   fields: [
-    { title: "Название Заведения", name: "establishmentId", type: 'input' },
-    { title: "Название Вечеринки", name: "eventName", type: 'input' },
-    { title: "Видеограф", name: "photographerId", type: 'input' },
-    { title: "Дата", name: "date", type: 'input' },
+    { title: "Название Заведения", name: "establishmentId", type: "input" },
+    { title: "Название Вечеринки", name: "eventName", type: "input" },
+    { title: "Видеограф", name: "photographerId", type: "input" },
+    { title: "Дата", name: "date", type: "input" },
   ],
 };
 
 const AdminVideo = () => {
   const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
   const dispatch = useDispatch();
+
+  const inputHandler = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    if (e.target.toString().includes("TextArea")) {
+      e.target.style.height = e.target.scrollHeight + "px";
+    }
+    if (e.target.name == "establishmentId") {
+    } else if (e.target.name == "photographerId") {
+    }
+
+    setInputValue((prevInputs: AdminPageTypes) => ({
+      ...prevInputs,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const postHandler = () => {
     AdminApi.addVideo(inputValue as VideoCard)
@@ -49,14 +68,53 @@ const AdminVideo = () => {
   };
   return (
     <div className={classes.generalBlock}>
-      <AdminGeneral
-        page={videoPage}
-        postHandler={postHandler}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-      />
-      <div className={classes.buttonBlock}>
-        <Button onClick={postHandler}>Опубликовать</Button>
+      <div className={classes.generalBlock}>
+        <div className={classes.adminGeneralBlock}>
+          <h3 className={classes.adminTitle}>Фото</h3>
+          <div className={classes.adminContent}>
+            <DropFileInput
+              type={"video"}
+              children={"Добавить видео"}
+              setInputValue={setInputValue}
+            />
+
+            <div className={classes.adminFields}>
+              <div className={classes.adminInputs}>
+                <AdminInput
+                  inputHandler={inputHandler}
+                  inputValue={inputValue}
+                  setInputValue={setInputValue}
+                  title={"Название Заведения"}
+                  name={"establishmentId"}
+                />
+                <AdminInput
+                  inputHandler={inputHandler}
+                  inputValue={inputValue}
+                  setInputValue={setInputValue}
+                  title={"Название Вечеринки"}
+                  name={"eventName"}
+                />
+                <AdminInput
+                  inputHandler={inputHandler}
+                  inputValue={inputValue}
+                  setInputValue={setInputValue}
+                  title={"Видеограф"}
+                  name={"photographerId"}
+                />
+                <AdminInput
+                  inputHandler={inputHandler}
+                  inputValue={inputValue}
+                  setInputValue={setInputValue}
+                  title={"Дата"}
+                  name={"date"}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={classes.buttonBlock}>
+          <Button onClick={postHandler}>Опубликовать</Button>
+        </div>
       </div>
     </div>
   );

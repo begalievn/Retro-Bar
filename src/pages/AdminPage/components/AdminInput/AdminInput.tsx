@@ -44,25 +44,17 @@ const AdminInput: FC<AdminInputProps> = ({
         htmlFor={props.name}
       >
         {/*<i>{props.icon}</i>*/}
-        {props.title || page?.title}
+        {props.title}
       </label>
-      {type == "textArea" ? (
-        <textarea
-          id={props.name}
-          onChange={inputHandler}
-          name={props.name}
-          className={`${classes.textArea} ${classes.adminInput}`}
-        />
-      ) : (
-        <input
-          id={props.name}
-          name={props.name}
-          value={inputValue[props.name as keyof AdminPageTypes] || ""}
-          onChange={inputHandler}
-          className={classes.adminInput}
-          {...props}
-        />
-      )}
+      <input
+        id={props.name}
+        type={type}
+        name={props.name}
+        value={inputValue[props.name as keyof AdminPageTypes] || ""}
+        onChange={inputHandler}
+        className={classes.adminInput}
+        {...props}
+      />
     </div>
   );
 };
