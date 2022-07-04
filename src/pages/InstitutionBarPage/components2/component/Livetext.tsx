@@ -1,14 +1,15 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import classes from "./livebarstyle.module.css";
 import { Grid } from "@mui/material";
-
-import livebar from "../../../assets/institutionBarImg/iconLiveBar/livebar.png";
-import event from "../../../assets/institutionBarImg/iconLiveBar/events.svg";
-import picture from "../../../assets/institutionBarImg/iconLiveBar/picture.svg";
-import rating from "../../../assets/institutionBarImg/iconLiveBar/rating.svg";
-import share from "../../../assets/institutionBarImg/iconLiveBar/share.svg";
+import livebar from "../../../../assets/institutionBarImg/iconLiveBar/livebar.png";
+import event from "../../../../assets/institutionBarImg/iconLiveBar/events.svg";
+import picture from "../../../../assets/institutionBarImg/iconLiveBar/picture.svg";
+import rating from "../../../../assets/institutionBarImg/iconLiveBar/rating.svg";
+import share from "../../../../assets/institutionBarImg/iconLiveBar/share.svg";
+import { ShareSocial } from "../shareSocial";
 
 const LiveText: FC = () => {
+  const [show, setShow] = useState(false);
   return (
     <div className={classes.text}>
       <Grid container className={classes.livebarLetfTop}>
@@ -16,8 +17,8 @@ const LiveText: FC = () => {
           <img src={livebar} width="100%" />
         </Grid>
         <Grid item xs={8} md={9} className={classes.livebar}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
+          <Grid container spacing={3}>
+            <Grid item xs={10} md={6}>
               <p className={classes.livebarHeader}>LIVEBAR</p>
               <div className={classes.comments}>
                 <img src={picture} />
@@ -26,10 +27,20 @@ const LiveText: FC = () => {
                 <p>2</p>
               </div>
             </Grid>
-
             <img src={rating} className={classes.rating} />
-            {/* <img src={share} width="12px" className={classes.share} /> */}
+            <button
+              type="button"
+              onClick={() => setShow(!show)}
+              className={classes.shareMobile}
+            >
+              <img src={share} width="14px" />
+            </button>
           </Grid>
+          {show && (
+            <div className={classes.socialList}>
+              <ShareSocial />
+            </div>
+          )}
         </Grid>
       </Grid>
       <div className={classes.livebarLetfBottom}>
