@@ -1,24 +1,25 @@
-import React, { FC } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { FC } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-import classes from "./AdminSidebar.module.css";
+import classes from './AdminSidebar.module.css';
 import {
   ADMIN_ADVERTISING,
   ADMIN_CONTACTS,
   ADMIN_ESTABLISHMENT,
   ADMIN_PHOTO,
   ADMIN_VIDEO,
-} from "../../../../utils/path";
+  ADMIN_EDIT,
+} from '../../../../utils/path';
 // import { ReactComponent as Photo } from "../../../../assets/icons/adminPanel/pic.svg";
 // import { ReactComponent as Video } from "../../../../assets/icons/adminPanel/video.svg";
 // import { ReactComponent as Advertising } from "../../../../assets/icons/adminPanel/advertising.svg";
 // import { ReactComponent as Institution } from "../../../../assets/icons/adminPanel/Institution.svg";
 // import { ReactComponent as Contact } from "../../../../assets/icons/adminPanel/contact.svg";
-import photo from "../../../../assets/icons/adminPanel/pic.svg";
-import video from "../../../../assets/icons/adminPanel/video.svg";
-import advertising from "../../../../assets/icons/adminPanel/advertising.svg";
-import institution from "../../../../assets/icons/adminPanel/Institution.svg";
-import contact from "../../../../assets/icons/adminPanel/contact.svg";
+import photo from '../../../../assets/icons/adminPanel/pic.svg';
+import video from '../../../../assets/icons/adminPanel/video.svg';
+import advertising from '../../../../assets/icons/adminPanel/advertising.svg';
+import institution from '../../../../assets/icons/adminPanel/Institution.svg';
+import contact from '../../../../assets/icons/adminPanel/contact.svg';
 
 interface AdminSidebarProps {
   // setCurrent: (string: string) => void;
@@ -27,28 +28,33 @@ interface AdminSidebarProps {
 
 const navs = [
   {
-    title: "Фото",
+    title: 'Фото',
     path: ADMIN_PHOTO,
     icon: photo,
   },
   {
-    title: "Видео",
+    title: 'Видео',
     path: ADMIN_VIDEO,
     icon: video,
   },
   {
-    title: "Реклама",
+    title: 'Реклама',
     path: ADMIN_ADVERTISING,
     icon: advertising,
   },
   {
-    title: "Заведение",
+    title: 'Заведение',
     path: ADMIN_ESTABLISHMENT,
     icon: institution,
   },
   {
-    title: "Контакты",
+    title: 'Контакты',
     path: ADMIN_CONTACTS,
+    icon: contact,
+  },
+  {
+    title: 'Изменить',
+    path: ADMIN_EDIT,
     icon: contact,
   },
 ];
