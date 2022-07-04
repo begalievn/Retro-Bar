@@ -4,7 +4,7 @@ import arrow from '../../../assets/videoPage/arrowRight.svg'
 import { ArrowLeft } from '@mui/icons-material';
 import { matchPath } from 'react-router-dom';
 type CarouselProps = {
-  children: React.ReactNode[];
+  children: React.ReactNode[] ;
   count: (arr: Array<number>) => void;
 };
 

@@ -1,68 +1,71 @@
-.container{
+.adminWrapper {
   display: flex;
-  margin-top: 60px;
+  width: 100%;
+  min-height: 100vh;
   color: white;
 }
-/* SIDE BAR */
-.sideBar{
-  max-width: 263px;
+.contentWrapper {
   width: 100%;
-  background: #2F2F2F;
-  height: 100vh;
-  padding-top: 10%;
-  padding-left: 50px;
-  padding-right: 30px;
+  height: 100%;
 }
 
-.sideBar ul{
- min-height: 250px;
- margin: auto;
- display: flex;
- flex-direction: column;
- justify-content: space-evenly;
- font-family: 'Montserrat Alternates';
- color:white
+.container {
+  width: 95%;
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 4.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /*flex: 1;*/
+  /*padding: 30px;*/
+  /*width: 90%;*/
+  /*max-width: 1000px;*/
+  /*height: 100%;*/
+  /*margin: 0 auto;*/
 }
-
-.sideBarItem{
-  list-style-type: none;
-  font-size: 18px;
-  padding: 5px;
-  
-}
-
-.sideBarItemActive{
-  list-style-type: none;
-  font-size: 18px;
-  border-top: 1px solid #EBEBEB; 
-  border-bottom: 1px solid #EBEBEB; 
-  padding: 5px;
-  color:#FFB03B;
-  fill:#FFB03B;
-  stroke: #FFB03B;
-}
-.sideBarItemActive img{
-  filter: invert(24%) sepia(12%) saturate(4092%) hue-rotate(327deg) brightness(101%) contrast(101%)
-}
-
-.value_color{
-  color:aliceblue;
-  margin-top: 100px;
-}
-
 
 /* ADD CONTACT */
 
-.content_block{
-margin-left: 90px;
+.content_block {
+  margin-left: 90px;
 }
 
-.content_image{
+.content_image {
+  max-width: 437px;
   width: 451px;
   height: 437px;
-  background-color: #2F2F2F;
-  stroke-dasharray:10%;
- border: 2px dashed white;
- border-radius: 10px;
+  background-color: #2f2f2f;
+  /* dashed border */
+  background-image: url("data:image/svg+xml,%3csvg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='white' stroke-width='4' stroke-dasharray='20' stroke-dashoffset='5' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 13px;
+}
+.btn {
+  width: 205px;
+  height: 58px;
+  color: black;
+  align-self: flex-end;
+  margin: 60px 60px 0 0;
+
+  line-height: 24px;
 }
 
+.generalBlock {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: 1;
+  margin: 0 auto;
+}
+.buttonBlock {
+  /*margin-right: 6%;*/
+}
+
+@media (min-width: 68em) {
+  .container {
+    padding-left: 8em;
+  }
+}

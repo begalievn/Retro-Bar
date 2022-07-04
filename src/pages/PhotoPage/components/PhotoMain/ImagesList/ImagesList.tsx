@@ -17,7 +17,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
   const [galleryModal, setGalleryModal] = useState(false);
   const toggleGalleryModal = () => setGalleryModal(!galleryModal);
 
-  const [currentEvent, setCurrentEvent] = useState<IPhotos>({});
+  const [currentEvent, setCurrentEvent] = useState<IPhotos | null>  (null);
   if (galleryModal) {
     document.body.style.overflow = "hidden";
   } else {
@@ -28,7 +28,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
     toggleGalleryModal();
     console.log(event);
   };
-  if(!images) {
+  if(!images ) {
     return <div>Loading...</div>
   }
 
@@ -104,9 +104,9 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
         />
         )} */}
         {
-          galleryModal && (
+          (galleryModal  && currentEvent) && (
             
-            <NewGallery close = {toggleGalleryModal}/>
+            <NewGallery images={currentEvent} close = {toggleGalleryModal}/>
           )
         }
     </>
