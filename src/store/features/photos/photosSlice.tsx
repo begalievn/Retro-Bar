@@ -10,6 +10,8 @@ export const photosSlice = createSlice({
       state.value = action.payload;
     },
     addFilterFhotos(state,action){
+      console.log(action.payload);
+      
       state.filterPhoto=action.payload
     } 
   },

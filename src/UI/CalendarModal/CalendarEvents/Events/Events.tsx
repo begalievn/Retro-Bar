@@ -1,26 +1,25 @@
 import React, { FC, useState } from "react";
-import { IPhotos } from "../../../../pages/PhotoPage/components/PhotoMain/interfaces";
+// import { IPhotos } from "../../../../pages/PhotoPage/components/PhotoMain/interfaces";
 import eyeIcon from "../../../../assets/icons/eye.svg";
 import pictureIcon from "../../../../assets/icons/picture.svg";
 import styles from "./Events.module.css";
 import Gallery from "../../../Gallery/GalleryModal/GalleryModal";
 import { useAppSelector } from "../../../../app/hooks";
-interface EventsProps {
-  events: IPhotos[];
-}
-const Events: FC<EventsProps> = ({ events }) => {
+import { IPhoto, IPhotos } from "../../../../types/apiTypes/photo";
+
+const Events: FC = ({ }) => {
   const [galleryModal, setGalleryModal] = useState(false);
   const toggleGalleryModal = () => setGalleryModal(!galleryModal)
 
-  const [currentEvent, setCurrentEvent] = useState<IPhotos>({});
+  const [currentEvent, setCurrentEvent] = useState<IPhotos>()
 
   const onClickEvent = (event: IPhotos) => {
     setCurrentEvent(event)
     toggleGalleryModal()
-    console.log(event)
+    
   };
 
-  const filterData = useAppSelector(state=> state.photos.filterPhoto)
+  const filterData:IPhotos[] = useAppSelector(state=> state.photos.filterPhoto)
   console.log(filterData);
   
   return (
@@ -28,7 +27,7 @@ const Events: FC<EventsProps> = ({ events }) => {
       {filterData?.map((event, i) => (
         <div className={styles.establishment} key={i}>
           <img
-            src={event.photos[0].url}
+            src={event.photos[0]?.url}
             onClick={() => onClickEvent(event)}
             className={styles.establishment_image}
             alt=""
@@ -53,7 +52,7 @@ const Events: FC<EventsProps> = ({ events }) => {
           </div>
         </div>
       ))}
-      {galleryModal && <Gallery currentEvent={currentEvent} galleryModal={galleryModal} toggleGalleryModal={toggleGalleryModal}/>}
+      {galleryModal && <Gallery currentEvent={currentEvent!} galleryModal={galleryModal} toggleGalleryModal={toggleGalleryModal}/>}
     </>
   );
 };

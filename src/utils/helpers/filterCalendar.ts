@@ -11,7 +11,7 @@ export const filterCalendarFunc = (date:string) => {
     .then((response)=>{
 console.log(response.data);
 
-      dispatch(addFilterFhotos(response.data.photos)) 
+      dispatch(addFilterFhotos(response.data.photoCards)) 
   
     }).catch(()=>{
      
