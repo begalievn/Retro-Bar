@@ -2,6 +2,7 @@ import React from "react";
 
 import classes from "./Hero.module.css";
 import mainClasses from "../../VideoPage.module.css";
+import { Button } from "../../../../UI";
 
 const Hero = () => {
   return (
@@ -13,7 +14,9 @@ const Hero = () => {
             Современные технологии достигли такого уровня, что перспективное
             планирование способствует.
           </p>
-          <button className={classes.btn}>Заказать Съемку</button>
+          {/*<button className={classes.btn}>Заказать Съемку</button>*/}
+
+          <Button size={"medium"}>Заказать Съемку </Button>
         </div>
       </div>
     </section>

@@ -5,22 +5,25 @@ import { API } from "../../../utils/helpers/Consts";
 export const establishmentsAPI = createApi({
   reducerPath: "establishmentsAPI",
   baseQuery: fetchBaseQuery({ baseUrl: API }),
-  tagTypes: ["Establishments","Contacts"],
+  tagTypes: ["Establishments", "Contacts"],
   endpoints: (build) => ({
     fetchAllEstablishments: build.query({
-      query: () => ({
-        url: "/establishment"
+      query: (name) => ({
+        url: "/establishment",
+        params: {
+          name,
+        },
       }),
       providesTags: (result) => ["Establishments"],
     }),
     fetchAllContacts: build.query({
-        query: (limit) => ({
-          url: `/establishment?take=${limit}&page=0`,
-          params:{
-            _limit: limit
-          }
-        }),
-        providesTags: (result) => ["Contacts"],
+      query: (limit) => ({
+        url: `/establishment?take=${limit}&page=0`,
+        params: {
+          _limit: limit,
+        },
       }),
+      providesTags: (result) => ["Contacts"],
+    }),
   }),
 });

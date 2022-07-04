@@ -11,15 +11,12 @@ interface NavItemsProps {
 }
 
 const NavItems: FC<NavItemsProps> = ({ navItems, onClick }) => {
-  const [isActiveItem, setIsActiveItem] = useState("");
 
   return (
     <>
       {navItems.map((item) => {
         return (
           <NavItem
-            isActive={isActiveItem}
-            setIsActiveItem={setIsActiveItem}
             onClick={onClick}
             className={classes.headerNavItem}
             path={item.path}

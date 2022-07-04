@@ -1,0 +1,21 @@
+.btn {
+  font-family: "Montserrat Alternates";
+  font-size: 1.1em;
+  line-height: 24px;
+  font-weight: 600;
+  border-radius: 10px;
+  text-align: center;
+  padding: 17px 19px;
+  cursor: pointer;
+  background: var(--btnColor);
+  outline: none;
+  border: none;
+}
+.medium {
+  font-family: "Montserrat Alternates";
+  padding: 17px 32px;
+  font-weight: 600;
+  font-size: 1.1em;
+  line-height: 24px;
+  text-align: center;
+}
