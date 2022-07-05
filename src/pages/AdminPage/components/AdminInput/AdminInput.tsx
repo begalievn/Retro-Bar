@@ -65,15 +65,9 @@ const AdminInput: FC<AdminInputProps> = ({
         onChange={inputHandler}
         className={classes.adminInput}
         onBlur={handleFocus}
+        autoFocus={focused}
       />
-      {focused && (
-        <span
-          className={classes.errorMessage}
-          style={{ display: `${focused ? "block" : "none"}` }}
-        >
-          {errorMessage}
-        </span>
-      )}
+      {focused && <span className={classes.errorMessage}>{errorMessage}</span>}
     </div>
   );
 };

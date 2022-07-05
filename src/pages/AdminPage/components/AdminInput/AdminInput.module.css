@@ -32,10 +32,11 @@
   font-size: 12px;
   padding: 3px;
   color: red;
+  display: none;
 }
-/*.adminInput:invalid[focused='true'] ~ .errorMessage {*/
-/*  display: block;*/
-/*}*/
+.adminInput:invalid[autofocus] ~ .errorMessage {
+  display: block;
+}
 
 .inputTitle,
 .inputLinkTitle {
