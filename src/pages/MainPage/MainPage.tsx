@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+// imported images
+import bookImage from '../../assets/mainPage/mainAd-photo.png';
 import calendarIcon from '../../assets/icons/calendar-icon.svg';
-import MainAd from './components/advertisement/MainAd';
+import { sketch } from '../../assets/ui-images/images';
+
+// imported components
 import MainNews from './components/news/MainNews';
 import PalaroidSlider from './components/palaroid-slider/PalaroidSlider';
 import PhotoReports from './components/photo-reports/PhotoReports';
 import TopInstituions from './components/top-institutions/TopInstituions';
-
-// imported images
-
-import bookImage from '../../assets/mainPage/mainAd-photo.png';
-
-// imported components
 import InstitutesSlider from '../../UI/InstitutesSlider/institutes-slider/InstitutesSlider';
 import Book from '../../UI/Book/Book';
 
@@ -19,7 +18,10 @@ import { BookProps } from '../../types/bookTypes/bookTypes';
 
 import classes from './mainPage.module.css';
 import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
-import { FooterEmoji } from '../../UI/FooterEmoji/FooterEmoji';
+import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
+
+import { photoAPI } from '../../store/features/photos/photoQuery';
+import { establishmentsAPI } from '../../store/features/establishments/establishmentsQuery';
 
 let bookProps: BookProps = {
   data: {
@@ -31,11 +33,12 @@ let bookProps: BookProps = {
 };
 
 const MainPage = () => {
-  console.log(window.innerWidth);
+  const { data, error, isLoading } = photoAPI.useFetchAllPhotosQuery(20);
+
   return (
     <div className={classes.main}>
       <div className={classes.header_background_effect}></div>
-
+      <CalendarIcon />
       <div className={classes.main_one}>
         <PalaroidSlider />
         <TopInstituions />
@@ -44,7 +47,12 @@ const MainPage = () => {
       <PhotoReports />
 
       <div className={classes.paper_background}>
-        <InstitutesSlider />
+        <div className={classes.slider_title_container}>
+          <h2 className={classes.slider_title}>{'Заведения'}</h2>
+          <img src={sketch} />
+        </div>
+
+        <InstitutesSlider isContentBlack={true} />
         <MainNews />
         <div className={classes.paper_gradient_top}></div>
         <div className={classes.paper_gradient_right}></div>

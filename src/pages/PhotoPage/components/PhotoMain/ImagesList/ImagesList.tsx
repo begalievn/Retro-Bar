@@ -5,16 +5,19 @@ import eye from "../../../../../assets/photoPageImages/icons/eye.svg";
 import pic from "../../../../../assets/photoPageImages/icons/pic.svg";
 import camera from "../../../../../assets/photoPageImages/icons/camera.svg";
 import Gallery from "../../../../../UI/Gallery/GalleryModal/GalleryModal";
+import NewGallery from "../../../../../UI/NewGallery/NewGallery";
+
 import Button from "../../Button/Button";
+import { photoAPI } from "../../../../../store/features/photos/photoQuery";
 
 interface ImagesListProps {
-  images: IPhotos[];
+  images: IPhotos[] | null;
 }
 const ImagesList: FC<ImagesListProps> = ({ images }) => {
   const [galleryModal, setGalleryModal] = useState(false);
   const toggleGalleryModal = () => setGalleryModal(!galleryModal);
 
-  const [currentEvent, setCurrentEvent] = useState<IPhotos>({});
+  const [currentEvent, setCurrentEvent] = useState<IPhotos | null>  (null);
   if (galleryModal) {
     document.body.style.overflow = "hidden";
   } else {
@@ -25,6 +28,10 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
     toggleGalleryModal();
     console.log(event);
   };
+  if(!images ) {
+    return <div>Loading...</div>
+  }
+
   return (
     <>
       {images.map((item) => (
@@ -38,6 +45,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
             <img src={item.border} alt="" />
           </div>
           <div className={styles.image} onClick={() => onClickEvent(item)}>
+      
             <img src={item.link} alt="" />
           </div>
           {item.ad ? (
@@ -88,13 +96,19 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
           )}
         </div>
       ))}
-      {galleryModal && (
+      {/* {galleryModal && (
         <Gallery
           currentEvent={currentEvent}
           galleryModal={galleryModal}
           toggleGalleryModal={toggleGalleryModal}
         />
-      )}
+        )} */}
+        {
+          (galleryModal  && currentEvent) && (
+            
+            <NewGallery images={currentEvent} close = {toggleGalleryModal}/>
+          )
+        }
     </>
   );
 };

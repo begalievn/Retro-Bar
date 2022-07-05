@@ -16,6 +16,8 @@ const VideoCard: FC<videoCardProps> = ({ videoCardBody }) => {
           <PlayIcon />
         </i>
         <img src={videoCardBody.image} alt={`${videoCardBody.title}`} />
+        <div className={classes.videoPlayer}>
+      </div>
         <div className={classes.cardText}>
           <span className={classes.cardViewers}>{videoCardBody.views}</span>
           <h4 className={classes.cardTitle}>{videoCardBody.title}</h4>

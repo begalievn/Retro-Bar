@@ -43,6 +43,7 @@
   margin: 30px auto;
   max-width: 1440px;
   height: 509px;
+  position: relative;
 }
 
 .institutions_title {
@@ -52,6 +53,22 @@
 
 .institutions_slider {
   width: 100%;
+}
+
+.top_inst_ellipse_deco {
+  position: absolute;
+  left: 770px;
+  top: 0;
+  z-index: -1;
+  width: 427px;
+  height: 427px;
+  background: radial-gradient(
+      50% 50% at 50% 50%,
+      rgba(255, 188, 57, 0.365) 0%,
+      rgba(202, 246, 255, 0) 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  opacity: 0.5;
 }
 
 /* -------------------- */
@@ -92,6 +109,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
   position: relative;
+}
+
+.photo_report_card_container {
+  width: 335px;
 }
 
 .green_tape {
@@ -148,6 +169,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.photo_reports__btn button:hover {
+  cursor: pointer;
 }
 
 .photo_reports__star3 {
@@ -235,6 +260,10 @@
   color: black;
 }
 
+.paper_background span {
+  stroke: 'blue';
+}
+
 @media (max-width: 1210px) {
   .paper_background {
     height: 2100px;
@@ -254,6 +283,7 @@
     rgba(0, 0, 0, 0.8) 0%,
     rgba(0, 0, 0, 0) 38.53%
   );
+  pointer-events: none;
 }
 
 .paper_gradient_left {
@@ -285,6 +315,56 @@
   );
   transform: matrix(0, -1, -1, 0, 0, 0);
   pointer-events: none;
+}
+
+.slider_title_container {
+  width: 240px;
+  height: 120px;
+  position: absolute;
+  z-index: 0;
+  left: 52%;
+  transform: translateX(-50%);
+  top: 195px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider_title_container img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+}
+
+.slider_title {
+  font-family: 'Montserrat Alternates';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  text-align: center;
+  /* identical to box height */
+
+  color: black;
+}
+
+@media (max-width: 1000px) {
+  .slider_title {
+    font-family: 'Montserrat Alternates';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: #000000;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .slider_title_container img {
+    display: none;
+  }
 }
 
 /* ----------------- */

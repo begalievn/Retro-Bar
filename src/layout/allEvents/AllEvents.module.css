@@ -30,6 +30,11 @@
 
 .section2_establishment {
   position: relative;
+  transition: 0.5s;
+}
+
+.section2_establishment:hover {
+  transform: scale(1.1);
 }
 
 .section2_establishment_image {
@@ -37,7 +42,10 @@
   max-height: 308px;
   width: 100vw;
   height: 100vw;
+
 }
+
+
 
 .section2_establishment_text {
   position: absolute;

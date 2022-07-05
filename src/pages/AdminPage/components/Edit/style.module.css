@@ -1,0 +1,39 @@
+.details span{
+    display: block;
+}
+.cont{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.cards{
+    min-width: 300px !important;
+    margin: 15px;
+}
+.mainDiv{
+    position: absolute;
+    top:0%;
+    left: 0%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modalDiv{
+    background: white;
+    width: 30%;
+    height: 50%;
+    border-radius: 20%;
+    text-align: center;
+}
+.modalInput{
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+.btnEdit{
+    margin-top: 20px;
+}

@@ -1,15 +1,10 @@
 .back {
   overflow: hidden;
   width: 100%;
-  height: 175vw;
+  height: 100%;
   top: 0px;
-  /* background-color: black; */
   background: url("../../assets/institution/back.jpg") 0 0/100% 100% no-repeat;
-  /* background-image: url('../../assets/institution/back.webp');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: 0 0;
-  background-repeat: no-repeat; */
+
 }
 .container {
   position: relative;
@@ -81,7 +76,7 @@
   .back {
     background: url("../../assets/institution/mobileback.jpg") 0 0/100% 100%
       no-repeat;
-    height: 593vw;
+    height: 100%;
   }
   .star {
     display: none;
