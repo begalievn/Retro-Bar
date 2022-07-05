@@ -56,7 +56,7 @@ export const photoAPI = createApi({
         },
         body: photoCard,
       }),
-      invalidatesTags: ['PhotoCard'],
+      invalidatesTags: (result) => ['PhotoCard'],
     }),
   }),
 });

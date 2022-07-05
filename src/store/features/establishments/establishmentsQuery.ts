@@ -1,20 +1,20 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IEstablishment } from "../../../types/apiTypes/establishment";
-import { API } from "../../../utils/helpers/Consts";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { IEstablishment } from '../../../types/apiTypes/establishment';
+import { API } from '../../../utils/helpers/Consts';
 
 export const establishmentsAPI = createApi({
-  reducerPath: "establishmentsAPI",
+  reducerPath: 'establishmentsAPI',
   baseQuery: fetchBaseQuery({ baseUrl: API }),
-  tagTypes: ["Establishments", "Contacts"],
+  tagTypes: ['Establishments', 'Contacts'],
   endpoints: (build) => ({
     fetchAllEstablishments: build.query({
       query: (name) => ({
-        url: "/establishment",
+        url: '/establishment',
         params: {
           name,
         },
       }),
-      providesTags: (result) => ["Establishments"],
-    })
+      providesTags: ['Establishments'],
+    }),
   }),
 });

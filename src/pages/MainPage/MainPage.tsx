@@ -28,6 +28,7 @@ import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { photoAPI } from '../../store/features/photos/photoQuery';
+import { establishmentsAPI } from '../../store/features/establishments/establishmentsQuery';
 
 let bookProps: BookProps = {
   data: {
@@ -40,6 +41,10 @@ let bookProps: BookProps = {
 
 const MainPage = () => {
   const { data, error, isLoading } = photoAPI.useFetchAllPhotosQuery(20);
+  const { data: establishments, isLoading: isEsLoading } =
+    establishmentsAPI.useFetchAllEstablishmentsQuery('k');
+
+  isEsLoading ? null : console.log('ss', establishments);
 
   return (
     <div className={classes.main}>

@@ -60,7 +60,7 @@ const PhotoReports = () => {
           {isLoading
             ? null
             : photos.photoCards.map((card: IPhotoCards, index: number) => (
-                <div>
+                <div key={index}>
                   {index === 4 ? (
                     <PhotoReportCardBig
                       photo={card?.photos[0]}
