@@ -7,7 +7,6 @@ import {
   Pages,
 } from "../../../../types/adminPage/adminPage";
 import AdminInput from "../AdminInput/AdminInput";
-import AddMedia from "../AddMedia/AddMedia";
 import SocialComponent from "../SocialComponent/SocialComponent";
 import DropFileInput from "../DropFileInput/DropFileInput";
 import useDebounce from "../../../../hooks/useDebounce";
@@ -73,7 +72,6 @@ const AdminGeneral: FC<AdminGeneralProps> = ({
                     inputHandler={handler ? handler : inputHandler}
                     key={field.title}
                     inputValue={inputValue}
-                    setInputValue={setInputValue}
                     page={page}
                     title={field.title}
                     name={field.name}

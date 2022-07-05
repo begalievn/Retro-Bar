@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import classes from "../AdminGeneral/AdminGeneral.module.css";
+import classes from "../../AdminPage.module.css";
 import {
   AdminPageTypes,
   PhotoCard,
@@ -13,34 +13,39 @@ import {
 } from "../../../../store/alertSlice/alertSlice";
 import { Button } from "../../../../UI";
 import DropFileInput from "../DropFileInput/DropFileInput";
-import AdminInput from "../AdminInput/AdminInput";
+import AdminFields from "../AdminFields/AdminFields";
 import useDebounce from "../../../../hooks/useDebounce";
+import {$host} from "../../../../utils/helpers/host";
+import {establishmentsAPI} from "../../../../store/features/establishments/establishmentsQuery";
 
-const photoPage = {
-  name: "photo",
-  title: "Фото",
-  add: "photos",
-  addLink: false,
-  viewersRange: true,
-  fields: [
-    { title: "Название Заведения", name: "establishmentId", type: "input" },
-    { title: "Название Вечеринки", name: "eventName", type: "input" },
-    { title: "Фотограф", name: "photographerId", type: "input" },
-    { title: "Дата", name: "date", type: "input" },
-  ],
-};
+const fields = [
+  { title: "Название Заведения", name: "establishmentId" },
+  { title: "Название Вечеринки", name: "eventName" },
+  { title: "Фотограф", name: "photographerId" },
+  { title: "Дата", name: "date" },
+];
 
 const AdminPhoto = () => {
   const dispatch = useDispatch();
-  const [inputValue, setInputValue] = useState<AdminPageTypes | object>({
-    establishmentId: "",
-    photos: null,
-    eventName: "",
-    views: "",
-    photographerId: "",
-    date: "",
-  });
-  // const debounceEstablishment = useDebounce(inputValue?.establishmentId, 2000);
+  const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
+  const {data } = establishmentsAPI.useF
+
+
+  useEffect(() => {
+    if ("establishmentId" in inputValue) {
+      const debounceEstablishment = useDebounce(
+          inputValue.establishmentId,
+          500
+      );
+      const fetchData = async () => {
+        const {data} = await $host.get()
+      };
+      if(debounceEstablishment!) fetchData()
+    }
+    if ("photographerId" in inputValue) {
+      const debouncePhotographer = useDebounce(inputValue.photographerId, 500);
+    }
+  }, []);
 
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -48,15 +53,12 @@ const AdminPhoto = () => {
     if (e.target.toString().includes("TextArea")) {
       e.target.style.height = e.target.scrollHeight + "px";
     }
-    if (e.target.name == "establishmentId") {
-    } else if (e.target.name == "photographerId") {
-    }
-
     setInputValue((prevInputs: AdminPageTypes) => ({
       ...prevInputs,
       [e.target.name]: e.target.value,
     }));
   };
+
   const postHandler = () => {
     AdminApi.addPhoto(inputValue as PhotoCard)
       .then(() => {
@@ -83,43 +85,15 @@ const AdminPhoto = () => {
             children={"Добавить картинки"}
             setInputValue={setInputValue}
           />
-
-          <div className={classes.adminFields}>
-            <div className={classes.adminInputs}>
-              <AdminInput
-                inputHandler={inputHandler}
-                inputValue={inputValue}
-                setInputValue={setInputValue}
-                title={"Название Заведения"}
-                name={"establishmentId"}
-              />
-              <AdminInput
-                inputHandler={inputHandler}
-                inputValue={inputValue}
-                setInputValue={setInputValue}
-                title={"Название Вечеринки"}
-                name={"eventName"}
-              />
-              <AdminInput
-                inputHandler={inputHandler}
-                inputValue={inputValue}
-                setInputValue={setInputValue}
-                title={"Фотограф"}
-                name={"photographerId"}
-              />
-              <AdminInput
-                inputHandler={inputHandler}
-                inputValue={inputValue}
-                setInputValue={setInputValue}
-                title={"Дата"}
-                name={"date"}
-              />
-            </div>
-          </div>
+          <AdminFields
+            fields={fields}
+            inputHandler={inputHandler}
+            inputValue={inputValue}
+          />
         </div>
-      </div>
-      <div className={classes.buttonBlock}>
-        <Button onClick={postHandler}>Опубликовать</Button>
+        <div className={classes.buttonBlock}>
+          <Button onClick={postHandler}>Опубликовать</Button>
+        </div>
       </div>
     </div>
   );

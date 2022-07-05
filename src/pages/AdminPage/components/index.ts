@@ -7,7 +7,8 @@ import AdminSidebar from "./AdminSidebar/AdminSidebar";
 import AdminContacts from "./AdminContacts/AdminContacts";
 import AdminPhoto from "./AdminPhoto/AdminPhoto";
 import AdminAdvertising from "./AdminAdvertising/AdminAdvertising";
-
+import DropFileInput from "./DropFileInput/DropFileInput";
+import AdminFields from "./AdminFields/AdminFields";
 export {
   AdminInput,
   AdminGeneral,
@@ -17,5 +18,7 @@ export {
   AdminSidebar,
   AdminContacts,
   AdminPhoto,
-    AdminAdvertising
+  AdminAdvertising,
+  DropFileInput,
+  AdminFields,
 };

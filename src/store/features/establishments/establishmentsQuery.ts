@@ -10,11 +10,11 @@ export const establishmentsAPI = createApi({
     fetchAllEstablishments: build.query({
       query: (name) => ({
         url: "/establishment",
-        params: {
-          name,
-        },
+        // params: {
+        //   name,
+        // },
       }),
-      providesTags: (result) => ["Establishments"],
+      providesTags: ["Establishments"],
     }),
     fetchAllContacts: build.query({
       query: (limit) => ({

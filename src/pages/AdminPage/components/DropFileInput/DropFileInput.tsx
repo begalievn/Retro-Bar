@@ -6,6 +6,7 @@ import { ReactComponent as PhotoIcon } from "../../../../assets/adminPage/addPic
 import {
   AdminPageTypes,
   IPageBody,
+  PhotoCard,
 } from "../../../../types/adminPage/adminPage";
 
 interface DropFileInputProps {

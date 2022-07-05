@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import classes from "../AdminGeneral/AdminGeneral.module.css";
+import classes from "../../AdminPage.module.css";
 
 import {
   AdminPageTypes,
@@ -16,24 +16,18 @@ import {
 import { Button } from "../../../../UI";
 import DropFileInput from "../DropFileInput/DropFileInput";
 import AdminInput from "../AdminInput/AdminInput";
+import { AdminFields } from "../index";
 
-const videoPage = {
-  name: "video",
-  title: "Видео",
-  add: "video",
-  addLink: true,
-  viewersRange: true,
-  fields: [
-    { title: "Название Заведения", name: "establishmentId", type: "input" },
-    { title: "Название Вечеринки", name: "eventName", type: "input" },
-    { title: "Видеограф", name: "photographerId", type: "input" },
-    { title: "Дата", name: "date", type: "input" },
-  ],
-};
+const fields = [
+  { title: "Название Заведения", name: "establishmentId", type: "input" },
+  { title: "Название Вечеринки", name: "eventName", type: "input" },
+  { title: "Видеограф", name: "photographerId", type: "input" },
+  { title: "Дата", name: "date", type: "input" },
+];
 
 const AdminVideo = () => {
-  const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
   const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
 
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -41,10 +35,6 @@ const AdminVideo = () => {
     if (e.target.toString().includes("TextArea")) {
       e.target.style.height = e.target.scrollHeight + "px";
     }
-    if (e.target.name == "establishmentId") {
-    } else if (e.target.name == "photographerId") {
-    }
-
     setInputValue((prevInputs: AdminPageTypes) => ({
       ...prevInputs,
       [e.target.name]: e.target.value,
@@ -68,49 +58,19 @@ const AdminVideo = () => {
   };
   return (
     <div className={classes.generalBlock}>
-      <div className={classes.generalBlock}>
-        <div className={classes.adminGeneralBlock}>
-          <h3 className={classes.adminTitle}>Фото</h3>
-          <div className={classes.adminContent}>
-            <DropFileInput
-              type={"video"}
-              children={"Добавить видео"}
-              setInputValue={setInputValue}
-            />
-
-            <div className={classes.adminFields}>
-              <div className={classes.adminInputs}>
-                <AdminInput
-                  inputHandler={inputHandler}
-                  inputValue={inputValue}
-                  setInputValue={setInputValue}
-                  title={"Название Заведения"}
-                  name={"establishmentId"}
-                />
-                <AdminInput
-                  inputHandler={inputHandler}
-                  inputValue={inputValue}
-                  setInputValue={setInputValue}
-                  title={"Название Вечеринки"}
-                  name={"eventName"}
-                />
-                <AdminInput
-                  inputHandler={inputHandler}
-                  inputValue={inputValue}
-                  setInputValue={setInputValue}
-                  title={"Видеограф"}
-                  name={"photographerId"}
-                />
-                <AdminInput
-                  inputHandler={inputHandler}
-                  inputValue={inputValue}
-                  setInputValue={setInputValue}
-                  title={"Дата"}
-                  name={"date"}
-                />
-              </div>
-            </div>
-          </div>
+      <div className={classes.adminGeneralBlock}>
+        <h3 className={classes.adminTitle}>Видео</h3>
+        <div className={classes.adminContent}>
+          <DropFileInput
+            type={"video"}
+            children={"Добавить видео"}
+            setInputValue={setInputValue}
+          />
+          <AdminFields
+            fields={fields}
+            inputHandler={inputHandler}
+            inputValue={inputValue}
+          />
         </div>
         <div className={classes.buttonBlock}>
           <Button onClick={postHandler}>Опубликовать</Button>

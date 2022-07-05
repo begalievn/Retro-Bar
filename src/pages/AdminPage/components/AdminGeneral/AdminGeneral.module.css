@@ -6,6 +6,14 @@
   padding-top: 40px;
   /*padding: 60px 30px 0;*/
 }
+.generalBlock {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: 1;
+  margin: 0 auto;
+}
 .adminFields {
   width: auto;
   display: flex;
@@ -38,4 +46,8 @@
   height: 100%;
   display: flex;
   align-items: center;
+}
+.buttonBlock {
+  /*margin-right: 13%;*/
+  align-self: flex-end;
 }

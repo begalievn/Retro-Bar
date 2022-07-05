@@ -16,9 +16,8 @@ interface AdminInputProps {
   name?: string;
   type?: string;
   inputValue: AdminPageTypes | object;
-  setInputValue: (prevInputs: AdminPageTypes | object) => void;
   color?: primaryColor;
-  inputHandler: (
+  inputHandler?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
   // icon: SVGElement;
@@ -26,7 +25,6 @@ interface AdminInputProps {
 
 const AdminInput: FC<AdminInputProps> = ({
   page,
-  setInputValue,
   inputValue,
   inputHandler,
   type = "input",
