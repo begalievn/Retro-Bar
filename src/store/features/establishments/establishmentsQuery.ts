@@ -16,5 +16,18 @@ export const establishmentsAPI = createApi({
       }),
       providesTags: ['Establishments'],
     }),
+    createEstablishment: build.mutation({
+      query: (establishment) => ({
+        url: '/admin/establishment',
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem('accessToken') || '{}'
+          )}`,
+        },
+        body: establishment,
+      }),
+      invalidatesTags: (result) => ['Establishments'],
+    }),
   }),
 });
