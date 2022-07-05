@@ -6,16 +6,20 @@ interface ButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   size?: string;
+  type?: btnTypes;
 }
+
+type btnTypes = "submit" | "reset";
 
 const sizes = ["small", "medium", "big"];
 
-const Button: FC<ButtonProps> = ({ children, onClick, size }) => {
+const Button: FC<ButtonProps> = ({ children, onClick, size, type }) => {
   const checkSize = size && sizes.includes(size) ? size : sizes[0];
 
   return (
     <>
       <button
+        type={type}
         onClick={onClick}
         className={`${classes.btn} ${(checkSize && classes[checkSize]) || ""}`}
       >

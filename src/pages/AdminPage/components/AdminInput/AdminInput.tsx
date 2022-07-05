@@ -65,7 +65,6 @@ const AdminInput: FC<AdminInputProps> = ({
         onChange={inputHandler}
         className={classes.adminInput}
         onBlur={handleFocus}
-        onFocus={handleFocus}
       />
       {focused && (
         <span

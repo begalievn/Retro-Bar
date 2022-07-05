@@ -79,8 +79,15 @@ const AdminPhoto = () => {
     console.log(data);
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const { formData } = getFormData(inputValue as PhotoCard);
+
+    const data = await createPhotoCard(formData);
+  };
+
   return (
-    <div className={classes.generalBlock}>
+    <form onSubmit={handleSubmit} className={classes.generalBlock}>
       <div className={classes.adminGeneralBlock}>
         <h3 className={classes.adminTitle}>Фото</h3>
         <div className={classes.adminContent}>
@@ -96,11 +103,11 @@ const AdminPhoto = () => {
           />
         </div>
         <div className={classes.buttonBlock}>
-          <Button onClick={postHandler}>Опубликовать</Button>
+          <Button type={"submit"}>Опубликовать</Button>
         </div>
       </div>
       {/*<AlertComponent alertBody={error} />*/}
-    </div>
+    </form>
   );
 };
 
