@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import ImagesList from '../ImagesList/ImagesList';
 import { IPhotosAnother } from "../interfaces";
-import {IPhoto} from '../../../../../types/apiTypes/photo'
+import { IPhoto } from '../../../../../types/apiTypes/photo'
 
 import {
   eventPlace,
@@ -39,7 +39,7 @@ const images: IPhotosAnother[] = [
     date: '14 мая 2022',
     studio: 'Фото студия “Оригами”',
     photos: [
-     
+
     ],
   },
   {
@@ -52,7 +52,7 @@ const images: IPhotosAnother[] = [
     views: 709,
     date: '20 мая 2022',
     photos: [
-     
+
     ],
   },
   {
@@ -65,7 +65,7 @@ const images: IPhotosAnother[] = [
     views: 660,
     date: '20 мая 2022',
     photos: [
-    
+
     ],
   },
   {
@@ -78,7 +78,7 @@ const images: IPhotosAnother[] = [
     views: 665,
     date: '28 мая 2022',
     photos: [
-     
+
     ],
   },
   {
@@ -91,7 +91,7 @@ const images: IPhotosAnother[] = [
     views: 675,
     date: '20 мая 2022',
     photos: [
-    
+
     ],
   },
   {
@@ -104,7 +104,7 @@ const images: IPhotosAnother[] = [
     views: 4660,
     date: '14 мая 2022',
     photos: [
-     
+
     ],
   },
   {
@@ -127,7 +127,7 @@ const images: IPhotosAnother[] = [
     views: 5004,
     date: '14 мая 2022',
     photos: [
-     
+
     ],
   },
   {
@@ -140,7 +140,7 @@ const images: IPhotosAnother[] = [
     views: 4789,
     date: '11 мая 2022',
     photos: [
-    
+
     ],
   },
   {
@@ -153,7 +153,7 @@ const images: IPhotosAnother[] = [
     views: 8335,
     date: '21 октября 2021',
     photos: [
-      
+
     ],
   },
   {
@@ -166,7 +166,7 @@ const images: IPhotosAnother[] = [
     views: 7336,
     date: '22 мая 2022',
     photos: [
-  
+
     ],
   },
   {
@@ -189,7 +189,7 @@ const images: IPhotosAnother[] = [
     views: 4695,
     date: '14 мая 2022',
     photos: [
-      
+
     ],
   },
 ];
@@ -197,11 +197,6 @@ const images: IPhotosAnother[] = [
 
 
 const PhotoReport: FC = () => {
- 
-  // console.log(MokPhotos);
-
-  
-  
 
   const [finalResponse, setFinalResponse] = useState<Array<IPhotosAnother> | null>(null);
   const {
@@ -210,30 +205,31 @@ const PhotoReport: FC = () => {
     isLoading,
     refetch,
   } = photoAPI.useFetchAllPhotosQuery(20);
-  // console.log(photos);
-  console.log(Math.floor(Math.random() * 20),'saaaaaaaaaaaaaaaaaaaaaa');
-  
+
+
+
 
   useEffect(() => {
     if (photos) {
-      // console.log(photos.photoCards);
       let newImages: Array<IPhotosAnother> = [];
       for (let i = 0; i < images.length; i++) {
-        let MokPhotos:Array<IPhoto> = [];
+        let MokPhotos: Array<IPhoto> = [];
         for (let i = 0; i < Math.floor(Math.random() * 20); i++) {
-          MokPhotos.push({id:Math.floor(Math.random() * Date.now()),created:Date.now().toString(),
-            url:`https://picsum.photos/id/${Math.floor(Math.random() * 234)}/200/300`},);
-          
+          MokPhotos.push({
+            id: Math.floor(Math.random() * Date.now()), created: Date.now().toString(),
+            url: `https://picsum.photos/id/${Math.floor(Math.random() * 234)}/200/300`
+          });
+
         }
         let nativeElement = images[i];
-        
+
         const responseElement = photos.photoCards[i];
         if (nativeElement.ad) {
           newImages.push(nativeElement)
           continue;
         };
-        
-        
+
+
         nativeElement = {
           ...nativeElement,
           name: responseElement.establishment.name,
@@ -243,9 +239,9 @@ const PhotoReport: FC = () => {
           eventName: responseElement.eventName,
           id: responseElement.id,
           date: responseElement.date,
-          photos:  MokPhotos,
-          
-          
+          photos: MokPhotos,
+
+
 
           // responseElement.photos.length ? responseElement.photos[0] : ""
 
@@ -253,7 +249,7 @@ const PhotoReport: FC = () => {
         }
         newImages.push(nativeElement)
 
-        // console.log(newImages);
+
         setFinalResponse(newImages);
 
       }

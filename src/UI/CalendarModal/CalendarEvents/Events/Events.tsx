@@ -21,11 +21,11 @@ const Events: FC = ({ }) => {
 
   };
 
-  console.log(galleryModal);
+
 
 
   const filterData: IPhotos[] = useAppSelector(state => state.photos.filterPhoto)
-  console.log(filterData);
+
 
   return (
     <>
