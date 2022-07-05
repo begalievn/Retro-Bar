@@ -5,7 +5,7 @@ import { API } from '../../../utils/helpers/Consts';
 export const photoAPI = createApi({
   reducerPath: 'photoAPI',
   baseQuery: fetchBaseQuery({ baseUrl: API }),
-  tagTypes: ["Photo","Contacts"],
+  tagTypes: ['Photo', 'Contacts', 'PhotoCard'],
   endpoints: (build) => ({
     fetchAllPhotos: build.query({
       query: (take: number = 20) => ({
@@ -17,13 +17,21 @@ export const photoAPI = createApi({
       providesTags: (result) => ['Photo'],
     }),
     fetchAllContacts: build.query({
-        query: (limit) => ({
-          url: `/photo?take=${limit}&page=0`,
-          params:{
-            _limit: limit
-          }
-        }),
-        providesTags: (result) => ["Contacts"],
-      })
+      query: (limit) => ({
+        url: `/photo?take=${limit}&page=0`,
+        params: {
+          _limit: limit,
+        },
+      }),
+      providesTags: (result) => ['Contacts'],
+    }),
+    createPhotoCard: build.mutation({
+      query: (photoCard) => ({
+        url: '/admin/photoCard',
+        method: 'POST',
+        body: photoCard,
+      }),
+      invalidatesTags: ['PhotoCard'],
+    }),
   }),
 });
