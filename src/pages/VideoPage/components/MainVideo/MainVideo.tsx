@@ -20,6 +20,23 @@ const images: IVideoCardBody[] = [
 import { videoAPI } from "../../../../store/features/videos/videoQuery";
 
 const MainVideo = () => {
+  const {
+    data: photos,
+    error,
+    isLoading,
+    refetch,
+  } = videoAPI.useFetchAllVideosQuery("");
+
+  const images: IVideoCardBody[] = [
+    {
+      title: "SUZIE WONG / OPENING | MOT",
+      image: video,
+      views: 1100,
+    },
+    { title: "SUZIE WONG / OPENING | MOT", image: video1, views: 1200 },
+    { title: "SUZIE WONG / OPENING | MOT", image: video, views: 1300 },
+    { title: "SUZIE WONG / OPENING | MOT", image: video1, views: 1400 },
+  ];
   const [modal, setModal] = React.useState(false);
   const toggleModal = () => setModal(!modal);
 
@@ -29,7 +46,7 @@ const MainVideo = () => {
         <iframe
           width="800"
           height="400"
-          src="https://www.youtube.com/embed/uF2bHOPOY6Y"
+          src={photos?.photographers[0].url}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -1,15 +1,10 @@
 import React, { FC } from "react";
 import classes from "../AdminGeneral/AdminGeneral.module.css";
 import AdminInput from "../AdminInput/AdminInput";
-import { AdminPageTypes } from "../../../../types/adminPage/adminPage";
-interface Fields {
-  title: string;
-  name: string;
-  type?: string;
-}
+import { AdminPageTypes, IField } from "../../../../types/adminPage/adminPage";
 
 interface AdminFieldsProps {
-  fields: Fields[];
+  fields: IField[];
   inputValue: AdminPageTypes | object;
   inputHandler?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -21,13 +16,17 @@ const AdminFields: FC<AdminFieldsProps> = ({
   inputHandler,
   inputValue,
 }) => {
+  console.log(fields);
   return (
     <div className={classes.adminFields}>
       <div className={classes.adminInputs}>
         {fields.map((field) => {
           return (
             <AdminInput
+              required={field.required}
               key={field.name}
+              type={field.type}
+              errorMessage={field.errorMessage}
               inputValue={inputValue}
               title={field.title}
               name={field.name}

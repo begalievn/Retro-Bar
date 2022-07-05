@@ -20,6 +20,8 @@ interface AdminInputProps {
   inputHandler?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
+  errorMessage?: string;
+  required?: boolean;
   // icon: SVGElement;
 }
 
@@ -28,31 +30,51 @@ const AdminInput: FC<AdminInputProps> = ({
   inputValue,
   inputHandler,
   type = "input",
+  name,
+  title,
+  color,
+  errorMessage,
   ...props
 }) => {
+  const [focused, setFocused] = useState<boolean>(false);
+
+  const handleFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFocused(!focused);
+  };
+
   return (
     <div className={classes.inputBlock}>
       <label
-        className={
-          props.title?.toLowerCase() == "вставить ссылку"
-            ? classes.inputLinkTitle
-            : classes.inputTitle
-        }
-        style={{ color: `${props.color && props.color}` }}
-        htmlFor={props.name}
+        // className={
+        //   title?.toLowerCase() == "вставить ссылку"
+        //     ? classes.inputLinkTitle
+        //     : classes.inputTitle
+        // }
+        // style={{ color: `${color && color}` }}
+        htmlFor={name}
       >
-        {/*<i>{props.icon}</i>*/}
-        {props.title}
+        {/*<i>{icon}</i>*/}
+        {title}
       </label>
       <input
-        id={props.name}
+        id={name}
         type={type}
-        name={props.name}
-        value={inputValue[props.name as keyof AdminPageTypes] || ""}
+        name={name}
+        required={props.required}
+        value={inputValue[name as keyof AdminPageTypes] || ""}
         onChange={inputHandler}
         className={classes.adminInput}
-        {...props}
+        onBlur={handleFocus}
+        onFocus={handleFocus}
       />
+      {focused && (
+        <span
+          className={classes.errorMessage}
+          style={{ display: `${focused ? "block" : "none"}` }}
+        >
+          {errorMessage}
+        </span>
+      )}
     </div>
   );
 };

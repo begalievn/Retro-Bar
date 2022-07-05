@@ -27,6 +27,8 @@ import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { photoAPI } from '../../store/features/photos/photoQuery';
+import { establishmentsAPI } from '../../store/features/establishments/establishmentsQuery';
 
 let bookProps: BookProps = {
   data: {
@@ -38,8 +40,11 @@ let bookProps: BookProps = {
 };
 
 const MainPage = () => {
-  const photos = useAppSelector((state) => state.photos.value);
-  console.log('from MainPage getting photos: ', photos);
+  const { data, error, isLoading } = photoAPI.useFetchAllPhotosQuery(20);
+  const { data: establishments, isLoading: isEsLoading } =
+    establishmentsAPI.useFetchAllEstablishmentsQuery('k');
+
+  isEsLoading ? null : console.log('ss', establishments);
 
   return (
     <div className={classes.main}>

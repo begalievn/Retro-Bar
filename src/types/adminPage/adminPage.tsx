@@ -1,7 +1,10 @@
-export interface IFiled {
+export interface IField {
   title: string;
   name: string;
-  type?: string
+  type?: string;
+  color?: string;
+  errorMessage?: string;
+  required?: boolean;
 }
 export interface IPage {
   [key: string]: IPageBody;
@@ -14,10 +17,10 @@ export interface IPageBody {
   innerPage?: PageInner;
   addLink: boolean;
   viewersRange: boolean;
-  fields?: IFiled[];
-  description?: IFiled[];
-  contacts?: IFiled[];
-  social?: IFiled[];
+  fields?: IField[];
+  description?: IField[];
+  contacts?: IField[];
+  social?: IField[];
 }
 
 interface PageInner {
@@ -44,11 +47,11 @@ export interface VideoCard {
 }
 export interface PhotoCard {
   establishmentId: number | string;
-  eventName: string;
-  views: number | string;
+  eventName?: string;
+  views?: number | string;
   photographerId: number | string;
-  date: string;
-  photos: object | null;
+  date?: string;
+  photos?: object | null;
 }
 
 export interface AlertBody {
@@ -64,6 +67,5 @@ export interface Establishment {
   contacts: string;
   category: number;
 }
-
 
 export type AdminPageTypes = PhotoCard | VideoCard | Establishment;

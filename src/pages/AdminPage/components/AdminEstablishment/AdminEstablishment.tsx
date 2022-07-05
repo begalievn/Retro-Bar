@@ -96,9 +96,6 @@ const AdminEstablishment = () => {
             inputValue={inputValue}
           />
         </div>
-        <div className={styles.buttonBlock}>
-          <Button onClick={postHandler}>Опубликовать</Button>
-        </div>
       </div>
 
       <div className={classes.descriptionWrapper}>

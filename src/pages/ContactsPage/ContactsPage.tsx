@@ -19,44 +19,38 @@ import tape from "../../assets/contactsPage/border/tape.png";
 import classes from "./style.module.css";
 import TextBlock from "./TextBlock";
 import { IImageArr } from "../../types/contactsPageTypes/contactsPageTypes";
-import { establishmentsAPI } from "../../store/features/establishments/establishmentsQuery";
 import { photoAPI } from "../../store/features/photos/photoQuery";
-import { Button } from "@mui/material";
 
 const ContactsPage: FC = () => {
   const [limit, setLimit] = useState(4);
+  const [dat,setDate] = useState(false)
   let {
     data: photos,
     error,
     isLoading,
     refetch,
-  } = establishmentsAPI.useFetchAllContactsQuery(limit);
-  isLoading && <h1>Loading...</h1>;
-  error && <h2>error</h2>;
-
-  let images = photos?.establishments;
-  console.log(images);
+  } = photoAPI.useFetchAllContactsQuery(limit);
 
   const [frameArr, setFrameArr] = useState<IImageArr[]>([
     {
       frame: mainBack,
       id: 1,
-      photo: mainImage,
+      photo: photos?.photoCards[0].establishment.logo ,
     },
     {
       frame: carousel1,
       id: 2,
-      photo: photo1,
+      photo: photos?.photoCards[1].establishment.logo,
     },
     {
       frame: carousel2,
       id: 3,
-      photo: photo2,
+      photo: photos?.photoCards[2].establishment.logo,
     },
     {
       frame: carousel3,
       id: 4,
-      photo: photo3,
+      photo: photos?.photoCards[3].establishment.logo,
     },
   ]);
 
@@ -71,7 +65,6 @@ const ContactsPage: FC = () => {
       }
     });
   };
-
   return (
     <>
       <div className={classes.container}>
@@ -83,6 +76,9 @@ const ContactsPage: FC = () => {
 
           <div className={classes.image_block}>
             <div className={classes.allImages}>
+  
+              {isLoading && <h1>Loading...</h1> }
+              {error && <h2>error</h2>}
               {frameArr.map((item, index) => (
                 <div className={classes.imageFrame} key={item.id}>
                   <img
@@ -132,7 +128,6 @@ const ContactsPage: FC = () => {
               </div>
             </div>
           </div>
-
           <div></div>
         </div>
       </div>

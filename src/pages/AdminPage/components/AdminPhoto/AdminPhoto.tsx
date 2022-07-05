@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import classes from "../../AdminPage.module.css";
 import {
   AdminPageTypes,
+  IField,
   PhotoCard,
 } from "../../../../types/adminPage/adminPage";
 import { AdminApi } from "../../../../API/adminApi/adminApi";
@@ -11,41 +12,55 @@ import {
   createAlert,
   deleteAlert,
 } from "../../../../store/alertSlice/alertSlice";
-import { Button } from "../../../../UI";
+import { AlertComponent, Button } from "../../../../UI";
 import DropFileInput from "../DropFileInput/DropFileInput";
 import AdminFields from "../AdminFields/AdminFields";
 import useDebounce from "../../../../hooks/useDebounce";
-import {$host} from "../../../../utils/helpers/host";
-import {establishmentsAPI} from "../../../../store/features/establishments/establishmentsQuery";
+import { $host } from "../../../../utils/helpers/host";
+import { establishmentsAPI } from "../../../../store/features/establishments/establishmentsQuery";
+import { photoAPI } from "../../../../store/features/photos/photoQuery";
+import { getFormData } from "../../../../utils/helpers/createFormData";
 
-const fields = [
-  { title: "Название Заведения", name: "establishmentId" },
-  { title: "Название Вечеринки", name: "eventName" },
-  { title: "Фотограф", name: "photographerId" },
-  { title: "Дата", name: "date" },
+const fields: IField[] = [
+  {
+    title: "Название Заведения",
+    name: "establishmentId",
+    errorMessage: "Название Заведения обязательное поле!",
+    required: true,
+  },
+  {
+    title: "Название Вечеринки",
+    name: "eventName",
+    errorMessage: "Название Вечеринки обязательное поле!",
+    required: true,
+  },
+  {
+    title: "Фотограф",
+    name: "photographerId",
+    errorMessage: "Фотограф обязательное поле!",
+    required: true,
+  },
+  {
+    title: "Дата",
+    name: "date",
+    errorMessage: "Дата обязательное поле!",
+    type: "date",
+    required: true,
+  },
 ];
 
 const AdminPhoto = () => {
   const dispatch = useDispatch();
-  const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
-  const {data } = establishmentsAPI.useF
-
-
-  useEffect(() => {
-    if ("establishmentId" in inputValue) {
-      const debounceEstablishment = useDebounce(
-          inputValue.establishmentId,
-          500
-      );
-      const fetchData = async () => {
-        const {data} = await $host.get()
-      };
-      if(debounceEstablishment!) fetchData()
-    }
-    if ("photographerId" in inputValue) {
-      const debouncePhotographer = useDebounce(inputValue.photographerId, 500);
-    }
-  }, []);
+  const [createPhotoCard, {}] = photoAPI.useCreatePhotoCardMutation();
+  const [inputValue, setInputValue] = useState<PhotoCard>({
+    establishmentId: "",
+    photographerId: "",
+  });
+  const debounceEstablishment = useDebounce(inputValue?.establishmentId, 1000);
+  const { data, isLoading, error } =
+    establishmentsAPI.useFetchAllEstablishmentsQuery(
+      `${debounceEstablishment}`
+    );
 
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -53,26 +68,15 @@ const AdminPhoto = () => {
     if (e.target.toString().includes("TextArea")) {
       e.target.style.height = e.target.scrollHeight + "px";
     }
-    setInputValue((prevInputs: AdminPageTypes) => ({
-      ...prevInputs,
-      [e.target.name]: e.target.value,
-    }));
+    setInputValue({ ...inputValue, [e.target.name]: e.target.value });
   };
 
-  const postHandler = () => {
-    AdminApi.addPhoto(inputValue as PhotoCard)
-      .then(() => {
-        dispatch(
-          createAlert({ message: "Успешно опубликовано", type: "success" })
-        );
-        setTimeout(() => dispatch(deleteAlert()), 2000);
-      })
-      .catch((e) => {
-        dispatch(
-          createAlert({ message: e.response.data.message, type: "error" })
-        );
-        setTimeout(() => dispatch(deleteAlert()), 2000);
-      });
+  const postHandler = async () => {
+    const { formData } = getFormData(inputValue as PhotoCard);
+
+    const data = await createPhotoCard(formData);
+
+    console.log(data);
   };
 
   return (
@@ -95,6 +99,7 @@ const AdminPhoto = () => {
           <Button onClick={postHandler}>Опубликовать</Button>
         </div>
       </div>
+      {/*<AlertComponent alertBody={error} />*/}
     </div>
   );
 };
