@@ -9,6 +9,7 @@ import up from '../../assets/institution/up.svg';
 import emojies from '../../assets/institution/emojies.svg';
 import InstitutesSlider from '../../UI/InstitutesSlider/institutes-slider/InstitutesSlider';
 import { FooterEmoji } from '../../UI/FooterEmoji/FooterEmoji';
+import { establishmentsAPI } from '../../store/features/establishments/establishmentsQuery';
 
 let bookData = {
   text: ' технологии достигли такого уровня, что перспективное планирование способствует.',
@@ -16,7 +17,11 @@ let bookData = {
   image: 'https://picsum.photos/1000',
 };
 
+
 const InstitutionPage = () => {
+
+  const {data, error, isLoading} = establishmentsAPI.useFetchAllEstablishmentsQuery('');
+  console.log(data);
   return (
     <div className={styles.back}>
       <CalendarIcon />

@@ -27,6 +27,10 @@ const Events: FC = ({ }) => {
   const filterData: IPhotos[] = useAppSelector(state => state.photos.filterPhoto)
 
 
+  console.log(filterData,'hjgj');
+  
+
+
   return (
     <>
       {filterData?.map((event, i) => (
