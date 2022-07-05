@@ -6,29 +6,34 @@ import styles from "./Events.module.css";
 import Gallery from "../../../Gallery/GalleryModal/GalleryModal";
 import { useAppSelector } from "../../../../app/hooks";
 import { IPhoto, IPhotos } from "../../../../types/apiTypes/photo";
+import GalleryModal from "../../../Gallery/GalleryModal/GalleryModal";
+import NewGallery from "../../../NewGallery/NewGallery";
 
 const Events: FC = ({ }) => {
   const [galleryModal, setGalleryModal] = useState(false);
   const toggleGalleryModal = () => setGalleryModal(!galleryModal)
 
-  const [currentEvent, setCurrentEvent] = useState<IPhotos>()
+  const [currentEvent, setCurrentEvent] = useState<IPhotos | null>(null)
 
   const onClickEvent = (event: IPhotos) => {
     setCurrentEvent(event)
-    toggleGalleryModal()
-    
+    setGalleryModal(true)
+
   };
 
-  const filterData:IPhotos[] = useAppSelector(state=> state.photos.filterPhoto)
-  console.log(filterData);
-  
+
+
+
+  const filterData: IPhotos[] = useAppSelector(state => state.photos.filterPhoto)
+
+
   return (
     <>
       {filterData?.map((event, i) => (
-        <div className={styles.establishment} key={i}>
+        <div onClick={() => onClickEvent(event)} className={styles.establishment} key={i}>
           <img
             src={event.photos[0]?.url}
-            onClick={() => onClickEvent(event)}
+
             className={styles.establishment_image}
             alt=""
           />
@@ -52,7 +57,13 @@ const Events: FC = ({ }) => {
           </div>
         </div>
       ))}
-      {galleryModal && <Gallery currentEvent={currentEvent!} galleryModal={galleryModal} toggleGalleryModal={toggleGalleryModal}/>}
+      {/* {galleryModal && <Gallery currentEvent={currentEvent!} galleryModal={galleryModal} toggleGalleryModal={toggleGalleryModal}/>} */}
+
+      {galleryModal && currentEvent &&
+        <NewGallery close={toggleGalleryModal} eventInfo={currentEvent}
+        />}
+
+
     </>
   );
 };
