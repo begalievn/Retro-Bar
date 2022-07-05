@@ -7,28 +7,30 @@ import { IPhoto } from '../../../types/apiTypes/photo';
 
 
 type CarouselProps = {
-  pictures: Array<IPhoto>;
-  count: (arr: Array<number>) => void;
+  pictures: IPhoto[] ;
+  count: (arr: Array<number>,pic:string) => void;
 };
 
-function Carousel({ pictures , count }: CarouselProps) {
+function Carousel({ pictures, count }: CarouselProps) {
 
   const [offset, setOffset] = useState<number | 0>(0);
 
   
   useEffect(() => {
-    const sumOfPics = children.length
+    const sumOfPics = pictures.length
     const currPic = (Math.abs(offset) / 100) + 1
-
-    children[0]
     
-    count([currPic, sumOfPics])
+    console.log(pictures[currPic-1], currPic);
+    
+    
+
+    count([currPic, sumOfPics],pictures[currPic-1].url)
 
 
   }, [offset])
 
 
-  
+
 
   const leftClick = () => {
     setOffset((currentOffset) => {
@@ -41,7 +43,7 @@ function Carousel({ pictures , count }: CarouselProps) {
 
     setOffset((currentOffset) => {
       const newOffset = currentOffset - 100;
-      const maxOffset = -(100 * (children.length - 1));
+      const maxOffset = -(100 * (pictures.length - 1));
       return Math.max(newOffset, maxOffset)
     })
 
@@ -81,7 +83,15 @@ function Carousel({ pictures , count }: CarouselProps) {
       <div onTouchStart={(e) => touchStart(e)} onTouchMove={(e) => touchMove(e)} className={styles.window}>
 
         <div style={{ transform: `translateX(${offset}%)` }} className={styles.allPagesContainer}>
-          {children}
+          {
+
+            pictures.map((item) => {
+              return (
+                <img key={item.id} className={styles.image} src={item.url} alt="" />
+
+              )
+            })
+          }
         </div>
       </div>
       <img onClick={() => rightClick()} src={arrow} alt="" className={styles.arrowRight} />

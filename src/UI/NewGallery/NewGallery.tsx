@@ -34,14 +34,14 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
 
   console.log(eventInfo, 'DATA');
 
-  const setCounter = (arr: Array<number>) => {
+  const setCounter = (arr: Array<number>,pic:string) => {
 
-
+    
     setSlideInfo((slideInfo) => {
       return {
         ...slideInfo,
         count: arr,
-        image: "",
+        image: pic,
       }
     })
 
@@ -66,25 +66,11 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
 
 
         {
-          eventInfo ?
-            <Carousel count={setCounter}>
+          eventInfo &&
+            <Carousel pictures={eventInfo.photos!} count={setCounter}/>
            
-              {
-                eventInfo.photos?.map((item) => {
-                  return (
-                    <img key={item.id} className={styles.image} src={item.url} alt="" />
-
-                  )
-                })
-
-              }
-
-
-            </Carousel>
-
-
-            :
-            null
+           
+          
         }
 
 
@@ -96,7 +82,7 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
             <p className={styles.counter}>{slideInfo.count[0] + ' из ' + slideInfo.count[1]}</p>
             <UniButton text='Поделиться' />
           </div>
-          <UniButton text='Скачать' image={"https://i.picsum.photos/id/900/200/200.jpg?hmac=ZrAJ9H_K0TLi9qA-7h0aKGGzI3tLtlu1lx6ntCljBfc"} />
+          <UniButton text='Скачать' image={slideInfo.image} />
 
 
         </footer>

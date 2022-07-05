@@ -32,6 +32,10 @@
   top: 48.5%;
   left: -19%;
 }
+.image{
+  min-width: 100%;
+  min-height: 100%;
+}
 
 
 
