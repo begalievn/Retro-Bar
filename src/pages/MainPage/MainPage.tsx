@@ -5,12 +5,6 @@ import bookImage from '../../assets/mainPage/mainAd-photo.png';
 import calendarIcon from '../../assets/icons/calendar-icon.svg';
 import { sketch } from '../../assets/ui-images/images';
 
-// imported functions from redux
-import { gettingPhotos } from '../../store/features/photos/photosSlice';
-import { gettingVideos } from '../../store/features/videos/videosSlice';
-
-// imported apis
-
 // imported components
 import MainNews from './components/news/MainNews';
 import PalaroidSlider from './components/palaroid-slider/PalaroidSlider';
@@ -26,7 +20,8 @@ import classes from './mainPage.module.css';
 import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
 
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { photoAPI } from '../../store/features/photos/photoQuery';
+import { establishmentsAPI } from '../../store/features/establishments/establishmentsQuery';
 
 let bookProps: BookProps = {
   data: {
@@ -38,8 +33,7 @@ let bookProps: BookProps = {
 };
 
 const MainPage = () => {
-  const photos = useAppSelector((state) => state.photos.value);
-  console.log('from MainPage getting photos: ', photos);
+  const { data, error, isLoading } = photoAPI.useFetchAllPhotosQuery(20);
 
   return (
     <div className={classes.main}>
