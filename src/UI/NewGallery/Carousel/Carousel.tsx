@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import styles from './carousel.module.css'
 import arrow from '../../../assets/videoPage/arrowRight.svg'
-import { ArrowLeft } from '@mui/icons-material';
-import { matchPath } from 'react-router-dom';
+import { IPhoto } from '../../../types/apiTypes/photo';
+
+
+
+
 type CarouselProps = {
-  children: React.ReactNode[] ;
+  pictures: Array<IPhoto>;
   count: (arr: Array<number>) => void;
 };
 
-function Carousel({ children, count }: CarouselProps) {
+function Carousel({ pictures , count }: CarouselProps) {
 
   const [offset, setOffset] = useState<number | 0>(0);
 
-  let obj= { 
-    props:{
-      image:'asdas',
-      mip: '1223'
-    }
-  }
-
+  
   useEffect(() => {
     const sumOfPics = children.length
     const currPic = (Math.abs(offset) / 100) + 1

@@ -3,10 +3,11 @@ import styles from './newGallery.module.css';
 import crossBtn from "../../assets/photoPageImages/gallery-images/cross.png";
 import closeBtn from "../../assets/photoPageImages/gallery-images/close.svg";
 
-import { IPhotos } from '../../pages/PhotoPage/components/PhotoMain/interfaces';
+import { IPhotosAnother } from '../../pages/PhotoPage/components/PhotoMain/interfaces';
 
 
 import UniButton from './uniButton/UniButton'
+import { IPhotos } from '../../types/apiTypes/photo'
 
 
 import { Swiper } from 'swiper/react';
@@ -18,36 +19,36 @@ import { Image } from '@mui/icons-material';
 
 type NewGalleryProps = {
   close: () => void;
-  images: IPhotos;
+  eventInfo: IPhotosAnother | IPhotos | null;
 }
 interface ISlideInfo {
   image: string;
   count: Array<number>;
-  
+
 }
 
 
 
-function NewGallery({ close,images }: NewGalleryProps) {
+function NewGallery({ close, eventInfo }: NewGalleryProps) {
   const [slideInfo, setSlideInfo] = useState<ISlideInfo>({ image: "", count: [1, 2] })
 
+  console.log(eventInfo, 'DATA');
 
   const setCounter = (arr: Array<number>) => {
-    
-     
-    setSlideInfo((slideInfo)=>{
+
+
+    setSlideInfo((slideInfo) => {
       return {
         ...slideInfo,
-        count:arr,
-        image:"",
+        count: arr,
+        image: "",
       }
     })
 
   }
 
-  console.log(images.images);
-  
- 
+
+
 
 
   return (
@@ -63,26 +64,28 @@ function NewGallery({ close,images }: NewGalleryProps) {
           <img onClick={close} className={styles.close} src={closeBtn} alt="" />
         </section>
 
-          
-          {
-            images.images ?
-          <Carousel count={setCounter} >
-            {
-              images.images.map((item )=>{
-                return(
-                  <img className={styles.image} src={item} alt="" />
-                  
-                )
-              })
-            }
-          
 
-        </Carousel>
-            
-            
+        {
+          eventInfo ?
+            <Carousel count={setCounter}>
+           
+              {
+                eventInfo.photos?.map((item) => {
+                  return (
+                    <img key={item.id} className={styles.image} src={item.url} alt="" />
+
+                  )
+                })
+
+              }
+
+
+            </Carousel>
+
+
             :
             null
-          }
+        }
 
 
 
