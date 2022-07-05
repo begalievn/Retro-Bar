@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import deleteIcon from "../../../../../assets/adminPage/delete.png";
 import { photoAPI } from "../../../../../store/features/photos/photoQuery";
 import { Container } from "@mui/material";
-import { IPhotos } from "../../../../PhotoPage/components/PhotoMain/interfaces";
+import { IPhotosAnother } from "../../../../PhotoPage/components/PhotoMain/interfaces";
 import classes from "../style.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import EditModal from "./EditModal";
@@ -24,7 +24,7 @@ export default function EditCards() {
   let array = photos?.photoCards;
   const [deletePhoto, {}] = photoAPI.useDeletePhotoMutation();
 
-  async function deletePhotos(photo: IPhotos) {
+  async function deletePhotos(photo: IPhotosAnother) {
     await deletePhoto(photo);
   }
 
