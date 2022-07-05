@@ -8,8 +8,8 @@ import classes from './photoReportCard.module.css';
 type Props = {
   photo?: string;
   title: string;
-  eventType: string;
-  watches: number;
+  eventName: string;
+  views: number;
   pics: number;
   date: string;
   backgroundPhoto: string;
@@ -18,8 +18,8 @@ type Props = {
 const PhotoReportCardBig = ({
   photo,
   title,
-  eventType,
-  watches,
+  eventName,
+  views,
   pics,
   date,
   backgroundPhoto,
@@ -40,12 +40,12 @@ const PhotoReportCardBig = ({
         <div className={classes.cardContent_container}>
           <div className={classes.cardContent}>
             <h4>{title}</h4>
-            <p>{eventType}</p>
+            <p>{eventName}</p>
             <div className={classes.cardContent_info}>
               <div className={classes.cardContent_info__left}>
                 <div className={classes.cardContent_info__watches}>
                   <img src={eyeIcon} alt="watches icon" />
-                  <span>{watches}</span>
+                  <span>{views}</span>
                 </div>
                 <div className={classes.cardContent_info__pics}>
                   <img src={picIcon} alt="pic icon" />
