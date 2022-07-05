@@ -1,11 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
 import ContactsPage from "./ContactsPage/ContactsPage";
 import InstitutionPage from "./InstitutionPage/InstitutionPage";
 import InstitutionBarPage from "./InstitutionBarPage/InstitutionBarPage";
 import MainPage from "./MainPage/MainPage";
-import NewsPages from "./NewsPage/NewsPages";
 import PhotoPage from "./PhotoPage/PhotoPage";
 import VideoPage from "./VideoPage/VideoPage";
 import EventsPage from "./EventsPage/EventsPage";
@@ -13,6 +11,7 @@ import ErrorPage from "./ErrorPage/ErrorPage";
 import Authorization from "./Authorization/Authorization";
 import AdminPanelPage from "./AdminPage/AdminPanelPage";
 import Gallery from "../UI/Gallery/Gallery";
+import NewsPages from "./NewsPage/NewsPages";
 
 const MainRoutes = () => {
   const PUBLIC_ROUTES = [
