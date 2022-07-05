@@ -17,7 +17,7 @@ export const photoAPI = createApi({
       providesTags: (result) => ['Photo'],
     }),
     fetchAllContacts: build.query({
-      query: (limit) => ({
+      query: (limit: number) => ({
         url: `/photo?take=${limit}&page=0`,
         params: {
           _limit: limit,
@@ -25,10 +25,35 @@ export const photoAPI = createApi({
       }),
       providesTags: (result) => ['Contacts'],
     }),
+    deletePhoto: build.mutation({
+      query: (photo) => ({
+        url: `/admin/photoCard/${photo.id}`,
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem('accessToken') || '{}'
+          )}`,
+        },
+      }),
+      invalidatesTags: ['Photo'],
+    }),
+    editPhoto: build.mutation({
+      query: (photo) => ({
+        url: `/admin/photoCard/${photo.id}`,
+        method: 'PUT',
+        body: photo,
+      }),
+      invalidatesTags: ['Photo'],
+    }),
     createPhotoCard: build.mutation({
       query: (photoCard) => ({
         url: '/admin/photoCard',
         method: 'POST',
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem('accessToken') || '{}'
+          )}`,
+        },
         body: photoCard,
       }),
       invalidatesTags: ['PhotoCard'],

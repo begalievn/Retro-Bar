@@ -5,6 +5,7 @@ import {
   AdminPhoto,
   AdminPoster,
   AdminVideo,
+  Edit,
 } from '../pages/AdminPage/components';
 
 export const ROUTES = [
@@ -38,4 +39,9 @@ export const ROUTES = [
     element: <AdminEstablishment />,
     id: 7,
   },
+  {
+    link: '/edit',
+    element: <Edit/>,
+    id: 8
+  }
 ];

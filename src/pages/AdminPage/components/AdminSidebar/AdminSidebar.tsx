@@ -20,6 +20,7 @@ import video from '../../../../assets/icons/adminPanel/video.svg';
 import advertising from '../../../../assets/icons/adminPanel/advertising.svg';
 import institution from '../../../../assets/icons/adminPanel/Institution.svg';
 import contact from '../../../../assets/icons/adminPanel/contact.svg';
+import edit from '../../../../assets/icons/adminPanel/edit.png';
 
 interface AdminSidebarProps {
   // setCurrent: (string: string) => void;
@@ -55,7 +56,7 @@ const navs = [
   {
     title: 'Изменить',
     path: ADMIN_EDIT,
-    icon: contact,
+    icon: edit,
   },
 ];
 
