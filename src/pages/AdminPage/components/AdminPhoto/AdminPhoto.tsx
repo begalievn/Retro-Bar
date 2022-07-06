@@ -2,24 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import classes from "../../AdminPage.module.css";
-import {
-  AdminPageTypes,
-  IField,
-  PhotoCard,
-} from "../../../../types/adminPage/adminPage";
-import { AdminApi } from "../../../../API/adminApi/adminApi";
-import {
-  createAlert,
-  deleteAlert,
-} from "../../../../store/alertSlice/alertSlice";
+import { IField, PhotoCard } from "../../../../types/adminPage/adminPage";
 import { AlertComponent, Button } from "../../../../UI";
 import DropFileInput from "../DropFileInput/DropFileInput";
 import AdminFields from "../AdminFields/AdminFields";
 import useDebounce from "../../../../hooks/useDebounce";
-import { $host } from "../../../../utils/helpers/host";
 import { establishmentsAPI } from "../../../../store/features/establishments/establishmentsQuery";
 import { photoAPI } from "../../../../store/features/photos/photoQuery";
 import { getFormData } from "../../../../utils/helpers/createFormData";
+import { ReactComponent as LinkIcon } from "../../../../assets/adminPage/link.svg";
 
 const fields: IField[] = [
   {
@@ -39,6 +30,7 @@ const fields: IField[] = [
     name: "photographerId",
     errorMessage: "Фотограф обязательное поле!",
     required: true,
+    icon: <LinkIcon />,
   },
   {
     title: "Дата",
@@ -46,12 +38,20 @@ const fields: IField[] = [
     errorMessage: "Дата обязательное поле!",
     type: "date",
     required: true,
+    pattern: "\\d{4}-\\d{2}-\\d{2}",
+  },
+  {
+    title: "Посмотры",
+    name: "views",
+    errorMessage: "Посмотры обязательное поле!",
+    type: "text",
+    required: true,
   },
 ];
 
 const AdminPhoto = () => {
   const dispatch = useDispatch();
-  const [createPhotoCard, {}] = photoAPI.useCreatePhotoCardMutation();
+  const [createPhotoCard, newData] = photoAPI.useCreatePhotoCardMutation();
   const [inputValue, setInputValue] = useState<PhotoCard>({
     establishmentId: "",
     photographerId: "",
@@ -73,17 +73,15 @@ const AdminPhoto = () => {
 
   const postHandler = async () => {
     const { formData } = getFormData(inputValue as PhotoCard);
-
     const data = await createPhotoCard(formData);
-
     console.log(data);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { formData } = getFormData(inputValue as PhotoCard);
-
     const data = await createPhotoCard(formData);
+    console.log(data);
   };
 
   return (

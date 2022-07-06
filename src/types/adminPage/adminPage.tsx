@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface IField {
   title: string;
   name: string;
@@ -5,6 +7,8 @@ export interface IField {
   color?: string;
   errorMessage?: string;
   required?: boolean;
+  pattern?: string;
+  icon?: React.ReactNode;
 }
 export interface IPage {
   [key: string]: IPageBody;

@@ -1,5 +1,4 @@
 import AdminInput from "./AdminInput/AdminInput";
-import AdminGeneral from "./AdminGeneral/AdminGeneral";
 import AdminVideo from "./AdminVideo/AdminVideo";
 import AdminPoster from "./AdminPoster/AdminPoster";
 import AdminEstablishment from "./AdminEstablishment/AdminEstablishment";
@@ -12,7 +11,6 @@ import DropFileInput from "./DropFileInput/DropFileInput";
 import AdminFields from "./AdminFields/AdminFields";
 export {
   AdminInput,
-  AdminGeneral,
   AdminVideo,
   AdminPoster,
   AdminEstablishment,

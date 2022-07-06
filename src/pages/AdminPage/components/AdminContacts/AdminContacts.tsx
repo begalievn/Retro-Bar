@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import classes from "../../AdminPage.module.css";
-import AdminGeneral from "../AdminGeneral/AdminGeneral";
 import { Button } from "../../../../UI";
 import {
   AdminPageTypes,
@@ -17,23 +16,26 @@ import DropFileInput from "../DropFileInput/DropFileInput";
 import AdminFields from "../AdminFields/AdminFields";
 
 const fields = [
-  { title: "О нас", name: "AboutUs", type: "textArea" },
-  { title: "Номер", name: "number" },
-  { title: "Привязать номер", name: "randomName" },
+  {
+    title: "О нас",
+    name: "AboutUs",
+    type: "textarea",
+    errorMessage: "О нас обязательное поле!",
+    required: true,
+  },
+  {
+    title: "Номер",
+    name: "number",
+    errorMessage: "Номер обязательное поле!",
+    required: true,
+  },
+  {
+    title: "Привязать номер",
+    name: "randomName",
+    errorMessage: "Привязать номер обязательное поле!",
+    required: true,
+  },
 ];
-
-const contactsPage = {
-  name: "contacts",
-  title: "Контакты",
-  add: "photos",
-  addLink: false,
-  viewersRange: false,
-  fields: [
-    { title: "О нас", name: "AboutUs", type: "textArea" },
-    { title: "Номер", name: "number" },
-    { title: "Привязать номер", name: "randomName" },
-  ],
-};
 
 const AdminContacts = () => {
   const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
@@ -67,7 +69,7 @@ const AdminContacts = () => {
   };
 
   return (
-    <div className={classes.generalBlock}>
+    <form className={classes.generalBlock} onSubmit={postHandler}>
       <div className={classes.adminGeneralBlock}>
         <h3 className={classes.adminTitle}>Контакты</h3>
         <div className={classes.adminContent}>
@@ -83,10 +85,10 @@ const AdminContacts = () => {
           />
         </div>
         <div className={classes.buttonBlock}>
-          <Button onClick={postHandler}>Опубликовать</Button>
+          <Button type={"submit"}>Опубликовать</Button>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 

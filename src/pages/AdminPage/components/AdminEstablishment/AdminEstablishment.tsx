@@ -1,9 +1,7 @@
 import React, { FC, useState } from "react";
 
 import classes from "./AdminEstablishment.module.css";
-import styles from "../AdminGeneral/AdminGeneral.module.css";
-import AdminGeneral from "../AdminGeneral/AdminGeneral";
-import DescriptionComponent from "../DescriptionComponent/DescriptionComponent";
+import styles from "../../AdminPage.module.css";
 import {
   AdminPageTypes,
   Establishment,
@@ -25,8 +23,20 @@ import AdminFields from "../AdminFields/AdminFields";
 
 const fields = {
   mainFields: [
-    { title: "Название", name: "name", type: "input" },
-    { title: "О заведении", name: "description", type: "textArea" },
+    {
+      title: "Название",
+      name: "name",
+      type: "input",
+      errorMessage: "Название обязательное поле!",
+      required: true,
+    },
+    {
+      title: "О заведении",
+      name: "description",
+      type: "textarea",
+      errorMessage: "О заведении обязательное поле!",
+      required: true,
+    },
   ],
 };
 
@@ -57,7 +67,6 @@ const AdminEstablishment = () => {
     if (e.target.toString().includes("TextArea")) {
       e.target.style.height = e.target.scrollHeight + "px";
     }
-
     setInputValue((prevInputs: AdminPageTypes) => ({
       ...prevInputs,
       [e.target.name]: e.target.value,
@@ -81,7 +90,7 @@ const AdminEstablishment = () => {
   };
 
   return (
-    <div className={classes.establishmentBlock}>
+    <form className={classes.establishmentBlock} onSubmit={postHandler}>
       <div className={styles.adminGeneralBlock}>
         <h3 className={styles.adminTitle}>Заведения</h3>
         <div className={styles.adminContent}>
@@ -135,9 +144,9 @@ const AdminEstablishment = () => {
         </div>
       </div>
       <div className={classes.btnBlock}>
-        <Button onClick={postHandler}>Опубликовать</Button>
+        <Button type={"submit"}>Опубликовать</Button>
       </div>
-    </div>
+    </form>
   );
 };
 

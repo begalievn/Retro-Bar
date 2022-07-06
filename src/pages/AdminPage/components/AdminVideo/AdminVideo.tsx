@@ -4,6 +4,7 @@ import classes from "../../AdminPage.module.css";
 
 import {
   AdminPageTypes,
+  IField,
   PhotoCard,
   VideoCard,
 } from "../../../../types/adminPage/adminPage";
@@ -18,11 +19,35 @@ import DropFileInput from "../DropFileInput/DropFileInput";
 import AdminInput from "../AdminInput/AdminInput";
 import { AdminFields } from "../index";
 
-const fields = [
-  { title: "Название Заведения", name: "establishmentId", type: "input" },
-  { title: "Название Вечеринки", name: "eventName", type: "input" },
-  { title: "Видеограф", name: "photographerId", type: "input" },
-  { title: "Дата", name: "date", type: "input" },
+const fields: IField[] = [
+  {
+    title: "Название Заведения",
+    name: "establishmentId",
+    type: "input",
+    errorMessage: "Название Заведения обязательное поле!",
+    required: true,
+  },
+  {
+    title: "Название Вечеринки",
+    name: "eventName",
+    type: "input",
+    errorMessage: "Название Вечеринки обязательное поле!",
+    required: true,
+  },
+  {
+    title: "Видеограф",
+    name: "photographerId",
+    type: "input",
+    errorMessage: "Видеограф обязательное поле!",
+    required: true,
+  },
+  {
+    title: "Дата",
+    name: "date",
+    type: "date",
+    errorMessage: "Дата обязательное поле!",
+    required: true,
+  },
 ];
 
 const AdminVideo = () => {

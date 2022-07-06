@@ -1,12 +1,10 @@
-import React, { FC, SVGProps, useEffect, useState } from "react";
+import React, { FC, SVGProps, useState } from "react";
 
 import classes from "./AdminInput.module.css";
 import {
   AdminPageTypes,
   IPageBody,
-  VideoCard,
 } from "../../../../types/adminPage/adminPage";
-import { isValidUrl } from "../../../../utils/helpers/validUrl";
 
 type primaryColor = "white" | "black";
 
@@ -22,7 +20,8 @@ interface AdminInputProps {
   ) => void;
   errorMessage?: string;
   required?: boolean;
-  // icon: SVGElement;
+  pattern?: string;
+  icon?: React.ReactNode;
 }
 
 const AdminInput: FC<AdminInputProps> = ({
@@ -34,32 +33,29 @@ const AdminInput: FC<AdminInputProps> = ({
   title,
   color,
   errorMessage,
+  icon,
   ...props
 }) => {
   const [focused, setFocused] = useState<boolean>(false);
-
-  const handleFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFocus = () => {
     setFocused(!focused);
   };
 
   return (
     <div className={classes.inputBlock}>
       <label
-        // className={
-        //   title?.toLowerCase() == "вставить ссылку"
-        //     ? classes.inputLinkTitle
-        //     : classes.inputTitle
-        // }
+        className={classes.inputTitle}
         // style={{ color: `${color && color}` }}
         htmlFor={name}
       >
-        {/*<i>{icon}</i>*/}
+        <i>{icon}</i>
         {title}
       </label>
       <input
         id={name}
         type={type}
         name={name}
+        pattern={props.pattern}
         required={props.required}
         value={inputValue[name as keyof AdminPageTypes] || ""}
         onChange={inputHandler}
