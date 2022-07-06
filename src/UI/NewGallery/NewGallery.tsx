@@ -9,6 +9,10 @@ import { IPhotosAnother } from '../../pages/PhotoPage/components/PhotoMain/inter
 import UniButton from './uniButton/UniButton'
 import { IPhotos } from '../../types/apiTypes/photo'
 
+import { IPhoto } from '../../types/apiTypes/photo'
+
+
+
 
 import { Swiper } from 'swiper/react';
 import ImageBlock from './ImageBlock/ImageBlock';
@@ -16,9 +20,15 @@ import Carousel from './Carousel/Carousel';
 
 
 
+
+
 type NewGalleryProps = {
   close: () => void;
-  eventInfo:  IPhotos | null;
+  eventInfo:  {
+    photos:Array<IPhoto>,
+    establishment: string,
+    event:string
+  };
 }
 interface ISlideInfo {
   image: string;
@@ -59,8 +69,8 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
       <div className={styles.container}>
         <section className={styles.header}>
           <div className={styles.title}>
-            <h3 className={styles.placeName}>{eventInfo.establishment.name}</h3>
-            <p className={styles.eventName}>{eventInfo.eventName}</p>
+            <h3 className={styles.placeName}>{eventInfo.establishment}</h3>
+            <p className={styles.eventName}>{eventInfo.event}</p>
 
           </div>
           <img onClick={close} className={styles.cross} src={crossBtn} alt="" />

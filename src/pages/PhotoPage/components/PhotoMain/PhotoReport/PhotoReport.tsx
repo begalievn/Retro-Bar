@@ -213,7 +213,7 @@ const PhotoReport: FC = () => {
 
   useEffect(() => {
     if (photos) {
-      let newImages: Array<IPhotosAnother> = [];
+      const newImages: Array<IPhotosAnother> = [];
       for (let i = 0; i < images.length; i++) {
         let MokPhotos: Array<IPhoto> = [];
         for (let i = 0; i < Math.floor(Math.random() * 20); i++) {
@@ -235,15 +235,16 @@ const PhotoReport: FC = () => {
         nativeElement = {
           ...nativeElement,
           name: responseElement.establishment.name,
-          link: `https://picsum.photos/${Math.floor(Math.random() * 200)}/500`,
+          // link: `https://picsum.photos/${Math.floor(Math.random() * 200)}/500`,
+          link: responseElement.photos.length ? responseElement.photos[0].url : "",
           views: responseElement.views,
           photosCount: responseElement.photos.length,
           eventName: responseElement.eventName,
           id: responseElement.id,
           date: responseElement.date,
-          photos: MokPhotos,
-          newGalleryData:responseElement,
-          // responseElement.photos.length ? responseElement.photos[0] : ""
+          // photos: MokPhotos,
+          photos:responseElement.photos
+         
         }
         newImages.push(nativeElement)
         setFinalResponse(newImages);
