@@ -1,55 +1,57 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import classes from "../AdminGeneral/AdminGeneral.module.css";
+import classes from '../AdminGeneral/AdminGeneral.module.css';
 import {
   AdminPageTypes,
   PhotoCard,
-} from "../../../../types/adminPage/adminPage";
-import { AdminApi } from "../../../../API/adminApi/adminApi";
+} from '../../../../types/adminPage/adminPage';
+import { AdminApi } from '../../../../API/adminApi/adminApi';
 import {
   createAlert,
   deleteAlert,
-} from "../../../../store/alertSlice/alertSlice";
-import { Button } from "../../../../UI";
-import DropFileInput from "../DropFileInput/DropFileInput";
-import AdminInput from "../AdminInput/AdminInput";
-import useDebounce from "../../../../hooks/useDebounce";
+} from '../../../../store/alertSlice/alertSlice';
+import { Button } from '../../../../UI';
+import DropFileInput from '../DropFileInput/DropFileInput';
+import AdminInput from '../AdminInput/AdminInput';
+import useDebounce from '../../../../hooks/useDebounce';
 
 const photoPage = {
-  name: "photo",
-  title: "Фото",
-  add: "photos",
+  name: 'photo',
+  title: 'Фото',
+  add: 'photos',
   addLink: false,
   viewersRange: true,
   fields: [
-    { title: "Название Заведения", name: "establishmentId", type: "input" },
-    { title: "Название Вечеринки", name: "eventName", type: "input" },
-    { title: "Фотограф", name: "photographerId", type: "input" },
-    { title: "Дата", name: "date", type: "input" },
+    { title: 'Название Заведения', name: 'establishmentId', type: 'input' },
+    { title: 'Название Вечеринки', name: 'eventName', type: 'input' },
+    { title: 'Фотограф', name: 'photographerId', type: 'input' },
+    { title: 'Просмотры', name: 'views', type: 'input' },
+
+    { title: 'Дата', name: 'date', type: 'input' },
   ],
 };
 
 const AdminPhoto = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState<AdminPageTypes | object>({
-    establishmentId: "",
+    establishmentId: '',
     photos: null,
-    eventName: "",
-    views: "",
-    photographerId: "",
-    date: "",
+    eventName: '',
+    views: '',
+    photographerId: '',
+    date: '',
   });
   // const debounceEstablishment = useDebounce(inputValue?.establishmentId, 2000);
 
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    if (e.target.toString().includes("TextArea")) {
-      e.target.style.height = e.target.scrollHeight + "px";
+    if (e.target.toString().includes('TextArea')) {
+      e.target.style.height = e.target.scrollHeight + 'px';
     }
-    if (e.target.name == "establishmentId") {
-    } else if (e.target.name == "photographerId") {
+    if (e.target.name == 'establishmentId') {
+    } else if (e.target.name == 'photographerId') {
     }
 
     setInputValue((prevInputs: AdminPageTypes) => ({
@@ -61,13 +63,13 @@ const AdminPhoto = () => {
     AdminApi.addPhoto(inputValue as PhotoCard)
       .then(() => {
         dispatch(
-          createAlert({ message: "Успешно опубликовано", type: "success" })
+          createAlert({ message: 'Успешно опубликовано', type: 'success' })
         );
         setTimeout(() => dispatch(deleteAlert()), 2000);
       })
       .catch((e) => {
         dispatch(
-          createAlert({ message: e.response.data.message, type: "error" })
+          createAlert({ message: e.response.data.message, type: 'error' })
         );
         setTimeout(() => dispatch(deleteAlert()), 2000);
       });
@@ -79,8 +81,8 @@ const AdminPhoto = () => {
         <h3 className={classes.adminTitle}>Фото</h3>
         <div className={classes.adminContent}>
           <DropFileInput
-            type={"photos"}
-            children={"Добавить картинки"}
+            type={'photos'}
+            children={'Добавить картинки'}
             setInputValue={setInputValue}
           />
 
@@ -90,29 +92,29 @@ const AdminPhoto = () => {
                 inputHandler={inputHandler}
                 inputValue={inputValue}
                 setInputValue={setInputValue}
-                title={"Название Заведения"}
-                name={"establishmentId"}
+                title={'Название Заведения'}
+                name={'establishmentId'}
               />
               <AdminInput
                 inputHandler={inputHandler}
                 inputValue={inputValue}
                 setInputValue={setInputValue}
-                title={"Название Вечеринки"}
-                name={"eventName"}
+                title={'Название Вечеринки'}
+                name={'eventName'}
               />
               <AdminInput
                 inputHandler={inputHandler}
                 inputValue={inputValue}
                 setInputValue={setInputValue}
-                title={"Фотограф"}
-                name={"photographerId"}
+                title={'Фотограф'}
+                name={'photographerId'}
               />
               <AdminInput
                 inputHandler={inputHandler}
                 inputValue={inputValue}
                 setInputValue={setInputValue}
-                title={"Дата"}
-                name={"date"}
+                title={'Дата'}
+                name={'date'}
               />
             </div>
           </div>

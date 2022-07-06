@@ -10,6 +10,7 @@ import emojies from '../../assets/institution/emojies.svg';
 import InstitutesSlider from '../../UI/InstitutesSlider/institutes-slider/InstitutesSlider';
 import { FooterEmoji } from '../../UI/FooterEmoji/FooterEmoji';
 import { establishmentsAPI } from '../../store/features/establishments/establishmentsQuery';
+import { getInstitudeSliderData } from '../../utils/helpers/getInstitudeSliderData';
 
 let bookData = {
   text: ' технологии достигли такого уровня, что перспективное планирование способствует.',
@@ -17,11 +18,13 @@ let bookData = {
   image: 'https://picsum.photos/1000',
 };
 
-
 const InstitutionPage = () => {
+  const {
+    data: establishments,
+    error,
+    isLoading: isEstablishmentsLoading,
+  } = establishmentsAPI.useFetchAllEstablishmentsQuery('');
 
-  const {data, error, isLoading} = establishmentsAPI.useFetchAllEstablishmentsQuery('');
-  console.log(data);
   return (
     <div className={styles.back}>
       <CalendarIcon />
@@ -38,9 +41,16 @@ const InstitutionPage = () => {
           </div>
         </section>
         <Top />
-        <InstitutesSlider isContentBlack={false} />
+        {isEstablishmentsLoading ? (
+          <div>Loading</div>
+        ) : (
+          <InstitutesSlider
+            data={getInstitudeSliderData(establishments.establishments)}
+            isContentBlack={false}
+          />
+        )}
         <Book page="institution" data={bookData} />
-        <FooterEmoji/>
+        <FooterEmoji />
       </section>
     </div>
   );

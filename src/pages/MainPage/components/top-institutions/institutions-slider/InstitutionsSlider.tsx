@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 
 // imported libraries
 import { useSwipeable } from 'react-swipeable';
@@ -13,58 +13,62 @@ import photoOfBar from '../../../../../assets/mainPage/top-inst-photo-of-bar.png
 
 import classes from './instSlider.module.css';
 
-interface CardsType {
-  photo: string;
+export interface TopInstCardsType {
+  photo?: string;
   title: string;
   time: string;
   phone: string;
   location: string;
 }
 
-const cardsData: Array<CardsType> = [
-  {
-    photo: photoOfBar,
-    title: 'MINIBAR',
-    time: '18:00-06:00',
-    phone: '0 558 55 00 00',
-    location: 'Чынгыза Айтматова, 56',
-  },
-  {
-    photo: photoOfBar,
-    title: 'MINIBAR',
-    time: '18:00-06:00',
-    phone: '0 558 55 00 00',
-    location: 'Чынгыза Айтматова, 56',
-  },
-  {
-    photo: photoOfBar,
-    title: 'MINIBAR',
-    time: '18:00-06:00',
-    phone: '0 558 55 00 00',
-    location: 'Чынгыза Айтматова, 56',
-  },
-  {
-    photo: photoOfBar,
-    title: 'MINIBAR',
-    time: '18:00-06:00',
-    phone: '0 558 55 00 00',
-    location: 'Чынгыза Айтматова, 56',
-  },
-  {
-    photo: photoOfBar,
-    title: 'MINIBAR',
-    time: '18:00-06:00',
-    phone: '0 558 55 00 00',
-    location: 'Чынгыза Айтматова, 56',
-  },
-];
+interface TopInstCardsProps {
+  cardsData: TopInstCardsType[];
+}
 
-const InstitutionsSlider = () => {
+// const cardsData: Array<TopInstCardsType> = [
+//   {
+//     photo: photoOfBar,
+//     title: 'MINIBAR',
+//     time: '18:00-06:00',
+//     phone: '0 558 55 00 00',
+//     location: 'Чынгыза Айтматова, 56',
+//   },
+//   {
+//     photo: photoOfBar,
+//     title: 'MINIBAR',
+//     time: '18:00-06:00',
+//     phone: '0 558 55 00 00',
+//     location: 'Чынгыза Айтматова, 56',
+//   },
+//   {
+//     photo: photoOfBar,
+//     title: 'MINIBAR',
+//     time: '18:00-06:00',
+//     phone: '0 558 55 00 00',
+//     location: 'Чынгыза Айтматова, 56',
+//   },
+//   {
+//     photo: photoOfBar,
+//     title: 'MINIBAR',
+//     time: '18:00-06:00',
+//     phone: '0 558 55 00 00',
+//     location: 'Чынгыза Айтматова, 56',
+//   },
+//   {
+//     photo: photoOfBar,
+//     title: 'MINIBAR',
+//     time: '18:00-06:00',
+//     phone: '0 558 55 00 00',
+//     location: 'Чынгыза Айтматова, 56',
+//   },
+// ];
+
+const InstitutionsSlider: FC<TopInstCardsProps> = ({ cardsData }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [slideCards, setSlideCards] = useState<CardsType[]>([]);
+  const [slideCards, setSlideCards] = useState<TopInstCardsType[]>([]);
 
   useEffect(() => {
-    let cardsArr: CardsType[] = [];
+    let cardsArr: TopInstCardsType[] = [];
 
     if (cardsData === undefined) {
       return;
