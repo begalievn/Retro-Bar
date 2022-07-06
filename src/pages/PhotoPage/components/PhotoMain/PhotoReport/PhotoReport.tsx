@@ -33,7 +33,7 @@ const images: IPhotosAnother[] = [
     link: '',
     name: '',
     border: wideBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -47,7 +47,7 @@ const images: IPhotosAnother[] = [
     link: '',
     name: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -60,7 +60,7 @@ const images: IPhotosAnother[] = [
     link: '',
     name: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -73,7 +73,7 @@ const images: IPhotosAnother[] = [
     link: '',
     name: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -86,7 +86,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -99,7 +99,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: longBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -122,7 +122,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -135,7 +135,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -148,7 +148,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -161,7 +161,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -184,7 +184,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: longBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -224,13 +224,13 @@ const PhotoReport: FC = () => {
 
         }
         let nativeElement = images[i];
-
         const responseElement = photos.photoCards[i];
 
         if(!responseElement || nativeElement.ad){
           newImages.push(nativeElement)
           continue;
         }
+       
         
         nativeElement = {
           ...nativeElement,
@@ -242,6 +242,7 @@ const PhotoReport: FC = () => {
           id: responseElement.id,
           date: responseElement.date,
           photos: MokPhotos,
+          newGalleryData:responseElement,
           // responseElement.photos.length ? responseElement.photos[0] : ""
         }
         newImages.push(nativeElement)
@@ -249,7 +250,7 @@ const PhotoReport: FC = () => {
       }
     }
   }, [photos])
-  return <ImagesList images={finalResponse} />
+  return <ImagesList images={photos && finalResponse} />
 };
 
 export default PhotoReport;

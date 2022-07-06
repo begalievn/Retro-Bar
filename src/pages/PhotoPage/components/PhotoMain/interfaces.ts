@@ -1,3 +1,4 @@
+import { IPhotos } from './../../../../types/apiTypes/photo';
 
 
 export interface IPhotosAnother {
@@ -17,4 +18,5 @@ export interface IPhotosAnother {
   studio?:string
   button?:any
   photos?: {url:string,id:number,created:string}[] 
+  newGalleryData?: IPhotos
 }

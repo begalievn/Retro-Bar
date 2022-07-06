@@ -22,15 +22,22 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
   
 
   const [currentEvent, setCurrentEvent] = useState<IPhotosAnother | null>  (null);
+
+  console.log(currentEvent,"currentEvent");
+  
   if (galleryModal) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "visible";
   }
-  const onClickEvent = (event: IPhotosAnother) => {
-    setCurrentEvent(event);
-    toggleGalleryModal();
-    console.log(event);
+  const onClickEvent = (item: IPhotosAnother) => {
+    console.log(item,'check');
+   
+    if(item.link==='')  return false
+
+      setCurrentEvent(item);
+      toggleGalleryModal();
+   
   };
   if(!images ) {
     return <div>Loading...</div>
@@ -110,7 +117,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
         {
           (galleryModal  && currentEvent) && (
             
-            <NewGallery eventInfo={currentEvent} close = {toggleGalleryModal}/>
+            <NewGallery eventInfo={currentEvent.newGalleryData!} close = {toggleGalleryModal}/>
           )
         }
     </>
