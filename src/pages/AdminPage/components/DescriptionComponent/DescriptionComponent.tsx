@@ -1,13 +1,13 @@
 import React, { FC } from "react";
 
 import classes from "./DescriptionComponent.module.css";
-import { IFiled, IPageBody } from "../../../../types/adminPage/adminPage";
+import { IField, IPageBody } from "../../../../types/adminPage/adminPage";
 import AdminInput from "../AdminInput/AdminInput";
 import { Simulate } from "react-dom/test-utils";
 import input = Simulate.input;
 
 interface DescriptionComponentProps {
-  descriptions: IFiled[];
+  descriptions: IField[];
   page: IPageBody;
   inputValue: any;
   setInputValue: (some: any) => void;

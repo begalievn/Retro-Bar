@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import classes from "./AdminPage.module.css";
-import {
-  AdminSidebar,
-
-} from "./components";
-import { AdminPageTypes } from "../../types/adminPage/adminPage";
+import { AdminSidebar } from "./components";
 import { AlertComponent } from "../../UI";
 import { useAppSelector } from "../../app/hooks";
 import { ROUTES } from "../../utils/routes";

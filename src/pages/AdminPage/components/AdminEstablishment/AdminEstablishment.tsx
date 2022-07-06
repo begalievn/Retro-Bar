@@ -1,8 +1,7 @@
 import React, { FC, useState } from "react";
 
 import classes from "./AdminEstablishment.module.css";
-import AdminGeneral from "../AdminGeneral/AdminGeneral";
-import DescriptionComponent from "../DescriptionComponent/DescriptionComponent";
+import styles from "../../AdminPage.module.css";
 import {
   AdminPageTypes,
   Establishment,
@@ -19,6 +18,27 @@ import {
 } from "../../../../store/alertSlice/alertSlice";
 import { Button } from "../../../../UI";
 import useDebounce from "../../../../hooks/useDebounce";
+import DropFileInput from "../DropFileInput/DropFileInput";
+import AdminFields from "../AdminFields/AdminFields";
+
+const fields = {
+  mainFields: [
+    {
+      title: "Название",
+      name: "name",
+      type: "input",
+      errorMessage: "Название обязательное поле!",
+      required: true,
+    },
+    {
+      title: "О заведении",
+      name: "description",
+      type: "textarea",
+      errorMessage: "О заведении обязательное поле!",
+      required: true,
+    },
+  ],
+};
 
 const establishmentPage = {
   name: "establishment",
@@ -47,7 +67,6 @@ const AdminEstablishment = () => {
     if (e.target.toString().includes("TextArea")) {
       e.target.style.height = e.target.scrollHeight + "px";
     }
-
     setInputValue((prevInputs: AdminPageTypes) => ({
       ...prevInputs,
       [e.target.name]: e.target.value,
@@ -70,16 +89,24 @@ const AdminEstablishment = () => {
       });
   };
 
-  console.log(inputValue);
   return (
-    <div className={classes.establishmentBlock}>
-      <AdminGeneral
-        handler={inputHandler}
-        postHandler={postHandler}
-        page={establishmentPage}
-        setInputValue={setInputValue}
-        inputValue={inputValue}
-      />
+    <form className={classes.establishmentBlock} onSubmit={postHandler}>
+      <div className={styles.adminGeneralBlock}>
+        <h3 className={styles.adminTitle}>Заведения</h3>
+        <div className={styles.adminContent}>
+          <DropFileInput
+            type={"photos"}
+            children={"Добавить картинки"}
+            setInputValue={setInputValue}
+          />
+          <AdminFields
+            fields={fields.mainFields}
+            inputHandler={inputHandler}
+            inputValue={inputValue}
+          />
+        </div>
+      </div>
+
       <div className={classes.descriptionWrapper}>
         <h3>Описание</h3>
         <div className={classes.descriptionBlocks}>
@@ -90,7 +117,6 @@ const AdminEstablishment = () => {
               title={"Время работы"}
               name={"workingHours"}
               inputValue={inputValue}
-              setInputValue={setInputValue}
             />
           </div>
           <div className={classes.descriptionBlock}>
@@ -100,7 +126,6 @@ const AdminEstablishment = () => {
               title={"Номер"}
               name={"contacts"}
               inputValue={inputValue}
-              setInputValue={setInputValue}
             />
           </div>
         </div>
@@ -115,14 +140,13 @@ const AdminEstablishment = () => {
             title={"Номер"}
             name={"contacts"}
             inputValue={inputValue}
-            setInputValue={setInputValue}
           />
         </div>
       </div>
       <div className={classes.btnBlock}>
-        <Button onClick={postHandler}>Опубликовать</Button>
+        <Button type={"submit"}>Опубликовать</Button>
       </div>
-    </div>
+    </form>
   );
 };
 

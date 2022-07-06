@@ -28,11 +28,17 @@
   height: 30px;
 }
 
-/*[contenteditable="true"]:empty:before {*/
-/*  color: grey;*/
-/*  content: attr(placeholder);*/
-/*  pointer-events: none;*/
-/*}*/
+.errorMessage {
+  font-size: 12px;
+  padding: 3px;
+  color: red;
+  display: none;
+}
+.adminInput:invalid[autofocus] ~ .errorMessage {
+  display: block;
+}
+
+
 .inputTitle,
 .inputLinkTitle {
   font-family: "Montserrat Alternates";
