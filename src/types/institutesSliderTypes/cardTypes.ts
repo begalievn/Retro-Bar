@@ -1,4 +1,5 @@
 export interface InstitudeCardDataTypes {
+  id: number;
   photo?: string;
   logo: string;
   title: string;

@@ -6,12 +6,14 @@ import { ReactComponent as PhotoIcon } from "../../../../assets/adminPage/addPic
 import {
   AdminPageTypes,
   IPageBody,
+  PhotoCard,
+  VideoCard,
 } from "../../../../types/adminPage/adminPage";
 
 interface DropFileInputProps {
   type: string;
   children: React.ReactNode;
-  setInputValue: (prevInputs: AdminPageTypes | object) => void;
+  setInputValue: (prevInputs: any) => void;
 }
 
 const DropFileInput: FC<DropFileInputProps> = ({
@@ -20,7 +22,7 @@ const DropFileInput: FC<DropFileInputProps> = ({
   setInputValue,
 }) => {
   const [drag, setDrag] = useState(false);
-  const [fileList, setFileList] = useState<any | null>([]);
+  const [fileList, setFileList] = useState<File[] | null>([]);
 
   const onDragEnter = () => setDrag(true);
   const onDragLeave = () => setDrag(false);
@@ -30,17 +32,8 @@ const DropFileInput: FC<DropFileInputProps> = ({
     if (!e.target.files) return;
     const newFile = e.target.files[0];
     const fileType = newFile.type.split("/")[0];
-
-    // if (newFile && fileType == type) {
-    //   console.log(fileType == type);
-    //   setFileList(newFile);
-    //   setInputValue((prev: AdminPageTypes) => ({
-    //     ...prev,
-    //     [type]: newFile,
-    //   }));
-    // } else {}
     if (newFile) {
-      const updatedFiles = [...fileList, newFile];
+      const updatedFiles = [...(fileList as File[]), newFile];
       setFileList(updatedFiles);
       setInputValue((prev: AdminPageTypes) => ({
         ...prev,
@@ -50,8 +43,8 @@ const DropFileInput: FC<DropFileInputProps> = ({
   };
 
   const fileRemove = (file: File) => {
-    const updatedFiles = [...fileList];
-    updatedFiles.splice(fileList.indexOf(file), 1);
+    const updatedFiles = [...(fileList as File[])];
+    updatedFiles.splice((fileList as File[]).indexOf(file), 1);
     setFileList(updatedFiles);
     setInputValue((prev: AdminPageTypes) => ({
       ...prev,
@@ -82,9 +75,9 @@ const DropFileInput: FC<DropFileInputProps> = ({
         </div>
         <input type={"file"} onChange={(e) => onDropFile(e)} />
       </div>
-      {fileList?.length > 0 && (
+      {fileList!?.length > 0 && (
         <ul className={classes.fileList}>
-          {fileList.map((file: File, index: number) => {
+          {fileList!.map((file: File, index: number) => {
             return (
               <li key={index}>
                 {file.name} <span onClick={() => fileRemove(file)}>✖</span>

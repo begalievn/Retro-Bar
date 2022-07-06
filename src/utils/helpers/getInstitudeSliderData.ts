@@ -4,6 +4,7 @@ import { InstitudeCardDataTypes } from '../../types/institutesSliderTypes/cardTy
 export function getInstitudeSliderData(data: IEstablishment[]) {
   let result: InstitudeCardDataTypes[] = [];
   result = data.map((item) => ({
+    id: item.id,
     photo: item?.logo,
     logo: item.logo,
     title: item.name,

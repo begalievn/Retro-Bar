@@ -30,31 +30,31 @@ const ContactsPage: FC = () => {
     isLoading,
     refetch,
   } = photoAPI.useFetchAllContactsQuery(limit);
-
+  
   const [frameArr, setFrameArr] = useState<IImageArr[]>([
     {
       frame: mainBack,
       id: 1,
-      photo: photos?.photoCards[0].establishment.logo ,
+      photo: photos?.photoCards[0].photos[0]?.url ,
     },
     {
       frame: carousel1,
       id: 2,
-      photo: photos?.photoCards[1].establishment.logo,
+      photo: photos?.photoCards[1].photos[0]?.url,
     },
     {
       frame: carousel2,
       id: 3,
-      photo: photos?.photoCards[2].establishment.logo,
+      photo: photos?.photoCards[2].photos[0]?.url,
     },
     {
       frame: carousel3,
       id: 4,
-      photo: photos?.photoCards[3].establishment.logo,
+      photo: photos?.photoCards[3].photos[0]?.url,
     },
   ]);
 
-  const sliderFunc = (id: number) => {
+  const sliderFunc = (id: number): void => {
     frameArr.map((item, index) => {
       if (item.id === id) {
         let image = frameArr[0].photo;

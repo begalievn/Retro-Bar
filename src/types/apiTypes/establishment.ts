@@ -8,7 +8,7 @@ export interface IEstablishment {
   description: string;
   averageCheck: null | number;
   workingHours: string | number;
-  contacts: number;
+  contacts:number |string;
   created: string;
   category?: null | string;
   photos?: [];

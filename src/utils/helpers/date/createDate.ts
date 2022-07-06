@@ -25,7 +25,8 @@ export const createDate = (params?: CreateDateParams) => {
   const monthIndex = d.getMonth();
   const timestamp = d.getTime();
   const week = getWeekNumber(d);
-
+  console.log(d)
+  console.log()
   return {
     date: d,
     dayNumber,
