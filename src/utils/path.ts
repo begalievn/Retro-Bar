@@ -4,7 +4,6 @@ const ADMIN_ADVERTISING = '/admin/advertising';
 const ADMIN_ESTABLISHMENT = '/admin/establishment';
 const ADMIN_CONTACTS = '/admin/contacts';
 const ADMIN_EDIT = '/admin/edit';
-
 export {
   ADMIN_ADVERTISING,
   ADMIN_CONTACTS,
