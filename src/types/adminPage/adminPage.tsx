@@ -9,6 +9,7 @@ export interface IField {
   required?: boolean;
   pattern?: string;
   icon?: React.ReactNode;
+  search?: boolean;
 }
 export interface IPage {
   [key: string]: IPageBody;
@@ -50,7 +51,7 @@ export interface VideoCard {
   date: string;
 }
 export interface PhotoCard {
-  establishmentId: number | string;
+  establishmentId: string;
   eventName?: string;
   views?: number | string;
   photographerId: number | string;

@@ -9,7 +9,7 @@ import phoneIcon from '../../../../../assets/mainPage/top-inst-phone-icon.svg';
 import locationIcon from '../../../../../assets/mainPage/top-inst-location-icon.svg';
 
 interface PropType {
-  photo: string;
+  photo?: string;
   title: string;
   time: string;
   phone: string;

@@ -1,20 +1,20 @@
 
 
-export interface IPhotos {
+export interface IPhotosAnother {
   link ?: string
   border?: string
   id?:number
   title?: string
-  partyName?: string
+  eventName?: string
   date?:string
   class?: any
   views?: number
-  photos?:number
+  photosCount?:number
   name?: string
   ad?:boolean
   text?:string
   icon?:string
   studio?:string
   button?:any
-  images?: string[] 
+  photos?: {url:string,id:number,created:string}[] 
 }

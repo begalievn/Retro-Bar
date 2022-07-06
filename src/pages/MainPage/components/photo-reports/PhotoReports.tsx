@@ -36,7 +36,6 @@ const backgroungPhotos = [
 
 const PhotoReports = () => {
   const { data: photos, error, isLoading } = photoAPI.useFetchAllPhotosQuery(5);
-  console.log(photos);
 
   const navigate = useNavigate();
 

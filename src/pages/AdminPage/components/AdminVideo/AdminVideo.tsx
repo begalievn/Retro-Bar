@@ -48,6 +48,13 @@ const fields: IField[] = [
     errorMessage: "Дата обязательное поле!",
     required: true,
   },
+  {
+    title: "Посмотры",
+    name: "views",
+    errorMessage: "Посмотры обязательное поле!",
+    type: "text",
+    required: true,
+  },
 ];
 
 const AdminVideo = () => {

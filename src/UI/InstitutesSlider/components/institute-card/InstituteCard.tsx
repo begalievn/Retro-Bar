@@ -8,14 +8,14 @@ import redEffect from '../../../../assets/ui-images/inst-card-red-effect.png';
 import grayEffect from '../../../../assets/ui-images/inst-card-gray-effect.png';
 
 // imported types
-import { CardDataTypes } from '../../../../types/institutesSliderTypes/cardTypes';
+import { InstitudeCardDataTypes } from '../../../../types/institutesSliderTypes/cardTypes';
 
 // imported components
 import InstituteCardInfo from '../institute-card-info/InstituteCardInfo';
 // imported styles
 import classes from './instituteCard.module.css';
 
-const InstituteCard: FC<CardDataTypes> = ({ ...props }) => {
+const InstituteCard: FC<InstitudeCardDataTypes> = ({ ...props }) => {
   return (
     <div className={classes.card}>
       <div className={classes.image_container}>
@@ -30,7 +30,7 @@ const InstituteCard: FC<CardDataTypes> = ({ ...props }) => {
         )}
 
         <div className={classes.image_div}>
-          <img src={photo} alt="ints photo" />
+          <img src={props.photo} alt="ints photo" />
         </div>
 
         {props.isActive ? (

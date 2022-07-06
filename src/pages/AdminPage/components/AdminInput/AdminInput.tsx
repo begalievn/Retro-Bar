@@ -5,6 +5,7 @@ import {
   AdminPageTypes,
   IPageBody,
 } from "../../../../types/adminPage/adminPage";
+import SearchList from "../../../../UI/SearchList/SearchList";
 
 type primaryColor = "white" | "black";
 
@@ -22,6 +23,8 @@ interface AdminInputProps {
   required?: boolean;
   pattern?: string;
   icon?: React.ReactNode;
+  search?: boolean;
+  searchList?: any;
 }
 
 const AdminInput: FC<AdminInputProps> = ({
@@ -33,14 +36,14 @@ const AdminInput: FC<AdminInputProps> = ({
   title,
   color,
   errorMessage,
-  icon,
+  search,
+  searchList,
   ...props
 }) => {
   const [focused, setFocused] = useState<boolean>(false);
   const handleFocus = () => {
     setFocused(!focused);
   };
-
   return (
     <div className={classes.inputBlock}>
       <label
@@ -48,11 +51,9 @@ const AdminInput: FC<AdminInputProps> = ({
         // style={{ color: `${color && color}` }}
         htmlFor={name}
       >
-        <i>{icon}</i>
         {title}
       </label>
       <input
-        id={name}
         type={type}
         name={name}
         pattern={props.pattern}
@@ -64,6 +65,7 @@ const AdminInput: FC<AdminInputProps> = ({
         autoFocus={focused}
       />
       {focused && <span className={classes.errorMessage}>{errorMessage}</span>}
+      {searchList && <SearchList searchList={searchList} />}
     </div>
   );
 };
