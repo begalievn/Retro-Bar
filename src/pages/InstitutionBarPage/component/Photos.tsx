@@ -1,8 +1,8 @@
 import { FC, useState, useEffect } from "react";
 import classes from "./livebarstyle.module.css";
-import polaroidMini from "../../../../assets/institutionBarImg/photo/polaroidMini.png";
-import sliderLeft from "../../../../assets/institutionBarImg/iconsMap/sliderLeft.svg";
-import sliderRight from "../../../../assets/institutionBarImg/iconsMap/sliderRight.svg";
+import polaroidMini from "../../../assets/institutionBarImg/photo/polaroidMini.png";
+import sliderLeft from "../../../assets/institutionBarImg/iconsMap/sliderLeft.svg";
+import sliderRight from "../../../assets/institutionBarImg/iconsMap/sliderRight.svg";
 // interface IbringArray {
 //   arr?: Array<string>;
 // }

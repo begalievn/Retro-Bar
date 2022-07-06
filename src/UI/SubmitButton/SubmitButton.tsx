@@ -1,9 +1,11 @@
 import React from 'react'
 import styles from './SubmitButton.module.css'
 
-function SubmitButton({text='Позвонить'}) {
+function SubmitButton({ text = 'Позвонить' }) {
   return (
-    <button  className={styles.button}>{text}</button>
+    // <a href='tel:+380441111111'  className={styles.button}>{text}</a>
+   
+      <a href='tel:+380441111111'> <button className={styles.button}>{text}</button></a>
   )
 }
 
