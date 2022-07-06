@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { IPhotos } from "../interfaces";
+import { IPhotosAnother } from "../interfaces";
 import styles from "./ImagesList.module.css";
 import eye from "../../../../../assets/photoPageImages/icons/eye.svg";
 import pic from "../../../../../assets/photoPageImages/icons/pic.svg";
@@ -11,19 +11,23 @@ import Button from "../../Button/Button";
 import { photoAPI } from "../../../../../store/features/photos/photoQuery";
 
 interface ImagesListProps {
-  images: IPhotos[] | null;
+  images: IPhotosAnother[] | null;
 }
 const ImagesList: FC<ImagesListProps> = ({ images }) => {
   const [galleryModal, setGalleryModal] = useState(false);
   const toggleGalleryModal = () => setGalleryModal(!galleryModal);
 
-  const [currentEvent, setCurrentEvent] = useState<IPhotos | null>  (null);
+
+  console.log(images,'ImagesList');
+  
+
+  const [currentEvent, setCurrentEvent] = useState<IPhotosAnother | null>  (null);
   if (galleryModal) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "visible";
   }
-  const onClickEvent = (event: IPhotos) => {
+  const onClickEvent = (event: IPhotosAnother) => {
     setCurrentEvent(event);
     toggleGalleryModal();
     console.log(event);
@@ -73,7 +77,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
                     </div>
                   )}
                 </div>
-                <p className={styles.image_info_partyName}>{item.partyName}</p>
+                <p className={styles.image_info_partyName}>{item.eventName}</p>
                 <div className={styles.image_info_footer}>
                   <div className={styles.image_info_number}>
                     <div className={styles.image_info_views}>
@@ -85,7 +89,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
                     <div className={styles.image_info_photos}>
                       <img src={pic} alt="" />
                       <p className={styles.image_info_photos_number}>
-                        {item.photos}
+                        {item.photosCount}
                       </p>
                     </div>
                   </div>
@@ -106,7 +110,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
         {
           (galleryModal  && currentEvent) && (
             
-            <NewGallery images={currentEvent} close = {toggleGalleryModal}/>
+            <NewGallery eventInfo={currentEvent} close = {toggleGalleryModal}/>
           )
         }
     </>

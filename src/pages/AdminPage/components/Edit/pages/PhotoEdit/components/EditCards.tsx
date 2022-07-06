@@ -37,17 +37,14 @@ const EditCards: React.FC<PhotoPropsType> = ({ item }) => {
   }
   return (
     <>
-      <Card
-        onClick={() => {
-          // editPhotoCard();
-          setShow(true);
-          scrollTop();
-        }}
-        className={classes.cards}
-        key={item.id}
-      >
+      <Card className={classes.cards} key={item.id}>
         {photoArray.map((item: IPhoto) => (
           <CardMedia
+            onClick={() => {
+              // editPhotoCard();
+              setShow(true);
+              scrollTop();
+            }}
             className={classes.imgCard}
             key={item.id}
             component="img"

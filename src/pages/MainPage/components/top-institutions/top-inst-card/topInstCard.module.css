@@ -11,6 +11,7 @@
   background-size: cover;
   position: absolute;
   height: auto;
+  user-select: none;
 }
 
 .card_content_container {

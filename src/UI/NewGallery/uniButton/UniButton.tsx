@@ -70,10 +70,11 @@ function UniButton({ text, image }: UniButtonProps) {
 
 
   if (text === 'Скачать') {
-
+    console.log(image)
+    
     return (
 
-      <a href={download} download className={button}>{text}
+      <a href={image} download className={button}>{text}
         <img className={styles.image} src={download} alt="" />
       </a>
 

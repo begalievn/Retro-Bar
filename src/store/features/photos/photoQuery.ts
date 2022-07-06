@@ -5,7 +5,7 @@ import { API } from '../../../utils/helpers/Consts';
 export const photoAPI = createApi({
   reducerPath: 'photoAPI',
   baseQuery: fetchBaseQuery({ baseUrl: API }),
-  tagTypes: ["Photo","Contacts"],
+  tagTypes: ['Photo', 'Contacts', 'PhotoCard'],
   endpoints: (build) => ({
     fetchAllPhotos: build.query({
       query: (take: number = 20) => ({
@@ -17,34 +17,51 @@ export const photoAPI = createApi({
       providesTags: (result) => ['Photo'],
     }),
     fetchAllContacts: build.query({
-        query: (limit: number) => ({
-          url: `/photo?take=${limit}&page=0`,
-          params:{
-            _limit: limit
-          }
-        }),
-        providesTags: (result) => ["Contacts"],
-      }),
-      deletePhoto: build.mutation({
-        query: (photo) => ({
-          url: `/admin/photoCard/${photo.id}`,
-          method: "DELETE",
-          headers: {
-            'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken') || '{}')}`,
+      query: (limit: number) => ({
+        url: `/photo?take=${limit}&page=0`,
+        params: {
+          _limit: limit,
         },
-        }),
-        invalidatesTags: ["Photo"],
       }),
-      editPhoto: build.mutation({
-        query: (photo) => ({
-          url: `/admin/photoCard/${photo.id}`,
-          method: "PUT",
-          body: photo,
-          headers: {
-            'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken') || '{}')}`,
+      providesTags: (result) => ['Contacts'],
+    }),
+    deletePhoto: build.mutation({
+      query: (photo) => ({
+        url: `/admin/photoCard/${photo.id}`,
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem('accessToken') || '{}'
+          )}`,
         },
-        }),
-        invalidatesTags: ["Photo"],
       }),
+      invalidatesTags: ['Photo'],
+    }),
+    editPhoto: build.mutation({
+      query: (photo) => ({
+        url: `/admin/photoCard/${photo.id}`,
+        method: 'PUT',
+        body: photo,
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem('accessToken') || '{}'
+          )}`,
+        },
+      }),
+      invalidatesTags: ['Photo'],
+    }),
+    createPhotoCard: build.mutation({
+      query: (photoCard) => ({
+        url: '/admin/photoCard',
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem('accessToken') || '{}'
+          )}`,
+        },
+        body: photoCard,
+      }),
+      invalidatesTags: (result) => ['PhotoCard'],
+    }),
   }),
 });

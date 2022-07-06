@@ -3,10 +3,11 @@ import styles from './newGallery.module.css';
 import crossBtn from "../../assets/photoPageImages/gallery-images/cross.png";
 import closeBtn from "../../assets/photoPageImages/gallery-images/close.svg";
 
-import { IPhotos } from '../../pages/PhotoPage/components/PhotoMain/interfaces';
+import { IPhotosAnother } from '../../pages/PhotoPage/components/PhotoMain/interfaces';
 
 
 import UniButton from './uniButton/UniButton'
+import { IPhotos } from '../../types/apiTypes/photo'
 
 
 import { Swiper } from 'swiper/react';
@@ -18,36 +19,36 @@ import { Image } from '@mui/icons-material';
 
 type NewGalleryProps = {
   close: () => void;
-  images: IPhotos;
+  eventInfo: IPhotosAnother | IPhotos | null;
 }
 interface ISlideInfo {
   image: string;
   count: Array<number>;
-  
+
 }
 
 
 
-function NewGallery({ close,images }: NewGalleryProps) {
+function NewGallery({ close, eventInfo }: NewGalleryProps) {
   const [slideInfo, setSlideInfo] = useState<ISlideInfo>({ image: "", count: [1, 2] })
 
+  console.log(eventInfo, 'DATA');
 
-  const setCounter = (arr: Array<number>) => {
+  const setCounter = (arr: Array<number>,pic:string) => {
+
     
-     
-    setSlideInfo((slideInfo)=>{
+    setSlideInfo((slideInfo) => {
       return {
         ...slideInfo,
-        count:arr,
-        image:"",
+        count: arr,
+        image: pic,
       }
     })
 
   }
 
-  console.log(images.images);
-  
- 
+
+
 
 
   return (
@@ -63,26 +64,14 @@ function NewGallery({ close,images }: NewGalleryProps) {
           <img onClick={close} className={styles.close} src={closeBtn} alt="" />
         </section>
 
-          
-          {
-            images.images ?
-          <Carousel count={setCounter} >
-            {
-              images.images.map((item )=>{
-                return(
-                  <img className={styles.image} src={item} alt="" />
-                  
-                )
-              })
-            }
-          
 
-        </Carousel>
-            
-            
-            :
-            null
-          }
+        {
+          eventInfo &&
+            <Carousel pictures={eventInfo.photos!} count={setCounter}/>
+           
+           
+          
+        }
 
 
 
@@ -93,7 +82,7 @@ function NewGallery({ close,images }: NewGalleryProps) {
             <p className={styles.counter}>{slideInfo.count[0] + ' из ' + slideInfo.count[1]}</p>
             <UniButton text='Поделиться' />
           </div>
-          <UniButton text='Скачать' image={"https://i.picsum.photos/id/900/200/200.jpg?hmac=ZrAJ9H_K0TLi9qA-7h0aKGGzI3tLtlu1lx6ntCljBfc"} />
+          <UniButton text='Скачать' image={slideInfo.image} />
 
 
         </footer>

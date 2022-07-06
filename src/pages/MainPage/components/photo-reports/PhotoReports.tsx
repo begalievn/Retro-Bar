@@ -36,7 +36,6 @@ const backgroungPhotos = [
 
 const PhotoReports = () => {
   const { data: photos, error, isLoading } = photoAPI.useFetchAllPhotosQuery(5);
-  console.log(photos);
 
   const navigate = useNavigate();
 
@@ -60,7 +59,7 @@ const PhotoReports = () => {
           {isLoading
             ? null
             : photos.photoCards.map((card: IPhotoCards, index: number) => (
-                <div>
+                <div key={index}>
                   {index === 4 ? (
                     <PhotoReportCardBig
                       photo={card?.photos[0]}

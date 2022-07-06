@@ -1,15 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // imported images
 import bookImage from '../../assets/mainPage/mainAd-photo.png';
-import calendarIcon from '../../assets/icons/calendar-icon.svg';
 import { sketch } from '../../assets/ui-images/images';
-
-// imported functions from redux
-import { gettingPhotos } from '../../store/features/photos/photosSlice';
-import { gettingVideos } from '../../store/features/videos/videosSlice';
-
-// imported apis
 
 // imported components
 import MainNews from './components/news/MainNews';
@@ -26,8 +19,11 @@ import classes from './mainPage.module.css';
 import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
 
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { photoAPI } from '../../store/features/photos/photoQuery';
+import { establishmentsAPI } from '../../store/features/establishments/establishmentsQuery';
+import { getPalaroidCardData } from '../../utils/helpers/getPalaroidCardData';
+import { getTopInstCardData } from '../../utils/helpers/getTopInstCardData';
+import { getInstitudeSliderData } from '../../utils/helpers/getInstitudeSliderData';
 
 let bookProps: BookProps = {
   data: {
@@ -39,15 +35,37 @@ let bookProps: BookProps = {
 };
 
 const MainPage = () => {
-  const { data, error, isLoading } = photoAPI.useFetchAllPhotosQuery(20);
+  const {
+    data: photos,
+    error: photoError,
+    isLoading: photoLoading,
+  } = photoAPI.useFetchAllPhotosQuery(8);
+
+  const {
+    data: establishments,
+    error: establishmentError,
+    isLoading: establishmentLoading,
+  } = establishmentsAPI.useFetchAllEstablishmentsQuery('');
+
+  console.log('establishments', establishments);
 
   return (
     <div className={classes.main}>
       <div className={classes.header_background_effect}></div>
       <CalendarIcon />
       <div className={classes.main_one}>
-        <PalaroidSlider />
-        <TopInstituions />
+        {photoLoading ? (
+          <p>Loading</p>
+        ) : (
+          <PalaroidSlider cards={getPalaroidCardData(photos.photoCards)} />
+        )}
+        {establishmentLoading ? (
+          <p>Loading</p>
+        ) : (
+          <TopInstituions
+            institutions={getTopInstCardData(establishments.establishments)}
+          />
+        )}
       </div>
 
       <PhotoReports />
@@ -57,8 +75,14 @@ const MainPage = () => {
           <h2 className={classes.slider_title}>{'Заведения'}</h2>
           <img src={sketch} />
         </div>
-
-        <InstitutesSlider isContentBlack={true} />
+        {establishmentLoading ? (
+          <p>Loading</p>
+        ) : (
+          <InstitutesSlider
+            data={getInstitudeSliderData(establishments.establishments)}
+            isContentBlack={true}
+          />
+        )}
         <MainNews />
         <div className={classes.paper_gradient_top}></div>
         <div className={classes.paper_gradient_right}></div>
