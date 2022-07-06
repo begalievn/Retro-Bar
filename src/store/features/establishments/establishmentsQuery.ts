@@ -16,6 +16,12 @@ export const establishmentsAPI = createApi({
       }),
       providesTags: ['Establishments'],
     }),
+    fetchEstablishmentById: build.query({
+      query: (id) => ({
+        url: `/establishment/${id}`,
+      }),
+      providesTags: ['Establishments'],
+    }),
     createEstablishment: build.mutation({
       query: (establishment) => ({
         url: '/admin/establishment',
