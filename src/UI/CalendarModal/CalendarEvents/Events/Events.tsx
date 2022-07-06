@@ -24,10 +24,14 @@ const Events: FC = ({ }) => {
 
 
 
+
+
   const filterData: IPhotos[] = useAppSelector(state => state.photos.filterPhoto)
 
+  
 
-  console.log(filterData,'hjgj');
+
+  console.log(filterData,'events');
   
 
 

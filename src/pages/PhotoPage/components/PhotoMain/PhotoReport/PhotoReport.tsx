@@ -26,83 +26,84 @@ import {
 import Button from '../../Button/Button';
 import { photoAPI } from '../../../../../store/features/photos/photoQuery';
 import { useAppSelector } from '../../../../../app/hooks';
+import { ifError } from 'assert';
 
 const images: IPhotosAnother[] = [
   {
-    link: eventPlace,
-    name: 'PARK EVENTPLACE',
+    link: '',
+    name: '',
     border: wideBorder,
-    id: 1,
-    eventName: 'ÜN',
-    photosCount: 122,
-    views: 6545,
-    date: '14 мая 2022',
-    studio: 'Фото студия “Оригами”',
+    id: 0,
+    eventName: '',
+    photosCount: 0,
+    views: 0,
+    date: '',
+    studio: '',
     photos: [
 
     ],
   },
   {
-    link: zeppelinBar,
-    name: 'ZEPPELIN BAR',
+    link: '',
+    name: '',
     border: squareBorder,
-    id: 2,
-    eventName: 'STREET CREDIBILITY',
-    photosCount: 144,
-    views: 709,
-    date: '20 мая 2022',
+    id: 0,
+    eventName: '',
+    photosCount: 0,
+    views: 0,
+    date: '',
     photos: [
 
     ],
   },
   {
-    link: kipishBar,
-    name: 'KIPISH BAR',
+    link: '',
+    name: '',
     border: squareBorder,
-    id: 3,
-    eventName: 'Birthday Party',
-    photosCount: 50,
-    views: 660,
-    date: '20 мая 2022',
+    id: 0,
+    eventName: '',
+    photosCount: 0,
+    views: 0,
+    date: '',
     photos: [
 
     ],
   },
   {
-    link: attention,
-    name: 'ATTENTION',
+    link: '',
+    name: '',
     border: squareBorder,
-    id: 4,
-    eventName: 'ATTENTION',
-    photosCount: 79,
-    views: 665,
-    date: '28 мая 2022',
+    id: 0,
+    eventName: '',
+    photosCount: 0,
+    views: 0,
+    date: '',
     photos: [
 
     ],
   },
   {
-    name: 'MUNCHEN PUB',
-    link: munchenPub,
+    name: '',
+    link: '',
     border: squareBorder,
-    id: 5,
-    eventName: 'LIVE MUSIC: COOL BAND',
-    photosCount: 60,
-    views: 675,
-    date: '20 мая 2022',
+    id: 0,
+    eventName: '',
+    photosCount: 0,
+    views: 0,
+    date: '',
     photos: [
 
     ],
   },
   {
-    name: 'PINTA PUB',
-    link: pintaPub,
+    name: '',
+    link: '',
     border: longBorder,
-    id: 6,
-    eventName: 'АБДЫШ АТА',
-    photosCount: 67,
-    views: 4660,
-    date: '14 мая 2022',
+    id: 0,
+    eventName: '',
+    photosCount: 0,
+    views: 0,
+    date: '',
     photos: [
 
     ],
@@ -118,53 +119,53 @@ const images: IPhotosAnother[] = [
     text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует.',
   },
   {
-    name: 'МАМА РАДА',
-    link: mamaRada,
+    name: '',
+    link: '',
     border: squareBorder,
-    id: 8,
-    eventName: 'SATURDAY',
-    photosCount: 95,
-    views: 5004,
-    date: '14 мая 2022',
+    id: 0,
+    eventName: '',
+    photosCount: 0,
+    views: 0,
+    date: '',
     photos: [
 
     ],
   },
   {
-    name: 'SECRET MUSIC HALL',
-    link: secretMusicHall,
+    name: '',
+    link: '',
     border: squareBorder,
-    id: 9,
-    eventName: 'ВИКТОРИНА',
-    photosCount: 70,
-    views: 4789,
-    date: '11 мая 2022',
+    id: 0,
+    eventName: '',
+    photosCount: 0,
+    views: 0,
+    date: '',
     photos: [
 
     ],
   },
   {
-    name: 'MOLECULA',
-    link: molecula,
+    name: '',
+    link: '',
     border: squareBorder,
-    id: 10,
-    eventName: 'ОТКРЫТИЕ',
-    photosCount: 87,
-    views: 8335,
-    date: '21 октября 2021',
+    id: 0,
+    eventName: '',
+    photosCount: 0,
+    views: 0,
+    date: '',
     photos: [
 
     ],
   },
   {
-    name: 'ОБЛАКО 53',
-    link: oblaco53,
+    name: '',
+    link: '',
     border: squareBorder,
-    id: 11,
-    eventName: 'КОНЦЕРТ: 5STA FAMILY',
-    photosCount: 70,
-    views: 7336,
-    date: '22 мая 2022',
+    id: 0,
+    eventName: '',
+    photosCount: 0,
+    views: 0,
+    date: '',
     photos: [
 
     ],
@@ -180,16 +181,16 @@ const images: IPhotosAnother[] = [
     text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует подготовке и реализации позиций, занимаемых участниками в отношении поставленных задач.',
   },
   {
-    name: 'PABLO',
+    name: '',
     link: '',
     border: longBorder,
-    id: 13,
-    eventName: 'TUESDAY',
-    photosCount: 75,
-    views: 4695,
-    date: '14 мая 2022',
+    id: 0,
+    eventName: '',
+    photosCount: 0,
+    views: 0,
+    date: '',
     photos: [
-
+      
     ],
   },
 ];
@@ -207,6 +208,7 @@ const PhotoReport: FC = () => {
   } = photoAPI.useFetchAllPhotosQuery(20);
 
 
+  console.log(photos, 'photoreport');
 
 
   useEffect(() => {
@@ -224,12 +226,12 @@ const PhotoReport: FC = () => {
         let nativeElement = images[i];
 
         const responseElement = photos.photoCards[i];
-        if (nativeElement.ad) {
+
+        if(!responseElement || nativeElement.ad){
           newImages.push(nativeElement)
           continue;
-        };
-
-
+        }
+        
         nativeElement = {
           ...nativeElement,
           name: responseElement.establishment.name,
@@ -240,23 +242,12 @@ const PhotoReport: FC = () => {
           id: responseElement.id,
           date: responseElement.date,
           photos: MokPhotos,
-
-
-
           // responseElement.photos.length ? responseElement.photos[0] : ""
-
-
         }
         newImages.push(nativeElement)
-
-
         setFinalResponse(newImages);
-
       }
-
-
     }
-
   }, [photos])
   return <ImagesList images={finalResponse} />
 };
