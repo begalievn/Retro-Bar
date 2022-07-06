@@ -14,7 +14,7 @@ export const establishmentsAPI = createApi({
           name,
         },
       }),
-      providesTags: ['Establishments'],
+      providesTags: (result) => ["Establishments"],
     }),
     fetchEstablishmentById: build.query({
       query: (id) => ({
@@ -22,18 +22,26 @@ export const establishmentsAPI = createApi({
       }),
       providesTags: ['Establishments'],
     }),
-    createEstablishment: build.mutation({
+    deleteEstablishment: build.mutation({
       query: (establishment) => ({
-        url: '/admin/establishment',
-        method: 'POST',
+        url: `/admin/establishment/${establishment.id}`,
+        method: "DELETE",
         headers: {
-          Authorization: `Bearer ${JSON.parse(
-            localStorage.getItem('accessToken') || '{}'
-          )}`,
-        },
-        body: establishment,
+          'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken') || '{}')}`,
+      },
       }),
-      invalidatesTags: (result) => ['Establishments'],
+      invalidatesTags: ["Establishments"],
     }),
+    editEstablishment: build.mutation({
+      query: (establishment) => ({
+      url: `/admin/establishment/${establishment.id}`,
+      method: "PUT",
+      body: establishment,
+      headers: {
+        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken') || '{}')}`,
+      },
+    }),
+    invalidatesTags: ["Establishments"],
+  })
   }),
 });
