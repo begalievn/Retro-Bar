@@ -17,7 +17,16 @@ import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 import { PaperNew } from './component/PaperNew';
 // share
 import { ShareSocial } from './shareSocial';
+import { establishmentsAPI } from '../../store/features/establishments/establishmentsQuery';
+import { useParams } from 'react-router-dom';
 const InstitutionBarPage: FC = () => {
+  let { establishmentId } = useParams();
+  console.log('useParams', establishmentId);
+  const { data, error, isLoading } =
+    establishmentsAPI.useFetchEstablishmentByIdQuery(establishmentId);
+
+  console.log('Institution Bar', data);
+
   const [show, setShow] = useState(false);
   const description = [
     { img: clock, text: '18:00-06:00' },

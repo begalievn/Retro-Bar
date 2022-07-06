@@ -42,6 +42,11 @@ export const photoAPI = createApi({
         url: `/admin/photoCard/${photo.id}`,
         method: 'PUT',
         body: photo,
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem('accessToken') || '{}'
+          )}`,
+        },
       }),
       invalidatesTags: ['Photo'],
     }),

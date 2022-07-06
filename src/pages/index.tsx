@@ -1,99 +1,85 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import ContactsPage from "./ContactsPage/ContactsPage";
-import InstitutionPage from "./InstitutionPage/InstitutionPage";
-import { InstitutionBarPage } from "./InstitutionBarPage/InstitutionBarPage";
-import MainPage from "./MainPage/MainPage";
-import PhotoPage from "./PhotoPage/PhotoPage";
-import VideoPage from "./VideoPage/VideoPage";
-import EventsPage from "./EventsPage/EventsPage";
-import ErrorPage from "./ErrorPage/ErrorPage";
-import Authorization from "./Authorization/Authorization";
-import AdminPage from "./AdminPage/AdminPage";
-import Gallery from "../UI/Gallery/Gallery";
-import NewsPages from "./NewsPage/NewsPages";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import ContactsPage from './ContactsPage/ContactsPage';
+import InstitutionPage from './InstitutionPage/InstitutionPage';
+import { InstitutionBarPage } from './InstitutionBarPage/InstitutionBarPage';
+import MainPage from './MainPage/MainPage';
+import PhotoPage from './PhotoPage/PhotoPage';
+import VideoPage from './VideoPage/VideoPage';
+import EventsPage from './EventsPage/EventsPage';
+import ErrorPage from './ErrorPage/ErrorPage';
+import Authorization from './Authorization/Authorization';
+import AdminPage from './AdminPage/AdminPage';
+import Gallery from '../UI/Gallery/Gallery';
+import NewsPages from './NewsPage/NewsPages';
 
-import {
-  ADMIN_ADVERTISING,
-  ADMIN_CONTACTS,
-  ADMIN_ESTABLISHMENT,
-  ADMIN_PHOTO,
-  ADMIN_VIDEO,
-} from "../utils/path";
-import {
-  AdminEstablishment,
-  AdminPhoto,
-  AdminVideo,
-} from "./AdminPage/components";
-import { useAppSelector } from "../app/hooks";
-import AdminAdvertising from "./AdminPage/components/AdminAdvertising/AdminAdvertising";
+import { useAppSelector } from '../app/hooks';
 
 const MainRoutes = () => {
   const isAdmin = useAppSelector((state) => state.AuthorizationSlice.token);
 
   const PUBLIC_ROUTES = [
     {
-      link: "/",
+      link: '/',
       element: <MainPage />,
       id: 1,
     },
     {
-      link: "/photo",
+      link: '/photo',
       element: <PhotoPage />,
       id: 2,
     },
     {
-      link: "/video",
+      link: '/video',
       element: <VideoPage />,
       id: 3,
     },
     {
-      link: "/institution",
+      link: '/institution',
       element: <InstitutionPage />,
       id: 4,
     },
     {
-      link: "/institution-bar",
+      link: '/institution/:establishmentId',
       element: <InstitutionBarPage />,
       id: 5,
     },
     {
-      link: "/events",
+      link: '/events',
       element: <EventsPage />,
       id: 6,
     },
     {
-      link: "/news",
+      link: '/news',
       element: <NewsPages />,
       id: 7,
     },
     {
-      link: "/contacts",
+      link: '/contacts',
       element: <ContactsPage />,
       id: 8,
     },
     {
-      link: "/*",
+      link: '/*',
       element: <ErrorPage />,
       id: 9,
     },
     {
-      link: "/authorization",
+      link: '/authorization',
       element: <Authorization />,
       id: 10,
     },
 
     {
-      link: "/photo/gallery",
+      link: '/photo/gallery',
       element: <Gallery />,
       id: 12,
-    }
-      
+    },
   ];
 
   const PRIVATE_ROUTES = [
     {
-      link: "/admin/*",
+      link: '/admin/*',
       element: <AdminPage />,
       id: 1,
     },

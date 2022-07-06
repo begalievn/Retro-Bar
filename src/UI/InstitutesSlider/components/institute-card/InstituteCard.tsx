@@ -14,8 +14,16 @@ import { InstitudeCardDataTypes } from '../../../../types/institutesSliderTypes/
 import InstituteCardInfo from '../institute-card-info/InstituteCardInfo';
 // imported styles
 import classes from './instituteCard.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const InstituteCard: FC<InstitudeCardDataTypes> = ({ ...props }) => {
+  const navigate = useNavigate();
+
+  const clickHandler = (id: number) => {
+    console.log(id);
+    navigate(`/institution/${id}`);
+  };
+
   return (
     <div className={classes.card}>
       <div className={classes.image_container}>
@@ -34,7 +42,10 @@ const InstituteCard: FC<InstitudeCardDataTypes> = ({ ...props }) => {
         </div>
 
         {props.isActive ? (
-          <div className={classes.image_effect}>
+          <div
+            className={classes.image_effect}
+            onClick={() => clickHandler(props.id)}
+          >
             <img src={redEffect} alt="" />
           </div>
         ) : (

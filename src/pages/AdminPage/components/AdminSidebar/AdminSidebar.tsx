@@ -20,8 +20,7 @@ import video from '../../../../assets/icons/adminPanel/video.svg';
 import advertising from '../../../../assets/icons/adminPanel/advertising.svg';
 import institution from '../../../../assets/icons/adminPanel/Institution.svg';
 import contact from '../../../../assets/icons/adminPanel/contact.svg';
-import edit from '../../../../assets/icons/adminPanel/edit.png';
-
+import edit from '../../../../assets/icons/adminPanel/edit.svg';
 interface AdminSidebarProps {
   // setCurrent: (string: string) => void;
   // current: string;
@@ -103,7 +102,7 @@ const AdminSidebar: FC<AdminSidebarProps> = () => {
                     : classes.sideBarItem
                 }
               >
-                <img src={nav.icon} />
+                <img width={20} src={nav.icon} />
                 <em>{nav.title}</em>
               </li>
             </Link>

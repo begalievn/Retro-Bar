@@ -17,6 +17,10 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
   const [galleryModal, setGalleryModal] = useState(false);
   const toggleGalleryModal = () => setGalleryModal(!galleryModal);
 
+
+  console.log(images,'ImagesList');
+  
+
   const [currentEvent, setCurrentEvent] = useState<IPhotosAnother | null>  (null);
   if (galleryModal) {
     document.body.style.overflow = "hidden";
