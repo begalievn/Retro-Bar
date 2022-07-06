@@ -78,7 +78,7 @@ const Footer = () => {
     console.log(name);
   }
   function scrollTop(): void {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // window.scrollTo({ top: 0, behavior: "smooth" });
   }
   
   return (
