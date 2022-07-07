@@ -4,3 +4,9 @@ export interface PalaroidCardTypes {
   description: string;
   date: string;
 }
+
+export interface PalaroidCardImageType {
+  id: number;
+  url: string;
+  created: string;
+}

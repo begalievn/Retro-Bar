@@ -19,6 +19,7 @@ const PalaroidCard = ({
   date = '',
   isActive = false,
 }: Prop) => {
+  console.log('Palaroid Card image', image);
   return (
     <div className={classes.palaroidCard}>
       <div className={classes.card_image}>
