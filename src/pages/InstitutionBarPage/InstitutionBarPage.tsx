@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { FC, useState, useEffect } from "react";
+=======
+import { FC, useState } from "react";
+>>>>>>> 85c17adabeb2e5936e84c2eeeb1e82417e3bd19b
 import classes from "./institutionBar.module.css";
 import share from "../../assets/institutionBarImg/iconLiveBar/share.svg";
 import { LiveText } from "./component/Livetext";
@@ -30,8 +34,11 @@ const InstitutionBarPage: FC = () => {
     establishmentsAPI.useFetchEstablishmentByIdQuery(establishmentId);
 
   console.log("Institution Bar", data);
+<<<<<<< HEAD
 
   useEffect(() => {});
+=======
+>>>>>>> 85c17adabeb2e5936e84c2eeeb1e82417e3bd19b
 
   const [show, setShow] = useState(false);
 
@@ -115,6 +122,7 @@ const InstitutionBarPage: FC = () => {
               Лучше один раз увидеть, чем 100 раз прочитать или услышать!
               Приходите и ощутите уникальную ауру наших заведений!
             </p>
+<<<<<<< HEAD
             <div className={classes.paper}>
               <PaperNew />
             </div>
@@ -123,6 +131,35 @@ const InstitutionBarPage: FC = () => {
             </div>
           </>
         )}
+=======
+          </a>
+          <p>
+            <img src={phone} />0 558 55 00 00
+          </p>
+          <p>
+            <img src={geotag} />
+            ТЦ «МОТО» 5 этаж (Токтогула Советская)
+          </p>
+          <p>
+            <img src={phone} />
+            0557 594999
+          </p>
+          <p>
+            <img src={geotag} />
+            Ул. Кулатова 8/1 LiveBar Coolatova
+          </p>
+        </div>
+        <p className={classes.mobileTextAfterPhoto}>
+          Лучше один раз увидеть, чем 100 раз прочитать или услышать! Приходите
+          и ощутите уникальную ауру наших заведений!
+        </p>
+        <div className={classes.paper}>
+          <PaperNew />
+        </div>
+        <div className={classes.bottomEmoji}>
+          <BottomEmojis />
+        </div>
+>>>>>>> 85c17adabeb2e5936e84c2eeeb1e82417e3bd19b
       </div>
     </div>
   );

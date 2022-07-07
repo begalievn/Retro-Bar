@@ -7,11 +7,6 @@ import star3Icon from '../../../../assets/mainPage/star-3.svg';
 import star4Icon from '../../../../assets/mainPage/star-4.svg';
 import smileIcon from '../../../../assets/mainPage/smile-icon.svg';
 import PhotoReportCard from '../photo-report-card/PhotoReportCard';
-import photo1 from '../../../../assets/mainPage/photo-report-card-photo.png';
-import photo2 from '../../../../assets/mainPage/p-r-c-p2.png';
-import photo3 from '../../../../assets/mainPage/p-r-c-p3.png';
-import photo4 from '../../../../assets/mainPage/p-r-c-p4.png';
-import bigPhoto from '../../../../assets/mainPage/p-r-c-p-b.png';
 import greenTape from '../../../../assets/mainPage/p-r-green-tape.png';
 
 import cardBackground1 from '../../../../assets/mainPage/photo-report-card-bg1.png';

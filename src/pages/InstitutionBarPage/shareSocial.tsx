@@ -1,20 +1,25 @@
+<<<<<<< HEAD
 import { FC } from 'react';
 import classes from './institutionBar.module.css';
+=======
+import { FC } from "react";
+import classes from "./institutionBar.module.css";
+>>>>>>> 85c17adabeb2e5936e84c2eeeb1e82417e3bd19b
 
 import {
   WhatsappShareButton,
   TelegramShareButton,
   EmailShareButton,
   FacebookShareButton,
-} from 'react-share';
+} from "react-share";
 import {
   FacebookIcon,
   TelegramIcon,
   WhatsappIcon,
   EmailIcon,
-} from 'react-share';
+} from "react-share";
 const ShareSocial: FC = () => {
-  const shareUrl = 'https://www.linkedin.com/in/millana-chotubaeva-883122230/';
+  const shareUrl = "https://www.linkedin.com/in/millana-chotubaeva-883122230/";
   return (
     <>
       <FacebookShareButton url={shareUrl} className={classes.socialBtn}>

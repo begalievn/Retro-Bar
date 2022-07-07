@@ -1,1 +1,1 @@
-export const API = 'http://discoverystudio.xyz:6969/';
+export const API = "http://discoverystudio.xyz:6969/";
