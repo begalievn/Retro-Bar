@@ -9,14 +9,26 @@ import { IPhoto, IPhotos } from "../../../../types/apiTypes/photo";
 import GalleryModal from "../../../Gallery/GalleryModal/GalleryModal";
 import NewGallery from "../../../NewGallery/NewGallery";
 
-const Events: FC = ({ }) => {
+interface CurrentEventProps {
+  photos:IPhoto[] ;
+  establishment: string ;
+  event:string ;
+}
+
+const Events: FC = ({}) => {
   const [galleryModal, setGalleryModal] = useState(false);
   const toggleGalleryModal = () => setGalleryModal(!galleryModal)
 
-  const [currentEvent, setCurrentEvent] = useState<IPhotos | null>(null)
+  const [currentEvent, setCurrentEvent] = useState<CurrentEventProps | null>(null)
 
   const onClickEvent = (event: IPhotos) => {
-    setCurrentEvent(event)
+    
+    const data= {
+      photos: event.photos!,
+      establishment:event.establishment.name!,
+      event:event.eventName!
+    }
+    setCurrentEvent(data)
     setGalleryModal(true)
 
   };
