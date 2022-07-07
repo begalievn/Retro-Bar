@@ -30,7 +30,7 @@ const ContactsPage: FC = () => {
     isLoading,
     refetch,
   } = photoAPI.useFetchAllContactsQuery(limit);
-  
+
   const [frameArr, setFrameArr] = useState<IImageArr[]>([
     {
       frame: mainBack,
@@ -124,7 +124,7 @@ const ContactsPage: FC = () => {
               </div>
               <div>
                 <img src={mailIcon} alt="" />
-                <a href="https://mail.google.com/">info@foodzero.com</a>
+                <a target='_blank' href="https://mail.google.com/">info@foodzero.com</a>
               </div>
             </div>
           </div>

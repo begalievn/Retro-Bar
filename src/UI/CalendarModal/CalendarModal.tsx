@@ -4,6 +4,7 @@ import { Calendar, CalendarEvents, CalendarFilter } from "./";
 import { formatDate } from "../../utils/helpers/date";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { filterCalendarFunc } from "../../utils/helpers/filterCalendar";
+import { Button } from "@mui/material";
 
 interface CalendarModalProps {
   modal: boolean;
@@ -12,17 +13,12 @@ interface CalendarModalProps {
 
 const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
   const [selectedDate, setSelectedDay] = useState(new Date());
-  const dispatch = useAppDispatch()
-  
- 
- useEffect(() => {
-   dispatch(filterCalendarFunc(formatDate(selectedDate, 'DD-MM-YYYY')))
+  const dispatch = useAppDispatch();
 
-  
- }, [selectedDate])
- 
- 
- 
+  useEffect(() => {
+    dispatch(filterCalendarFunc(formatDate(selectedDate, "DD-MM-YYYY")));
+  }, [selectedDate]);
+
   return (
     <>
       {modal && (
@@ -32,7 +28,6 @@ const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
             <CalendarFilter />
             <div className={styles.calendarWithPhotos}>
               <div className={styles.calendar}>
-            
                 <Calendar
                   selectedDate={selectedDate}
                   selectDate={(date) => setSelectedDay(date)}
@@ -42,6 +37,7 @@ const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
                 <CalendarEvents />
               </div>
             </div>
+            <div className={styles.btnClose} onClick={toggleModal}></div>
           </div>
         </div>
       )}

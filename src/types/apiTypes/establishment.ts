@@ -9,8 +9,13 @@ export interface IEstablishment {
   averageCheck: null | number;
   workingHours: string | number;
   contacts:number |string;
-  created: string;
-  category?: null | string;
+  created?: string;
+  category: null | string|number;
+  kitchenType: null|string,
+  services: null|string,
+  link: null|string,
+  location: null|string,
+  rate: number|string,
   photos?: [];
   photoCards?: IPhotoCards[];
   videoCards?: IVideo[];
