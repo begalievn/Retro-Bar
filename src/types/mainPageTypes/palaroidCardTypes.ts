@@ -1,5 +1,5 @@
 export interface PalaroidCardTypes {
-  image?: string;
+  image?: PalaroidCardImageType;
   title: string;
   description: string;
   date: string;
