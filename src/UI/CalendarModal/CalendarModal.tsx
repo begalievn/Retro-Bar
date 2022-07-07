@@ -4,6 +4,7 @@ import { Calendar, CalendarEvents, CalendarFilter } from "./";
 import { formatDate } from "../../utils/helpers/date";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { filterCalendarFunc } from "../../utils/helpers/filterCalendar";
+import { Button } from "@mui/material";
 
 interface CalendarModalProps {
   modal: boolean;
@@ -38,6 +39,7 @@ const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
                 <CalendarEvents />
               </div>
             </div>
+            <div className={styles.btnClose} onClick={toggleModal}></div>
           </div>
         </div>
       )}

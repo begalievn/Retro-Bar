@@ -17,6 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 .modalDiv{
     background: white;
@@ -24,6 +25,8 @@
     height: 50%;
     border-radius: 20%;
     text-align: center;
+    z-index: 1;
+
 }
 .modalInput{
     display: block;
@@ -49,6 +52,7 @@
 }
 .imgCard{
     max-height: 200px !important;
-    overflow: hidden !important;
+    max-width: 300px;
+    /* overflow: hidden !important; */
     cursor: pointer;
 }
