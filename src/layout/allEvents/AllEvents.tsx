@@ -8,6 +8,8 @@ import hero4 from '../../assets/eventsImages/hero4.png';
 import EstablishmentItem from './EstablishmentItem';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { getPhotos } from '../../apis/getPhotos';
+import { photoAPI } from '../../store/features/photos/photoQuery';
+import { IPhotos } from '../../types/apiTypes/photo';
 
 const AllEvents: FC = () => {
   const dispatch = useAppDispatch();
@@ -16,21 +18,24 @@ const AllEvents: FC = () => {
     dispatch(getPhotos())
   }, []);
 
-  const photos = useAppSelector((state) => state.photos.value);
-  console.log('photos', photos);
 
+  let {
+    data: photos
+  } = photoAPI.useFetchAllContactsQuery(4);
+ 
+  
   return (
     <div className={style.section2_establishments_block}>
       <div className={style.section2_establishments_back}>
         <div className={style.section2_establishments}>
-          {photos?.slice(1, 5).map((item) => (
+          {photos?.photoCards.map((item:IPhotos) => (
             <EstablishmentItem item={item} />
           ))}
         </div>
       </div>
       <div className={style.section2_establishments_backMini}>
         <div className={style.section2_establishments}>
-          {photos?.slice(1, 3).map((item) => (
+          {photos?.photoCards.slice(1, 3).map((item:IPhotos) => (
             <EstablishmentItem item={item} />
           ))}
         </div>
