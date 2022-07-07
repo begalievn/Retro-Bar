@@ -65,9 +65,7 @@ const AdminInput: FC<AdminInputProps> = ({
         onBlur={handleFocus}
         autoFocus={focused}
       />
-      {focused && !searchList && (
-        <span className={classes.errorMessage}>{errorMessage}</span>
-      )}
+      {focused && <span className={classes.errorMessage}>{errorMessage}</span>}
       {searchList?.length > 0 && <SearchList searchList={searchList || []} />}
     </div>
   );

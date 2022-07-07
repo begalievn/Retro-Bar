@@ -1,5 +1,5 @@
-import { IPhotoCards } from './photo';
-import { IVideo } from './video';
+import { IPhotoCards } from "./photo";
+import { IVideo } from "./video";
 
 export interface IEstablishment {
   id: number;
@@ -8,13 +8,13 @@ export interface IEstablishment {
   description: string;
   averageCheck: null | number;
   workingHours: string | number;
-  contacts:number |string;
+  contacts: number | string;
   created: string;
   category?: null | string;
   photos?: [];
   photoCards?: IPhotoCards[];
   videoCards?: IVideo[];
-  total?: number;
-  take?: number;
-  page?: number;
+}
+export interface Establishments {
+  establishments: IEstablishment[];
 }

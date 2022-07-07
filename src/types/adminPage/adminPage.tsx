@@ -54,7 +54,7 @@ export interface PhotoCard {
   establishmentId: string;
   eventName?: string;
   views?: number | string;
-  photographerId: number | string;
+  photographerId: string;
   date?: string;
   photos?: object | null;
 }

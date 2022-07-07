@@ -4,7 +4,7 @@ import SocialMedias from '../../Gallery/Butttons/ShareButton/SocialMedias/Social
 import styles from "./uniButton.module.css";
 
 
-import share from "../../../assets/photoPageImages/gallery-images/download-icon.svg"
+import share from "../../../assets/photoPageImages/gallery-images/share-icon.svg"
 
 import download from "../../../assets/photoPageImages/gallery-images/download-icon.svg"
 

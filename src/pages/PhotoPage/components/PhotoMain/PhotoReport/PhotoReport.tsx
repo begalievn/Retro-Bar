@@ -33,7 +33,7 @@ const images: IPhotosAnother[] = [
     link: '',
     name: '',
     border: wideBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -47,7 +47,7 @@ const images: IPhotosAnother[] = [
     link: '',
     name: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -60,7 +60,7 @@ const images: IPhotosAnother[] = [
     link: '',
     name: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -73,7 +73,7 @@ const images: IPhotosAnother[] = [
     link: '',
     name: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -86,7 +86,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -99,7 +99,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: longBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -122,7 +122,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -135,7 +135,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -148,7 +148,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -161,7 +161,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: squareBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -184,7 +184,7 @@ const images: IPhotosAnother[] = [
     name: '',
     link: '',
     border: longBorder,
-    id: 0,
+    id: Math.floor(Math.random() * Date.now()),
     eventName: '',
     photosCount: 0,
     views: 0,
@@ -213,7 +213,7 @@ const PhotoReport: FC = () => {
 
   useEffect(() => {
     if (photos) {
-      let newImages: Array<IPhotosAnother> = [];
+      const newImages: Array<IPhotosAnother> = [];
       for (let i = 0; i < images.length; i++) {
         let MokPhotos: Array<IPhoto> = [];
         for (let i = 0; i < Math.floor(Math.random() * 20); i++) {
@@ -224,32 +224,34 @@ const PhotoReport: FC = () => {
 
         }
         let nativeElement = images[i];
-
         const responseElement = photos.photoCards[i];
 
         if(!responseElement || nativeElement.ad){
           newImages.push(nativeElement)
           continue;
         }
+       
         
         nativeElement = {
           ...nativeElement,
           name: responseElement.establishment.name,
-          link: `https://picsum.photos/${Math.floor(Math.random() * 200)}/500`,
+          // link: `https://picsum.photos/${Math.floor(Math.random() * 200)}/500`,
+          link: responseElement.photos.length ? responseElement.photos[0].url : "",
           views: responseElement.views,
           photosCount: responseElement.photos.length,
           eventName: responseElement.eventName,
           id: responseElement.id,
           date: responseElement.date,
-          photos: MokPhotos,
-          // responseElement.photos.length ? responseElement.photos[0] : ""
+          // photos: MokPhotos,
+          photos:responseElement.photos
+         
         }
         newImages.push(nativeElement)
         setFinalResponse(newImages);
       }
     }
   }, [photos])
-  return <ImagesList images={finalResponse} />
+  return <ImagesList images={photos && finalResponse} />
 };
 
 export default PhotoReport;
