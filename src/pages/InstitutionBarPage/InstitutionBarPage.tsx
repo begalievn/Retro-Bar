@@ -29,8 +29,7 @@ const InstitutionBarPage: FC = () => {
   const { data, error, isLoading } =
     establishmentsAPI.useFetchEstablishmentByIdQuery(establishmentId);
 
-  console.log("Institution Bar", data);
-
+  // console.log("Institution Bar", data.contacts);
 
   const [show, setShow] = useState(false);
 
@@ -89,7 +88,7 @@ const InstitutionBarPage: FC = () => {
             </p>
           </a>
           <p>
-            <img src={phone} />0 558 55 00 00
+            <img src={phone} />
           </p>
           <p>
             <img src={geotag} />

@@ -1,6 +1,6 @@
 .mainContainer {
-  background: url("../../assets/institutionBarImg/back/back.png") 0 0/100%
-    100% no-repeat;
+  background: url("../../assets/institutionBarImg/back/back.png") 0 0/100% 100%
+    no-repeat;
   background-size: contain;
   color: white;
   max-width: 2000px;
@@ -122,8 +122,8 @@
   grid-area: paper;
   width: 100vw;
   height: 125vw;
-  background: url("../../assets/institutionBarImg/back/backgroundPaper.png")
-    0 0/100% 100% no-repeat;
+  background: url("../../assets/institutionBarImg/back/backgroundPaper.png") 0 0/100%
+    100% no-repeat;
   mix-blend-mode: screen;
   display: flex;
   flex-direction: column;
@@ -141,8 +141,8 @@
 }
 @media only screen and (max-width: 1250px) {
   .mainContainer {
-    background: url("../../assets/institutionBarImg/back/back.png") 0 0/100%
-      70% no-repeat;
+    background: url("../../assets/institutionBarImg/back/back.png") 0 0/100% 70%
+      no-repeat;
   }
   .mapText p {
     font-size: 15px;
@@ -167,8 +167,8 @@
 }
 @media only screen and (max-width: 800px) {
   .mainContainer {
-    background: url("../../assets/institutionBarImg/back/back.png") 0 0/100%
-      70% no-repeat;
+    background: url("../../assets/institutionBarImg/back/back.png") 0 0/100% 70%
+      no-repeat;
   }
   .shareBtn {
     visibility: hidden;
