@@ -5,7 +5,7 @@ export function getInstitudeSliderData(data: IEstablishment[]) {
   let result: InstitudeCardDataTypes[] = [];
   result = data.map((item) => ({
     id: item.id,
-    photo: item?.logo,
+    photo: item?.photos[0],
     logo: item.logo,
     title: item.name,
     instType: item?.category?.toString() || 'bar',

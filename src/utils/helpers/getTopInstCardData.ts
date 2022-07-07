@@ -4,7 +4,7 @@ import { IEstablishment } from '../../types/apiTypes/establishment';
 export function getTopInstCardData(establishments: IEstablishment[]) {
   let result: TopInstCardsType[] = [];
   result = establishments.map((item) => ({
-    // photo: item?.photos[0],
+    image: item?.photos[0],
     title: item.name,
     time: item.workingHours.toString(),
     phone: item.contacts.toString(),

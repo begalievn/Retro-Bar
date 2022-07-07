@@ -1,6 +1,8 @@
+import { IPhoto } from '../apiTypes/photo';
+
 export interface InstitudeCardDataTypes {
   id: number;
-  photo?: string;
+  photo?: IPhoto;
   logo: string;
   title: string;
   instType?: string;
