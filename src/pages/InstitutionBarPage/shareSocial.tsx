@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import classes from './institutionBar.module.css';
+import classes from './InstitutionBar.module.css';
 
 import {
   WhatsappShareButton,
