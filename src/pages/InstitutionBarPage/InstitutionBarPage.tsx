@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import classes from "./InstitutionBar.module.css";
+import classes from "./institutionBar.module.css";
 import share from "../../assets/institutionBarImg/iconLiveBar/share.svg";
 import { LiveText } from "./component/Livetext";
 import { LivePhoto } from "./component/LivePhoto";
@@ -29,7 +29,7 @@ const InstitutionBarPage: FC = () => {
   const { data, error, isLoading } =
     establishmentsAPI.useFetchEstablishmentByIdQuery(establishmentId);
 
-  // console.log("Institution Bar", data.contacts);
+  console.log("Institution Bar", data);
 
   const [show, setShow] = useState(false);
 
@@ -88,7 +88,7 @@ const InstitutionBarPage: FC = () => {
             </p>
           </a>
           <p>
-            <img src={phone} />
+            <img src={phone} />0 558 55 00 00
           </p>
           <p>
             <img src={geotag} />

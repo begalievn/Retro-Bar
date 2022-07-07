@@ -24,9 +24,9 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getPhotos());
     dispatch(getVideos());
     dispatch(getEstablishments());
+    dispatch(getPhotos());
   }, []);
 
   return (

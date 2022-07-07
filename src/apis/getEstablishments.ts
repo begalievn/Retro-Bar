@@ -1,9 +1,9 @@
-import axios from 'axios';
-import { Dispatch } from 'redux';
-import { IDispatch } from '../store/authorization/AuthFunc';
-import { gettingEstablishments } from '../store/features/establishments/establishmentsSlice';
+import axios from "axios";
+import { Dispatch } from "redux";
+import { IDispatch } from "../store/authorization/AuthFunc";
+import { gettingEstablishments } from "../store/features/establishments/establishmentsSlice";
 
-const URL = 'http://discoverystudio.xyz:6969';
+const URL = "http://discoverystudio.xyz:6969";
 
 export const getEstablishments = () => {
   return async (dispatch: Dispatch<IDispatch>) => {
