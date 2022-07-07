@@ -58,7 +58,7 @@ const PhotoReports = () => {
                 <div key={index}>
                   {index === 4 ? (
                     <PhotoReportCardBig
-                      photo={card?.photos[0]}
+                      photo={card?.photos[0].url}
                       title={card.establishment.name}
                       eventName={card.eventName}
                       pics={card.photos.length}
@@ -68,7 +68,7 @@ const PhotoReports = () => {
                     />
                   ) : (
                     <PhotoReportCard
-                      photo={card?.photos[0]}
+                      photo={card?.photos[0].url}
                       title={card.establishment.name}
                       eventName={card.eventName}
                       pics={card.photos.length}

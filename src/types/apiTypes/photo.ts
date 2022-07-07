@@ -13,7 +13,7 @@ export interface IPhotoCards {
   views: number;
   date: string;
   created: string;
-  photos: Array<string>;
+  photos: IPhoto[];
   establishment: IEstablishment;
 }
 

@@ -114,33 +114,6 @@ const PalaroidSlider: FC<PalaroidSliderPropsType> = ({ cards }) => {
     onSwipedRight: () => prevMobile(),
   });
 
-  function paginationHandler(index: number) {
-    // let difference = index - activeIndex;
-    // console.log(difference);
-    // if (difference > -1) {
-    //   next();
-    // } else if (difference < 0) {
-    //   prev();
-    // }
-    setActiveIndex(index);
-    console.log(
-      hiddenLeftIndex,
-      leftIndex,
-      activeIndex,
-      rightIndex,
-      rightmostIndex,
-      hiddenRightIndex
-    );
-    console.log(sliderCards);
-  }
-
-  const pagination = {
-    clickable: true,
-    renderBullet: function (index: number, className: string) {
-      return '<span class="' + className + '">' + (index + 1) + '</span>';
-    },
-  };
-
   return (
     <div className={classes.container}>
       <div className={classes.ellipse_deco_1}></div>
@@ -158,7 +131,7 @@ const PalaroidSlider: FC<PalaroidSliderPropsType> = ({ cards }) => {
           onClick={prev}
         >
           <PalaroidCard
-            // image={sliderCards[leftIndex]?.image}
+            image={sliderCards[leftIndex]?.image}
             title={''}
             description={''}
             date={''}
