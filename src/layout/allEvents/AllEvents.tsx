@@ -13,11 +13,11 @@ const AllEvents: FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    // dispatch(getPhotos())
+    dispatch(getPhotos())
   }, []);
 
   const photos = useAppSelector((state) => state.photos.value);
-  // console.log('photos', photos);
+  console.log('photos', photos);
 
   return (
     <div className={style.section2_establishments_block}>

@@ -8,8 +8,8 @@ const URL = 'http://discoverystudio.xyz:6969';
 export const getPhotos = () => {
   return async (dispatch: Dispatch<IDispatch>) => {
     await axios.get(`${API}photo`).then((res) => {
-      console.log(res.data.photos);
-      dispatch(gettingPhotos(res.data.photos));
+    
+      dispatch(gettingPhotos(res.data.photoCards));
     });
   };
 };
