@@ -56,6 +56,7 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
     })
 
   }
+console.log('dddddd');
 
 
   
