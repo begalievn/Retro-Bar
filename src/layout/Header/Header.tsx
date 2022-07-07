@@ -9,6 +9,7 @@ import { someClasses } from "../../utils/someClasses";
 import { INavItems } from "../../types/headerTypes/headerTypes";
 import { useAppDispatch } from "../../app/hooks";
 import { logOut } from "../../store/authorization/AuthFunc";
+import { getSearch } from "../../apis/getSearch";
 
 const navItems: INavItems[] = [
   {
@@ -37,14 +38,14 @@ const navItems: INavItems[] = [
   },
 ];
 
-const Header = () => {
+export const Header = () => {
+  const [inputValue, setInputValue] = useState("");
   const [isOpen, setOpen] = useState<boolean>(false);
   const [inputVisible, setInputVisible] = useState<boolean>(false);
   const history = useNavigate();
   const location = useLocation();
   const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
-
-
+  const dispatch = useAppDispatch();
   if (isOpen) {
     document.body.style.overflow = "hidden";
   } else {
@@ -55,6 +56,20 @@ const Header = () => {
   //   dispatch(logOut())
   //   history('/')
   // }
+
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+  let time: any;
+  const keyUpHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+    time = setTimeout(() => {
+      dispatch(getSearch(inputValue));
+    }, 2000);
+  };
+
+  const keydownHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+    clearTimeout(time);
+  };
 
   return (
     <header className={classes.headerWrapper}>
@@ -94,7 +109,13 @@ const Header = () => {
         {isOpen && <BurgerMenu navItems={navItems} setOpen={setOpen} />}
         {inputVisible && (
           <div className={classes.headerSearch}>
-            <InputSearch placeholder="поиск" />
+            <InputSearch
+              placeholder="поиск"
+              onChange={inputHandler}
+              value={inputValue}
+              onKeyUp={keyUpHandler}
+              onKeyDown={keydownHandler}
+            />
           </div>
         )}
       </div>
