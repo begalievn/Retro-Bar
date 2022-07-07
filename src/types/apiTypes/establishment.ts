@@ -8,7 +8,7 @@ export interface IEstablishment {
   description: string;
   averageCheck: null | number;
   workingHours: string | number;
-  contacts:number |string;
+  contacts: number | string;
   created: string;
   category?: null | string;
   photos?: [];
@@ -17,4 +17,7 @@ export interface IEstablishment {
   total?: number;
   take?: number;
   page?: number;
+  location: string;
+  kitchenType: string;
+  rate: number;
 }
