@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { FC } from 'react';
-import classes from './institutionBar.module.css';
-=======
 import { FC } from "react";
 import classes from "./institutionBar.module.css";
->>>>>>> 85c17adabeb2e5936e84c2eeeb1e82417e3bd19b
 
 import {
   WhatsappShareButton,
