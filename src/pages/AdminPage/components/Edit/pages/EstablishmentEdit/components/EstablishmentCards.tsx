@@ -79,7 +79,7 @@ const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
           image={item.logo}
           alt="photos"
         />
-        <CardContent sx={{ minHeight: "270px" }}>
+        <CardContent sx={{ maxHeight: "270px" }}>
           <Typography
             className={classes.details}
             variant="body2"

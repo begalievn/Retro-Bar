@@ -1,5 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IEstablishment } from "../../../types/apiTypes/establishment";
+import {
+  Establishments,
+  IEstablishment,
+} from "../../../types/apiTypes/establishment";
 import { API } from "../../../utils/helpers/Consts";
 
 export const establishmentsAPI = createApi({
@@ -14,7 +17,7 @@ export const establishmentsAPI = createApi({
           name,
         },
       }),
-      providesTags: (result) => ["Establishments"],
+      providesTags: ["Establishments"],
     }),
     fetchEstablishmentById: build.query({
       query: (id) => ({
@@ -58,6 +61,19 @@ export const establishmentsAPI = createApi({
         },
       }),
       invalidatesTags: ["Establishments"],
+    }),
+    createEstablishmentCard: build.mutation({
+      query: (establishment) => ({
+        url: `/admin/establishment/`,
+        method: "POST",
+        body: establishment,
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem("accessToken") || "{}"
+          )}`,
+        },
+      }),
+      invalidatesTags: (result) => ["Establishments"],
     }),
   }),
 });

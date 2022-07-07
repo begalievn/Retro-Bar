@@ -1,12 +1,11 @@
-import React, { FC, SVGProps, useEffect, useState } from "react";
+import React, { FC, SVGProps, useState } from "react";
 
 import classes from "./AdminInput.module.css";
 import {
   AdminPageTypes,
   IPageBody,
-  VideoCard,
 } from "../../../../types/adminPage/adminPage";
-import { isValidUrl } from "../../../../utils/helpers/validUrl";
+import SearchList from "../../../../UI/SearchList/SearchList";
 
 type primaryColor = "white" | "black";
 
@@ -16,45 +15,58 @@ interface AdminInputProps {
   name?: string;
   type?: string;
   inputValue: AdminPageTypes | object;
-  setInputValue: (prevInputs: AdminPageTypes | object) => void;
   color?: primaryColor;
-  inputHandler: (
+  inputHandler?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
-  // icon: SVGElement;
+  errorMessage?: string;
+  required?: boolean;
+  pattern?: string;
+  icon?: React.ReactNode;
+  search?: boolean;
+  searchList?: any;
 }
 
 const AdminInput: FC<AdminInputProps> = ({
   page,
-  setInputValue,
   inputValue,
   inputHandler,
   type = "input",
+  name,
+  title,
+  color,
+  errorMessage,
+  search,
+  searchList,
   ...props
 }) => {
+  const [focused, setFocused] = useState<boolean>(false);
+  const handleFocus = () => {
+    setFocused(!focused);
+  };
+
   return (
     <div className={classes.inputBlock}>
       <label
-        className={
-          props.title?.toLowerCase() == "вставить ссылку"
-            ? classes.inputLinkTitle
-            : classes.inputTitle
-        }
-        style={{ color: `${props.color && props.color}` }}
-        htmlFor={props.name}
+        className={classes.inputTitle}
+        // style={{ color: `${color && color}` }}
+        htmlFor={name}
       >
-        {/*<i>{props.icon}</i>*/}
-        {props.title}
+        {title}
       </label>
       <input
-        id={props.name}
         type={type}
-        name={props.name}
-        value={inputValue[props.name as keyof AdminPageTypes] || ""}
+        name={name}
+        pattern={props.pattern}
+        required={props.required}
+        value={inputValue[name as keyof AdminPageTypes] || ""}
         onChange={inputHandler}
         className={classes.adminInput}
-        {...props}
+        onBlur={handleFocus}
+        autoFocus={focused}
       />
+      {focused && <span className={classes.errorMessage}>{errorMessage}</span>}
+      {searchList?.length > 0 && <SearchList searchList={searchList || []} />}
     </div>
   );
 };

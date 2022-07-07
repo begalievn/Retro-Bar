@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ContactsPage from './ContactsPage/ContactsPage';
 import InstitutionPage from './InstitutionPage/InstitutionPage';
-import { InstitutionBarPage } from './InstitutionBarPage/InstitutionBarPage';
 import MainPage from './MainPage/MainPage';
 import PhotoPage from './PhotoPage/PhotoPage';
 import VideoPage from './VideoPage/VideoPage';
@@ -14,6 +13,7 @@ import Gallery from '../UI/Gallery/Gallery';
 import NewsPages from './NewsPage/NewsPages';
 
 import { useAppSelector } from '../app/hooks';
+import { InstitutionBarPage } from './InstitutionBarPage/InstitutionBarPage';
 
 const MainRoutes = () => {
   const isAdmin = useAppSelector((state) => state.AuthorizationSlice.token);

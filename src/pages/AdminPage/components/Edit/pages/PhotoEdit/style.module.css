@@ -51,6 +51,7 @@
 }
 .imgCard {
   max-height: 200px !important;
+  max-width: 300px;
   overflow: hidden !important;
   cursor: pointer;
 }

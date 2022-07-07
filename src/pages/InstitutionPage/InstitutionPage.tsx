@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './institutionPage.module.css';
+import styles from './InstitutionPage.module.css';
 import Top from './components/top/Top';
 import Book from '../../UI/Book/Book';
 import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
@@ -11,6 +11,7 @@ import InstitutesSlider from '../../UI/InstitutesSlider/institutes-slider/Instit
 import { FooterEmoji } from '../../UI/FooterEmoji/FooterEmoji';
 import { establishmentsAPI } from '../../store/features/establishments/establishmentsQuery';
 import { getInstitudeSliderData } from '../../utils/helpers/getInstitudeSliderData';
+import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 
 let bookData = {
   text: ' технологии достигли такого уровня, что перспективное планирование способствует.',
@@ -50,7 +51,7 @@ const InstitutionPage = () => {
           />
         )}
         <Book page="institution" data={bookData} />
-        <FooterEmoji />
+        <BottomEmojis />
       </section>
     </div>
   );

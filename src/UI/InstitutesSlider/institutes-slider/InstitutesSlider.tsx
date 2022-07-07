@@ -138,12 +138,10 @@ const InstitutesSlider: FC<InstitudeSliderPropsType> = ({
 
   function prev() {
     setActiveIndex(activeIndex ? activeIndex - 1 : slideCards.length - 1);
-    console.log(activeIndex);
   }
 
   function next() {
     setActiveIndex(activeIndex === slideCards.length - 1 ? 0 : activeIndex + 1);
-    console.log(activeIndex);
   }
 
   const swipeHandlers = useSwipeable({

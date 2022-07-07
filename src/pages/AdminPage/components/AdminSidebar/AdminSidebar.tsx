@@ -10,11 +10,7 @@ import {
   ADMIN_VIDEO,
   ADMIN_EDIT,
 } from '../../../../utils/path';
-// import { ReactComponent as Photo } from "../../../../assets/icons/adminPanel/pic.svg";
-// import { ReactComponent as Video } from "../../../../assets/icons/adminPanel/video.svg";
-// import { ReactComponent as Advertising } from "../../../../assets/icons/adminPanel/advertising.svg";
-// import { ReactComponent as Institution } from "../../../../assets/icons/adminPanel/Institution.svg";
-// import { ReactComponent as Contact } from "../../../../assets/icons/adminPanel/contact.svg";
+
 import photo from '../../../../assets/icons/adminPanel/pic.svg';
 import video from '../../../../assets/icons/adminPanel/video.svg';
 import advertising from '../../../../assets/icons/adminPanel/advertising.svg';
