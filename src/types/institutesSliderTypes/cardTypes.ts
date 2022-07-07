@@ -14,6 +14,6 @@ export interface InstitudeCardDataTypes {
   stars?: number;
   isActive: boolean;
   isContentBlack: boolean;
-  kitchenType: string;
-  rate: number;
+  kitchenType?: string;
+  rate?: string;
 }

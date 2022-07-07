@@ -19,8 +19,8 @@ export function getInstitudeSliderData(data: IEstablishment[]) {
     stars: 4.5,
     isActive: false,
     isContentBlack: true,
-    kitchenType: item.kitchenType,
-    rate: item.rate,
+    kitchenType: item.kitchenType?.toString(),
+    rate: item.rate.toString() || '5',
   }));
 
   return result;
