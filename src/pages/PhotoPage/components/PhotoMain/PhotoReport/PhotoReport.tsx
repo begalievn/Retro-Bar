@@ -1,7 +1,7 @@
-import React, { FC, useEffect, useState } from 'react';
-import ImagesList from '../ImagesList/ImagesList';
+import React, { FC, useEffect, useState } from "react";
+import ImagesList from "../ImagesList/ImagesList";
 import { IPhotosAnother } from "../interfaces";
-import { IPhoto } from '../../../../../types/apiTypes/photo'
+import { IPhoto } from "../../../../../types/apiTypes/photo";
 
 import {
   eventPlace,
@@ -22,192 +22,165 @@ import {
   longBorder,
   circle,
   star,
-} from './index';
-import Button from '../../Button/Button';
-import { photoAPI } from '../../../../../store/features/photos/photoQuery';
-import { useAppSelector } from '../../../../../app/hooks';
+} from "./index";
+import Button from "../../Button/Button";
+import { photoAPI } from "../../../../../store/features/photos/photoQuery";
+import { useAppSelector } from "../../../../../app/hooks";
 
 const images: IPhotosAnother[] = [
   {
     link: eventPlace,
-    name: 'PARK EVENTPLACE',
+    name: "PARK EVENTPLACE",
     border: wideBorder,
     id: 1,
-    eventName: 'ÜN',
+    eventName: "ÜN",
     photosCount: 122,
     views: 6545,
-    date: '14 мая 2022',
-    studio: 'Фото студия “Оригами”',
-    photos: [
-
-    ],
+    date: "14 мая 2022",
+    studio: "Фото студия “Оригами”",
+    photos: [],
   },
   {
     link: zeppelinBar,
-    name: 'ZEPPELIN BAR',
+    name: "ZEPPELIN BAR",
     border: squareBorder,
     id: 2,
-    eventName: 'STREET CREDIBILITY',
+    eventName: "STREET CREDIBILITY",
     photosCount: 144,
     views: 709,
-    date: '20 мая 2022',
-    photos: [
-
-    ],
+    date: "20 мая 2022",
+    photos: [],
   },
   {
     link: kipishBar,
-    name: 'KIPISH BAR',
+    name: "KIPISH BAR",
     border: squareBorder,
     id: 3,
-    eventName: 'Birthday Party',
+    eventName: "Birthday Party",
     photosCount: 50,
     views: 660,
-    date: '20 мая 2022',
-    photos: [
-
-    ],
+    date: "20 мая 2022",
+    photos: [],
   },
   {
     link: attention,
-    name: 'ATTENTION',
+    name: "ATTENTION",
     border: squareBorder,
     id: 4,
-    eventName: 'ATTENTION',
+    eventName: "ATTENTION",
     photosCount: 79,
     views: 665,
-    date: '28 мая 2022',
-    photos: [
-
-    ],
+    date: "28 мая 2022",
+    photos: [],
   },
   {
-    name: 'MUNCHEN PUB',
+    name: "MUNCHEN PUB",
     link: munchenPub,
     border: squareBorder,
     id: 5,
-    eventName: 'LIVE MUSIC: COOL BAND',
+    eventName: "LIVE MUSIC: COOL BAND",
     photosCount: 60,
     views: 675,
-    date: '20 мая 2022',
-    photos: [
-
-    ],
+    date: "20 мая 2022",
+    photos: [],
   },
   {
-    name: 'PINTA PUB',
+    name: "PINTA PUB",
     link: pintaPub,
     border: longBorder,
     id: 6,
-    eventName: 'АБДЫШ АТА',
+    eventName: "АБДЫШ АТА",
     photosCount: 67,
     views: 4660,
-    date: '14 мая 2022',
-    photos: [
-
-    ],
+    date: "14 мая 2022",
+    photos: [],
   },
   {
-    name: 'Реклама',
+    name: "Реклама",
     link: effect,
     ad: true,
     border: wideBorder,
     id: 7,
     icon: star,
-    title: 'Фото и видео усл',
-    text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует.',
+    title: "Фото и видео усл",
+    text: "Современные технологии достигли такого уровня, что перспективное планирование способствует.",
   },
   {
-    name: 'МАМА РАДА',
+    name: "МАМА РАДА",
     link: mamaRada,
     border: squareBorder,
     id: 8,
-    eventName: 'SATURDAY',
+    eventName: "SATURDAY",
     photosCount: 95,
     views: 5004,
-    date: '14 мая 2022',
-    photos: [
-
-    ],
+    date: "14 мая 2022",
+    photos: [],
   },
   {
-    name: 'SECRET MUSIC HALL',
+    name: "SECRET MUSIC HALL",
     link: secretMusicHall,
     border: squareBorder,
     id: 9,
-    eventName: 'ВИКТОРИНА',
+    eventName: "ВИКТОРИНА",
     photosCount: 70,
     views: 4789,
-    date: '11 мая 2022',
-    photos: [
-
-    ],
+    date: "11 мая 2022",
+    photos: [],
   },
   {
-    name: 'MOLECULA',
+    name: "MOLECULA",
     link: molecula,
     border: squareBorder,
     id: 10,
-    eventName: 'ОТКРЫТИЕ',
+    eventName: "ОТКРЫТИЕ",
     photosCount: 87,
     views: 8335,
-    date: '21 октября 2021',
-    photos: [
-
-    ],
+    date: "21 октября 2021",
+    photos: [],
   },
   {
-    name: 'ОБЛАКО 53',
+    name: "ОБЛАКО 53",
     link: oblaco53,
     border: squareBorder,
     id: 11,
-    eventName: 'КОНЦЕРТ: 5STA FAMILY',
+    eventName: "КОНЦЕРТ: 5STA FAMILY",
     photosCount: 70,
     views: 7336,
-    date: '22 мая 2022',
-    photos: [
-
-    ],
+    date: "22 мая 2022",
+    photos: [],
   },
   {
-    name: 'Реклама',
+    name: "Реклама",
     link: fantasy,
     ad: true,
     border: wideBorder,
     id: 12,
     icon: circle,
-    title: 'Заказать сьёмку сейчас',
-    text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует подготовке и реализации позиций, занимаемых участниками в отношении поставленных задач.',
+    title: "Заказать сьёмку сейчас",
+    text: "Современные технологии достигли такого уровня, что перспективное планирование способствует подготовке и реализации позиций, занимаемых участниками в отношении поставленных задач.",
   },
   {
-    name: 'PABLO',
-    link: '',
+    name: "PABLO",
+    link: "",
     border: longBorder,
     id: 13,
-    eventName: 'TUESDAY',
+    eventName: "TUESDAY",
     photosCount: 75,
     views: 4695,
-    date: '14 мая 2022',
-    photos: [
-
-    ],
+    date: "14 мая 2022",
+    photos: [],
   },
 ];
 
-
-
 const PhotoReport: FC = () => {
-
-  const [finalResponse, setFinalResponse] = useState<Array<IPhotosAnother> | null>(null);
+  const [finalResponse, setFinalResponse] =
+    useState<Array<IPhotosAnother> | null>(null);
   const {
     data: photos,
     error,
     isLoading,
     refetch,
   } = photoAPI.useFetchAllPhotosQuery(20);
-
-
-
 
   useEffect(() => {
     if (photos) {
@@ -216,19 +189,20 @@ const PhotoReport: FC = () => {
         let MokPhotos: Array<IPhoto> = [];
         for (let i = 0; i < Math.floor(Math.random() * 20); i++) {
           MokPhotos.push({
-            id: Math.floor(Math.random() * Date.now()), created: Date.now().toString(),
-            url: `https://picsum.photos/id/${Math.floor(Math.random() * 234)}/200/300`
+            id: Math.floor(Math.random() * Date.now()),
+            created: Date.now().toString(),
+            url: `https://picsum.photos/id/${Math.floor(
+              Math.random() * 234
+            )}/200/300`,
           });
-
         }
         let nativeElement = images[i];
 
         const responseElement = photos.photoCards[i];
         if (nativeElement.ad) {
-          newImages.push(nativeElement)
+          newImages.push(nativeElement);
           continue;
-        };
-
+        }
 
         nativeElement = {
           ...nativeElement,
@@ -241,24 +215,15 @@ const PhotoReport: FC = () => {
           date: responseElement.date,
           photos: MokPhotos,
 
-
-
           // responseElement.photos.length ? responseElement.photos[0] : ""
-
-
-        }
-        newImages.push(nativeElement)
-
+        };
+        newImages.push(nativeElement);
 
         setFinalResponse(newImages);
-
       }
-
-
     }
-
-  }, [photos])
-  return <ImagesList images={finalResponse} />
+  }, [photos]);
+  return <ImagesList images={finalResponse} />;
 };
 
 export default PhotoReport;
