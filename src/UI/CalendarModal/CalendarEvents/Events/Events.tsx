@@ -33,21 +33,9 @@ const Events: FC = ({}) => {
 
   };
 
-
-
-
-
-
   const filterData: IPhotos[] = useAppSelector(state => state.photos.filterPhoto)
 
-  
-
-
-  console.log(filterData,'events');
-  
-
-
-  return (
+   return (
     <>
       {filterData?.map((event, i) => (
         <div onClick={() => onClickEvent(event)} className={styles.establishment} key={i}>

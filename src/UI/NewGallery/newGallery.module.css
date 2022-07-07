@@ -14,8 +14,10 @@
 
 .container{
    
-    width: 55.2vmin;
-    height: 53.3vmin;
+    width: 55.2vw;
+    height: 53.3vw;
+    max-height: 90vh;
+    max-width: 100vh;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -107,7 +109,7 @@
       height: 105vw;
       width: 76vw;
       position: absolute;
-      top: 50%;
+      top: 47%;
       left: 50%;
       transform: translate(-50%, -50%);
   }

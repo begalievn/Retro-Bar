@@ -195,8 +195,6 @@ const images: IPhotosAnother[] = [
   },
 ];
 
-
-
 const PhotoReport: FC = () => {
 
   const [finalResponse, setFinalResponse] = useState<Array<IPhotosAnother> | null>(null);
@@ -206,10 +204,6 @@ const PhotoReport: FC = () => {
     isLoading,
     refetch,
   } = photoAPI.useFetchAllPhotosQuery(20);
-
-
-  console.log(photos, 'photoreport');
-
 
   useEffect(() => {
     if (photos) {
@@ -243,7 +237,7 @@ const PhotoReport: FC = () => {
           id: responseElement.id,
           date: responseElement.date,
           // photos: MokPhotos,
-          photos:responseElement.photos
+          photos:responseElement.photos,
          
         }
         newImages.push(nativeElement)

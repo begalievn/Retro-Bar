@@ -20,13 +20,6 @@
   margin: 54px 0 230px 0;
 }
 
-
-
-
-
-/* Media */
-
-
 @media (max-width:1120px) {
   .gridBlocks {
     display: grid;
@@ -41,8 +34,8 @@
 @media (max-width:750px) {
   .gridBlocks {
     display: grid;
-    grid-template-columns: 314px;
-    grid-template-rows: 318px 315px 315px 315px 640px 350px;
+    grid-template-columns: 365px;
+    grid-template-rows: 357px 357px 357px 357px 726px 354px;
     gap: 15px 0;
     grid-template-areas:
       "block1"

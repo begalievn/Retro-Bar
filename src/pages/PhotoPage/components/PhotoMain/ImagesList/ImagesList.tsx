@@ -32,8 +32,6 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
     document.body.style.overflow = "visible";
   }
   const onClickEvent = (item: IPhotosAnother) => {
-    const test =[];
-    test.push(123)
    
     if(item.link==='')  return false
       const data = {
