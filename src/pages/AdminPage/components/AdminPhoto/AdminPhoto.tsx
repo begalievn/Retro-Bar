@@ -17,44 +17,9 @@ import { AdminInput } from "../index";
 import { photographersAPI } from "../../../../store/features/photographers/photographersQuery";
 import AdminSelect from "../../AdminSelect/AdminSelect";
 import { useAppSelector } from "../../../../app/hooks";
+import { startTimer } from "../../../../utils/helpers/timer";
 
-const fields: IField[] = [
-  {
-    title: "Название Заведения",
-    name: "establishmentId",
-    errorMessage: "Название Заведения обязательное поле!",
-    required: true,
-    search: true,
-  },
-  {
-    title: "Название Вечеринки",
-    name: "eventName",
-    errorMessage: "Название Вечеринки обязательное поле!",
-    required: true,
-  },
-  {
-    title: "Фотограф",
-    name: "photographerId",
-    errorMessage: "Фотограф обязательное поле!",
-    required: true,
-    search: true,
-  },
-  {
-    title: "Дата",
-    name: "date",
-    errorMessage: "Дата обязательное поле!",
-    type: "date",
-    required: true,
-    pattern: "\\d{4}-\\d{2}-\\d{2}",
-  },
-  {
-    title: "Посмотры",
-    name: "views",
-    errorMessage: "Посмотры обязательное поле!",
-    type: "text",
-    required: true,
-  },
-];
+import { ReactComponent as LinkIcon } from "../../../../assets/adminPage/link.svg";
 
 const AdminPhoto = () => {
   const dispatch = useDispatch();
@@ -62,39 +27,9 @@ const AdminPhoto = () => {
     establishmentId: "",
     photographerId: "",
   });
-
   const [createPhotoCard, {}] = photoAPI.useCreatePhotoCardMutation();
-
   let establishments = useAppSelector((state) => state.establishments.value);
   let photographers = useAppSelector((state) => state.photographers.value);
-
-
-  // useEffect(() => {
-  //   console.log("efffect", establishmentsData);
-  //   dispatch(gettingEstablishments(establishmentsData.establishments));
-  // }, [establishmentsData]);
-
-  // const debounceEstablishment = useDebounce(inputValue?.establishmentId, 400);
-  // const debouncePhotographers = useDebounce(inputValue?.photographerId, 400);
-
-  // const [fetchEstablishment, { data: establishmentsData = [] }] =
-  //   establishmentsAPI.useLazyFetchAllEstablishmentsQuery();
-  //
-  // const [fetchPhotographers, { data: photographersData = [] }] =
-  //   photographersAPI.useLazyFetchAllPhotographersQuery();
-
-  // useEffect(() => {
-  //   if (inputValue.establishmentId.length > 0) {
-  //     fetchEstablishment(debounceEstablishment);
-  //   } else {
-  //     fetchEstablishment(null);
-  //   }
-  //   if (inputValue.photographerId.length > 0) {
-  //     fetchPhotographers(debouncePhotographers);
-  //   } else {
-  //     fetchPhotographers();
-  //   }
-  // }, [debounceEstablishment, debouncePhotographers]);
 
   const inputHandler = (
     e: React.ChangeEvent<
@@ -110,26 +45,18 @@ const AdminPhoto = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { formData } = getFormData(inputValue as PhotoCard);
-    let timer: () => void;
-
-    const startTimer = () => {
-      //@ts-ignore
-      clearTimeout(timer);
-      //@ts-ignore
-      timer = setTimeout(() => dispatch(deleteAlert()), 1500);
-    };
     await createPhotoCard(formData)
       .unwrap()
       .then(() => {
         dispatch(createAlert(alertBodySuccess));
-        startTimer();
+        startTimer(dispatch, deleteAlert);
       })
       .catch((e) => {
         dispatch(createAlert({ message: e.data.message, type: "error" }));
-        startTimer();
+        startTimer(dispatch, deleteAlert);
       });
   };
-  console.log(inputValue);
+
   return (
     <form onSubmit={handleSubmit} className={classes.generalBlock}>
       <div className={classes.adminGeneralBlock}>
@@ -176,6 +103,7 @@ const AdminPhoto = () => {
                 name={"date"}
               />{" "}
               <AdminInput
+                icon={<LinkIcon/>}
                 required={true}
                 errorMessage={"Просмотры обязательное поле!"}
                 inputHandler={inputHandler}

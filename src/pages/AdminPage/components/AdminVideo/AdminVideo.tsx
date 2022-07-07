@@ -23,44 +23,6 @@ import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
 import AdminSelect from "../../AdminSelect/AdminSelect";
 import { useAppSelector } from "../../../../app/hooks";
 
-const fields: IField[] = [
-  {
-    title: "Название Заведения",
-    name: "establishmentId",
-    type: "input",
-    errorMessage: "Название Заведения обязательное поле!",
-    required: true,
-  },
-  {
-    title: "Название Вечеринки",
-    name: "eventName",
-    type: "input",
-    errorMessage: "Название Вечеринки обязательное поле!",
-    required: true,
-  },
-  {
-    title: "Видеограф",
-    name: "photographerId",
-    type: "input",
-    errorMessage: "Видеограф обязательное поле!",
-    required: true,
-  },
-  {
-    title: "Дата",
-    name: "date",
-    type: "date",
-    errorMessage: "Дата обязательное поле!",
-    required: true,
-  },
-  {
-    title: "Посмотры",
-    name: "views",
-    errorMessage: "Посмотры обязательное поле!",
-    type: "text",
-    required: true,
-  },
-];
-
 const AdminVideo = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState<VideoCard>({
@@ -114,11 +76,15 @@ const AdminVideo = () => {
       <div className={classes.adminGeneralBlock}>
         <h3 className={classes.adminTitle}>Видео</h3>
         <div className={classes.adminContent}>
-          <DropFileInput
-            type={"video"}
-            children={"Добавить превью для видео"}
-            setInputValue={setInputValue}
-          />
+          <div>
+            <DropFileInput
+              type={"video"}
+              children={"Добавить превью для видео"}
+              setInputValue={setInputValue}
+            />
+            {/*<AdminInput inputValue={} />*/}
+          </div>
+
           <div className={classes.adminFields}>
             <div className={classes.adminInputs}>
               <AdminSelect
@@ -138,9 +104,9 @@ const AdminVideo = () => {
                 name={"eventName"}
               />
               <AdminSelect
-                errorMessage={"Фотограф обязательное поле!"}
+                errorMessage={"Видеограф обязательное поле!"}
                 inputHandler={inputHandler}
-                title={"Фотограф"}
+                title={"Видеограф"}
                 name={"photographerId"}
                 required={true}
                 options={photographers || []}
