@@ -1,0 +1,20 @@
+.searchBlock {
+  position: absolute;
+  width: 100%;
+  min-height: 30px;
+  height: auto;
+  top: 100%;
+  background: var(--orange-text);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  font-family: "Montserrat Alternates", sans-serif;
+  transition: all 1s linear;
+}
+.searchBlock ul {
+  list-style: none;
+  margin: 0;
+}
+.searchBlock ul li {
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+}

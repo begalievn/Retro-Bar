@@ -1,6 +1,7 @@
 .inputBlock {
   width: 100%;
   height: fit-content;
+  position: relative;
   /*display: flex;*/
   /*position: relative;*/
   margin-bottom: 60px;
@@ -37,7 +38,6 @@
 .adminInput:invalid[autofocus] ~ .errorMessage {
   display: block;
 }
-
 
 .inputTitle,
 .inputLinkTitle {

@@ -59,13 +59,21 @@ const AdminPhoto = () => {
   const dispatch = useDispatch();
   const [createPhotoCard, { isLoading }] =
     photoAPI.useCreatePhotoCardMutation();
-  const [establishmentsState, setEstablishmentsState] = useState([]);
   const [inputValue, setInputValue] = useState<PhotoCard>({
     establishmentId: "",
     photographerId: "",
   });
-  const debounceEstablishment = useDebounce(inputValue?.establishmentId, 1000);
-  // const [trigger, result] = establishmentsAPI.useFetchAllEstablishmentsQuery();
+  const debounceEstablishment = useDebounce(inputValue?.establishmentId, 400);
+  const [fetchEstablishment, { data = [] }] =
+    establishmentsAPI.useLazyFetchAllEstablishmentsQuery();
+
+  useEffect(() => {
+    if (inputValue.establishmentId.length > 0) {
+      fetchEstablishment(debounceEstablishment);
+    } else {
+      fetchEstablishment(null);
+    }
+  }, [debounceEstablishment]);
 
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -73,13 +81,9 @@ const AdminPhoto = () => {
     if (e.target.toString().includes("TextArea")) {
       e.target.style.height = e.target.scrollHeight + "px";
     }
-    setInputValue({ ...inputValue, [e.target.name]: e.target.value });
-    if (inputValue?.establishmentId.length > 2) {
-      // trigger(`${debounceEstablishment}`);
-    }
-  };
 
-  console.log(establishmentsState);
+    setInputValue({ ...inputValue, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -117,7 +121,7 @@ const AdminPhoto = () => {
           <div className={classes.adminFields}>
             <div className={classes.adminInputs}>
               <AdminInput
-                searchList={establishmentsState}
+                searchList={data.establishments}
                 required={true}
                 errorMessage={"Название Заведения обязательное поле!"}
                 inputValue={inputValue}
