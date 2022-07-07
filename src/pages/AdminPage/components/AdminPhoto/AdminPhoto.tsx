@@ -103,7 +103,6 @@ const AdminPhoto = () => {
                 name={"date"}
               />{" "}
               <AdminInput
-                icon={<LinkIcon/>}
                 required={true}
                 errorMessage={"Просмотры обязательное поле!"}
                 inputHandler={inputHandler}

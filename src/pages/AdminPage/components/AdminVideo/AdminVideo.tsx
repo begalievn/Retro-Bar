@@ -16,12 +16,12 @@ import {
 import { Button } from "../../../../UI";
 import DropFileInput from "../DropFileInput/DropFileInput";
 import AdminInput from "../AdminInput/AdminInput";
-import { AdminFields } from "../index";
 import { videoAPI } from "../../../../store/features/videos/videoQuery";
 import { getFormData } from "../../../../utils/helpers/createFormData";
 import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
 import AdminSelect from "../../AdminSelect/AdminSelect";
 import { useAppSelector } from "../../../../app/hooks";
+import { ReactComponent as LinkIcon } from "../../../../assets/adminPage/link.svg";
 
 const AdminVideo = () => {
   const dispatch = useDispatch();
@@ -82,7 +82,16 @@ const AdminVideo = () => {
               children={"Добавить превью для видео"}
               setInputValue={setInputValue}
             />
-            {/*<AdminInput inputValue={} />*/}
+            <AdminInput
+              color={"white"}
+              icon={<LinkIcon />}
+              required={true}
+              errorMessage={"Вставьте ссылку на видео!"}
+              inputHandler={inputHandler}
+              inputValue={inputValue}
+              title={"Вставить ссылку"}
+              name={"url"}
+            />
           </div>
 
           <div className={classes.adminFields}>

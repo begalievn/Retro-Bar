@@ -46,14 +46,17 @@ const AdminInput: FC<AdminInputProps> = ({
 
   return (
     <div className={classes.inputBlock}>
-      <label
-        className={classes.inputTitle}
-        style={{ color: `${color}` }}
-        htmlFor={name}
-      >
-        {title}
-        <i>{props.icon}</i>
-      </label>
+      <div className={classes.labelBlock}>
+        <label
+          className={classes.inputTitle}
+          style={{ color: `${color}` }}
+          htmlFor={name}
+        >
+          {title}
+        </label>
+        {props.icon && <i>{props.icon}</i>}
+      </div>
+
       <input
         type={type}
         name={name}
