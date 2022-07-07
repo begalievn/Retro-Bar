@@ -32,8 +32,6 @@ const InstitutionPage = () => {
       <section className={styles.container}>
         <img className={styles.star} src={star} alt="" />
         <img className={styles.emoji} src={emoji} alt="" />
-        {/* <img className={styles.up} onClick={() => ToTop()} src={up} alt="" />
-        <img className={styles.emojies} src={emojies} alt="" /> */}
         <section className={styles.breadcrumbsCont}>
           <div className={styles.list}>
             <a href="/video">Топ заведения</a>

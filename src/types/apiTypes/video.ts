@@ -1,9 +1,9 @@
 export interface IVideo{
   id: number;
   url:string;
-  video: null | string
+  video: undefined | string;
   eventName: string;
-  views: number;
+  views: number|string;
   date: string;
   created: string;
 }

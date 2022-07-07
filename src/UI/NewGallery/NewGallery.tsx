@@ -2,25 +2,10 @@ import React, { Children, useEffect, useState } from 'react'
 import styles from './newGallery.module.css';
 import crossBtn from "../../assets/photoPageImages/gallery-images/cross.png";
 import closeBtn from "../../assets/photoPageImages/gallery-images/close.svg";
-
-import { IPhotosAnother } from '../../pages/PhotoPage/components/PhotoMain/interfaces';
-
-
 import UniButton from './uniButton/UniButton'
 import { IPhotos } from '../../types/apiTypes/photo'
-
 import { IPhoto } from '../../types/apiTypes/photo'
-
-
-
-
-import { Swiper } from 'swiper/react';
-import ImageBlock from './ImageBlock/ImageBlock';
 import Carousel from './Carousel/Carousel';
-
-
-
-
 
 type NewGalleryProps = {
   close: () => void;
@@ -35,8 +20,6 @@ interface ISlideInfo {
   count: Array<number>;
 
 }
-
-
 
 function NewGallery({ close, eventInfo }: NewGalleryProps) {
   const [slideInfo, setSlideInfo] = useState<ISlideInfo>({ image: "", count: [1, 2] })
@@ -56,9 +39,6 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
     })
 
   }
-
-
-  
   if(!eventInfo){
     return null
   }

@@ -129,7 +129,7 @@ const ContactsPage: FC = () => {
               </div>
               <div>
                 <img src={mailIcon} alt="" />
-                <a href="https://mail.google.com/">info@foodzero.com</a>
+                <a target='_blank' href="https://mail.google.com/">info@foodzero.com</a>
               </div>
             </div>
           </div>

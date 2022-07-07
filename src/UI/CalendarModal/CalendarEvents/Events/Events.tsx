@@ -9,7 +9,7 @@ import { IPhoto, IPhotos } from "../../../../types/apiTypes/photo";
 import GalleryModal from "../../../Gallery/GalleryModal/GalleryModal";
 import NewGallery from "../../../NewGallery/NewGallery";
 
-interface CurrentEventProps {
+ export interface CurrentEventProps {
   photos:IPhoto[] ;
   establishment: string ;
   event:string ;
@@ -33,21 +33,9 @@ const Events: FC = ({}) => {
 
   };
 
-
-
-
-
-
   const filterData: IPhotos[] = useAppSelector(state => state.photos.filterPhoto)
 
-  
-
-
-  console.log(filterData,'events');
-  
-
-
-  return (
+   return (
     <>
       {filterData?.map((event, i) => (
         <div onClick={() => onClickEvent(event)} className={styles.establishment} key={i}>

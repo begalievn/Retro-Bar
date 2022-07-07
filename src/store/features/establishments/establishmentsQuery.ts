@@ -41,7 +41,19 @@ export const establishmentsAPI = createApi({
       query: (establishment) => ({
         url: `/admin/establishment/${establishment.id}`,
         method: "PUT",
-        body: establishment,
+        body: {
+          logo:establishment.logo,
+          name: establishment.name,
+          description: establishment.description,
+          workingHours: establishment.workingHours,
+          contacts: establishment.contacts,
+          category: establishment.category,
+          kitchenType: establishment.kitchenType,
+          services: establishment.services,
+          link: establishment.link,
+          location: establishment.location,
+          rate: establishment.rate,
+        },
         headers: {
           Authorization: `Bearer ${JSON.parse(
             localStorage.getItem("accessToken") || "{}"

@@ -152,7 +152,7 @@ const Footer = () => {
               sx={{ display: { xs: "none", md: "flex" } }}
             >
               <input
-                onChange={(e:React.ChangeEvent<HTMLInputElement>) => {
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setInputChange(e.target.value);
                 }}
                 className={classes.input}
@@ -177,7 +177,7 @@ const Footer = () => {
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIconsMD}>
                 {iconsMedia.map((item, index) => (
-                  <a key={index} href={item.path}>
+                  <a target="_blank" key={index} href={item.path}>
                     <img src={item.icon} alt="" />
                   </a>
                 ))}
@@ -224,7 +224,7 @@ const Footer = () => {
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIcons}>
                 {iconsMedia.map((item, index) => (
-                  <a key={index} href={item.path}>
+                  <a target="_blank" key={index} href={item.path}>
                     <img src={item.icon} alt="" />
                   </a>
                 ))}
@@ -239,7 +239,7 @@ const Footer = () => {
               }}
             >
               <input
-                onChange={(e:React.ChangeEvent<HTMLInputElement>) => {
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setInputChange(e.target.value);
                 }}
                 className={classes.input}

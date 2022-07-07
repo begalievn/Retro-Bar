@@ -3,9 +3,6 @@ import styles from './carousel.module.css'
 import arrow from '../../../assets/videoPage/arrowRight.svg'
 import { IPhoto } from '../../../types/apiTypes/photo';
 
-
-
-
 type CarouselProps = {
   pictures: IPhoto[] ;
   count: (arr: Array<number>,pic:string) => void;
@@ -19,15 +16,8 @@ function Carousel({ pictures, count }: CarouselProps) {
   useEffect(() => {
     const sumOfPics = pictures.length
     const currPic = (Math.abs(offset) / 100) + 1
-    
-    console.log(pictures[currPic-1], currPic);
-    
-    
-
     count([currPic, sumOfPics],pictures[currPic-1].url)
-
-
-  }, [offset])
+    }, [offset])
 
 
 
@@ -35,7 +25,6 @@ function Carousel({ pictures, count }: CarouselProps) {
   const leftClick = () => {
     setOffset((currentOffset) => {
       const newOffset = currentOffset + 100;
-      console.log(newOffset);
       return Math.min(newOffset, 0)
     })
   }
@@ -73,9 +62,6 @@ function Carousel({ pictures, count }: CarouselProps) {
     x1 = null;
     y1 = null;
   }
-
-  console.log(offset);
-
 
   return (
     <div className={styles.carouselContainer}>

@@ -183,8 +183,11 @@ const PhotoReport: FC = () => {
     refetch,
   } = photoAPI.useFetchAllPhotosQuery(20);
 
+<<<<<<< HEAD
+=======
   console.log(photos, "photoreport");
 
+>>>>>>> aa2d3679ca67a7715ef3ce40bd99c5091f4c8fae
   useEffect(() => {
     if (photos) {
       const newImages: Array<IPhotosAnother> = [];
@@ -220,9 +223,10 @@ const PhotoReport: FC = () => {
           id: responseElement.id,
           date: responseElement.date,
           // photos: MokPhotos,
-          photos: responseElement.photos,
-        };
-        newImages.push(nativeElement);
+          photos:responseElement.photos,
+         
+        }
+        newImages.push(nativeElement)
         setFinalResponse(newImages);
       }
     }
