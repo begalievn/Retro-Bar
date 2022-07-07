@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 
 import classes from "./SearchList.module.css";
+import { ListItem, ListItemText, ListItemButton } from "@mui/material";
 
 interface SearchListProps {
   searchList: any;
@@ -8,10 +9,16 @@ interface SearchListProps {
 
 const SearchList: FC<SearchListProps> = ({ searchList }) => {
   return (
-    <div>
+    <div className={classes.searchBlock}>
       <ul>
-        {searchList.map((listItem: any) => {
-          return <li>{listItem.name}</li>;
+        {searchList.map((listItem: any, index: number) => {
+          return (
+            <ListItem key={index} component="div" disablePadding>
+              <ListItemButton>
+                <ListItemText primary={listItem.name} />
+              </ListItemButton>
+            </ListItem>
+          );
         })}
       </ul>
     </div>

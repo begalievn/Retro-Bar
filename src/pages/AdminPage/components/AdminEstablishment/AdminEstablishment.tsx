@@ -78,7 +78,8 @@ const AdminEstablishment = () => {
     }));
   };
 
-  const postHandler = () => {
+  const postHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     AdminApi.addEstablishment(inputValue as Establishment)
       .then(() => {
         dispatch(
@@ -123,8 +124,8 @@ const AdminEstablishment = () => {
         <h3 className={styles.adminTitle}>Заведения</h3>
         <div className={styles.adminContent}>
           <DropFileInput
-            type={'photos'}
-            children={'Добавить картинки'}
+            type={"logo"}
+            children={"Добавить логотип"}
             setInputValue={setInputValue}
           />
           <AdminFields
