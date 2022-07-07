@@ -5,6 +5,11 @@
 .buttonShare{
   background-color:rgba(255, 255, 255, 0);
 }
+
+.popover div{
+  background: transparent;
+  box-shadow: none;
+}
 .buttonDownload, .buttonShare{
   color: white;
   display: flex;
@@ -28,4 +33,18 @@
     width: 4.27vw;
   }
 
+
+  
+}
+
+@media screen and (min-width: 1440px) {
+  .buttonDownload, .buttonShare{
+    
+    padding: 11px 46px 11px 23px;
+    font-size: 18px;
+  }
+  .image{
+    margin-left: 0.69vw;
+    width: 1.11vw;
+  }
 }

@@ -1,87 +1,98 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import ContactsPage from './ContactsPage/ContactsPage';
+import InstitutionPage from './InstitutionPage/InstitutionPage';
+import { InstitutionBarPage } from './InstitutionBarPage/InstitutionBarPage';
+import MainPage from './MainPage/MainPage';
+import PhotoPage from './PhotoPage/PhotoPage';
+import VideoPage from './VideoPage/VideoPage';
+import EventsPage from './EventsPage/EventsPage';
+import ErrorPage from './ErrorPage/ErrorPage';
+import Authorization from './Authorization/Authorization';
+import AdminPage from './AdminPage/AdminPage';
+import Gallery from '../UI/Gallery/Gallery';
+import NewsPages from './NewsPage/NewsPages';
 
-import ContactsPage from "./ContactsPage/ContactsPage";
-import InstitutionPage from "./InstitutionPage/InstitutionPage";
-import { InstitutionBarPage } from "./InstitutionBarPage/components2/InstitutionBarPage";
-import MainPage from "./MainPage/MainPage";
-import NewsPages from "./NewsPage/NewsPages";
-import PhotoPage from "./PhotoPage/PhotoPage";
-import VideoPage from "./VideoPage/VideoPage";
-import EventsPage from "./EventsPage/EventsPage";
-import ErrorPage from "./ErrorPage/ErrorPage";
-import Authorization from "./Authorization/Authorization";
-import AdminPanelPage from "./AdminPage/AdminPanelPage";
-import Gallery from "../UI/Gallery/Gallery";
+import { useAppSelector } from '../app/hooks';
 
 const MainRoutes = () => {
+  const isAdmin = useAppSelector((state) => state.AuthorizationSlice.token);
+
   const PUBLIC_ROUTES = [
     {
-      link: "/",
+      link: '/',
       element: <MainPage />,
       id: 1,
     },
     {
-      link: "/photo",
+      link: '/photo',
       element: <PhotoPage />,
       id: 2,
     },
     {
-      link: "/video",
+      link: '/video',
       element: <VideoPage />,
       id: 3,
     },
     {
-      link: "/institution",
+      link: '/institution',
       element: <InstitutionPage />,
       id: 4,
     },
     {
-      link: "/institution-bar",
+      link: '/institution/:establishmentId',
       element: <InstitutionBarPage />,
       id: 5,
     },
     {
-      link: "/events",
+      link: '/events',
       element: <EventsPage />,
       id: 6,
     },
     {
-      link: "/news",
+      link: '/news',
       element: <NewsPages />,
       id: 7,
     },
     {
-      link: "/contacts",
+      link: '/contacts',
       element: <ContactsPage />,
       id: 8,
     },
     {
-      link: "/*",
+      link: '/*',
       element: <ErrorPage />,
       id: 9,
     },
     {
-      link: "/authorization",
+      link: '/authorization',
       element: <Authorization />,
       id: 10,
     },
+
     {
-      link: "/admin",
-      element: <AdminPanelPage />,
-      id: 11,
-    },
-    {
-      link: "/photo/gallery",
+      link: '/photo/gallery',
       element: <Gallery />,
       id: 12,
     },
   ];
 
+  const PRIVATE_ROUTES = [
+    {
+      link: '/admin/*',
+      element: <AdminPage />,
+      id: 1,
+    },
+  ];
+
   return (
     <Routes>
-      {PUBLIC_ROUTES.map((item) => (
-        <Route path={item.link} element={item.element} key={item.id} />
+      {isAdmin &&
+        PRIVATE_ROUTES.map(({ link, id, element }) => (
+          <Route path={link} element={element} key={id} />
+        ))}
+      {PUBLIC_ROUTES.map(({ link, id, element }) => (
+        <Route path={link} element={element} key={id} />
       ))}
     </Routes>
   );

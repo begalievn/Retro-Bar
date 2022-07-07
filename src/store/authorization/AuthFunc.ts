@@ -5,19 +5,17 @@ import { API } from "../../utils/helpers/Consts";
 import { addTextError, addToken, checkAdmin, deleteToken } from "./AuthorizationSlice";
 import { Dispatch } from "react";
 
-export interface IDispatch{
- payload: any;
- type:string;
+export interface IDispatch {
+  payload: any;
+  type: string;
 }
 
-
 export const login = (userData: IUser) => {
-  
-  return  async (dispatch:Dispatch<IDispatch>)=>{
-  const config = {
-    headers: { "Content-Type": "application/json" },
-  };
-  let data = JSON.stringify(userData);
+  return async (dispatch: Dispatch<IDispatch>) => {
+    const config = {
+      headers: { "Content-Type": "application/json" },
+    };
+    let data = JSON.stringify(userData);
 
 
     let res = await axios.post(`${API}admin/login`, data, config)

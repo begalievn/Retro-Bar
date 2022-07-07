@@ -5,7 +5,7 @@ import cardImage from '../../../../assets/mainPage/palaroid-card-image-active.pn
 import classes from './palaroid-card.module.css';
 
 type Prop = {
-  image: string;
+  image?: string;
   title: string;
   description: string;
   date: string;

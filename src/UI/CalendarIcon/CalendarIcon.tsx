@@ -1,7 +1,7 @@
 import React from 'react';
 
 import style from './CalendarIcon.module.css';
-import calendar from "../../assets/icons/calendar-icon.svg";
+import calendar from "../../assets/icons/calendar.png";
 import CalendarModal from '../CalendarModal/CalendarModal';
 
 

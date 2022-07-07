@@ -3,58 +3,73 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import classes from "./Header.module.css";
 import { ReactComponent as LogoIcon } from "../../assets/header/logo.svg";
-import { BurgerMenu, NavItem,NavItems } from "./components";
+import { BurgerMenu, NavItem, NavItems } from "./components";
 import { SearchBtn, InputSearch } from "../../UI";
 import { someClasses } from "../../utils/someClasses";
-import {INavItems} from "../../types/headerTypes/headerTypes";
+import { INavItems } from "../../types/headerTypes/headerTypes";
 import { useAppDispatch } from "../../app/hooks";
 import { logOut } from "../../store/authorization/AuthFunc";
+import { getSearch } from "../../apis/getSearch";
 
-const Header = () => {
+const navItems: INavItems[] = [
+  {
+    title: "Фото",
+    path: "/photo",
+  },
+  {
+    title: "Видео",
+    path: "/video",
+  },
+  {
+    title: "Заведение",
+    path: "/institution",
+  },
+  {
+    title: "События",
+    path: "/events",
+  },
+  {
+    title: "Новости",
+    path: "/news",
+  },
+  {
+    title: "Контакты",
+    path: "/contacts",
+  },
+];
+
+export const Header = () => {
+  const [inputValue, setInputValue] = useState("");
   const [isOpen, setOpen] = useState<boolean>(false);
   const [inputVisible, setInputVisible] = useState<boolean>(false);
   const history = useNavigate();
   const location = useLocation();
   const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
-  const dispatch = useAppDispatch()
-
+  const dispatch = useAppDispatch();
   if (isOpen) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "visible";
   }
+  //
+  // const logOutBtn = ()=>{
+  //   dispatch(logOut())
+  //   history('/')
+  // }
 
-  const navItems:INavItems[] = [
-    {
-      title: "Фото",
-      path: "/photo",
-    },
-    {
-      title: "Видео",
-      path: "/video",
-    },
-    {
-      title: "Заведение",
-      path: "/institution",
-    },
-    {
-      title: "События",
-      path: "/events",
-    },
-    {
-      title: "Новости",
-      path: "/news",
-    },
-    {
-      title: "Контакты",
-      path: "/contacts",
-    },
-  ];
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+  let time: any;
+  const keyUpHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+    time = setTimeout(() => {
+      dispatch(getSearch(inputValue));
+    }, 2000);
+  };
 
-  const logOutBtn = ()=>{
-    dispatch(logOut())
-    history('/')
-  }
+  const keydownHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+    clearTimeout(time);
+  };
 
   return (
     <header className={classes.headerWrapper}>
@@ -73,30 +88,34 @@ const Header = () => {
 
         <nav>
           <ul className={classes.headerNav}>
-            {localStorage.getItem('token') ? 
-            <button className={classes.logOut_btn} onClick={()=>logOutBtn()}>Выйти</button>
-             :
-               <NavItems  navItems={navItems} /> }
-           
-           
-          
+            {/*{localStorage.getItem('token') ? */}
+            {/*<button className={classes.logOut_btn} onClick={()=>logOutBtn()}>Выйти</button>*/}
+            {/* :*/}
+            <NavItems navItems={navItems} />
           </ul>
-          <SearchBtn onClick={() => setInputVisible(!inputVisible)} className={classes.navSearchBtn} />
+          <SearchBtn
+            onClick={() => setInputVisible(!inputVisible)}
+            className={classes.navSearchBtn}
+          />
           <div
-            className={someClasses([
-              classes.headerMenuBtn,
-              `${isOpen ? classes.activeMenu : ""} `,
-            ])}
+            className={`${classes.headerMenuBtn}
+             ${isOpen ? classes.activeMenu : ""}`}
             onClick={() => setOpen(!isOpen)}
           >
-            <span></span>
+            <span />
           </div>
         </nav>
 
         {isOpen && <BurgerMenu navItems={navItems} setOpen={setOpen} />}
         {inputVisible && (
           <div className={classes.headerSearch}>
-            <InputSearch placeholder="поиск" />
+            <InputSearch
+              placeholder="поиск"
+              onChange={inputHandler}
+              value={inputValue}
+              onKeyUp={keyUpHandler}
+              onKeyDown={keydownHandler}
+            />
           </div>
         )}
       </div>

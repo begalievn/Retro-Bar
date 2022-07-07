@@ -78,9 +78,9 @@ const Footer = () => {
     console.log(name);
   }
   function scrollTop(): void {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // window.scrollTo({ top: 0, behavior: "smooth" });
   }
-  
+
   return (
     <div className={classes.main}>
       <Container sx={{ flexGrow: 1, display: { xs: "none", md: "block" } }}>
@@ -152,7 +152,7 @@ const Footer = () => {
               sx={{ display: { xs: "none", md: "flex" } }}
             >
               <input
-                onChange={(e) => {
+                onChange={(e:React.ChangeEvent<HTMLInputElement>) => {
                   setInputChange(e.target.value);
                 }}
                 className={classes.input}
@@ -239,7 +239,7 @@ const Footer = () => {
               }}
             >
               <input
-                onChange={(e) => {
+                onChange={(e:React.ChangeEvent<HTMLInputElement>) => {
                   setInputChange(e.target.value);
                 }}
                 className={classes.input}

@@ -17,60 +17,21 @@ import rightMostCardImage from '../../../../assets/mainPage/palaroid-card-image-
 import leftCardImage from '../../../../assets/mainPage/palaroid-card-image-left.png';
 
 import classes from './palaroidSlider.module.css';
+import { PalaroidCardTypes } from '../../../../types/mainPageTypes/palaroidCardTypes';
 
-interface CardsType {
-  image: string;
-  title: string;
-  description: string;
-  date: string;
+interface PalaroidSliderPropsType {
+  cards: PalaroidCardTypes[];
 }
 
-const cards: Array<CardsType> = [
-  {
-    image: activeCardImage,
-    title: 'ZEPPELIN BAR',
-    description: 'STREED CREDIBILITY',
-    date: 'Суббота 14 мая',
-  },
-  {
-    image: rightCardImage,
-    title: 'ZEPPELIN BAR',
-    description: 'STREED CREDIBILITY',
-    date: 'Суббота 14 мая',
-  },
-  {
-    image: rightMostCardImage,
-    title: 'ZEPPELIN BAR',
-    description: 'STREED CREDIBILITY',
-    date: 'Суббота 14 мая',
-  },
-  {
-    image: leftCardImage,
-    title: 'ZEPPELIN BAR',
-    description: 'STREED CREDIBILITY',
-    date: 'Суббота 14 мая',
-  },
-  {
-    image: leftCardImage,
-    title: 'ZEPPELIN BAR',
-    description: 'STREED CREDIBILITY',
-    date: 'Суббота 14 мая',
-  },
-  {
-    image: leftCardImage,
-    title: 'ZEPPELIN BAR',
-    description: 'STREED CREDIBILITY',
-    date: 'Суббота 14 мая',
-  },
-];
-
-const PalaroidSlider = () => {
+const PalaroidSlider: FC<PalaroidSliderPropsType> = ({ cards }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [sliderCards, setSliderCards] = useState<CardsType[]>([]);
-  const [sliderCardsMobile, setSliderCardsMobile] = useState<CardsType[]>([]);
+  const [sliderCards, setSliderCards] = useState<PalaroidCardTypes[]>([]);
+  const [sliderCardsMobile, setSliderCardsMobile] = useState<
+    PalaroidCardTypes[]
+  >([]);
 
   useEffect(() => {
-    let arrCards: Array<CardsType> = [];
+    let arrCards: Array<PalaroidCardTypes> = [];
 
     if (cards === undefined) return;
 
@@ -197,7 +158,7 @@ const PalaroidSlider = () => {
           onClick={prev}
         >
           <PalaroidCard
-            image={sliderCards[leftIndex]?.image}
+            // image={sliderCards[leftIndex]?.image}
             title={''}
             description={''}
             date={''}
@@ -317,3 +278,42 @@ const PalaroidSlider = () => {
 };
 
 export default PalaroidSlider;
+
+// const cards: Array<PalaroidCardTypes> = [
+//   {
+//     image: activeCardImage,
+//     title: 'ZEPPELIN BAR',
+//     description: 'STREED CREDIBILITY',
+//     date: 'Суббота 14 мая',
+//   },
+//   {
+//     image: rightCardImage,
+//     title: 'ZEPPELIN BAR',
+//     description: 'STREED CREDIBILITY',
+//     date: 'Суббота 14 мая',
+//   },
+//   {
+//     image: rightMostCardImage,
+//     title: 'ZEPPELIN BAR',
+//     description: 'STREED CREDIBILITY',
+//     date: 'Суббота 14 мая',
+//   },
+//   {
+//     image: leftCardImage,
+//     title: 'ZEPPELIN BAR',
+//     description: 'STREED CREDIBILITY',
+//     date: 'Суббота 14 мая',
+//   },
+//   {
+//     image: leftCardImage,
+//     title: 'ZEPPELIN BAR',
+//     description: 'STREED CREDIBILITY',
+//     date: 'Суббота 14 мая',
+//   },
+//   {
+//     image: leftCardImage,
+//     title: 'ZEPPELIN BAR',
+//     description: 'STREED CREDIBILITY',
+//     date: 'Суббота 14 мая',
+//   },
+// ];
