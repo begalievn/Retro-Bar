@@ -8,7 +8,7 @@ export function getTopInstCardData(establishments: IEstablishment[]) {
     title: item.name,
     time: item.workingHours.toString(),
     phone: item.contacts.toString(),
-    location: 'location',
+    location: item.location || 'Bishkek',
   }));
   return result;
 }

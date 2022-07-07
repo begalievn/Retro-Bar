@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import ContactsPage from './ContactsPage/ContactsPage';
 import InstitutionPage from './InstitutionPage/InstitutionPage';
-import { InstitutionBarPage } from './InstitutionBarPage/InstitutionBarPage';
+import { InstitutionBarPage } from './InstitutionBarPage/institutionBarPage';
 import MainPage from './MainPage/MainPage';
 import PhotoPage from './PhotoPage/PhotoPage';
 import VideoPage from './VideoPage/VideoPage';
