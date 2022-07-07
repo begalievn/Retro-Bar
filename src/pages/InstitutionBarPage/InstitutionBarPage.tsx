@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import classes from "./InstitutionBar.module.css";
+import classes from "./institutionBar.module.css";
 import share from "../../assets/institutionBarImg/iconLiveBar/share.svg";
 import { LiveText } from "./component/Livetext";
 import { LivePhoto } from "./component/LivePhoto";
