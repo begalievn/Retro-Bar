@@ -17,7 +17,7 @@ export const getFormData = (data: VideoCard | PhotoCard | Establishment) => {
       for (let i = 0; i < photosArr.length; i++) {
         formData.append("photos", data[key as keyof mediaType][i]);
       }
-    } else if (key == "video") {
+    } else if (key == "video" || key == "logo") {
       formData.append(key, data[key as keyof mediaType][0]);
     } else {
       formData.append(`${key}`, data[key as keyof mediaType]);

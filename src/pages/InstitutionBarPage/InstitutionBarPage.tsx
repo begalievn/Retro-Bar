@@ -47,9 +47,7 @@ const InstitutionBarPage: FC = () => {
           <p>is Loading</p>
         ) : (
           <>
-            <header className={classes.text_header}>
-              Заведения/{data?.name}
-            </header>
+            <div className={classes.text_header}>Заведения/{data?.name}</div>
             <button
               type="button"
               onClick={() => setShow(!show)}
