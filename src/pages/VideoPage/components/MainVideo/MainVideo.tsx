@@ -1,23 +1,23 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
-import classes from "./MainVideo.module.css";
-import Slider from "../Slider/Slider";
-import video from "../../../../assets/videoPage/video.png";
-import video1 from "../../../../assets/videoPage/video1.png";
-import { IVideoCardBody } from "../../../../types/videoPageTypes/videoPage";
-import { CalendarIcon, CalendarModal } from "../../../../UI";
+import classes from './MainVideo.module.css';
+import Slider from '../Slider/Slider';
+import video from '../../../../assets/videoPage/video.png';
+import video1 from '../../../../assets/videoPage/video1.png';
+import { IVideoCardBody } from '../../../../types/videoPageTypes/videoPage';
+import { CalendarIcon, CalendarModal } from '../../../../UI';
 
 const images: IVideoCardBody[] = [
   {
-    title: "SUZIE WONG / OPENING | MOT",
+    title: 'SUZIE WONG / OPENING | MOT',
     image: video,
     views: 1100,
   },
-  { title: "SUZIE WONG / OPENING | MOT", image: video1, views: 1200 },
-  { title: "SUZIE WONG / OPENING | MOT", image: video, views: 1300 },
-  { title: "SUZIE WONG / OPENING | MOT", image: video1, views: 1400 },
+  { title: 'SUZIE WONG / OPENING | MOT', image: video1, views: 1200 },
+  { title: 'SUZIE WONG / OPENING | MOT', image: video, views: 1300 },
+  { title: 'SUZIE WONG / OPENING | MOT', image: video1, views: 1400 },
 ];
-import { videoAPI } from "../../../../store/features/videos/videoQuery";
+import { videoAPI } from '../../../../store/features/videos/videoQuery';
 
 const MainVideo = () => {
   const {
@@ -25,17 +25,17 @@ const MainVideo = () => {
     error,
     isLoading,
     refetch,
-  } = videoAPI.useFetchAllVideosQuery("");
+  } = videoAPI.useFetchAllVideosQuery('');
 
   const images: IVideoCardBody[] = [
     {
-      title: "SUZIE WONG / OPENING | MOT",
+      title: 'SUZIE WONG / OPENING | MOT',
       image: video,
       views: 1100,
     },
-    { title: "SUZIE WONG / OPENING | MOT", image: video1, views: 1200 },
-    { title: "SUZIE WONG / OPENING | MOT", image: video, views: 1300 },
-    { title: "SUZIE WONG / OPENING | MOT", image: video1, views: 1400 },
+    { title: 'SUZIE WONG / OPENING | MOT', image: video1, views: 1200 },
+    { title: 'SUZIE WONG / OPENING | MOT', image: video, views: 1300 },
+    { title: 'SUZIE WONG / OPENING | MOT', image: video1, views: 1400 },
   ];
   const [modal, setModal] = React.useState(false);
   const toggleModal = () => setModal(!modal);
@@ -43,15 +43,20 @@ const MainVideo = () => {
   return (
     <section className={classes.videoPlayerSection}>
       <div className={classes.videoPlayer}>
-        <iframe
-          width="800"
-          height="400"
-          src={photos?.photographers[0]?.url}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <iframe
+            width="800"
+            height="400"
+            src={`https://www.youtube.com/embed/WzI3c9dC9Uo`}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        )}
+        {error && <p>Error</p>}
       </div>
       <div className={classes.sliderBlock}>
         <h3 className={classes.title}>1 мая 2022</h3>

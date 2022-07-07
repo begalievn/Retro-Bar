@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './institutionPage.module.css';
+import styles from './InstitutionPage.module.css';
 import Top from './components/top/Top';
 import Book from '../../UI/Book/Book';
 import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';

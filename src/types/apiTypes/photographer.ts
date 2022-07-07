@@ -1,12 +1,15 @@
-export interface IPhotographer{
+export interface Photographer {
   id: number;
-  photo: null | string
- name: string;
- description:string;
- contacts: number;
+  photo: null | string;
+  name: string;
+  description: string;
+  contacts: number;
+  created: string;
+}
 
-  created: string; 
-  total?: number;
-  take?: number;
-  page?: number;
-} 
+export interface Photographers {
+  photographers: Photographer[];
+  total: number;
+  take: number;
+  page: number;
+}

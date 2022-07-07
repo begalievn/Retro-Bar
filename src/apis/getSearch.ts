@@ -4,11 +4,12 @@ import { IDispatch } from "../store/authorization/AuthFunc";
 import { gettingPhotos } from "../store/features/photos/photosSlice";
 import { API } from "../utils/helpers/Consts";
 
-export const getPhotos = () => {
+export const getSearch = (value: string) => {
+  console.log("Запрос на  бэк:", value);
+
   return async (dispatch: Dispatch<IDispatch>) => {
-    await axios.get(`${API}photo`).then((res) => {
-    
-      dispatch(gettingPhotos(res.data.photoCards));
+    await axios.get(`${API}photo?event=${value}`).then((res) => {
+      console.log("Ответ", res.data);
     });
   };
 };

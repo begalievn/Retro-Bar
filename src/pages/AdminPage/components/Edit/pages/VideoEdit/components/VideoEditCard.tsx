@@ -16,11 +16,11 @@ import { IVideo } from "../../../../../../../types/apiTypes/video";
 interface VideoPropsType {
   item: IVideo;
 }
-const VideoEditCard: FC<VideoPropsType> = ({ item }: any) => {
-  const [video, setVideo] = React.useState(item?.category);
-  const [eventName, setEventName] = React.useState(item?.name);
-  const [views, setViews] = React.useState(item?.description);
-  const [date, setDate] = React.useState(item?.contacts);
+const VideoEditCard: FC<VideoPropsType> = ({ item }) => {
+  const [video, setVideo] = React.useState(item?.video);
+  const [eventName, setEventName] = React.useState(item?.eventName);
+  const [views, setViews] = React.useState(item?.views);
+  const [date, setDate] = React.useState(item?.date);
   const [show, setShow] = React.useState(false);
   const [deleteVideo, {}] = videoAPI.useDeleteVideoMutation();
   const [editVideos, {}] = videoAPI.useEditVideoMutation();
@@ -41,21 +41,26 @@ const VideoEditCard: FC<VideoPropsType> = ({ item }: any) => {
     <>
       <Card
         onClick={() => {
-          editVideoCard();
           setShow(true);
           scrollTop();
         }}
         className={classes.cards}
         key={item.id}
-      >
+      > 
+        {/* <iframe
+          src={item.video}
+          title="Video player"
+          frameBorder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        /> */}
         <CardMedia
-          sx={{ cursor: "pointer" }}
-          component="img"
-          height="140"
-          image={item.url}
-          alt="photos"
-        />
-        <CardContent>
+            className={classes.imgCard}
+            component="img"
+            image={item.video}
+            alt="photos"
+          />
+        <CardContent sx={{ minHeight: "90px" }}>
           <Typography
             className={classes.details}
             variant="body2"
@@ -65,7 +70,7 @@ const VideoEditCard: FC<VideoPropsType> = ({ item }: any) => {
               EventName: <strong>{item.eventName}</strong>{" "}
             </span>
             <span style={{ maxHeight: "60px", overflow: "hidden" }}>
-              Views: <strong>{item.viewes}</strong>{" "}
+              Views: <strong>{item.views}</strong>{" "}
             </span>
             <span>
               Date: <strong>{item.date}</strong>{" "}

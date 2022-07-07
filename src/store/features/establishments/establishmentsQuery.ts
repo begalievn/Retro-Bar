@@ -1,5 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IEstablishment } from "../../../types/apiTypes/establishment";
+import {
+  Establishments,
+  IEstablishment,
+} from "../../../types/apiTypes/establishment";
 import { API } from "../../../utils/helpers/Consts";
 
 export const establishmentsAPI = createApi({
@@ -38,7 +41,19 @@ export const establishmentsAPI = createApi({
       query: (establishment) => ({
         url: `/admin/establishment/${establishment.id}`,
         method: "PUT",
-        body: establishment,
+        body: {
+          logo:establishment.logo,
+          name: establishment.name,
+          description: establishment.description,
+          workingHours: establishment.workingHours,
+          contacts: establishment.contacts,
+          category: establishment.category,
+          kitchenType: establishment.kitchenType,
+          services: establishment.services,
+          link: establishment.link,
+          location: establishment.location,
+          rate: establishment.rate,
+        },
         headers: {
           Authorization: `Bearer ${JSON.parse(
             localStorage.getItem("accessToken") || "{}"
@@ -46,6 +61,19 @@ export const establishmentsAPI = createApi({
         },
       }),
       invalidatesTags: ["Establishments"],
+    }),
+    createEstablishmentCard: build.mutation({
+      query: (establishment) => ({
+        url: `/admin/establishment/`,
+        method: "POST",
+        body: establishment,
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem("accessToken") || "{}"
+          )}`,
+        },
+      }),
+      invalidatesTags: (result) => ["Establishments"],
     }),
   }),
 });

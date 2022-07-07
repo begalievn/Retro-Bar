@@ -41,6 +41,8 @@ const MainPage = () => {
     isLoading: photoLoading,
   } = photoAPI.useFetchAllPhotosQuery(8);
 
+  console.log('Photos', photos);
+
   const {
     data: establishments,
     error: establishmentError,

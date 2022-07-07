@@ -1,5 +1,5 @@
 import { IEstablishment } from './establishment';
-import { IPhotographer } from './photographer';
+import { Photographer } from './photographer';
 
 export interface IPhoto {
   url: string;
@@ -20,11 +20,10 @@ export interface IPhotoCards {
 export interface IPhotos {
   id: number;
   eventName: string;
-  views: number;
+  views: number|string;
   date: string;
   created: string;
   photos: IPhoto[];
   establishment: IEstablishment;
-  photographer: IPhotographer[];
-  
+  photographer: Photographer[];
 }

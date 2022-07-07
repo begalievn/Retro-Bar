@@ -5,8 +5,6 @@ import classes from "../../AdminPage.module.css";
 import { IField, PhotoCard } from "../../../../types/adminPage/adminPage";
 import { Button } from "../../../../UI";
 import DropFileInput from "../DropFileInput/DropFileInput";
-import AdminFields from "../AdminFields/AdminFields";
-import useDebounce from "../../../../hooks/useDebounce";
 import { establishmentsAPI } from "../../../../store/features/establishments/establishmentsQuery";
 import { photoAPI } from "../../../../store/features/photos/photoQuery";
 import { getFormData } from "../../../../utils/helpers/createFormData";
@@ -16,6 +14,9 @@ import {
 } from "../../../../store/alertSlice/alertSlice";
 import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
 import { AdminInput } from "../index";
+import { photographersAPI } from "../../../../store/features/photographers/photographersQuery";
+import AdminSelect from "../../AdminSelect/AdminSelect";
+import { useAppSelector } from "../../../../app/hooks";
 
 const fields: IField[] = [
   {
@@ -57,40 +58,65 @@ const fields: IField[] = [
 
 const AdminPhoto = () => {
   const dispatch = useDispatch();
-  const [createPhotoCard, { isLoading }] =
-    photoAPI.useCreatePhotoCardMutation();
-  const [establishmentsState, setEstablishmentsState] = useState([]);
   const [inputValue, setInputValue] = useState<PhotoCard>({
     establishmentId: "",
     photographerId: "",
   });
-  const debounceEstablishment = useDebounce(inputValue?.establishmentId, 1000);
-  // const [trigger, result] = establishmentsAPI.useFetchAllEstablishmentsQuery();
+
+  const [createPhotoCard, {}] = photoAPI.useCreatePhotoCardMutation();
+
+  let establishments = useAppSelector((state) => state.establishments.value);
+  let photographers = useAppSelector((state) => state.photographers.value);
+
+
+  // useEffect(() => {
+  //   console.log("efffect", establishmentsData);
+  //   dispatch(gettingEstablishments(establishmentsData.establishments));
+  // }, [establishmentsData]);
+
+  // const debounceEstablishment = useDebounce(inputValue?.establishmentId, 400);
+  // const debouncePhotographers = useDebounce(inputValue?.photographerId, 400);
+
+  // const [fetchEstablishment, { data: establishmentsData = [] }] =
+  //   establishmentsAPI.useLazyFetchAllEstablishmentsQuery();
+  //
+  // const [fetchPhotographers, { data: photographersData = [] }] =
+  //   photographersAPI.useLazyFetchAllPhotographersQuery();
+
+  // useEffect(() => {
+  //   if (inputValue.establishmentId.length > 0) {
+  //     fetchEstablishment(debounceEstablishment);
+  //   } else {
+  //     fetchEstablishment(null);
+  //   }
+  //   if (inputValue.photographerId.length > 0) {
+  //     fetchPhotographers(debouncePhotographers);
+  //   } else {
+  //     fetchPhotographers();
+  //   }
+  // }, [debounceEstablishment, debouncePhotographers]);
 
   const inputHandler = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     if (e.target.toString().includes("TextArea")) {
       e.target.style.height = e.target.scrollHeight + "px";
     }
     setInputValue({ ...inputValue, [e.target.name]: e.target.value });
-    if (inputValue?.establishmentId.length > 2) {
-      // trigger(`${debounceEstablishment}`);
-    }
   };
-
-  console.log(establishmentsState);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { formData } = getFormData(inputValue as PhotoCard);
-    //@ts-ignore
-    let timer;
+    let timer: () => void;
 
     const startTimer = () => {
       //@ts-ignore
       clearTimeout(timer);
-      setTimeout(() => dispatch(deleteAlert()), 1500);
+      //@ts-ignore
+      timer = setTimeout(() => dispatch(deleteAlert()), 1500);
     };
     await createPhotoCard(formData)
       .unwrap()
@@ -103,7 +129,7 @@ const AdminPhoto = () => {
         startTimer();
       });
   };
-
+  console.log(inputValue);
   return (
     <form onSubmit={handleSubmit} className={classes.generalBlock}>
       <div className={classes.adminGeneralBlock}>
@@ -116,14 +142,13 @@ const AdminPhoto = () => {
           />
           <div className={classes.adminFields}>
             <div className={classes.adminInputs}>
-              <AdminInput
-                searchList={establishmentsState}
-                required={true}
-                errorMessage={"Название Заведения обязательное поле!"}
-                inputValue={inputValue}
+              <AdminSelect
+                errorMessage={"Название Вечеринки обязательное поле!"}
                 inputHandler={inputHandler}
                 title={"Название Заведения"}
                 name={"establishmentId"}
+                required={true}
+                options={establishments || []}
               />
               <AdminInput
                 required={true}
@@ -133,16 +158,17 @@ const AdminPhoto = () => {
                 title={"Название Вечеринки"}
                 name={"eventName"}
               />
-              <AdminInput
-                required={true}
+              <AdminSelect
                 errorMessage={"Фотограф обязательное поле!"}
                 inputHandler={inputHandler}
-                inputValue={inputValue}
                 title={"Фотограф"}
                 name={"photographerId"}
+                required={true}
+                options={photographers || []}
               />
               <AdminInput
                 required={true}
+                type={"date"}
                 errorMessage={"Дата обязательное поле!"}
                 inputHandler={inputHandler}
                 inputValue={inputValue}

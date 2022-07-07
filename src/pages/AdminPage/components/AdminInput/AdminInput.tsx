@@ -44,6 +44,7 @@ const AdminInput: FC<AdminInputProps> = ({
   const handleFocus = () => {
     setFocused(!focused);
   };
+
   return (
     <div className={classes.inputBlock}>
       <label
@@ -65,7 +66,7 @@ const AdminInput: FC<AdminInputProps> = ({
         autoFocus={focused}
       />
       {focused && <span className={classes.errorMessage}>{errorMessage}</span>}
-      {searchList && <SearchList searchList={searchList} />}
+      {searchList?.length > 0 && <SearchList searchList={searchList || []} />}
     </div>
   );
 };

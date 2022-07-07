@@ -1,7 +1,7 @@
-import React, { FC, useEffect, useState } from 'react';
-import ImagesList from '../ImagesList/ImagesList';
+import React, { FC, useEffect, useState } from "react";
+import ImagesList from "../ImagesList/ImagesList";
 import { IPhotosAnother } from "../interfaces";
-import { IPhoto } from '../../../../../types/apiTypes/photo'
+import { IPhoto } from "../../../../../types/apiTypes/photo";
 
 import {
   eventPlace,
@@ -22,182 +22,160 @@ import {
   longBorder,
   circle,
   star,
-} from './index';
-import Button from '../../Button/Button';
-import { photoAPI } from '../../../../../store/features/photos/photoQuery';
-import { useAppSelector } from '../../../../../app/hooks';
-import { ifError } from 'assert';
+} from "./index";
+import Button from "../../Button/Button";
+import { photoAPI } from "../../../../../store/features/photos/photoQuery";
+import { useAppSelector } from "../../../../../app/hooks";
+import { ifError } from "assert";
 
 const images: IPhotosAnother[] = [
   {
-    link: '',
-    name: '',
+    link: "",
+    name: "",
     border: wideBorder,
     id: Math.floor(Math.random() * Date.now()),
-    eventName: '',
+    eventName: "",
     photosCount: 0,
     views: 0,
-    date: '',
-    studio: '',
-    photos: [
-
-    ],
+    date: "",
+    studio: "",
+    photos: [],
   },
   {
-    link: '',
-    name: '',
+    link: "",
+    name: "",
     border: squareBorder,
     id: Math.floor(Math.random() * Date.now()),
-    eventName: '',
+    eventName: "",
     photosCount: 0,
     views: 0,
-    date: '',
-    photos: [
-
-    ],
+    date: "",
+    photos: [],
   },
   {
-    link: '',
-    name: '',
+    link: "",
+    name: "",
     border: squareBorder,
     id: Math.floor(Math.random() * Date.now()),
-    eventName: '',
+    eventName: "",
     photosCount: 0,
     views: 0,
-    date: '',
-    photos: [
-
-    ],
+    date: "",
+    photos: [],
   },
   {
-    link: '',
-    name: '',
+    link: "",
+    name: "",
     border: squareBorder,
     id: Math.floor(Math.random() * Date.now()),
-    eventName: '',
+    eventName: "",
     photosCount: 0,
     views: 0,
-    date: '',
-    photos: [
-
-    ],
+    date: "",
+    photos: [],
   },
   {
-    name: '',
-    link: '',
+    name: "",
+    link: "",
     border: squareBorder,
     id: Math.floor(Math.random() * Date.now()),
-    eventName: '',
+    eventName: "",
     photosCount: 0,
     views: 0,
-    date: '',
-    photos: [
-
-    ],
+    date: "",
+    photos: [],
   },
   {
-    name: '',
-    link: '',
+    name: "",
+    link: "",
     border: longBorder,
     id: Math.floor(Math.random() * Date.now()),
-    eventName: '',
+    eventName: "",
     photosCount: 0,
     views: 0,
-    date: '',
-    photos: [
-
-    ],
+    date: "",
+    photos: [],
   },
   {
-    name: 'Реклама',
+    name: "Реклама",
     link: effect,
     ad: true,
     border: wideBorder,
     id: 7,
     icon: star,
-    title: 'Фото и видео усл',
-    text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует.',
+    title: "Фото и видео усл",
+    text: "Современные технологии достигли такого уровня, что перспективное планирование способствует.",
   },
   {
-    name: '',
-    link: '',
+    name: "",
+    link: "",
     border: squareBorder,
     id: Math.floor(Math.random() * Date.now()),
-    eventName: '',
+    eventName: "",
     photosCount: 0,
     views: 0,
-    date: '',
-    photos: [
-
-    ],
+    date: "",
+    photos: [],
   },
   {
-    name: '',
-    link: '',
+    name: "",
+    link: "",
     border: squareBorder,
     id: Math.floor(Math.random() * Date.now()),
-    eventName: '',
+    eventName: "",
     photosCount: 0,
     views: 0,
-    date: '',
-    photos: [
-
-    ],
+    date: "",
+    photos: [],
   },
   {
-    name: '',
-    link: '',
+    name: "",
+    link: "",
     border: squareBorder,
     id: Math.floor(Math.random() * Date.now()),
-    eventName: '',
+    eventName: "",
     photosCount: 0,
     views: 0,
-    date: '',
-    photos: [
-
-    ],
+    date: "",
+    photos: [],
   },
   {
-    name: '',
-    link: '',
+    name: "",
+    link: "",
     border: squareBorder,
     id: Math.floor(Math.random() * Date.now()),
-    eventName: '',
+    eventName: "",
     photosCount: 0,
     views: 0,
-    date: '',
-    photos: [
-
-    ],
+    date: "",
+    photos: [],
   },
   {
-    name: 'Реклама',
+    name: "Реклама",
     link: fantasy,
     ad: true,
     border: wideBorder,
     id: 12,
     icon: circle,
-    title: 'Заказать сьёмку сейчас',
-    text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует подготовке и реализации позиций, занимаемых участниками в отношении поставленных задач.',
+    title: "Заказать сьёмку сейчас",
+    text: "Современные технологии достигли такого уровня, что перспективное планирование способствует подготовке и реализации позиций, занимаемых участниками в отношении поставленных задач.",
   },
   {
-    name: '',
-    link: '',
+    name: "",
+    link: "",
     border: longBorder,
     id: Math.floor(Math.random() * Date.now()),
-    eventName: '',
+    eventName: "",
     photosCount: 0,
     views: 0,
-    date: '',
-    photos: [
-      
-    ],
+    date: "",
+    photos: [],
   },
 ];
 
 const PhotoReport: FC = () => {
-
-  const [finalResponse, setFinalResponse] = useState<Array<IPhotosAnother> | null>(null);
+  const [finalResponse, setFinalResponse] =
+    useState<Array<IPhotosAnother> | null>(null);
   const {
     data: photos,
     error,
@@ -205,6 +183,11 @@ const PhotoReport: FC = () => {
     refetch,
   } = photoAPI.useFetchAllPhotosQuery(20);
 
+<<<<<<< HEAD
+=======
+  console.log(photos, "photoreport");
+
+>>>>>>> aa2d3679ca67a7715ef3ce40bd99c5091f4c8fae
   useEffect(() => {
     if (photos) {
       const newImages: Array<IPhotosAnother> = [];
@@ -212,25 +195,28 @@ const PhotoReport: FC = () => {
         let MokPhotos: Array<IPhoto> = [];
         for (let i = 0; i < Math.floor(Math.random() * 20); i++) {
           MokPhotos.push({
-            id: Math.floor(Math.random() * Date.now()), created: Date.now().toString(),
-            url: `https://picsum.photos/id/${Math.floor(Math.random() * 234)}/200/300`
+            id: Math.floor(Math.random() * Date.now()),
+            created: Date.now().toString(),
+            url: `https://picsum.photos/id/${Math.floor(
+              Math.random() * 234
+            )}/200/300`,
           });
-
         }
         let nativeElement = images[i];
         const responseElement = photos.photoCards[i];
 
-        if(!responseElement || nativeElement.ad){
-          newImages.push(nativeElement)
+        if (!responseElement || nativeElement.ad) {
+          newImages.push(nativeElement);
           continue;
         }
-       
-        
+
         nativeElement = {
           ...nativeElement,
           name: responseElement.establishment.name,
           // link: `https://picsum.photos/${Math.floor(Math.random() * 200)}/500`,
-          link: responseElement.photos.length ? responseElement.photos[0].url : "",
+          link: responseElement.photos.length
+            ? responseElement.photos[0].url
+            : "",
           views: responseElement.views,
           photosCount: responseElement.photos.length,
           eventName: responseElement.eventName,
@@ -244,8 +230,8 @@ const PhotoReport: FC = () => {
         setFinalResponse(newImages);
       }
     }
-  }, [photos])
-  return <ImagesList images={photos && finalResponse} />
+  }, [photos]);
+  return <ImagesList images={photos && finalResponse} />;
 };
 
 export default PhotoReport;

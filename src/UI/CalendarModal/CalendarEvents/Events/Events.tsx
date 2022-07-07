@@ -9,7 +9,7 @@ import { IPhoto, IPhotos } from "../../../../types/apiTypes/photo";
 import GalleryModal from "../../../Gallery/GalleryModal/GalleryModal";
 import NewGallery from "../../../NewGallery/NewGallery";
 
-interface CurrentEventProps {
+ export interface CurrentEventProps {
   photos:IPhoto[] ;
   establishment: string ;
   event:string ;
