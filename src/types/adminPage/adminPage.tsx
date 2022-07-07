@@ -43,12 +43,13 @@ export enum Pages {
 }
 
 export interface VideoCard {
-  video: string | object | null;
-  establishmentId: number | string;
-  eventName: string;
-  views: number | string;
-  photographerId: number | string;
-  date: string;
+  video?: string | object | null;
+  url?: string;
+  establishmentId: string;
+  eventName?: string;
+  views?: string;
+  photographerId: string;
+  date?: string;
 }
 export interface PhotoCard {
   establishmentId: string;

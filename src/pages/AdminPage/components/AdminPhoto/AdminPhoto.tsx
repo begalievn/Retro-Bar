@@ -5,8 +5,6 @@ import classes from "../../AdminPage.module.css";
 import { IField, PhotoCard } from "../../../../types/adminPage/adminPage";
 import { Button } from "../../../../UI";
 import DropFileInput from "../DropFileInput/DropFileInput";
-import AdminFields from "../AdminFields/AdminFields";
-import useDebounce from "../../../../hooks/useDebounce";
 import { establishmentsAPI } from "../../../../store/features/establishments/establishmentsQuery";
 import { photoAPI } from "../../../../store/features/photos/photoQuery";
 import { getFormData } from "../../../../utils/helpers/createFormData";
@@ -18,6 +16,7 @@ import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
 import { AdminInput } from "../index";
 import { photographersAPI } from "../../../../store/features/photographers/photographersQuery";
 import AdminSelect from "../../AdminSelect/AdminSelect";
+import { useAppSelector } from "../../../../app/hooks";
 
 const fields: IField[] = [
   {
@@ -65,11 +64,15 @@ const AdminPhoto = () => {
   });
 
   const [createPhotoCard, {}] = photoAPI.useCreatePhotoCardMutation();
-  const { data: establishmentsData = [], isLoading: isEstablishmentsLoading } =
-    establishmentsAPI.useFetchAllEstablishmentsQuery("");
 
-  const { data: photographersData = [], isLoading: isPhotographersLoading } =
-    photographersAPI.useFetchAllPhotographersQuery("");
+  let establishments = useAppSelector((state) => state.establishments.value);
+  let photographers = useAppSelector((state) => state.photographers.value);
+
+
+  // useEffect(() => {
+  //   console.log("efffect", establishmentsData);
+  //   dispatch(gettingEstablishments(establishmentsData.establishments));
+  // }, [establishmentsData]);
 
   // const debounceEstablishment = useDebounce(inputValue?.establishmentId, 400);
   // const debouncePhotographers = useDebounce(inputValue?.photographerId, 400);
@@ -142,15 +145,10 @@ const AdminPhoto = () => {
               <AdminSelect
                 errorMessage={"Название Вечеринки обязательное поле!"}
                 inputHandler={inputHandler}
-                inputValue={inputValue}
                 title={"Название Заведения"}
                 name={"establishmentId"}
                 required={true}
-                options={
-                  isEstablishmentsLoading
-                    ? []
-                    : establishmentsData.establishments
-                }
+                options={establishments || []}
               />
               <AdminInput
                 required={true}
@@ -163,13 +161,10 @@ const AdminPhoto = () => {
               <AdminSelect
                 errorMessage={"Фотограф обязательное поле!"}
                 inputHandler={inputHandler}
-                inputValue={inputValue}
                 title={"Фотограф"}
                 name={"photographerId"}
                 required={true}
-                options={
-                  isPhotographersLoading ? [] : photographersData.photographers
-                }
+                options={photographers || []}
               />
               <AdminInput
                 required={true}

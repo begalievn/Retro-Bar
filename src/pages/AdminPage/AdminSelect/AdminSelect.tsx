@@ -13,7 +13,6 @@ interface AdminSelectProps {
   name: string;
   required?: boolean;
   errorMessage: string;
-  inputValue: PhotoCard | VideoCard;
   inputHandler?: (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -27,7 +26,6 @@ const AdminSelect: FC<AdminSelectProps> = ({
   name,
   required,
   errorMessage,
-  inputValue,
   inputHandler,
 }) => {
   const [focused, setFocused] = useState<boolean>(false);

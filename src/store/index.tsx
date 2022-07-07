@@ -9,11 +9,13 @@ import AuthorizationSlice from "./authorization/AuthorizationSlice";
 import photosReducer from "./features/photos/photosSlice";
 import videosReducer from "./features/videos/videosSlice";
 import establishmentsReducer from "./features/establishments/establishmentsSlice";
+import photographerReducer from "./features/photographers/photographersSlice";
 
 import { photoAPI } from "./features/photos/photoQuery";
 import { videoAPI } from "./features/videos/videoQuery";
 import { establishmentsAPI } from "./features/establishments/establishmentsQuery";
 import { photographersAPI } from "./features/photographers/photographersQuery";
+import { photographersSlice } from "./features/photographers/photographersSlice";
 
 const rootreducer = combineReducers({
   AuthorizationSlice: AuthorizationSlice,
@@ -21,7 +23,7 @@ const rootreducer = combineReducers({
   photos: photosReducer,
   videos: videosReducer,
   establishments: establishmentsReducer,
-  photographers: photosReducer,
+  photographers: photographerReducer,
   [photoAPI.reducerPath]: photoAPI.reducer,
   [videoAPI.reducerPath]: videoAPI.reducer,
   [establishmentsAPI.reducerPath]: establishmentsAPI.reducer,
