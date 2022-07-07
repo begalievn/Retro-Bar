@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import classes from "./InstitutionBar.module.css";
+import classes from "./institutionBar.module.css";
 import share from "../../assets/institutionBarImg/iconLiveBar/share.svg";
 import { LiveText } from "./component/Livetext";
 import { LivePhoto } from "./component/LivePhoto";
@@ -29,90 +29,96 @@ const InstitutionBarPage: FC = () => {
   const { data, error, isLoading } =
     establishmentsAPI.useFetchEstablishmentByIdQuery(establishmentId);
 
-  // console.log("Institution Bar", data.contacts);
+  console.log("Institution Bar", data);
 
   const [show, setShow] = useState(false);
 
   const description = [
-    { img: clock, text: "18:00-06:00" },
+    { img: clock, text: data?.workingHours },
     { img: money, text: "Средний чек: 1000 сом" },
-    { img: dish, text: "Европейская кухня" },
+    { img: dish, text: data?.kitchenType },
     { img: world, text: "Ночной клуб, караоке" },
   ];
 
   return (
     <div className={classes.mainContainer}>
       <div className={classes.gridPosition}>
-        <div className={classes.text_header}>Заведения/LIVEBAR</div>
-        <button
-          type="button"
-          onClick={() => setShow(!show)}
-          className={classes.shareBtn}
-        >
-          Поделиться
-          <img src={share} className={classes.shareIcon} />
-          {show && <ShareSocial />}
-        </button>
+        {isLoading ? (
+          <p>is Loading</p>
+        ) : (
+          <>
+            <div className={classes.text_header}>Заведения/{data?.name}</div>
+            <button
+              type="button"
+              onClick={() => setShow(!show)}
+              className={classes.shareBtn}
+            >
+              Поделиться
+              <img src={share} className={classes.shareIcon} />
+              {show && <ShareSocial />}
+            </button>
 
-        <div className={classes.liveText}>
-          <LiveText />
-        </div>
-        <div className={classes.livePhoto}>
-          <LivePhoto />
-        </div>
-        <div className={classes.mapPhoto}>
-          <a
-            className="dg-widget-link"
-            href="http://2gis.kg/bishkek/firm/70000001019346367/center/74.61690902709962,42.85834982271733/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap"
-          >
-            <img src={map} className={classes.mapImage} />
-          </a>
-        </div>
-        <div className={classes.mapText}>
-          <div>
-            <img src={cycle} alt="" className={classes.cycle} />
-            <h1 className={classes.header}>Описание:</h1>
-          </div>
-          <img src={bigStar} className={classes.bigStar} />
-          {description.map((el) => (
-            <p>
-              <img src={el.img} /> {el.text}
-            </p>
-          ))}
-          <h1>Контакты:</h1>
-          <div className={classes.bigStar}></div>
+            <div className={classes.liveText}>
+              <LiveText name={data.name} />
+            </div>
+            <div className={classes.livePhoto}>
+              <LivePhoto />
+            </div>
+            <div className={classes.mapPhoto}>
+              <a
+                className="dg-widget-link"
+                href="http://2gis.kg/bishkek/firm/70000001019346367/center/74.61690902709962,42.85834982271733/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap"
+              >
+                <img src={map} className={classes.mapImage} />
+              </a>
+            </div>
+            <div className={classes.mapText}>
+              <div>
+                <img src={cycle} alt="" className={classes.cycle} />
+                <h1 className={classes.header}>Описание:</h1>
+              </div>
+              <img src={bigStar} className={classes.bigStar} />
+              {description.map((el, index) => (
+                <p key={index}>
+                  <img src={el.img} /> {el.text}
+                </p>
+              ))}
+              <h1>Контакты:</h1>
+              <div className={classes.bigStar}></div>
 
-          <a href="https://www.instagram.com/livebarkg/">
-            <p>
-              <img src={instagram} /> livebar.kg
+              <a href="https://www.instagram.com/livebarkg/">
+                <p>
+                  <img src={instagram} /> livebar.kg
+                </p>
+              </a>
+              <p>
+                <img src={phone} /> {data?.contacts}
+              </p>
+              <p>
+                <img src={geotag} />
+                {data?.location}
+              </p>
+              <p>
+                <img src={phone} />
+                {data?.contacts}
+              </p>
+              <p>
+                <img src={geotag} />
+                {data?.location}
+              </p>
+            </div>
+            <p className={classes.mobileTextAfterPhoto}>
+              Лучше один раз увидеть, чем 100 раз прочитать или услышать!
+              Приходите и ощутите уникальную ауру наших заведений!
             </p>
-          </a>
-          <p>
-            <img src={phone} />
-          </p>
-          <p>
-            <img src={geotag} />
-            ТЦ «МОТО» 5 этаж (Токтогула Советская)
-          </p>
-          <p>
-            <img src={phone} />
-            0557 594999
-          </p>
-          <p>
-            <img src={geotag} />
-            Ул. Кулатова 8/1 LiveBar Coolatova
-          </p>
-        </div>
-        <p className={classes.mobileTextAfterPhoto}>
-          Лучше один раз увидеть, чем 100 раз прочитать или услышать! Приходите
-          и ощутите уникальную ауру наших заведений!
-        </p>
-        <div className={classes.paper}>
-          <PaperNew />
-        </div>
-        <div className={classes.bottomEmoji}>
-          <BottomEmojis />
-        </div>
+            <div className={classes.paper}>
+              <PaperNew />
+            </div>
+            <div className={classes.bottomEmoji}>
+              <BottomEmojis />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

@@ -14,7 +14,13 @@ export interface IEstablishment {
   photos?: [];
   photoCards?: IPhotoCards[];
   videoCards?: IVideo[];
+  location: string;
+  kitchenType: string;
+  rate: number;
 }
 export interface Establishments {
   establishments: IEstablishment[];
+  total?: number;
+  take?: number;
+  page?: number;
 }

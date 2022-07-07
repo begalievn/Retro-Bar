@@ -8,7 +8,10 @@ import rating from "../../../assets/institutionBarImg/iconLiveBar/rating.svg";
 import share from "../../../assets/institutionBarImg/iconLiveBar/share.svg";
 import { ShareSocial } from "../shareSocial";
 
-const LiveText: FC = () => {
+type ILiveTextProps = {
+  name: string;
+};
+const LiveText = ({ name }: ILiveTextProps) => {
   const [show, setShow] = useState(false);
   return (
     <div className={classes.text}>
@@ -19,7 +22,7 @@ const LiveText: FC = () => {
         <Grid item xs={8} md={9} className={classes.livebar}>
           <Grid container spacing={3}>
             <Grid item xs={10} md={6}>
-              <p className={classes.livebarHeader}>LIVEBAR</p>
+              <p className={classes.livebarHeader}>{name}</p>
               <div className={classes.comments}>
                 <img src={picture} />
                 <p>150</p>

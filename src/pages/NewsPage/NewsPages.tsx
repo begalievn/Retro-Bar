@@ -15,9 +15,13 @@ import { MyPerson } from "../../types/newsPages/news";
 import BottomEmojis from "../../UI/BottomEmojis/BottomEmojis";
 import { useNavigate } from "react-router-dom";
 import CalendarIcon from "../../UI/CalendarIcon/CalendarIcon";
+import { API } from "../../utils/helpers/Consts";
+import axios from "axios";
 
 const NewsPages = () => {
+  
   const data: MyPerson[] = [
+    
     {
       image: Natan,
       fon: Fon,

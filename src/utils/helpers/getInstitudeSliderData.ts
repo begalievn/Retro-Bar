@@ -9,7 +9,7 @@ export function getInstitudeSliderData(data: IEstablishment[]) {
     logo: item.logo,
     title: item.name,
     instType: item?.category?.toString() || 'bar',
-    location: 'location',
+    location: item.location || 'Bishkek',
     time: item.workingHours.toString(),
     phone: item.contacts.toString(),
     hotDisPrice: 1000,
@@ -19,6 +19,8 @@ export function getInstitudeSliderData(data: IEstablishment[]) {
     stars: 4.5,
     isActive: false,
     isContentBlack: true,
+    kitchenType: item.kitchenType,
+    rate: item.rate,
   }));
 
   return result;
