@@ -1,14 +1,14 @@
 import { FC, useState } from "react";
 import classes from "./livebarstyle.module.css";
-import photoMain from "../../../../assets/institutionBarImg/photo/photoMain.png";
-import polaroidMain1 from "../../../../assets/institutionBarImg/iconLiveBar/polaroidMain1.png";
-import polaroidMini from "../../../../assets/institutionBarImg/iconLiveBar/polaroidMini.png";
-import photoMini1 from "../../../../assets/institutionBarImg/photo/photoMini1.png";
-import photoMini2 from "../../../../assets/institutionBarImg/photo/photoMini2.png";
-import photoMini3 from "../../../../assets/institutionBarImg/photo/photoMini3.png";
-import photoMini4 from "../../../../assets/institutionBarImg/photo/photoMain.png";
-import tape1 from "../../../../assets/institutionBarImg/iconLiveBar/miniTape1.svg";
-import { ISliderArr } from "../../../../types/institutionBarTypes/institutionPhotos";
+import photoMain from "../../../assets/institutionBarImg/photo/photoMain.png";
+import polaroidMain1 from "../../../assets/institutionBarImg/iconLiveBar/polaroidMain1.png";
+import polaroidMini from "../../../assets/institutionBarImg/iconLiveBar/polaroidMini.png";
+import photoMini1 from "../../../assets/institutionBarImg/photo/photoMini1.png";
+import photoMini2 from "../../../assets/institutionBarImg/photo/photoMini2.png";
+import photoMini3 from "../../../assets/institutionBarImg/photo/photoMini3.png";
+import photoMini4 from "../../../assets/institutionBarImg/photo/photoMain.png";
+import tape1 from "../../../assets/institutionBarImg/iconLiveBar/miniTape1.svg";
+import { ISliderArr } from "../../../types/institutionBarTypes/institutionPhotos";
 const LivePhoto: FC = () => {
   const [photos, setPhotos] = useState<ISliderArr[]>([
     {

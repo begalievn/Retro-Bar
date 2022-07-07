@@ -12,11 +12,11 @@ import wineIcon from '../../../../assets/ui-images/inst-wine-icon.svg';
 import starIcon from '../../../../assets/ui-images/inst-star-icon.svg';
 
 // imported types
-import { CardDataTypes } from '../../../../types/institutesSliderTypes/cardTypes';
+import { InstitudeCardDataTypes } from '../../../../types/institutesSliderTypes/cardTypes';
 
 import classes from './instituteCardInfo.module.css';
 
-const InstituteCardInfo: FC<CardDataTypes> = ({
+const InstituteCardInfo: FC<InstitudeCardDataTypes> = ({
   photo,
   logo,
   title,

@@ -11,7 +11,7 @@
   resize: none;
   overflow: hidden;
   color: #ffffff;
-  font-family: "Montserrat Alternates", sans-serif;
+  font-family: 'Montserrat Alternates', sans-serif;
   font-weight: 400;
   font-size: 1em;
   padding-left: 2px;
@@ -22,20 +22,26 @@
   background: none;
   padding-bottom: 2px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  margin-top: 13px;
 }
 
 .textArea {
   height: 30px;
 }
 
-/*[contenteditable="true"]:empty:before {*/
-/*  color: grey;*/
-/*  content: attr(placeholder);*/
-/*  pointer-events: none;*/
-/*}*/
+.errorMessage {
+  font-size: 12px;
+  padding: 3px;
+  color: red;
+  display: none;
+}
+.adminInput:invalid[autofocus] ~ .errorMessage {
+  display: block;
+}
+
 .inputTitle,
 .inputLinkTitle {
-  font-family: "Montserrat Alternates";
+  font-family: 'Montserrat Alternates';
   font-weight: 600;
   font-size: 1.2em;
   line-height: 27px;
@@ -50,11 +56,11 @@
   align-items: center;
 }
 .inputLinkTitle::after {
-  content: "";
+  content: '';
   margin-left: 15px;
   width: 20px;
   height: 20px;
   display: inline-block;
   background-size: contain;
-  background-image: url("../../../../assets/adminPage/link.svg");
+  background-image: url('../../../../assets/adminPage/link.svg');
 }

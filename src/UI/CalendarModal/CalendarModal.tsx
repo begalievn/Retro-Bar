@@ -12,17 +12,14 @@ interface CalendarModalProps {
 
 const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
   const [selectedDate, setSelectedDay] = useState(new Date());
-  const dispatch = useAppDispatch()
-  
- 
- useEffect(() => {
-   dispatch(filterCalendarFunc(formatDate(selectedDate, 'DD-MM-YYYY')))
+  const dispatch = useAppDispatch();
 
-  
- }, [selectedDate])
- 
- 
- 
+  useEffect(() => {
+    dispatch(filterCalendarFunc(formatDate(selectedDate, "YYYY-MM-DD")));
+  }, [selectedDate]);
+
+  console.log(selectedDate);
+
   return (
     <>
       {modal && (
@@ -32,7 +29,6 @@ const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
             <CalendarFilter />
             <div className={styles.calendarWithPhotos}>
               <div className={styles.calendar}>
-            
                 <Calendar
                   selectedDate={selectedDate}
                   selectDate={(date) => setSelectedDay(date)}

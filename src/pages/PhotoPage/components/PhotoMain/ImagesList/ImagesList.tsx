@@ -4,6 +4,7 @@ import styles from "./ImagesList.module.css";
 import eye from "../../../../../assets/photoPageImages/icons/eye.svg";
 import pic from "../../../../../assets/photoPageImages/icons/pic.svg";
 import camera from "../../../../../assets/photoPageImages/icons/camera.svg";
+import { IPhoto } from "../../../../../types/apiTypes/photo";
 import Gallery from "../../../../../UI/Gallery/GalleryModal/GalleryModal";
 import NewGallery from "../../../../../UI/NewGallery/NewGallery";
 
@@ -13,20 +14,37 @@ import { photoAPI } from "../../../../../store/features/photos/photoQuery";
 interface ImagesListProps {
   images: IPhotosAnother[] | null;
 }
+interface CurrentEventProps {
+    photos:IPhoto[] ;
+    establishment: string ;
+    event:string ;
+}
+
 const ImagesList: FC<ImagesListProps> = ({ images }) => {
   const [galleryModal, setGalleryModal] = useState(false);
   const toggleGalleryModal = () => setGalleryModal(!galleryModal);
 
-  const [currentEvent, setCurrentEvent] = useState<IPhotosAnother | null>  (null);
+  const [currentEvent, setCurrentEvent] = useState<CurrentEventProps | null>  (null);
+
   if (galleryModal) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "visible";
   }
-  const onClickEvent = (event: IPhotosAnother) => {
-    setCurrentEvent(event);
-    toggleGalleryModal();
-    console.log(event);
+  const onClickEvent = (item: IPhotosAnother) => {
+    const test =[];
+    test.push(123)
+   
+    if(item.link==='')  return false
+      const data = {
+        photos: item.photos!,
+        establishment: item.name!,
+        event:item.eventName!
+      }
+      
+      setCurrentEvent(data);
+      toggleGalleryModal();
+   
   };
   if(!images ) {
     return <div>Loading...</div>
@@ -106,7 +124,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
         {
           (galleryModal  && currentEvent) && (
             
-            <NewGallery eventInfo={currentEvent} close = {toggleGalleryModal}/>
+            <NewGallery eventInfo={currentEvent!} close = {toggleGalleryModal}/>
           )
         }
     </>

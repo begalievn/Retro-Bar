@@ -26,5 +26,26 @@ export const videoAPI = createApi({
       }),
       invalidatesTags: (result) => ['Video'],
     }),
-  }),
+    deleteVideo: build.mutation({
+      query: (video) => ({
+        url: `/admin/videoCard/${video.id}`,
+        method: "DELETE",
+        headers: {
+          'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken') || '{}')}`,
+      },
+      }),
+      invalidatesTags: ["Video"],
+    }),
+    editVideo: build.mutation({
+      query: (video) => ({
+      url: `/admin/videoCard/${video.id}`,
+      method: "PUT",
+      body: video,
+      headers: {
+        'Authorization': `Bearer ${JSON.parse(localStorage.getItem('accessToken') || '{}')}`,
+      },
+    }),
+    invalidatesTags: ["Video"],
+  })
+}),
 });

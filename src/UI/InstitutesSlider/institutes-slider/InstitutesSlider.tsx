@@ -13,103 +13,107 @@ import leftArrow from '../../../assets/ui-images/inst-slider-left-arrow.svg';
 import rightArrow from '../../../assets/ui-images/inst-slider-right-arrow.svg';
 
 // imported types
-import { CardDataTypes } from '../../../types/institutesSliderTypes/cardTypes';
+import { InstitudeCardDataTypes } from '../../../types/institutesSliderTypes/cardTypes';
 
 import classes from './institutesSlider.module.css';
 
-const data: Array<CardDataTypes> = [
-  {
-    photo: cardPhoto,
-    logo: cardLogo,
-    title: 'KEANU',
-    instType: 'Bar',
-    location: 'Манаса 28',
-    time: '18:00-05:00',
-    phone: '0501 818 189',
-    hotDisPrice: 700,
-    saladPrice: 900,
-    dessertPrice: 500,
-    winePrice: 1000,
-    stars: 4.5,
-    isActive: false,
-    isContentBlack: true,
-  },
-  {
-    photo: cardPhoto,
-    logo: cardLogo,
-    title: 'KEANU',
-    instType: 'Bar',
-    location: 'Манаса 28',
-    time: '18:00-05:00',
-    phone: '0501 818 189',
-    hotDisPrice: 700,
-    saladPrice: 900,
-    dessertPrice: 500,
-    winePrice: 1000,
-    stars: 4.5,
-    isActive: false,
-    isContentBlack: true,
-  },
-  {
-    photo: cardPhoto,
-    logo: cardLogo,
-    title: 'KEANU',
-    instType: 'Bar',
-    location: 'Манаса 28',
-    time: '18:00-05:00',
-    phone: '0501 818 189',
-    hotDisPrice: 700,
-    saladPrice: 900,
-    dessertPrice: 500,
-    winePrice: 1000,
-    stars: 4.5,
-    isActive: false,
-    isContentBlack: true,
-  },
-  {
-    photo: cardPhoto,
-    logo: cardLogo,
-    title: 'KEANU',
-    instType: 'Bar',
-    location: 'Манаса 28',
-    time: '18:00-05:00',
-    phone: '0501 818 189',
-    hotDisPrice: 700,
-    saladPrice: 900,
-    dessertPrice: 500,
-    winePrice: 1000,
-    stars: 4.5,
-    isActive: false,
-    isContentBlack: true,
-  },
-  {
-    photo: cardPhoto,
-    logo: cardLogo,
-    title: 'KEANU',
-    instType: 'Bar',
-    location: 'Манаса 28',
-    time: '18:00-05:00',
-    phone: '0501 818 189',
-    hotDisPrice: 700,
-    saladPrice: 900,
-    dessertPrice: 500,
-    winePrice: 1000,
-    stars: 4.5,
-    isActive: false,
-    isContentBlack: true,
-  },
-];
+// const data: Array<InstitudeCardDataTypes> = [
+//   {
+//     photo: cardPhoto,
+//     logo: cardLogo,
+//     title: 'KEANU',
+//     instType: 'Bar',
+//     location: 'Манаса 28',
+//     time: '18:00-05:00',
+//     phone: '0501 818 189',
+//     hotDisPrice: 700,
+//     saladPrice: 900,
+//     dessertPrice: 500,
+//     winePrice: 1000,
+//     stars: 4.5,
+//     isActive: false,
+//     isContentBlack: true,
+//   },
+//   {
+//     photo: cardPhoto,
+//     logo: cardLogo,
+//     title: 'KEANU',
+//     instType: 'Bar',
+//     location: 'Манаса 28',
+//     time: '18:00-05:00',
+//     phone: '0501 818 189',
+//     hotDisPrice: 700,
+//     saladPrice: 900,
+//     dessertPrice: 500,
+//     winePrice: 1000,
+//     stars: 4.5,
+//     isActive: false,
+//     isContentBlack: true,
+//   },
+//   {
+//     photo: cardPhoto,
+//     logo: cardLogo,
+//     title: 'KEANU',
+//     instType: 'Bar',
+//     location: 'Манаса 28',
+//     time: '18:00-05:00',
+//     phone: '0501 818 189',
+//     hotDisPrice: 700,
+//     saladPrice: 900,
+//     dessertPrice: 500,
+//     winePrice: 1000,
+//     stars: 4.5,
+//     isActive: false,
+//     isContentBlack: true,
+//   },
+//   {
+//     photo: cardPhoto,
+//     logo: cardLogo,
+//     title: 'KEANU',
+//     instType: 'Bar',
+//     location: 'Манаса 28',
+//     time: '18:00-05:00',
+//     phone: '0501 818 189',
+//     hotDisPrice: 700,
+//     saladPrice: 900,
+//     dessertPrice: 500,
+//     winePrice: 1000,
+//     stars: 4.5,
+//     isActive: false,
+//     isContentBlack: true,
+//   },
+//   {
+//     photo: cardPhoto,
+//     logo: cardLogo,
+//     title: 'KEANU',
+//     instType: 'Bar',
+//     location: 'Манаса 28',
+//     time: '18:00-05:00',
+//     phone: '0501 818 189',
+//     hotDisPrice: 700,
+//     saladPrice: 900,
+//     dessertPrice: 500,
+//     winePrice: 1000,
+//     stars: 4.5,
+//     isActive: false,
+//     isContentBlack: true,
+//   },
+// ];
 
-type PropsType = {
+type InstitudeSliderPropsType = {
   isContentBlack: boolean;
+  data: InstitudeCardDataTypes[];
 };
 
-const InstitutesSlider: FC<PropsType> = ({ isContentBlack }) => {
+const InstitutesSlider: FC<InstitudeSliderPropsType> = ({
+  isContentBlack,
+  data,
+}) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [slideCards, setSlideCards] = useState<CardDataTypes[]>([]);
+  const [slideCards, setSlideCards] = useState<InstitudeCardDataTypes[]>([]);
 
   useEffect(() => {
-    let cardsArr: Array<CardDataTypes> = [];
+    let cardsArr: Array<InstitudeCardDataTypes> = [];
 
     if (data === undefined) {
       return;
@@ -134,12 +138,10 @@ const InstitutesSlider: FC<PropsType> = ({ isContentBlack }) => {
 
   function prev() {
     setActiveIndex(activeIndex ? activeIndex - 1 : slideCards.length - 1);
-    console.log(activeIndex);
   }
 
   function next() {
     setActiveIndex(activeIndex === slideCards.length - 1 ? 0 : activeIndex + 1);
-    console.log(activeIndex);
   }
 
   const swipeHandlers = useSwipeable({

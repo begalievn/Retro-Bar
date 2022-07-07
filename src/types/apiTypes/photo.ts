@@ -26,4 +26,5 @@ export interface IPhotos {
   photos: IPhoto[];
   establishment: IEstablishment;
   photographer: IPhotographer[];
+  
 }

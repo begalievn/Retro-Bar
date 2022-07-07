@@ -1,12 +1,12 @@
 import classes from "./livebarstyle.module.css";
 import { Photos } from "./Photos";
 import { FC } from "react";
-import top1 from "../../../../assets/institutionBarImg/photo/top1.png";
-import top2 from "../../../../assets/institutionBarImg/photo/top2.png";
-import top3 from "../../../../assets/institutionBarImg/photo/top3.png";
-import bottom1 from "../../../../assets/institutionBarImg/photo/bottom1.png";
-import bottom2 from "../../../../assets/institutionBarImg/photo/bottom2.png";
-import bottom3 from "../../../../assets/institutionBarImg/photo/bottom3.png";
+import top1 from "../../../assets/institutionBarImg/photo/top1.png";
+import top2 from "../../../assets/institutionBarImg/photo/top2.png";
+import top3 from "../../../assets/institutionBarImg/photo/top3.png";
+import bottom1 from "../../../assets/institutionBarImg/photo/bottom1.png";
+import bottom2 from "../../../assets/institutionBarImg/photo/bottom2.png";
+import bottom3 from "../../../assets/institutionBarImg/photo/bottom3.png";
 
 const PaperNew: FC = () => {
   let paperArrayTop = [

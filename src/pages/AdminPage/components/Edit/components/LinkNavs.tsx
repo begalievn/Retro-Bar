@@ -1,0 +1,27 @@
+import { Button } from "@mui/material";
+import React from "react";
+import { Link } from "react-router-dom";
+import classes from '../pages/PhotoEdit/style.module.css'
+const LinkNavs = () => {
+  return (
+    <div>
+      <Link to="/admin/edit">
+        <Button className={classes.btnNav} variant="contained" color="success">
+          Photo
+        </Button>
+      </Link>
+      <Link to="/admin/edit/video">
+        <Button className={classes.btnNav} variant="contained" color="success">
+          Video
+        </Button>
+      </Link>
+      <Link to="/admin/edit/establishment">
+        <Button className={classes.btnNav} variant="contained">
+          Establishment
+        </Button>
+      </Link>
+    </div>
+  );
+};
+
+export default LinkNavs;

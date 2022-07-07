@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import classes from "../../AdminPage.module.css";
-import AdminGeneral from "../AdminGeneral/AdminGeneral";
 import { Button } from "../../../../UI";
 import {
   AdminPageTypes,
@@ -12,26 +11,48 @@ import {
   createAlert,
   deleteAlert,
 } from "../../../../store/alertSlice/alertSlice";
+import { AdminFields } from "../index";
+import DropFileInput from "../DropFileInput/DropFileInput";
 
-const advertisingPage = {
-  name: "advertising",
-  title: "Реклама",
-  add: "photos",
-  addLink: false,
-  viewersRange: false,
-  innerPage: { name: "poster", title: "Афиша" },
-  fields: [
-    { title: "Название", name: "establishmentName" },
-    { title: "Описание", name: "eventName", type: "textArea" },
-    { title: "Привязать номер", name: "randomName" },
-  ],
-};
+const fields = [
+  {
+    title: "Название",
+    name: "establishmentName",
+    errorMessage: "Название Вечеринки обязательное поле!",
+    required: true,
+  },
+  {
+    title: "Описание",
+    name: "eventName",
+    type: "textarea",
+    errorMessage: "Название Вечеринки обязательное поле!",
+    required: true,
+  },
+  {
+    title: "Привязать номер",
+    name: "randomName",
+    errorMessage: "Название Вечеринки обязательное поле!",
+    required: true,
+  },
+];
 
 const AdminAdvertising = () => {
   const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
   const dispatch = useDispatch();
-  const postHandler = () => {
 
+  const inputHandler = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    if (e.target.toString().includes("TextArea")) {
+      e.target.style.height = e.target.scrollHeight + "px";
+    }
+    setInputValue((prevInputs: AdminPageTypes) => ({
+      ...prevInputs,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const postHandler = () => {
     AdminApi.addPhoto(inputValue as PhotoCard)
       .then(() => {
         dispatch(
@@ -48,18 +69,26 @@ const AdminAdvertising = () => {
   };
 
   return (
-    <div className={classes.generalBlock}>
-      <AdminGeneral
-        page={advertisingPage}
-        setInputValue={setInputValue}
-        inputValue={inputValue}
-        postHandler={postHandler}
-      />
-
-      <div className={classes.buttonBlock}>
-        <Button onClick={postHandler}>Опубликовать</Button>
+    <form className={classes.generalBlock} onSubmit={postHandler}>
+      <div className={classes.adminGeneralBlock}>
+        <h3 className={classes.adminTitle}>Реклама</h3>
+        <div className={classes.adminContent}>
+          <DropFileInput
+            type={"photos"}
+            children={"Добавить картинки"}
+            setInputValue={setInputValue}
+          />
+          <AdminFields
+            fields={fields}
+            inputHandler={inputHandler}
+            inputValue={inputValue}
+          />
+        </div>
+        <div className={classes.buttonBlock}>
+          <Button type={'submit'}>Опубликовать</Button>
+        </div>
       </div>
-    </div>
+    </form>
   );
 };
 

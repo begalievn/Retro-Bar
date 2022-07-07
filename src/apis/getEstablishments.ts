@@ -8,7 +8,6 @@ const URL = "http://discoverystudio.xyz:6969";
 export const getEstablishments = () => {
   return async (dispatch: Dispatch<IDispatch>) => {
     const result = await axios.get(`${URL}/photo`);
-    console.log(result.data);
     dispatch(gettingEstablishments(result.data.establishments));
   };
 };

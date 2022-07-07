@@ -1,122 +1,125 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import classes from "../AdminGeneral/AdminGeneral.module.css";
+import classes from '../../AdminPage.module.css';
 
 import {
   AdminPageTypes,
-  PhotoCard,
+  IField,
   VideoCard,
-} from "../../../../types/adminPage/adminPage";
-import { useDispatch } from "react-redux";
-import { AdminApi } from "../../../../API/adminApi/adminApi";
+} from '../../../../types/adminPage/adminPage';
+import { useDispatch } from 'react-redux';
+import { AdminApi } from '../../../../API/adminApi/adminApi';
 import {
   createAlert,
   deleteAlert,
-} from "../../../../store/alertSlice/alertSlice";
-import { Button } from "../../../../UI";
-import DropFileInput from "../DropFileInput/DropFileInput";
-import AdminInput from "../AdminInput/AdminInput";
+} from '../../../../store/alertSlice/alertSlice';
+import { Button } from '../../../../UI';
+import DropFileInput from '../DropFileInput/DropFileInput';
+import AdminInput from '../AdminInput/AdminInput';
+import { AdminFields } from '../index';
+import { videoAPI } from '../../../../store/features/videos/videoQuery';
+import { getFormData } from '../../../../utils/helpers/createFormData';
+import { alertBodySuccess } from '../../../../utils/helpers/alertBody';
 
-const videoPage = {
-  name: "video",
-  title: "Видео",
-  add: "video",
-  addLink: true,
-  viewersRange: true,
-  fields: [
-    { title: "Название Заведения", name: "establishmentId", type: "input" },
-    { title: "Название Вечеринки", name: "eventName", type: "input" },
-    { title: "Видеограф", name: "photographerId", type: "input" },
-    { title: "Дата", name: "date", type: "input" },
-  ],
-};
+const fields: IField[] = [
+  {
+    title: 'Название Заведения',
+    name: 'establishmentId',
+    type: 'input',
+    errorMessage: 'Название Заведения обязательное поле!',
+    required: true,
+  },
+  {
+    title: 'Название Вечеринки',
+    name: 'eventName',
+    type: 'input',
+    errorMessage: 'Название Вечеринки обязательное поле!',
+    required: true,
+  },
+  {
+    title: 'Видеограф',
+    name: 'photographerId',
+    type: 'input',
+    errorMessage: 'Видеограф обязательное поле!',
+    required: true,
+  },
+  {
+    title: 'Дата',
+    name: 'date',
+    type: 'date',
+    errorMessage: 'Дата обязательное поле!',
+    required: true,
+  },
+  {
+    title: 'Посмотры',
+    name: 'views',
+    errorMessage: 'Посмотры обязательное поле!',
+    type: 'text',
+    required: true,
+  },
+];
 
 const AdminVideo = () => {
-  const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
   const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
+  const [createVideoCard, { isLoading }] =
+    videoAPI.useCreateVideoCardMutation();
 
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    if (e.target.toString().includes("TextArea")) {
-      e.target.style.height = e.target.scrollHeight + "px";
+    if (e.target.toString().includes('TextArea')) {
+      e.target.style.height = e.target.scrollHeight + 'px';
     }
-    if (e.target.name == "establishmentId") {
-    } else if (e.target.name == "photographerId") {
-    }
-
     setInputValue((prevInputs: AdminPageTypes) => ({
       ...prevInputs,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const postHandler = () => {
-    AdminApi.addVideo(inputValue as VideoCard)
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const { formData } = getFormData(inputValue as VideoCard);
+    let timer: () => void;
+
+    const startTimer = () => {
+      //@ts-ignore
+      clearTimeout(timer);
+      //@ts-ignore
+      timer = setTimeout(() => dispatch(deleteAlert()), 1500);
+    };
+    await createVideoCard(formData)
+      .unwrap()
       .then(() => {
-        dispatch(
-          createAlert({ message: "Успешно опубликовано", type: "success" })
-        );
-        setTimeout(() => dispatch(deleteAlert()), 2000);
+        dispatch(createAlert(alertBodySuccess));
+        startTimer();
       })
       .catch((e) => {
-        dispatch(
-          createAlert({ message: e.response.data.message, type: "error" })
-        );
-        setTimeout(() => dispatch(deleteAlert()), 2000);
+        dispatch(createAlert({ message: e.data.message, type: 'error' }));
+        startTimer();
       });
   };
   return (
-    <div className={classes.generalBlock}>
-      <div className={classes.generalBlock}>
-        <div className={classes.adminGeneralBlock}>
-          <h3 className={classes.adminTitle}>Фото</h3>
-          <div className={classes.adminContent}>
-            <DropFileInput
-              type={"video"}
-              children={"Добавить видео"}
-              setInputValue={setInputValue}
-            />
-
-            <div className={classes.adminFields}>
-              <div className={classes.adminInputs}>
-                <AdminInput
-                  inputHandler={inputHandler}
-                  inputValue={inputValue}
-                  setInputValue={setInputValue}
-                  title={"Название Заведения"}
-                  name={"establishmentId"}
-                />
-                <AdminInput
-                  inputHandler={inputHandler}
-                  inputValue={inputValue}
-                  setInputValue={setInputValue}
-                  title={"Название Вечеринки"}
-                  name={"eventName"}
-                />
-                <AdminInput
-                  inputHandler={inputHandler}
-                  inputValue={inputValue}
-                  setInputValue={setInputValue}
-                  title={"Видеограф"}
-                  name={"photographerId"}
-                />
-                <AdminInput
-                  inputHandler={inputHandler}
-                  inputValue={inputValue}
-                  setInputValue={setInputValue}
-                  title={"Дата"}
-                  name={"date"}
-                />
-              </div>
-            </div>
-          </div>
+    <form onSubmit={handleSubmit} className={classes.generalBlock}>
+      <div className={classes.adminGeneralBlock}>
+        <h3 className={classes.adminTitle}>Видео</h3>
+        <div className={classes.adminContent}>
+          <DropFileInput
+            type={'video'}
+            children={'Добавить видео'}
+            setInputValue={setInputValue}
+          />
+          <AdminFields
+            fields={fields}
+            inputHandler={inputHandler}
+            inputValue={inputValue}
+          />
         </div>
         <div className={classes.buttonBlock}>
-          <Button onClick={postHandler}>Опубликовать</Button>
+          <Button type="submit">Опубликовать</Button>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
