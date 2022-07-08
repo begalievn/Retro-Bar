@@ -3,26 +3,25 @@ import React, { FC, useRef, useState } from "react";
 import classes from "./DropFileInput.module.css";
 import { ReactComponent as VideoIcon } from "../../../../assets/adminPage/addVideo.svg";
 import { ReactComponent as PhotoIcon } from "../../../../assets/adminPage/addPic.svg";
-import {
-  AdminPageTypes,
-  IPageBody,
-  PhotoCard,
-  VideoCard,
-} from "../../../../types/adminPage/adminPage";
+import { AdminPageTypes } from "../../../../types/adminPage/adminPage";
 
 interface DropFileInputProps {
   type: string;
   children: React.ReactNode;
   setInputValue: (prevInputs: any) => void;
+  boxType?: string;
 }
 
+const boxTypes = ["logo", "poster"];
 const DropFileInput: FC<DropFileInputProps> = ({
   children,
   type,
   setInputValue,
+  boxType,
 }) => {
   const [drag, setDrag] = useState(false);
   const [fileList, setFileList] = useState<File[] | null>([]);
+  const checkBoxType = boxTypes && boxTypes.includes(boxType!) ? boxType : "";
 
   const onDragEnter = () => setDrag(true);
   const onDragLeave = () => setDrag(false);
@@ -63,7 +62,11 @@ const DropFileInput: FC<DropFileInputProps> = ({
         className={classes.adminAddBlock}
         style={{ width: `${!type ? "90%" : "auto"}` }}
       >
-        <div className={`${classes.adminAdd} ${!type && classes.adminAddRow}`}>
+        <div
+          className={`${classes.adminAdd} ${
+            (checkBoxType && classes[checkBoxType!]) || ""
+          }`}
+        >
           <i className={classes.icon}>
             {type == "video" ? <VideoIcon /> : <PhotoIcon />}
           </i>

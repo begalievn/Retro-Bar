@@ -66,12 +66,29 @@ export interface AlertBody {
 }
 
 export interface Establishment {
-  logo: string | object;
-  name: string;
-  description: string;
-  workingHours: string;
-  contacts: string;
-  category: number;
+  logo?: string | object;
+  photos?: object | null;
+  name?: string;
+  description?: string;
+  workingHours?: string;
+  contacts?: string;
+  category?: number;
+  kitchenType?: string;
+  services?: string;
+  link?: string;
+  location?: string;
+  rate?: string;
 }
 
+export interface Contacts {
+  photo?: object | null;
+  photoUrl?: string;
+  description?: string;
+  phoneNumber?: string;
+  link?: string;
+  telegram?: string;
+  youtube?: string;
+  mail?: string;
+  instagram?: string;
+}
 export type AdminPageTypes = PhotoCard | VideoCard | Establishment;

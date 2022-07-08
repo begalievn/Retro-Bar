@@ -1,138 +1,96 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState } from "react";
 
-import classes from './AdminEstablishment.module.css';
-import styles from '../../AdminPage.module.css';
-import {
-  AdminPageTypes,
-  Establishment,
-  IPageBody,
-  PhotoCard,
-} from '../../../../types/adminPage/adminPage';
-import ContactsComponent from '../ContactsComponent/ContactsComponent';
-import AdminInput from '../AdminInput/AdminInput';
-import { useDispatch } from 'react-redux';
-import { AdminApi } from '../../../../API/adminApi/adminApi';
+import classes from "./AdminEstablishment.module.css";
+import styles from "../../AdminPage.module.css";
+import { Establishment } from "../../../../types/adminPage/adminPage";
+import AdminInput from "../AdminInput/AdminInput";
+import { useDispatch } from "react-redux";
 import {
   createAlert,
   deleteAlert,
-} from '../../../../store/alertSlice/alertSlice';
-import { Button } from '../../../../UI';
-import useDebounce from '../../../../hooks/useDebounce';
-import DropFileInput from '../DropFileInput/DropFileInput';
-import AdminFields from '../AdminFields/AdminFields';
-import { establishmentsAPI } from '../../../../store/features/establishments/establishmentsQuery';
-import { alertBodySuccess } from '../../../../utils/helpers/alertBody';
-import { getFormData } from '../../../../utils/helpers/createFormData';
-
-const fields = {
-  mainFields: [
-    {
-      title: 'Название',
-      name: 'name',
-      type: 'input',
-      errorMessage: 'Название обязательное поле!',
-      required: true,
-    },
-    {
-      title: 'О заведении',
-      name: 'description',
-      type: 'textarea',
-      errorMessage: 'О заведении обязательное поле!',
-      required: true,
-    },
-  ],
-};
-
-const establishmentPage = {
-  name: 'establishment',
-  title: 'Заведение',
-  add: 'logo',
-  addLink: false,
-  viewersRange: false,
-  fields: [
-    { title: 'Название', name: 'name', type: 'input' },
-    { title: 'О заведении', name: 'description', type: 'textArea' },
-  ],
-  description: [
-    { title: 'Время работы', name: 'workingHours' },
-    { title: 'Средниии чек', name: 'check' },
-    { title: 'Услуги', name: 'services' },
-  ],
-  contacts: [{ title: 'Номер', name: 'contacts' }],
-};
+} from "../../../../store/alertSlice/alertSlice";
+import { Button } from "../../../../UI";
+import DropFileInput from "../DropFileInput/DropFileInput";
+import { establishmentsAPI } from "../../../../store/features/establishments/establishmentsQuery";
+import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
+import { getFormData } from "../../../../utils/helpers/createFormData";
+import AdminTextarea from "../AdminTextarea/AdminTextarea";
+import { ReactComponent as LinkIcon } from "../../../../assets/adminPage/link.svg";
+import { ReactComponent as PlusIcon } from "../../../../assets/adminPage/plusIcon.svg";
+import { startTimer } from "../../../../utils/helpers/timer";
 
 const AdminEstablishment = () => {
-  const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
+  const [inputValue, setInputValue] = useState<Establishment>({});
   const dispatch = useDispatch();
   const [createEstablishmentCard, {}] =
     establishmentsAPI.useCreateEstablishmentCardMutation();
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    if (e.target.toString().includes('TextArea')) {
-      e.target.style.height = e.target.scrollHeight + 'px';
+    if (e.target.toString().includes("TextArea")) {
+      e.target.style.height = e.target.scrollHeight + "px";
     }
-    setInputValue((prevInputs: AdminPageTypes) => ({
+    setInputValue((prevInputs: Establishment) => ({
       ...prevInputs,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const postHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    AdminApi.addEstablishment(inputValue as Establishment)
-      .then(() => {
-        dispatch(
-          createAlert({ message: 'Успешно опубликовано', type: 'success' })
-        );
-        setTimeout(() => dispatch(deleteAlert()), 2000);
-      })
-      .catch((e) => {
-        dispatch(
-          createAlert({ message: e.response.data.message, type: 'error' })
-        );
-        setTimeout(() => dispatch(deleteAlert()), 2000);
-      });
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { formData } = getFormData(inputValue as PhotoCard);
-    let timer: () => void;
-
-    const startTimer = () => {
-      //@ts-ignore
-      clearTimeout(timer);
-      //@ts-ignore
-      timer = setTimeout(() => dispatch(deleteAlert()), 1500);
-    };
+    const { formData } = getFormData(inputValue as Establishment);
+    console.log("value", inputValue);
     await createEstablishmentCard(formData)
       .unwrap()
       .then(() => {
         dispatch(createAlert(alertBodySuccess));
-        startTimer();
+        startTimer(dispatch, deleteAlert);
       })
       .catch((e) => {
-        dispatch(createAlert({ message: e.data.message, type: 'error' }));
-        startTimer();
+        dispatch(createAlert({ message: e.data.message, type: "error" }));
+        startTimer(dispatch, deleteAlert);
       });
   };
 
+  console.log(inputValue);
   return (
     <form className={classes.establishmentBlock} onSubmit={handleSubmit}>
       <div className={styles.adminGeneralBlock}>
         <h3 className={styles.adminTitle}>Заведения</h3>
         <div className={styles.adminContent}>
-          <DropFileInput
-            type={"logo"}
-            children={"Добавить логотип"}
-            setInputValue={setInputValue}
-          />
-          <AdminFields
-            fields={fields.mainFields}
-            inputHandler={inputHandler}
-            inputValue={inputValue}
-          />
+          <div className={classes.adminContentMediaBlocks}>
+            <DropFileInput
+              boxType={"logo"}
+              type={"logo"}
+              children={"Логотип"}
+              setInputValue={setInputValue}
+            />
+            <DropFileInput
+              type={"photos"}
+              children={"Добавить картинки"}
+              setInputValue={setInputValue}
+            />
+          </div>
+
+          <div className={classes.adminFields}>
+            <div className={classes.adminInputs}>
+              <AdminInput
+                required={true}
+                errorMessage={"Название Заведения обязательное поле!"}
+                inputHandler={inputHandler}
+                inputValue={inputValue}
+                title={"Название Заведения"}
+                name={"name"}
+              />
+              <AdminTextarea
+                required={true}
+                errorMessage={"Описание обязательное поле!"}
+                inputHandler={inputHandler}
+                name={"description"}
+                title={"Описание"}
+              />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -141,19 +99,67 @@ const AdminEstablishment = () => {
         <div className={classes.descriptionBlocks}>
           <div className={classes.descriptionBlock}>
             <AdminInput
+              required={true}
+              errorMessage={"Время работы обязательное поле!"}
               inputHandler={inputHandler}
-              color={'white'}
-              title={'Время работы'}
-              name={'workingHours'}
+              color={"white"}
+              title={"Время работы"}
+              name={"workingHours"}
+              inputValue={inputValue}
+            />
+          </div>
+          {/*<div className={classes.descriptionBlock}>*/}
+          {/*  <AdminInput*/}
+          {/*    required={true}*/}
+          {/*    errorMessage={"Средний чек обязательное поле!"}*/}
+          {/*    inputHandler={inputHandler}*/}
+          {/*    color={"white"}*/}
+          {/*    title={"Средний чек"}*/}
+          {/*    name={"averageCheck"}*/}
+          {/*    inputValue={inputValue}*/}
+          {/*  />*/}
+          {/*</div>*/}
+          <div className={classes.descriptionBlock}>
+            <AdminInput
+              required={true}
+              errorMessage={"Услуги обязательное поле!"}
+              inputHandler={inputHandler}
+              color={"white"}
+              title={"Услуги"}
+              name={"services"}
               inputValue={inputValue}
             />
           </div>
           <div className={classes.descriptionBlock}>
             <AdminInput
+              required={true}
+              errorMessage={"Вид кухни обязательное поле!"}
               inputHandler={inputHandler}
-              color={'white'}
-              title={'Номер'}
-              name={'contacts'}
+              color={"white"}
+              title={"Вид кухни"}
+              name={"kitchenType"}
+              inputValue={inputValue}
+            />
+          </div>
+          <div className={classes.descriptionBlock}>
+            <AdminInput
+              required={true}
+              errorMessage={"Категория обязательное поле!"}
+              inputHandler={inputHandler}
+              color={"white"}
+              title={"Категория"}
+              name={"category"}
+              inputValue={inputValue}
+            />
+          </div>
+          <div className={classes.descriptionBlock}>
+            <AdminInput
+              required={true}
+              errorMessage={"Рейтинг обязательное поле!"}
+              inputHandler={inputHandler}
+              color={"white"}
+              title={"Рейтинг"}
+              name={"rate"}
               inputValue={inputValue}
             />
           </div>
@@ -164,16 +170,43 @@ const AdminEstablishment = () => {
         <h3>Контакты</h3>
         <div className={classes.contacts}>
           <AdminInput
+            required={true}
+            icon={<LinkIcon />}
+            errorMessage={"Вставить ссылку!"}
             inputHandler={inputHandler}
-            color={'white'}
-            title={'Номер'}
-            name={'contacts'}
+            color={"white"}
+            title={"Вставьте ссылку"}
+            name={"link"}
+            inputValue={inputValue}
+          />
+        </div>{" "}
+        <div className={classes.contacts}>
+          <AdminInput
+            icon={<PlusIcon />}
+            required={true}
+            errorMessage={"Геопозиция"}
+            inputHandler={inputHandler}
+            color={"white"}
+            title={"Геопозиция"}
+            name={"location"}
+            inputValue={inputValue}
+          />
+        </div>
+        <div className={classes.contacts}>
+          <AdminInput
+            required={true}
+            icon={<PlusIcon />}
+            errorMessage={"Номер обязательное поле!"}
+            inputHandler={inputHandler}
+            color={"white"}
+            title={"Номер"}
+            name={"contacts"}
             inputValue={inputValue}
           />
         </div>
       </div>
       <div className={classes.btnBlock}>
-        <Button type={'submit'}>Опубликовать</Button>
+        <Button type={"submit"}>Опубликовать</Button>
       </div>
     </form>
   );

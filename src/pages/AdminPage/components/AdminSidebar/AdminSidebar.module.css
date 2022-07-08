@@ -31,7 +31,7 @@
   cursor: pointer;
   list-style-type: none;
   font-size: 18px;
-  padding: 5px;
+  padding: 10px 5px;
 }
 
 .sideBarItemActive {
@@ -39,7 +39,7 @@
   list-style-type: none;
   font-size: 18px;
 
-  padding: 5px;
+  padding: 10px 5px;
   color: white;
   stroke: #ffb03b;
 }
