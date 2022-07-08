@@ -70,7 +70,7 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
             <span>
               PhoneNumber: <strong>{item.phoneNumber}</strong>{" "}
             </span>
-            <span>
+            {/* <span>
               Link: <strong>{item?.link}</strong>{" "}
             </span>
             <span>
@@ -78,13 +78,13 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
             </span>
             <span>
               Youtube: <strong>{item?.youtube}</strong>{" "}
-            </span>
+            </span> */}
             <span>
               Mail: <strong>{item?.mail}</strong>{" "}
             </span>
-            <span>
+            {/* <span>
               Instagram: <strong>{item?.instagram}</strong>{" "}
-            </span>
+            </span> */}
           </Typography>
         </CardContent>
         <CardActions>
@@ -137,7 +137,7 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
               id="standard-basic"
               variant="standard"
             />
-            <TextField
+            {/* <TextField
               value={link}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setLink(e.target.value);
@@ -163,7 +163,7 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
               className={classes.modalInput}
               id="standard-basic"
               variant="standard"
-            />
+            /> */}
             <TextField
               value={mail}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -173,7 +173,7 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
               id="standard-basic"
               variant="standard"
             />
-            <TextField
+            {/* <TextField
               value={instagram}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setInstagram(e.target.value);
@@ -181,7 +181,7 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
               className={classes.modalInput}
               id="standard-basic"
               variant="standard"
-            />
+            /> */}
             <Button
               onClick={() => {
                 editContactCard();

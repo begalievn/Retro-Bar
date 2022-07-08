@@ -17,14 +17,13 @@ interface VideoPropsType {
   item: IVideo;
 }
 const VideoEditCard: FC<VideoPropsType> = ({ item }) => {
-  const [video, setVideo] = React.useState<undefined|string>(item?.video);
+  const [video, setVideo] = React.useState<undefined | string>(item?.video);
   const [eventName, setEventName] = React.useState<string>(item?.eventName);
-  const [views, setViews] = React.useState<number|string>(item?.views);
+  const [views, setViews] = React.useState<number | string>(item?.views);
   const [date, setDate] = React.useState<string>(item?.date);
   const [show, setShow] = React.useState<boolean>(false);
   const [deleteVideo, {}] = videoAPI.useDeleteVideoMutation();
   const [editVideos, {}] = videoAPI.useEditVideoMutation();
-
   async function deleteVi(video: IVideo): Promise<void> {
     await deleteVideo(video);
   }
@@ -39,30 +38,30 @@ const VideoEditCard: FC<VideoPropsType> = ({ item }) => {
   }
   return (
     <>
-      <Card
-        onClick={() => {
-          setShow(true);
-          scrollTop();
-        }}
-        className={classes.cards}
-        key={item.id}
-      > 
+      <Card className={classes.cards} key={item.id}>
         <CardMedia
-            className={classes.imgCard}
-            component="img"
-            image={item.video}
-            alt="photos"
-          />
-        <CardContent sx={{ minHeight: "90px" }}>
+          onClick={() => {
+            setShow(true);
+            scrollTop();
+          }}
+          className={classes.imgCard}
+          component="img"
+          image={item.video}
+          alt="photos"
+        />
+        <CardContent sx={{ minHeight: "130px" }}>
           <Typography
             className={classes.details}
             variant="body2"
             color="text.secondary"
           >
+            {/* <span>
+              Url: <strong>{item.url}</strong>
+            </span> */}
             <span>
               EventName: <strong>{item.eventName}</strong>{" "}
             </span>
-            <span style={{ maxHeight: "60px", overflow: "hidden" }}>
+            <span>
               Views: <strong>{item.views}</strong>{" "}
             </span>
             <span>

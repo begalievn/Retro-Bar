@@ -20,15 +20,25 @@ interface EstabPropsType {
 const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
   const [logo, setLogo] = React.useState<string>(item?.logo);
   const [name, setName] = React.useState<string>(item?.name);
-  const [description, setDescription] = React.useState<string>(item?.description);
-  const [workingHours, setWhours] = React.useState<number|string>(item?.workingHours);
-  const [contacts, setContacts] = React.useState<number|string>(item?.contacts);
-  const [category, setCategory] = React.useState<null|string|number>(item?.category);
-  const [kitchenType, setKitchenType] = React.useState<null|string>(item?.kitchenType);
-  const [services, setServices] = React.useState<null|string>(item?.services);
-  const [link, setLink] = React.useState<null|string>(item?.link);
-  const [location, setLocation] = React.useState<null|string>(item?.location);
-  const [rate, setRate] = React.useState<number|string>(item?.rate);
+  const [description, setDescription] = React.useState<string>(
+    item?.description
+  );
+  const [workingHours, setWhours] = React.useState<number | string>(
+    item?.workingHours
+  );
+  const [contacts, setContacts] = React.useState<number | string>(
+    item?.contacts
+  );
+  const [category, setCategory] = React.useState<null | string | number>(
+    item?.category
+  );
+  const [kitchenType, setKitchenType] = React.useState<null | string>(
+    item?.kitchenType
+  );
+  const [services, setServices] = React.useState<null | string>(item?.services);
+  const [link, setLink] = React.useState<null | string>(item?.link);
+  const [location, setLocation] = React.useState<null | string>(item?.location);
+  const [rate, setRate] = React.useState<number | string>(item?.rate);
   const [show, setShow] = React.useState<boolean>(false);
   const [deleteEstablishment, {}] =
     establishmentsAPI.useDeleteEstablishmentMutation();
@@ -54,32 +64,27 @@ const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
       services,
       link,
       location,
-      rate
+      rate,
     });
   }
   function scrollTop(): void {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
-  console.log(item);
-
   return (
     <>
-      <Card
-        onClick={() => {
-          setShow(true);
-          scrollTop();
-        }}
-        className={classes.cards}
-        key={item.id}
-      >
+      <Card className={classes.cards} key={item.id}>
         <CardMedia
+          onClick={() => {
+            setShow(true);
+            scrollTop();
+          }}
           className={classes.imgCard}
           component="img"
           height="150"
           image={item.logo}
           alt="photos"
         />
-        <CardContent sx={{ height: "210px" }}>
+        <CardContent sx={{ height: "270px" }}>
           <Typography
             className={classes.details}
             variant="body2"

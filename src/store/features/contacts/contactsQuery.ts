@@ -37,6 +37,19 @@ export const contactsAPI = createApi({
         }),
         invalidatesTags: ['Contacts'],
       }),
+      createContacts: build.mutation({
+        query: (contact) => ({
+          url: `/admin/contacts/`,
+          method: "POST",
+          body: contact,
+          headers: {
+            Authorization: `Bearer ${JSON.parse(
+              localStorage.getItem("accessToken") || "{}"
+            )}`,
+          },
+        }),
+        invalidatesTags: (result) => ["Contacts"],
+      }),
   }),
   
 });
