@@ -26,6 +26,7 @@ import { getTopInstCardData } from '../../utils/helpers/getTopInstCardData';
 import { getInstitudeSliderData } from '../../utils/helpers/getInstitudeSliderData';
 import { advertisementsAPI } from '../../store/features/advertisement/advertisementsQuery';
 import { getAdvertisementData } from '../../utils/helpers/getAdvertisementData';
+import { getVideoWithEmbed } from '../../utils/helpers/getVideoWithEmbed';
 
 const MainPage = () => {
   const {
@@ -34,6 +35,7 @@ const MainPage = () => {
     isLoading: photoLoading,
   } = photoAPI.useFetchAllPhotosQuery(8);
 
+  getVideoWithEmbed('https://youtu.be/ITiy9Ji4-w0');
   const {
     data: advertisements,
     error: advertisementError,
