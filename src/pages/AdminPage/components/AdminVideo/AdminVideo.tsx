@@ -8,7 +8,6 @@ import {
   VideoCard,
 } from "../../../../types/adminPage/adminPage";
 import { useDispatch } from "react-redux";
-import { AdminApi } from "../../../../API/adminApi/adminApi";
 import {
   createAlert,
   deleteAlert,
@@ -19,9 +18,10 @@ import AdminInput from "../AdminInput/AdminInput";
 import { videoAPI } from "../../../../store/features/videos/videoQuery";
 import { getFormData } from "../../../../utils/helpers/createFormData";
 import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
-import AdminSelect from "../../AdminSelect/AdminSelect";
+import AdminSelect from "../AdminSelect/AdminSelect";
 import { useAppSelector } from "../../../../app/hooks";
 import { ReactComponent as LinkIcon } from "../../../../assets/adminPage/link.svg";
+import { startTimer } from "../../../../utils/helpers/timer";
 
 const AdminVideo = () => {
   const dispatch = useDispatch();
@@ -52,23 +52,16 @@ const AdminVideo = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { formData } = getFormData(inputValue as VideoCard);
-    let timer: () => void;
 
-    const startTimer = () => {
-      //@ts-ignore
-      clearTimeout(timer);
-      //@ts-ignore
-      timer = setTimeout(() => dispatch(deleteAlert()), 1500);
-    };
     await createVideoCard(formData)
       .unwrap()
       .then(() => {
         dispatch(createAlert(alertBodySuccess));
-        startTimer();
+        startTimer(dispatch, deleteAlert);
       })
       .catch((e) => {
         dispatch(createAlert({ message: e.data.message, type: "error" }));
-        startTimer();
+        startTimer(dispatch, deleteAlert);
       });
   };
   return (
