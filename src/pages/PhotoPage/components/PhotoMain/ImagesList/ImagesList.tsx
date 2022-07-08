@@ -1,30 +1,53 @@
 import React, { FC, useState } from "react";
-import { IPhotos } from "../interfaces";
+import { IPhotosAnother } from "../interfaces";
 import styles from "./ImagesList.module.css";
 import eye from "../../../../../assets/photoPageImages/icons/eye.svg";
 import pic from "../../../../../assets/photoPageImages/icons/pic.svg";
 import camera from "../../../../../assets/photoPageImages/icons/camera.svg";
+import { IPhoto } from "../../../../../types/apiTypes/photo";
 import Gallery from "../../../../../UI/Gallery/GalleryModal/GalleryModal";
+import NewGallery from "../../../../../UI/NewGallery/NewGallery";
+
 import Button from "../../Button/Button";
+import { photoAPI } from "../../../../../store/features/photos/photoQuery";
 
 interface ImagesListProps {
-  images: IPhotos[];
+  images: IPhotosAnother[] | null;
 }
+interface CurrentEventProps {
+    photos:IPhoto[] ;
+    establishment: string ;
+    event:string ;
+}
+
 const ImagesList: FC<ImagesListProps> = ({ images }) => {
   const [galleryModal, setGalleryModal] = useState(false);
   const toggleGalleryModal = () => setGalleryModal(!galleryModal);
 
-  const [currentEvent, setCurrentEvent] = useState<IPhotos>({});
+  const [currentEvent, setCurrentEvent] = useState<CurrentEventProps | null>  (null);
+
   if (galleryModal) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "visible";
   }
-  const onClickEvent = (event: IPhotos) => {
-    setCurrentEvent(event);
-    toggleGalleryModal();
-    console.log(event);
+  const onClickEvent = (item: IPhotosAnother) => {
+   
+    if(item.link==='')  return false
+      const data = {
+        photos: item.photos!,
+        establishment: item.name!,
+        event:item.eventName!
+      }
+      
+      setCurrentEvent(data);
+      toggleGalleryModal();
+   
   };
+  if(!images ) {
+    return <div>Loading...</div>
+  }
+
   return (
     <>
       {images.map((item) => (
@@ -38,6 +61,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
             <img src={item.border} alt="" />
           </div>
           <div className={styles.image} onClick={() => onClickEvent(item)}>
+      
             <img src={item.link} alt="" />
           </div>
           {item.ad ? (
@@ -65,7 +89,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
                     </div>
                   )}
                 </div>
-                <p className={styles.image_info_partyName}>{item.partyName}</p>
+                <p className={styles.image_info_partyName}>{item.eventName}</p>
                 <div className={styles.image_info_footer}>
                   <div className={styles.image_info_number}>
                     <div className={styles.image_info_views}>
@@ -77,7 +101,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
                     <div className={styles.image_info_photos}>
                       <img src={pic} alt="" />
                       <p className={styles.image_info_photos_number}>
-                        {item.photos}
+                        {item.photosCount}
                       </p>
                     </div>
                   </div>
@@ -88,13 +112,19 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
           )}
         </div>
       ))}
-      {galleryModal && (
+      {/* {galleryModal && (
         <Gallery
           currentEvent={currentEvent}
           galleryModal={galleryModal}
           toggleGalleryModal={toggleGalleryModal}
         />
-      )}
+        )} */}
+        {
+          (galleryModal  && currentEvent) && (
+            
+            <NewGallery eventInfo={currentEvent!} close = {toggleGalleryModal}/>
+          )
+        }
     </>
   );
 };

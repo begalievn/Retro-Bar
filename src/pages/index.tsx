@@ -1,20 +1,23 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-
 import ContactsPage from "./ContactsPage/ContactsPage";
 import InstitutionPage from "./InstitutionPage/InstitutionPage";
 import InstitutionBarPage from "./InstitutionBarPage/InstitutionBarPage";
 import MainPage from "./MainPage/MainPage";
-import NewsPages from "./NewsPage/NewsPages";
 import PhotoPage from "./PhotoPage/PhotoPage";
 import VideoPage from "./VideoPage/VideoPage";
 import EventsPage from "./EventsPage/EventsPage";
 import ErrorPage from "./ErrorPage/ErrorPage";
 import Authorization from "./Authorization/Authorization";
-import AdminPanelPage from "./AdminPage/AdminPanelPage";
+import AdminPage from "./AdminPage/AdminPage";
 import Gallery from "../UI/Gallery/Gallery";
+import NewsPages from "./NewsPage/NewsPages";
+
+import { useAppSelector } from "../app/hooks";
 
 const MainRoutes = () => {
+  const isAdmin = useAppSelector((state) => state.AuthorizationSlice.token);
+
   const PUBLIC_ROUTES = [
     {
       link: "/",
@@ -37,7 +40,7 @@ const MainRoutes = () => {
       id: 4,
     },
     {
-      link: "/institution-bar",
+      link: "/institution/:establishmentId",
       element: <InstitutionBarPage />,
       id: 5,
     },
@@ -66,11 +69,7 @@ const MainRoutes = () => {
       element: <Authorization />,
       id: 10,
     },
-    {
-      link: "/admin",
-      element: <AdminPanelPage />,
-      id: 11,
-    },
+
     {
       link: "/photo/gallery",
       element: <Gallery />,
@@ -78,10 +77,22 @@ const MainRoutes = () => {
     },
   ];
 
+  const PRIVATE_ROUTES = [
+    {
+      link: "/admin/*",
+      element: <AdminPage />,
+      id: 1,
+    },
+  ];
+
   return (
     <Routes>
-      {PUBLIC_ROUTES.map((item) => (
-        <Route path={item.link} element={item.element} key={item.id} />
+      {isAdmin &&
+        PRIVATE_ROUTES.map(({ link, id, element }) => (
+          <Route path={link} element={element} key={id} />
+        ))}
+      {PUBLIC_ROUTES.map(({ link, id, element }) => (
+        <Route path={link} element={element} key={id} />
       ))}
     </Routes>
   );

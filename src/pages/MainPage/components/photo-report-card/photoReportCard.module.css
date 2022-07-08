@@ -1,16 +1,17 @@
 .cardContainer {
-  width: 335px;
+  width: 100%;
   height: 334px;
   /* background-image: url('../../../../assets/mainPage/photo-report-card-bg1.png'); */
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1px;
 }
 
 .photoCard {
-  width: 329px;
-  height: 323.5px;
+  width: 332px;
+  height: 325px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,7 +104,15 @@
 }
 
 .cardContent_info__left {
+  width: 60%;
   display: flex;
+  align-items: center;
+}
+
+.cardContent_info__right {
+  width: 40%;
+  display: flex;
+  align-items: center;
 }
 
 .cardContent_info__right p {

@@ -70,6 +70,10 @@
   margin-right: 13px;
 }
 
+.info_content svg {
+  margin-right: 13px;
+}
+
 .info_content p {
   font-family: 'Mont';
   font-style: normal;
@@ -97,7 +101,7 @@
   width: 50%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .prices_wine {
@@ -132,7 +136,7 @@
   justify-content: space-between;
 }
 
-.stars img {
+.stars svg {
   width: 17px;
   height: 17px;
 }

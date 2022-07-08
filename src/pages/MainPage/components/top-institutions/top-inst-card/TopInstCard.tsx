@@ -7,9 +7,10 @@ import cardContentBackgroundPhoto from '../../../../../assets/mainPage/top-inst-
 import clockIcon from '../../../../../assets/mainPage/top-inst-clock-icon.svg';
 import phoneIcon from '../../../../../assets/mainPage/top-inst-phone-icon.svg';
 import locationIcon from '../../../../../assets/mainPage/top-inst-location-icon.svg';
+import { IPhoto } from '../../../../../types/apiTypes/photo';
 
 interface PropType {
-  photo: string;
+  image?: IPhoto;
   title: string;
   time: string;
   phone: string;
@@ -18,13 +19,14 @@ interface PropType {
 }
 
 const TopInstCard = ({
-  photo,
+  image,
   title,
   time,
   phone,
   location,
   isActive,
 }: PropType) => {
+  console.log('TopInstCard', { image });
   return (
     <div className={classes.card}>
       <img className={classes.cardBackground} src={backgroundPhoto} alt="" />
@@ -56,11 +58,11 @@ const TopInstCard = ({
               </div>
             </div>
           </div>
-          <img className={classes.photoOfBar} src={photo} alt="bar" />
+          <img className={classes.photoOfBar} src={image?.url} alt="bar" />
         </>
       ) : (
         <div className={classes.blackWhitePhoto}>
-          <img src={photo} alt="photo" />
+          <img src={image?.url} alt="photo" />
         </div>
       )}
     </div>

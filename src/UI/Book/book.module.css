@@ -38,7 +38,7 @@
   height: 41vw;
   position: relative;
   background: url('../../assets/book/blackFilmGradient.png') 0 0/100% 100% no-repeat;
-  margin-bottom: 25%;
+  /* margin-bottom: 21%; */
 }
 .containerMain {
   margin: 0 auto;
@@ -48,7 +48,7 @@
   height: 41vw;
   position: relative;
   background: url('../../assets/book/blackFilmGradientTop.png') 0 0/100% 100% no-repeat;
-  margin-bottom: 25%;
+  /* margin-bottom: 25%; */
 }
  .containerVideo{
   margin: 0 auto;
@@ -124,7 +124,7 @@
     margin-bottom: 12%;
   }
   .containerMain .containerVideo{
-    margin-bottom: 40%;
+    /* margin-bottom: 40%; */
   }
   
   .imageBlock {

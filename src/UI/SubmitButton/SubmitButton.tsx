@@ -1,9 +1,15 @@
+import { type } from '@testing-library/user-event/dist/type'
 import React from 'react'
 import styles from './SubmitButton.module.css'
 
-function SubmitButton({text='Позвонить'}) {
+type SubmitButtonProps = {
+  tel:string,
+  
+ }
+
+function SubmitButton({tel}:SubmitButtonProps) {
   return (
-    <button  className={styles.button}>{text}</button>
+      <a href={tel}> <button className={styles.button}>Позвонить</button></a>
   )
 }
 

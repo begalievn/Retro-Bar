@@ -1,6 +1,10 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styles from "./CalendarModal.module.css";
 import { Calendar, CalendarEvents, CalendarFilter } from "./";
+import { formatDate } from "../../utils/helpers/date";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { filterCalendarFunc } from "../../utils/helpers/filterCalendar";
+import { Button } from "@mui/material";
 
 interface CalendarModalProps {
   modal: boolean;
@@ -9,6 +13,13 @@ interface CalendarModalProps {
 
 const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
   const [selectedDate, setSelectedDay] = useState(new Date());
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(filterCalendarFunc(formatDate(selectedDate, "DD-MM-YYYY")));
+  }, [selectedDate]);
+
+  console.log(selectedDate);
 
   return (
     <>
@@ -28,6 +39,7 @@ const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
                 <CalendarEvents />
               </div>
             </div>
+            <div className={styles.btnClose} onClick={toggleModal}></div>
           </div>
         </div>
       )}

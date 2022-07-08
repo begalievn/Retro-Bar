@@ -1,20 +1,24 @@
-import React from 'react';
-import classes from './style.module.css';
-import aboutUs from '../../assets/contactsPage/sketch.png';
+import React, { FC } from "react";
+import classes from "./style.module.css";
+import aboutUs from "../../assets/contactsPage/sketch.png";
+import { IContacts } from "../../types/apiTypes/contacts";
 
-const TextBlock = () => {
+interface ContactsPropsType {
+  array: IContacts[];
+}
+const TextBlock: FC<ContactsPropsType> = ({ array }) => {
   return (
-    <div>
-            <div className={classes.aboutText}>
-              <img src={aboutUs} alt="" />
-              <h1>О нас</h1>
-            </div>
-            <h4>
-              Медиа ресурс о светской, вечерней и ночной жизни города. Место,
-              куда заходят чтоб почувствовать и быть в курсе всех событий в
-              культурной жизни столицы.
-            </h4>
-            </div>
+    <>
+      {array?.map((item: IContacts) => (
+        <div key={item.id}>
+          <div className={classes.aboutText}>
+            <img src={aboutUs} alt="" />
+            <h1>О нас</h1>
+          </div>
+          <h4>{item.description}</h4>
+        </div>
+      ))}
+    </>
   );
 };
 

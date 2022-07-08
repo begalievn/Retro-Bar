@@ -6,16 +6,21 @@ import hero from "../../../assets/eventsImages/banner ticket (2).png";
 import banner from "../../../assets/eventsImages/banner (1).png";
 import bannerMini from "../../../assets/eventsImages/bannerMini.jpg";
 import style from "../eventPage.module.css";
+import { photoAPI } from "../../../store/features/photos/photoQuery";
 
 const navbar: Array<string> = ["Видео", "Услуги", "Плеер", "Галерея"];
 
 const Section1: FC = () => {
+  let { data: photos } = photoAPI.useFetchAllPhotosQuery(1);
+
   return (
     <>
       <div className={style.eventPage_navbar}>
         <div>
-          {navbar.map((item) => (
-            <a href="#">{item}</a>
+          {navbar.map((item, index) => (
+            <a key={index} href="#">
+              {item}
+            </a>
           ))}
         </div>
       </div>
@@ -26,12 +31,19 @@ const Section1: FC = () => {
         <div className={style.eventPage_section1}>
           <img className={style.section1_tape1} src={tape1} alt="" />
           <img className={style.section1_tape2} src={tape2} alt="" />
-          <img className={style.section1_image} src={hero} alt="Hero" />
+          <img
+            className={style.section1_image}
+            src={photos?.photoCards[0].photos[0].url}
+            alt="Hero"
+          />
 
           <div className={style.section1_text}>
             <div>
-              <h3>SUZIE WONG / OPENING | MOT </h3>
-              <p> 1 июля 2022</p>
+              <h3>
+                {photos?.photoCards[0].establishment.name} /{" "}
+                {photos?.photoCards[0].eventName}{" "}
+              </h3>
+              <p> {photos?.photoCards[0].date}</p>
             </div>
 
             <button className={style.section1_button}>Купить билет</button>

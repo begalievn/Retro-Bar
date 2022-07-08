@@ -1,9 +1,15 @@
-import React from 'react';
-import InstitutionsSlider from './institutions-slider/InstitutionsSlider';
+import React, { FC } from 'react';
+import InstitutionsSlider, {
+  TopInstCardsType,
+} from './institutions-slider/InstitutionsSlider';
 
 import classes from '../../mainPage.module.css';
 
-const TopInstituions = () => {
+interface TopInstitutionsProps {
+  institutions: TopInstCardsType[];
+}
+
+const TopInstituions: FC<TopInstitutionsProps> = ({ institutions }) => {
   return (
     <div className={classes.institutions_container}>
       <h2
@@ -13,7 +19,7 @@ const TopInstituions = () => {
       </h2>
 
       <div className={classes.institutions_slider}>
-        <InstitutionsSlider />
+        <InstitutionsSlider cardsData={institutions} />
       </div>
       <div className={classes.top_inst_ellipse_deco}></div>
     </div>

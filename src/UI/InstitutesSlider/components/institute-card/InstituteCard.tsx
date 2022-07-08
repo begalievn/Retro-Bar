@@ -8,14 +8,22 @@ import redEffect from '../../../../assets/ui-images/inst-card-red-effect.png';
 import grayEffect from '../../../../assets/ui-images/inst-card-gray-effect.png';
 
 // imported types
-import { CardDataTypes } from '../../../../types/institutesSliderTypes/cardTypes';
+import { InstitudeCardDataTypes } from '../../../../types/institutesSliderTypes/cardTypes';
 
 // imported components
 import InstituteCardInfo from '../institute-card-info/InstituteCardInfo';
 // imported styles
 import classes from './instituteCard.module.css';
+import { useNavigate } from 'react-router-dom';
 
-const InstituteCard: FC<CardDataTypes> = ({ ...props }) => {
+const InstituteCard: FC<InstitudeCardDataTypes> = ({ ...props }) => {
+  const navigate = useNavigate();
+
+  const clickHandler = (id: number) => {
+    console.log(id);
+    navigate(`/institution/${id}`);
+  };
+
   return (
     <div className={classes.card}>
       <div className={classes.image_container}>
@@ -30,11 +38,14 @@ const InstituteCard: FC<CardDataTypes> = ({ ...props }) => {
         )}
 
         <div className={classes.image_div}>
-          <img src={photo} alt="ints photo" />
+          <img src={props.photo?.url} alt="ints photo" />
         </div>
 
         {props.isActive ? (
-          <div className={classes.image_effect}>
+          <div
+            className={classes.image_effect}
+            onClick={() => clickHandler(props.id)}
+          >
             <img src={redEffect} alt="" />
           </div>
         ) : (

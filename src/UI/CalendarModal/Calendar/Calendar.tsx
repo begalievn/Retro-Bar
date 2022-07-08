@@ -6,7 +6,11 @@ import arrowRight from "../../../assets/photoPageImages/calendarImages/arrow rig
 import arrowDown from "../../../assets/photoPageImages/calendarImages/arrow down.svg";
 import tape from "../../../assets/photoPageImages/calendarImages/tape.png";
 
-import { checkDateIsEqual, checkIsToday } from "../../../utils/helpers/date";
+import {
+  checkDateIsEqual,
+  checkIsToday,
+  formatDate,
+} from "../../../utils/helpers/date";
 import "./Calendar.css";
 interface CalendarProps {
   locale?: string;
@@ -26,6 +30,7 @@ const Calendar: FC<CalendarProps> = ({
     firstWeekDayNumber,
   });
 
+    console.log(selectDate)
   const addZeroToStart = (num: number) => {
     if (num < 10) return `0${num}`;
     else return num;

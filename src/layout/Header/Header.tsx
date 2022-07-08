@@ -1,60 +1,60 @@
-import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-import classes from "./Header.module.css";
-import { ReactComponent as LogoIcon } from "../../assets/header/logo.svg";
-import { BurgerMenu, NavItem,NavItems } from "./components";
-import { SearchBtn, InputSearch } from "../../UI";
-import { someClasses } from "../../utils/someClasses";
-import {INavItems} from "../../types/headerTypes/headerTypes";
-import { useAppDispatch } from "../../app/hooks";
-import { logOut } from "../../store/AuthFunc";
+import classes from './Header.module.css';
+import { ReactComponent as LogoIcon } from '../../assets/header/logo.svg';
+import { BurgerMenu, NavItem, NavItems } from './components';
+import { SearchBtn, InputSearch } from '../../UI';
+import { someClasses } from '../../utils/someClasses';
+import { INavItems } from '../../types/headerTypes/headerTypes';
+import { useAppDispatch } from '../../app/hooks';
+import { logOut } from '../../store/authorization/AuthFunc';
 
-const Header = () => {
+const navItems: INavItems[] = [
+  {
+    title: 'Фото',
+    path: '/photo',
+  },
+  {
+    title: 'Видео',
+    path: '/video',
+  },
+  {
+    title: 'Заведение',
+    path: '/institution',
+  },
+  {
+    title: 'События',
+    path: '/events',
+  },
+  {
+    title: 'Новости',
+    path: '/news',
+  },
+  {
+    title: 'Контакты',
+    path: '/contacts',
+  },
+];
+
+export const Header = () => {
+  const [inputValue, setInputValue] = useState('');
   const [isOpen, setOpen] = useState<boolean>(false);
   const [inputVisible, setInputVisible] = useState<boolean>(false);
   const history = useNavigate();
   const location = useLocation();
-  const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
-  const dispatch = useAppDispatch()
-
+  const isHomePage = location.pathname !== '/' ? 'pointer' : 'initial';
+  const dispatch = useAppDispatch();
   if (isOpen) {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
   } else {
-    document.body.style.overflow = "visible";
+    document.body.style.overflow = 'visible';
   }
-
-  const navItems:INavItems[] = [
-    {
-      title: "Фото",
-      path: "/photo",
-    },
-    {
-      title: "Видео",
-      path: "/video",
-    },
-    {
-      title: "Заведение",
-      path: "/institution",
-    },
-    {
-      title: "События",
-      path: "/events",
-    },
-    {
-      title: "Новости",
-      path: "/news",
-    },
-    {
-      title: "Контакты",
-      path: "/contacts",
-    },
-  ];
-
-  const logOutBtn = ()=>{
-    dispatch(logOut())
-    history('/')
-  }
+  //
+  // const logOutBtn = ()=>{
+  //   dispatch(logOut())
+  //   history('/')
+  // }
 
   return (
     <header className={classes.headerWrapper}>
@@ -62,7 +62,7 @@ const Header = () => {
         <div
           className={classes.headerLogo}
           onClick={() => {
-            isHomePage && (history("/"), setOpen(false));
+            isHomePage && (history('/'), setOpen(false));
           }}
           style={{
             cursor: `${isHomePage}`,
@@ -73,23 +73,21 @@ const Header = () => {
 
         <nav>
           <ul className={classes.headerNav}>
-            {localStorage.getItem('token') ? 
-            <button className={classes.logOut_btn} onClick={()=>logOutBtn()}>Выйти</button>
-             :
-               <NavItems  navItems={navItems} /> }
-           
-           
-          
+            {/*{localStorage.getItem('token') ? */}
+            {/*<button className={classes.logOut_btn} onClick={()=>logOutBtn()}>Выйти</button>*/}
+            {/* :*/}
+            <NavItems navItems={navItems} />
           </ul>
-          <SearchBtn onClick={() => setInputVisible(!inputVisible)} className={classes.navSearchBtn} />
+          <SearchBtn
+            onClick={() => setInputVisible(!inputVisible)}
+            className={classes.navSearchBtn}
+          />
           <div
-            className={someClasses([
-              classes.headerMenuBtn,
-              `${isOpen ? classes.activeMenu : ""} `,
-            ])}
+            className={`${classes.headerMenuBtn}
+             ${isOpen ? classes.activeMenu : ''}`}
             onClick={() => setOpen(!isOpen)}
           >
-            <span></span>
+            <span />
           </div>
         </nav>
 

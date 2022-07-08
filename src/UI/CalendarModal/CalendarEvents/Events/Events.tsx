@@ -1,43 +1,59 @@
 import React, { FC, useState } from "react";
-import { IPhotos } from "../../../../pages/PhotoPage/components/PhotoMain/interfaces";
 import eyeIcon from "../../../../assets/icons/eye.svg";
 import pictureIcon from "../../../../assets/icons/picture.svg";
 import styles from "./Events.module.css";
 import Gallery from "../../../Gallery/GalleryModal/GalleryModal";
-interface EventsProps {
-  events: IPhotos[];
+import { useAppSelector } from "../../../../app/hooks";
+import { IPhoto, IPhotos } from "../../../../types/apiTypes/photo";
+import GalleryModal from "../../../Gallery/GalleryModal/GalleryModal";
+import NewGallery from "../../../NewGallery/NewGallery";
+
+ export interface CurrentEventProps {
+  photos:IPhoto[] ;
+  establishment: string ;
+  event:string ;
 }
-const Events: FC<EventsProps> = ({ events }) => {
+
+const Events: FC = ({}) => {
   const [galleryModal, setGalleryModal] = useState(false);
   const toggleGalleryModal = () => setGalleryModal(!galleryModal)
 
-  const [currentEvent, setCurrentEvent] = useState<IPhotos>({});
+  const [currentEvent, setCurrentEvent] = useState<CurrentEventProps | null>(null)
 
   const onClickEvent = (event: IPhotos) => {
-    setCurrentEvent(event)
-    toggleGalleryModal()
-    console.log(event)
+    
+    const data= {
+      photos: event.photos!,
+      establishment:event.establishment.name!,
+      event:event.eventName!
+    }
+    setCurrentEvent(data)
+    setGalleryModal(true)
+
   };
-  return (
+
+  const filterData: IPhotos[] = useAppSelector(state => state.photos.filterPhoto)
+
+   return (
     <>
-      {events.map((event, i) => (
-        <div className={styles.establishment} key={i}>
+      {filterData?.map((event, i) => (
+        <div onClick={() => onClickEvent(event)} className={styles.establishment} key={i}>
           <img
-            src={event.link}
-            onClick={() => onClickEvent(event)}
+            src={event.photos[0]?.url}
+
             className={styles.establishment_image}
             alt=""
           />
           <div className={styles.establishment_info}>
-            <h3 className={styles.establishment_info_title}>{event.name}</h3>
-            <p className={styles.establishment_info_text}>{event.partyName}</p>
+            <h3 className={styles.establishment_info_title}>{event.establishment.name}</h3>
+            <p className={styles.establishment_info_text}>{event.eventName}</p>
             <div className={styles.establishment_info_footer}>
               <div className={styles.establishment_info_footer_numbers}>
                 <div className={styles.establishment_info_footer_views}>
                   <img src={eyeIcon} alt="" /> <p>{event.views}</p>
                 </div>
                 <div className={styles.establishment_info_footer_photos}>
-                  <img src={pictureIcon} alt="" /> <p>{event.photos}</p>
+                  <img src={pictureIcon} alt="" /> <p>{event.photos.length}</p>
                 </div>
               </div>
 
@@ -48,7 +64,13 @@ const Events: FC<EventsProps> = ({ events }) => {
           </div>
         </div>
       ))}
-      {galleryModal && <Gallery currentEvent={currentEvent} galleryModal={galleryModal} toggleGalleryModal={toggleGalleryModal}/>}
+      {/* {galleryModal && <Gallery currentEvent={currentEvent!} galleryModal={galleryModal} toggleGalleryModal={toggleGalleryModal}/>} */}
+
+      {galleryModal && currentEvent &&
+        <NewGallery close={toggleGalleryModal} eventInfo={currentEvent}
+        />}
+
+
     </>
   );
 };
