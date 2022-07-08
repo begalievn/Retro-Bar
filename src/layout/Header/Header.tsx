@@ -1,55 +1,54 @@
-import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-import classes from "./Header.module.css";
-import { ReactComponent as LogoIcon } from "../../assets/header/logo.svg";
-import { BurgerMenu, NavItem, NavItems } from "./components";
-import { SearchBtn, InputSearch } from "../../UI";
-import { someClasses } from "../../utils/someClasses";
-import { INavItems } from "../../types/headerTypes/headerTypes";
-import { useAppDispatch } from "../../app/hooks";
-import { logOut } from "../../store/authorization/AuthFunc";
-import { getSearch } from "../../apis/getSearch";
+import classes from './Header.module.css';
+import { ReactComponent as LogoIcon } from '../../assets/header/logo.svg';
+import { BurgerMenu, NavItem, NavItems } from './components';
+import { SearchBtn, InputSearch } from '../../UI';
+import { someClasses } from '../../utils/someClasses';
+import { INavItems } from '../../types/headerTypes/headerTypes';
+import { useAppDispatch } from '../../app/hooks';
+import { logOut } from '../../store/authorization/AuthFunc';
 
 const navItems: INavItems[] = [
   {
-    title: "Фото",
-    path: "/photo",
+    title: 'Фото',
+    path: '/photo',
   },
   {
-    title: "Видео",
-    path: "/video",
+    title: 'Видео',
+    path: '/video',
   },
   {
-    title: "Заведение",
-    path: "/institution",
+    title: 'Заведение',
+    path: '/institution',
   },
   {
-    title: "События",
-    path: "/events",
+    title: 'События',
+    path: '/events',
   },
   {
-    title: "Новости",
-    path: "/news",
+    title: 'Новости',
+    path: '/news',
   },
   {
-    title: "Контакты",
-    path: "/contacts",
+    title: 'Контакты',
+    path: '/contacts',
   },
 ];
 
 export const Header = () => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [isOpen, setOpen] = useState<boolean>(false);
   const [inputVisible, setInputVisible] = useState<boolean>(false);
   const history = useNavigate();
   const location = useLocation();
-  const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
+  const isHomePage = location.pathname !== '/' ? 'pointer' : 'initial';
   const dispatch = useAppDispatch();
   if (isOpen) {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
   } else {
-    document.body.style.overflow = "visible";
+    document.body.style.overflow = 'visible';
   }
   //
   // const logOutBtn = ()=>{
@@ -57,27 +56,13 @@ export const Header = () => {
   //   history('/')
   // }
 
-  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-  let time: any;
-  const keyUpHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-    time = setTimeout(() => {
-      dispatch(getSearch(inputValue));
-    }, 2000);
-  };
-
-  const keydownHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-    clearTimeout(time);
-  };
-
   return (
     <header className={classes.headerWrapper}>
       <div className={classes.headerBlock}>
         <div
           className={classes.headerLogo}
           onClick={() => {
-            isHomePage && (history("/"), setOpen(false));
+            isHomePage && (history('/'), setOpen(false));
           }}
           style={{
             cursor: `${isHomePage}`,
@@ -99,7 +84,7 @@ export const Header = () => {
           />
           <div
             className={`${classes.headerMenuBtn}
-             ${isOpen ? classes.activeMenu : ""}`}
+             ${isOpen ? classes.activeMenu : ''}`}
             onClick={() => setOpen(!isOpen)}
           >
             <span />
@@ -109,13 +94,7 @@ export const Header = () => {
         {isOpen && <BurgerMenu navItems={navItems} setOpen={setOpen} />}
         {inputVisible && (
           <div className={classes.headerSearch}>
-            <InputSearch
-              placeholder="поиск"
-              onChange={inputHandler}
-              value={inputValue}
-              onKeyUp={keyUpHandler}
-              onKeyDown={keydownHandler}
-            />
+            <InputSearch placeholder="поиск" />
           </div>
         )}
       </div>

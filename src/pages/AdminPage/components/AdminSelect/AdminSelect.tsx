@@ -5,7 +5,7 @@ import {
   AdminPageTypes,
   PhotoCard,
   VideoCard,
-} from "../../../types/adminPage/adminPage";
+} from "../../../../types/adminPage/adminPage";
 
 interface AdminSelectProps {
   options: any;
