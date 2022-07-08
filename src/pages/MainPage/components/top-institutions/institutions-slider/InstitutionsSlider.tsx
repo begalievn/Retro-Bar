@@ -12,9 +12,10 @@ import rightPhoto from '../../../../../assets/mainPage/top-inst-right-photo.png'
 import photoOfBar from '../../../../../assets/mainPage/top-inst-photo-of-bar.png';
 
 import classes from './instSlider.module.css';
+import { IPhoto } from '../../../../../types/apiTypes/photo';
 
 export interface TopInstCardsType {
-  photo?: string;
+  image?: IPhoto;
   title: string;
   time: string;
   phone: string;
@@ -66,6 +67,7 @@ interface TopInstCardsProps {
 const InstitutionsSlider: FC<TopInstCardsProps> = ({ cardsData }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [slideCards, setSlideCards] = useState<TopInstCardsType[]>([]);
+  console.log('Cardsdata', cardsData);
 
   useEffect(() => {
     let cardsArr: TopInstCardsType[] = [];
@@ -107,6 +109,16 @@ const InstitutionsSlider: FC<TopInstCardsProps> = ({ cardsData }) => {
     onSwipedRight: () => prev(),
   });
 
+  console.log(
+    {
+      hiddenLeftIndex,
+      leftIndex,
+      activeIndex,
+      rightIndex,
+      hiddenRightIndex,
+    },
+    cardsData
+  );
   return (
     <div className={classes.container}>
       <div className={classes.carousel}>
