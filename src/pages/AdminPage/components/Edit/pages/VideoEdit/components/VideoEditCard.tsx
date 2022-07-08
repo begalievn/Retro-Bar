@@ -55,9 +55,6 @@ const VideoEditCard: FC<VideoPropsType> = ({ item }) => {
             variant="body2"
             color="text.secondary"
           >
-            {/* <span>
-              Url: <strong>{item.url}</strong>
-            </span> */}
             <span>
               EventName: <strong>{item.eventName}</strong>{" "}
             </span>
@@ -120,7 +117,6 @@ const VideoEditCard: FC<VideoPropsType> = ({ item }) => {
               id="standard-basic"
               variant="standard"
             />
-
             <Button
               onClick={() => {
                 editVideoCard();

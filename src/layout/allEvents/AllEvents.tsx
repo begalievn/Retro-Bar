@@ -21,7 +21,7 @@ const AllEvents: FC = () => {
 
   let {
     data: photos
-  } = photoAPI.useFetchAllContactsQuery(4);
+  } = photoAPI.useFetchAllPhotosQuery(4);
  
   
   return (
