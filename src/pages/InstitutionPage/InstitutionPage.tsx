@@ -38,7 +38,7 @@ const InstitutionPage = () => {
     error,
     isLoading: isEstablishmentsLoading,
   } = establishmentsAPI.useFetchAllEstablishmentsQuery('');
-
+  console.log(establishments);
   return (
     <div className={styles.back}>
       <CalendarIcon />

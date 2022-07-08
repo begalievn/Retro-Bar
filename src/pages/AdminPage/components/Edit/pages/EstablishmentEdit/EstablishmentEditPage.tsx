@@ -13,7 +13,7 @@ const EstablishmentEditPage = () => {
     isLoading,
     refetch,
   } = establishmentsAPI.useFetchAllEstablishmentsQuery("");
-  let array = establishments?.establishments;
+  const array: IEstablishment[] = establishments?.establishments;
   return (
     <>
         <LinkNavs />

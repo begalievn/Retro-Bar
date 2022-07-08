@@ -1,6 +1,8 @@
+import { IPhoto } from '../apiTypes/photo';
+
 export interface InstitudeCardDataTypes {
   id: number;
-  photo?: string;
+  photo?: IPhoto;
   logo: string;
   title: string;
   instType?: string;
@@ -14,6 +16,6 @@ export interface InstitudeCardDataTypes {
   stars?: number;
   isActive: boolean;
   isContentBlack: boolean;
-  kitchenType: string;
-  rate: number;
+  kitchenType?: string;
+  rate?: string;
 }

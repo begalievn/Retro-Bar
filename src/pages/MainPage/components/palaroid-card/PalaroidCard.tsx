@@ -1,11 +1,12 @@
 import React from 'react';
 
 import cardImage from '../../../../assets/mainPage/palaroid-card-image-active.png';
+import { IPhoto } from '../../../../types/apiTypes/photo';
 
 import classes from './palaroid-card.module.css';
 
 type Prop = {
-  image?: string;
+  image?: IPhoto;
   title: string;
   description: string;
   date: string;
@@ -19,13 +20,12 @@ const PalaroidCard = ({
   date = '',
   isActive = false,
 }: Prop) => {
-  console.log('Palaroid Card image', image);
   return (
     <div className={classes.palaroidCard}>
       <div className={classes.card_image}>
         <img
           style={isActive ? {} : { filter: 'grayscale(100%)' }}
-          src={image}
+          src={image?.url}
           alt="card image"
         />
       </div>

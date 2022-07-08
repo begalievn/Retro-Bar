@@ -5,7 +5,7 @@ export function getInstitudeSliderData(data: IEstablishment[]) {
   let result: InstitudeCardDataTypes[] = [];
   result = data.map((item) => ({
     id: item.id,
-    photo: item?.logo,
+    photo: item?.photos[0],
     logo: item.logo,
     title: item.name,
     instType: item?.category?.toString() || 'bar',
@@ -19,8 +19,8 @@ export function getInstitudeSliderData(data: IEstablishment[]) {
     stars: 4.5,
     isActive: false,
     isContentBlack: true,
-    kitchenType: item.kitchenType,
-    rate: item.rate,
+    kitchenType: item.kitchenType?.toString(),
+    rate: item.rate.toString() || '5',
   }));
 
   return result;
