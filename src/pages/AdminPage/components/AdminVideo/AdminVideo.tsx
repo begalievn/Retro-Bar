@@ -8,7 +8,6 @@ import {
   VideoCard,
 } from "../../../../types/adminPage/adminPage";
 import { useDispatch } from "react-redux";
-import { AdminApi } from "../../../../API/adminApi/adminApi";
 import {
   createAlert,
   deleteAlert,
