@@ -17,6 +17,7 @@ import { establishmentsAPI } from './features/establishments/establishmentsQuery
 import { photographersAPI } from './features/photographers/photographersQuery';
 import { photographersSlice } from './features/photographers/photographersSlice';
 import { advertisementsAPI } from './features/advertisement/advertisementsQuery';
+import { contactsAPI } from './features/contacts/contactsQuery';
 
 const rootreducer = combineReducers({
   AuthorizationSlice: AuthorizationSlice,
@@ -30,6 +31,7 @@ const rootreducer = combineReducers({
   [establishmentsAPI.reducerPath]: establishmentsAPI.reducer,
   [photographersAPI.reducerPath]: photographersAPI.reducer,
   [advertisementsAPI.reducerPath]: advertisementsAPI.reducer,
+  [contactsAPI.reducerPath]: contactsAPI.reducer,
 });
 
 export const store = configureStore({
@@ -40,7 +42,8 @@ export const store = configureStore({
       videoAPI.middleware,
       establishmentsAPI.middleware,
       photographersAPI.middleware,
-      advertisementsAPI.middleware
+      advertisementsAPI.middleware,
+      contactsAPI.middleware
     ),
 });
 

@@ -10,6 +10,7 @@ import Grid from "@mui/material/Grid";
 import { Container } from "@mui/system";
 import { Link, useNavigate } from "react-router-dom";
 import { IFooterItems, IIcons } from "../../types/footerTypes/footerTypes";
+import { contactsAPI } from "../../store/features/contacts/contactsQuery";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -78,7 +79,7 @@ const Footer = () => {
     console.log(name);
   }
   function scrollTop(): void {
-    // window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   return (

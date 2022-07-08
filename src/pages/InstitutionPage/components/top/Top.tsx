@@ -16,7 +16,36 @@ import topgeotag from '../../../../assets/institution/top/topPlaceInfo/topgeotag
 import topphone from '../../../../assets/institution/top/topPlaceInfo/topphone.svg'
 
 
-function Top() {
+export type TopProps = 
+{
+
+ data: {
+    title:string,
+    workingHours:string,
+    phoneNumber:string,
+    adress:string,
+    leftBlockPhotoLeft:string,
+    leftBlockPhotoRight:string,
+    rightBlockPhoto:string,
+  
+  
+  }
+}
+
+
+
+function Top({data}:TopProps) {
+
+const {
+   title,
+  workingHours,
+  phoneNumber,
+  adress,
+  leftBlockPhotoLeft,
+  leftBlockPhotoRight,
+  rightBlockPhoto,
+} = data 
+
   return (
     <section className={styles.top}>
       <div className={styles.titleBlock}>
@@ -30,18 +59,18 @@ function Top() {
           <img className={styles.topFilm1} src={film1} alt="" />
           <div className={styles.film1ImageBlock1}>
             <h3 className={styles.infoTitle}
-            >MINIBAR</h3>
+            >{title}</h3>
             <div className={styles.infoRow}>
               <img className={styles.icon} src={topclock} alt="" />
-              <p className={styles.infoRowText}>18:00-06:00</p>
+              <p className={styles.infoRowText}>{workingHours}</p>
             </div>
             <div className={styles.infoRow}>
               <img className={styles.icon} src={topphone} alt="" />
-              <p className={styles.infoRowText}>0 558 55 00 00</p>
+              <p className={styles.infoRowText}>{phoneNumber}</p>
             </div>
             <div className={styles.infoRow}>
               <img className={styles.icon} src={topgeotag} alt="" />
-              <p className={styles.infoRowText}>Чынгыза Айтматова, 56</p>
+              <p className={styles.infoRowText}>{adress}</p>
 
             </div>
             <img className={styles.film1Image1} src={film1Image1} alt="" />

@@ -18,18 +18,18 @@ interface EstabPropsType {
 }
 
 const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
-  const [logo, setLogo] = React.useState(item?.logo);
-  const [name, setName] = React.useState(item?.name);
-  const [description, setDescription] = React.useState(item?.description);
-  const [workingHours, setWhours] = React.useState(item?.workingHours);
-  const [contacts, setContacts] = React.useState(item?.contacts);
-  const [category, setCategory] = React.useState(item?.category);
-  const [kitchenType, setKitchenType] = React.useState(item?.kitchenType);
-  const [services, setServices] = React.useState(item?.services);
-  const [link, setLink] = React.useState(item?.link);
-  const [location, setLocation] = React.useState(item?.location);
-  const [rate, setRate] = React.useState(item?.rate);
-  const [show, setShow] = React.useState(false);
+  const [logo, setLogo] = React.useState<string>(item?.logo);
+  const [name, setName] = React.useState<string>(item?.name);
+  const [description, setDescription] = React.useState<string>(item?.description);
+  const [workingHours, setWhours] = React.useState<number|string>(item?.workingHours);
+  const [contacts, setContacts] = React.useState<number|string>(item?.contacts);
+  const [category, setCategory] = React.useState<null|string|number>(item?.category);
+  const [kitchenType, setKitchenType] = React.useState<null|string>(item?.kitchenType);
+  const [services, setServices] = React.useState<null|string>(item?.services);
+  const [link, setLink] = React.useState<null|string>(item?.link);
+  const [location, setLocation] = React.useState<null|string>(item?.location);
+  const [rate, setRate] = React.useState<number|string>(item?.rate);
+  const [show, setShow] = React.useState<boolean>(false);
   const [deleteEstablishment, {}] =
     establishmentsAPI.useDeleteEstablishmentMutation();
   const [editEstablishments, {}] =
@@ -79,7 +79,7 @@ const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
           image={item.logo}
           alt="photos"
         />
-        <CardContent sx={{ maxHeight: "270px" }}>
+        <CardContent sx={{ height: "210px" }}>
           <Typography
             className={classes.details}
             variant="body2"

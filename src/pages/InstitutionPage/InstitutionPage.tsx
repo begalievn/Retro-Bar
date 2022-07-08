@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './InstitutionPage.module.css';
-import Top from './components/top/Top';
+import Top, { TopProps } from './components/top/Top';
 import Book from '../../UI/Book/Book';
 import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
 import star from '../../assets/institution/star.svg';
@@ -20,6 +20,19 @@ import { getAdvertisementData } from '../../utils/helpers/getAdvertisementData';
 //   title: 'Зaказать съёмку',
 //   image: 'https://picsum.photos/1000',
 // };
+
+let topData: TopProps['data'] = {
+  
+  title:'string',
+  workingHours:'string',
+  phoneNumber:'string',
+  adress:'string',
+  leftBlockPhotoLeft:'string',
+  leftBlockPhotoRight:'string',
+  rightBlockPhoto:'string',
+
+
+}
 
 const InstitutionPage = () => {
   const {
@@ -48,9 +61,9 @@ const InstitutionPage = () => {
             <a href="/events">Локация</a>
           </div>
         </section>
-        <Top />
+        <Top data={topData} />
         {isEstablishmentsLoading ? (
-          <div>Loading</div>
+          <div>Loading...</div>
         ) : (
           <InstitutesSlider
             data={getInstitudeSliderData(establishments.establishments)}

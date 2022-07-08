@@ -1,59 +1,57 @@
-import React, { FC, useEffect, useState } from 'react';
-import phoneIcon from '../../assets/contactsPage/phone.svg';
-import whatsAppIcon from '../../assets/contactsPage/WhatsApp.svg';
-import mailIcon from '../../assets/contactsPage/mail.svg';
+import React, { FC, useEffect, useState } from "react";
+import phoneIcon from "../../assets/contactsPage/phone.svg";
+import whatsAppIcon from "../../assets/contactsPage/WhatsApp.svg";
+import mailIcon from "../../assets/contactsPage/mail.svg";
 
-import photo1 from '../../assets/contactsPage/img/photo1.png';
-import photo2 from '../../assets/contactsPage/img/photo2.png';
-import photo3 from '../../assets/contactsPage/img/photo3.png';
+import photo1 from "../../assets/contactsPage/img/photo1.png";
+import photo2 from "../../assets/contactsPage/img/photo2.png";
+import photo3 from "../../assets/contactsPage/img/photo3.png";
 
-import carousel1 from '../../assets/contactsPage/border/carousel1.png';
-import carousel2 from '../../assets/contactsPage/border/carousel2.png';
-import carousel3 from '../../assets/contactsPage/border/carousel3.png';
+import carousel1 from "../../assets/contactsPage/border/carousel1.png";
+import carousel2 from "../../assets/contactsPage/border/carousel2.png";
+import carousel3 from "../../assets/contactsPage/border/carousel3.png";
 
-import mainBack from '../../assets/contactsPage/polaroid.png';
-import mainImage from '../../assets/contactsPage/img/mainImage.png';
+import mainBack from "../../assets/contactsPage/polaroid.png";
+import mainImage from "../../assets/contactsPage/img/mainImage.png";
 
-import tape from '../../assets/contactsPage/border/tape.png';
+import tape from "../../assets/contactsPage/border/tape.png";
 
-import classes from './style.module.css';
-import TextBlock from './TextBlock';
-import { IImageArr } from '../../types/contactsPageTypes/contactsPageTypes';
-import { photoAPI } from '../../store/features/photos/photoQuery';
+import classes from "./style.module.css";
+import TextBlock from "./TextBlock";
+import { IImageArr } from "../../types/contactsPageTypes/contactsPageTypes";
+import { contactsAPI } from "../../store/features/contacts/contactsQuery";
+import { IContacts } from "../../types/apiTypes/contacts";
 
 const ContactsPage: FC = () => {
-  const [limit, setLimit] = useState(4);
-  const [dat, setDate] = useState(false);
-  let {
-    data: photos,
+  const {
+    data: contacts,
     error,
     isLoading,
     refetch,
-  } = photoAPI.useFetchAllContactsQuery(limit);
-
+  } = contactsAPI.useFetchAllContactsQuery("");
+  const array = contacts?.contacts;
   const [frameArr, setFrameArr] = useState<IImageArr[]>([]);
-
   useEffect(() => {
     setFrameArr([
       {
         frame: mainBack,
         id: 1,
-        photo: photos?.photoCards[0].photos[0]?.url,
+        photo: contacts?.contacts[0].photo,
       },
       {
         frame: carousel1,
         id: 2,
-        photo: photos?.photoCards[1].photos[0]?.url,
+        photo: contacts?.contacts[1]?.photo,
       },
       {
         frame: carousel2,
         id: 3,
-        photo: photos?.photoCards[2].photos[0]?.url,
+        photo: contacts?.contacts[2]?.photo,
       },
       {
         frame: carousel3,
         id: 4,
-        photo: photos?.photoCards[3].photos[0]?.url,
+        photo: contacts?.contacts[3]?.photo,
       },
     ]);
   }, [isLoading]);
@@ -74,8 +72,8 @@ const ContactsPage: FC = () => {
       <div className={classes.container}>
         <div className={classes.mainDiv}>
           <div className={classes.text_responsive}>
-            {' '}
-            <TextBlock />
+            {" "}
+            <TextBlock array={array} />
           </div>
 
           <div className={classes.image_block}>
@@ -86,7 +84,7 @@ const ContactsPage: FC = () => {
                 frameArr.map((item, index) => (
                   <div className={classes.imageFrame} key={item.id}>
                     <img
-                      className={index > 0 ? classes.smallImageFrame : ''}
+                      className={index > 0 ? classes.smallImageFrame : ""}
                       src={item.frame}
                       alt=""
                     />
@@ -107,31 +105,35 @@ const ContactsPage: FC = () => {
 
           <div className={classes.text_block}>
             <div className={classes.text_block_desktop}>
-              <TextBlock />
+              <TextBlock array={array} />
             </div>
             <h3
               style={{
-                color: '#ffb03b',
-                marginTop: '30px',
-                fontSize: '20px',
+                color: "#ffb03b",
+                marginTop: "30px",
+                fontSize: "20px",
               }}
             >
               Заказ фото/видео репортажа:
             </h3>
-            <div className={classes.information}>
-              <div>
-                <img src={phoneIcon} alt="" />
-                <a href="#">0 558 55 00 00</a>
+            {array?.map((item: IContacts) => (
+              <div key={item.id} className={classes.information}>
+                <div>
+                  <img src={phoneIcon} alt="" />
+                  <a href="#">{item.phoneNumber}</a>
+                </div>
+                <div>
+                  <img src={whatsAppIcon} alt="" />
+                  <a href="#">{item.phoneNumber}</a>
+                </div>
+                <div>
+                  <img src={mailIcon} alt="" />
+                  <a target="_blank" href="https://mail.google.com/">
+                    {item.mail}
+                  </a>
+                </div>
               </div>
-              <div>
-                <img src={whatsAppIcon} alt="" />
-                <a href="#">0 778 55 00 00</a>
-              </div>
-              <div>
-                <img src={mailIcon} alt="" />
-                <a target='_blank' href="https://mail.google.com/">info@foodzero.com</a>
-              </div>
-            </div>
+            ))}
           </div>
           <div></div>
         </div>

@@ -16,10 +16,10 @@ interface PhotoPropsType {
 }
 
 const EditCards: React.FC<PhotoPropsType> = ({ item }) => {
-  const [eventName, setEventName] = React.useState(item?.eventName);
-  const [views, setViews] = React.useState(+item?.views);
-  const [date, setDate] = React.useState(item?.date);
-  const [show, setShow] = React.useState(false);
+  const [eventName, setEventName] = React.useState<string>(item?.eventName);
+  const [views, setViews] = React.useState<number>(+item?.views);
+  const [date, setDate] = React.useState<string>(item?.date);
+  const [show, setShow] = React.useState<boolean>(false);
   const [deletePhoto, {}] = photoAPI.useDeletePhotoMutation();
   const [editPhoto, {}] = photoAPI.useEditPhotoMutation();
   const photoArray = item?.photos;
@@ -36,7 +36,6 @@ const EditCards: React.FC<PhotoPropsType> = ({ item }) => {
   function scrollTop(): void {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
-  console.log(item)
   return (
     <>
       <Card className={classes.cards} key={item.id}>
