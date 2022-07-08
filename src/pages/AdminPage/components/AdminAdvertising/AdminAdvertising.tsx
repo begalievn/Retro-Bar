@@ -1,4 +1,4 @@
-import React, { ReactHTML, useState } from "react";
+import React, {ReactHTML, useEffect, useState} from "react";
 import classes from "../../AdminPage.module.css";
 import { Button } from "../../../../UI";
 import { Advertisement } from "../../../../types/adminPage/adminPage";
@@ -13,13 +13,21 @@ import { advertisementsAPI } from "../../../../store/features/advertisement/adve
 import { getFormData } from "../../../../utils/helpers/createFormData";
 import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
 import { startTimer } from "../../../../utils/helpers/timer";
+import Loader from "../../../../UI/Loader/Loader";
 
 const AdminAdvertising = () => {
-  const [inputValue, setInputValue] = useState<Advertisement>({});
-  const [createAd, { isSuccess }] =
-    advertisementsAPI.useCreateAdvertisementsMutationMutation();
   const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState<Advertisement>({});
+  const [createAd, { isSuccess, isLoading }] =
+    advertisementsAPI.useCreateAdvertisementsMutationMutation();
 
+  useEffect(() => {
+    setInputValue({});
+  }, [isSuccess]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -45,6 +53,7 @@ const AdminAdvertising = () => {
         dispatch(createAlert({ message: e.data.message, type: "error" }));
         startTimer(dispatch, deleteAlert);
       });
+
   };
 
   return (

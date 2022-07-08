@@ -8,7 +8,6 @@ import AdminContacts from "./AdminContacts/AdminContacts";
 import AdminPhoto from "./AdminPhoto/AdminPhoto";
 import AdminAdvertising from "./AdminAdvertising/AdminAdvertising";
 import DropFileInput from "./DropFileInput/DropFileInput";
-import AdminFields from "./AdminFields/AdminFields";
 import Edit from "./Edit/pages/PhotoEdit/Edit";
 export {
   AdminInput,
@@ -20,6 +19,5 @@ export {
   AdminPhoto,
   AdminAdvertising,
   DropFileInput,
-  AdminFields,
   Edit,
 };

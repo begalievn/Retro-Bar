@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, {FC, useEffect, useState} from "react";
 import classes from "../../AdminPage.module.css";
 import DropFileInput from "../DropFileInput/DropFileInput";
 import { AdminInput } from "../index";
@@ -15,6 +15,7 @@ import {
 import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
 import { startTimer } from "../../../../utils/helpers/timer";
 import { posterAPI } from "../../../../store/features/poster/posterQuery";
+import Loader from "../../../../UI/Loader/Loader";
 
 interface AdminPosterProps {
   // isSuccess?: boolean;
@@ -23,9 +24,16 @@ interface AdminPosterProps {
 const AdminPoster: FC<AdminPosterProps> = ({}) => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState<Advertisement>({});
-  const [createPoster, { isSuccess }] =
+  const [createPoster, { isSuccess,isLoading }] =
     posterAPI.useCreatePosterMutationMutation();
 
+  useEffect(() => {
+    setInputValue({});
+  }, [isSuccess]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -51,8 +59,7 @@ const AdminPoster: FC<AdminPosterProps> = ({}) => {
         dispatch(createAlert({ message: e.data.message, type: "error" }));
         startTimer(dispatch, deleteAlert);
       });
-
-    isSuccess && setInputValue({});
+ ;
   };
 
   return (
