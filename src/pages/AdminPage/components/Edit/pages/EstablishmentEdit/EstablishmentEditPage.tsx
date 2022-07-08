@@ -16,7 +16,7 @@ const EstablishmentEditPage = () => {
   const array: IEstablishment[] = establishments?.establishments;
   return (
     <>
-        <LinkNavs />
+      <LinkNavs />
       <div className={classes.cardDiv}>
         {array?.map((item: IEstablishment) => (
           <EstablishmentCards key={item.id} item={item} />

@@ -12,5 +12,19 @@ export const advertisementsAPI = createApi({
       }),
       providesTags: ['Advertisements'],
     }),
+    createAdvertisementsMutation: build.mutation({
+      query: (ads) => ({
+        url: '/admin/advertisement',
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+              localStorage.getItem('accessToken') || '{}'
+          )}`,
+        },
+        body: ads
+      }),
+      invalidatesTags: ['Advertisements'],
+
+    }),
   }),
 });
