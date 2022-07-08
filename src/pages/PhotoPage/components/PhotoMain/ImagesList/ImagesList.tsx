@@ -33,7 +33,7 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
   }
   const onClickEvent = (item: IPhotosAnother) => {
    
-    if(item.link==='')  return false
+    if(item.link==='' || item.ad)  return false
       const data = {
         photos: item.photos!,
         establishment: item.name!,
