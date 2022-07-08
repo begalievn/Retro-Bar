@@ -18,12 +18,17 @@ import AdminTextarea from "../AdminTextarea/AdminTextarea";
 import { ReactComponent as LinkIcon } from "../../../../assets/adminPage/link.svg";
 import { ReactComponent as PlusIcon } from "../../../../assets/adminPage/plusIcon.svg";
 import { startTimer } from "../../../../utils/helpers/timer";
+import Loader from "../../../../UI/Loader/Loader";
 
 const AdminEstablishment = () => {
   const [inputValue, setInputValue] = useState<Establishment>({});
   const dispatch = useDispatch();
-  const [createEstablishmentCard, {}] =
+  const [createEstablishmentCard, { isLoading }] =
     establishmentsAPI.useCreateEstablishmentCardMutation();
+  if (isLoading) {
+    return <Loader />;
+  }
+
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {

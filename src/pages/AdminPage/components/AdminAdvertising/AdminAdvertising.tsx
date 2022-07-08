@@ -13,13 +13,16 @@ import { advertisementsAPI } from "../../../../store/features/advertisement/adve
 import { getFormData } from "../../../../utils/helpers/createFormData";
 import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
 import { startTimer } from "../../../../utils/helpers/timer";
+import Loader from "../../../../UI/Loader/Loader";
 
 const AdminAdvertising = () => {
   const [inputValue, setInputValue] = useState<Advertisement>({});
-  const [createAd, { isSuccess }] =
+  const [createAd, { isSuccess, isLoading }] =
     advertisementsAPI.useCreateAdvertisementsMutationMutation();
   const dispatch = useDispatch();
-
+  if (isLoading) {
+    return <Loader />;
+  }
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {

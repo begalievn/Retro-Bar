@@ -22,6 +22,7 @@ import AdminSelect from "../AdminSelect/AdminSelect";
 import { useAppSelector } from "../../../../app/hooks";
 import { ReactComponent as LinkIcon } from "../../../../assets/adminPage/link.svg";
 import { startTimer } from "../../../../utils/helpers/timer";
+import Loader from "../../../../UI/Loader/Loader";
 
 const AdminVideo = () => {
   const dispatch = useDispatch();
@@ -31,9 +32,12 @@ const AdminVideo = () => {
   });
   const [createVideoCard, { isLoading }] =
     videoAPI.useCreateVideoCardMutation();
-
   let establishments = useAppSelector((state) => state.establishments.value);
   let photographers = useAppSelector((state) => state.photographers.value);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const inputHandler = (
     e: React.ChangeEvent<

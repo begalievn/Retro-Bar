@@ -22,13 +22,15 @@ import { ReactComponent as InstagramIcon } from "../../../../assets/adminPage/in
 import { ReactComponent as TelegramIcon } from "../../../../assets/adminPage/telegram.svg";
 import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
 import { contactsAPI } from "../../../../store/features/contacts/contactsQuery";
+import Loader from "../../../../UI/Loader/Loader";
 
 const AdminContacts = () => {
   const [inputValue, setInputValue] = useState<Contacts>({});
   const dispatch = useDispatch();
-
-  const [createContact, {}] = contactsAPI.useCreateContactMutation();
-
+  const [createContact, { isLoading }] = contactsAPI.useCreateContactMutation();
+  if (isLoading) {
+    return <Loader />;
+  }
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -43,7 +45,6 @@ const AdminContacts = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { formData } = getFormData(inputValue as Contacts);
-    console.log("value", inputValue);
     await createContact(formData)
       .unwrap()
       .then(() => {

@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import classes from "../../AdminPage.module.css";
-import { IField, PhotoCard } from "../../../../types/adminPage/adminPage";
+import { PhotoCard } from "../../../../types/adminPage/adminPage";
 import { Button } from "../../../../UI";
 import DropFileInput from "../DropFileInput/DropFileInput";
-import { establishmentsAPI } from "../../../../store/features/establishments/establishmentsQuery";
 import { photoAPI } from "../../../../store/features/photos/photoQuery";
 import { getFormData } from "../../../../utils/helpers/createFormData";
 import {
@@ -14,12 +13,10 @@ import {
 } from "../../../../store/alertSlice/alertSlice";
 import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
 import { AdminInput } from "../index";
-import { photographersAPI } from "../../../../store/features/photographers/photographersQuery";
 import AdminSelect from "../AdminSelect/AdminSelect";
 import { useAppSelector } from "../../../../app/hooks";
 import { startTimer } from "../../../../utils/helpers/timer";
-
-import { ReactComponent as LinkIcon } from "../../../../assets/adminPage/link.svg";
+import Loader from "../../../../UI/Loader/Loader";
 
 const AdminPhoto = () => {
   const dispatch = useDispatch();
@@ -27,9 +24,14 @@ const AdminPhoto = () => {
     establishmentId: "",
     photographerId: "",
   });
-  const [createPhotoCard, {}] = photoAPI.useCreatePhotoCardMutation();
+  const [createPhotoCard, { isLoading }] =
+    photoAPI.useCreatePhotoCardMutation();
   let establishments = useAppSelector((state) => state.establishments.value);
   let photographers = useAppSelector((state) => state.photographers.value);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const inputHandler = (
     e: React.ChangeEvent<

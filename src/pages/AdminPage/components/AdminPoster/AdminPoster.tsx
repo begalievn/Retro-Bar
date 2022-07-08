@@ -15,6 +15,7 @@ import {
 import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
 import { startTimer } from "../../../../utils/helpers/timer";
 import { posterAPI } from "../../../../store/features/poster/posterQuery";
+import Loader from "../../../../UI/Loader/Loader";
 
 interface AdminPosterProps {
   // isSuccess?: boolean;
@@ -23,9 +24,11 @@ interface AdminPosterProps {
 const AdminPoster: FC<AdminPosterProps> = ({}) => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState<Advertisement>({});
-  const [createPoster, { isSuccess }] =
+  const [createPoster, { isSuccess,isLoading }] =
     posterAPI.useCreatePosterMutationMutation();
-
+  if (isLoading) {
+    return <Loader />;
+  }
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
