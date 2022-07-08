@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import classes from "../../AdminPage.module.css";
 
@@ -22,6 +22,7 @@ import AdminSelect from "../AdminSelect/AdminSelect";
 import { useAppSelector } from "../../../../app/hooks";
 import { ReactComponent as LinkIcon } from "../../../../assets/adminPage/link.svg";
 import { startTimer } from "../../../../utils/helpers/timer";
+import Loader from "../../../../UI/Loader/Loader";
 
 const AdminVideo = () => {
   const dispatch = useDispatch();
@@ -29,11 +30,18 @@ const AdminVideo = () => {
     establishmentId: "",
     photographerId: "",
   });
-  const [createVideoCard, { isLoading }] =
+  const [createVideoCard, { isLoading, isSuccess }] =
     videoAPI.useCreateVideoCardMutation();
-
   let establishments = useAppSelector((state) => state.establishments.value);
   let photographers = useAppSelector((state) => state.photographers.value);
+
+  useEffect(() => {
+    setInputValue({});
+  }, [isSuccess]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const inputHandler = (
     e: React.ChangeEvent<
@@ -71,6 +79,7 @@ const AdminVideo = () => {
         <div className={classes.adminContent}>
           <div>
             <DropFileInput
+              required={true}
               type={"video"}
               children={"Добавить превью для видео"}
               setInputValue={setInputValue}

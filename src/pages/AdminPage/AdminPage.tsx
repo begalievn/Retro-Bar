@@ -11,6 +11,8 @@ import { photographersAPI } from "../../store/features/photographers/photographe
 import { useDispatch } from "react-redux";
 import { gettingEstablishments } from "../../store/features/establishments/establishmentsSlice";
 import { gettingPhotographers } from "../../store/features/photographers/photographersSlice";
+import { gettingCategory } from "../../store/features/category/categorySlice";
+import { categoryAPI } from "../../store/features/category/categoryQuery";
 
 const AdminPage = () => {
   const dispatch = useDispatch();
@@ -19,11 +21,13 @@ const AdminPage = () => {
     establishmentsAPI.useFetchAllEstablishmentsQuery("");
   const { data: photographersData = [], isLoading: isPhotographersLoading } =
     photographersAPI.useFetchAllPhotographersQuery("");
+  const { data: categoriesData } = categoryAPI.useFetchAllCategoryQuery("");
 
   useEffect(() => {
     dispatch(gettingEstablishments(establishmentsData.establishments));
     dispatch(gettingPhotographers(photographersData.photographers));
-  }, [photographersData, establishmentsData]);
+    dispatch(gettingCategory(categoriesData?.categories));
+  }, [photographersData, establishmentsData, categoriesData]);
 
   return (
     <div className={classes.adminWrapper}>
