@@ -26,7 +26,6 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
     count: [1, 2],
   });
 
-  console.log(eventInfo, 'evntInfo');
 
   const setCounter = (arr: Array<number>, pic: string) => {
     setSlideInfo((slideInfo) => {

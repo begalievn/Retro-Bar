@@ -16,24 +16,6 @@ import { advertisementsAPI } from '../../store/features/advertisement/advertisem
 import { getAdvertisementData } from '../../utils/helpers/getAdvertisementData';
 import { getTopInstCardData } from '../../utils/helpers/getTopInstCardData';
 
-// let bookData = {
-//   text: ' технологии достигли такого уровня, что перспективное планирование способствует.',
-//   title: 'Зaказать съёмку',
-//   image: 'https://picsum.photos/1000',
-// };
-
-let topData: TopProps['data'] = {
-  
-  title:'string',
-  time:'string',
-  phone:'string',
-  location:'string',
-  image:{created:'asd',id:1,url:"s"},
-  
-
-
-}
-
 
 
 const InstitutionPage = () => {
@@ -43,7 +25,6 @@ const InstitutionPage = () => {
     isLoading: isEstablishmentsLoading,
   } = establishmentsAPI.useFetchAllEstablishmentsQuery('');
   
-establishments && console.log(getTopInstCardData(establishments.establishments)[0],'DAAATAAA');
 
   const {
     data: advertisements,
@@ -51,7 +32,7 @@ establishments && console.log(getTopInstCardData(establishments.establishments)[
     isLoading: advertisementIsLoading,
   } = advertisementsAPI.useFetchAllAdvertisementsQuery('');
 
-  console.log(establishments,"estab");
+  
   return (
     <div className={styles.back}>
       <CalendarIcon />
