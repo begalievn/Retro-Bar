@@ -2,24 +2,15 @@ import React, { FC, useState } from "react";
 
 import classes from "./AdminEstablishment.module.css";
 import styles from "../../AdminPage.module.css";
-import {
-  AdminPageTypes,
-  Establishment,
-  IPageBody,
-  PhotoCard,
-} from "../../../../types/adminPage/adminPage";
-import ContactsComponent from "../ContactsComponent/ContactsComponent";
+import { Establishment } from "../../../../types/adminPage/adminPage";
 import AdminInput from "../AdminInput/AdminInput";
 import { useDispatch } from "react-redux";
-import { AdminApi } from "../../../../API/adminApi/adminApi";
 import {
   createAlert,
   deleteAlert,
 } from "../../../../store/alertSlice/alertSlice";
 import { Button } from "../../../../UI";
-import useDebounce from "../../../../hooks/useDebounce";
 import DropFileInput from "../DropFileInput/DropFileInput";
-import AdminFields from "../AdminFields/AdminFields";
 import { establishmentsAPI } from "../../../../store/features/establishments/establishmentsQuery";
 import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
 import { getFormData } from "../../../../utils/helpers/createFormData";

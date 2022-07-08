@@ -4,6 +4,8 @@ import classes from "../../AdminPage.module.css";
 import { Button } from "../../../../UI";
 import {
   AdminPageTypes,
+  Contacts,
+  Establishment,
   PhotoCard,
 } from "../../../../types/adminPage/adminPage";
 import { useDispatch } from "react-redux";
@@ -14,31 +16,12 @@ import {
 } from "../../../../store/alertSlice/alertSlice";
 import DropFileInput from "../DropFileInput/DropFileInput";
 import AdminFields from "../AdminFields/AdminFields";
-
-const fields = [
-  {
-    title: "О нас",
-    name: "AboutUs",
-    type: "textarea",
-    errorMessage: "О нас обязательное поле!",
-    required: true,
-  },
-  {
-    title: "Номер",
-    name: "number",
-    errorMessage: "Номер обязательное поле!",
-    required: true,
-  },
-  {
-    title: "Привязать номер",
-    name: "randomName",
-    errorMessage: "Привязать номер обязательное поле!",
-    required: true,
-  },
-];
+import { getFormData } from "../../../../utils/helpers/createFormData";
+import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
+import { startTimer } from "../../../../utils/helpers/timer";
 
 const AdminContacts = () => {
-  const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
+  const [inputValue, setInputValue] = useState<Contacts>({});
   const dispatch = useDispatch();
 
   const inputHandler = (
@@ -47,29 +30,29 @@ const AdminContacts = () => {
     if (e.target.toString().includes("TextArea")) {
       e.target.style.height = e.target.scrollHeight + "px";
     }
-    setInputValue((prevInputs: AdminPageTypes) => ({
+    setInputValue((prevInputs: Contacts) => ({
       ...prevInputs,
       [e.target.name]: e.target.value,
     }));
   };
-  const postHandler = () => {
-    AdminApi.addPhoto(inputValue as PhotoCard)
-      .then(() => {
-        dispatch(
-          createAlert({ message: "Успешно опубликовано", type: "success" })
-        );
-        setTimeout(() => dispatch(deleteAlert()), 2000);
-      })
-      .catch((e) => {
-        dispatch(
-          createAlert({ message: e.response.data.message, type: "error" })
-        );
-        setTimeout(() => dispatch(deleteAlert()), 2000);
-      });
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const { formData } = getFormData(inputValue as Establishment);
+    // console.log("value", inputValue);
+    // await createEstablishmentCard(formData)
+    //   .unwrap()
+    //   .then(() => {
+    //     dispatch(createAlert(alertBodySuccess));
+    //     startTimer(dispatch, deleteAlert);
+    //   })
+    //   .catch((e) => {
+    //     dispatch(createAlert({ message: e.data.message, type: "error" }));
+    //     startTimer(dispatch, deleteAlert);
+    //   });
   };
 
   return (
-    <form className={classes.generalBlock} onSubmit={postHandler}>
+    <form className={classes.generalBlock} onSubmit={handleSubmit}>
       <div className={classes.adminGeneralBlock}>
         <h3 className={classes.adminTitle}>Контакты</h3>
         <div className={classes.adminContent}>
@@ -78,11 +61,7 @@ const AdminContacts = () => {
             children={"Добавить картинки"}
             setInputValue={setInputValue}
           />
-          <AdminFields
-            fields={fields}
-            inputHandler={inputHandler}
-            inputValue={inputValue}
-          />
+
         </div>
         <div className={classes.buttonBlock}>
           <Button type={"submit"}>Опубликовать</Button>

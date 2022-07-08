@@ -80,4 +80,15 @@ export interface Establishment {
   rate?: string;
 }
 
+export interface Contacts {
+  photo?: object | null;
+  photoUrl?: string;
+  description?: string;
+  phoneNumber?: string;
+  link?: string;
+  telegram?: string;
+  youtube?: string;
+  mail?: string;
+  instagram?: string;
+}
 export type AdminPageTypes = PhotoCard | VideoCard | Establishment;
