@@ -14,7 +14,6 @@ import {
 } from "../../../../store/alertSlice/alertSlice";
 import DropFileInput from "../DropFileInput/DropFileInput";
 import AdminFields from "../AdminFields/AdminFields";
-import { contactsAPI } from "../../../../store/features/contacts/contactsQuery";
 
 const fields = [
   {
@@ -35,17 +34,12 @@ const fields = [
     name: "randomName",
     errorMessage: "Привязать номер обязательное поле!",
     required: true,
-  }
+  },
 ];
 
 const AdminContacts = () => {
   const [inputValue, setInputValue] = useState<AdminPageTypes | object>({});
   const dispatch = useDispatch();
-  const [createContact, {}] = contactsAPI.useCreateContactsMutation();
-
-  const handleCreate = async () => {
-    await createContact({ inputValue, body: inputValue });
-  };
 
   const inputHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -91,7 +85,7 @@ const AdminContacts = () => {
           />
         </div>
         <div className={classes.buttonBlock}>
-          <Button onClick={handleCreate} type={"submit"}>Опубликовать</Button>
+          <Button type={"submit"}>Опубликовать</Button>
         </div>
       </div>
     </form>

@@ -10,46 +10,45 @@ export const contactsAPI = createApi({
       query: () => ({
         url: `/contacts`,
       }),
-      providesTags: (result) => ["Contacts"],
+      providesTags: ["Contacts"],
     }),
     deleteContact: build.mutation({
-        query: (contact) => ({
-          url: `/admin/contact/${contact.id}`,
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${JSON.parse(
-              localStorage.getItem("accessToken") || "{}"
-            )}`,
-          },
-        }),
-        invalidatesTags: ["Contacts"],
+      query: (contact) => ({
+        url: `/admin/contact/${contact.id}`,
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem("accessToken") || "{}"
+          )}`,
+        },
       }),
-      editContact: build.mutation({
-        query: (contact) => ({
-          url: `/admin/contact/${contact.id}`,
-          method: 'PUT',
-          body: contact,
-          headers: {
-            Authorization: `Bearer ${JSON.parse(
-              localStorage.getItem('accessToken') || '{}'
-            )}`,
-          },
-        }),
-        invalidatesTags: ['Contacts'],
+      invalidatesTags: ["Contacts"],
+    }),
+    editContact: build.mutation({
+      query: (contact) => ({
+        url: `/admin/contact/${contact.id}`,
+        method: "PUT",
+        body: contact,
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem("accessToken") || "{}"
+          )}`,
+        },
       }),
-      createContacts: build.mutation({
-        query: (contact) => ({
-          url: `/admin/contacts/`,
-          method: "POST",
-          body: contact,
-          headers: {
-            Authorization: `Bearer ${JSON.parse(
-              localStorage.getItem("accessToken") || "{}"
-            )}`,
-          },
-        }),
-        invalidatesTags: (result) => ["Contacts"],
+      invalidatesTags: ["Contacts"],
+    }),
+    createContact: build.mutation({
+      query: (contact) => ({
+        url: `/admin/contact/`,
+        method: "POST",
+        body: contact,
+        headers: {
+          Authorization: `Bearer ${JSON.parse(
+            localStorage.getItem("accessToken") || "{}"
+          )}`,
+        },
       }),
+      invalidatesTags: ["Contacts"],
+    }),
   }),
-  
 });

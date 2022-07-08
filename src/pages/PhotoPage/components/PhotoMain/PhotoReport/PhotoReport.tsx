@@ -182,6 +182,7 @@ const PhotoReport: FC = () => {
     isLoading,
     refetch,
   } = photoAPI.useFetchAllPhotosQuery(20);
+
   useEffect(() => {
     if (photos) {
       const newImages: Array<IPhotosAnother> = [];

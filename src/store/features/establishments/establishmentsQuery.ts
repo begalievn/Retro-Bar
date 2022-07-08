@@ -42,7 +42,7 @@ export const establishmentsAPI = createApi({
         url: `/admin/establishment/${establishment.id}`,
         method: "PUT",
         body: {
-          logo:establishment.logo,
+          logo: establishment.logo,
           name: establishment.name,
           description: establishment.description,
           workingHours: establishment.workingHours,
@@ -73,7 +73,7 @@ export const establishmentsAPI = createApi({
           )}`,
         },
       }),
-      invalidatesTags: (result) => ["Establishments"],
+      invalidatesTags: ["Establishments"],
     }),
   }),
 });

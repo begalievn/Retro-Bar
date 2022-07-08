@@ -6,12 +6,12 @@ import {
   CardMedia,
   TextField,
   Typography,
-} from "@mui/material";
-import React, { FC } from "react";
-import classes from "../style.module.css";
-import deleteIcon from "../../../../../../../assets/adminPage/delete.png";
-import { establishmentsAPI } from "../../../../../../../store/features/establishments/establishmentsQuery";
-import { IEstablishment } from "../../../../../../../types/apiTypes/establishment";
+} from '@mui/material';
+import React, { FC } from 'react';
+import classes from '../style.module.css';
+import deleteIcon from '../../../../../../../assets/adminPage/delete.png';
+import { establishmentsAPI } from '../../../../../../../store/features/establishments/establishmentsQuery';
+import { IEstablishment } from '../../../../../../../types/apiTypes/establishment';
 
 interface EstabPropsType {
   item: IEstablishment;
@@ -68,7 +68,7 @@ const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
     });
   }
   function scrollTop(): void {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   return (
     <>
@@ -91,34 +91,34 @@ const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
             color="text.secondary"
           >
             <span>
-              Name: <strong>{item.name}</strong>{" "}
+              Name: <strong>{item.name}</strong>{' '}
             </span>
-            <span style={{ maxHeight: "60px", overflow: "hidden" }}>
-              Description: <strong>{item.description}</strong>{" "}
-            </span>
-            <span>
-              Working hours: <strong>{item.workingHours}</strong>{" "}
+            <span style={{ maxHeight: '60px', overflow: 'hidden' }}>
+              Description: <strong>{item.description}</strong>{' '}
             </span>
             <span>
-              Contacts: <strong>{item.contacts}</strong>{" "}
+              Working hours: <strong>{item.workingHours}</strong>{' '}
             </span>
             <span>
-              Category: <strong>{item?.category}</strong>{" "}
+              Contacts: <strong>{item.contacts}</strong>{' '}
             </span>
             <span>
-              KitchenType: <strong>{item?.kitchenType}</strong>{" "}
+              Category: <strong>{item?.category}</strong>{' '}
             </span>
             <span>
-              Services: <strong>{item?.services}</strong>{" "}
+              KitchenType: <strong>{item?.kitchenType}</strong>{' '}
             </span>
             <span>
-              Link: <strong>{item?.link}</strong>{" "}
+              Services: <strong>{item?.services}</strong>{' '}
             </span>
             <span>
-              Location: <strong>{item?.location}</strong>{" "}
+              Link: <strong>{item?.link}</strong>{' '}
             </span>
             <span>
-              Rate: <strong>{item?.rate}</strong>{" "}
+              Location: <strong>{item?.location}</strong>{' '}
+            </span>
+            <span>
+              Rate: <strong>{item?.rate}</strong>{' '}
             </span>
           </Typography>
         </CardContent>
