@@ -15,7 +15,7 @@ import {
 import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
 import { AdminInput } from "../index";
 import { photographersAPI } from "../../../../store/features/photographers/photographersQuery";
-import AdminSelect from "../../AdminSelect/AdminSelect";
+import AdminSelect from "../AdminSelect/AdminSelect";
 import { useAppSelector } from "../../../../app/hooks";
 import { startTimer } from "../../../../utils/helpers/timer";
 
