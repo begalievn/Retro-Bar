@@ -1,8 +1,6 @@
 import React, { FC, useState, useEffect, ReactNode } from 'react';
 // imported libraries
 import { useSwipeable } from 'react-swipeable';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -10,11 +8,6 @@ import 'swiper/css/pagination';
 
 // imported components
 import PalaroidCard from '../palaroid-card/PalaroidCard';
-
-import activeCardImage from '../../../../assets/mainPage/palaroid-card-image-active.png';
-import rightCardImage from '../../../../assets/mainPage/palaroid-card-image-right.png';
-import rightMostCardImage from '../../../../assets/mainPage/palaroid-card-image-rightmost.png';
-import leftCardImage from '../../../../assets/mainPage/palaroid-card-image-left.png';
 
 import classes from './palaroidSlider.module.css';
 import { PalaroidCardTypes } from '../../../../types/mainPageTypes/palaroidCardTypes';
@@ -68,27 +61,11 @@ const PalaroidSlider: FC<PalaroidSliderPropsType> = ({ cards }) => {
     setActiveIndex((prev: number) =>
       prev ? prev - 1 : sliderCards.length - 1
     );
-    console.log(
-      hiddenLeftIndex,
-      leftIndex,
-      activeIndex,
-      rightIndex,
-      rightmostIndex,
-      hiddenRightIndex
-    );
   }
 
   function next() {
     setActiveIndex((prev: number) =>
       prev === sliderCards.length - 1 ? 0 : prev + 1
-    );
-    console.log(
-      hiddenLeftIndex,
-      leftIndex,
-      activeIndex,
-      rightIndex,
-      rightmostIndex,
-      hiddenRightIndex
     );
   }
 
@@ -213,19 +190,6 @@ const PalaroidSlider: FC<PalaroidSliderPropsType> = ({ cards }) => {
             isActive={false}
           />
         </div>
-        {/* <div
-          key={rightmostIndex}
-          className={[classes.rightmost, classes.card].join(' ')}
-          onClick={nextMobile}
-        >
-          <PalaroidCard
-            image={sliderCards[rightmostIndex]?.image}
-            title={''}
-            description={''}
-            date={''}
-            isActive={false}
-          />
-        </div> */}
       </div>
       <div className={classes.slider_pagination}>
         <ul>
@@ -251,42 +215,3 @@ const PalaroidSlider: FC<PalaroidSliderPropsType> = ({ cards }) => {
 };
 
 export default PalaroidSlider;
-
-// const cards: Array<PalaroidCardTypes> = [
-//   {
-//     image: activeCardImage,
-//     title: 'ZEPPELIN BAR',
-//     description: 'STREED CREDIBILITY',
-//     date: 'Суббота 14 мая',
-//   },
-//   {
-//     image: rightCardImage,
-//     title: 'ZEPPELIN BAR',
-//     description: 'STREED CREDIBILITY',
-//     date: 'Суббота 14 мая',
-//   },
-//   {
-//     image: rightMostCardImage,
-//     title: 'ZEPPELIN BAR',
-//     description: 'STREED CREDIBILITY',
-//     date: 'Суббота 14 мая',
-//   },
-//   {
-//     image: leftCardImage,
-//     title: 'ZEPPELIN BAR',
-//     description: 'STREED CREDIBILITY',
-//     date: 'Суббота 14 мая',
-//   },
-//   {
-//     image: leftCardImage,
-//     title: 'ZEPPELIN BAR',
-//     description: 'STREED CREDIBILITY',
-//     date: 'Суббота 14 мая',
-//   },
-//   {
-//     image: leftCardImage,
-//     title: 'ZEPPELIN BAR',
-//     description: 'STREED CREDIBILITY',
-//     date: 'Суббота 14 мая',
-//   },
-// ];

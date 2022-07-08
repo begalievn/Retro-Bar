@@ -32,7 +32,7 @@ const PhotoReportCard = ({
       className={classes.cardContainer}
     >
       <div
-        style={{ backgroundImage: `url(${photo})` }}
+        // style={{ backgroundImage: `url(${photo})` }}
         className={classes.photoCard}
       >
         <img src={photo} />

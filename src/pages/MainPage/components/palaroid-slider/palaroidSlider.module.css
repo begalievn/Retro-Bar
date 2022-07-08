@@ -12,14 +12,14 @@
 
 .carousel {
   width: 100%;
-  height: 578px;
+  height: 600px;
   position: relative;
   overflow: hidden;
 }
 
 .carousel_mobile {
   width: 100%;
-  height: 578px;
+  height: 590px;
   position: relative;
   overflow: hidden;
   display: none;
@@ -52,7 +52,7 @@
 }
 
 .active {
-  transform: rotate(-1.9deg);
+  transform: rotate(-1.9deg) scale(0.97);
   z-index: 3;
 }
 

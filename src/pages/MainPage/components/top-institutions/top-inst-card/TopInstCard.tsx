@@ -26,7 +26,6 @@ const TopInstCard = ({
   location,
   isActive,
 }: PropType) => {
-  console.log('TopInstCard', { image });
   return (
     <div className={classes.card}>
       <img className={classes.cardBackground} src={backgroundPhoto} alt="" />
