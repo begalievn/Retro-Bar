@@ -91,4 +91,11 @@ export interface Contacts {
   mail?: string;
   instagram?: string;
 }
+export interface Advertisement {
+  name?: string;
+  photo?: string;
+  description?: string;
+  phoneNumber?: string;
+}
+
 export type AdminPageTypes = PhotoCard | VideoCard | Establishment;

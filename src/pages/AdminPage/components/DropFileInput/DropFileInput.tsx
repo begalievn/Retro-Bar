@@ -10,6 +10,7 @@ interface DropFileInputProps {
   children: React.ReactNode;
   setInputValue: (prevInputs: any) => void;
   boxType?: string;
+  required?: boolean;
 }
 
 const boxTypes = ["logo", "poster"];
@@ -18,6 +19,7 @@ const DropFileInput: FC<DropFileInputProps> = ({
   type,
   setInputValue,
   boxType,
+  required,
 }) => {
   const [drag, setDrag] = useState(false);
   const [fileList, setFileList] = useState<File[] | null>([]);
@@ -76,7 +78,11 @@ const DropFileInput: FC<DropFileInputProps> = ({
             <span className={classes.adminAddTitle}>{children}</span>
           )}
         </div>
-        <input type={"file"} onChange={(e) => onDropFile(e)} />
+        <input
+          required={required}
+          type={"file"}
+          onChange={(e) => onDropFile(e)}
+        />
       </div>
       {fileList!?.length > 0 && (
         <ul className={classes.fileList}>
