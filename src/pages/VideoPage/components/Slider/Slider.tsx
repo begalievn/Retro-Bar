@@ -16,9 +16,12 @@ interface sliderProps {
   className?: string;
   slides?: number;
   images: IVideoCardBody[];
+ setMainVideo: (event: string) => void
 }
 
-const Slider: FC<sliderProps> = ({ className, slides = 2, images }) => {
+const Slider: FC<sliderProps> = ({ className, slides = 2, images,setMainVideo }) => {
+
+  
   return (
     <div className={classes.mainPlayer}>
       <Swiper
@@ -37,10 +40,10 @@ const Slider: FC<sliderProps> = ({ className, slides = 2, images }) => {
         navigation={true}
         modules={[Pagination, Navigation]}
       >
-        {images.map((item: IVideoCardBody) => {
+        {images?.map((item: IVideoCardBody) => {
           return (
             <SwiperSlide className={classes.slide} key={item.views}>
-              <VideoCard videoCardBody={item} />
+              <VideoCard videoCardBody={item} setMainVideo={setMainVideo} />
             </SwiperSlide>
           );
         })}

@@ -1,11 +1,10 @@
-import React, { FC, SVGProps, useState } from "react";
+import React, { FC, useState } from "react";
 
 import classes from "./AdminInput.module.css";
 import {
   AdminPageTypes,
   IPageBody,
 } from "../../../../types/adminPage/adminPage";
-import SearchList from "../../../../UI/SearchList/SearchList";
 
 type primaryColor = "white" | "black";
 
@@ -22,7 +21,7 @@ interface AdminInputProps {
   errorMessage?: string;
   required?: boolean;
   pattern?: string;
-  icon?: React.ReactNode;
+  icon?: React.ReactNode | JSX.Element;
   search?: boolean;
   searchList?: any;
 }
@@ -47,13 +46,17 @@ const AdminInput: FC<AdminInputProps> = ({
 
   return (
     <div className={classes.inputBlock}>
-      <label
-        className={classes.inputTitle}
-        // style={{ color: `${color && color}` }}
-        htmlFor={name}
-      >
-        {title}
-      </label>
+      <div className={classes.labelBlock}>
+        <label
+          className={classes.inputTitle}
+          style={{ color: `${color}` }}
+          htmlFor={name}
+        >
+          {title}
+        </label>
+        {props.icon && <i>{props.icon}</i>}
+      </div>
+
       <input
         type={type}
         name={name}
@@ -66,7 +69,6 @@ const AdminInput: FC<AdminInputProps> = ({
         autoFocus={focused}
       />
       {focused && <span className={classes.errorMessage}>{errorMessage}</span>}
-      {searchList?.length > 0 && <SearchList searchList={searchList || []} />}
     </div>
   );
 };

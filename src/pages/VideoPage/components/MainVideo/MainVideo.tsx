@@ -7,49 +7,48 @@ import video1 from '../../../../assets/videoPage/video1.png';
 import { IVideoCardBody } from '../../../../types/videoPageTypes/videoPage';
 import { CalendarIcon, CalendarModal } from '../../../../UI';
 
-const images: IVideoCardBody[] = [
-  {
-    title: 'SUZIE WONG / OPENING | MOT',
-    image: video,
-    views: 1100,
-  },
-  { title: 'SUZIE WONG / OPENING | MOT', image: video1, views: 1200 },
-  { title: 'SUZIE WONG / OPENING | MOT', image: video, views: 1300 },
-  { title: 'SUZIE WONG / OPENING | MOT', image: video1, views: 1400 },
-];
 import { videoAPI } from '../../../../store/features/videos/videoQuery';
 
 const MainVideo = () => {
   const {
-    data: photos,
+    data: videos,
     error,
     isLoading,
     refetch,
   } = videoAPI.useFetchAllVideosQuery('');
 
-  const images: IVideoCardBody[] = [
-    {
-      title: 'SUZIE WONG / OPENING | MOT',
-      image: video,
-      views: 1100,
-    },
-    { title: 'SUZIE WONG / OPENING | MOT', image: video1, views: 1200 },
-    { title: 'SUZIE WONG / OPENING | MOT', image: video, views: 1300 },
-    { title: 'SUZIE WONG / OPENING | MOT', image: video1, views: 1400 },
-  ];
+
+  
+
   const [modal, setModal] = React.useState(false);
   const toggleModal = () => setModal(!modal);
+  const [mainVideo,setMainVideo]=useState<string>('')
+const [link, setLink] = useState <string[]>([])
+  
 
+
+
+useEffect(() => {
+  if(!mainVideo){
+    setMainVideo(videos?.videos[0].url)
+  }
+  if(mainVideo?.length > 0){
+    setLink(mainVideo?.split('/'))
+  }
+}, [videos,mainVideo])
+
+
+  
   return (
     <section className={classes.videoPlayerSection}>
       <div className={classes.videoPlayer}>
         {isLoading ? (
           <p>Loading...</p>
-        ) : (
+        ) : ( mainVideo && link &&
           <iframe
             width="800"
             height="400"
-            src={`https://www.youtube.com/embed/WzI3c9dC9Uo`}
+            src={`https://www.youtube.com/embed/${link[3]}`} 
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -60,7 +59,7 @@ const MainVideo = () => {
       </div>
       <div className={classes.sliderBlock}>
         <h3 className={classes.title}>1 мая 2022</h3>
-        <Slider images={images} />
+        <Slider setMainVideo={setMainVideo} images={videos?.videos} />
       </div>
       <i className={classes.calendar} onClick={toggleModal} />
       <i className={classes.star} />
@@ -68,12 +67,12 @@ const MainVideo = () => {
 
       <div className={classes.sliderBlock}>
         <h3 className={classes.title}>24 мая 2022</h3>
-        <Slider className={classes.slider} slides={3} images={images} />
+        <Slider setMainVideo={setMainVideo}  className={classes.slider} slides={3} images={videos?.videos} />
       </div>
 
       <div className={classes.sliderBlock}>
         <h3 className={classes.title}>15 марта 2022</h3>
-        <Slider images={images} />
+        <Slider setMainVideo={setMainVideo}  images={videos?.videos} />
       </div>
       {modal && <CalendarModal modal={modal} toggleModal={toggleModal} />}
     </section>
