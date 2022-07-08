@@ -114,6 +114,7 @@
   background: #ffb03b;
   border: none;
   border-radius: 14px;
+  cursor: pointer;
 }
 
 .btn:hover {

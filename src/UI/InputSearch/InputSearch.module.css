@@ -20,3 +20,13 @@
   top: 0;
   right: 0;
 }
+
+.container {
+  min-width: 100%;
+  font-size: 11px;
+}
+.title {
+  color: white;
+  list-style: none;
+  margin-left: 5px;
+}

@@ -9,9 +9,9 @@ import { someClasses } from "../../utils/someClasses";
 import { INavItems } from "../../types/headerTypes/headerTypes";
 import { useAppDispatch } from "../../app/hooks";
 import { logOut } from "../../store/authorization/AuthFunc";
-import { getSearch } from "../../apis/getSearch";
+import List from "../../UI/InputSearch/List";
 
-const navItems: INavItems[] = [
+export const navItems: INavItems[] = [
   {
     title: "Фото",
     path: "/photo",
@@ -39,7 +39,7 @@ const navItems: INavItems[] = [
 ];
 
 export const Header = () => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputText, setInputText] = useState(" ");
   const [isOpen, setOpen] = useState<boolean>(false);
   const [inputVisible, setInputVisible] = useState<boolean>(false);
   const history = useNavigate();
@@ -51,24 +51,10 @@ export const Header = () => {
   } else {
     document.body.style.overflow = "visible";
   }
-  //
-  // const logOutBtn = ()=>{
-  //   dispatch(logOut())
-  //   history('/')
-  // }
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
-  let time: any;
-  const keyUpHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-    time = setTimeout(() => {
-      dispatch(getSearch(inputValue));
-    }, 2000);
-  };
-
-  const keydownHandler = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-    clearTimeout(time);
+    let lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
   };
 
   return (
@@ -112,10 +98,9 @@ export const Header = () => {
             <InputSearch
               placeholder="поиск"
               onChange={inputHandler}
-              value={inputValue}
-              onKeyUp={keyUpHandler}
-              onKeyDown={keydownHandler}
+              value={inputText}
             />
+            <List input={inputText} />
           </div>
         )}
       </div>

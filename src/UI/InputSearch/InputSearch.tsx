@@ -1,14 +1,34 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import classes from "./InputSearch.module.css";
 import SearchBtn from "../SearchBtn/SearchBtn";
 import { someClasses } from "../../utils/someClasses";
 
 export const InputSearch = (props: React.HTMLProps<HTMLInputElement>) => {
-  // const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setInputValue(e.target.value);
-  // };
+  const history = useNavigate();
 
+  const handleClickInput = () => {
+    switch (props.value) {
+      case "фото":
+        history("/photo");
+        break;
+      case "заведение":
+        history("/institution");
+        break;
+      case "события":
+        history("/events");
+        break;
+      case "новости":
+        history("/news");
+        break;
+      case "контакты":
+        history("/contacts");
+        break;
+      default: {
+        history("/*");
+      }
+    }
+  };
   return (
     <div className={classes.inputSearchBlock}>
       <input
@@ -16,10 +36,12 @@ export const InputSearch = (props: React.HTMLProps<HTMLInputElement>) => {
         onChange={props.onChange}
         placeholder={props.placeholder}
         value={props.value}
-        onKeyDown={props.onKeyDown}
-        onKeyUp={props.onKeyUp}
       />
-      <SearchBtn className={classes.inputSearchBtn} />
+
+      <SearchBtn
+        className={classes.inputSearchBtn}
+        onClick={handleClickInput}
+      />
     </div>
   );
 };
