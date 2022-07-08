@@ -1,20 +1,20 @@
-import React, { FC, useEffect } from 'react';
-import style from './AllEvents.module.css';
+import React, { FC, useEffect } from "react";
+import style from "./AllEvents.module.css";
 
-import hero1 from '../../assets/eventsImages/hero1.png';
-import hero2 from '../../assets/eventsImages/hero2.png';
-import hero3 from '../../assets/eventsImages/hero3.png';
-import hero4 from '../../assets/eventsImages/hero4.png';
-import EstablishmentItem from './EstablishmentItem';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import hero1 from "../../assets/eventsImages/hero1.png";
+import hero2 from "../../assets/eventsImages/hero2.png";
+import hero3 from "../../assets/eventsImages/hero3.png";
+import hero4 from "../../assets/eventsImages/hero4.png";
+import EstablishmentItem from "./EstablishmentItem";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 
-import { photoAPI } from '../../store/features/photos/photoQuery';
-import { IPhotos } from '../../types/apiTypes/photo';
+import { photoAPI } from "../../store/features/photos/photoQuery";
+import { IPhotos } from "../../types/apiTypes/photo";
 
 const AllEvents: FC = () => {
   const dispatch = useAppDispatch();
 
-  let { data: photos } = photoAPI.useFetchAllContactsQuery(4);
+  let { data: photos } = photoAPI.useFetchAllPhotosQuery(4);
 
   return (
     <div className={style.section2_establishments_block}>

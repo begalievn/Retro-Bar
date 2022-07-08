@@ -5,7 +5,7 @@ import { videoAPI } from "../../../../../../store/features/videos/videoQuery";
 import { IVideo } from "../../../../../../types/apiTypes/video";
 import LinkNavs from "../../components/LinkNavs";
 import VideoEditCard from "./components/VideoEditCard";
-import classes from './style.module.css'
+import classes from "./style.module.css";
 
 const VideoEditPage = () => {
   const {
@@ -13,12 +13,12 @@ const VideoEditPage = () => {
     error,
     isLoading,
     refetch,
-  } = videoAPI.useFetchAllVideosQuery('');
+  } = videoAPI.useFetchAllVideosQuery("");
   const array: IVideo[] = videos?.videos;
   return (
     <div>
-        <LinkNavs/>
-        <div className={classes.cardDiv}>
+      <LinkNavs />
+      <div className={classes.cardDiv}>
         {array?.map((item: IVideo) => (
           <VideoEditCard key={item.id} item={item} />
         ))}

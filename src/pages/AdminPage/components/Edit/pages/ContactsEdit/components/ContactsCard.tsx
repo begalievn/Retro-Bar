@@ -6,7 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import deleteIcon from "../../../../../../../assets/adminPage/delete.png";
-import {  TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import classes from "../style.module.css";
 import { photoAPI } from "../../../../../../../store/features/photos/photoQuery";
 import { IContacts } from "../../../../../../../types/apiTypes/contacts";
@@ -15,12 +15,15 @@ import { contactsAPI } from "../../../../../../../store/features/contacts/contac
 interface ContactPropsType {
   item: IContacts;
 }
-
 const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
   const [photo, setPhoto] = React.useState<string>(item?.photo);
   const [photoUrl, setPhotoUrl] = React.useState<string>(item?.photoUrl);
-  const [description, setDescription] = React.useState<string>(item?.description);
-  const [phoneNumber, setPhoneNumber] = React.useState<string|number>(item?.phoneNumber);
+  const [description, setDescription] = React.useState<string>(
+    item?.description
+  );
+  const [phoneNumber, setPhoneNumber] = React.useState<string | number>(
+    item?.phoneNumber
+  );
   const [link, setLink] = React.useState<string>(item?.link);
   const [telegram, setTelegram] = React.useState<string>(item?.telegram);
   const [youtube, setYoutube] = React.useState<string>(item?.youtube);
@@ -29,7 +32,7 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
   const [show, setShow] = React.useState<boolean>(false);
   const [deleteContact, {}] = contactsAPI.useDeleteContactMutation();
   const [editContact, {}] = contactsAPI.useEditContactMutation();
-  const [des,setDes] = React.useState<boolean>(false)
+  const [des, setDes] = React.useState<boolean>(false);
   async function deleteCont(contact: IContacts): Promise<void> {
     await deleteContact(contact);
   }
@@ -37,17 +40,28 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
     await editContact(contact);
   }
   function editContactCard(): void {
-    editPhotos({ ...item, photo,photoUrl,description,phoneNumber,link, telegram,youtube,mail,instagram});
+    editPhotos({
+      ...item,
+      photo,
+      photoUrl,
+      description,
+      phoneNumber,
+      link,
+      telegram,
+      youtube,
+      mail,
+      instagram,
+    });
   }
   function scrollTop(): void {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
-  function change(): void{
-    setDes(!des)
+  function change(): void {
+    setDes(!des);
   }
   return (
     <>
-      <Card className={des?classes.cardsBig:classes.cards} key={item.id}>
+      <Card className={des ? classes.cardsBig : classes.cards} key={item.id}>
         <CardMedia
           onClick={() => {
             setShow(true);
@@ -64,33 +78,24 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
             variant="body2"
             color="text.secondary"
           >
-            <span onClick={change} className={des?classes.descSpan:classes.descSpanNorm} >
+            <span
+              onClick={change}
+              className={des ? classes.descSpan : classes.descSpanNorm}
+            >
               Description: <strong>{item.description}</strong>{" "}
             </span>
             <span>
               PhoneNumber: <strong>{item.phoneNumber}</strong>{" "}
             </span>
-            {/* <span>
-              Link: <strong>{item?.link}</strong>{" "}
-            </span>
-            <span>
-              Telegram: <strong>{item?.telegram}</strong>{" "}
-            </span>
-            <span>
-              Youtube: <strong>{item?.youtube}</strong>{" "}
-            </span> */}
             <span>
               Mail: <strong>{item?.mail}</strong>{" "}
             </span>
-            {/* <span>
-              Instagram: <strong>{item?.instagram}</strong>{" "}
-            </span> */}
           </Typography>
         </CardContent>
         <CardActions>
           <Button
             onClick={() => {
-                deleteCont(item);
+              deleteCont(item);
             }}
             size="small"
           >
@@ -137,33 +142,6 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
               id="standard-basic"
               variant="standard"
             />
-            {/* <TextField
-              value={link}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setLink(e.target.value);
-              }}
-              className={classes.modalInput}
-              id="standard-basic"
-              variant="standard"
-            />
-            <TextField
-              value={telegram}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setTelegram(e.target.value);
-              }}
-              className={classes.modalInput}
-              id="standard-basic"
-              variant="standard"
-            />
-            <TextField
-              value={youtube}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setYoutube(e.target.value);
-              }}
-              className={classes.modalInput}
-              id="standard-basic"
-              variant="standard"
-            /> */}
             <TextField
               value={mail}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -173,15 +151,6 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
               id="standard-basic"
               variant="standard"
             />
-            {/* <TextField
-              value={instagram}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setInstagram(e.target.value);
-              }}
-              className={classes.modalInput}
-              id="standard-basic"
-              variant="standard"
-            /> */}
             <Button
               onClick={() => {
                 editContactCard();
