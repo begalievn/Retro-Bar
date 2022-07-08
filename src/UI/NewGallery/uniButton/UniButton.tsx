@@ -70,7 +70,6 @@ function UniButton({ text, image }: UniButtonProps) {
 
 
   if (text === 'Скачать') {
-    console.log(image)
     
     return (
 

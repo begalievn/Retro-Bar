@@ -14,25 +14,9 @@ import { getInstitudeSliderData } from '../../utils/helpers/getInstitudeSliderDa
 import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 import { advertisementsAPI } from '../../store/features/advertisement/advertisementsQuery';
 import { getAdvertisementData } from '../../utils/helpers/getAdvertisementData';
-
-// let bookData = {
-//   text: ' технологии достигли такого уровня, что перспективное планирование способствует.',
-//   title: 'Зaказать съёмку',
-//   image: 'https://picsum.photos/1000',
-// };
-
-let topData: TopProps['data'] = {
-  
-  title:'string',
-  workingHours:'string',
-  phoneNumber:'string',
-  adress:'string',
-  leftBlockPhotoLeft:'string',
-  leftBlockPhotoRight:'string',
-  rightBlockPhoto:'string',
+import { getTopInstCardData } from '../../utils/helpers/getTopInstCardData';
 
 
-}
 
 const InstitutionPage = () => {
   const {
@@ -40,6 +24,7 @@ const InstitutionPage = () => {
     error,
     isLoading: isEstablishmentsLoading,
   } = establishmentsAPI.useFetchAllEstablishmentsQuery('');
+  
 
   const {
     data: advertisements,
@@ -47,7 +32,7 @@ const InstitutionPage = () => {
     isLoading: advertisementIsLoading,
   } = advertisementsAPI.useFetchAllAdvertisementsQuery('');
 
-  console.log(establishments);
+  
   return (
     <div className={styles.back}>
       <CalendarIcon />
@@ -61,14 +46,16 @@ const InstitutionPage = () => {
             <a href="/events">Локация</a>
           </div>
         </section>
-        <Top data={topData} />
         {isEstablishmentsLoading ? (
           <div>Loading...</div>
-        ) : (
+          ) : (
+            <>
+            <Top data={getTopInstCardData(establishments.establishments)[0]} />
           <InstitutesSlider
             data={getInstitudeSliderData(establishments.establishments)}
             isContentBlack={false}
           />
+          </>
         )}
         {advertisementIsLoading ? (
           <p>Loading...</p>

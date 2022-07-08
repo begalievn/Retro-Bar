@@ -1,5 +1,4 @@
 import React, { FC, useState } from "react";
-// import { IPhotos } from "../../../../pages/PhotoPage/components/PhotoMain/interfaces";
 import eyeIcon from "../../../../assets/icons/eye.svg";
 import pictureIcon from "../../../../assets/icons/picture.svg";
 import styles from "./Events.module.css";

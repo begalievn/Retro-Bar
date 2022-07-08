@@ -54,6 +54,15 @@
   left: 6.6%;
   width: 4.7%;
 }
+.titleBlock {
+  margin-left: 4%;
+  margin-bottom: 5%;
+}
+
+.title {
+  color: white;
+  font-size: calc(21px + 10 * (100vw / 1440));
+}
 @media screen and (max-width: 748px) {
   .list {
     padding-right: 0vw;

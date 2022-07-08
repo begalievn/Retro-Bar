@@ -14,22 +14,15 @@ import film2Image from '../../../../assets/institution/top/film2Image.png'
 import topclock from '../../../../assets/institution/top/topPlaceInfo/topclock.svg'
 import topgeotag from '../../../../assets/institution/top/topPlaceInfo/topgeotag.svg'
 import topphone from '../../../../assets/institution/top/topPlaceInfo/topphone.svg'
+import { IPhoto } from '../../../../types/apiTypes/photo'
+import { TopInstCardsType } from '../../../MainPage/components/top-institutions/institutions-slider/InstitutionsSlider'
 
 
 export type TopProps = 
 {
 
- data: {
-    title:string,
-    workingHours:string,
-    phoneNumber:string,
-    adress:string,
-    leftBlockPhotoLeft:string,
-    leftBlockPhotoRight:string,
-    rightBlockPhoto:string,
-  
-  
-  }
+ data: TopInstCardsType
+
 }
 
 
@@ -38,12 +31,11 @@ function Top({data}:TopProps) {
 
 const {
    title,
-  workingHours,
-  phoneNumber,
-  adress,
-  leftBlockPhotoLeft,
-  leftBlockPhotoRight,
-  rightBlockPhoto,
+  time,
+  phone,
+  location,
+  image,
+  
 } = data 
 
   return (
@@ -62,22 +54,22 @@ const {
             >{title}</h3>
             <div className={styles.infoRow}>
               <img className={styles.icon} src={topclock} alt="" />
-              <p className={styles.infoRowText}>{workingHours}</p>
+              <p className={styles.infoRowText}>{time}</p>
             </div>
             <div className={styles.infoRow}>
               <img className={styles.icon} src={topphone} alt="" />
-              <p className={styles.infoRowText}>{phoneNumber}</p>
+              <p className={styles.infoRowText}>{phone}</p>
             </div>
             <div className={styles.infoRow}>
               <img className={styles.icon} src={topgeotag} alt="" />
-              <p className={styles.infoRowText}>{adress}</p>
+              <p className={styles.infoRowText}>{location}</p>
 
             </div>
             <img className={styles.film1Image1} src={film1Image1} alt="" />
 
           </div>
           <div className={styles.film1ImageBlock2}>
-            <img className={styles.film1Image2} src={film1Image2} alt="" />
+            <img className={styles.film1Image2} src={image?.url} alt="" />
           </div>
           <img className={styles.tape1} src={tape1} alt="" />
           <img className={styles.tape3} src={tape2} alt="" />
