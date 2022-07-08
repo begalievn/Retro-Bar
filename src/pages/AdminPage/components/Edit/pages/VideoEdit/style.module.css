@@ -38,6 +38,8 @@
 }
 .btnEdit{
     margin-top: 20px !important;
+    background-color: var(--orange) !important;
+
 }
 .cardDiv{
     display: flex !important;
@@ -51,7 +53,7 @@
     background: var(--orange) !important;
 }
 .imgCard{
-    max-height: 200px !important;
+    height: 200px !important;
     max-width: 300px;
     /* overflow: hidden !important; */
     cursor: pointer;
