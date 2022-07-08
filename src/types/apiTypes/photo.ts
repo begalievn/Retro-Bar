@@ -20,7 +20,7 @@ export interface IPhotoCards {
 export interface IPhotos {
   id: number;
   eventName: string;
-  views: number;
+  views: number|string;
   date: string;
   created: string;
   photos: IPhoto[];

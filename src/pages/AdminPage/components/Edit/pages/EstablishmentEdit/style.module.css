@@ -5,7 +5,7 @@
 .cards {
   max-width: 300px !important;
   min-width: 300px !important;
-  height: 370px;
+  height: 470px;
   margin: 15px;
 }
 .mainDiv {
@@ -18,14 +18,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 .modalDiv {
   background: white;
   width: 40%;
-  height: 60%;
+  height: 80%;
   border-radius: 20%;
   text-align: center;
   padding-top: 55px;
+  z-index: 1;
 }
 .modalInput {
   display: block;
@@ -42,4 +44,8 @@
   width: 100%;
   height: 100vh;
   justify-content: center;
+}
+.imgCard{
+  cursor: pointer;
+  background-size: cover;
 }
