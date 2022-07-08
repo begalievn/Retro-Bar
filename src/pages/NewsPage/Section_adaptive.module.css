@@ -1,0 +1,159 @@
+.main_container {
+  height: 330px;
+  width: 450px;
+  position: relative;
+}
+
+.smile {
+  position: absolute;
+  top: -108px;
+  right: 0;
+  height: 38%;
+}
+
+.title_main_container {
+  display: flex;
+  justify-content: center;
+}
+
+.window {
+  /*Будет равен Main-container */
+  height: 100%;
+  /* Будет равен Main-container */
+  width: 100%;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  margin-left: 10px;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  user-select: none;
+  align-items: center;
+  height: 100%;
+  scroll-snap-align: start;
+}
+
+.all_pages_container {
+  height: 100%;
+  display: flex;
+  transition: translate;
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+.item_container {
+  min-width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
+.item_1 {
+  background-image: url(../../assets/NewsPages/image/Fon.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-bottom: 25px;
+}
+
+.background_container {
+  position: relative;
+  height: 241px;
+  width: 196px;
+  margin-right: 49px;
+}
+
+.text {
+  position: absolute;
+  top: 27px;
+  left: 5px;
+  bottom: 0px;
+  right: 0px;
+  text-align: center;
+  line-height: 31px;
+  color: white;
+  transform: rotate(1deg);
+}
+
+.img {
+  width: 190px;
+  height: 246px;
+}
+
+.background {
+  height: 244px;
+  width: 199px;
+}
+
+@media (max-width: 460px) {
+  .main_container {
+    height: 277px;
+    width: 356px;
+  }
+  .img {
+    margin-left: 12%;
+    width: 100%;
+    height: 100%;
+  }
+  .background {
+    height: 193px;
+    width: 163px;
+    margin-top: 21px;
+    margin-left: 28px;
+  }
+  .img {
+    margin-left: 21%;
+    width: 158px;
+    height: 194px;
+    margin-bottom: 6px;
+  }
+  .text {
+    position: absolute;
+    top: 42px;
+    left: 28px;
+    bottom: 0px;
+    right: 1px;
+    text-align: center;
+    line-height: 31px;
+    color: white;
+    transform: rotate(1deg);
+    height: 169px;
+    width: 160px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .main_container {
+    height: 244px;
+    width: 298px;
+  }
+  .img {
+    margin-left: 30%;
+    width: 131px;
+    height: 171px;
+    margin-bottom: 1px;
+  }
+  .background {
+    height: 172px;
+    width: 148px;
+    margin-top: 34px;
+    margin-left: 35px;
+  }
+  .text {
+    position: absolute;
+    top: 46px;
+    left: 30px;
+    bottom: 0px;
+    right: 0px;
+    text-align: center;
+    line-height: 29px;
+    color: white;
+    transform: rotate(1deg);
+    height: 161px;
+    width: 151px;
+    padding-left: 8px;
+    font-size: 13px;
+  }
+}

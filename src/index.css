@@ -1,5 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;0,600;1,600&display=swap");
+/* @import url('http://fonts.cdnfonts.com/css/mont'); */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-family: "Mont", sans-serif;
+  background: black;
+}
+a {
+  text-decoration: none;
+}
+:root {
+  --orange: #ff6d00;
+  --btnColor: #ffb13b;
+  --orange-text: #ffb03b;
+  --swiper-theme-color: #007aff;
+  --swiper-navigation-size: 44px;
 }

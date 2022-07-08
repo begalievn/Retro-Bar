@@ -1,0 +1,54 @@
+.photoMain_title {
+  margin-top: 90px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  color: #FFB03B;
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+
+.gridBlocks {
+  display: grid;
+  justify-content: center;
+
+  grid-template-columns: repeat(3, 365px);
+  grid-template-rows: repeat(6, 365px);
+  gap: 5px;
+  font-family: 'Mont';
+  margin: 54px 0 230px 0;
+}
+
+@media (max-width:1120px) {
+  .gridBlocks {
+    display: grid;
+    grid-template-columns: repeat(2, 365px);
+    grid-template-rows: repeat(5, 365px);
+    gap: 5px;
+    margin-bottom: 400px;
+
+  }
+}
+
+@media (max-width:750px) {
+  .gridBlocks {
+    display: grid;
+    grid-template-columns: 365px;
+    grid-template-rows: 357px 357px 357px 357px 726px 354px;
+    gap: 15px 0;
+    grid-template-areas:
+      "block1"
+      "block2"
+      "block3"
+      "block4"
+      "block5"
+      "advertise";
+  }
+
+  .photoMain_title {
+    text-align: start;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}

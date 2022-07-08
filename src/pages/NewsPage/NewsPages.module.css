@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;400;500;600;700&display=swap");
+
+.person_background__adaptive {
+  display: none;
+}
+
+.container {
+  /* min-width: 1300px; */
+  max-width: 1440px;
+  height: 981px;
+  background-image: url("../../assets/NewsPages/image/paper\ 2\ piece.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+
+  z-index: 1;
+}
+
+.logo_container {
+  position: absolute;
+  width: 23%;
+  height: 34%;
+  top: 18%;
+  left: 39%;
+  right: 0;
+  bottom: 0;
+}
+
+.title_container {
+  position: relative;
+}
+
+.item_container {
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 122.83px;
+  min-height: 39.52px;
+  margin: 0 auto;
+}
+
+.img_person {
+  position: absolute;
+  z-index: 1;
+  left: -45%;
+  top: 9%;
+  width: 45%;
+  height: 68%;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+}
+
+.img_fon {
+  position: absolute;
+  z-index: 1;
+  left: 42%;
+  width: 44%;
+  height: 68%;
+  top: 10%;
+  right: 0;
+  bottom: 0;
+  margin: 0 auto;
+}
+
+.text_container {
+  position: absolute;
+  z-index: 1;
+  left: 42%;
+  top: 12%;
+  right: 0;
+  bottom: 0;
+  -webkit-user-select: none;
+  user-select: none;
+  height: 65%;
+  width: 43%;
+  margin: 0 auto;
+  color: white;
+  text-align: center;
+  transform: rotate(1deg);
+}
+
+.text_name {
+  font-family: "Montserrat Alternates";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  text-transform: capitalize;
+}
+.text_type {
+  font-family: "Mont";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 0px;
+}
+.text_description {
+  font-family: "Montserrat Alternates";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+}
+.btn {
+  font-size: 16px;
+  width: 90px;
+  height: 28px;
+  background: #ffb03b;
+  border: none;
+  border-radius: 14px;
+}
+
+.btn:hover {
+  background: #ffbc58;
+}
+.btn:active {
+  background: #ffa14e;
+  color: black;
+  font-weight: 600;
+}
+.img_background {
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+.smile {
+  position: absolute;
+  height: 14%;
+  left: 2.08%;
+  right: 87.3%;
+  top: 60.65%;
+  bottom: 65.45%;
+  transform: rotate(-32.37deg);
+  z-index: -1;
+}
+/* Adaptive */
+@media (max-width: 1032px) {
+  .text_name {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .text_type {
+    font-size: 14px;
+  }
+  .text_description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+  }
+  .btn {
+    font-size: 15px;
+    width: 74px;
+    height: 18px;
+    border-radius: 7px;
+  }
+  .logo_container {
+    top: 21%;
+  }
+}
+
+@media (max-width: 863px) {
+  .fake {
+    display: none;
+  }
+  .text_container {
+    line-height: 13px;
+  }
+  .text_type {
+    margin-top: 14px;
+  }
+  .text_description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 15px;
+  }
+  .btn {
+    font-size: 13px;
+    width: 64px;
+    height: 15px;
+    margin-top: 10px;
+  }
+  .logo_container {
+    top: 23%;
+  }
+  .smile {
+    height: 10%;
+
+    top: 57.65%;
+  }
+}
+
+@media (max-width: 788px) {
+  .text_name {
+    font-size: 14px;
+  }
+  .text_type {
+    margin-top: 12px;
+    font-size: 11px;
+  }
+  .text_description {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 13px;
+    margin-top: 15px;
+  }
+  .btn {
+    font-size: 12px;
+    width: 57px;
+    height: 14px;
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 616px) {
+  .container {
+    background-position: bottom;
+  }
+  .title_container {
+    display: none;
+  }
+  .person_background__adaptive {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+  }
+
+  .containers {
+    padding-top: 160px;
+  }
+  .logo_container {
+    display: none;
+  }
+  .smile {
+    display: none;
+  }
+
+  .item {
+    display: none;
+  }
+}

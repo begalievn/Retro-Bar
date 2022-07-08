@@ -1,0 +1,61 @@
+.carouselContainer{
+  background-color: rgba(255, 0, 200, 0.418);
+  width: 100%;
+  height: 82.5%;
+  margin-bottom: 3.6%;
+  margin-top: 1.9%;
+  position: relative;
+}
+.allPagesContainer{
+  height: 100%;
+  display: flex;
+  transition: translate;
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+
+}
+.window{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.arrowRight{
+  position: absolute;
+  width: 4.52%;
+  top: 48.5%;  left: 115%;
+}
+.arrowLeft{
+  transform: rotateY(180deg);
+  width: 4.52%;
+  position: absolute;
+  top: 48.5%;
+  left: -19%;
+}
+.image{
+  min-width: 100%;
+  min-height: 100%;
+}
+
+
+
+
+@media screen and (max-width:425px) {
+  
+  .carouselContainer{
+    background-color: rgba(255, 0, 200, 0.418);
+    width: 100%;
+    height: 56.9%;
+    margin-bottom: 11.9%;
+    margin-top: 9.4%;
+  }
+  .arrowRight{
+    width: 10.1%;
+    left: 95%;
+  }
+  .arrowLeft{
+    z-index: 1;
+    width: 10.1%;
+    left: -5.2%;
+  }
+}

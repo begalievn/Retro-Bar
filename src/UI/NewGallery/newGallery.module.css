@@ -1,0 +1,124 @@
+
+.back {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.801);
+  width: 100%;
+  height: 100%;
+  z-index:100;
+  backdrop-filter: blur(6px);
+  
+}
+
+
+.container{
+   
+    width: 55.2vw;
+    height: 53.3vw;
+    max-height: 90vh;
+    max-width: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+}
+.placeName {
+  color: #ff6d00;
+  font-size: 1.4vw;
+  font-weight: 700;
+}
+.eventName {
+  font-size: 1.12vw;
+  font-weight: 500;
+  color: white;
+}
+.cross {
+  width: 2.71vw;
+  height: 2.71vw;
+}
+.close {
+  display: none;
+}
+/* нижняя часть */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+.download {
+}
+.btnsSize {
+  width: 158px;
+}
+.counter {
+  font-size: 1.11vw;
+  color: white;
+}
+
+
+
+@media screen and (max-width: 425px) {
+  
+  .counter {
+    font-size: 4.27vw;
+  }
+  .footer {
+    align-items: flex-start;
+  }
+
+  .left {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .cross {
+    display: none;
+  }
+  .close {
+    display: block;
+    width: 3.8vw;
+    height: 3.8vw;
+  }
+  .placeName {
+    font-size: 4.4vw;
+  }
+  .eventName {
+    font-size: 3.8vw;
+  }
+  
+
+  
+  .container {
+      height: 105vw;
+      width: 76vw;
+      position: absolute;
+      top: 47%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .counter {
+    font-size: 16px;
+  }
+  
+}
+

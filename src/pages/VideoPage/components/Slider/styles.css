@@ -1,0 +1,103 @@
+.swiper {
+  width: 70%;
+  height: 251px;
+  position: static !important;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /*background: #fff !important;*/
+  background: none;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  width: 36px !important;
+  height: 36px !important;
+}
+.swiper-button-prev {
+  left: 100px !important;
+  right: auto !important;
+  z-index: 3;
+}
+.swiper-button-next {
+  right: 100px !important;
+  left: auto !important;
+  z-index: 3;
+}
+.swiper-button-next::after {
+  content: "" !important;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url("../../../../assets/videoPage/arrowRight.svg") no-repeat
+    center;
+  background-size: contain;
+}
+.swiper-button-prev::after {
+  content: "" !important;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: url("../../../../assets/videoPage/arrowRight.svg") no-repeat
+    center;
+  background-size: contain;
+  transform: rotate(180deg);
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  max-height: 250px;
+  height: 100%;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-horizontal,
+.swiper-pagination-bullets,
+.swiper-pagination-bullets,
+.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: -119px;
+  left: 225px;
+}
+
+.swiper-pagination-fraction {
+  width: auto;
+
+}
+
+@media (max-width: 768px) {
+  .swiper {
+    width: 100% !important;
+  }
+  .swiper-button-prev {
+    left: 25px !important;
+    right: auto !important;
+    z-index: 3;
+  }
+  .swiper-button-next {
+    right: 25px !important;
+    left: auto !important;
+    z-index: 3;
+  }
+}

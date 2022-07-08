@@ -1,0 +1,22 @@
+.inputSearchBlock {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.inputSearch {
+  z-index: 10;
+  color: black;
+  height: 30px;
+  width: 100%;
+  padding: 0 11px;
+  outline: none;
+  border: none;
+  font-family: inherit;
+  border-radius: 8px;
+}
+.inputSearchBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

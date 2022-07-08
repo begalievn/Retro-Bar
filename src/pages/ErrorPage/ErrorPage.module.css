@@ -1,0 +1,77 @@
+.sorryText {
+  color: orange;
+  font-size: 24px;
+  font-family: Montserrat Alternates;
+  margin-bottom: 50px;
+}
+
+.btnMain {
+  background-color: #ffb03b;
+  width: 163px;
+  height: 48px;
+  border-radius: 8px;
+  font-family: Montserrat Alternates;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  margin-top: 40px;
+}
+.secondText {
+  font-style: 16px;
+  color: white;
+  font-family: Montserrat Alternates;
+  margin-bottom: 50px;
+}
+.mainDiv {
+  background: url("../../assets/erroPage/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 629px;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.polaroidImg {
+  width: 100%;
+}
+
+.imgDiv {
+  position: relative;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.tapeStyle:nth-child(1n) {
+  position: absolute;
+  top: 5%;
+  right: 30%;
+  width: 30%;
+  mix-blend-mode: luminosity;
+  z-index: 1;
+}
+.tapeStyle:nth-child(2n) {
+  position: absolute;
+  top: 55%;
+  left: 8%;
+  width: 13%;
+  mix-blend-mode: luminosity;
+  z-index: 1;
+}
+.tapeResp:nth-child(1n) {
+  position: absolute;
+  top: 5%;
+  right: 30%;
+  width: 30%;
+  mix-blend-mode: luminosity;
+}
+.tapeResp:nth-child(2n) {
+  position: absolute;
+  top: 55%;
+  left: 7%;
+  width: 13%;
+  mix-blend-mode: luminosity;
+}
+.inputS {
+  max-width: 80%;
+}

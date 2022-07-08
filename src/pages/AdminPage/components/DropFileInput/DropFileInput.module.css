@@ -1,0 +1,95 @@
+.adminAddBlock {
+  position: relative;
+}
+
+.adminAdd {
+  color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px;
+  justify-content: center;
+  width: 437px;
+  height: 437px;
+  margin-bottom: 35px;
+  background-color: #2f2f2f;
+  background-image: url("data:image/svg+xml,%3csvg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='white' stroke-width='4' stroke-dasharray='20' stroke-dashoffset='5' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 13px;
+}
+.adminAddRow {
+  width: 100%;
+  height: 178px;
+  flex-direction: row;
+}
+
+.adminAddTitle {
+  color: white;
+  font-family: "Montserrat Alternates";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 27px;
+}
+
+.adminAddBlock input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.dropFileInputWrapper {
+  display: flex;
+  flex-direction: column;
+  /*align-items: flex-start;*/
+  align-items: center;
+  margin-bottom: 30px;
+}
+.fileList {
+  list-style: none;
+  color: white;
+  width: 100%;
+}
+.fileList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--orange-text);
+}
+
+.fileList li span {
+  cursor: pointer;
+  text-align: center;
+  background: #ffffff;
+  color: black;
+  width: 23px;
+  border-radius: 50%;
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='white' stroke-width='4' stroke-dasharray='19%2c14' stroke-dashoffset='29' stroke-linecap='round'/%3e%3c/svg%3e");
+  border-radius: 50% !important;
+}
+
+.logo .icon {
+  display: none;
+  /*background: url("../../../../assets/adminPage/avatarIcon.svg");*/
+}
+
+.poster {
+  width: 100%;
+  height: 200px;
+  flex-direction: row;
+}
+/*.logo span {*/
+/*  font-size: 14px;*/
+/*}*/
