@@ -12,7 +12,7 @@ import { IBookData } from '../../types/bookTypes/bookTypes';
 import Button from '../Button/Button';
 
 type BookProps = {
-  data?: IBookData;
+  data?: IBookData | undefined;
   page: string;
 };
 
@@ -21,7 +21,7 @@ function Book({ data, page }: BookProps) {
 
   if (page === 'main') container = styles.containerMain;
   if (page === 'video') container = styles.containerVideo;
-
+  
   return (
     <section className={container}>
       {page === 'institution' && (
@@ -48,7 +48,7 @@ function Book({ data, page }: BookProps) {
       <div className={styles.contactBlock}>
         <h2 className={styles.title}>{data?.title}</h2>
         <p className={styles.text}>{data?.text}</p>
-        <SubmitButton />
+        <SubmitButton  tel={data?.phoneNumber!} />
       </div>
     </section>
   );

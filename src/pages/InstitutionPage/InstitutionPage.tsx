@@ -14,6 +14,7 @@ import { getInstitudeSliderData } from '../../utils/helpers/getInstitudeSliderDa
 import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 import { advertisementsAPI } from '../../store/features/advertisement/advertisementsQuery';
 import { getAdvertisementData } from '../../utils/helpers/getAdvertisementData';
+import { getTopInstCardData } from '../../utils/helpers/getTopInstCardData';
 
 // let bookData = {
 //   text: ' технологии достигли такого уровня, что перспективное планирование способствует.',
@@ -24,15 +25,16 @@ import { getAdvertisementData } from '../../utils/helpers/getAdvertisementData';
 let topData: TopProps['data'] = {
   
   title:'string',
-  workingHours:'string',
-  phoneNumber:'string',
-  adress:'string',
-  leftBlockPhotoLeft:'string',
-  leftBlockPhotoRight:'string',
-  rightBlockPhoto:'string',
+  time:'string',
+  phone:'string',
+  location:'string',
+  image:{created:'asd',id:1,url:"s"},
+  
 
 
 }
+
+
 
 const InstitutionPage = () => {
   const {
@@ -40,6 +42,8 @@ const InstitutionPage = () => {
     error,
     isLoading: isEstablishmentsLoading,
   } = establishmentsAPI.useFetchAllEstablishmentsQuery('');
+  
+establishments && console.log(getTopInstCardData(establishments.establishments)[0],'DAAATAAA');
 
   const {
     data: advertisements,
@@ -47,7 +51,7 @@ const InstitutionPage = () => {
     isLoading: advertisementIsLoading,
   } = advertisementsAPI.useFetchAllAdvertisementsQuery('');
 
-  console.log(establishments);
+  console.log(establishments,"estab");
   return (
     <div className={styles.back}>
       <CalendarIcon />
@@ -61,14 +65,16 @@ const InstitutionPage = () => {
             <a href="/events">Локация</a>
           </div>
         </section>
-        <Top data={topData} />
         {isEstablishmentsLoading ? (
           <div>Loading...</div>
-        ) : (
+          ) : (
+            <>
+            <Top data={getTopInstCardData(establishments.establishments)[0]} />
           <InstitutesSlider
             data={getInstitudeSliderData(establishments.establishments)}
             isContentBlack={false}
           />
+          </>
         )}
         {advertisementIsLoading ? (
           <p>Loading...</p>
