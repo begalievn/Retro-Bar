@@ -124,4 +124,4 @@ const InstitutionBarPage: FC = () => {
   );
 };
 
-export default InstitutionBarPage ;
+export default InstitutionBarPage;
