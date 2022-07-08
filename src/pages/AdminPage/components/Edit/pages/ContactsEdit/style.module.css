@@ -3,9 +3,18 @@
 }
 
 .cards {
+  max-width: 300px !important;
   min-width: 300px !important;
+  height: 470px;
   margin: 15px;
-  max-height: 350px !important;
+  transition: all 0.7s;
+}
+.cardsBig {
+  max-width: 300px !important;
+  min-width: 300px !important;
+  height: 530px;
+  margin: 15px;
+  transition: all 0.7s;
 }
 .mainDiv {
   position: absolute;
@@ -21,24 +30,22 @@
 }
 .modalDiv {
   background: white;
-  width: 30%;
-  height: 50%;
+  width: 40%;
+  height: 80%;
   border-radius: 20%;
   text-align: center;
+  padding-top: 55px;
   z-index: 1;
 }
 .modalInput {
   display: block;
   width: 80%;
-  margin-top: 10px !important;
-}
-.modalInput:nth-child(1) {
-  margin-top: 60px !important;
+  margin-top: 10px;
+  padding: 20px;
 }
 .btnEdit {
   margin-top: 20px !important;
   background-color: var(--orange) !important;
-
 }
 .cardDiv {
   display: flex !important;
@@ -47,13 +54,21 @@
   height: 100vh;
   justify-content: center;
 }
-.btnNav {
-  margin: 20px 10px !important;
-  background: var(--orange) !important;
-}
 .imgCard {
+  cursor: pointer;
+  background-size: cover;
   height: 200px !important;
   max-width: 300px;
-  overflow: hidden !important;
+}
+.descSpan {
+  max-height: 130px;
+  overflow: visible;
+  transition: all 0.7s;
+  cursor: pointer;
+}
+.descSpanNorm {
+  height: 60px;
+  overflow: hidden;
+  transition: all 0.7s;
   cursor: pointer;
 }

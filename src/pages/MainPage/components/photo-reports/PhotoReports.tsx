@@ -63,7 +63,7 @@ const PhotoReports = () => {
                       eventName={card.eventName}
                       pics={card.photos.length}
                       views={card.views}
-                      date={card.created}
+                      date={card.date}
                       backgroundPhoto={backgroungPhotos[index]}
                     />
                   ) : (
@@ -73,7 +73,7 @@ const PhotoReports = () => {
                       eventName={card.eventName}
                       pics={card.photos.length}
                       views={card.views}
-                      date={card.created}
+                      date={card.date}
                       backgroundPhoto={backgroungPhotos[index]}
                     />
                   )}

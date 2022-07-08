@@ -13,7 +13,7 @@ const Edit = () => {
     isLoading,
     refetch,
   } = photoAPI.useFetchAllPhotosQuery(20);
-  let array = photos?.photoCards;
+  const array: IPhotos[] = photos?.photoCards;
   return (
     <>
       <LinkNavs />

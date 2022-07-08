@@ -17,11 +17,11 @@ interface VideoPropsType {
   item: IVideo;
 }
 const VideoEditCard: FC<VideoPropsType> = ({ item }) => {
-  const [video, setVideo] = React.useState(item?.video);
-  const [eventName, setEventName] = React.useState(item?.eventName);
-  const [views, setViews] = React.useState(item?.views);
-  const [date, setDate] = React.useState(item?.date);
-  const [show, setShow] = React.useState(false);
+  const [video, setVideo] = React.useState<undefined|string>(item?.video);
+  const [eventName, setEventName] = React.useState<string>(item?.eventName);
+  const [views, setViews] = React.useState<number|string>(item?.views);
+  const [date, setDate] = React.useState<string>(item?.date);
+  const [show, setShow] = React.useState<boolean>(false);
   const [deleteVideo, {}] = videoAPI.useDeleteVideoMutation();
   const [editVideos, {}] = videoAPI.useEditVideoMutation();
 
@@ -47,13 +47,6 @@ const VideoEditCard: FC<VideoPropsType> = ({ item }) => {
         className={classes.cards}
         key={item.id}
       > 
-        {/* <iframe
-          src={item.video}
-          title="Video player"
-          frameBorder="0"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        /> */}
         <CardMedia
             className={classes.imgCard}
             component="img"
