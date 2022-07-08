@@ -2,20 +2,11 @@ import React, { FC, useEffect, useState } from "react";
 import phoneIcon from "../../assets/contactsPage/phone.svg";
 import whatsAppIcon from "../../assets/contactsPage/WhatsApp.svg";
 import mailIcon from "../../assets/contactsPage/mail.svg";
-
-import photo1 from "../../assets/contactsPage/img/photo1.png";
-import photo2 from "../../assets/contactsPage/img/photo2.png";
-import photo3 from "../../assets/contactsPage/img/photo3.png";
-
 import carousel1 from "../../assets/contactsPage/border/carousel1.png";
 import carousel2 from "../../assets/contactsPage/border/carousel2.png";
 import carousel3 from "../../assets/contactsPage/border/carousel3.png";
-
 import mainBack from "../../assets/contactsPage/polaroid.png";
-import mainImage from "../../assets/contactsPage/img/mainImage.png";
-
 import tape from "../../assets/contactsPage/border/tape.png";
-
 import classes from "./style.module.css";
 import TextBlock from "./TextBlock";
 import { IImageArr } from "../../types/contactsPageTypes/contactsPageTypes";
@@ -41,17 +32,17 @@ const ContactsPage: FC = () => {
       {
         frame: carousel1,
         id: 2,
-        photo: contacts?.contacts[1]?.photo,
+        photo: contacts?.contacts[0].photo,
       },
       {
         frame: carousel2,
         id: 3,
-        photo: contacts?.contacts[2]?.photo,
+        photo: contacts?.contacts[0].photo,
       },
       {
         frame: carousel3,
         id: 4,
-        photo: contacts?.contacts[3]?.photo,
+        photo: contacts?.contacts[0].photo,
       },
     ]);
   }, [isLoading]);

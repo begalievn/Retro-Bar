@@ -70,26 +70,21 @@ const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
   function scrollTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  // console.log(item);
-
   return (
     <>
-      <Card
-        onClick={() => {
-          setShow(true);
-          scrollTop();
-        }}
-        className={classes.cards}
-        key={item.id}
-      >
+      <Card className={classes.cards} key={item.id}>
         <CardMedia
+          onClick={() => {
+            setShow(true);
+            scrollTop();
+          }}
           className={classes.imgCard}
           component="img"
           height="150"
           image={item.logo}
           alt="photos"
         />
-        <CardContent sx={{ height: '210px' }}>
+        <CardContent sx={{ height: "270px" }}>
           <Typography
             className={classes.details}
             variant="body2"
