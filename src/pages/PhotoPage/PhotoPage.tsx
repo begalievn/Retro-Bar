@@ -5,6 +5,7 @@ import classes from './PhotoPage.module.css';
 import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
 import { useAppSelector } from '../../app/hooks';
 import { photoAPI } from '../../store/features/photos/photoQuery';
+import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 const PhotoPage: FC = () => {
   // const photos = useAppSelector((state) => state.photos.value);
   // const videos = useAppSelector((state) => state.videos.value);
@@ -20,6 +21,7 @@ const PhotoPage: FC = () => {
           <PhotoHeader />
           <PhotoMain />
         </div>
+        <BottomEmojis />
       </div>
     </>
   );

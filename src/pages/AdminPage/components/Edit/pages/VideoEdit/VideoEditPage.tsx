@@ -14,8 +14,7 @@ const VideoEditPage = () => {
     isLoading,
     refetch,
   } = videoAPI.useFetchAllVideosQuery('');
-  let array = videos?.photographers;
-  console.log(array)
+  const array: IVideo[] = videos?.videos;
   return (
     <div>
         <LinkNavs/>

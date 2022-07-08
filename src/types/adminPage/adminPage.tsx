@@ -43,18 +43,19 @@ export enum Pages {
 }
 
 export interface VideoCard {
-  video: string | object | null;
-  establishmentId: number | string;
-  eventName: string;
-  views: number | string;
-  photographerId: number | string;
-  date: string;
+  video?: string | object | null;
+  url?: string;
+  establishmentId: string;
+  eventName?: string;
+  views?: string;
+  photographerId: string;
+  date?: string;
 }
 export interface PhotoCard {
   establishmentId: string;
   eventName?: string;
   views?: number | string;
-  photographerId: number | string;
+  photographerId: string;
   date?: string;
   photos?: object | null;
 }
@@ -65,12 +66,29 @@ export interface AlertBody {
 }
 
 export interface Establishment {
-  logo: string | object;
-  name: string;
-  description: string;
-  workingHours: string;
-  contacts: string;
-  category: number;
+  logo?: string | object;
+  photos?: object | null;
+  name?: string;
+  description?: string;
+  workingHours?: string;
+  contacts?: string;
+  category?: number;
+  kitchenType?: string;
+  services?: string;
+  link?: string;
+  location?: string;
+  rate?: string;
 }
 
+export interface Contacts {
+  photo?: object | null;
+  photoUrl?: string;
+  description?: string;
+  phoneNumber?: string;
+  link?: string;
+  telegram?: string;
+  youtube?: string;
+  mail?: string;
+  instagram?: string;
+}
 export type AdminPageTypes = PhotoCard | VideoCard | Establishment;

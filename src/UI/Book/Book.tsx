@@ -1,37 +1,30 @@
-import React from "react";
-import styles from "./book.module.css";
-import blackfilm from "../../assets/book/blackFilm.png";
-import blackfilmgradientTop from "../../assets/book/blackFilmGradientTop.png";
+import React from 'react';
+import styles from './book.module.css';
+import blackfilm from '../../assets/book/blackFilm.png';
+import blackfilmgradientTop from '../../assets/book/blackFilmGradientTop.png';
 
-import image from "../../assets/book/image.png";
-import SubmitButton from "../SubmitButton/SubmitButton";
+import image from '../../assets/book/image.png';
+import SubmitButton from '../SubmitButton/SubmitButton';
 
-import sketchInstitutions from "../../assets/book/sketchInstitutions.png";
-import sketchVideo from "../../assets/book/sketchVideo.png";
-import { IBookData } from "../../types/bookTypes/bookTypes";
-import Button from "../Button/Button";
+import sketchInstitutions from '../../assets/book/sketchInstitutions.png';
+import sketchVideo from '../../assets/book/sketchVideo.png';
+import { IBookData } from '../../types/bookTypes/bookTypes';
+import Button from '../Button/Button';
 
 type BookProps = {
-  data?: IBookData;
+  data?: IBookData | undefined;
   page: string;
 };
 
-function Book({
-  data = {
-    text: "Современные технологии достигли такого уровня, что перспективное планирование способствует.",
-    title: "Связаться с заведением",
-    image: image,
-  },
-  page,
-}: BookProps) {
+function Book({ data, page }: BookProps) {
   let container = styles.container;
 
-  if (page === "main") container = styles.containerMain;
-  if (page === "video") container = styles.containerVideo;
-
+  if (page === 'main') container = styles.containerMain;
+  if (page === 'video') container = styles.containerVideo;
+  
   return (
     <section className={container}>
-      {page === "institution" && (
+      {page === 'institution' && (
         <>
           <img
             className={styles.sketchInstitutions}
@@ -42,7 +35,7 @@ function Book({
           <div className={styles.bottomGradient}></div>
         </>
       )}
-      {page === "video" && (
+      {page === 'video' && (
         <>
           <img className={styles.sketchVideo} src={sketchVideo} alt="" />
           <div className={styles.bottomGradient}></div>
@@ -50,12 +43,12 @@ function Book({
       )}
 
       <div className={styles.imageBlock}>
-        <img src={data.image} className={styles.image} alt="" />
+        <img src={data?.image} className={styles.image} alt="" />
       </div>
       <div className={styles.contactBlock}>
-        <h2 className={styles.title}>{data.title}</h2>
-        <p className={styles.text}>{data.text}</p>
-        <SubmitButton />
+        <h2 className={styles.title}>{data?.title}</h2>
+        <p className={styles.text}>{data?.text}</p>
+        <SubmitButton  tel={data?.phoneNumber!} />
       </div>
     </section>
   );

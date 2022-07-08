@@ -6,9 +6,25 @@ import { AdminSidebar } from "./components";
 import { AlertComponent } from "../../UI";
 import { useAppSelector } from "../../app/hooks";
 import { ROUTES } from "../../utils/routes";
+import { establishmentsAPI } from "../../store/features/establishments/establishmentsQuery";
+import { photographersAPI } from "../../store/features/photographers/photographersQuery";
+import { useDispatch } from "react-redux";
+import { gettingEstablishments } from "../../store/features/establishments/establishmentsSlice";
+import { gettingPhotographers } from "../../store/features/photographers/photographersSlice";
 
 const AdminPage = () => {
+  const dispatch = useDispatch();
   let alert = useAppSelector((state) => state.AlertSlice.alert);
+  const { data: establishmentsData = [], isLoading: isEstablishmentsLoading } =
+    establishmentsAPI.useFetchAllEstablishmentsQuery("");
+  const { data: photographersData = [], isLoading: isPhotographersLoading } =
+    photographersAPI.useFetchAllPhotographersQuery("");
+
+  useEffect(() => {
+    dispatch(gettingEstablishments(establishmentsData.establishments));
+    dispatch(gettingPhotographers(photographersData.photographers));
+  }, [photographersData, establishmentsData]);
+
   return (
     <div className={classes.adminWrapper}>
       <AdminSidebar />

@@ -16,10 +16,10 @@ interface PhotoPropsType {
 }
 
 const EditCards: React.FC<PhotoPropsType> = ({ item }) => {
-  const [eventName, setEventName] = React.useState(item?.eventName);
-  const [views, setViews] = React.useState(item?.views);
-  const [date, setDate] = React.useState(item?.date);
-  const [show, setShow] = React.useState(false);
+  const [eventName, setEventName] = React.useState<string>(item?.eventName);
+  const [views, setViews] = React.useState<number>(+item?.views);
+  const [date, setDate] = React.useState<string>(item?.date);
+  const [show, setShow] = React.useState<boolean>(false);
   const [deletePhoto, {}] = photoAPI.useDeletePhotoMutation();
   const [editPhoto, {}] = photoAPI.useEditPhotoMutation();
   const photoArray = item?.photos;
@@ -28,6 +28,7 @@ const EditCards: React.FC<PhotoPropsType> = ({ item }) => {
   }
   async function editPhotos(photo: IPhotos): Promise<void> {
     await editPhoto(photo);
+    console.log(photo);
   }
   function editPhotoCard(): void {
     editPhotos({ ...item, eventName, views, date });
@@ -38,21 +39,17 @@ const EditCards: React.FC<PhotoPropsType> = ({ item }) => {
   return (
     <>
       <Card className={classes.cards} key={item.id}>
-        {photoArray.map((item: IPhoto) => (
-          <CardMedia
-            onClick={() => {
-              // editPhotoCard();
-              setShow(true);
-              scrollTop();
-            }}
-            className={classes.imgCard}
-            key={item.id}
-            component="img"
-            image={item.url}
-            alt="photos"
-          />
-        ))}
-        <CardContent>
+        <CardMedia
+          onClick={() => {
+            setShow(true);
+            scrollTop();
+          }}
+          className={classes.imgCard}
+          component="img"
+          image={photoArray[0]?.url}
+          alt="photos"
+        />
+        <CardContent sx={{ minHeight: "90px" }}>
           <Typography
             className={classes.details}
             variant="body2"

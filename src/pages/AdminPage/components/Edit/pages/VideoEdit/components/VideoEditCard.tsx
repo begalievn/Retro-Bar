@@ -16,15 +16,14 @@ import { IVideo } from "../../../../../../../types/apiTypes/video";
 interface VideoPropsType {
   item: IVideo;
 }
-const VideoEditCard: FC<VideoPropsType> = ({ item }: any) => {
-  const [video, setVideo] = React.useState(item?.category);
-  const [eventName, setEventName] = React.useState(item?.name);
-  const [views, setViews] = React.useState(item?.description);
-  const [date, setDate] = React.useState(item?.contacts);
-  const [show, setShow] = React.useState(false);
+const VideoEditCard: FC<VideoPropsType> = ({ item }) => {
+  const [video, setVideo] = React.useState<undefined | string>(item?.video);
+  const [eventName, setEventName] = React.useState<string>(item?.eventName);
+  const [views, setViews] = React.useState<number | string>(item?.views);
+  const [date, setDate] = React.useState<string>(item?.date);
+  const [show, setShow] = React.useState<boolean>(false);
   const [deleteVideo, {}] = videoAPI.useDeleteVideoMutation();
   const [editVideos, {}] = videoAPI.useEditVideoMutation();
-
   async function deleteVi(video: IVideo): Promise<void> {
     await deleteVideo(video);
   }
@@ -39,33 +38,31 @@ const VideoEditCard: FC<VideoPropsType> = ({ item }: any) => {
   }
   return (
     <>
-      <Card
-        onClick={() => {
-          editVideoCard();
-          setShow(true);
-          scrollTop();
-        }}
-        className={classes.cards}
-        key={item.id}
-      >
+      <Card className={classes.cards} key={item.id}>
         <CardMedia
-          sx={{ cursor: "pointer" }}
+          onClick={() => {
+            setShow(true);
+            scrollTop();
+          }}
+          className={classes.imgCard}
           component="img"
-          height="140"
-          image={item.url}
+          image={item.video}
           alt="photos"
         />
-        <CardContent>
+        <CardContent sx={{ minHeight: "130px" }}>
           <Typography
             className={classes.details}
             variant="body2"
             color="text.secondary"
           >
+            {/* <span>
+              Url: <strong>{item.url}</strong>
+            </span> */}
             <span>
               EventName: <strong>{item.eventName}</strong>{" "}
             </span>
-            <span style={{ maxHeight: "60px", overflow: "hidden" }}>
-              Views: <strong>{item.viewes}</strong>{" "}
+            <span>
+              Views: <strong>{item.views}</strong>{" "}
             </span>
             <span>
               Date: <strong>{item.date}</strong>{" "}

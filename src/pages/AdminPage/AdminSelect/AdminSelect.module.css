@@ -1,0 +1,71 @@
+.inputBlock {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+  /*display: flex;*/
+  /*position: relative;*/
+  margin-bottom: 60px;
+}
+
+.adminInput {
+  width: 100%;
+  resize: none;
+  overflow: hidden;
+  color: #ffffff;
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  padding-left: 2px;
+  line-height: 22px;
+
+  outline: none;
+  border: none;
+  background: none;
+  padding-bottom: 2px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  margin-top: 13px;
+}
+
+.adminInput option {
+  color: black;
+}
+
+.textArea {
+  height: 30px;
+}
+
+.errorMessage {
+  font-size: 12px;
+  padding: 3px;
+  color: red;
+  display: none;
+}
+.adminInput:invalid[autofocus] ~ .errorMessage {
+  display: block;
+}
+
+.inputTitle,
+.inputLinkTitle {
+  font-family: "Montserrat Alternates";
+  font-weight: 600;
+  font-size: 1.2em;
+  line-height: 27px;
+}
+.inputTitle {
+  color: var(--orange-text);
+}
+.inputLinkTitle {
+  color: white;
+
+  display: flex;
+  align-items: center;
+}
+/*.inputLinkTitle::after {*/
+/*    content: '';*/
+/*    margin-left: 15px;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*    display: inline-block;*/
+/*    background-size: contain;*/
+/*    background-image: url('../../../../assets/adminPage/link.svg');*/
+/*}*/

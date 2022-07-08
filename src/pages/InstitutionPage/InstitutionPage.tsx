@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './institutionPage.module.css';
-import Top from './components/top/Top';
+import styles from './InstitutionPage.module.css';
+import Top, { TopProps } from './components/top/Top';
 import Book from '../../UI/Book/Book';
 import CalendarIcon from '../../UI/CalendarIcon/CalendarIcon';
 import star from '../../assets/institution/star.svg';
@@ -12,12 +12,29 @@ import { FooterEmoji } from '../../UI/FooterEmoji/FooterEmoji';
 import { establishmentsAPI } from '../../store/features/establishments/establishmentsQuery';
 import { getInstitudeSliderData } from '../../utils/helpers/getInstitudeSliderData';
 import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
+import { advertisementsAPI } from '../../store/features/advertisement/advertisementsQuery';
+import { getAdvertisementData } from '../../utils/helpers/getAdvertisementData';
+import { getTopInstCardData } from '../../utils/helpers/getTopInstCardData';
 
-let bookData = {
-  text: ' технологии достигли такого уровня, что перспективное планирование способствует.',
-  title: 'Зaказать съёмку',
-  image: 'https://picsum.photos/1000',
-};
+// let bookData = {
+//   text: ' технологии достигли такого уровня, что перспективное планирование способствует.',
+//   title: 'Зaказать съёмку',
+//   image: 'https://picsum.photos/1000',
+// };
+
+let topData: TopProps['data'] = {
+  
+  title:'string',
+  time:'string',
+  phone:'string',
+  location:'string',
+  image:{created:'asd',id:1,url:"s"},
+  
+
+
+}
+
+
 
 const InstitutionPage = () => {
   const {
@@ -25,15 +42,22 @@ const InstitutionPage = () => {
     error,
     isLoading: isEstablishmentsLoading,
   } = establishmentsAPI.useFetchAllEstablishmentsQuery('');
+  
+establishments && console.log(getTopInstCardData(establishments.establishments)[0],'DAAATAAA');
 
+  const {
+    data: advertisements,
+    error: advertisementError,
+    isLoading: advertisementIsLoading,
+  } = advertisementsAPI.useFetchAllAdvertisementsQuery('');
+
+  console.log(establishments,"estab");
   return (
     <div className={styles.back}>
       <CalendarIcon />
       <section className={styles.container}>
         <img className={styles.star} src={star} alt="" />
         <img className={styles.emoji} src={emoji} alt="" />
-        {/* <img className={styles.up} onClick={() => ToTop()} src={up} alt="" />
-        <img className={styles.emojies} src={emojies} alt="" /> */}
         <section className={styles.breadcrumbsCont}>
           <div className={styles.list}>
             <a href="/video">Топ заведения</a>
@@ -41,16 +65,26 @@ const InstitutionPage = () => {
             <a href="/events">Локация</a>
           </div>
         </section>
-        <Top />
         {isEstablishmentsLoading ? (
-          <div>Loading</div>
-        ) : (
+          <div>Loading...</div>
+          ) : (
+            <>
+            <Top data={getTopInstCardData(establishments.establishments)[0]} />
           <InstitutesSlider
             data={getInstitudeSliderData(establishments.establishments)}
             isContentBlack={false}
           />
+          </>
         )}
-        <Book page="institution" data={bookData} />
+        {advertisementIsLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <Book
+            page="institution"
+            data={getAdvertisementData(advertisements.advertisements)}
+          />
+        )}
+
         <BottomEmojis />
       </section>
     </div>

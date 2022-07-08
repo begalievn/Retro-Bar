@@ -4,15 +4,16 @@ import { FC, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { getPhotos } from "../../../apis/getPhotos";
 import { gettingPhotos } from "../../../store/features/photos/photosSlice";
+import { Link, useNavigate } from "react-router-dom";
 
 const Section2: FC = () => {
 
-
+ const navigate = useNavigate()
   return (
     <div className={style.eventPage_section2}>
       <h3>Все события</h3>
       <AllEvents />
-      <a href="#">Смотреть все</a>
+      <Link to='/photo'>Смотреть все</Link>
     </div>
   );
 };

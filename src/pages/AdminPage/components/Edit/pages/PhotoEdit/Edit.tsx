@@ -13,11 +13,10 @@ const Edit = () => {
     isLoading,
     refetch,
   } = photoAPI.useFetchAllPhotosQuery(20);
-  let array = photos?.photoCards;
-
+  const array: IPhotos[] = photos?.photoCards;
   return (
     <>
-        <LinkNavs/>
+      <LinkNavs />
       <div className={classes.cardDiv}>
         {array?.map((item: IPhotos) => (
           <EditCards key={item.id} item={item} />

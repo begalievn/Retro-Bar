@@ -1,54 +1,58 @@
-.details span{
-    display: block;
+.details span {
+  display: block;
 }
 
-.cards{
-    min-width: 300px !important;
-    margin: 15px;
-    max-height: 350px !important;
+.cards {
+  width: 300px !important;
+  margin: 15px;
+  height: 400px !important;
 }
-.mainDiv{
-    position: absolute;
-    top:0%;
-    left: 0%;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.mainDiv {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
 }
-.modalDiv{
-    background: white;
-    width: 30%;
-    height: 50%;
-    border-radius: 20%;
-    text-align: center;
+.modalDiv {
+  background: white;
+  width: 30%;
+  height: 50%;
+  border-radius: 20%;
+  text-align: center;
+  z-index: 1;
 }
-.modalInput{
-    display: block;
-    width: 80%;
-    margin-top: 10px !important;
+.modalInput {
+  display: block;
+  width: 80%;
+  margin-top: 10px !important;
 }
-.modalInput:nth-child(1){
-    margin-top: 60px !important;
+.modalInput:nth-child(1) {
+  margin-top: 60px !important;
 }
-.btnEdit{
-    margin-top: 20px !important;
+.btnEdit {
+  margin-top: 20px !important;
+  background-color: var(--orange) !important;
 }
-.cardDiv{
-    display: flex !important;
-    flex-wrap: wrap !important;
-    width: 100%;
-    height: 100vh;
-    justify-content: center;
+.cardDiv {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
 }
-.btnNav{
-    margin: 20px 10px !important;
-    background: var(--orange) !important;
+.btnNav {
+  margin: 20px 10px !important;
+  background: var(--orange) !important;
 }
-.imgCard{
-    max-height: 200px !important;
-    overflow: hidden !important;
-    cursor: pointer;
+.imgCard {
+  height: 200px !important;
+  max-width: 300px;
+  /* overflow: hidden !important; */
+  cursor: pointer;
 }
