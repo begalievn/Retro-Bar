@@ -35,23 +35,17 @@ const MainPage = () => {
     isLoading: photoLoading,
   } = photoAPI.useFetchAllPhotosQuery(8);
 
-  getVideoWithEmbed('https://youtu.be/ITiy9Ji4-w0');
   const {
     data: advertisements,
     error: advertisementError,
     isLoading: advertisementIsLoading,
   } = advertisementsAPI.useFetchAllAdvertisementsQuery('');
 
-  console.log('Photos', photos);
-  console.log('Advertisements', advertisements);
-
   const {
     data: establishments,
     error: establishmentError,
     isLoading: establishmentLoading,
   } = establishmentsAPI.useFetchAllEstablishmentsQuery('');
-
-  console.log('establishments', establishments);
 
   return (
     <div className={classes.main}>

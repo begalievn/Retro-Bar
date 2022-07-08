@@ -5,12 +5,6 @@ import { useSwipeable } from 'react-swipeable';
 
 import TopInstCard from '../top-inst-card/TopInstCard';
 
-import leftBackground from '../../../../../assets/mainPage/top-inst-left-bg.png';
-import rightBackground from '../../../../../assets/mainPage/top-inst-right-bg.png';
-import leftPhoto from '../../../../../assets/mainPage/top-inst-left-photo.png';
-import rightPhoto from '../../../../../assets/mainPage/top-inst-right-photo.png';
-import photoOfBar from '../../../../../assets/mainPage/top-inst-photo-of-bar.png';
-
 import classes from './instSlider.module.css';
 import { IPhoto } from '../../../../../types/apiTypes/photo';
 
@@ -26,48 +20,9 @@ interface TopInstCardsProps {
   cardsData: TopInstCardsType[];
 }
 
-// const cardsData: Array<TopInstCardsType> = [
-//   {
-//     photo: photoOfBar,
-//     title: 'MINIBAR',
-//     time: '18:00-06:00',
-//     phone: '0 558 55 00 00',
-//     location: 'Чынгыза Айтматова, 56',
-//   },
-//   {
-//     photo: photoOfBar,
-//     title: 'MINIBAR',
-//     time: '18:00-06:00',
-//     phone: '0 558 55 00 00',
-//     location: 'Чынгыза Айтматова, 56',
-//   },
-//   {
-//     photo: photoOfBar,
-//     title: 'MINIBAR',
-//     time: '18:00-06:00',
-//     phone: '0 558 55 00 00',
-//     location: 'Чынгыза Айтматова, 56',
-//   },
-//   {
-//     photo: photoOfBar,
-//     title: 'MINIBAR',
-//     time: '18:00-06:00',
-//     phone: '0 558 55 00 00',
-//     location: 'Чынгыза Айтматова, 56',
-//   },
-//   {
-//     photo: photoOfBar,
-//     title: 'MINIBAR',
-//     time: '18:00-06:00',
-//     phone: '0 558 55 00 00',
-//     location: 'Чынгыза Айтматова, 56',
-//   },
-// ];
-
 const InstitutionsSlider: FC<TopInstCardsProps> = ({ cardsData }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [slideCards, setSlideCards] = useState<TopInstCardsType[]>([]);
-  console.log('Cardsdata', cardsData);
 
   useEffect(() => {
     let cardsArr: TopInstCardsType[] = [];
@@ -109,16 +64,6 @@ const InstitutionsSlider: FC<TopInstCardsProps> = ({ cardsData }) => {
     onSwipedRight: () => prev(),
   });
 
-  console.log(
-    {
-      hiddenLeftIndex,
-      leftIndex,
-      activeIndex,
-      rightIndex,
-      hiddenRightIndex,
-    },
-    cardsData
-  );
   return (
     <div className={classes.container}>
       <div className={classes.carousel}>
