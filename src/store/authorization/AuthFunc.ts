@@ -32,9 +32,10 @@ export const login = (userData: IUser) => {
 
   export const logOut = ()=>{
     return (dispatch:Dispatch<IDispatch>)=>{
-      localStorage.removeItem('token');
+      localStorage.removeItem('accessToken');
       dispatch(checkAdmin(false))
       dispatch(deleteToken())
+      console.log('feef')
     }
   }
 

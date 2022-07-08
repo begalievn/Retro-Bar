@@ -20,6 +20,11 @@ const LinkNavs = () => {
           Establishment
         </Button>
       </Link>
+      <Link to="/admin/edit/contacts">
+        <Button className={classes.btnNav} variant="contained">
+          Contacts
+        </Button>
+      </Link>
     </div>
   );
 };

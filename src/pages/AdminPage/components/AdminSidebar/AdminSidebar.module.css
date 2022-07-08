@@ -148,6 +148,9 @@
     width: 15em;
   }
 }
+.btnLogOut {
+  background: var(--orange) !important;
+}
 
 @media (min-width: 1280px) {
   .s-layout__content {

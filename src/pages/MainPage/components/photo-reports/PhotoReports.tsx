@@ -58,22 +58,22 @@ const PhotoReports = () => {
                 <div key={index}>
                   {index === 4 ? (
                     <PhotoReportCardBig
-                      photo={card?.photos[0]}
+                      photo={card?.photos[0].url}
                       title={card.establishment.name}
                       eventName={card.eventName}
                       pics={card.photos.length}
                       views={card.views}
-                      date={card.created}
+                      date={card.date}
                       backgroundPhoto={backgroungPhotos[index]}
                     />
                   ) : (
                     <PhotoReportCard
-                      photo={card?.photos[0]}
+                      photo={card?.photos[0].url}
                       title={card.establishment.name}
                       eventName={card.eventName}
                       pics={card.photos.length}
                       views={card.views}
-                      date={card.created}
+                      date={card.date}
                       backgroundPhoto={backgroungPhotos[index]}
                     />
                   )}

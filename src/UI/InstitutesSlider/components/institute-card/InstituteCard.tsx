@@ -38,7 +38,7 @@ const InstituteCard: FC<InstitudeCardDataTypes> = ({ ...props }) => {
         )}
 
         <div className={classes.image_div}>
-          <img src={props.photo} alt="ints photo" />
+          <img src={props.photo?.url} alt="ints photo" />
         </div>
 
         {props.isActive ? (

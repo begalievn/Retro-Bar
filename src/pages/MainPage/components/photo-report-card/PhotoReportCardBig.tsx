@@ -32,7 +32,7 @@ const PhotoReportCardBig = ({
       <div
         className={classes.photoCard}
         style={{
-          width: '98%',
+          width: '99%',
           backgroundImage: `url(${photo})`,
         }}
       >

@@ -172,7 +172,7 @@ const AdminEstablishment = () => {
           <AdminInput
             required={true}
             icon={<LinkIcon />}
-            errorMessage={"Вставьте ссылку!"}
+            errorMessage={"Вставить ссылку!"}
             inputHandler={inputHandler}
             color={"white"}
             title={"Вставьте ссылку"}

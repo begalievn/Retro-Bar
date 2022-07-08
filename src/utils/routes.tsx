@@ -7,6 +7,7 @@ import {
   AdminVideo,
   Edit,
 } from "../pages/AdminPage/components";
+import ContactsEditPage from "../pages/AdminPage/components/Edit/pages/ContactsEdit/ContactsEditPage";
 import EstablishmentEditPage from "../pages/AdminPage/components/Edit/pages/EstablishmentEdit/EstablishmentEditPage";
 import VideoEditPage from "../pages/AdminPage/components/Edit/pages/VideoEdit/VideoEditPage";
 
@@ -55,5 +56,10 @@ export const ROUTES = [
     link: "/edit/establishment",
     element: <EstablishmentEditPage />,
     id: 10,
+  },
+  {
+    link: "/edit/contacts",
+    element: <ContactsEditPage />,
+    id: 11,
   },
 ];
