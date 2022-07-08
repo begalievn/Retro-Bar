@@ -90,15 +90,28 @@
   flex-direction: column;
   align-items: flex-end;
 }
+.active {
+  color: var(--orange-text);
+}
 .icon {
 }
 .adminTitle {
   color: white;
-  /*padding-left: 8%;*/
   margin-bottom: 55px;
   font-size: 1.8em;
 }
 
+.bannerContent {
+  flex-direction: column;
+  gap: 0 !important;
+}
+
+/*.adminTitle span:first-child {*/
+/*  color: var(--orange-text);*/
+/*}*/
+.bannerField {
+  width: 60%;
+}
 .adminContent {
   width: 100%;
   display: flex;
