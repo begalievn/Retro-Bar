@@ -12,12 +12,14 @@ import { FooterEmoji } from '../../UI/FooterEmoji/FooterEmoji';
 import { establishmentsAPI } from '../../store/features/establishments/establishmentsQuery';
 import { getInstitudeSliderData } from '../../utils/helpers/getInstitudeSliderData';
 import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
+import { advertisementsAPI } from '../../store/features/advertisement/advertisementsQuery';
+import { getAdvertisementData } from '../../utils/helpers/getAdvertisementData';
 
-let bookData = {
-  text: ' технологии достигли такого уровня, что перспективное планирование способствует.',
-  title: 'Зaказать съёмку',
-  image: 'https://picsum.photos/1000',
-};
+// let bookData = {
+//   text: ' технологии достигли такого уровня, что перспективное планирование способствует.',
+//   title: 'Зaказать съёмку',
+//   image: 'https://picsum.photos/1000',
+// };
 
 const InstitutionPage = () => {
   const {
@@ -25,6 +27,13 @@ const InstitutionPage = () => {
     error,
     isLoading: isEstablishmentsLoading,
   } = establishmentsAPI.useFetchAllEstablishmentsQuery('');
+
+  const {
+    data: advertisements,
+    error: advertisementError,
+    isLoading: advertisementIsLoading,
+  } = advertisementsAPI.useFetchAllAdvertisementsQuery('');
+
   console.log(establishments);
   return (
     <div className={styles.back}>
@@ -48,7 +57,15 @@ const InstitutionPage = () => {
             isContentBlack={false}
           />
         )}
-        <Book page="institution" data={bookData} />
+        {advertisementIsLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <Book
+            page="institution"
+            data={getAdvertisementData(advertisements.advertisements)}
+          />
+        )}
+
         <BottomEmojis />
       </section>
     </div>

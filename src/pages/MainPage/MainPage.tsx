@@ -24,15 +24,8 @@ import { establishmentsAPI } from '../../store/features/establishments/establish
 import { getPalaroidCardData } from '../../utils/helpers/getPalaroidCardData';
 import { getTopInstCardData } from '../../utils/helpers/getTopInstCardData';
 import { getInstitudeSliderData } from '../../utils/helpers/getInstitudeSliderData';
-
-let bookProps: BookProps = {
-  data: {
-    text: 'Современные технологии достигли такого уровня, что перспективное планирование способствует подготовке и реализации позиций, занимаемых участниками в отношении поставленных задач.',
-    title: 'Заказать сьёмку сейчас',
-    image: bookImage,
-  },
-  page: 'main',
-};
+import { advertisementsAPI } from '../../store/features/advertisement/advertisementsQuery';
+import { getAdvertisementData } from '../../utils/helpers/getAdvertisementData';
 
 const MainPage = () => {
   const {
@@ -41,7 +34,14 @@ const MainPage = () => {
     isLoading: photoLoading,
   } = photoAPI.useFetchAllPhotosQuery(8);
 
+  const {
+    data: advertisements,
+    error: advertisementError,
+    isLoading: advertisementIsLoading,
+  } = advertisementsAPI.useFetchAllAdvertisementsQuery('');
+
   console.log('Photos', photos);
+  console.log('Advertisements', advertisements);
 
   const {
     data: establishments,
@@ -91,7 +91,14 @@ const MainPage = () => {
         <div className={classes.paper_gradient_left}></div>
       </div>
 
-      <Book {...bookProps} />
+      {advertisementIsLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <Book
+          data={getAdvertisementData(advertisements.advertisements)}
+          page={`main`}
+        />
+      )}
       <BottomEmojis />
     </div>
   );
