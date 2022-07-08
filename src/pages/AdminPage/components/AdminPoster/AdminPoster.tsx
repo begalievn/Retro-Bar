@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, {FC, useEffect, useState} from "react";
 import classes from "../../AdminPage.module.css";
 import DropFileInput from "../DropFileInput/DropFileInput";
 import { AdminInput } from "../index";
@@ -26,6 +26,11 @@ const AdminPoster: FC<AdminPosterProps> = ({}) => {
   const [inputValue, setInputValue] = useState<Advertisement>({});
   const [createPoster, { isSuccess,isLoading }] =
     posterAPI.useCreatePosterMutationMutation();
+
+  useEffect(() => {
+    setInputValue({});
+  }, [isSuccess]);
+
   if (isLoading) {
     return <Loader />;
   }
@@ -54,8 +59,7 @@ const AdminPoster: FC<AdminPosterProps> = ({}) => {
         dispatch(createAlert({ message: e.data.message, type: "error" }));
         startTimer(dispatch, deleteAlert);
       });
-
-    isSuccess && setInputValue({});
+ ;
   };
 
   return (

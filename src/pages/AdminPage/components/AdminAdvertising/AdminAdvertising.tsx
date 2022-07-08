@@ -1,4 +1,4 @@
-import React, { ReactHTML, useState } from "react";
+import React, {ReactHTML, useEffect, useState} from "react";
 import classes from "../../AdminPage.module.css";
 import { Button } from "../../../../UI";
 import { Advertisement } from "../../../../types/adminPage/adminPage";
@@ -16,10 +16,15 @@ import { startTimer } from "../../../../utils/helpers/timer";
 import Loader from "../../../../UI/Loader/Loader";
 
 const AdminAdvertising = () => {
+  const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState<Advertisement>({});
   const [createAd, { isSuccess, isLoading }] =
     advertisementsAPI.useCreateAdvertisementsMutationMutation();
-  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setInputValue({});
+  }, [isSuccess]);
+
   if (isLoading) {
     return <Loader />;
   }
@@ -48,6 +53,7 @@ const AdminAdvertising = () => {
         dispatch(createAlert({ message: e.data.message, type: "error" }));
         startTimer(dispatch, deleteAlert);
       });
+
   };
 
   return (

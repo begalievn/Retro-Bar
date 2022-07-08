@@ -45,17 +45,17 @@ export enum Pages {
 export interface VideoCard {
   video?: string | object | null;
   url?: string;
-  establishmentId: string;
+  establishmentId?: string;
   eventName?: string;
   views?: string;
-  photographerId: string;
+  photographerId?: string;
   date?: string;
 }
 export interface PhotoCard {
-  establishmentId: string;
+  establishmentId?: string;
   eventName?: string;
   views?: number | string;
-  photographerId: string;
+  photographerId?: string;
   date?: string;
   photos?: object | null;
 }

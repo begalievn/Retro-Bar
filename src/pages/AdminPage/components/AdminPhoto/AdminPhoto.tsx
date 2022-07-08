@@ -24,10 +24,14 @@ const AdminPhoto = () => {
     establishmentId: "",
     photographerId: "",
   });
-  const [createPhotoCard, { isLoading }] =
+  const [createPhotoCard, { isLoading, isSuccess }] =
     photoAPI.useCreatePhotoCardMutation();
   let establishments = useAppSelector((state) => state.establishments.value);
   let photographers = useAppSelector((state) => state.photographers.value);
+
+  useEffect(() => {
+    setInputValue({});
+  }, [isSuccess]);
 
   if (isLoading) {
     return <Loader />;

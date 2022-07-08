@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import classes from "../../AdminPage.module.css";
 
@@ -30,10 +30,14 @@ const AdminVideo = () => {
     establishmentId: "",
     photographerId: "",
   });
-  const [createVideoCard, { isLoading }] =
+  const [createVideoCard, { isLoading, isSuccess }] =
     videoAPI.useCreateVideoCardMutation();
   let establishments = useAppSelector((state) => state.establishments.value);
   let photographers = useAppSelector((state) => state.photographers.value);
+
+  useEffect(() => {
+    setInputValue({});
+  }, [isSuccess]);
 
   if (isLoading) {
     return <Loader />;
@@ -75,6 +79,7 @@ const AdminVideo = () => {
         <div className={classes.adminContent}>
           <div>
             <DropFileInput
+              required={true}
               type={"video"}
               children={"Добавить превью для видео"}
               setInputValue={setInputValue}

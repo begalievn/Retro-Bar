@@ -13,6 +13,7 @@ interface AdminSelectProps {
   name: string;
   required?: boolean;
   errorMessage: string;
+  color?: string;
   inputHandler?: (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -27,6 +28,7 @@ const AdminSelect: FC<AdminSelectProps> = ({
   required,
   errorMessage,
   inputHandler,
+  color,
 }) => {
   const [focused, setFocused] = useState<boolean>(false);
   const handleFocus = () => {
@@ -34,7 +36,11 @@ const AdminSelect: FC<AdminSelectProps> = ({
   };
   return (
     <div className={classes.inputBlock}>
-      <label className={classes.inputTitle} htmlFor={name}>
+      <label
+        className={classes.inputTitle}
+        htmlFor={name}
+        style={{ color: `${color}` }}
+      >
         {title}
       </label>
       <select
