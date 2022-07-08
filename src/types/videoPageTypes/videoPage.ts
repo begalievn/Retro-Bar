@@ -3,5 +3,6 @@ export interface IVideoCardBody {
   image: string;
   views: number;
   video?: string;
-  url?: string
+  url?: string;
+  eventName: string
 }

@@ -12,6 +12,7 @@ interface videoCardProps {
 const VideoCard: FC<videoCardProps> = ({ videoCardBody,setMainVideo }) => {
 
 
+console.log(videoCardBody);
 
   const funcScroll =()=>{
     setMainVideo(videoCardBody.url! )
@@ -29,7 +30,7 @@ const VideoCard: FC<videoCardProps> = ({ videoCardBody,setMainVideo }) => {
       </div>
         <div className={classes.cardText}>
           <span className={classes.cardViewers}>{videoCardBody.views}</span>
-          <h4 className={classes.cardTitle}>{videoCardBody.title}</h4>
+          <h4 className={classes.cardTitle}>{videoCardBody.eventName}</h4>
         </div>
       </div>
     </div>
