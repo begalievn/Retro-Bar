@@ -146,7 +146,7 @@ const AdminEstablishment = () => {
           </div>
           <div className={classes.descriptionBlock}>
             <AdminSelect
-              options={categories}
+              options={categories || []}
               required={true}
               errorMessage={'Категория обязательное поле!'}
               inputHandler={inputHandler}
