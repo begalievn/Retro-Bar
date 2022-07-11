@@ -1,5 +1,5 @@
 // imported libraries
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // imported images
@@ -29,12 +29,12 @@ const backgroungPhotos = [
   photoBackground,
 ];
 
-const PhotoReports = () => {
+const PhotoReports: FC = () => {
   const { data: photos, error, isLoading } = photoAPI.useFetchAllPhotosQuery(5);
 
   const navigate = useNavigate();
 
-  const clickHandler = () => {
+  const clickHandler = (): void => {
     navigate('/photo');
   };
   return (
