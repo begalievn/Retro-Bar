@@ -14,6 +14,7 @@ import Gallery from '../UI/Gallery/Gallery';
 import NewsPages from './NewsPage/NewsPages';
 
 import { useAppSelector } from '../app/hooks';
+import EventBarPage from './EventBarPage/EventBarPage';
 
 const MainRoutes = () => {
   const isAdmin = useAppSelector((state) => state.AuthorizationSlice.token);
@@ -50,24 +51,29 @@ const MainRoutes = () => {
       id: 6,
     },
     {
+      link: '/events/:eventId',
+      element: <EventBarPage />,
+      id: 7,
+    },
+    {
       link: '/news',
       element: <NewsPages />,
-      id: 7,
+      id: 8,
     },
     {
       link: '/contacts',
       element: <ContactsPage />,
-      id: 8,
+      id: 9,
     },
     {
       link: '/*',
       element: <ErrorPage />,
-      id: 9,
+      id: 10,
     },
     {
       link: '/authorization',
       element: <Authorization />,
-      id: 10,
+      id: 11,
     },
 
     {

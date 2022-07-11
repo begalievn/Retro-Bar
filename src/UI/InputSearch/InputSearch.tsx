@@ -12,7 +12,6 @@ export const InputSearch = (props: React.HTMLProps<HTMLInputElement>) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-    console.log(value);
   };
 
   return (

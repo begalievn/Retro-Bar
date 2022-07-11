@@ -20,7 +20,6 @@ const InstituteCard: FC<InstitudeCardDataTypes> = ({ ...props }) => {
   const navigate = useNavigate();
 
   const clickHandler = (id: number) => {
-    console.log(id);
     navigate(`/institution/${id}`);
   };
 
