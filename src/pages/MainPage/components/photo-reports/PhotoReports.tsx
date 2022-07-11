@@ -18,7 +18,6 @@ import photoBackground from '../../../../assets/mainPage/photo-report-card-big-b
 import classes from '../../mainPage.module.css';
 import PhotoReportCardBig from '../photo-report-card/PhotoReportCardBig';
 import { photoAPI } from '../../../../store/features/photos/photoQuery';
-import { CardTravelSharp } from '@mui/icons-material';
 import { IPhotoCards } from '../../../../types/apiTypes/photo';
 
 const backgroungPhotos = [
@@ -57,7 +56,7 @@ const PhotoReports: FC = () => {
                 <div key={index}>
                   {index === 4 ? (
                     <PhotoReportCardBig
-                      photo={card?.photos[0].url}
+                      photo={card?.photos[0]?.url}
                       title={card.establishment.name}
                       eventName={card.eventName}
                       pics={card.photos.length}
@@ -67,7 +66,7 @@ const PhotoReports: FC = () => {
                     />
                   ) : (
                     <PhotoReportCard
-                      photo={card?.photos[0].url}
+                      photo={card?.photos[0]?.url}
                       title={card.establishment.name}
                       eventName={card.eventName}
                       pics={card.photos.length}
