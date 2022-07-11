@@ -1,5 +1,5 @@
 // imported libraries
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // imported images
@@ -18,7 +18,6 @@ import photoBackground from '../../../../assets/mainPage/photo-report-card-big-b
 import classes from '../../mainPage.module.css';
 import PhotoReportCardBig from '../photo-report-card/PhotoReportCardBig';
 import { photoAPI } from '../../../../store/features/photos/photoQuery';
-import { CardTravelSharp } from '@mui/icons-material';
 import { IPhotoCards } from '../../../../types/apiTypes/photo';
 
 const backgroungPhotos = [
@@ -29,12 +28,12 @@ const backgroungPhotos = [
   photoBackground,
 ];
 
-const PhotoReports = () => {
+const PhotoReports: FC = () => {
   const { data: photos, error, isLoading } = photoAPI.useFetchAllPhotosQuery(5);
 
   const navigate = useNavigate();
 
-  const clickHandler = () => {
+  const clickHandler = (): void => {
     navigate('/photo');
   };
   return (
@@ -57,7 +56,7 @@ const PhotoReports = () => {
                 <div key={index}>
                   {index === 4 ? (
                     <PhotoReportCardBig
-                      photo={card?.photos[0].url}
+                      photo={card?.photos[0]?.url}
                       title={card.establishment.name}
                       eventName={card.eventName}
                       pics={card.photos.length}
@@ -67,7 +66,7 @@ const PhotoReports = () => {
                     />
                   ) : (
                     <PhotoReportCard
-                      photo={card?.photos[0].url}
+                      photo={card?.photos[0]?.url}
                       title={card.establishment.name}
                       eventName={card.eventName}
                       pics={card.photos.length}

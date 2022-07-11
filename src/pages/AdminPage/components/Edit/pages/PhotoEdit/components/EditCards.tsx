@@ -1,15 +1,15 @@
-import * as React from "react";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import deleteIcon from "../../../../../../../assets/adminPage/delete.png";
-import { Container, TextField } from "@mui/material";
-import classes from "../style.module.css";
-import { IPhoto, IPhotos } from "../../../../../../../types/apiTypes/photo";
-import { photoAPI } from "../../../../../../../store/features/photos/photoQuery";
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import deleteIcon from '../../../../../../../assets/adminPage/delete.png';
+import { Container, TextField } from '@mui/material';
+import classes from '../style.module.css';
+import { IPhoto, IPhotos } from '../../../../../../../types/apiTypes/photo';
+import { photoAPI } from '../../../../../../../store/features/photos/photoQuery';
 
 interface PhotoPropsType {
   item: IPhotos;
@@ -27,13 +27,12 @@ const EditCards: React.FC<PhotoPropsType> = ({ item }) => {
   }
   async function editPhotos(photo: IPhotos): Promise<void> {
     await editPhoto(photo);
-    console.log(photo);
   }
   function editPhotoCard(): void {
     editPhotos({ ...item, eventName, views, date });
   }
   function scrollTop(): void {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   return (
     <>
@@ -48,20 +47,20 @@ const EditCards: React.FC<PhotoPropsType> = ({ item }) => {
           image={photoArray[0]?.url}
           alt="photos"
         />
-        <CardContent sx={{ minHeight: "90px" }}>
+        <CardContent sx={{ minHeight: '90px' }}>
           <Typography
             className={classes.details}
             variant="body2"
             color="text.secondary"
           >
             <span>
-              EventName: <strong>{item.eventName}</strong>{" "}
+              EventName: <strong>{item.eventName}</strong>{' '}
             </span>
             <span>
-              Views: <strong>{item.views}</strong>{" "}
+              Views: <strong>{item.views}</strong>{' '}
             </span>
             <span>
-              Date: <strong>{item?.date}</strong>{" "}
+              Date: <strong>{item?.date}</strong>{' '}
             </span>
           </Typography>
         </CardContent>

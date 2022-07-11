@@ -1,11 +1,12 @@
 import React, { FC, useEffect, useState } from "react";
 import styles from "./CalendarModal.module.css";
 
-import {Button} from "../../UI";
+
 import { Calendar, CalendarEvents, CalendarFilter } from "./";
 import { formatDate } from "../../utils/helpers/date";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { filterCalendarFunc } from "../../utils/helpers/filterCalendar";
+
 
 interface CalendarModalProps {
   modal: boolean;
@@ -15,13 +16,9 @@ interface CalendarModalProps {
 const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
   const [selectedDate, setSelectedDay] = useState(new Date());
   const dispatch = useAppDispatch();
-  // const toggler = (e:React.MouseEvent<HTMLDivElement>)=>{
-  //   e.currentTarget.style.display = 'none'
-  //   e.stopPropagation()
-  // }
 
   useEffect(() => {
-    dispatch(filterCalendarFunc(formatDate(selectedDate, "DD-MM-YYYY")));
+    dispatch(filterCalendarFunc(formatDate(selectedDate, 'DD-MM-YYYY')));
   }, [selectedDate]);
 
   return (
@@ -45,7 +42,6 @@ const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
                 <CalendarEvents />
               </div>
             </div>
-            {/*<div className={styles.btnClose} onClick={toggleModal}></div>*/}
           </div>
         </div>
       )}

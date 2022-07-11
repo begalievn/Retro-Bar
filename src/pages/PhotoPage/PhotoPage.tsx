@@ -9,9 +9,6 @@ import BottomEmojis from '../../UI/BottomEmojis/BottomEmojis';
 const PhotoPage: FC = () => {
   // const photos = useAppSelector((state) => state.photos.value);
   // const videos = useAppSelector((state) => state.videos.value);
-  // console.log('photos from store', photos);
-  // console.log('videos from store', videos);
-  
 
   return (
     <>

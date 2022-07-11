@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
-import { login } from "../../store/authorization/AuthFunc";
+import { login } from '../../store/authorization/AuthFunc';
 import {
   addTextError,
   deleteTextError,
-} from "../../store/authorization/AuthorizationSlice";
+} from '../../store/authorization/AuthorizationSlice';
 
-import { IUser } from "../../types/userTypes";
-import style from "./Authorization.module.css";
+import { IUser } from '../../types/userTypes';
+import style from './Authorization.module.css';
 
 export default function AuthorizationPage() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const [viewCheck, setViewCheck] = useState<boolean>(false);
 
-  const [typeinp, setTypeinp] = useState("password");
+  const [typeinp, setTypeinp] = useState('password');
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -25,7 +25,6 @@ export default function AuthorizationPage() {
   let validData = useAppSelector((state) => state.AuthorizationSlice.validData);
   let userData = useAppSelector((state) => state.AuthorizationSlice.userData);
   let token = useAppSelector((state) => state.AuthorizationSlice.token);
-  console.log(token);
 
   const handleLogin = (username: string, password: string) => {
     let data: IUser = {
@@ -43,16 +42,16 @@ export default function AuthorizationPage() {
 
   useEffect(() => {
     if (userData == true) {
-      navigate("/admin/photos");
+      navigate('/admin/photos');
     }
   }, [userData]);
 
   const checkFunc = () => {
     setViewCheck(!viewCheck);
     if (viewCheck === false) {
-      setTypeinp("text");
+      setTypeinp('text');
     } else {
-      setTypeinp("password");
+      setTypeinp('password');
     }
   };
 
