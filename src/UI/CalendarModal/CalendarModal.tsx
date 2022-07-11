@@ -1,10 +1,12 @@
-import React, { FC, useEffect, useState } from 'react';
-import styles from './CalendarModal.module.css';
-import { Calendar, CalendarEvents, CalendarFilter } from './';
-import { formatDate } from '../../utils/helpers/date';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { filterCalendarFunc } from '../../utils/helpers/filterCalendar';
-import { Button } from '@mui/material';
+import React, { FC, useEffect, useState } from "react";
+import styles from "./CalendarModal.module.css";
+
+
+import { Calendar, CalendarEvents, CalendarFilter } from "./";
+import { formatDate } from "../../utils/helpers/date";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { filterCalendarFunc } from "../../utils/helpers/filterCalendar";
+
 
 interface CalendarModalProps {
   modal: boolean;
@@ -22,10 +24,13 @@ const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
   return (
     <>
       {modal && (
-        <div className={styles.modal}>
-          <div onClick={toggleModal} className={styles.overlay}></div>
+        <div className={styles.modal} >
+          {/*<div onClick={toggleModal} className={styles.overlay}></div>*/}
           <div className={styles.modal_content}>
-            <CalendarFilter />
+            <div className={styles.headerContent}>
+              <CalendarFilter />
+                <button className={styles.closeBtn} onClick={toggleModal}>✖</button>
+            </div>
             <div className={styles.calendarWithPhotos}>
               <div className={styles.calendar}>
                 <Calendar
@@ -37,7 +42,6 @@ const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
                 <CalendarEvents />
               </div>
             </div>
-            <div className={styles.btnClose} onClick={toggleModal}></div>
           </div>
         </div>
       )}
