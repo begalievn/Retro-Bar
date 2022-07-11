@@ -14,7 +14,11 @@
   height: 437px;
   margin-bottom: 35px;
   background-color: #2f2f2f;
-  /*background-image: url("data:image/svg+xml, %3c svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='white' stroke-width='4' stroke-dasharray='20' stroke-dashoffset='5' stroke-linecap='square'/%3e%3c/svg%3e");*/
+  /*background-image: repeating-linear-gradient(6deg, #ffffff, #ffffff 24px, transparent 24px, transparent 44px, #ffffff 44px), repeating-linear-gradient(96deg, #ffffff, #ffffff 24px, transparent 24px, transparent 44px, #ffffff 44px), repeating-linear-gradient(186deg, #ffffff, #ffffff 24px, transparent 24px, transparent 44px, #ffffff 44px), repeating-linear-gradient(276deg, #ffffff, #ffffff 24px, transparent 24px, transparent 44px, #ffffff 44px);*/
+  /*background-size: 2px 100%, 100% 2px, 2px 100% , 100% 2px;*/
+  /*background-position: 0 0, 0 0, 100% 0, 0 100%;*/
+  /*background-repeat: no-repeat;*/
+  /*background-image: url("data:image/svg+xml, %3csvg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='13' ry='13' stroke='white' stroke-width='4' stroke-dasharray='20' stroke-dashoffset='5' stroke-linecap='square'/%3e%3c/svg%3e");*/
   border-radius: 13px;
 }
 .adminAddRow {
@@ -82,7 +86,7 @@
 
 .logo .icon {
   display: none;
-  /*background: url("../../../../assets/adminPage/avatarIcon.svg");*/
+  background: url("../../../../assets/adminPage/avatarIcon.svg");
 }
 
 .poster {

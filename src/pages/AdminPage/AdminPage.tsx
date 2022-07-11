@@ -16,10 +16,12 @@ import { categoryAPI } from "../../store/features/category/categoryQuery";
 
 const AdminPage = () => {
   const dispatch = useDispatch();
+
   let alert = useAppSelector((state) => state.AlertSlice.alert);
-  const { data: establishmentsData = [], isLoading: isEstablishmentsLoading } =
+
+  const { data: establishmentsData = [] } =
     establishmentsAPI.useFetchAllEstablishmentsQuery("");
-  const { data: photographersData = [], isLoading: isPhotographersLoading } =
+  const { data: photographersData = [] } =
     photographersAPI.useFetchAllPhotographersQuery("");
   const { data: categoriesData } = categoryAPI.useFetchAllCategoryQuery("");
 
