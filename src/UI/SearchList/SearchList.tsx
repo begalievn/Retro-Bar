@@ -24,7 +24,12 @@ const SearchList: FC<SearchListProps> = ({
   const clickHandler = (item: any) => {
     if (type === 'establishment') {
       navigate(`/institution/${item.id}`);
+    } else if (type === 'photo') {
+      navigate(`/photo`);
+    } else if (type === 'video') {
+      navigate(`/video`);
     }
+
     setInputVisible!(false);
   };
 

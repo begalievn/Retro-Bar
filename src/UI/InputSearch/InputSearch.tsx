@@ -60,7 +60,7 @@ export const InputSearch: FC<InputSearchProps> = ({
       </div>
       {value.length > 0 ? (
         <div className={classes.results_container}>
-          {data.establishments.length > 0 ? (
+          {data?.establishments?.length > 0 ? (
             <SearchList
               searchList={data.establishments}
               propertyName="name"
@@ -69,7 +69,7 @@ export const InputSearch: FC<InputSearchProps> = ({
               setInputVisible={setInputVisible}
             />
           ) : null}
-          {data.photoCards.length > 0 ? (
+          {data?.photoCards?.length > 0 ? (
             <SearchList
               searchList={data.photoCards}
               propertyName="eventName"
@@ -78,7 +78,7 @@ export const InputSearch: FC<InputSearchProps> = ({
               setInputVisible={setInputVisible}
             />
           ) : null}
-          {data.videoCards.length > 0 ? (
+          {data?.videoCards?.length > 0 ? (
             <SearchList
               searchList={data.videoCards}
               propertyName="eventName"
