@@ -85,7 +85,11 @@ const PhotoReports: FC = () => {
             {isLoading
               ? null
               : photos.photoCards.map((card: IPhotoCards, index: number) => (
-                  <div key={index} onClick={() => onClickEvent(card)}>
+                  <div
+                    key={index}
+                    onClick={() => onClickEvent(card)}
+                    className={classes.photo_card}
+                  >
                     {index === 4 ? (
                       <PhotoReportCardBig
                         photo={card?.photos[0]?.url}

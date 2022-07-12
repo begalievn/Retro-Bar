@@ -94,7 +94,10 @@ export const Header = () => {
         {isOpen && <BurgerMenu navItems={navItems} setOpen={setOpen} />}
         {inputVisible && (
           <div className={classes.headerSearch}>
-            <InputSearch placeholder="поиск" />
+            <InputSearch
+              setInputVisible={setInputVisible}
+              placeholder="поиск"
+            />
           </div>
         )}
       </div>
