@@ -7,6 +7,7 @@ import { IPhotos } from '../../types/apiTypes/photo';
 import { IPhoto } from '../../types/apiTypes/photo';
 import Carousel from './Carousel/Carousel';
 import axios from 'axios';
+import { fetchBaseQuery } from '@reduxjs/toolkit/dist/query';
 
 type NewGalleryProps = {
   close: () => void;
@@ -43,13 +44,17 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
   const [imageUrl, setImageUrl] = useState<any>('')
 
 
- const  func = async (image:any)=>{
+ const  func = (image:any)=>{
 
-await axios(image).then(res => {
-   const blob = new Blob([res.data], {type: 'image/png'})
-   let data = URL.createObjectURL(blob)
-   setImageUrl(data)
-})
+  fetch(image)
+  .then((response) => {
+    return response.blob();
+  })
+  .then((blob) => {   
+    let data = URL.createObjectURL(blob)
+    setImageUrl(data)
+  });
+
 
 
 }
@@ -65,7 +70,7 @@ await axios(image).then(res => {
   
 
 
-console.log(imageUrl);
+console.log(slideInfo);
 
   
 
