@@ -3,11 +3,12 @@
   height: 460px;
   padding: 0 45px;
   border-radius: 10px;
-  color: #FFFFFF;
-  font-family: 'Montserrat Alternates';
+  color: #ffffff;
+  font-family: "Montserrat Alternates";
   text-transform: capitalize;
   position: relative;
-  background: url('../../../assets/photoPageImages/calendarImages/calendar-bg.png') 0 0/ cover no-repeat;
+  background: url("../../../assets/photoPageImages/calendarImages/calendar-bg.png")
+    0 0 / cover no-repeat;
 }
 
 .calendar_tape {
@@ -16,7 +17,6 @@
   right: 113px;
   mix-blend-mode: luminosity;
   filter: grayscale(100%);
-  
 }
 
 .calendar__header {
@@ -56,7 +56,6 @@
   letter-spacing: 0.115em;
 }
 
-
 .calendar__body {
   border-radius: 0 0 5px 5px;
   padding: 5px;
@@ -89,7 +88,7 @@
   align-items: center;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: 1fr;
-  border-top: 1px solid #87A2FF;
+  border-top: 1px solid #87a2ff;
   margin-top: 15px;
   padding-top: 15px;
   gap: 10px;
@@ -105,7 +104,7 @@
 }
 
 .calendar__day:hover {
-  background-color: #FF6D00;
+  background-color: #ff6d00;
 }
 
 .calendar__additional__day {
@@ -127,7 +126,7 @@
 }
 
 .calendar__pick__item:hover {
-  background-color: #FF6D00;
+  background-color: #ff6d00;
 }
 
 .calendar__today__item {
@@ -139,7 +138,7 @@
 }
 
 .calendar__selected__item:hover {
-  background-color: #A5FA3A;
+  background-color: #a5fa3a;
 }
 
 .calendar__pick__items__container {
@@ -158,13 +157,9 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
-
-
-
 /* Media */
 
-
-@media (max-width:670px) {
+@media (max-width: 670px) {
   .calendar {
     background: none;
   }
