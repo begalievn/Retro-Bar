@@ -1,4 +1,4 @@
-import React, {ReactHTML, useEffect, useState} from "react";
+import React, { ReactHTML, useEffect, useState } from "react";
 import classes from "../../AdminPage.module.css";
 import { Button } from "../../../../UI";
 import { Advertisement } from "../../../../types/adminPage/adminPage";
@@ -53,12 +53,11 @@ const AdminAdvertising = () => {
         dispatch(createAlert({ message: e.data.message, type: "error" }));
         startTimer(dispatch, deleteAlert);
       });
-
   };
 
   return (
     <>
-      {!isSuccess ? (
+      {isSuccess ? (
         <form className={classes.generalBlock} onSubmit={handleSubmit}>
           <div className={classes.adminGeneralBlock}>
             <h3 className={`${classes.adminTitle} ${classes.adminTitleAd}`}>
@@ -94,6 +93,7 @@ const AdminAdvertising = () => {
                     errorMessage={"Номер телефона обязательное поле!"}
                     inputHandler={inputHandler}
                     inputValue={inputValue}
+                    type={"tel"}
                     title={"Номер телефона"}
                     name={"phoneNumber"}
                   />

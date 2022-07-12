@@ -127,6 +127,26 @@
 .sideBarItemActive em {
   color: #ffb03b !important;
 }
+.btnLogOut,
+btnLogOutNew {
+  background: var(--orange) !important;
+}
+.btnLogOut {
+  display: none !important;
+}
+
+.btnLogOutNew {
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background: var(--orange) !important;
+  transition: all 0.2s linear;
+}
 @media (min-width: 42em) {
   .s-layout__content {
     margin-left: 4em;
@@ -141,6 +161,9 @@
     left: 0;
   }
 
+  .sideBarNav:hover .btnLogOutNew {
+    width: 15em;
+  }
   .sideBarNav:hover,
   .sideBarNav:focus,
   .s-sidebar__trigger:hover + .sideBarNav,
@@ -148,16 +171,17 @@
     width: 15em;
   }
 }
-.btnLogOut {
-  background: var(--orange) !important;
-}
 
 @media (min-width: 1280px) {
   .s-layout__content {
     margin-left: 15em;
   }
-
-  /* Sidebar */
+  .btnLogOut {
+    display: block !important;
+  }
+  .btnLogOutNew {
+    display: none !important;
+  }
   .s-sidebar__trigger {
     display: none;
   }

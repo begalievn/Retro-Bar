@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 export const photosSlice = createSlice({
-  name: 'photos',
+  name: "photos",
   initialState: {
     value: [],
     filterPhoto: [],
