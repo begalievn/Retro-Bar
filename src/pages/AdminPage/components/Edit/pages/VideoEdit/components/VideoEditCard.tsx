@@ -6,12 +6,12 @@ import {
   CardMedia,
   TextField,
   Typography,
-} from "@mui/material";
-import React, { FC } from "react";
-import classes from "../style.module.css";
-import deleteIcon from "../../../../../../../assets/adminPage/delete.png";
-import { videoAPI } from "../../../../../../../store/features/videos/videoQuery";
-import { IVideo } from "../../../../../../../types/apiTypes/video";
+} from '@mui/material';
+import React, { FC } from 'react';
+import classes from '../style.module.css';
+import deleteIcon from '../../../../../../../assets/adminPage/delete.png';
+import { videoAPI } from '../../../../../../../store/features/videos/videoQuery';
+import { IVideo } from '../../../../../../../types/apiTypes/video';
 
 interface VideoPropsType {
   item: IVideo;
@@ -34,7 +34,7 @@ const VideoEditCard: FC<VideoPropsType> = ({ item }) => {
     editVi({ ...item, video, eventName, views, date });
   }
   function scrollTop(): void {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
   return (
     <>
@@ -49,20 +49,20 @@ const VideoEditCard: FC<VideoPropsType> = ({ item }) => {
           image={item.video}
           alt="photos"
         />
-        <CardContent sx={{ minHeight: "130px" }}>
+        <CardContent sx={{ minHeight: '130px' }}>
           <Typography
             className={classes.details}
             variant="body2"
             color="text.secondary"
           >
             <span>
-              EventName: <strong>{item.eventName}</strong>{" "}
+              EventName: <strong>{item.eventName}</strong>{' '}
             </span>
             <span>
-              Views: <strong>{item.views}</strong>{" "}
+              Views: <strong>{item.views}</strong>{' '}
             </span>
             <span>
-              Date: <strong>{item.date}</strong>{" "}
+              Date: <strong>{item.date}</strong>{' '}
             </span>
           </Typography>
         </CardContent>
@@ -84,7 +84,6 @@ const VideoEditCard: FC<VideoPropsType> = ({ item }) => {
               value={video}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setVideo(e.target.value);
-                console.log(e);
               }}
               className={classes.modalInput}
               id="standard-basic"
