@@ -91,9 +91,8 @@ const AdminSidebar = () => {
             onClick={logOutFunc}
             children={"Выйти"}
           />
-          <Button
+          <button
             className={classes.btnLogOutNew}
-            variant="contained"
             onClick={logOutFunc}
             children={<LogOutIcon />}
           />

@@ -136,9 +136,14 @@ btnLogOutNew {
 }
 
 .btnLogOutNew {
-  display: block !important;
-  width: 30px !important;
-  height: 30px !important;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
   background: var(--orange) !important;
 }
 @media (min-width: 42em) {
