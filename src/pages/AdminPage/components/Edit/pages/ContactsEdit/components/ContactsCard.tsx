@@ -11,17 +11,18 @@ import classes from "../style.module.css";
 import { photoAPI } from "../../../../../../../store/features/photos/photoQuery";
 import { IContacts } from "../../../../../../../types/apiTypes/contacts";
 import { contactsAPI } from "../../../../../../../store/features/contacts/contactsQuery";
+import { IContactsObject } from "../../../../../../../types/footerTypes/footerTypes";
 
 interface ContactPropsType {
   item: IContacts;
 }
 const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
-  const [photo, setPhoto] = React.useState<string>(item?.photo);
+  const [photo,setPhoto] = React.useState<null|string>(item?.photo)
   const [photoUrl, setPhotoUrl] = React.useState<string>(item?.photoUrl);
   const [description, setDescription] = React.useState<string>(
     item?.description
   );
-  const [phoneNumber, setPhoneNumber] = React.useState<string | number>(
+  const [phoneNumber, setPhoneNumber] = React.useState<string>(
     item?.phoneNumber
   );
   const [link, setLink] = React.useState<string>(item?.link);
@@ -69,7 +70,7 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
           }}
           className={classes.imgCard}
           component="img"
-          image={item.photo}
+          image={item.photos[0].url}
           alt="photos"
         />
         <CardContent sx={{ minHeight: "90px" }}>

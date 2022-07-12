@@ -9,7 +9,10 @@ import whatsAppIcon from "../../assets/icons/Footer/whatsapp.svg";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/system";
 import { Link, useNavigate } from "react-router-dom";
-import { IFooterItems, IIcons } from "../../types/footerTypes/footerTypes";
+import {
+  IFooterItems,
+  IIcons,
+} from "../../types/footerTypes/footerTypes";
 import { contactsAPI } from "../../store/features/contacts/contactsQuery";
 
 const Footer = () => {
@@ -19,107 +22,92 @@ const Footer = () => {
     isSuccess,
     refetch,
   } = contactsAPI.useFetchAllContactsQuery("");
-  const [phoneNumber, setPhoneNumber] = useState('')
-  const funcNumber = (contacts:any)=>{
-    if(isSuccess){ 
-      let number = contacts?.contacts[0].phoneNumber;
-      number = number.replace(/\s+/g, '');
-      number=number.slice(1)
-      number= `996${number}`;
-      setPhoneNumber(number)
-    }
-  }
-  console.log(contacts?.contacts[0]);
+
   const navigate = useNavigate();
   const liElem: IFooterItems[] = [
     {
-      title: 'Фото',
-      path: '/photo',
+      title: "Фото",
+      path: "/photo",
     },
     {
-      title: 'Видео',
-      path: '/video',
+      title: "Видео",
+      path: "/video",
     },
     {
-      title: 'Заведения',
-      path: '/institution',
-    },
-    {
-      title: 'События',
-      path: '/events',
+      title: "Заведения",
+      path: "/institution",
     },
   ];
   const liElem2: IFooterItems[] = [
     {
-      title: 'Новости',
-      path: '/news',
+      title: "Новости",
+      path: "/news",
     },
     {
-      title: 'Контакты',
-      path: '/contacts',
+      title: "Контакты",
+      path: "/contacts",
     },
     {
-      title: 'Сотрудники',
-      path: '/employees',
-    },
-    {
-      title: 'Копирайт',
-      path: '/copyright',
+      title: "События",
+      path: "/events",
     },
   ];
   const [iconsMedia, setIconsMedia] = useState<IIcons[]>([]);
   useEffect(() => {
-    setIconsMedia([
-      {
-        icon: telegramIcon,
-        path: `https://t.me/${contacts?.contacts[0].telegram}`,
-      },
-      {
-        icon: instagramIcon,
-        path: `https://www.instagram.com/${contacts?.contacts[0].instagram}`,
-      },
-      {
-        icon: youtubeIcon,
-        path: `https://www.youtube.com/results?search_query=${contacts?.contacts[0].youtube}`,
-      },
-      {
-        icon: whatsAppIcon,
-        path: `https://api.whatsapp.com/send/?phone=${phoneNumber}`,
-      },
-    ]);
-    funcNumber(contacts)
-  }, [isLoading]);
+    if (isSuccess) {
+      let number:string = contacts?.contacts[0].phoneNumber
+        .replace(/\s+/g, "")
+        .slice(1);
+      setIconsMedia([
+        {
+          icon: telegramIcon,
+          path: `https://t.me/${contacts?.contacts[0].telegram}`,
+        },
+        {
+          icon: instagramIcon,
+          path: `https://www.instagram.com/${contacts?.contacts[0].instagram}`,
+        },
+        {
+          icon: youtubeIcon,
+          path: `https://www.youtube.com/results?search_query=${contacts?.contacts[0].youtube}`,
+        },
+        {
+          icon: whatsAppIcon,
+          path: `https://api.whatsapp.com/send/?phone=996${number}`,
+        },
+      ]);
+    }
+  }, [isSuccess]);
 
   const text: Array<string> = [
-    'Политика конфиденциальности',
-    'Copyright 2021',
-    'Digital-агентство Active Trust',
+    "Политика конфиденциальности",
+    "Copyright 2021",
+    "Digital-агентство Active Trust",
   ];
-  const [inputChange, setInputChange] = useState<string>('');
+  const [inputChange, setInputChange] = useState<string>("");
 
   function searchClick(name: string): void {}
   function scrollTop(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
-
   return (
     <div className={classes.main}>
-      <Container sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
+      <Container sx={{ flexGrow: 1, display: { xs: "none", md: "block" } }}>
         <Grid item xs={12} md={12} className={classes.inside}>
           <Grid item xs={12} md={3} className={classes.blocks}>
             <Grid
-              sx={{ display: { xs: 'none', md: 'block' } }}
+              sx={{ display: { xs: "none", md: "block" } }}
               className={classes.retro}
             >
               <div
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
                 onClick={() => {
                   scrollTop();
-                  navigate('/');
+                  navigate("/");
                 }}
                 className={classes.retro2}
               >
-                <span style={{ fontFamily: 'Montserrat Alternates' }}>
+                <span style={{ fontFamily: "Montserrat Alternates" }}>
                   Retro
                 </span>
                 <img src={bartIcon} alt="" />
@@ -127,7 +115,7 @@ const Footer = () => {
             </Grid>
 
             <Grid
-              sx={{ display: { xs: 'none', md: 'block' } }}
+              sx={{ display: { xs: "none", md: "block" } }}
               item
               xs={12}
               className={classes.politicMD}
@@ -138,14 +126,14 @@ const Footer = () => {
             </Grid>
           </Grid>
           <Grid
-            sx={{ display: { xs: 'none', md: 'block' } }}
+            sx={{ display: { xs: "none", md: "block" } }}
             item
             xs={12}
             md={3}
             className={classes.blocks2}
           >
             {liElem.map((item, index) => (
-              <ul key={index} style={{ width: '60%' }}>
+              <ul key={index}>
                 <Link onClick={scrollTop} to={item.path}>
                   {item.title}
                 </Link>
@@ -153,14 +141,14 @@ const Footer = () => {
             ))}
           </Grid>
           <Grid
-            sx={{ display: { xs: 'none', md: 'block' } }}
+            sx={{ display: { xs: "none", md: "block" } }}
             item
             xs={12}
             md={3}
             className={classes.blocks3}
           >
             {liElem2.map((item, index) => (
-              <ul key={index} style={{ width: '60%' }}>
+              <ul key={index}>
                 <Link onClick={scrollTop} to={item.path}>
                   {item.title}
                 </Link>
@@ -170,7 +158,7 @@ const Footer = () => {
           <Grid item xs={12} md={3} className={classes.blocks4}>
             <Grid
               className={classes.inputBlockMD}
-              sx={{ display: { xs: 'none', md: 'flex' } }}
+              sx={{ display: { xs: "none", md: "flex" } }}
             >
               <input
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -181,7 +169,7 @@ const Footer = () => {
                 placeholder="Геолокация"
               />
               <button
-                onClick={() => searchClick('Beksultan')}
+                onClick={() => searchClick("Beksultan")}
                 className={classes.search}
               >
                 <img className={classes.im} src={searchIcon} alt="" />
@@ -189,7 +177,7 @@ const Footer = () => {
             </Grid>
 
             <Grid
-              sx={{ display: { xs: 'none', md: 'block' } }}
+              sx={{ display: { xs: "none", md: "block" } }}
               item
               xs={12}
               md={12}
@@ -197,7 +185,6 @@ const Footer = () => {
             >
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIconsMD}>
-
                 {iconsMedia?.map((item, index) => (
                   <a target="_blank" key={index} href={item.path}>
                     <img src={item.icon} alt="" />
@@ -211,21 +198,21 @@ const Footer = () => {
 
       <Container
         className={classes.main}
-        sx={{ flexGrow: 1, display: { xs: 'block', md: 'none' } }}
+        sx={{ flexGrow: 1, display: { xs: "block", md: "none" } }}
       >
         <Grid item xs={12} md={12} className={classes.inside} container>
           <Grid item xs={12} md={3} className={classes.blocks}>
             <Grid
               item
               xs={12}
-              sx={{ display: { xs: 'block', md: 'none' }, textAlign: 'center' }}
+              sx={{ display: { xs: "block", md: "none" }, textAlign: "center" }}
               className={classes.retro}
             >
               <div
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: "pointer" }}
                 onClick={() => {
                   scrollTop();
-                  navigate('/');
+                  navigate("/");
                 }}
                 className={classes.retroMobile}
               >
@@ -235,9 +222,9 @@ const Footer = () => {
             </Grid>
             <Grid
               sx={{
-                display: { xs: 'block', md: 'none' },
-                margin: '0 auto',
-                marginTop: '30px',
+                display: { xs: "block", md: "none" },
+                margin: "0 auto",
+                marginTop: "30px",
               }}
               item
               xs={12}
@@ -257,7 +244,7 @@ const Footer = () => {
           <Grid item xs={12} md={3} className={classes.blocks4}>
             <Grid
               sx={{
-                display: { xs: 'flex', md: 'none', justifyContent: 'center' },
+                display: { xs: "flex", md: "none", justifyContent: "center" },
               }}
             >
               <input
@@ -269,7 +256,7 @@ const Footer = () => {
                 placeholder="Геолокация"
               />
               <button
-                onClick={() => searchClick('Beksultan')}
+                onClick={() => searchClick("Beksultan")}
                 className={classes.search}
               >
                 <img className={classes.im} src={searchIcon} alt="" />
@@ -277,9 +264,9 @@ const Footer = () => {
             </Grid>
             <Grid
               sx={{
-                display: { xs: 'block', md: 'none' },
-                textAlign: 'center',
-                marginTop: '30px',
+                display: { xs: "block", md: "none" },
+                textAlign: "center",
+                marginTop: "30px",
               }}
               item
               xs={12}
