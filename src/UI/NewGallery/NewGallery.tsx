@@ -26,7 +26,6 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
     count: [1, 2],
   });
 
-
   const setCounter = (arr: Array<number>, pic: string) => {
     setSlideInfo((slideInfo) => {
       return {
@@ -48,8 +47,20 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
             <h3 className={styles.placeName}>{eventInfo.establishment}</h3>
             <p className={styles.eventName}>{eventInfo.event}</p>
           </div>
-          <img onClick={close} className={styles.cross} src={crossBtn} alt="" />
-          <img onClick={close} className={styles.close} src={closeBtn} alt="" />
+          <div>
+            <img
+              onClick={close}
+              className={styles.cross}
+              src={crossBtn}
+              alt=""
+            />
+            {/* <img
+              onClick={close}
+              className={styles.close}
+              src={closeBtn}
+              alt=""
+            /> */}
+          </div>
         </section>
 
         <Carousel pictures={eventInfo.photos!} count={setCounter} />
