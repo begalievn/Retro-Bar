@@ -7,6 +7,7 @@ import { useAppSelector } from "../../../../app/hooks";
 import { IPhoto, IPhotos } from "../../../../types/apiTypes/photo";
 import GalleryModal from "../../../Gallery/GalleryModal/GalleryModal";
 import NewGallery from "../../../NewGallery/NewGallery";
+import { log } from "console";
 
 export interface CurrentEventProps {
   photos: IPhoto[];
@@ -32,10 +33,11 @@ const Events: FC = ({}) => {
     setGalleryModal(true);
   };
 
+
   const filterData: IPhotos[] = useAppSelector(
     (state) => state.photos.filterPhoto
   );
-
+  console.log(filterData);
   return (
     <>
       {filterData?.map((event, i) => (

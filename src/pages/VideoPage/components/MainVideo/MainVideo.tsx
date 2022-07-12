@@ -5,6 +5,7 @@ import Slider from "../Slider/Slider";
 import { CalendarModal, FooterEmoji } from "../../../../UI";
 
 import { videoAPI } from "../../../../store/features/videos/videoQuery";
+import Loader from "../../../../UI/Loader/Loader";
 
 const MainVideo = () => {
   const {
@@ -32,7 +33,7 @@ const MainVideo = () => {
       <section className={classes.videoPlayerSection}>
         <div className={classes.videoPlayer}>
           {isLoading ? (
-            <p>Loading...</p>
+            <Loader />
           ) : (
             mainVideo &&
             link && (

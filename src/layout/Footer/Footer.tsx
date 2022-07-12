@@ -20,16 +20,6 @@ const Footer = () => {
     isSuccess,
     refetch,
   } = contactsAPI.useFetchAllContactsQuery('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const funcNumber = (contacts: any) => {
-    if (isSuccess) {
-      let number = contacts?.contacts[0].phoneNumber;
-      number = number.replace(/\s+/g, '');
-      number = number.slice(1);
-      number = `996${number}`;
-      setPhoneNumber(number);
-    }
-  };
 
   const navigate = useNavigate();
   const liElem: IFooterItems[] = [
@@ -45,10 +35,6 @@ const Footer = () => {
       title: 'Заведения',
       path: '/institution',
     },
-    {
-      title: 'События',
-      path: '/events',
-    },
   ];
   const liElem2: IFooterItems[] = [
     {
@@ -60,36 +46,36 @@ const Footer = () => {
       path: '/contacts',
     },
     {
-      title: 'Сотрудники',
-      path: '/employees',
-    },
-    {
-      title: 'Копирайт',
-      path: '/copyright',
+      title: 'События',
+      path: '/events',
     },
   ];
   const [iconsMedia, setIconsMedia] = useState<IIcons[]>([]);
   useEffect(() => {
-    setIconsMedia([
-      {
-        icon: telegramIcon,
-        path: `https://t.me/${contacts?.contacts[0].telegram}`,
-      },
-      {
-        icon: instagramIcon,
-        path: `https://www.instagram.com/${contacts?.contacts[0].instagram}`,
-      },
-      {
-        icon: youtubeIcon,
-        path: `https://www.youtube.com/results?search_query=${contacts?.contacts[0].youtube}`,
-      },
-      {
-        icon: whatsAppIcon,
-        path: `https://api.whatsapp.com/send/?phone=${phoneNumber}`,
-      },
-    ]);
-    funcNumber(contacts);
-  }, [isLoading]);
+    if (isSuccess) {
+      let number: string = contacts?.contacts[0].phoneNumber
+        .replace(/\s+/g, '')
+        .slice(1);
+      setIconsMedia([
+        {
+          icon: telegramIcon,
+          path: `https://t.me/${contacts?.contacts[0].telegram}`,
+        },
+        {
+          icon: instagramIcon,
+          path: `https://www.instagram.com/${contacts?.contacts[0].instagram}`,
+        },
+        {
+          icon: youtubeIcon,
+          path: `https://www.youtube.com/results?search_query=${contacts?.contacts[0].youtube}`,
+        },
+        {
+          icon: whatsAppIcon,
+          path: `https://api.whatsapp.com/send/?phone=996${number}`,
+        },
+      ]);
+    }
+  }, [isSuccess]);
 
   const text: Array<string> = [
     'Политика конфиденциальности',
@@ -102,7 +88,6 @@ const Footer = () => {
   function scrollTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
   return (
     <div className={classes.main}>
       <Container sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
@@ -146,7 +131,7 @@ const Footer = () => {
             className={classes.blocks2}
           >
             {liElem.map((item, index) => (
-              <ul key={index} style={{ width: '60%' }}>
+              <ul key={index}>
                 <Link onClick={scrollTop} to={item.path}>
                   {item.title}
                 </Link>
@@ -161,7 +146,7 @@ const Footer = () => {
             className={classes.blocks3}
           >
             {liElem2.map((item, index) => (
-              <ul key={index} style={{ width: '60%' }}>
+              <ul key={index}>
                 <Link onClick={scrollTop} to={item.path}>
                   {item.title}
                 </Link>
@@ -182,7 +167,7 @@ const Footer = () => {
                 placeholder="Геолокация"
               />
               <button
-                onClick={() => searchClick('Beksultan')}
+                onClick={() => searchClick("Beksultan")}
                 className={classes.search}
               >
                 <img className={classes.im} src={searchIcon} alt="" />
@@ -272,7 +257,7 @@ const Footer = () => {
                 placeholder="Геолокация"
               />
               <button
-                onClick={() => searchClick('Beksultan')}
+                onClick={() => searchClick("Beksultan")}
                 className={classes.search}
               >
                 <img className={classes.im} src={searchIcon} alt="" />
