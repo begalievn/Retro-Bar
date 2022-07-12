@@ -20,10 +20,7 @@ import edit from "../../../../assets/icons/adminPanel/edit.svg";
 import { Button } from "@mui/material";
 import { logOut } from "../../../../store/authorization/AuthFunc";
 import { useAppDispatch } from "../../../../app/hooks";
-interface AdminSidebarProps {
-  // setCurrent: (string: string) => void;
-  // current: string;
-}
+import { ReactComponent as LogOutIcon } from "../../../../assets/adminPage/logout.svg";
 
 const navs = [
   {
@@ -58,7 +55,7 @@ const navs = [
   },
 ];
 
-const AdminSidebar: FC<AdminSidebarProps> = () => {
+const AdminSidebar = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -67,31 +64,7 @@ const AdminSidebar: FC<AdminSidebarProps> = () => {
     dispatch(logOut());
   };
   return (
-    // <div className={classes.sideBar}>
-    //   <ul>
-    //     {navs.map((nav) => (
-    //       <Link to={nav.path} key={nav.path}>
-    //         <li
-    //           className={
-    //             location.pathname == nav.path
-    //               ? classes.sideBarItemActive
-    //               : classes.sideBarItem
-    //           }
-    //         >
-    //           <img src={nav.icon} /> {nav.title}
-    //         </li>
-    //       </Link>
-    //     ))}
-    //   </ul>
-    //
-    //
-    // </div>
-
     <div className={classes.sideBar}>
-      {/*<a className="s-sidebar__trigger" href="#0">*/}
-      {/*  <i className="fa fa-bars"></i>*/}
-      {/*</a>*/}
-
       <nav className={classes.sideBarNav}>
         <ul>
           {navs.map((nav) => (
@@ -112,9 +85,18 @@ const AdminSidebar: FC<AdminSidebarProps> = () => {
               </li>
             </Link>
           ))}
-          <Button className={classes.btnLogOut} variant="contained" onClick={logOutFunc}>
-            Выйти
-          </Button>
+          <Button
+            className={classes.btnLogOut}
+            variant="contained"
+            onClick={logOutFunc}
+            children={"Выйти"}
+          />
+          <Button
+            className={classes.btnLogOutNew}
+            variant="contained"
+            onClick={logOutFunc}
+            children={<LogOutIcon />}
+          />
         </ul>
       </nav>
     </div>

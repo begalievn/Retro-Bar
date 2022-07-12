@@ -11,7 +11,6 @@ const MainVideo = () => {
     data: videos,
     error,
     isLoading,
-    refetch,
   } = videoAPI.useFetchAllVideosQuery("");
 
   const [modal, setModal] = React.useState(false);

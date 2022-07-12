@@ -50,9 +50,11 @@ const AdminSelect: FC<AdminSelectProps> = ({
         className={classes.adminInput}
         name={name}
         onChange={inputHandler}
-        defaultValue={""}
+        defaultValue={"пусто"}
       >
-        <option hidden disabled value={""}></option>
+        <option hidden disabled selected>
+          Выберите {title}
+        </option>
         {options.map((option: any) => {
           return (
             <option value={option.id} key={option.id}>

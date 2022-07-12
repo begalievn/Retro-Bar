@@ -57,7 +57,7 @@ const DropFileInput: FC<DropFileInputProps> = ({
     <div
       className={classes.dropFileInputWrapper}
       style={{
-        width: `${boxType == "poster" ? "90%" : "auto"}`,
+        width: `${boxType == "poster" ? "100%" : "auto"}`,
       }}
       onDragEnter={onDragEnter}
       onDragLeave={onDragLeave}

@@ -17,9 +17,11 @@ import AdminSelect from "../AdminSelect/AdminSelect";
 import { useAppSelector } from "../../../../app/hooks";
 import { startTimer } from "../../../../utils/helpers/timer";
 import Loader from "../../../../UI/Loader/Loader";
+import { useLocation } from "react-router-dom";
 
 const AdminPhoto = () => {
   const dispatch = useDispatch();
+  const path = useLocation();
   const [inputValue, setInputValue] = useState<PhotoCard>({
     establishmentId: "",
     photographerId: "",
