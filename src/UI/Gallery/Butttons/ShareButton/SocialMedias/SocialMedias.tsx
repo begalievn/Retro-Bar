@@ -22,23 +22,24 @@ interface SocialMediasProps {
   image:string
 }
 const SocialMedias:FC<SocialMediasProps> = ({image}) => {
-
+  
   const shareUrl = image
+
   return (
     <div>
-      <FacebookShareButton className={styles.soc_media} url={shareUrl}>
+      <FacebookShareButton className={styles.soc_media} url={window.location.href}>
         <FacebookIcon size={32} round={true}/>
       </FacebookShareButton>
-      <TelegramShareButton className={styles.soc_media} url={shareUrl}>
+      <TelegramShareButton className={styles.soc_media} url={window.location.href}>
         <TelegramIcon size={32} round={true}/>
       </TelegramShareButton>
-      <WhatsappShareButton className={styles.soc_media} url={shareUrl}>
+      <WhatsappShareButton className={styles.soc_media} url={window.location.href}>
         <WhatsappIcon size={32} round={true}/>
       </WhatsappShareButton>
-      <TwitterShareButton className={styles.soc_media} url={shareUrl}>
+      <TwitterShareButton className={styles.soc_media} url={window.location.href}>
         <TwitterIcon size={32} round={true}/>
       </TwitterShareButton>
-      <EmailShareButton className={styles.soc_media} url={shareUrl}>
+      <EmailShareButton className={styles.soc_media} url={window.location.href}>
         <EmailIcon size={32} round={true}/>
       </EmailShareButton>
       <VKShareButton url={shareUrl}>
