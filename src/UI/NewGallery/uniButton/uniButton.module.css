@@ -17,6 +17,7 @@
   border: none;
   padding: 0.76vw 2.99vw 0.76vw 2.99vw;
   font-size: 1.25vw;
+  cursor: pointer;
 }
 .image{
   margin-left: 0.69vw;
