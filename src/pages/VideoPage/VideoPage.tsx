@@ -1,5 +1,6 @@
-import React from 'react';
+import React from "react";
 
+import BottomEmojis from "../../UI/BottomEmojis/BottomEmojis";
 import classes from './VideoPage.module.css';
 import { Hero, MainVideo } from './components';
 import Book from '../../UI/Book/Book';
@@ -26,6 +27,7 @@ const VideoPage = () => {
       )}
 
       <MainVideo />
+      <BottomEmojis />
     </div>
   );
 };
