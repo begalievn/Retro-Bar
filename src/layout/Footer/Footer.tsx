@@ -15,10 +15,20 @@ import { contactsAPI } from "../../store/features/contacts/contactsQuery";
 const Footer = () => {
   const {
     data: contacts,
-    error,
     isLoading,
+    isSuccess,
     refetch,
   } = contactsAPI.useFetchAllContactsQuery("");
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const funcNumber = (contacts:any)=>{
+    if(isSuccess){ 
+      let number = contacts?.contacts[0].phoneNumber;
+      number = number.replace(/\s+/g, '');
+      number=number.slice(1)
+      number= `996${number}`;
+      setPhoneNumber(number)
+    }
+  }
   console.log(contacts?.contacts[0]);
   const navigate = useNavigate();
   const liElem: IFooterItems[] = [
@@ -74,9 +84,10 @@ const Footer = () => {
       },
       {
         icon: whatsAppIcon,
-        path: `https://api.whatsapp.com/send/?phone=${contacts?.contacts[0].phoneNumber}`,
+        path: `https://api.whatsapp.com/send/?phone=${phoneNumber}`,
       },
     ]);
+    funcNumber(contacts)
   }, [isLoading]);
 
   const text: Array<string> = [
@@ -186,8 +197,6 @@ const Footer = () => {
             >
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIconsMD}>
-                {isLoading && <h2>Loading...</h2>}
-                {error && <h2>error...</h2>}
 
                 {iconsMedia?.map((item, index) => (
                   <a target="_blank" key={index} href={item.path}>
@@ -236,8 +245,6 @@ const Footer = () => {
             >
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIcons}>
-                {isLoading && <h2>Loading...</h2>}
-                {error && <h2>error...</h2>}
                 {iconsMedia?.map((item, index) => (
                   <a target="_blank" key={index} href={item.path}>
                     <img src={item.icon} alt="" />
