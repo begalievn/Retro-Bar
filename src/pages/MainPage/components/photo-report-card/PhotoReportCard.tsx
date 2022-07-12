@@ -52,7 +52,7 @@ const PhotoReportCard = ({
                 </div>
               </div>
               <div className={classes.cardContent_info__right}>
-                <p>{date}</p>
+                <span>{date}</span>
               </div>
             </div>
           </div>
