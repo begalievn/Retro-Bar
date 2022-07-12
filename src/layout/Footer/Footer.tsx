@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
-import classes from "./styles.module.css";
-import telegramIcon from "../../assets/icons/Footer/telegram.svg";
-import instagramIcon from "../../assets/icons/Footer/instagram.svg";
-import youtubeIcon from "../../assets/icons/Footer/youtube.svg";
-import bartIcon from "../../assets/icons/Footer/logo.svg";
-import searchIcon from "../../assets/icons/Footer/Vector.svg";
-import whatsAppIcon from "../../assets/icons/Footer/whatsapp.svg";
-import Grid from "@mui/material/Grid";
-import { Container } from "@mui/system";
-import { Link, useNavigate } from "react-router-dom";
-import { IFooterItems, IIcons } from "../../types/footerTypes/footerTypes";
-import { contactsAPI } from "../../store/features/contacts/contactsQuery";
+import React, { useEffect, useState } from 'react';
+import classes from './styles.module.css';
+import telegramIcon from '../../assets/icons/Footer/telegram.svg';
+import instagramIcon from '../../assets/icons/Footer/instagram.svg';
+import youtubeIcon from '../../assets/icons/Footer/youtube.svg';
+import bartIcon from '../../assets/icons/Footer/logo.svg';
+import searchIcon from '../../assets/icons/Footer/Vector.svg';
+import whatsAppIcon from '../../assets/icons/Footer/whatsapp.svg';
+import Grid from '@mui/material/Grid';
+import { Container } from '@mui/system';
+import { Link, useNavigate } from 'react-router-dom';
+import { IFooterItems, IIcons } from '../../types/footerTypes/footerTypes';
+import { contactsAPI } from '../../store/features/contacts/contactsQuery';
+import { InputSearch } from '../../UI';
 
 const Footer = () => {
   const {
@@ -18,17 +19,17 @@ const Footer = () => {
     isLoading,
     isSuccess,
     refetch,
-  } = contactsAPI.useFetchAllContactsQuery("");
-  const [phoneNumber, setPhoneNumber] = useState('')
-  const funcNumber = (contacts:any)=>{
-    if(isSuccess){ 
+  } = contactsAPI.useFetchAllContactsQuery('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const funcNumber = (contacts: any) => {
+    if (isSuccess) {
       let number = contacts?.contacts[0].phoneNumber;
       number = number.replace(/\s+/g, '');
-      number=number.slice(1)
-      number= `996${number}`;
-      setPhoneNumber(number)
+      number = number.slice(1);
+      number = `996${number}`;
+      setPhoneNumber(number);
     }
-  }
+  };
 
   const navigate = useNavigate();
   const liElem: IFooterItems[] = [
@@ -87,7 +88,7 @@ const Footer = () => {
         path: `https://api.whatsapp.com/send/?phone=${phoneNumber}`,
       },
     ]);
-    funcNumber(contacts)
+    funcNumber(contacts);
   }, [isLoading]);
 
   const text: Array<string> = [
@@ -172,7 +173,7 @@ const Footer = () => {
               className={classes.inputBlockMD}
               sx={{ display: { xs: 'none', md: 'flex' } }}
             >
-              <input
+              {/* <input
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setInputChange(e.target.value);
                 }}
@@ -185,7 +186,10 @@ const Footer = () => {
                 className={classes.search}
               >
                 <img className={classes.im} src={searchIcon} alt="" />
-              </button>
+              </button> */}
+              <div style={{ minWidth: '220px' }}>
+                <InputSearch placeholder="поиск" />
+              </div>
             </Grid>
 
             <Grid
@@ -197,7 +201,6 @@ const Footer = () => {
             >
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIconsMD}>
-
                 {iconsMedia?.map((item, index) => (
                   <a target="_blank" key={index} href={item.path}>
                     <img src={item.icon} alt="" />
@@ -260,7 +263,7 @@ const Footer = () => {
                 display: { xs: 'flex', md: 'none', justifyContent: 'center' },
               }}
             >
-              <input
+              {/* <input
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setInputChange(e.target.value);
                 }}
@@ -273,7 +276,10 @@ const Footer = () => {
                 className={classes.search}
               >
                 <img className={classes.im} src={searchIcon} alt="" />
-              </button>
+              </button> */}
+              <div style={{ minWidth: '250px', marginTop: '20px' }}>
+                <InputSearch placeholder="поиск" />
+              </div>
             </Grid>
             <Grid
               sx={{
