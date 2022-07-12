@@ -24,6 +24,7 @@
   position: absolute;
   width: 4.52%;
   top: 48.5%;  left: 115%;
+  cursor: pointer;
 }
 .arrowLeft{
   transform: rotateY(180deg);
@@ -31,6 +32,7 @@
   position: absolute;
   top: 48.5%;
   left: -19%;
+  cursor: pointer;
 }
 .image{
   min-width: 100%;

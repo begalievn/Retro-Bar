@@ -6,6 +6,7 @@ import UniButton from './uniButton/UniButton';
 import { IPhotos } from '../../types/apiTypes/photo';
 import { IPhoto } from '../../types/apiTypes/photo';
 import Carousel from './Carousel/Carousel';
+import axios from 'axios';
 
 type NewGalleryProps = {
   close: () => void;
@@ -39,6 +40,35 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
     return null;
   }
 
+  const [imageUrl, setImageUrl] = useState<any>('')
+
+
+ const  func = async (image:any)=>{
+
+await axios(image).then(res => {
+   const blob = new Blob([res.data], {type: 'image/png'})
+   let data = URL.createObjectURL(blob)
+   setImageUrl(data)
+})
+
+
+}
+  
+  useEffect(() => {
+    if(slideInfo.image){
+    func(slideInfo.image)
+
+    }
+  }, [slideInfo.image])
+  
+
+  
+
+
+console.log(imageUrl);
+
+  
+
   return (
     <section className={styles.back}>
       <div className={styles.container}>
@@ -71,7 +101,9 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
             </p>
             <UniButton text="Поделиться" />
           </div>
+          <a href={imageUrl} download={eventInfo.establishment} >
           <UniButton text="Скачать" image={slideInfo.image} />
+          </a>
         </footer>
       </div>
     </section>

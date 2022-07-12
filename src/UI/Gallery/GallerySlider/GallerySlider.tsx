@@ -57,7 +57,7 @@ const GallerySlider: FC<GallerySliderProps> = ({
               <GallerySliderCard image={image.url} />
               <div className={styles.slider_buttons}>
                 <ShareButton image={image.url} />
-                <DownloadButton image={image.url} />
+                {/* <DownloadButton image={image.url} /> */}
               </div>
             </SwiperSlide>
           </>

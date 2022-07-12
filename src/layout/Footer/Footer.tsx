@@ -29,7 +29,7 @@ const Footer = () => {
       setPhoneNumber(number)
     }
   }
-  console.log(contacts?.contacts[0]);
+
   const navigate = useNavigate();
   const liElem: IFooterItems[] = [
     {
