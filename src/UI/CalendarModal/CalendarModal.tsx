@@ -18,7 +18,7 @@ const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(filterCalendarFunc(formatDate(selectedDate, 'DD-MM-YYYY')));
+    dispatch(filterCalendarFunc(formatDate(selectedDate, 'YYYY-MM-DD')));
   }, [selectedDate]);
 
   return (
