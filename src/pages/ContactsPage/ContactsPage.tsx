@@ -12,12 +12,14 @@ import TextBlock from "./TextBlock";
 import { IImageArr } from "../../types/contactsPageTypes/contactsPageTypes";
 import { contactsAPI } from "../../store/features/contacts/contactsQuery";
 import { IContacts } from "../../types/apiTypes/contacts";
+import { IContactsObject } from "../../types/footerTypes/footerTypes";
 
 const ContactsPage: FC = () => {
   const {
     data: contacts,
     isLoading,
     isSuccess
+
   } = contactsAPI.useFetchAllContactsQuery("");
   const array = contacts?.contacts;
   const [frameArr, setFrameArr] = useState<IImageArr[]>([]);
@@ -52,10 +54,10 @@ const ContactsPage: FC = () => {
   }
   }, [isSuccess]);
 
-  const funcNumber = (contacts:any)=>{
+  const funcNumber = (contacts:IContactsObject)=>{
     if(isSuccess){ 
       let number = contacts?.contacts[0].phoneNumber;
-      number = number.replace(/\s+/g, '');
+      number = number.replace(/\s+/g, "");
       number=number.slice(1)
       number= `996${number}`;
       setPhoneNumber(number)

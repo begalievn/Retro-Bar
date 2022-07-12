@@ -1,3 +1,5 @@
+import { IContactsPhotos } from "../footerTypes/footerTypes";
+
 export interface IContacts{
     created: string,
     description:string,
@@ -5,10 +7,11 @@ export interface IContacts{
     instagram:string,
     link:string,
     mail:string,
-    phoneNumber:string|number,
-    photo:string,
+    phoneNumber:string,
+    photo:null|string,
     photoUrl:string,
+    photos:IContactsPhotos[],
     telegram:string,
     youtube:string,
-    whatsapp:string
 }
+
