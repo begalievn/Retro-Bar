@@ -8,44 +8,51 @@ import { IPhoto, IPhotos } from "../../../../types/apiTypes/photo";
 import GalleryModal from "../../../Gallery/GalleryModal/GalleryModal";
 import NewGallery from "../../../NewGallery/NewGallery";
 
- export interface CurrentEventProps {
-  photos:IPhoto[] ;
-  establishment: string ;
-  event:string ;
+export interface CurrentEventProps {
+  photos: IPhoto[];
+  establishment: string;
+  event: string;
 }
 
 const Events: FC = ({}) => {
   const [galleryModal, setGalleryModal] = useState(false);
-  const toggleGalleryModal = () => setGalleryModal(!galleryModal)
+  const toggleGalleryModal = () => setGalleryModal(!galleryModal);
 
-  const [currentEvent, setCurrentEvent] = useState<CurrentEventProps | null>(null)
+  const [currentEvent, setCurrentEvent] = useState<CurrentEventProps | null>(
+    null
+  );
 
   const onClickEvent = (event: IPhotos) => {
-    
-    const data= {
+    const data = {
       photos: event.photos!,
-      establishment:event.establishment.name!,
-      event:event.eventName!
-    }
-    setCurrentEvent(data)
-    setGalleryModal(true)
-
+      establishment: event.establishment.name!,
+      event: event.eventName!,
+    };
+    setCurrentEvent(data);
+    setGalleryModal(true);
   };
 
-  const filterData: IPhotos[] = useAppSelector(state => state.photos.filterPhoto)
+  const filterData: IPhotos[] = useAppSelector(
+    (state) => state.photos.filterPhoto
+  );
 
-   return (
+  return (
     <>
       {filterData?.map((event, i) => (
-        <div onClick={() => onClickEvent(event)} className={styles.establishment} key={i}>
+        <div
+          onClick={() => onClickEvent(event)}
+          className={styles.establishment}
+          key={i}
+        >
           <img
             src={event.photos[0]?.url}
-
             className={styles.establishment_image}
             alt=""
           />
           <div className={styles.establishment_info}>
-            <h3 className={styles.establishment_info_title}>{event.establishment.name}</h3>
+            <h3 className={styles.establishment_info_title}>
+              {event.establishment.name}
+            </h3>
             <p className={styles.establishment_info_text}>{event.eventName}</p>
             <div className={styles.establishment_info_footer}>
               <div className={styles.establishment_info_footer_numbers}>
@@ -66,11 +73,9 @@ const Events: FC = ({}) => {
       ))}
       {/* {galleryModal && <Gallery currentEvent={currentEvent!} galleryModal={galleryModal} toggleGalleryModal={toggleGalleryModal}/>} */}
 
-      {galleryModal && currentEvent &&
-        <NewGallery close={toggleGalleryModal} eventInfo={currentEvent}
-        />}
-
-
+      {galleryModal && currentEvent && (
+        <NewGallery close={toggleGalleryModal} eventInfo={currentEvent} />
+      )}
     </>
   );
 };

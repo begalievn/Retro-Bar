@@ -90,6 +90,18 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
             <span>
               Mail: <strong>{item?.mail}</strong>{" "}
             </span>
+            <span>
+              Telegram: <strong>{item?.telegram}</strong>{" "}
+            </span>
+            <span>
+              Instagram: <strong>{item?.instagram}</strong>{" "}
+            </span>
+            <span>
+              Youtube: <strong>{item?.youtube}</strong>{" "}
+            </span>
+            <span>
+              Whatsapp: <strong>{item?.phoneNumber}</strong>{" "}
+            </span>
           </Typography>
         </CardContent>
         <CardActions>
@@ -146,6 +158,42 @@ const ContactsCard: React.FC<ContactPropsType> = ({ item }) => {
               value={mail}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setMail(e.target.value);
+              }}
+              className={classes.modalInput}
+              id="standard-basic"
+              variant="standard"
+            />
+            <TextField
+              value={telegram}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setTelegram(e.target.value);
+              }}
+              className={classes.modalInput}
+              id="standard-basic"
+              variant="standard"
+            />
+            <TextField
+              value={instagram}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setInstagram(e.target.value);
+              }}
+              className={classes.modalInput}
+              id="standard-basic"
+              variant="standard"
+            />
+            <TextField
+              value={youtube}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setYoutube(e.target.value);
+              }}
+              className={classes.modalInput}
+              id="standard-basic"
+              variant="standard"
+            />
+            <TextField
+              value={phoneNumber}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setPhoneNumber(e.target.value);
               }}
               className={classes.modalInput}
               id="standard-basic"

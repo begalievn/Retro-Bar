@@ -145,6 +145,7 @@ btnLogOutNew {
   outline: none;
   border-radius: 5px;
   background: var(--orange) !important;
+  transition: all 0.2s linear;
 }
 @media (min-width: 42em) {
   .s-layout__content {
@@ -160,6 +161,9 @@ btnLogOutNew {
     left: 0;
   }
 
+  .sideBarNav:hover .btnLogOutNew {
+    width: 15em;
+  }
   .sideBarNav:hover,
   .sideBarNav:focus,
   .s-sidebar__trigger:hover + .sideBarNav,
