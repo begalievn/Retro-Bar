@@ -7,10 +7,6 @@ type SubmitButtonProps = {
 };
 
 function SubmitButton({ tel }: SubmitButtonProps) {
-  const handleClick = () => {
-    window.open(`tel:${tel}`);
-  };
-
   return (
     // <a className={styles.anchorTag} href={`tel:${tel}`}>
     //   {' '}
