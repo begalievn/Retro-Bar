@@ -31,6 +31,7 @@
 .section2_establishment {
   position: relative;
   transition: 0.5s;
+  cursor: pointer
 }
 
 .section2_establishment:hover {
