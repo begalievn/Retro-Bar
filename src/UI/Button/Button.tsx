@@ -17,7 +17,7 @@ const Button: FC<ButtonProps> = ({ children, onClick, size, type }) => {
   const checkSize = size && sizes.includes(size) ? size : sizes[0];
 
   return (
-    <>
+    <a href={`tel:${+996777664690}`}>
       <button
         type={type}
         onClick={onClick}
@@ -25,7 +25,7 @@ const Button: FC<ButtonProps> = ({ children, onClick, size, type }) => {
       >
         {children}
       </button>
-    </>
+    </a>
   );
 };
 

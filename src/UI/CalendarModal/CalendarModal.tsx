@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, RefObject, useEffect, useState } from "react";
 import styles from "./CalendarModal.module.css";
 
 import { Calendar, CalendarEvents, CalendarFilter } from "./";

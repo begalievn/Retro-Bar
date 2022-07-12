@@ -1,8 +1,8 @@
 .modal {
   z-index: 101;
   height: 100vh;
-  /*overflow-x: hidden;*/
-  /*overflow-y: scroll;*/
+  overflow-x: hidden;
+  overflow-y: auto;
   background: rgba(0, 0, 0, 0.8);
 }
 
@@ -69,6 +69,8 @@
   height: 50px;
   padding: 10px;
   background: var(--orange-text);
+  outline: none;
+  border: none;
   border-radius: 10px;
   cursor: pointer;
 }

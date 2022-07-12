@@ -21,7 +21,6 @@ import { useLocation } from "react-router-dom";
 
 const AdminPhoto = () => {
   const dispatch = useDispatch();
-  const path = useLocation();
   const [inputValue, setInputValue] = useState<PhotoCard>({
     establishmentId: "",
     photographerId: "",
@@ -31,6 +30,7 @@ const AdminPhoto = () => {
   let establishments = useAppSelector((state) => state.establishments.value);
   let photographers = useAppSelector((state) => state.photographers.value);
 
+  console.log(inputValue);
   useEffect(() => {
     setInputValue({});
   }, [isSuccess]);
