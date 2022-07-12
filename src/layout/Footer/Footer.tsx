@@ -1,18 +1,35 @@
-import React, { useState } from 'react';
-import classes from './styles.module.css';
-import telegramIcon from '../../assets/icons/Footer/telegram.svg';
-import instagramIcon from '../../assets/icons/Footer/instagram.svg';
-import youtubeIcon from '../../assets/icons/Footer/youtube.svg';
-import mailIcon from '../../assets/icons/Footer/mail.svg';
-import bartIcon from '../../assets/icons/Footer/logo.svg';
-import searchIcon from '../../assets/icons/Footer/Vector.svg';
-import Grid from '@mui/material/Grid';
-import { Container } from '@mui/system';
-import { Link, useNavigate } from 'react-router-dom';
-import { IFooterItems, IIcons } from '../../types/footerTypes/footerTypes';
-import { contactsAPI } from '../../store/features/contacts/contactsQuery';
+import React, { useEffect, useState } from "react";
+import classes from "./styles.module.css";
+import telegramIcon from "../../assets/icons/Footer/telegram.svg";
+import instagramIcon from "../../assets/icons/Footer/instagram.svg";
+import youtubeIcon from "../../assets/icons/Footer/youtube.svg";
+import bartIcon from "../../assets/icons/Footer/logo.svg";
+import searchIcon from "../../assets/icons/Footer/Vector.svg";
+import whatsAppIcon from "../../assets/icons/Footer/whatsapp.svg";
+import Grid from "@mui/material/Grid";
+import { Container } from "@mui/system";
+import { Link, useNavigate } from "react-router-dom";
+import { IFooterItems, IIcons } from "../../types/footerTypes/footerTypes";
+import { contactsAPI } from "../../store/features/contacts/contactsQuery";
 
 const Footer = () => {
+  const {
+    data: contacts,
+    isLoading,
+    isSuccess,
+    refetch,
+  } = contactsAPI.useFetchAllContactsQuery("");
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const funcNumber = (contacts:any)=>{
+    if(isSuccess){ 
+      let number = contacts?.contacts[0].phoneNumber;
+      number = number.replace(/\s+/g, '');
+      number=number.slice(1)
+      number= `996${number}`;
+      setPhoneNumber(number)
+    }
+  }
+
   const navigate = useNavigate();
   const liElem: IFooterItems[] = [
     {
@@ -50,24 +67,29 @@ const Footer = () => {
       path: '/copyright',
     },
   ];
-  const [iconsMedia, setIconsMedia] = useState<IIcons[]>([
-    {
-      icon: telegramIcon,
-      path: 'https://web.telegram.org',
-    },
-    {
-      icon: instagramIcon,
-      path: 'https://instagram.com',
-    },
-    {
-      icon: youtubeIcon,
-      path: 'https://youtube.com',
-    },
-    {
-      icon: mailIcon,
-      path: 'https://mail.google.com/',
-    },
-  ]);
+  const [iconsMedia, setIconsMedia] = useState<IIcons[]>([]);
+  useEffect(() => {
+    setIconsMedia([
+      {
+        icon: telegramIcon,
+        path: `https://t.me/${contacts?.contacts[0].telegram}`,
+      },
+      {
+        icon: instagramIcon,
+        path: `https://www.instagram.com/${contacts?.contacts[0].instagram}`,
+      },
+      {
+        icon: youtubeIcon,
+        path: `https://www.youtube.com/results?search_query=${contacts?.contacts[0].youtube}`,
+      },
+      {
+        icon: whatsAppIcon,
+        path: `https://api.whatsapp.com/send/?phone=${phoneNumber}`,
+      },
+    ]);
+    funcNumber(contacts)
+  }, [isLoading]);
+
   const text: Array<string> = [
     'Политика конфиденциальности',
     'Copyright 2021',
@@ -175,7 +197,8 @@ const Footer = () => {
             >
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIconsMD}>
-                {iconsMedia.map((item, index) => (
+
+                {iconsMedia?.map((item, index) => (
                   <a target="_blank" key={index} href={item.path}>
                     <img src={item.icon} alt="" />
                   </a>
@@ -222,7 +245,7 @@ const Footer = () => {
             >
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIcons}>
-                {iconsMedia.map((item, index) => (
+                {iconsMedia?.map((item, index) => (
                   <a target="_blank" key={index} href={item.path}>
                     <img src={item.icon} alt="" />
                   </a>

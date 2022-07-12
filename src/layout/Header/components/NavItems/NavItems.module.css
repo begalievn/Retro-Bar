@@ -1,15 +1,13 @@
 .headerNavItem {
-  /*margin: 0 13.6px;*/
-  margin: 0 1em;
+  margin: 0 0.2em;
 }
 
-.activeItem{
+.activeItem {
   display: flex;
   align-items: center;
   margin: 0 8px;
   border-right: 1px solid rgba(235, 235, 235, 0.5);
-  border-left: 1px solid rgba(235, 235, 235, 0.5);
-  padding: 10px;
+  border-left: 1px solid rgba(235, 235, 235, 0.5); /* padding: 10px; */
   height: 17px;
 }
 
@@ -25,6 +23,7 @@
 
 .headerNavItem a {
   color: #ebebeb;
+  padding: 10px;
   text-decoration: none;
   font-weight: normal;
 }
@@ -33,7 +32,7 @@
   .headerNavItem {
   }
   .headerNavItem:nth-child(4) {
-      margin-bottom: 16px;
-      border: none;
+    margin-bottom: 16px;
+    border: none;
   }
 }

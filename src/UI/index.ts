@@ -5,6 +5,7 @@ import CalendarModal from "./CalendarModal/CalendarModal";
 import CalendarIcon from "./CalendarIcon/CalendarIcon";
 import AlertComponent from "./AlertSuccess/AlertSuccess";
 import Button from "./Button/Button";
+import {FooterEmoji} from "./FooterEmoji/FooterEmoji";
 
 export {
   SearchBtn,
@@ -14,4 +15,5 @@ export {
   CalendarIcon,
   AlertComponent,
   Button,
+  FooterEmoji,
 };

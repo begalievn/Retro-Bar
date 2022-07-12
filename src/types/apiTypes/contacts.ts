@@ -9,5 +9,6 @@ export interface IContacts{
     photo:string,
     photoUrl:string,
     telegram:string,
-    youtube:string
+    youtube:string,
+    whatsapp:string
 }

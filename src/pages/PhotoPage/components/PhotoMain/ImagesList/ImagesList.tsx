@@ -1,15 +1,15 @@
-import React, { FC, useState } from 'react';
-import { IPhotosAnother } from '../interfaces';
-import styles from './ImagesList.module.css';
-import eye from '../../../../../assets/photoPageImages/icons/eye.svg';
-import pic from '../../../../../assets/photoPageImages/icons/pic.svg';
-import camera from '../../../../../assets/photoPageImages/icons/camera.svg';
-import { IPhoto } from '../../../../../types/apiTypes/photo';
-import Gallery from '../../../../../UI/Gallery/GalleryModal/GalleryModal';
-import NewGallery from '../../../../../UI/NewGallery/NewGallery';
+import React, { FC, useState } from "react";
+import { IPhotosAnother } from "../interfaces";
+import styles from "./ImagesList.module.css";
+import eye from "../../../../../assets/photoPageImages/icons/eye.svg";
+import pic from "../../../../../assets/photoPageImages/icons/pic.svg";
+import camera from "../../../../../assets/photoPageImages/icons/camera.svg";
+import { IPhoto } from "../../../../../types/apiTypes/photo";
+import Gallery from "../../../../../UI/Gallery/GalleryModal/GalleryModal";
+import NewGallery from "../../../../../UI/NewGallery/NewGallery";
 
-import Button from '../../Button/Button';
-import { photoAPI } from '../../../../../store/features/photos/photoQuery';
+import Button from "../../Button/Button";
+import { photoAPI } from "../../../../../store/features/photos/photoQuery";
 
 interface ImagesListProps {
   images: IPhotosAnother[] | null;
@@ -29,12 +29,12 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
   );
 
   if (galleryModal) {
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   } else {
-    document.body.style.overflow = 'visible';
+    document.body.style.overflow = "visible";
   }
   const onClickEvent = (item: IPhotosAnother) => {
-    if (item.link === '' || item.ad) return false;
+    if (item.link === "" || item.ad) return false;
     const data = {
       photos: item.photos!,
       establishment: item.name!,
@@ -53,14 +53,15 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
       {images.map((item) => (
         <div
           className={
-            item.ad ? styles.advertise + ' ' + styles.events : styles.events
+            item.ad ? styles.advertise + " " + styles.events : styles.events
           }
           key={item.id}
+          onClick={() => onClickEvent(item)}
         >
           <div className={styles.image_border}>
             <img src={item.border} alt="" />
           </div>
-          <div className={styles.image} onClick={() => onClickEvent(item)}>
+          <div className={styles.image}>
             <img src={item.link} alt="" />
           </div>
           {item.ad ? (

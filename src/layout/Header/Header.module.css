@@ -102,15 +102,15 @@ nav {
   right: 36px;
 }
 
-.logOut_btn{
-background-color: #FFB03B;
-padding: 7px 12px;
-border-radius:10px;
-cursor: pointer;
-color:white;
-font-family: 'Montserrat Alternates';
+.logOut_btn {
+  background-color: #ffb03b;
+  padding: 7px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-family: "Montserrat Alternates";
 }
-.logOut_btn:hover{
+.logOut_btn:hover {
   padding: 9px 14px;
 }
 
@@ -128,7 +128,7 @@ font-family: 'Montserrat Alternates';
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 840px) {
   .headerBlock {
     padding: 0;
   }
