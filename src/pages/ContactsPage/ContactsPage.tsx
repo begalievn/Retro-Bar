@@ -66,7 +66,7 @@ const ContactsPage: FC = () => {
   }
   
 
-  console.log(array);
+
 
 
   const sliderFunc = (id: number): void => {

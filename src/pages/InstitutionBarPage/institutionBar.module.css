@@ -38,6 +38,7 @@
   position: relative;
   left: 10px;
   top: 4px;
+  cursor:pointer;
 }
 .shareBtn {
   margin-left: 50%;
@@ -47,6 +48,7 @@
   border: none;
   color: white;
   width: 120px;
+  cursor:pointer
 }
 .socialBtn {
   margin: 3% 0 0 3%;

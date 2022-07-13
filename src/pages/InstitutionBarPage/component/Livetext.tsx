@@ -7,11 +7,13 @@ import picture from "../../../assets/institutionBarImg/iconLiveBar/picture.svg";
 import rating from "../../../assets/institutionBarImg/iconLiveBar/rating.svg";
 import share from "../../../assets/institutionBarImg/iconLiveBar/share.svg";
 import { ShareSocial } from "../shareSocial";
+import { IEstablishment } from "../../../types/apiTypes/establishment";
 
 type ILiveTextProps = {
   name: string;
+  data: IEstablishment
 };
-const LiveText = ({ name }: ILiveTextProps) => {
+const LiveText = ({ name,data }: ILiveTextProps) => {
   const [show, setShow] = useState(false);
   return (
     <div className={classes.text}>
@@ -47,26 +49,8 @@ const LiveText = ({ name }: ILiveTextProps) => {
         </Grid>
       </Grid>
       <div className={classes.livebarLetfBottom}>
-        <p>
-          LiveBar, работая в ресторанной сфере уже свыше 11-ти лет является
-          именем нарицательным. Несмотря на внушительную базу постоянных гостей
-          мы неустанно работаем над привлечением новых адептов нашей концепции.
-        </p>
-        <p>
-          Великолепный интерьер LiveBar с множеством оригинальных деталей дарит
-          каждому гостю ощущение комфорта и настраивает на творческий подход.
-          Уютная атмосфера обеспечивается своеобразным дизайном, хорошим
-          музыкальным сопровождением и вниманием обходительного персонала.
-          Разнообразные кухонное, барное, винное и кальянное меню заточены как
-          под pre-party и after-party постоянных гостей так и под утончённых
-          гурманов. Профессиональное караоке оборудование собрано из продукции
-          лучших брендов производителей аудио оборудования и настроено
-          профессионалами.
-        </p>
-        <p className={classes.livebarTextWeb}>
-          Лучше один раз увидеть, чем 100 раз прочитать или услышать! Приходите
-          и ощутите уникальную ауру наших заведений!
-        </p>
+        {data.description}
+
       </div>
     </div>
   );

@@ -57,7 +57,7 @@ const AdminAdvertising = () => {
 
   return (
     <>
-      {isSuccess ? (
+      {!isSuccess ? (
         <form className={classes.generalBlock} onSubmit={handleSubmit}>
           <div className={classes.adminGeneralBlock}>
             <h3 className={`${classes.adminTitle} ${classes.adminTitleAd}`}>

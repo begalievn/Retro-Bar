@@ -30,7 +30,7 @@ const AdminPhoto = () => {
   let establishments = useAppSelector((state) => state.establishments.value);
   let photographers = useAppSelector((state) => state.photographers.value);
 
-  console.log(inputValue);
+  
   useEffect(() => {
     setInputValue({});
   }, [isSuccess]);

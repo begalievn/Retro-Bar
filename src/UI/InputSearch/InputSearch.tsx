@@ -4,16 +4,16 @@ import React, {
   useEffect,
   useState,
   FC,
-} from 'react';
+} from "react";
 
-import classes from './InputSearch.module.css';
-import SearchBtn from '../SearchBtn/SearchBtn';
-import { someClasses } from '../../utils/someClasses';
-import { searchAPI } from '../../store/features/search/searchQuery';
-import useDebounce from '../../hooks/useDebounce';
-import SearchList from '../SearchList/SearchList';
+import classes from "./InputSearch.module.css";
+import SearchBtn from "../SearchBtn/SearchBtn";
+import { someClasses } from "../../utils/someClasses";
+import { searchAPI } from "../../store/features/search/searchQuery";
+import useDebounce from "../../hooks/useDebounce";
+import SearchList from "../SearchList/SearchList";
 
-import { photoSvg, videoSvg, buildingSvg } from '../../assets/icons/icons';
+import { photoSvg, videoSvg, buildingSvg } from "../../assets/icons/icons";
 
 interface InputSearchProps {
   setInputVisible?: Dispatch<SetStateAction<boolean>>;
@@ -27,7 +27,7 @@ export const InputSearch: FC<InputSearchProps> = ({
   // const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   setInputValue(e.target.value);
   // };
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
   const debouncedValue = useDebounce(value, 400);
 
@@ -65,7 +65,7 @@ export const InputSearch: FC<InputSearchProps> = ({
               searchList={data.establishments}
               propertyName="name"
               icon={buildingSvg}
-              type={'establishment'}
+              type={"establishment"}
               setInputVisible={setInputVisible}
             />
           ) : null}
@@ -74,7 +74,7 @@ export const InputSearch: FC<InputSearchProps> = ({
               searchList={data.photoCards}
               propertyName="eventName"
               icon={photoSvg}
-              type={'photo'}
+              type={"photo"}
               setInputVisible={setInputVisible}
             />
           ) : null}
@@ -83,7 +83,7 @@ export const InputSearch: FC<InputSearchProps> = ({
               searchList={data.videoCards}
               propertyName="eventName"
               icon={videoSvg}
-              type={'video'}
+              type={"video"}
               setInputVisible={setInputVisible}
             />
           ) : null}
