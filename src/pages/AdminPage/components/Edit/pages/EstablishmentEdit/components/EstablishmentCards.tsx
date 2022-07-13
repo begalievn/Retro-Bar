@@ -29,9 +29,9 @@ const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
   const [contacts, setContacts] = React.useState<number | string>(
     item?.contacts
   );
-  const [category, setCategory] = React.useState<null | string | number>(
-    item?.category
-  );
+  // const [category, setCategory] = React.useState(
+  //   item?.category?.id
+  // );
   const [kitchenType, setKitchenType] = React.useState<null | string>(
     item?.kitchenType
   );
@@ -59,7 +59,7 @@ const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
       description,
       workingHours,
       contacts,
-      category,
+      // category,
       kitchenType,
       services,
       link,
@@ -102,9 +102,9 @@ const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
             <span>
               Contacts: <strong>{item.contacts}</strong>{" "}
             </span>
-            <span>
-              Category: <strong>{item?.category}</strong>{" "}
-            </span>
+            {/* <span>
+              Category: <strong>{item?.category.id}</strong>{" "}
+            </span> */}
             <span>
               KitchenType: <strong>{item?.kitchenType}</strong>{" "}
             </span>
@@ -181,7 +181,7 @@ const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
               id="standard-basic"
               variant="standard"
             />
-            <TextField
+            {/* <TextField
               value={category}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setCategory(e.target.value);
@@ -189,7 +189,7 @@ const EstablishmentCards: FC<EstabPropsType> = ({ item }) => {
               className={classes.modalInput}
               id="standard-basic"
               variant="standard"
-            />
+            /> */}
             <TextField
               value={kitchenType}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {

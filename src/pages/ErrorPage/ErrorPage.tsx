@@ -9,15 +9,13 @@ import polaroid from "../../assets/erroPage/polaroid.png";
 
 const ErrorPage = () => {
   const tapes: string[] = [tape1, tape2];
-
   return (
     <div className={classes.mainDiv}>
       <Container sx={{ flexGrow: 1 }}>
         <Grid
+          className={classes.mainGrid}
           sx={{
             display: { md: "flex", xs: "none" },
-            alignItems: "center",
-            textAlign: "end",
           }}
           container
           spacing={2}
@@ -55,8 +53,6 @@ const ErrorPage = () => {
           className={classes.respDiv}
           sx={{
             display: { md: "none", xs: "flex" },
-            alignItems: "center",
-            textAlign: "center",
           }}
           container
           spacing={2}

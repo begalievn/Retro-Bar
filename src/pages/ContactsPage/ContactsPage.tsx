@@ -138,7 +138,7 @@ const ContactsPage: FC = () => {
                 </div>
                 <div>
                   <img src={whatsAppIcon} alt="" />
-                  <a href={`https://api.whatsapp.com/send?phone=${phoneNumber}`}>{item.phoneNumber}</a>
+                  <a target='_blank' href={`https://api.whatsapp.com/send?phone=${phoneNumber}`}>{item.phoneNumber}</a>
                 </div>
                 <div>
                   <img src={mailIcon} alt="" />

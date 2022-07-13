@@ -1,6 +1,12 @@
 import { IPhoto, IPhotoCards } from './photo';
 import { IVideo } from './video';
 
+
+export interface IEstablishmentCategory{
+  created: string,
+  id: number,
+  name: string
+}
 export interface IEstablishment {
   id: number;
   logo: string;
@@ -10,7 +16,7 @@ export interface IEstablishment {
   workingHours: string | number;
   contacts: number | string;
   created?: string;
-  category: null | string | number;
+  category: IEstablishmentCategory;
   kitchenType: null | string;
   services: null | string;
   link: null | string;
