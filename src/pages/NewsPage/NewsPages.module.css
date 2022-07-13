@@ -121,11 +121,11 @@
 }
 .btn {
   font-size: 12px;
-  width: 60px;
-  height: 18px;
+  width: 75px;
+  height: 24px;
   background: #ffb03b;
   border: none;
-  border-radius: 14px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
