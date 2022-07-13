@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import Background from "../../assets/NewsPages/image/backgraund_gradient.png";
 import Smile from "../../assets/NewsPages/image/logo_smile.svg";
 import { MyPerson, Section_adaptiveProps } from "../../types/newsPages/news";
 import classes from "./Section_adaptive.module.css";
@@ -17,14 +18,14 @@ const SectionAdaptive: FC<Section_adaptiveProps> = ({ data }) => {
                   <div className={classes.img_container}>
                     <img
                       className={classes.img}
-                      src={item.image}
+                      src={item.photo}
                       alt="Person"
                     />
                   </div>
                   <div className={classes.background_container}>
                     <img
                       className={classes.background}
-                      src={item.background}
+                      src={Background}
                       alt="Person"
                     />
                     <span className={classes.text}>
