@@ -4,7 +4,7 @@ import { API } from "../../../utils/helpers/Consts";
 export const establishmentsAPI = createApi({
   reducerPath: "establishmentsAPI",
   baseQuery: fetchBaseQuery({ baseUrl: API }),
-  tagTypes: ["Establishments", "Contacts"],
+  tagTypes: ["Establishments"],
   endpoints: (build) => ({
     fetchAllEstablishments: build.query({
       query: (name) => ({
@@ -43,7 +43,7 @@ export const establishmentsAPI = createApi({
           description: establishment.description,
           workingHours: establishment.workingHours,
           contacts: establishment.contacts,
-          category: establishment.category,
+          category: establishment.category.id,
           kitchenType: establishment.kitchenType,
           services: establishment.services,
           link: establishment.link,

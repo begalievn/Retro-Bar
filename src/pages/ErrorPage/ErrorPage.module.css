@@ -75,3 +75,11 @@
 .inputS {
   max-width: 80%;
 }
+.respDiv {
+  align-items: center;
+  text-align: center !important;
+}
+.mainGrid {
+  align-items: center;
+  text-align: end;
+}
