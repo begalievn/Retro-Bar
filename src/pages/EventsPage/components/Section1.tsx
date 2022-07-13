@@ -10,6 +10,7 @@ import { photoAPI } from "../../../store/features/photos/photoQuery";
 import { contactsAPI } from "../../../store/features/contacts/contactsQuery";
 import { log } from "console";
 import { login } from "../../../store/authorization/AuthFunc";
+import Loader from "../../../UI/Loader/Loader";
 
 const navbar: Array<string> = ["Видео", "Услуги", "Плеер", "Галерея"];
 
@@ -18,9 +19,7 @@ const Section1: FC = () => {
   let { data: photos } = photoAPI.useFetchAllPhotosQuery(1);
 
   const {
-    data: contacts,
-    error,
-    isLoading,
+    data: contacts,  
     refetch,
     isSuccess
   } = contactsAPI.useFetchAllContactsQuery("");
@@ -56,7 +55,7 @@ const funcNumber = (contacts:any)=>{
 
       <div className={style.section1_back_ellipseGradient}></div>
 
-      <div className={style.section1_container}>
+        {photos ?(<div className={style.section1_container}>
         <div className={style.eventPage_section1}>
           <img className={style.section1_tape1} src={tape1} alt="" />
           <img className={style.section1_tape2} src={tape2} alt="" />
@@ -82,7 +81,8 @@ const funcNumber = (contacts:any)=>{
         <a href={`tel:${phoneNumber}`}>
         <button className={style.section1_button_media}>Купить билет</button>
         </a>
-      </div>
+      </div>) : (<Loader/>)  }
+     
       <img className={style.eventPage_banner} src={banner} alt="banner" />
       <img
         className={style.eventPage_bannerMini}

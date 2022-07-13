@@ -31,6 +31,7 @@ const EstablishmentItem: FC<PropsType> = ({ item }) => {
   
   return (
     <>
+    
     <div className={style.section2_establishment}>
       <img
       onClick={(e)=>onClickEvent(item)}

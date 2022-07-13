@@ -10,32 +10,41 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 import { photoAPI } from '../../store/features/photos/photoQuery';
 import { IPhotos } from '../../types/apiTypes/photo';
+import Loader from "../../UI/Loader/Loader";
+
 
 const AllEvents: FC = () => {
+
+
   const dispatch = useAppDispatch();
 
-  let { data: photos } = photoAPI.useFetchAllPhotosQuery(4);
+  let { data: photos,isLoading } = photoAPI.useFetchAllPhotosQuery(4);
+
 
   return (
-    <div className={style.section2_establishments_block}>
-      <div className={style.section2_establishments_back}>
-        <div className={style.section2_establishments}>
-          {photos?.photoCards.map((item: IPhotos, index: number) => (
-            <EstablishmentItem key={index} item={item} />
-          ))}
-        </div>
-      </div>
-      <div className={style.section2_establishments_backMini}>
-        <div className={style.section2_establishments}>
-          {photos?.photoCards
-            .slice(1, 3)
-            .map((item: IPhotos, index: number) => (
-              <EstablishmentItem key={index} item={item} />
-            ))}
-        </div>
-      </div>
+    <>
+{isLoading ? (<Loader/>) : ( 
+  <div className={style.section2_establishments_block}>
+  <div className={style.section2_establishments_back}>
+    <div className={style.section2_establishments}>
+      {photos?.photoCards.map((item: IPhotos, index: number) => (
+        <EstablishmentItem key={index} item={item} />
+      ))}
     </div>
+  </div>
+  <div className={style.section2_establishments_backMini}>
+    <div className={style.section2_establishments}>
+      {photos?.photoCards
+        .slice(1, 3)
+        .map((item: IPhotos, index: number) => (
+          <EstablishmentItem key={index} item={item} />
+        ))}
+    </div>
+  </div>
+</div>)}
+   
+  </>
   );
-};
+}
 
 export default AllEvents;

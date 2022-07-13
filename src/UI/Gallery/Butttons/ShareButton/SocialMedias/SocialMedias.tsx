@@ -39,9 +39,7 @@ const SocialMedias:FC<SocialMediasProps> = ({image}) => {
       <TwitterShareButton className={styles.soc_media} url={window.location.href}>
         <TwitterIcon size={32} round={true}/>
       </TwitterShareButton>
-      <EmailShareButton className={styles.soc_media} url={window.location.href}>
-        <EmailIcon size={32} round={true}/>
-      </EmailShareButton>
+    
       <VKShareButton url={shareUrl}>
         <VKIcon size={32} round={true}/>
       </VKShareButton>
