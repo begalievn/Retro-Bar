@@ -26,6 +26,12 @@
   top: 48.5%;  left: 115%;
   cursor: pointer;
 }
+.arrowRightAllowed{
+  position: absolute;
+  width: 4.52%;
+  top: 48.5%;  left: 115%;
+  cursor: not-allowed;
+}
 .arrowLeft{
   transform: rotateY(180deg);
   width: 4.52%;
@@ -33,6 +39,14 @@
   top: 48.5%;
   left: -19%;
   cursor: pointer;
+}
+.arrowLeftAllowed{
+  transform: rotateY(180deg);
+  width: 4.52%;
+  position: absolute;
+  top: 48.5%;
+  left: -19%;
+  cursor: not-allowed;
 }
 .image{
   min-width: 100%;

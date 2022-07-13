@@ -9,11 +9,9 @@ import whatsAppIcon from "../../assets/icons/Footer/whatsapp.svg";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/system";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  IFooterItems,
-  IIcons,
-} from "../../types/footerTypes/footerTypes";
+import { IFooterItems, IIcons } from "../../types/footerTypes/footerTypes";
 import { contactsAPI } from "../../store/features/contacts/contactsQuery";
+import Loader from "../../UI/Loader/Loader";
 
 const Footer = () => {
   const {
@@ -55,7 +53,7 @@ const Footer = () => {
   const [iconsMedia, setIconsMedia] = useState<IIcons[]>([]);
   useEffect(() => {
     if (isSuccess) {
-      let number:string = contacts?.contacts[0].phoneNumber
+      let number: string = contacts?.contacts[0].phoneNumber
         .replace(/\s+/g, "")
         .slice(1);
       setIconsMedia([
