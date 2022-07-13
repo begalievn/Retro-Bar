@@ -27,6 +27,10 @@
   transform: translateX(-60%) translateY(-3%) rotate(2deg) scale(0.85);
 }
 
+.left:hover {
+  cursor: pointer;
+}
+
 .active {
   z-index: 2;
   transform: rotate(2deg);
@@ -34,6 +38,10 @@
 
 .right {
   transform: translateX(78%) translateY(6%) rotate(2deg) scale(0.85);
+}
+
+.right:hover {
+  cursor: pointer;
 }
 
 .hiddenRight {

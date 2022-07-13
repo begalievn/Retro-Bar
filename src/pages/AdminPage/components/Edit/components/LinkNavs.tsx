@@ -1,10 +1,10 @@
 import React from "react";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import classes from '../pages/PhotoEdit/style.module.css'
+import classes from "../pages/PhotoEdit/style.module.css";
 const LinkNavs = () => {
   return (
-    <div style={{textAlign:'center'}}>
+    <div style={{ textAlign: "center" }}>
       <Link to="/admin/edit">
         <Button className={classes.btnNav} variant="contained" color="success">
           Photo

@@ -9,7 +9,6 @@ import { someClasses } from "../../utils/someClasses";
 import { INavItems } from "../../types/headerTypes/headerTypes";
 import { useAppDispatch } from "../../app/hooks";
 import { logOut } from "../../store/authorization/AuthFunc";
-import List from "../../UI/InputSearch/List";
 
 export const navItems: INavItems[] = [
   {
@@ -39,7 +38,7 @@ export const navItems: INavItems[] = [
 ];
 
 export const Header = () => {
-  const [inputText, setInputText] = useState(" ");
+  const [inputValue, setInputValue] = useState("");
   const [isOpen, setOpen] = useState<boolean>(false);
   const [inputVisible, setInputVisible] = useState<boolean>(false);
   const history = useNavigate();
@@ -51,11 +50,6 @@ export const Header = () => {
   } else {
     document.body.style.overflow = "visible";
   }
-
-  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let lowerCase = e.target.value.toLowerCase();
-    setInputText(lowerCase);
-  };
 
   return (
     <header className={classes.headerWrapper}>
@@ -95,12 +89,7 @@ export const Header = () => {
         {isOpen && <BurgerMenu navItems={navItems} setOpen={setOpen} />}
         {inputVisible && (
           <div className={classes.headerSearch}>
-            <InputSearch
-              placeholder="поиск"
-              onChange={inputHandler}
-              value={inputText}
-            />
-            <List input={inputText} />
+            <InputSearch placeholder="поиск" />
           </div>
         )}
       </div>

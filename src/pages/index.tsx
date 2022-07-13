@@ -14,6 +14,7 @@ import Gallery from "../UI/Gallery/Gallery";
 import NewsPages from "./NewsPage/NewsPages";
 
 import { useAppSelector } from "../app/hooks";
+import UserDetails from "./NewsPage/UserDetails";
 
 const MainRoutes = () => {
   const isAdmin = useAppSelector((state) => state.AuthorizationSlice.token);
@@ -74,6 +75,11 @@ const MainRoutes = () => {
       link: "/photo/gallery",
       element: <Gallery />,
       id: 12,
+    },
+    {
+      link: "news/:id",
+      element: <UserDetails />,
+      id: 13,
     },
   ];
 

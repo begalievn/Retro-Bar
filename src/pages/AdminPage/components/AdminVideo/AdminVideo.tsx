@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import classes from "../../AdminPage.module.css";
 
@@ -8,7 +8,6 @@ import {
   VideoCard,
 } from "../../../../types/adminPage/adminPage";
 import { useDispatch } from "react-redux";
-import { AdminApi } from "../../../../API/adminApi/adminApi";
 import {
   createAlert,
   deleteAlert,
@@ -19,9 +18,11 @@ import AdminInput from "../AdminInput/AdminInput";
 import { videoAPI } from "../../../../store/features/videos/videoQuery";
 import { getFormData } from "../../../../utils/helpers/createFormData";
 import { alertBodySuccess } from "../../../../utils/helpers/alertBody";
-import AdminSelect from "../../AdminSelect/AdminSelect";
+import AdminSelect from "../AdminSelect/AdminSelect";
 import { useAppSelector } from "../../../../app/hooks";
 import { ReactComponent as LinkIcon } from "../../../../assets/adminPage/link.svg";
+import { startTimer } from "../../../../utils/helpers/timer";
+import Loader from "../../../../UI/Loader/Loader";
 
 const AdminVideo = () => {
   const dispatch = useDispatch();
@@ -29,11 +30,18 @@ const AdminVideo = () => {
     establishmentId: "",
     photographerId: "",
   });
-  const [createVideoCard, { isLoading }] =
+  const [createVideoCard, { isLoading, isSuccess }] =
     videoAPI.useCreateVideoCardMutation();
-
   let establishments = useAppSelector((state) => state.establishments.value);
   let photographers = useAppSelector((state) => state.photographers.value);
+
+  useEffect(() => {
+    setInputValue({});
+  }, [isSuccess]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   const inputHandler = (
     e: React.ChangeEvent<
@@ -52,23 +60,16 @@ const AdminVideo = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { formData } = getFormData(inputValue as VideoCard);
-    let timer: () => void;
 
-    const startTimer = () => {
-      //@ts-ignore
-      clearTimeout(timer);
-      //@ts-ignore
-      timer = setTimeout(() => dispatch(deleteAlert()), 1500);
-    };
     await createVideoCard(formData)
       .unwrap()
       .then(() => {
         dispatch(createAlert(alertBodySuccess));
-        startTimer();
+        startTimer(dispatch, deleteAlert);
       })
       .catch((e) => {
         dispatch(createAlert({ message: e.data.message, type: "error" }));
-        startTimer();
+        startTimer(dispatch, deleteAlert);
       });
   };
   return (
@@ -78,6 +79,7 @@ const AdminVideo = () => {
         <div className={classes.adminContent}>
           <div>
             <DropFileInput
+              required={true}
               type={"video"}
               children={"Добавить превью для видео"}
               setInputValue={setInputValue}

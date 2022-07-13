@@ -14,7 +14,6 @@ import { photoAPI } from "../../../../../../../store/features/photos/photoQuery"
 interface PhotoPropsType {
   item: IPhotos;
 }
-
 const EditCards: React.FC<PhotoPropsType> = ({ item }) => {
   const [eventName, setEventName] = React.useState<string>(item?.eventName);
   const [views, setViews] = React.useState<number>(+item?.views);

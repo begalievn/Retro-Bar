@@ -1,6 +1,5 @@
 import React from 'react';
 
-import cardImage from '../../../../assets/mainPage/palaroid-card-image-active.png';
 import { IPhoto } from '../../../../types/apiTypes/photo';
 
 import classes from './palaroid-card.module.css';

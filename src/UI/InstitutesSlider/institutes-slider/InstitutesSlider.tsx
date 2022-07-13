@@ -17,89 +17,6 @@ import { InstitudeCardDataTypes } from '../../../types/institutesSliderTypes/car
 
 import classes from './institutesSlider.module.css';
 
-// const data: Array<InstitudeCardDataTypes> = [
-//   {
-//     photo: cardPhoto,
-//     logo: cardLogo,
-//     title: 'KEANU',
-//     instType: 'Bar',
-//     location: 'Манаса 28',
-//     time: '18:00-05:00',
-//     phone: '0501 818 189',
-//     hotDisPrice: 700,
-//     saladPrice: 900,
-//     dessertPrice: 500,
-//     winePrice: 1000,
-//     stars: 4.5,
-//     isActive: false,
-//     isContentBlack: true,
-//   },
-//   {
-//     photo: cardPhoto,
-//     logo: cardLogo,
-//     title: 'KEANU',
-//     instType: 'Bar',
-//     location: 'Манаса 28',
-//     time: '18:00-05:00',
-//     phone: '0501 818 189',
-//     hotDisPrice: 700,
-//     saladPrice: 900,
-//     dessertPrice: 500,
-//     winePrice: 1000,
-//     stars: 4.5,
-//     isActive: false,
-//     isContentBlack: true,
-//   },
-//   {
-//     photo: cardPhoto,
-//     logo: cardLogo,
-//     title: 'KEANU',
-//     instType: 'Bar',
-//     location: 'Манаса 28',
-//     time: '18:00-05:00',
-//     phone: '0501 818 189',
-//     hotDisPrice: 700,
-//     saladPrice: 900,
-//     dessertPrice: 500,
-//     winePrice: 1000,
-//     stars: 4.5,
-//     isActive: false,
-//     isContentBlack: true,
-//   },
-//   {
-//     photo: cardPhoto,
-//     logo: cardLogo,
-//     title: 'KEANU',
-//     instType: 'Bar',
-//     location: 'Манаса 28',
-//     time: '18:00-05:00',
-//     phone: '0501 818 189',
-//     hotDisPrice: 700,
-//     saladPrice: 900,
-//     dessertPrice: 500,
-//     winePrice: 1000,
-//     stars: 4.5,
-//     isActive: false,
-//     isContentBlack: true,
-//   },
-//   {
-//     photo: cardPhoto,
-//     logo: cardLogo,
-//     title: 'KEANU',
-//     instType: 'Bar',
-//     location: 'Манаса 28',
-//     time: '18:00-05:00',
-//     phone: '0501 818 189',
-//     hotDisPrice: 700,
-//     saladPrice: 900,
-//     dessertPrice: 500,
-//     winePrice: 1000,
-//     stars: 4.5,
-//     isActive: false,
-//     isContentBlack: true,
-//   },
-// ];
-
 type InstitudeSliderPropsType = {
   isContentBlack: boolean;
   data: InstitudeCardDataTypes[];
@@ -137,11 +54,13 @@ const InstitutesSlider: FC<InstitudeSliderPropsType> = ({
     rightIndex === slideCards.length - 1 ? 0 : rightIndex + 1;
 
   function prev() {
-    setActiveIndex(activeIndex ? activeIndex - 1 : slideCards.length - 1);
+    setActiveIndex((prev: number) => (prev ? prev - 1 : slideCards.length - 1));
   }
 
   function next() {
-    setActiveIndex(activeIndex === slideCards.length - 1 ? 0 : activeIndex + 1);
+    setActiveIndex((prev: number) =>
+      prev === slideCards.length - 1 ? 0 : prev + 1
+    );
   }
 
   const swipeHandlers = useSwipeable({

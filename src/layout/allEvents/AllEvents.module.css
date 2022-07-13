@@ -42,10 +42,8 @@
   max-height: 308px;
   width: 100vw;
   height: 100vw;
-
+  cursor: pointer;
 }
-
-
 
 .section2_establishment_text {
   position: absolute;

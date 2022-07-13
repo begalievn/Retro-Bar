@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 import classes from "./AdminEstablishment.module.css";
 import styles from "../../AdminPage.module.css";
@@ -18,14 +18,30 @@ import AdminTextarea from "../AdminTextarea/AdminTextarea";
 import { ReactComponent as LinkIcon } from "../../../../assets/adminPage/link.svg";
 import { ReactComponent as PlusIcon } from "../../../../assets/adminPage/plusIcon.svg";
 import { startTimer } from "../../../../utils/helpers/timer";
+import Loader from "../../../../UI/Loader/Loader";
+import AdminSelect from "../AdminSelect/AdminSelect";
+import { useAppSelector } from "../../../../app/hooks";
 
 const AdminEstablishment = () => {
   const [inputValue, setInputValue] = useState<Establishment>({});
   const dispatch = useDispatch();
-  const [createEstablishmentCard, {}] =
+  let categories = useAppSelector((state) => state.categories.value);
+
+  const [createEstablishmentCard, { isLoading, isSuccess }] =
     establishmentsAPI.useCreateEstablishmentCardMutation();
+
+  useEffect(() => {
+    setInputValue({});
+  }, [isSuccess]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   const inputHandler = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     if (e.target.toString().includes("TextArea")) {
       e.target.style.height = e.target.scrollHeight + "px";
@@ -52,7 +68,6 @@ const AdminEstablishment = () => {
       });
   };
 
-  console.log(inputValue);
   return (
     <form className={classes.establishmentBlock} onSubmit={handleSubmit}>
       <div className={styles.adminGeneralBlock}>
@@ -108,17 +123,6 @@ const AdminEstablishment = () => {
               inputValue={inputValue}
             />
           </div>
-          {/*<div className={classes.descriptionBlock}>*/}
-          {/*  <AdminInput*/}
-          {/*    required={true}*/}
-          {/*    errorMessage={"Средний чек обязательное поле!"}*/}
-          {/*    inputHandler={inputHandler}*/}
-          {/*    color={"white"}*/}
-          {/*    title={"Средний чек"}*/}
-          {/*    name={"averageCheck"}*/}
-          {/*    inputValue={inputValue}*/}
-          {/*  />*/}
-          {/*</div>*/}
           <div className={classes.descriptionBlock}>
             <AdminInput
               required={true}
@@ -142,14 +146,14 @@ const AdminEstablishment = () => {
             />
           </div>
           <div className={classes.descriptionBlock}>
-            <AdminInput
+            <AdminSelect
+              options={categories}
               required={true}
               errorMessage={"Категория обязательное поле!"}
               inputHandler={inputHandler}
               color={"white"}
               title={"Категория"}
               name={"category"}
-              inputValue={inputValue}
             />
           </div>
           <div className={classes.descriptionBlock}>

@@ -3,7 +3,7 @@ import { contactsAPI } from "../../../../../../store/features/contacts/contactsQ
 import { IContacts } from "../../../../../../types/apiTypes/contacts";
 import LinkNavs from "../../components/LinkNavs";
 import ContactsCard from "./components/ContactsCard";
-import classes from './style.module.css'
+import classes from "./style.module.css";
 const ContactsEditPage = () => {
   const {
     data: contacts,
