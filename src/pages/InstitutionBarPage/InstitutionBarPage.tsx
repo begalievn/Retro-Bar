@@ -36,6 +36,8 @@ const InstitutionBarPage: FC = () => {
     { img: world, text: 'Ночной клуб, караоке' },
   ];
 
+  console.log(data);
+  
   return (
     <div className={classes.mainContainer}>
       <div className={classes.gridPosition}>
@@ -55,7 +57,7 @@ const InstitutionBarPage: FC = () => {
             </button>
 
             <div className={classes.liveText}>
-              <LiveText name={data.name} />
+              <LiveText name={data.name} data={data} />
             </div>
             <div className={classes.livePhoto}>
               <LivePhoto />

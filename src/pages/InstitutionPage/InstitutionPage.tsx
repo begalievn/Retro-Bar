@@ -41,9 +41,9 @@ const InstitutionPage = () => {
         <img className={styles.emoji} src={emoji} alt="" />
         <section className={styles.breadcrumbsCont}>
           <div className={styles.list}>
-            <a href="/video">Топ заведения</a>
-            <a href="/institution-bar">Заведения</a>
-            <a href="/events">Локация</a>
+            <a href="#">Топ заведения</a>
+            <a href="#">Заведения</a>
+            <a href="#">Локация</a>
           </div>
         </section>
         {isEstablishmentsLoading ? (

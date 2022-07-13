@@ -14,19 +14,20 @@ import {
   EmailIcon,
 } from "react-share";
 const ShareSocial: FC = () => {
-  const shareUrl = "https://www.linkedin.com/in/millana-chotubaeva-883122230/";
+
+  
   return (
     <>
-      <FacebookShareButton url={shareUrl} className={classes.socialBtn}>
+      <FacebookShareButton url={window.location.href} className={classes.socialBtn}>
         <FacebookIcon size={25} round></FacebookIcon>
       </FacebookShareButton>
-      <TelegramShareButton url={shareUrl} className={classes.socialBtn}>
+      <TelegramShareButton url={window.location.href} className={classes.socialBtn}>
         <TelegramIcon size={25} round></TelegramIcon>
       </TelegramShareButton>
-      <WhatsappShareButton url={shareUrl} className={classes.socialBtn}>
+      <WhatsappShareButton url={window.location.href} className={classes.socialBtn}>
         <WhatsappIcon size={25} round></WhatsappIcon>
       </WhatsappShareButton>
-      <EmailShareButton url={shareUrl} className={classes.socialBtn}>
+      <EmailShareButton url={window.location.href} className={classes.socialBtn}>
         <EmailIcon size={25} round></EmailIcon>
       </EmailShareButton>
     </>
