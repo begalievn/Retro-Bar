@@ -54,7 +54,7 @@ const Footer = () => {
   useEffect(() => {
     if (isSuccess) {
       let number: string = contacts?.contacts[0].phoneNumber
-        .replace(/\s+/g, '')
+        .replace(/\s+/g, "")
         .slice(1);
       setIconsMedia([
         {
@@ -158,20 +158,6 @@ const Footer = () => {
               className={classes.inputBlockMD}
               sx={{ display: { xs: 'none', md: 'flex' } }}
             >
-              {/* <input
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setInputChange(e.target.value);
-                }}
-                className={classes.input}
-                type="text"
-                placeholder="Геолокация"
-              />
-              <button
-                onClick={() => searchClick("Beksultan")}
-                className={classes.search}
-              >
-                <img className={classes.im} src={searchIcon} alt="" />
-              </button> */}
               <div style={{ minWidth: '220px' }}>
                 <InputSearch placeholder="поиск" />
               </div>
@@ -248,20 +234,6 @@ const Footer = () => {
                 display: { xs: 'flex', md: 'none', justifyContent: 'center' },
               }}
             >
-              {/* <input
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setInputChange(e.target.value);
-                }}
-                className={classes.input}
-                type="text"
-                placeholder="Геолокация"
-              />
-              <button
-                onClick={() => searchClick("Beksultan")}
-                className={classes.search}
-              >
-                <img className={classes.im} src={searchIcon} alt="" />
-              </button> */}
               <div style={{ minWidth: '250px', marginTop: '20px' }}>
                 <InputSearch placeholder="поиск" />
               </div>
