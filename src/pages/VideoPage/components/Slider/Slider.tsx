@@ -1,5 +1,5 @@
 import React, { FC, useRef } from "react";
-import { Navigation, Pagination } from "swiper";
+import { Navigation, Pagination,Controller } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -20,9 +20,9 @@ interface sliderProps {
 }
 
 const Slider: FC<sliderProps> = ({ className, slides = 2, images,setMainVideo }) => {
+    console.log(slides);
 
-  
-  return (
+    return (
     <div className={classes.mainPlayer}>
       <Swiper
         breakpoints={{
@@ -34,11 +34,12 @@ const Slider: FC<sliderProps> = ({ className, slides = 2, images,setMainVideo })
           },
         }}
         className={className}
-        slidesPerView={slides}
+        slidesPerView={slides || 2}
         spaceBetween={40}
         loop={true}
         navigation={true}
-        modules={[Pagination, Navigation]}
+        freeMode={true}
+        modules={[Pagination, Navigation,Controller]}
       >
         {images?.map((item: IVideoCardBody) => {
           return (
