@@ -89,12 +89,7 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
               src={crossBtn}
               alt=""
             />
-            {/* <img
-              onClick={close}
-              className={styles.close}
-              src={closeBtn}
-              alt=""
-            /> */}
+
           </div>
         </section>
 
