@@ -28,7 +28,17 @@ export const contactsAPI = createApi({
       query: (contact) => ({
         url: `/admin/contact/${contact.id}`,
         method: "PUT",
-        body: contact,
+        body: {
+          photo: contact.photo,
+          photoUrl: contact.photoUrl,
+          description: contact.description,
+          phoneNumber: contact.phoneNumber,
+          link: contact.link,
+          telegram: contact.telegram,
+          youtube: contact.youtube,
+          mail: contact.mail,
+          instagram: contact.instagram
+        },
         headers: {
           Authorization: `Bearer ${JSON.parse(
             localStorage.getItem("accessToken") || "{}"

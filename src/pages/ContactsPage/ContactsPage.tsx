@@ -12,40 +12,62 @@ import TextBlock from "./TextBlock";
 import { IImageArr } from "../../types/contactsPageTypes/contactsPageTypes";
 import { contactsAPI } from "../../store/features/contacts/contactsQuery";
 import { IContacts } from "../../types/apiTypes/contacts";
+import { IContactsObject } from "../../types/footerTypes/footerTypes";
+import Loader from "../../UI/Loader/Loader";
 
 const ContactsPage: FC = () => {
   const {
     data: contacts,
-    error,
     isLoading,
-    refetch,
+    isSuccess
+
   } = contactsAPI.useFetchAllContactsQuery("");
   const array = contacts?.contacts;
   const [frameArr, setFrameArr] = useState<IImageArr[]>([]);
+  const [phoneNumber, setPhoneNumber] = useState('')
+
   useEffect(() => {
+    if(isSuccess){
     setFrameArr([
       {
         frame: mainBack,
         id: 1,
-        photo: contacts?.contacts[0].photo,
+        photo: contacts.contacts[0].photos[0].url,
       },
       {
         frame: carousel1,
         id: 2,
-        photo: contacts?.contacts[0].photo,
+        photo: contacts.contacts[0].photos[1].url,
       },
       {
         frame: carousel2,
         id: 3,
-        photo: contacts?.contacts[0].photo,
+        photo: contacts.contacts[0].photos[2].url,
       },
       {
         frame: carousel3,
         id: 4,
-        photo: contacts?.contacts[0].photo,
+        photo: contacts.contacts[0].photos[3].url,
       },
     ]);
-  }, [isLoading]);
+    funcNumber(contacts)
+    
+  }
+  }, [isSuccess]);
+
+  const funcNumber = (contacts:IContactsObject)=>{
+    if(isSuccess){ 
+      let number = contacts?.contacts[0].phoneNumber;
+      number = number.replace(/\s+/g, "");
+      number=number.slice(1)
+      number= `996${number}`;
+      setPhoneNumber(number)
+    }
+  }
+  
+
+
+
 
   const sliderFunc = (id: number): void => {
     frameArr.map((item, index) => {
@@ -70,7 +92,7 @@ const ContactsPage: FC = () => {
           <div className={classes.image_block}>
             <div className={classes.allImages}>
               {isLoading ? (
-                <h2>Loading...</h2>
+                <Loader/>
               ) : (
                 frameArr.map((item, index) => (
                   <div className={classes.imageFrame} key={item.id}>
@@ -88,6 +110,7 @@ const ContactsPage: FC = () => {
                       src={item.photo}
                       alt=""
                     />
+                
                   </div>
                 ))
               )}
@@ -111,15 +134,15 @@ const ContactsPage: FC = () => {
               <div key={item.id} className={classes.information}>
                 <div>
                   <img src={phoneIcon} alt="" />
-                  <a href="#">{item.phoneNumber}</a>
+                  <a href={`tel:+${phoneNumber}`}>{item.phoneNumber}</a>
                 </div>
                 <div>
                   <img src={whatsAppIcon} alt="" />
-                  <a href="#">{item.phoneNumber}</a>
+                  <a href={`https://api.whatsapp.com/send?phone=${phoneNumber}`}>{item.phoneNumber}</a>
                 </div>
                 <div>
                   <img src={mailIcon} alt="" />
-                  <a target="_blank" href="https://mail.google.com/">
+                  <a target="_blank" href={`mailto:${item.mail}`}>
                     {item.mail}
                   </a>
                 </div>

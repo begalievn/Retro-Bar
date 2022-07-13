@@ -55,7 +55,6 @@ const AdminEstablishment = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { formData } = getFormData(inputValue as Establishment);
-    console.log("value", inputValue);
     await createEstablishmentCard(formData)
       .unwrap()
       .then(() => {
@@ -147,7 +146,7 @@ const AdminEstablishment = () => {
           </div>
           <div className={classes.descriptionBlock}>
             <AdminSelect
-              options={categories}
+              options={categories || []}
               required={true}
               errorMessage={"Категория обязательное поле!"}
               inputHandler={inputHandler}
@@ -204,6 +203,7 @@ const AdminEstablishment = () => {
             inputHandler={inputHandler}
             color={"white"}
             title={"Номер"}
+            type={"tel"}
             name={"contacts"}
             inputValue={inputValue}
           />

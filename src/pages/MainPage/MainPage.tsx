@@ -27,6 +27,7 @@ import { getInstitudeSliderData } from "../../utils/helpers/getInstitudeSliderDa
 import { advertisementsAPI } from "../../store/features/advertisement/advertisementsQuery";
 import { getAdvertisementData } from "../../utils/helpers/getAdvertisementData";
 import { getVideoWithEmbed } from "../../utils/helpers/getVideoWithEmbed";
+import Loader from "../../UI/Loader/Loader";
 
 const MainPage = () => {
   const {
@@ -53,7 +54,7 @@ const MainPage = () => {
       <CalendarIcon />
       <div className={classes.main_one}>
         {photoLoading ? (
-          <p>Loading</p>
+          <Loader />
         ) : (
           <PalaroidSlider cards={getPalaroidCardData(photos.photoCards)} />
         )}
@@ -74,7 +75,7 @@ const MainPage = () => {
           <img src={sketch} />
         </div>
         {establishmentLoading ? (
-          <p>Loading</p>
+          <Loader />
         ) : (
           <InstitutesSlider
             data={getInstitudeSliderData(establishments.establishments)}
@@ -88,7 +89,7 @@ const MainPage = () => {
       </div>
 
       {advertisementIsLoading ? (
-        <p>Loading...</p>
+        <Loader />
       ) : (
         <Book
           data={getAdvertisementData(advertisements.advertisements)}

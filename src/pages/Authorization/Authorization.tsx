@@ -10,6 +10,7 @@ import {
 
 import { IUser } from "../../types/userTypes";
 import style from "./Authorization.module.css";
+import { ADMIN_PHOTO } from "../../utils/path";
 
 export default function AuthorizationPage() {
   const [username, setUsername] = useState("");
@@ -25,7 +26,6 @@ export default function AuthorizationPage() {
   let validData = useAppSelector((state) => state.AuthorizationSlice.validData);
   let userData = useAppSelector((state) => state.AuthorizationSlice.userData);
   let token = useAppSelector((state) => state.AuthorizationSlice.token);
-  console.log(token);
 
   const handleLogin = (username: string, password: string) => {
     let data: IUser = {
@@ -43,7 +43,7 @@ export default function AuthorizationPage() {
 
   useEffect(() => {
     if (userData == true) {
-      navigate("/admin/photos");
+      navigate(ADMIN_PHOTO);
     }
   }, [userData]);
 

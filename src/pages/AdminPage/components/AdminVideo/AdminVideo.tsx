@@ -23,6 +23,7 @@ import { useAppSelector } from "../../../../app/hooks";
 import { ReactComponent as LinkIcon } from "../../../../assets/adminPage/link.svg";
 import { startTimer } from "../../../../utils/helpers/timer";
 import Loader from "../../../../UI/Loader/Loader";
+import { useLocation } from "react-router-dom";
 
 const AdminVideo = () => {
   const dispatch = useDispatch();

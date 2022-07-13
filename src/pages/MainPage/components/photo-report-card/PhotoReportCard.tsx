@@ -6,6 +6,7 @@ import picIcon from '../../../../assets/mainPage/pic-icon.svg';
 import classes from './photoReportCard.module.css';
 import { getRandomItem } from '../../../../utils/getRandomItem';
 import { url } from 'inspector';
+import { IPhoto } from '../../../../types/apiTypes/photo';
 
 interface Props {
   photo?: string;
@@ -52,7 +53,7 @@ const PhotoReportCard = ({
                 </div>
               </div>
               <div className={classes.cardContent_info__right}>
-                <p>{date}</p>
+                <span>{date}</span>
               </div>
             </div>
           </div>

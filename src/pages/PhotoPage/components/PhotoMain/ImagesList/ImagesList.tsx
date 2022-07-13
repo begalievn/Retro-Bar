@@ -15,16 +15,18 @@ interface ImagesListProps {
   images: IPhotosAnother[] | null;
 }
 interface CurrentEventProps {
-    photos:IPhoto[] ;
-    establishment: string ;
-    event:string ;
+  photos: IPhoto[];
+  establishment: string;
+  event: string;
 }
 
 const ImagesList: FC<ImagesListProps> = ({ images }) => {
   const [galleryModal, setGalleryModal] = useState(false);
   const toggleGalleryModal = () => setGalleryModal(!galleryModal);
 
-  const [currentEvent, setCurrentEvent] = useState<CurrentEventProps | null>  (null);
+  const [currentEvent, setCurrentEvent] = useState<CurrentEventProps | null>(
+    null
+  );
 
   if (galleryModal) {
     document.body.style.overflow = "hidden";
@@ -32,20 +34,18 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
     document.body.style.overflow = "visible";
   }
   const onClickEvent = (item: IPhotosAnother) => {
-   
-    if(item.link==='' || item.ad)  return false
-      const data = {
-        photos: item.photos!,
-        establishment: item.name!,
-        event:item.eventName!
-      }
-      
-      setCurrentEvent(data);
-      toggleGalleryModal();
-   
+    if (item.link === "" || item.ad) return false;
+    const data = {
+      photos: item.photos!,
+      establishment: item.name!,
+      event: item.eventName!,
+    };
+
+    setCurrentEvent(data);
+    toggleGalleryModal();
   };
-  if(!images ) {
-    return <div>Loading...</div>
+  if (!images) {
+    return <div>Loading...</div>;
   }
 
   return (
@@ -56,12 +56,12 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
             item.ad ? styles.advertise + " " + styles.events : styles.events
           }
           key={item.id}
+          onClick={() => onClickEvent(item)}
         >
           <div className={styles.image_border}>
             <img src={item.border} alt="" />
           </div>
-          <div className={styles.image} onClick={() => onClickEvent(item)}>
-      
+          <div className={styles.image}>
             <img src={item.link} alt="" />
           </div>
           {item.ad ? (
@@ -119,12 +119,9 @@ const ImagesList: FC<ImagesListProps> = ({ images }) => {
           toggleGalleryModal={toggleGalleryModal}
         />
         )} */}
-        {
-          (galleryModal  && currentEvent) && (
-            
-            <NewGallery eventInfo={currentEvent!} close = {toggleGalleryModal}/>
-          )
-        }
+      {galleryModal && currentEvent && (
+        <NewGallery eventInfo={currentEvent!} close={toggleGalleryModal} />
+      )}
     </>
   );
 };

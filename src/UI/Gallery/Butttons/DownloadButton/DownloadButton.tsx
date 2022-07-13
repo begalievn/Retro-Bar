@@ -5,7 +5,7 @@ interface DownloadButtonProps {
   image:string
 }
 const DownloadButton:FC<DownloadButtonProps> = ({image}) => {
-  return <a href={image} download className={styles.download_btn}>Скачать <img src={downloadIcon} alt="" /></a>;
+  return <a href={image} download className={styles.download_btn}>Скачатьdddd <img src={downloadIcon} alt="" /></a>;
 };
 
 export default DownloadButton;

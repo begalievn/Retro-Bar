@@ -9,33 +9,32 @@ type CarouselProps = {
 };
 
 function Carousel({ pictures, count }: CarouselProps) {
-
   const [offset, setOffset] = useState<number | 0>(0);
-
+  const [currentImgIndex, setIndex] = useState(0);
   
   useEffect(() => {
     const sumOfPics = pictures.length
     const currPic = (Math.abs(offset) / 100) + 1
     count([currPic, sumOfPics],pictures[currPic-1].url)
-    }, [offset])
-
-
-
+  }, [offset])
 
   const leftClick = () => {
+    if(currentImgIndex === 0) return;
     setOffset((currentOffset) => {
       const newOffset = currentOffset + 100;
       return Math.min(newOffset, 0)
     })
-  }
-  const rightClick = () => {
+    setIndex(currentImgIndex-1);
+  };
 
+  const rightClick = () => {
+    if(currentImgIndex === pictures.length - 1) return;
     setOffset((currentOffset) => {
       const newOffset = currentOffset - 100;
       const maxOffset = -(100 * (pictures.length - 1));
       return Math.max(newOffset, maxOffset)
     })
-
+    setIndex(currentImgIndex+1);
   }
 
   let x1: number | null = null;
@@ -65,7 +64,13 @@ function Carousel({ pictures, count }: CarouselProps) {
 
   return (
     <div className={styles.carouselContainer}>
-      <img onClick={() => leftClick()} src={arrow} alt="" className={styles.arrowLeft} />
+      <img 
+        onClick={() => leftClick()} 
+        src={arrow} 
+        alt="" 
+        className={
+          currentImgIndex === 0 ? styles.arrowLeftAllowed: styles.arrowLeft
+        } />
       <div onTouchStart={(e) => touchStart(e)} onTouchMove={(e) => touchMove(e)} className={styles.window}>
 
         <div style={{ transform: `translateX(${offset}%)` }} className={styles.allPagesContainer}>
@@ -80,7 +85,7 @@ function Carousel({ pictures, count }: CarouselProps) {
           }
         </div>
       </div>
-      <img onClick={() => rightClick()} src={arrow} alt="" className={styles.arrowRight} />
+      <img onClick={() => rightClick()} src={arrow} alt="" className={currentImgIndex === pictures.length - 1 ? styles.arrowRightAllowed: styles.arrowRight} />
     </div>
   )
 }

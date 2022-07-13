@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import classes from "./Header.module.css";
@@ -51,6 +51,10 @@ export const Header = () => {
     document.body.style.overflow = "visible";
   }
 
+  useEffect(() => {
+    setInputVisible(false);
+  }, [location]);
+
   return (
     <header className={classes.headerWrapper}>
       <div className={classes.headerBlock}>
@@ -89,7 +93,10 @@ export const Header = () => {
         {isOpen && <BurgerMenu navItems={navItems} setOpen={setOpen} />}
         {inputVisible && (
           <div className={classes.headerSearch}>
-            <InputSearch placeholder="поиск" />
+            <InputSearch
+              setInputVisible={setInputVisible}
+              placeholder="поиск"
+            />
           </div>
         )}
       </div>
