@@ -3,6 +3,8 @@ import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 import classes from './SearchList.module.css';
 import { ListItem, ListItemText, ListItemButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../app/hooks';
+import { saveSearchResult } from '../../store/features/search/searchSlice';
 
 interface SearchListProps {
   searchList: any;
@@ -20,12 +22,14 @@ const SearchList: FC<SearchListProps> = ({
   setInputVisible,
 }) => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const clickHandler = (item: any) => {
     if (type === 'establishment') {
       navigate(`/institution/${item.id}`);
     } else if (type === 'photo') {
-      navigate(`/photo`);
+      dispatch(saveSearchResult(item));
+      navigate(`/search-result/${item.id}`);
     } else if (type === 'video') {
       navigate(`/video`);
     }

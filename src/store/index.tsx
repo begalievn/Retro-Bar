@@ -11,6 +11,7 @@ import videosReducer from './features/videos/videosSlice';
 import establishmentsReducer from './features/establishments/establishmentsSlice';
 import photographerReducer from './features/photographers/photographersSlice';
 import categoriesSlice from './features/category/categorySlice';
+import searchReducer from './features/search/searchSlice';
 
 import { photoAPI } from './features/photos/photoQuery';
 import { videoAPI } from './features/videos/videoQuery';
@@ -30,6 +31,8 @@ const rootreducer = combineReducers({
   establishments: establishmentsReducer,
   photographers: photographerReducer,
   categories: categoriesSlice,
+  search: searchReducer,
+
   [photoAPI.reducerPath]: photoAPI.reducer,
   [videoAPI.reducerPath]: videoAPI.reducer,
   [establishmentsAPI.reducerPath]: establishmentsAPI.reducer,

@@ -83,7 +83,7 @@ const MainRoutes = () => {
       id: 12,
     },
     {
-      link: '/search-result',
+      link: '/search-result/:searchId',
       element: <SearchResultPage />,
       id: 13,
     },
