@@ -65,7 +65,7 @@ const MainVideo = () => {
               <Slider
                 setMainVideo={setMainVideo}
                 className={classes.slider}
-                slides={videos?.videos > 2 && 3}
+                slides={videos?.videos.length > 2 ? 3 : 2}
                 images={videos?.videos}
               />
             </div>
