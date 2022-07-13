@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  z-index: 100;
+  z-index: 99;
   border-bottom: 1px solid rgba(235, 235, 235, 0.5);
 }
 

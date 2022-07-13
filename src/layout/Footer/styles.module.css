@@ -1,11 +1,11 @@
 .main {
   width: 100%;
   background: green;
-  height: 359px;
+  min-height: 359px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("/src/assets/icons/Footer/back.svg");
+  background: url('/src/assets/icons/Footer/back.svg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -150,6 +150,7 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
+  align-items: center;
   margin-top: 20px;
 }
 

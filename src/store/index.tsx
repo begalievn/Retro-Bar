@@ -1,25 +1,26 @@
-import AlertSlice from "./alertSlice/alertSlice";
+import AlertSlice from './alertSlice/alertSlice';
 
 import {
   combineReducers,
   configureStore,
   getDefaultMiddleware,
-} from "@reduxjs/toolkit";
-import AuthorizationSlice from "./authorization/AuthorizationSlice";
-import photosReducer from "./features/photos/photosSlice";
-import videosReducer from "./features/videos/videosSlice";
-import establishmentsReducer from "./features/establishments/establishmentsSlice";
-import photographerReducer from "./features/photographers/photographersSlice";
-import categoriesSlice from "./features/category/categorySlice";
+} from '@reduxjs/toolkit';
+import AuthorizationSlice from './authorization/AuthorizationSlice';
+import photosReducer from './features/photos/photosSlice';
+import videosReducer from './features/videos/videosSlice';
+import establishmentsReducer from './features/establishments/establishmentsSlice';
+import photographerReducer from './features/photographers/photographersSlice';
+import categoriesSlice from './features/category/categorySlice';
 
-import { photoAPI } from "./features/photos/photoQuery";
-import { videoAPI } from "./features/videos/videoQuery";
-import { establishmentsAPI } from "./features/establishments/establishmentsQuery";
-import { photographersAPI } from "./features/photographers/photographersQuery";
-import { photographersSlice } from "./features/photographers/photographersSlice";
-import { advertisementsAPI } from "./features/advertisement/advertisementsQuery";
-import { contactsAPI } from "./features/contacts/contactsQuery";
-import { categoryAPI } from "./features/category/categoryQuery";
+import { photoAPI } from './features/photos/photoQuery';
+import { videoAPI } from './features/videos/videoQuery';
+import { establishmentsAPI } from './features/establishments/establishmentsQuery';
+import { photographersAPI } from './features/photographers/photographersQuery';
+import { photographersSlice } from './features/photographers/photographersSlice';
+import { advertisementsAPI } from './features/advertisement/advertisementsQuery';
+import { contactsAPI } from './features/contacts/contactsQuery';
+import { categoryAPI } from './features/category/categoryQuery';
+import { searchAPI } from './features/search/searchQuery';
 
 const rootreducer = combineReducers({
   AuthorizationSlice: AuthorizationSlice,
@@ -36,6 +37,7 @@ const rootreducer = combineReducers({
   [advertisementsAPI.reducerPath]: advertisementsAPI.reducer,
   [contactsAPI.reducerPath]: contactsAPI.reducer,
   [categoryAPI.reducerPath]: categoryAPI.reducer,
+  [searchAPI.reducerPath]: searchAPI.reducer,
 });
 
 export const store = configureStore({
@@ -47,7 +49,8 @@ export const store = configureStore({
       establishmentsAPI.middleware,
       photographersAPI.middleware,
       advertisementsAPI.middleware,
-      contactsAPI.middleware
+      contactsAPI.middleware,
+      searchAPI.middleware
     ),
 });
 
