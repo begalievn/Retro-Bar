@@ -1,15 +1,20 @@
 .modal {
-  transition: .3s;
-  max-width: 1200px;
-  margin: 0 auto;
   z-index: 101;
+  height: 100vh;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   background: rgba(0, 0, 0, 0.8);
 }
 
 .overlay {
   background: rgba(0, 0, 0, 0.8);
+}
+
+.container {
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+  transition: 0.3s;
 }
 
 .modal,
@@ -31,12 +36,12 @@
   line-height: 1.4;
   padding: 14px 28px;
   border-radius: 3px;
-  width: 100%;
+  width: 80%;
 }
 
 .calendarWithPhotos {
   display: flex;
-
+  margin-top: 85px;
 }
 
 .calendar_events {
@@ -45,7 +50,7 @@
   gap: 22px;
   margin-left: 28px;
 }
-.btnClose{
+.btnClose {
   position: absolute;
   top: 12%;
   left: 38%;
@@ -53,27 +58,26 @@
   height: 100%;
 }
 
-.headerContent{
+.headerContent {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
-.closeBtn{
+.closeBtn {
   width: 50px;
   height: 50px;
   padding: 10px;
   background: var(--orange-text);
+  outline: none;
+  border: none;
   border-radius: 10px;
   cursor: pointer;
 }
 
-
-
-
 /* Media */
 
-
-@media (max-width:750px) {
+@media (max-width: 750px) {
   .calendarWithPhotos {
     display: flex;
     flex-direction: column;
@@ -82,7 +86,7 @@
   }
 
   .modal {
-    margin-top: 40px;
+    /*margin-top: 40px;*/
     z-index: 99;
   }
 
@@ -94,10 +98,9 @@
     display: flex;
     justify-content: center;
   }
-
 }
 
-@media (max-width:670px) {
+@media (max-width: 670px) {
   .overlay {
     background: #000;
   }

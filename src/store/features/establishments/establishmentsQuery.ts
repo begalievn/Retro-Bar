@@ -1,8 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import {
-  Establishments,
-  IEstablishment,
-} from "../../../types/apiTypes/establishment";
 import { API } from "../../../utils/helpers/Consts";
 
 export const establishmentsAPI = createApi({

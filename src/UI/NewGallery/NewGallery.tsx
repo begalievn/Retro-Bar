@@ -6,6 +6,8 @@ import UniButton from './uniButton/UniButton';
 import { IPhotos } from '../../types/apiTypes/photo';
 import { IPhoto } from '../../types/apiTypes/photo';
 import Carousel from './Carousel/Carousel';
+import axios from 'axios';
+import { fetchBaseQuery } from '@reduxjs/toolkit/dist/query';
 
 type NewGalleryProps = {
   close: () => void;
@@ -26,7 +28,6 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
     count: [1, 2],
   });
 
-
   const setCounter = (arr: Array<number>, pic: string) => {
     setSlideInfo((slideInfo) => {
       return {
@@ -40,6 +41,39 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
     return null;
   }
 
+  const [imageUrl, setImageUrl] = useState<any>('')
+
+
+ const  func = (image:any)=>{
+
+  fetch(image)
+  .then((response) => {
+    return response.blob();
+  })
+  .then((blob) => {   
+    let data = URL.createObjectURL(blob)
+    setImageUrl(data)
+  });
+
+
+
+}
+  
+  useEffect(() => {
+    if(slideInfo.image){
+    func(slideInfo.image)
+
+    }
+  }, [slideInfo.image])
+  
+
+  
+
+
+
+
+  
+
   return (
     <section className={styles.back}>
       <div className={styles.container}>
@@ -48,8 +82,20 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
             <h3 className={styles.placeName}>{eventInfo.establishment}</h3>
             <p className={styles.eventName}>{eventInfo.event}</p>
           </div>
-          <img onClick={close} className={styles.cross} src={crossBtn} alt="" />
-          <img onClick={close} className={styles.close} src={closeBtn} alt="" />
+          <div>
+            <img
+              onClick={close}
+              className={styles.cross}
+              src={crossBtn}
+              alt=""
+            />
+            {/* <img
+              onClick={close}
+              className={styles.close}
+              src={closeBtn}
+              alt=""
+            /> */}
+          </div>
         </section>
 
         <Carousel pictures={eventInfo.photos!} count={setCounter} />
@@ -60,7 +106,9 @@ function NewGallery({ close, eventInfo }: NewGalleryProps) {
             </p>
             <UniButton text="Поделиться" />
           </div>
+          <a href={imageUrl} download={eventInfo.establishment} >
           <UniButton text="Скачать" image={slideInfo.image} />
+          </a>
         </footer>
       </div>
     </section>

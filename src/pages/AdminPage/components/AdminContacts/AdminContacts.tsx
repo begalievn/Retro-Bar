@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 import classes from "../../AdminPage.module.css";
 import styles from "../AdminEstablishment/AdminEstablishment.module.css";
@@ -27,7 +27,8 @@ import Loader from "../../../../UI/Loader/Loader";
 const AdminContacts = () => {
   const [inputValue, setInputValue] = useState<Contacts>({});
   const dispatch = useDispatch();
-  const [createContact, { isLoading ,isSuccess}] = contactsAPI.useCreateContactMutation();
+  const [createContact, { isLoading, isSuccess }] =
+    contactsAPI.useCreateContactMutation();
   useEffect(() => {
     setInputValue({});
   }, [isSuccess]);
@@ -59,7 +60,6 @@ const AdminContacts = () => {
         dispatch(createAlert({ message: e.data.message, type: "error" }));
         startTimer(dispatch, deleteAlert);
       });
-
   };
 
   return (
@@ -100,6 +100,7 @@ const AdminContacts = () => {
                 errorMessage={"Номер обязательное поле!"}
                 inputHandler={inputHandler}
                 inputValue={inputValue}
+                type={"tel"}
                 title={"Номер"}
                 name={"phoneNumber"}
               />

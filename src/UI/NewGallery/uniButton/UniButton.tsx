@@ -7,6 +7,7 @@ import styles from "./uniButton.module.css";
 import share from "../../../assets/photoPageImages/gallery-images/share-icon.svg"
 
 import download from "../../../assets/photoPageImages/gallery-images/download-icon.svg"
+import axios from 'axios';
 
 type UniButtonProps = {
   image?: string;
@@ -70,13 +71,16 @@ function UniButton({ text, image }: UniButtonProps) {
 
 
   if (text === 'Скачать') {
-    
+
+  
+  
     return (
-
-      <a href={image} download className={button}>{text}
+<>
+       <div className={button}>
+        {text}
         <img className={styles.image} src={download} alt="" />
-      </a>
-
+       </div>
+      </>
     )
   }
   return null

@@ -31,6 +31,7 @@
 .section2_establishment {
   position: relative;
   transition: 0.5s;
+  cursor: pointer
 }
 
 .section2_establishment:hover {
@@ -42,10 +43,8 @@
   max-height: 308px;
   width: 100vw;
   height: 100vw;
-
+  cursor: pointer;
 }
-
-
 
 .section2_establishment_text {
   position: absolute;

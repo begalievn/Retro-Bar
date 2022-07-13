@@ -55,105 +55,110 @@
   background-size: contain;
   background-repeat: no-repeat;
   padding-bottom: 25px;
+  position: relative;
 }
 
 .background_container {
-  position: relative;
   height: 241px;
   width: 196px;
   margin-right: 49px;
+  position: absolute;
+  top: 33px;
+  right: 6px;
 }
 
 .text {
   position: absolute;
-  top: 27px;
-  left: 5px;
-  bottom: 0px;
-  right: 0px;
+  top: 5px;
+  bottom: 15px;
+  right: 12px;
   text-align: center;
-  line-height: 31px;
+  font-size: 11px;
+  line-height: 18px;
   color: white;
   transform: rotate(1deg);
+  max-width: 100%;
+  max-height: 91%;
 }
 
 .img {
-  width: 190px;
-  height: 246px;
+  left: 26px;
+  top: 33px;
+  width: 176px;
+  height: 223px;
+  transform: rotate(1deg);
+  position: absolute;
 }
 
 .background {
-  height: 244px;
-  width: 199px;
+  height: 229px;
+  width: 189px;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 470px) {
   .main_container {
     height: 277px;
     width: 356px;
   }
   .img {
-    margin-left: 12%;
-    width: 100%;
-    height: 100%;
+    left: 20px;
+    top: 26px;
+    width: 151px;
+    height: 193px;
+    transform: rotate(1deg);
+    position: absolute;
+  }
+  .background_container {
+    height: 193px;
+    width: 140px;
+    margin-right: 0px;
+    top: 27px;
+    right: 48px;
   }
   .background {
-    height: 193px;
-    width: 163px;
-    margin-top: 21px;
-    margin-left: 28px;
-  }
-  .img {
-    margin-left: 21%;
-    width: 158px;
-    height: 194px;
-    margin-bottom: 6px;
+    height: 197px;
+    width: 156px;
   }
   .text {
-    position: absolute;
-    top: 42px;
-    left: 28px;
-    bottom: 0px;
-    right: 1px;
-    text-align: center;
-    line-height: 31px;
-    color: white;
-    transform: rotate(1deg);
-    height: 169px;
-    width: 160px;
-    font-size: 14px;
+    left: 3px;
+    font-size: 9px;
+    line-height: 14px;
+    min-width: 107%;
+    min-height: 97%;
+  }
+  .img {
+    left: 20px;
+    top: 26px;
+    width: 151px;
+    height: 193px;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 376px) {
   .main_container {
     height: 244px;
     width: 298px;
   }
   .img {
-    margin-left: 30%;
+    left: 16px;
+    top: 22px;
     width: 131px;
-    height: 171px;
-    margin-bottom: 1px;
+    height: 165px;
+  }
+  .background_container {
+    height: 166px;
+    top: 24px;
+    right: 13px;
   }
   .background {
-    height: 172px;
-    width: 148px;
-    margin-top: 34px;
-    margin-left: 35px;
+    height: 168px;
+    width: 134px;
   }
   .text {
-    position: absolute;
-    top: 46px;
-    left: 30px;
-    bottom: 0px;
-    right: 0px;
-    text-align: center;
-    line-height: 29px;
-    color: white;
-    transform: rotate(1deg);
-    height: 161px;
-    width: 151px;
-    padding-left: 8px;
-    font-size: 13px;
+    left: 3px;
+    font-size: 9px;
+    line-height: 14px;
+    min-width: 91%;
+    min-height: 97%;
   }
 }

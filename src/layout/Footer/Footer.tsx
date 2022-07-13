@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from './styles.module.css';
 import telegramIcon from '../../assets/icons/Footer/telegram.svg';
 import instagramIcon from '../../assets/icons/Footer/instagram.svg';
 import youtubeIcon from '../../assets/icons/Footer/youtube.svg';
-import mailIcon from '../../assets/icons/Footer/mail.svg';
 import bartIcon from '../../assets/icons/Footer/logo.svg';
 import searchIcon from '../../assets/icons/Footer/Vector.svg';
+import whatsAppIcon from '../../assets/icons/Footer/whatsapp.svg';
 import Grid from '@mui/material/Grid';
 import { Container } from '@mui/system';
 import { Link, useNavigate } from 'react-router-dom';
 import { IFooterItems, IIcons } from '../../types/footerTypes/footerTypes';
 import { contactsAPI } from '../../store/features/contacts/contactsQuery';
+import { InputSearch } from '../../UI';
 
 const Footer = () => {
+  const {
+    data: contacts,
+    isLoading,
+    isSuccess,
+    refetch,
+  } = contactsAPI.useFetchAllContactsQuery('');
+
   const navigate = useNavigate();
   const liElem: IFooterItems[] = [
     {
@@ -27,10 +35,6 @@ const Footer = () => {
       title: 'Заведения',
       path: '/institution',
     },
-    {
-      title: 'События',
-      path: '/events',
-    },
   ];
   const liElem2: IFooterItems[] = [
     {
@@ -42,32 +46,37 @@ const Footer = () => {
       path: '/contacts',
     },
     {
-      title: 'Сотрудники',
-      path: '/employees',
-    },
-    {
-      title: 'Копирайт',
-      path: '/copyright',
+      title: 'События',
+      path: '/events',
     },
   ];
-  const [iconsMedia, setIconsMedia] = useState<IIcons[]>([
-    {
-      icon: telegramIcon,
-      path: 'https://web.telegram.org',
-    },
-    {
-      icon: instagramIcon,
-      path: 'https://instagram.com',
-    },
-    {
-      icon: youtubeIcon,
-      path: 'https://youtube.com',
-    },
-    {
-      icon: mailIcon,
-      path: 'https://mail.google.com/',
-    },
-  ]);
+  const [iconsMedia, setIconsMedia] = useState<IIcons[]>([]);
+  useEffect(() => {
+    if (isSuccess) {
+      let number: string = contacts?.contacts[0].phoneNumber
+        .replace(/\s+/g, "")
+        .slice(1);
+      setIconsMedia([
+        {
+          icon: telegramIcon,
+          path: `https://t.me/${contacts?.contacts[0].telegram}`,
+        },
+        {
+          icon: instagramIcon,
+          path: `https://www.instagram.com/${contacts?.contacts[0].instagram}`,
+        },
+        {
+          icon: youtubeIcon,
+          path: `https://www.youtube.com/results?search_query=${contacts?.contacts[0].youtube}`,
+        },
+        {
+          icon: whatsAppIcon,
+          path: `https://api.whatsapp.com/send/?phone=996${number}`,
+        },
+      ]);
+    }
+  }, [isSuccess]);
+
   const text: Array<string> = [
     'Политика конфиденциальности',
     'Copyright 2021',
@@ -79,7 +88,6 @@ const Footer = () => {
   function scrollTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
   return (
     <div className={classes.main}>
       <Container sx={{ flexGrow: 1, display: { xs: 'none', md: 'block' } }}>
@@ -123,7 +131,7 @@ const Footer = () => {
             className={classes.blocks2}
           >
             {liElem.map((item, index) => (
-              <ul key={index} style={{ width: '60%' }}>
+              <ul key={index}>
                 <Link onClick={scrollTop} to={item.path}>
                   {item.title}
                 </Link>
@@ -138,7 +146,7 @@ const Footer = () => {
             className={classes.blocks3}
           >
             {liElem2.map((item, index) => (
-              <ul key={index} style={{ width: '60%' }}>
+              <ul key={index}>
                 <Link onClick={scrollTop} to={item.path}>
                   {item.title}
                 </Link>
@@ -150,20 +158,9 @@ const Footer = () => {
               className={classes.inputBlockMD}
               sx={{ display: { xs: 'none', md: 'flex' } }}
             >
-              <input
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setInputChange(e.target.value);
-                }}
-                className={classes.input}
-                type="text"
-                placeholder="Геолокация"
-              />
-              <button
-                onClick={() => searchClick('Beksultan')}
-                className={classes.search}
-              >
-                <img className={classes.im} src={searchIcon} alt="" />
-              </button>
+              <div style={{ minWidth: '220px' }}>
+                <InputSearch placeholder="поиск" />
+              </div>
             </Grid>
 
             <Grid
@@ -175,7 +172,7 @@ const Footer = () => {
             >
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIconsMD}>
-                {iconsMedia.map((item, index) => (
+                {iconsMedia?.map((item, index) => (
                   <a target="_blank" key={index} href={item.path}>
                     <img src={item.icon} alt="" />
                   </a>
@@ -222,7 +219,7 @@ const Footer = () => {
             >
               <h6>Мы в социальных сетях:</h6>
               <div className={classes.onlyIcons}>
-                {iconsMedia.map((item, index) => (
+                {iconsMedia?.map((item, index) => (
                   <a target="_blank" key={index} href={item.path}>
                     <img src={item.icon} alt="" />
                   </a>
@@ -237,20 +234,9 @@ const Footer = () => {
                 display: { xs: 'flex', md: 'none', justifyContent: 'center' },
               }}
             >
-              <input
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setInputChange(e.target.value);
-                }}
-                className={classes.input}
-                type="text"
-                placeholder="Геолокация"
-              />
-              <button
-                onClick={() => searchClick('Beksultan')}
-                className={classes.search}
-              >
-                <img className={classes.im} src={searchIcon} alt="" />
-              </button>
+              <div style={{ minWidth: '250px', marginTop: '20px' }}>
+                <InputSearch placeholder="поиск" />
+              </div>
             </Grid>
             <Grid
               sx={{

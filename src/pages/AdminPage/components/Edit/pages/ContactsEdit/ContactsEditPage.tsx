@@ -1,6 +1,7 @@
 import React from "react";
 import { contactsAPI } from "../../../../../../store/features/contacts/contactsQuery";
 import { IContacts } from "../../../../../../types/apiTypes/contacts";
+import Loader from "../../../../../../UI/Loader/Loader";
 import LinkNavs from "../../components/LinkNavs";
 import ContactsCard from "./components/ContactsCard";
 import classes from "./style.module.css";
@@ -16,6 +17,7 @@ const ContactsEditPage = () => {
     <>
       <LinkNavs />
       <div className={classes.cardDiv}>
+        {isLoading && <Loader/>}
         {array?.map((item: IContacts) => (
           <ContactsCard key={item.id} item={item} />
         ))}

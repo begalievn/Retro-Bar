@@ -37,9 +37,9 @@ const Calendar: FC<CalendarProps> = ({
 
   return (
     <div className="calendar">
-      <img className="calendar_tape" src={tape} alt="" />
+      <img className="calendar_tape" src={tape} alt="" /> 
       <div className="calendar__header">
-        <InputSearch placeholder="Искать по дате" />
+        
         <div className="calendar__header__info">
           <div
             onClick={() => functions.onClickArrow('left')}

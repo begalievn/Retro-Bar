@@ -1,4 +1,3 @@
-
 .back {
   position: fixed;
   top: 0;
@@ -6,25 +5,20 @@
   background: rgba(0, 0, 0, 0.801);
   width: 100%;
   height: 100%;
-  z-index:100;
+  z-index: 100;
   backdrop-filter: blur(6px);
-  
 }
 
-
-.container{
-   
-    width: 55.2vw;
-    height: 53.3vw;
-    max-height: 90vh;
-    max-width: 100vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
+.container {
+  width: 55.2vw;
+  height: 53.3vw;
+  max-height: 90vh;
+  max-width: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-
 
 .header {
   display: flex;
@@ -48,6 +42,11 @@
   width: 2.71vw;
   height: 2.71vw;
 }
+
+.cross:hover {
+  cursor: pointer;
+}
+
 .close {
   display: none;
 }
@@ -73,10 +72,7 @@
   color: white;
 }
 
-
-
 @media screen and (max-width: 425px) {
-  
   .counter {
     font-size: 4.27vw;
   }
@@ -102,16 +98,14 @@
   .eventName {
     font-size: 3.8vw;
   }
-  
 
-  
   .container {
-      height: 105vw;
-      width: 76vw;
-      position: absolute;
-      top: 47%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    height: 105vw;
+    width: 76vw;
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -119,6 +113,4 @@
   .counter {
     font-size: 16px;
   }
-  
 }
-

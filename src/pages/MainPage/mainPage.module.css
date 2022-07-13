@@ -115,6 +115,10 @@
   width: 336px;
 }
 
+.photo_card:hover {
+  cursor: pointer;
+}
+
 .green_tape {
   width: 116px;
   height: 38px;

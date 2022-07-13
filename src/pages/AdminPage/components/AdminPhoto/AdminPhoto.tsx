@@ -17,6 +17,7 @@ import AdminSelect from "../AdminSelect/AdminSelect";
 import { useAppSelector } from "../../../../app/hooks";
 import { startTimer } from "../../../../utils/helpers/timer";
 import Loader from "../../../../UI/Loader/Loader";
+import { useLocation } from "react-router-dom";
 
 const AdminPhoto = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const AdminPhoto = () => {
   let establishments = useAppSelector((state) => state.establishments.value);
   let photographers = useAppSelector((state) => state.photographers.value);
 
+  
   useEffect(() => {
     setInputValue({});
   }, [isSuccess]);
