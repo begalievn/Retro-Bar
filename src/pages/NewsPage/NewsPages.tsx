@@ -59,7 +59,7 @@ const NewsPages = () => {
   return (
     <>
       <div className={classes.container}>
-        <img className={classes.logo_container} src={Logo} />
+        <img className={classes.logo_container} src={Logo} /> 
         {data.map((item: MyPerson, index: number) => {
           return (
             <div key={index} className={classes.title_container}>

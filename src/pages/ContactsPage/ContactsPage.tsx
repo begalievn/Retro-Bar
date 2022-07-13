@@ -13,6 +13,7 @@ import { IImageArr } from "../../types/contactsPageTypes/contactsPageTypes";
 import { contactsAPI } from "../../store/features/contacts/contactsQuery";
 import { IContacts } from "../../types/apiTypes/contacts";
 import { IContactsObject } from "../../types/footerTypes/footerTypes";
+import Loader from "../../UI/Loader/Loader";
 
 const ContactsPage: FC = () => {
   const {
@@ -65,7 +66,7 @@ const ContactsPage: FC = () => {
   }
   
 
-  console.log(array);
+
 
 
   const sliderFunc = (id: number): void => {
@@ -91,7 +92,7 @@ const ContactsPage: FC = () => {
           <div className={classes.image_block}>
             <div className={classes.allImages}>
               {isLoading ? (
-                <h2>Loading...</h2>
+                <Loader/>
               ) : (
                 frameArr.map((item, index) => (
                   <div className={classes.imageFrame} key={item.id}>

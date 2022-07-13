@@ -24,7 +24,6 @@ const CalendarModal: FC<CalendarModalProps> = ({ modal, toggleModal }) => {
       {modal && (
         <div className={styles.modal}>
           <div className={styles.container}>
-            {/*<div onClick={toggleModal} className={styles.overlay}></div>*/}
             <div className={styles.modal_content}>
               <div className={styles.headerContent}>
                 <CalendarFilter />

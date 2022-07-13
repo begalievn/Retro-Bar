@@ -15,7 +15,7 @@ type UniButtonProps = {
 }
 
 
-console.log(window.location.href); 
+
 
 function UniButton({ text, image }: UniButtonProps) {
   const [show, setShow] = useState(false)
