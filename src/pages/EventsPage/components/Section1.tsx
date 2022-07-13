@@ -2,14 +2,11 @@ import React, { FC, useEffect, useState } from "react";
 import tape2 from "../../../assets/eventsImages/tape2.png";
 import tape1 from "../../../assets/eventsImages/tape 1.png";
 
-import hero from "../../../assets/eventsImages/banner ticket (2).png";
 import banner from "../../../assets/eventsImages/banner (1).png";
 import bannerMini from "../../../assets/eventsImages/bannerMini.jpg";
 import style from "../eventPage.module.css";
 import { photoAPI } from "../../../store/features/photos/photoQuery";
 import { contactsAPI } from "../../../store/features/contacts/contactsQuery";
-import { log } from "console";
-import { login } from "../../../store/authorization/AuthFunc";
 import Loader from "../../../UI/Loader/Loader";
 
 const navbar: Array<string> = ["Видео", "Услуги", "Плеер", "Галерея"];

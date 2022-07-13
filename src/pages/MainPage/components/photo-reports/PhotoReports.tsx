@@ -58,7 +58,7 @@ const PhotoReports: FC = () => {
       establishment: item.name!,
       event: item.eventName!,
     };
-    console.log('clicked');
+
 
     setCurrentEvent(data);
     toggleGalleryModal();
