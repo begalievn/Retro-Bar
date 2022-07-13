@@ -54,7 +54,7 @@ const MainVideo = () => {
           <div className={classes.mainSliderBlock}>
             <div className={classes.sliderBlock}>
               <h3 className={classes.title}>1 мая 2022</h3>
-              <Slider setMainVideo={setMainVideo} images={videos?.videos} />
+              <Slider slides={2} setMainVideo={setMainVideo} images={videos?.videos} />
             </div>
             <i className={classes.calendar} onClick={toggleModal} />
             <i className={classes.star} />
@@ -65,14 +65,14 @@ const MainVideo = () => {
               <Slider
                 setMainVideo={setMainVideo}
                 className={classes.slider}
-                slides={3}
+                slides={videos?.videos.length > 2 ? 3 : 2}
                 images={videos?.videos}
               />
             </div>
 
             <div className={classes.sliderBlock}>
               <h3 className={classes.title}>15 марта 2022</h3>
-              <Slider setMainVideo={setMainVideo} images={videos?.videos} />
+              <Slider slides={2} setMainVideo={setMainVideo} images={videos?.videos} />
             </div>
           </div>
         )}

@@ -1,60 +1,55 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-import classes from './Header.module.css';
-import { ReactComponent as LogoIcon } from '../../assets/header/logo.svg';
-import { BurgerMenu, NavItem, NavItems } from './components';
-import { SearchBtn, InputSearch } from '../../UI';
-import { someClasses } from '../../utils/someClasses';
-import { INavItems } from '../../types/headerTypes/headerTypes';
-import { useAppDispatch } from '../../app/hooks';
-import { logOut } from '../../store/authorization/AuthFunc';
+import classes from "./Header.module.css";
+import { ReactComponent as LogoIcon } from "../../assets/header/logo.svg";
+import { BurgerMenu, NavItem, NavItems } from "./components";
+import { SearchBtn, InputSearch } from "../../UI";
+import { someClasses } from "../../utils/someClasses";
+import { INavItems } from "../../types/headerTypes/headerTypes";
+import { useAppDispatch } from "../../app/hooks";
+import { logOut } from "../../store/authorization/AuthFunc";
 
-const navItems: INavItems[] = [
+export const navItems: INavItems[] = [
   {
-    title: 'Фото',
-    path: '/photo',
+    title: "Фото",
+    path: "/photo",
   },
   {
-    title: 'Видео',
-    path: '/video',
+    title: "Видео",
+    path: "/video",
   },
   {
-    title: 'Заведение',
-    path: '/institution',
+    title: "Заведение",
+    path: "/institution",
   },
   {
-    title: 'События',
-    path: '/events',
+    title: "События",
+    path: "/events",
   },
   {
-    title: 'Новости',
-    path: '/news',
+    title: "Новости",
+    path: "/news",
   },
   {
-    title: 'Контакты',
-    path: '/contacts',
+    title: "Контакты",
+    path: "/contacts",
   },
 ];
 
 export const Header = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [isOpen, setOpen] = useState<boolean>(false);
   const [inputVisible, setInputVisible] = useState<boolean>(false);
   const history = useNavigate();
   const location = useLocation();
-  const isHomePage = location.pathname !== '/' ? 'pointer' : 'initial';
+  const isHomePage = location.pathname !== "/" ? "pointer" : "initial";
   const dispatch = useAppDispatch();
   if (isOpen) {
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   } else {
-    document.body.style.overflow = 'visible';
+    document.body.style.overflow = "visible";
   }
-  //
-  // const logOutBtn = ()=>{
-  //   dispatch(logOut())
-  //   history('/')
-  // }
 
   useEffect(() => {
     setInputVisible(false);
@@ -66,7 +61,7 @@ export const Header = () => {
         <div
           className={classes.headerLogo}
           onClick={() => {
-            isHomePage && (history('/'), setOpen(false));
+            isHomePage && (history("/"), setOpen(false));
           }}
           style={{
             cursor: `${isHomePage}`,
@@ -88,7 +83,7 @@ export const Header = () => {
           />
           <div
             className={`${classes.headerMenuBtn}
-             ${isOpen ? classes.activeMenu : ''}`}
+             ${isOpen ? classes.activeMenu : ""}`}
             onClick={() => setOpen(!isOpen)}
           >
             <span />

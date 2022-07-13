@@ -13,7 +13,7 @@ type btnTypes = "submit" | "reset";
 
 const sizes = ["small", "medium", "big"];
 
-const Button: FC<ButtonProps> = ({ children, onClick, size, type }) => {
+export const Button: FC<ButtonProps> = ({ children, onClick, size, type }) => {
   const checkSize = size && sizes.includes(size) ? size : sizes[0];
 
   return (

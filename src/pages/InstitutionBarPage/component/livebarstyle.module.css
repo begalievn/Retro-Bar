@@ -14,7 +14,7 @@
   width: 69%;
   position: absolute;
   transition: 0.5s;
-
+ cursor: pointer;
 }
 /* Main photo Map */
 .articlePhoto:nth-child(1) :last-child {

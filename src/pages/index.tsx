@@ -16,6 +16,7 @@ import NewsPages from './NewsPage/NewsPages';
 import { useAppSelector } from '../app/hooks';
 import EventBarPage from './EventBarPage/EventBarPage';
 import SearchResultPage from './SearchResultPage/SearchResultPage';
+import UserDetails from './NewsPage/UserDetails';
 
 const MainRoutes = () => {
   const isAdmin = useAppSelector((state) => state.AuthorizationSlice.token);
@@ -86,6 +87,11 @@ const MainRoutes = () => {
       link: '/search-result/:searchId',
       element: <SearchResultPage />,
       id: 13,
+    },
+    {
+      link: 'news/:id',
+      element: <UserDetails />,
+      id: 14,
     },
   ];
 

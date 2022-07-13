@@ -48,7 +48,7 @@
 }
 
 .close {
-  display: none;
+  /* display: none; */
 }
 /* нижняя часть */
 .footer {
@@ -85,7 +85,9 @@
     justify-content: center;
   }
   .cross {
-    display: none;
+    /* display: none; */
+    width: 20px;
+    height: 20px;
   }
   .close {
     display: block;

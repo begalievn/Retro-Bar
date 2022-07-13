@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Natan from "../../assets/NewsPages/image/Natan.png";
 import Mot from "../../assets/NewsPages/image/Mot.png";
 import Timati from "../../assets/NewsPages/image/Timati.png";
@@ -13,46 +13,21 @@ import SectionAdaptive from "./Section__adaptive";
 
 import { MyPerson } from "../../types/newsPages/news";
 import BottomEmojis from "../../UI/BottomEmojis/BottomEmojis";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CalendarIcon from "../../UI/CalendarIcon/CalendarIcon";
-import { API } from "../../utils/helpers/Consts";
-import axios from "axios";
+import { getNewsData } from "../../apis/getNewsData";
 
 const NewsPages = () => {
-  
-  const data: MyPerson[] = [
-    
-    {
-      image: Natan,
-      fon: Fon,
-      background: Background,
-      name: "Natan",
-      type: "BLACKSTAR",
-      description: "Являясь всего лишь частью общей картины",
+  const [data, setData] = useState<MyPerson[]>([]);
 
-      id: 1,
-    },
-    {
-      image: Mot,
-      fon: Fon,
+  async function getData() {
+    const newData = await getNewsData()();
+    setData(newData);
+  }
 
-      background: Background,
-      name: "Mot",
-      type: "BLACKSTAR",
-      description: "Являясь всего лишь частью общей картины",
-      id: 2,
-    },
-    {
-      image: Timati,
-      name: "Timati",
-      fon: Fon,
-
-      background: Background,
-      type: "BLACKSTAR",
-      description: "Являясь всего лишь частью общей картины",
-      id: 3,
-    },
-  ];
+  useEffect(() => {
+    getData();
+  }, []);
 
   let navi = useNavigate();
 
@@ -61,36 +36,35 @@ const NewsPages = () => {
       <div className={classes.container}>
         <img className={classes.logo_container} src={Logo} /> 
         {data.map((item: MyPerson, index: number) => {
+          // if (item.photo !== "string") return;
+
           return (
             <div key={index} className={classes.title_container}>
               <div className={classes.img_container}>
                 <img
                   className={[classes.img_background, classes.item].join(" ")}
-                  src={item.fon}
+                  src={Fon}
                   alt="Sample"
                 />
                 <img
                   className={[classes.img_person, classes.item].join(" ")}
-                  src={item.image}
+                  src={item.photo}
                   alt="Person"
                 />
                 <img
                   className={[classes.img_fon, classes.item].join(" ")}
-                  src={item.background}
+                  src={Background}
                 />
               </div>
               <div className={classes.text_container}>
                 <h3 className={classes.text_name}>{item.name}</h3>
-                <br className={classes.fake} />
                 <p className={classes.text_type}>{item.type}</p>
-                <br className={classes.fake} />
                 <div className={classes.text_description}>
                   {item.description}
                 </div>
-                <br className={classes.fake} />
-                <button onClick={() => navi("/photo")} className={classes.btn}>
-                  Смотреть
-                </button>
+                <Link to={`/news/${item.id}`}>
+                  <button className={classes.btn}>Смотреть</button>
+                </Link>
               </div>
             </div>
           );
@@ -101,7 +75,7 @@ const NewsPages = () => {
         <img className={classes.smile} src={Smile} />
       </div>
       <CalendarIcon />
-      <Section2 />
+      <Section2 name="Ночная жизнь" />
       <BottomEmojis />
     </>
   );
@@ -152,4 +126,11 @@ export default NewsPages;
  
 </div>
  */
+}
+function dispatch(arg0: any) {
+  throw new Error("Function not implemented.");
+}
+
+function value(value: any): any {
+  throw new Error("Function not implemented.");
 }
