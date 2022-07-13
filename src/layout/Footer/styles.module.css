@@ -94,7 +94,7 @@
   height: 100%;
 }
 .iconsBlock h6 {
-  color: white;
+  color: var(--orange-text);
   font-size: 16px;
   margin-bottom: 25px;
   font-family: Montserrat Alternates;
@@ -144,6 +144,7 @@
   display: flex;
   justify-content: space-around;
   text-align: center;
+  align-items: center;
 }
 .onlyIconsMD {
   width: 223px;

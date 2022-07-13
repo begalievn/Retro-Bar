@@ -12,13 +12,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { IFooterItems, IIcons } from '../../types/footerTypes/footerTypes';
 import { contactsAPI } from '../../store/features/contacts/contactsQuery';
 import { InputSearch } from '../../UI';
+import SocialBlock from "../../UI/SocialBlock/SocialBlock";
 
 const Footer = () => {
   const {
     data: contacts,
     isLoading,
     isSuccess,
-    refetch,
   } = contactsAPI.useFetchAllContactsQuery('');
 
   const navigate = useNavigate();
@@ -51,6 +51,7 @@ const Footer = () => {
     },
   ];
   const [iconsMedia, setIconsMedia] = useState<IIcons[]>([]);
+
   useEffect(() => {
     if (isSuccess) {
       let number: string = contacts?.contacts[0].phoneNumber
@@ -207,25 +208,7 @@ const Footer = () => {
                 <img src={bartIcon} alt="" />
               </div>
             </Grid>
-            <Grid
-              sx={{
-                display: { xs: 'block', md: 'none' },
-                margin: '0 auto',
-                marginTop: '30px',
-              }}
-              item
-              xs={12}
-              className={classes.iconsBlock}
-            >
-              <h6>Мы в социальных сетях:</h6>
-              <div className={classes.onlyIcons}>
-                {iconsMedia?.map((item, index) => (
-                  <a target="_blank" key={index} href={item.path}>
-                    <img src={item.icon} alt="" />
-                  </a>
-                ))}
-              </div>
-            </Grid>
+            <SocialBlock color={'white'}/>
           </Grid>
 
           <Grid item xs={12} md={3} className={classes.blocks4}>

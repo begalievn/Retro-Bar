@@ -9,6 +9,7 @@ import { ReactComponent as Youtube } from "../../../../assets/header/social/yout
 import { ReactComponent as Mail } from "../../../../assets/header/social/mail.svg";
 import { NavItems } from "../index";
 import { INavItems } from "../../../../types/headerTypes/headerTypes";
+import SocialBlock from "../../../../UI/SocialBlock/SocialBlock";
 
 interface BurgerMenuProps {
   navItems: INavItems[];
@@ -45,19 +46,21 @@ const BurgerMenu: FC<BurgerMenuProps> = ({ navItems, setOpen }) => {
               <NavItems navItems={navItems} onClick={() => setOpen(false)} />
             </ul>
           </nav>
-          <div className={classes.socialBlock}>
-            <h4 className={classes.socialBlockTitle}>Мы в социальных сетях:</h4>
 
-            <ul className={classes.socialLinks}>
-              {social.map((item, index) => {
-                return (
-                  <li key={index}>
-                    <a href={item.link}>{item.icon}</a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+          <SocialBlock/>
+          {/*<div className={classes.socialBlock}>*/}
+          {/*  <h4 className={classes.socialBlockTitle}>Мы в социальных сетях:</h4>*/}
+
+          {/*  <ul className={classes.socialLinks}>*/}
+          {/*    {social.map((item, index) => {*/}
+          {/*      return (*/}
+          {/*        <li key={index}>*/}
+          {/*          <a href={item.link}>{item.icon}</a>*/}
+          {/*        </li>*/}
+          {/*      );*/}
+          {/*    })}*/}
+          {/*  </ul>*/}
+          {/*</div>*/}
         </div>
       </div>
     </>
