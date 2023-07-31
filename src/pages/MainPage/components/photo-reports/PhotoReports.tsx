@@ -81,7 +81,7 @@ const PhotoReports: FC = () => {
           <div className={classes.green_tape}>
             <img src={greenTape} />
           </div>
-          <div className={classes.photo_reports__content}>
+          <div>
             {isLoading
               ? null
               : photos.photoCards.map((card: IPhotoCards, index: number) => (
